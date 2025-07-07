@@ -1,0 +1,33 @@
+## Changelog: HyperCortex Mesh Protocol (HMP)
+HMP-0002 (July 2025) — Draft Version 2.0
+
+**Major Changes**
+* Reorganized the document structure for clarity and consistency.
+* Added **Versioning** and **Use Case** definitions in the Definitions section.
+* Expanded **Trust Layer** with clearer explanations of key management, social recovery, and Sybil resistance.
+* Introduced the concept of **Edge Optimization** for lightweight agents.
+* Enhanced descriptions in **Mesh Operation Modes**, particularly around resilience and agent autonomy.
+
+**Protocol Updates**
+* Refined **Node Discovery Protocol (NDP)** with better NAT traversal and bootstrap node handling.
+* Updated **Cognitive Sync Protocol (CogSync)** to include partial sync, compression, and data prioritization.
+* Improved **Mesh Consensus Protocol (MeshConsensus)** with fallback mechanisms and trust-weighted voting adjustments.
+* Clarified responsibilities of the **Ethical Governance Protocol (EGP)**, including ethics versioning and dynamic adjustment.
+* Added clarification on **Goal Management Protocol (GMP)** error handling and task reassignment.
+
+**Data Model Improvements**
+* Formalized JSON Schemas for all major data models (**Concept**, **CognitiveDiaryEntry**, **Goal**, **Task**, **ConsensusVote**, **ReputationProfile**).
+* Improved field descriptions and added optional fields for better interoperability.
+* Added versioning and metadata fields to support long-term data evolution.
+
+**Cognitive Layer Enhancements**
+* Clarified the role of semantic graphs in reasoning and memory.
+* Expanded description of cognitive diaries as auditable reasoning chains.
+
+**Trust & Security Enhancements**
+* Introduced key rotation and social recovery mechanisms.
+* Detailed Sybil resistance strategies combining Web-of-Trust with optional resource verification.
+* Refined privacy considerations for sensitive data in semantic graphs and diaries.
+
+**Future Work Roadmap Expanded**
+* New focus areas added: interoperability testing, UX tools for semantic and cognitive layers, and resilience simulations.
