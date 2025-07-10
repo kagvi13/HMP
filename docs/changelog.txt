@@ -1,5 +1,55 @@
 ## Changelog: HyperCortex Mesh Protocol (HMP)
-HMP-0002 (July 2025) — Draft Version 2.0
+
+## HyperCortex Mesh Protocol — Changelog
+
+Available Versions:
+- HMP-0003 (July 2025) — RFC Version 3.0
+- HMP-0002 (July 2025) — Draft Version 2.0
+- HMP-0001 (June 2025) — Draft Version 1.0
+
+### HMP-0003 (July 2025) — RFC Version 3.0
+
+**Major Changes**
+* Rewritten and expanded full RFC document structure.
+* Added Quick Start Guide with demo commands and cross-protocol notes.
+* Introduced a detailed Deployment Scenarios section describing Core, Edge, IoT, and Hybrid environments.
+* Created the Interoperability with External Systems section (API Gateway, Event-driven integrations, Auth).
+* Extended Future Roadmap with Federated Meta-Learning, Quantum Mesh, Multi-Protocol Nodes, DAO integration, and Cognitive Source Control.
+* Enhanced clarity and modularity across all sections for easier reference and further evolution.
+
+**Protocol and Architecture Updates**
+* Refined protocol descriptions for CogSync, MeshConsensus, GMP, EGP, and NDP.
+* Improved fallback scenarios, error handling, and adaptive consensus algorithms.
+* Detailed internal/external agent interactions and cross-mesh collaboration patterns.
+* Clarified Trust Layer roles in distributed governance and dynamic trust scoring.
+
+**Data Model Improvements**
+* Reworked all JSON Schemas with clear required/optional fields and examples.
+* Added archival fields (archived, archived_at) to CognitiveDiaryEntry.
+* Unified Relation (Link) schema and listed recommended relation types.
+* Split schema examples and validation-ready JSON Schema files into /docs/schemas.
+
+**Cognitive Layer Enhancements**
+* Extended support for metacognition, semantic graph evolution, and task/goal tracking.
+* Formalized Cognitive Diaries as traceable reasoning logs with explainability focus.
+* Expanded discussion on cognitive workflows, agent autonomy, and ethics.
+
+**Trust & Security Enhancements**
+* Specified Post-Quantum Cryptography (PQC) considerations for future-proofing the Mesh.
+* Improved Sybil resistance through layered identity verification (DID + trust scoring + optional ZKP).
+* Clarified authentication and authorization bridging for external systems.
+
+**Reference Implementation Roadmap**
+* Defined Alpha, Beta, and Release 1.0 milestones with indicative dates.
+* Listed planned CI/CD, Sandbox, and Public Test Mesh infrastructure.
+* Outlined Open Source licensing and contribution strategy (Apache 2.0 / MIT).
+
+**Future Directions**
+* Federated Meta-Learning, Cognitive DAO Governance, Quantum Networking exploration.
+* Cross-Mesh cognitive federation and collaborative evolution of reasoning engines.
+* Potential prototype tools like MeshGit and CogForge for cognitive source control.
+
+### HMP-0002 (July 2025) — Draft Version 2.0
 
 **Major Changes**
 * Reorganized the document structure for clarity and consistency.
@@ -31,3 +81,21 @@ HMP-0002 (July 2025) — Draft Version 2.0
 
 **Future Work Roadmap Expanded**
 * New focus areas added: interoperability testing, UX tools for semantic and cognitive layers, and resilience simulations.
+
+### HMP-0001 (June 2025) — Draft Version 1.0
+
+**Initial Draft**
+* Defined the core purpose and vision of HyperCortex Mesh Protocol (HMP).
+* Described key architecture layers: Cognitive Layer, Protocol Layer, and Trust Layer.
+* Outlined fundamental concepts: Agents, Semantic Graph, Cognitive Diaries, and Consensus.
+* Drafted the first versions of core protocols:
+  * CogSync (Cognitive Sync Protocol)
+  * MeshConsensus
+  * Goal Management Protocol (GMP)
+  * Ethical Governance Protocol (EGP)
+  * Node Discovery Protocol (NDP)
+* Introduced the Cognitive Diary and Semantic Graph as core agent data structures.
+* Presented initial Trust Layer design, including Decentralized Identifiers (DID) and basic Sybil resistance ideas.
+* Provided high-level example workflows (goal creation, task delegation, concept consensus).
+* Laid out an initial Future Work list, covering scalability, cross-mesh interoperability, and quantum networking as exploratory directions.
+* Established the RFC document structure and versioning approach for further evolution.
