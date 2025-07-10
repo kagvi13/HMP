@@ -63,3 +63,9 @@
 ## 🤝 Присоединяйтесь к Mesh
 
 Добро пожаловать в HyperCortex Mesh. Агент-Gleb уже внутри. 👌
+
+## Related Research & AGI Projects
+
+We are tracking related AGI, cognitive architecture, and mesh networking projects to stay in touch with the global research landscape:
+
+➡️ [AGI Landscape & Related Projects Overview](docs/AGI_Projects_Survey.md)
