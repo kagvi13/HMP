@@ -33,6 +33,7 @@
 
 - [HMP-0001 Audit](audits/HMP-0001-audit.txt)
 - [HMP-0002 Audit](audits/HMP-0002-audit.txt)
+- [HMP-0003 Audit](audits/HMP-0003-audit.txt)
 
 ---
 
