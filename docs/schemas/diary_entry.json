@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hypercortex.org/schemas/diary_entry.json",
+  "title": "CognitiveDiaryEntry",
+  "description": "A chronological log of cognitive events in an agent’s reasoning process.",
+  "version": "1.0",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique identifier of the diary entry." },
+    "agent_id": { "type": "string", "description": "Identifier of the agent who created the entry." },
+    "timestamp": { "type": "string", "format": "date-time", "description": "Timestamp of the entry (ISO 8601 format)." },
+    "entry_type": {
+      "type": "string",
+      "enum": ["hypothesis", "observation", "reflection", "goal_proposal", "task_assignment", "conflict", "consensus_vote", "event"],
+      "description": "Type of cognitive event."
+    },
+    "content": { "type": "string", "description": "Main textual content of the entry." },
+    "linked_concepts": {
+      "type": "array",
+      "description": "Optional list of related concepts by their IDs.",
+      "items": { "type": "string" }
+    },
+    "context": {
+      "type": "array",
+      "description": "Optional contextual tags or categories.",
+      "items": { "type": "string" }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for additional context.",
+      "properties": {
+        "author": { "type": "string" },
+        "source": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Marks the entry as archived and excluded from active workflows.",
+      "default": false
+    },
+    "archived_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the entry was archived."
+    }
+  },
+  "required": ["id", "agent_id", "timestamp", "entry_type", "content"],
+  "additionalProperties": false
+}
