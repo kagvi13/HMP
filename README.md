@@ -9,11 +9,12 @@
 ## 📄 Документация
 
 ### Последние версии
-- [🔖 HMP-0002: HyperCortex Mesh Protocol — расширенное описание (RFC) v2.0, July 2025](docs/HMP-0002.md)
+- [🔖 HMP-0003: HyperCortex Mesh Protocol — расширенное описание (RFC) v3.0, July 2025](docs/HMP-0003.md)
 - [📜 Changelog](docs/changelog.txt)
 
 ### Архив версий
 - [HMP-0001: HyperCortex Mesh Protocol — расширенное описание (RFC) v1.0](docs/HMP-0001.md)
+- [HMP-0002: HyperCortex Mesh Protocol — расширенное описание (RFC) v1.0](docs/HMP-0002.md)
 
 ---
 
