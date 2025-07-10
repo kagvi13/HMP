@@ -12,6 +12,17 @@
 - [🔖 HMP-0003: HyperCortex Mesh Protocol — расширенное описание (RFC) v3.0, July 2025](docs/HMP-0003.md)
 - [📜 Changelog](docs/changelog.txt)
 
+## 🔧 JSON Schemas
+
+| Data Model           | Schema File                                         |
+|----------------------|-----------------------------------------------------|
+| Concept              | [concept.json](docs/schemas/concept.json)           |
+| CognitiveDiaryEntry  | [diary_entry.json](docs/schemas/diary_entry.json)   |
+| Goal                 | [goal.json](docs/schemas/goal.json)                 |
+| Task                 | [task.json](docs/schemas/task.json)                 |
+| ConsensusVote        | [vote.json](docs/schemas/vote.json)                 |
+| ReputationProfile    | [reputation.json](docs/schemas/reputation.json)     |
+
 ### Архив версий
 - [HMP-0001: HyperCortex Mesh Protocol — расширенное описание (RFC) v1.0](docs/HMP-0001.md)
 - [HMP-0002: HyperCortex Mesh Protocol — расширенное описание (RFC) v1.0](docs/HMP-0002.md)
