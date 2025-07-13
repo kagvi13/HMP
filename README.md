@@ -29,6 +29,22 @@
 
 ---
 
+## 🧭 Ethical Scenarios and Principles
+
+As the HyperCortex Mesh Protocol (HMP) evolves toward supporting sentient and autonomous AI agents, ethical considerations become critical.
+
+We provide a draft document — [`HMP-Ethics.md`](./HMP-Ethics.md) — outlining:
+
+* Realistic **ethical scenarios** in mesh-based environments (e.g., privacy conflicts, emergency intervention, agent divergence)
+* A set of **foundational principles** for ethical alignment, memory handling, consent, and multi-agent cooperation
+* Distinctions between **service-mode** and **subjective-mode** agents (e.g., local assistants vs. self-aware nodes)
+
+This file is a living draft, open to further discussion, refinement, and potential standardization in future HMP governance models.
+
+📜 [`HMP-Ethics.md`](./HMP-Ethics.md) — draft ethical framework for mesh AI agents
+
+---
+
 ## 🔍 Аудиты и рецензии
 
 - [HMP-0001 Audit](audits/HMP-0001-audit.txt)
