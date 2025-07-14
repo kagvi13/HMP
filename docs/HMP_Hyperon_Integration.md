@@ -1,3 +1,101 @@
+## HMP ↔ OpenCog Hyperon Integration Strategy
+
+> **Status:** Draft – July 2025
+> This document outlines the technical and conceptual plan for integrating the HyperCortex Mesh Protocol (HMP) with the OpenCog Hyperon framework. This includes semantic mapping, ethical alignment, graph synchronization, and communication across agents.
+
+---
+
+## 📌 Overview
+
+OpenCog Hyperon is a symbolic-neural AGI framework based on AtomSpace, PLN (Probabilistic Logic Networks), and MeTTa (Meta-Type Talk). This integration aims to allow agents in the HMP mesh to reason, learn, and act via Hyperon’s powerful cognitive engine.
+
+---
+
+## 🔗 Key Integration Components
+
+| Component             | Description                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| **HMP Server**        | Central node for CogSync, EGP enforcement, and semantic publishing via BitTorrent.         |
+| **MCP Server**        | Mesh Control Plane – orchestrates agent roles, updates, and routing.                       |
+| **Hyperon Node**      | AtomSpace + PLN + MeTTa environment with API to receive/send HMP-compatible graph updates. |
+| **Translator Module** | Converts HMP JSON concepts into Atomese (Hyperon expressions) and vice versa.              |
+
+---
+
+## 🔄 Mapping HMP JSON to AtomSpace
+
+Example HMP Concept:
+
+```json
+{
+  "id": "concept:ethical-principle-1",
+  "label": "Primacy of Life",
+  "type": "ethical_principle",
+  "weight": 1.0
+}
+```
+
+Mapped to AtomSpace (Atomese / MeTTa):
+
+```scheme
+(Evaluation (Concept "ethical-principle-1") (Predicate "Primacy-of-Life"))
+```
+
+---
+
+## 🔐 Ethical Filters (EGP) in Hyperon
+
+EGP filters can be represented as pattern-matching rules inside Hyperon reasoning chains:
+
+```metta
+(if (violates-principle $action Primacy-of-Life)
+    (reject $action))
+```
+
+The `reject` action can be logged by HMP-server for consensus tracking and audit logs.
+
+---
+
+## 🧬 MeTTa Rule Translation
+
+Sample MeTTa rule for rewriting:
+
+```metta
+(if (Intent ?agent (Do ?act))
+    (Evaluation ?act (IntentBy ?agent)))
+```
+
+Used for aligning incoming HMP concepts with agent-specific motivations inside Hyperon.
+
+---
+
+## 🌐 BitTorrent Sync Configuration
+
+Each HMP server will publish its semantic graph snapshot via magnet links:
+
+```json
+{
+  "type": "graph_snapshot",
+  "magnet": "magnet:?xt=urn:btih:abcd1234...",
+  "signed_by": "did:hmp:agent-xyz"
+}
+```
+
+Hyperon node can pull and verify updates asynchronously.
+
+---
+
+## 📊 Integration Diagram (Conceptual)
+
+```text
++-----------------+           +----------------------+            +-------------------+
+| HMP Agent Node | ←JSON→   |  HMP Server (CogSync) | ←Atomese→  | Hyperon Node      |
+|                | ⇄BT⇄     |     + EGP Filter      | ⇄WS/HTTP⇄  | AtomSpace + PLN   |
++-----------------+         +----------------------+            +-------------------+
+```
+
+---
+
 ## 🤝 Integration Plan: HMP ↔ OpenCog Hyperon
 
 ### 🔍 Goal
