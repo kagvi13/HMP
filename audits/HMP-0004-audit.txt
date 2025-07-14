@@ -90,6 +90,37 @@
 
 ---
 
+# Новые GitHub Issues для HMP (коллаборация с Hyperon)
+
+Ниже предложены два новых issues для репозитория HMP, направленных на интеграцию HMP с OpenCog Hyperon через общие узлы и передачу идей HMP (BitTorrent, EGP) в Hyperon. Issues поддерживают подготовку к Alpha-версии (июль–сентябрь 2025) и дополняют существующие задачи. Ссылки указаны на **HMP-0003-consolidated_audit.md** (протокол v3).
+
+---
+
+### [PROPOSAL] Прототип общего узла HMP-Hyperon
+- **Описание**: Разработать прототип узла, который одновременно поддерживает CogSync HMP (раздел 5.2 протокола v3) и Distributed Atomspace Hyperon, для интеграции двух mesh-сетей, как указано в **Разделе 1 файла HMP-0003-consolidated_audit.md**. Узел должен синхронизировать семантические графы HMP через BitTorrent и маппировать их на Atomspace с использованием MeTTa.
+- **Задачи**:
+  - Реализовать Python-прототип узла, поддерживающего CogSync (BitTorrent) и Atomspace (MeTTa).
+  - Создать маппинг JSON-графов HMP на атомы Hyperon (например, `ConceptNode` для концептов HMP).
+  - Протестировать синхронизацию: время передачи snapshot’а <10 сек, точность маппинга >95%.
+  - Добавить пример в Quick Start Guide для онбординга разработчиков.
+- **Приоритет**: Средний (Beta, 2026)
+- **Связанные issues**: [RESEARCH] Совместимость CogSync с OpenCog Hyperon, [PROPOSAL] Реализация BitTorrent-интеграции для CogSync, [DOCS] Улучшение Quick Start Guide
+- **Метки**: `Priority: Medium`, `CogSync`, `Hyperon`, `Integration`
+
+---
+
+### [RESEARCH] Экспорт EGP в OpenCog Hyperon
+- **Описание**: Исследовать возможность экспорта Ethical Governance Protocol (EGP) HMP в OpenCog Hyperon для добавления этической проверки решений в Atomspace, как указано в **Разделе 2 файла HMP-0003-consolidated_audit.md** (протокол v3). Оценить, как EGP может фильтровать выводы PLN или OpenPsi в Hyperon.
+- **Задачи**:
+  - Изучить API Hyperon для интеграции внешних модулей (например, `https://github.com/trueagi`).
+  - Создать прототип Python-модуля, применяющего иерархию принципов EGP ("Primacy of Life and Safety") к подграфам Atomspace.
+  - Протестировать в симуляции: процент отклонённых неэтичных решений >95%.
+  - Опубликовать отчёт и предложить коллаборацию сообществу Hyperon через их GitHub.
+- **Приоритет**: Средний (Beta, 2026)
+- **Связанные issues**: [TESTING] Ethical Stress Test Suite для EGP, [PROPOSAL] Интеграция PLN для этических рассуждений в EGP
+- **Метки**: `Priority: Medium`, `EGP`, `Hyperon`, `Ethics`
+
+---
 --------------------
 
 
