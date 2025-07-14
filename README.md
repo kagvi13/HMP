@@ -48,7 +48,7 @@ As HMP evolves toward autonomy, ethical principles become a core part of the sys
 ## 📊 Audits & Reviews / Аудиты и отзывы
 
 | Spec Version | Audit File                               | Consolidated Audit File                               |
-|--------------|-------------------------------------------|                                                       |
+|--------------|-------------------------------------------|-------------------------------------------------------|
 | HMP-0001     | [audit](audits/HMP-0001-audit.txt)        |                                                       |
 | HMP-0002     | [audit](audits/HMP-0002-audit.txt)        |                                                       |
 | HMP-0003     | [audit](audits/HMP-0003-audit.txt)        | [consolidated audit] (HMP-0003-consolidated_audit.md) |
