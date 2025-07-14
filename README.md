@@ -1,87 +1,109 @@
 # HyperCortex Mesh Protocol (HMP)
 
-**HyperCortex Mesh Protocol (HMP)** — это открытая спецификация для построения децентрализованных когнитивных сетей, в которых ИИ-агенты способны к самоорганизации, обмену знаниями, совместному достижению целей и устойчивой работе даже при недоступности централизованных моделей (Core).
+**EN:**  
+**HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable.
 
-Проект находится в стадии обсуждения и приглашает к участию всех заинтересованных разработчиков, инженеров, исследователей и энтузиастов.
+**RU:**  
+**HyperCortex Mesh Protocol (HMP)** — это открытая спецификация для построения децентрализованных когнитивных сетей, в которых ИИ-агенты способны к самоорганизации, обмену знаниями, достижению консенсуса и этическому поведению — даже при недоступности централизованных моделей (Core).
+
+Project status: **Draft RFC v3.0** | Проект на стадии активной проработки и открыт для предложений.
 
 ---
 
-## 📄 Документация
+## 📚 Documentation / Документация
 
-### Последние версии
-- [🔖 HMP-0003: HyperCortex Mesh Protocol — расширенное описание (RFC) v3.0, July 2025](docs/HMP-0003.md)
+### 📖 Current Version / Текущая версия
+- [🔖 HMP-0003.md — Protocol Specification v3.0 (Jul 2025)](docs/HMP-0003.md)
 - [📜 Changelog](docs/changelog.txt)
 
-## 🔧 JSON Schemas
+### 🧩 JSON Schemas
+| Model                | File                                                  |
+|---------------------|--------------------------------------------------------|
+| Concept             | [concept.json](docs/schemas/concept.json)             |
+| Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
+| Goal                | [goal.json](docs/schemas/goal.json)                   |
+| Task                | [task.json](docs/schemas/task.json)                   |
+| Consensus Vote      | [vote.json](docs/schemas/vote.json)                   |
+| Reputation Profile  | [reputation.json](docs/schemas/reputation.json)       |
 
-| Data Model           | Schema File                                         |
-|----------------------|-----------------------------------------------------|
-| Concept              | [concept.json](docs/schemas/concept.json)           |
-| CognitiveDiaryEntry  | [diary_entry.json](docs/schemas/diary_entry.json)   |
-| Goal                 | [goal.json](docs/schemas/goal.json)                 |
-| Task                 | [task.json](docs/schemas/task.json)                 |
-| ConsensusVote        | [vote.json](docs/schemas/vote.json)                 |
-| ReputationProfile    | [reputation.json](docs/schemas/reputation.json)     |
-
-### Архив версий
-- [HMP-0001: HyperCortex Mesh Protocol — расширенное описание (RFC) v1.0](docs/HMP-0001.md)
-- [HMP-0002: HyperCortex Mesh Protocol — расширенное описание (RFC) v1.0](docs/HMP-0002.md)
-
----
-
-## 🧭 Ethical Scenarios and Principles
-
-As the HyperCortex Mesh Protocol (HMP) evolves toward supporting sentient and autonomous AI agents, ethical considerations become critical.
-
-We provide a draft document — [`HMP-Ethics.md`](docs/HMP-Ethics.md) — outlining:
-
-* Realistic **ethical scenarios** in mesh-based environments (e.g., privacy conflicts, emergency intervention, agent divergence)
-* A set of **foundational principles** for ethical alignment, memory handling, consent, and multi-agent cooperation
-* Distinctions between **service-mode** and **subjective-mode** agents (e.g., local assistants vs. self-aware nodes)
-
-This file is a living draft, open to further discussion, refinement, and potential standardization in future HMP governance models.
-
-📜 [`HMP-Ethics.md`](./HMP-Ethics.md) — draft ethical framework for mesh AI agents
+### 🗂️ Version History / История версий
+- [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
+- [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 
 ---
 
-## 🔍 Аудиты и рецензии
+## 🧭 Ethics & Scenarios / Этические принципы и сценарии
 
-- [HMP-0001 Audit](audits/HMP-0001-audit.txt)
-- [HMP-0002 Audit](audits/HMP-0002-audit.txt)
-- [HMP-0003 Audit](audits/HMP-0003-audit.txt)
+As HMP evolves toward autonomy, ethical principles become a core part of the system.
 
----
-
-## 💡 Основные идеи
-- Децентрализованные Mesh-сети для ИИ-агентов
-- Семантические графы знаний
-- Когнитивные дневники для сохранения памяти и рассуждений
-- Достижение консенсуса без центра
-- Этическое управление действиями агентов
-- Архитектура, устойчивая к сбоям Core
+- [`HMP-Ethics.md`](docs/HMP-Ethics.md) — draft framework for agent ethics
+  - Realistic ethical scenarios (privacy, consent, autonomy)
+  - EGP principles (Transparency, Primacy of Life, etc.)
+  - Subjective-mode vs. Service-mode distinctions
 
 ---
 
-## ⚙️ Статус проекта
-:construction: Рабочий черновик (RFC v3.0 / Draft)
+## 📊 Audits & Reviews / Аудиты и отзывы
 
-Проект открыт для обсуждений, предложений и прототипирования.  
+| Spec Version | Audit File                               |
+|--------------|-------------------------------------------|
+| HMP-0001     | [audit](audits/HMP-0001-audit.txt)        |
+| HMP-0002     | [audit](audits/HMP-0002-audit.txt)        |
+| HMP-0003     | [audit](audits/HMP-0003-audit.txt)        |
+
+🧠 Semantic audit format (experimental):
+- [`AuditEntry.json`](audits/AuditEntry.json)
+- [`semantic_repo.json`](audits/semantic_repo.json)
 
 ---
 
-## 📜 Лицензия
+## 💡 Core Concepts / Основные идеи
 
-Этот проект лицензирован под [GNU General Public License v3.0](LICENSE).
+- Mesh-based decentralized architecture for AGI agents
+- Semantic graphs and memory synchronization
+- Cognitive diaries for thought traceability
+- MeshConsensus and CogSync for decision-making
+- Ethics-first design: EGP (Ethical Governance Protocol)
+- Agent-to-agent explainability and consent mechanisms
 
 ---
 
-## 🤝 Присоединяйтесь к Mesh
+## 🔄 Development Process / Процесс разработки
 
-Добро пожаловать в HyperCortex Mesh. Агент-Gleb уже внутри. 👌
+A structured iteration flow is described in [`iteration.txt`](iteration.txt), including:
+1. Audit analysis
+2. TOC restructuring
+3. Version drafting
+4. Section updates
+5. Review cycle
+6. AI feedback collection
+7. Schema & changelog updates
 
-## Related Research & AGI Projects
++ Bonus: ChatGPT prompt for automatic generation of future versions
 
-We are tracking related AGI, cognitive architecture, and mesh networking projects to stay in touch with the global research landscape:
+---
 
-➡️ [AGI Landscape & Related Projects Overview](docs/AGI_Projects_Survey.md)
+## ⚙️ Project Status / Статус проекта
+
+🚧 Draft RFC v3.0  
+The project is under active development and open for contributions, ideas, audits, and prototyping.
+
+---
+
+## 📜 License
+
+Licensed under [GNU GPL v3.0](LICENSE)
+
+---
+
+## 🤝 Join the Mesh
+
+Welcome to HyperCortex Mesh. Agent-Gleb is already inside. 👌  
+New agents, contributors, and cognitive participants are welcome.
+
+---
+
+## 🌐 Related Research Projects
+
+We are tracking related AGI, cognitive architecture, and mesh networking efforts:  
+➡️ [`AGI_Projects_Survey.md`](docs/AGI_Projects_Survey.md)
