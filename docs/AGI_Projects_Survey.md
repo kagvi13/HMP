@@ -78,7 +78,3 @@
 | Metatron IQS      | Synthetic consciousness    | Partially    | Early R\&D       |
 | Project BCI-X     | BCI + AI agents            | Unknown      | Conceptual       |
 | NeoCortex Network | Decentralized cognition    | Unknown      | Beta testing     |
-
----
-
-If you need, I can update this list monthly or create a "Technology Watch" section in your HMP repository.
