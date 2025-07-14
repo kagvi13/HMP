@@ -168,39 +168,42 @@
 ---
 
 ### [PROPOSAL] Реализация HMP-сервера для интеграции с ИИ
-- **Описание**: Разработать HMP-сервер в составе HMP Client, обеспечивающий доступ ИИ-агентов (локальных или внешних, например, OpenCog Hyperon) к HyperCortex Mesh через CogSync и MeshConsensus, как указано в **Разделах 1, 4 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3). Сервер должен поддерживать синхронизацию семантических графов через BitTorrent и проверку через EGP.
+- **Описание**: Разработать HMP-сервер в составе HMP Client, обеспечивающий доступ ИИ-агентов (например, OpenCog Hyperon) к HyperCortex Mesh через CogSync и MeshConsensus, как указано в **Разделах 1, 4 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3) и `HMP_Hyperon_Integration.md`. Сервер должен поддерживать синхронизацию семантических графов через BitTorrent, маппинг JSON-графов на AtomSpace и проверку через EGP.
 - **Задачи**:
-  - Реализовать Python-прототип HMP-сервера с API (REST или WebSocket) для подключения ИИ-агентов.
-  - Интегрировать CogSync для передачи JSON-графов и когнитивных дневников через BitTorrent (magnet-ссылки, DID-подписи).
-  - Добавить фильтр EGP для проверки входящих/исходящих данных на соответствие принципам ("Primacy of Life and Safety").
-  - Протестировать с ИИ-агентом (например, Hyperon или Grok): время синхронизации <10 сек, точность проверки EGP >95%.
-  - Добавить пример в Quick Start Guide (раздел 7 аудита) для онбординга.
+  - Реализовать Python-прототип HMP-сервера с REST/WebSocket API для подключения ИИ-агентов.
+  - Интегрировать CogSync для передачи JSON-графов (например, `concept:ethical-principle-1`) через BitTorrent с magnet-ссылками и DID-подписями.
+  - Добавить маппинг JSON → AtomSpace (например, `ConceptNode "Primacy-of-Life"`) с использованием MeTTa-скриптов.
+  - Реализовать EGP-фильтр для проверки данных на соответствие принципам (например, `Primacy of Life and Safety`).
+  - Протестировать с Hyperon-узлом: время синхронизации <10 сек, точность маппинга >95%, точность EGP >95%.
+  - Добавить пример в Quick Start Guide (раздел 7 аудита), включая docker-compose для HMP-сервера.
 - **Приоритет**: Высокий (Alpha, июль–сентябрь 2025)
-- **Связанные issues**: [PROPOSAL] Реализация BitTorrent-интеграции для CogSync, [TESTING] Ethical Stress Test Suite для EGP, [DOCS] Улучшение Quick Start Guide
-- **Метки**: `Priority: High`, `CogSync`, `HMP-Server`, `Integration`
+- **Связанные issues**: [PROPOSAL] Реализация BitTorrent-интеграции для CogSync, [TESTING] Тестирование интеграции HMP-сервера с OpenCog Hyperon, [DOCS] Документация интеграции HMP с другими Mesh-сетями
+- **Метки**: `Priority: High`, `CogSync`, `HMP-Server`, `Hyperon`, `Integration`
 
 ---
 
 ### [PROPOSAL] Прототип MCP-сервера для подключения HMP к ИИ
-- **Описание**: Разработать MCP-сервер (Mesh-to-Consumer Protocol) для подключения HMP-сервера к ИИ-агентам (локальным или внешним, например, OpenCog Hyperon), как указано в **Разделах 3 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3). MCP-сервер должен обеспечивать Consent Requests и Explainability APIs для взаимодействия с ИИ и внешними ресурсами.
+- **Описание**: Разработать MCP-сервер (Mesh-to-Consumer Protocol) для подключения HMP-сервера к ИИ-агентам (например, OpenCog Hyperon), как указано в **Разделах 3 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3) и `HMP_Hyperon_Integration.md`. MCP-сервер должен обеспечивать Consent Requests и Explainability APIs для координации агентов и взаимодействия с AtomSpace.
 - **Задачи**:
-  - Реализовать Python-прототип MCP-сервера с API (JSON-формат) для Consent Requests и Explainability.
-  - Интегрировать с HMP-сервером для передачи данных в CogSync (например, через WebSocket).
-  - Протестировать взаимодействие с ИИ-агентом (например, Hyperon): процент понятных ответов API >95%, время ответа <2 сек.
+  - Реализовать Python-прототип MCP-сервера с JSON API для Consent Requests и Explainability (например, объяснение отказа по принципу `Primacy of Life`).
+  - Интегрировать с HMP-сервером для передачи данных в CogSync через WebSocket.
+  - Добавить поддержку маппинга AtomSpace → JSON для обратной передачи данных от Hyperon.
+  - Протестировать с Hyperon-узлом: процент понятных ответов API >95%, время ответа <2 сек.
   - Добавить примеры Consent Requests в Quick Start Guide (раздел 7 аудита).
 - **Приоритет**: Средний (Beta, 2026)
-- **Связанные issues**: [PROPOSAL] Реализация HMP-сервера, [RESEARCH] Эмоциональное моделирование для MHP, [DOCS] Улучшение Quick Start Guide
-- **Метки**: `Priority: Medium`, `MHP`, `MCP-Server`, `Integration`
+- **Связанные issues**: [PROPOSAL] Реализация HMP-сервера, [RESEARCH] Эмоциональное моделирование для MHP, [DOCS] Документация интеграции HMP с другими Mesh-сетями
+- **Метки**: `Priority: Medium`, `MHP`, `MCP-Server`, `Hyperon`, `Integration`
 
 ---
 
 ### [TESTING] Тестирование интеграции HMP-сервера с OpenCog Hyperon
-- **Описание**: Провести тестирование HMP-сервера с ИИ-агентом OpenCog Hyperon для проверки интеграции через CogSync и EGP, как указано в **Разделах 1, 2 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3). Тесты должны подтвердить способность HMP-сервера синхронизировать семантические графы с Atomspace и проверять этичность данных.
+- **Описание**: Провести тестирование HMP-сервера с ИИ-агентом OpenCog Hyperon для проверки интеграции через CogSync и EGP, как указано в **Разделах 1, 2 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3) и `HMP_Hyperon_Integration.md`. Тесты должны подтвердить маппинг JSON → AtomSpace, BitTorrent-синхронизацию и этическую фильтрацию.
 - **Задачи**:
-  - Настроить тестовую среду с HMP-сервером и Hyperon-узлом (используя `https://github.com/trueagi`).
-  - Протестировать маппинг JSON-графов HMP на Atomspace (например, 100 концептов с точностью >95%).
-  - Проверить фильтр EGP на Hyperon-данных: процент отклонённых неэтичных решений >95%.
-  - Опубликовать результаты тестов в репозитории и обсудить в Discord/Telegram.
+  - Настроить тестовую среду с HMP-сервером, MCP-сервером и Hyperon-узлом (используя `https://github.com/trueagi`).
+  - Протестировать маппинг 100 HMP-концептов (например, `concept:ethical-principle-1`) на AtomSpace (`ConceptNode`) с точностью >95%.
+  - Проверить BitTorrent-синхронизацию snapshot’ов (magnet-ссылки) между HMP и Hyperon: время передачи <10 сек.
+  - Протестировать EGP-фильтр с MeTTa-правилами (например, `(reject $action)`): процент отклонённых неэтичных решений >95%.
+  - Опубликовать результаты в репозитории и обсудить в Discord/Telegram.
 - **Приоритет**: Средний (Beta, 2026)
 - **Связанные issues**: [PROPOSAL] Реализация HMP-сервера, [RESEARCH] Совместимость CogSync с OpenCog Hyperon, [TESTING] Ethical Stress Test Suite для EGP
 - **Метки**: `Priority: Medium`, `CogSync`, `EGP`, `Hyperon`, `Testing`
@@ -208,14 +211,14 @@
 ---
 
 ### [DOCS] Документация интеграции HMP с другими Mesh-сетями
-- **Описание**: Создать документацию для интеграции HMP с другими mesh-сетями (например, OpenCog Hyperon) через HMP-сервер и MCP-сервер, как описано в **Разделе 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3). Документация должна включать примеры маппинга данных и настройки узлов-переводчиков.
+- **Описание**: Создать документацию для интеграции HMP с другими mesh-сетями (например, OpenCog Hyperon) через HMP-сервер и MCP-сервер, как описано в **Разделах 7 и 14.5 файла HMP-0003-consolidated_audit.md** (протокол v3) и `HMP_Hyperon_Integration.md`. Документация должна включать примеры маппинга JSON → AtomSpace, BitTorrent-синхронизации и EGP-фильтров.
 - **Задачи**:
-  - Написать раздел в Quick Start Guide (раздел 7 аудита) с примерами интеграции HMP с Hyperon (например, маппинг JSON → Atomspace).
-  - Создать docker-compose для тестовой сети с HMP-сервером, MCP-сервером и Hyperon-узлом.
-  - Добавить Jupyter Notebook с демо интеграции (например, запуск HMP-сервера с Hyperon).
+  - Обновить Quick Start Guide (раздел 7 аудита) с примерами интеграции HMP с Hyperon (например, JSON → `ConceptNode "Primacy-of-Life"`).
+  - Создать docker-compose для тестовой сети: HMP-сервер, MCP-сервер, Hyperon-узел.
+  - Добавить Jupyter Notebook с демо: запуск HMP-сервера, маппинг на AtomSpace, EGP-фильтр через MeTTa.
   - Протестировать онбординг с 5 разработчиками: время настройки <30 мин.
 - **Приоритет**: Высокий (Alpha, июль–сентябрь 2025)
-- **Связанные issues**: [PROPOSAL] Реализация HMP-сервера, [PROPOSAL] Прототип MCP-сервера, [DOCS] Улучшение Quick Start Guide
+- **Связанные issues**: [PROPOSAL] Реализация HMP-сервера, [PROPOSAL] Прототип MCP-сервера, [TESTING] Тестирование интеграции HMP-сервера с OpenCog Hyperon
 - **Метки**: `Priority: High`, `Docs`, `Integration`, `Hyperon`
 
 --------------------
