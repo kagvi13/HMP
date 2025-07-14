@@ -13,11 +13,16 @@ Project status: **Draft RFC v3.0** | Проект на стадии активн
 ## 📚 Documentation / Документация
 
 ### 📖 Current Version / Текущая версия
-- [🧪 iteration.md](iteration.md) — процесс итеративного развития спецификации (EN)
-- [🧪 iteration_ru.md](iteration_ru.md) — процесс итеративного развития спецификации (RU)
-- [🔖HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — План интеграции HyperCortex Mesh Protocol с OpenCog Hyperon, включая семантический маппинг, этические фильтры и синхронизацию графов.
-- [🔖 HMP-0003.md](docs/HMP-0003.md) — Protocol Specification v3.0 (Jul 2025)
-- [📜 Changelog](docs/changelog.txt)
+
+#### 🧪 Итеративные документы
+* [🧪 iteration.md](iteration.md) — процесс итеративного развития спецификации (EN)
+* [🧪 iteration\_ru.md](iteration_ru.md) — процесс итеративного развития спецификации (RU)
+#### 🔖 Основные спецификации
+* [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — План интеграции HyperCortex Mesh Protocol с OpenCog Hyperon
+* [🔖 HMP-0003.md](docs/HMP-0003.md) — Protocol Specification v3.0 (Jul 2025)
+#### 📜 Прочее
+* [📜 Changelog](docs/changelog.txt)
+
 
 ### 🧩 JSON Schemas
 | Model                | File                                                  |
