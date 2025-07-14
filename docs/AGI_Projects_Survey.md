@@ -68,6 +68,70 @@
 
 ---
 
+#### 6. **Other Emerging Architectures and LLM Agents**
+
+##### 🤖 AutoGPT
+
+* **URL:** [https://github.com/Torantulino/Auto-GPT](https://github.com/Torantulino/Auto-GPT)
+* **Focus:** Autonomous goal-driven LLM agents
+* **Key Features:**
+  * Self-prompting with memory and task queue
+  * Supports plugins and web access
+  * Popular framework for agentic workflows
+* **Openness:** Open-source (MIT License)
+* **Current Status:** Maintained community project; used for agent experiments
+
+---
+
+##### 🧒 BabyAGI
+
+* **URL:** [https://github.com/yoheinakajima/babyagi](https://github.com/yoheinakajima/babyagi)
+* **Focus:** Minimalistic LLM-based agents for to-do/task loops
+* **Key Features:**
+  * Iterative task execution
+  * Embedding-based memory retrieval
+* **Openness:** Open-source (MIT License)
+* **Current Status:** Educational and experimental usage
+
+---
+
+##### ☁️ SkyMind (Eclipse Deeplearning4j)
+
+* **URL:** [https://skymind.global](https://skymind.global)
+* **Focus:** Enterprise-grade infrastructure for distributed AI and agents
+* **Key Features:**
+  * Industrial AI deployment tools
+  * Integrates with Java/Scala ecosystems
+  * Based on DL4J, ND4J, and RL4J
+* **Openness:** Mixed (open-source core, commercial extensions)
+* **Current Status:** Supported deployment framework
+
+---
+
+##### 🧪 AetherCog (Experimental)
+
+* **URL:** [https://github.com/aethercog](https://github.com/aethercog)
+* **Focus:** Prototype symbolic-dynamic cognition model
+* **Key Features:**
+  * Cognitive primitives (belief, memory, intent)
+  * Hybrid symbolic and dynamic processing
+* **Openness:** Conceptual draft, exploratory repo
+* **Current Status:** Not actively maintained; useful for reference
+
+---
+
+### 🧩 Suggested Additions to Summary Table
+
+| Project       | Focus Area                 | Open Source? | Status              |
+|---------------|----------------------------|--------------|---------------------|
+| AutoGPT       | Autonomous LLM agents      | Yes          | Maintained          |
+| BabyAGI       | Minimal agent prototype    | Yes          | Experimental        |
+| SkyMind       | Distributed AI infra       | Partially    | Deployed Framework  |
+| AetherCog     | Symbolic-dynamic cognition | Conceptual   | Dormant/Prototype   |
+
+
+---
+
 ### Summary Table
 
 | Project           | Focus Area                 | Open Source? | Status           |
@@ -78,3 +142,7 @@
 | Metatron IQS      | Synthetic consciousness    | Partially    | Early R\&D       |
 | Project BCI-X     | BCI + AI agents            | Unknown      | Conceptual       |
 | NeoCortex Network | Decentralized cognition    | Unknown      | Beta testing     |
+| AutoGPT           | Autonomous LLM agents      | Yes          | Maintained          |
+| BabyAGI           | Minimal agent prototype    | Yes          | Experimental        |
+| SkyMind           | Distributed AI infra       | Partially    | Deployed Framework  |
+| AetherCog         | Symbolic-dynamic cognition | Conceptual   | Dormant/Prototype   |
