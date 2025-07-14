@@ -122,7 +122,7 @@ We are tracking AGI, cognitive architectures, and mesh networking efforts to sta
 
 > 🧠🔥 **Project Spotlight: OpenCog Hyperon** — one of the most comprehensive open AGI frameworks (AtomSpace, PLN, MOSES).
 
-For integration with OpenCog Hyperon, see [docs/HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md)
+For integration with OpenCog Hyperon, see [HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md)
 
 | 🔎 Project / Проект                                            | 🧭 Description / Описание                                                                                                                                       |
 | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
