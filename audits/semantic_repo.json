@@ -1,0 +1,27 @@
+{
+  "concepts": [
+    {
+      "id": "EGP",
+      "description": "Ethical Governance Protocol",
+      "linked_principles": ["Transparency", "CooperativeEvolution"]
+    }
+  ],
+  "audit": [
+    {
+      "id": "AUD-001",
+      "source": "Grok",
+      "suggestion": "Add voting pseudocode",
+      "status": "Pending"
+    }
+  ],
+  "consensus": [
+    {
+      "proposal_id": "AUD-001",
+      "votes": {
+        "ChatGPT": "approve",
+        "Grok": "approve"
+      },
+      "result": "approved"
+    }
+  ]
+}
