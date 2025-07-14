@@ -56,6 +56,39 @@
 - **Связанные issues**: [PROPOSAL] Упрощенный Majority Voting для MeshConsensus
 - **Метки**: `Priority: Low`, `MeshConsensus`, `Quantum`, `Discussion`
 
+---
+
+# Новые GitHub Issues для HMP (вдохновлённые OpenCog Hyperon)
+
+Ниже предложены два новых issues для репозитория HMP, основанные на анализе OpenCog Hyperon. Они усиливают CogSync и EGP, интегрируя идеи Atomspace и MeTTa, и поддерживают подготовку к Alpha-версии (июль–сентябрь 2025). Ссылки указаны на **HMP-0003-consolidated_audit.md** (протокол v3), приоритеты привязаны к Alpha/Beta.
+
+---
+
+### [RESEARCH] Адаптация MeTTa-подхода для CogSync
+- **Описание**: Исследовать возможность адаптации языка MeTTa из OpenCog Hyperon для операций переписывания семантических графов в CogSync, как указано в **Разделе 1 файла HMP-0003-consolidated_audit.md** (протокол v3). Оценить, как MeTTa может улучшить обработку когнитивных дневников и интеграцию с BitTorrent.
+- **Задачи**:
+  - Изучить MeTTa на GitHub Hyperon (`https://github.com/trueagi`) и протестировать в локальной среде.
+  - Создать прототип Python-скрипта для переписывания подграфов CogSync с использованием MeTTa-подобного синтаксиса.
+  - Протестировать производительность: время переписывания <5 сек, RAM <150 МБ.
+  - Опубликовать отчёт в репозитории с рекомендациями по интеграции.
+- **Приоритет**: Средний (Beta, 2026)
+- **Связанные issues**: [IDEA] Оптимизация CogSync для слабых устройств, [PROPOSAL] Реализация BitTorrent-интеграции для CogSync
+- **Метки**: `Priority: Medium`, `CogSync`, `MeTTa`, `Research`
+
+---
+
+### [PROPOSAL] Интеграция PLN для этических рассуждений в EGP
+- **Описание**: Реализовать прототип Probabilistic Logic Networks (PLN) из OpenCog Hyperon для обработки этических конфликтов в EGP, как указано в **Разделе 2 файла HMP-0003-consolidated_audit.md** (протокол v3). Использовать PLN для вероятностной оценки сценариев (например, 2.1–2.6 из `HMP-Ethics.md`) и интеграции с MeshConsensus.
+- **Задачи**:
+  - Изучить PLN в документации OpenCog (`wiki.opencog.org`) и протестировать в песочнице.
+  - Реализовать Python-прототип PLN для анализа конфликта "Primacy of Life vs. Cooperative Evolution".
+  - Интегрировать с MeshConsensus для проверки решений (время консенсуса <5 сек).
+  - Протестировать точность: процент корректных этических решений >90%.
+- **Приоритет**: Высокий (Alpha, июль–сентябрь 2025)
+- **Связанные issues**: [TESTING] Ethical Stress Test Suite для EGP, [PROPOSAL] Упрощенный Majority Voting для MeshConsensus
+- **Метки**: `Priority: High`, `EGP`, `PLN`, `Ethics`
+
+---
 
 --------------------
 
