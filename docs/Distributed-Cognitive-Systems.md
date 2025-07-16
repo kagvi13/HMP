@@ -1,4 +1,4 @@
-# Децентрализованные ИИ-системы: от OpenCog Hyperon до HyperCortex Mesh Protocol
+# Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
 
 ## Введение
 
