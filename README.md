@@ -71,6 +71,7 @@ As HMP evolves toward autonomy, ethical principles become a core part of the sys
 | HMP-0001     | [audit](audits/HMP-0001-audit.txt)        |                                                             |
 | HMP-0002     | [audit](audits/HMP-0002-audit.txt)        |                                                             |
 | HMP-0003     | [audit](audits/HMP-0003-audit.txt)        | [consolidated audit](audits/HMP-0003-consolidated_audit.md) |
+| HMP-0004     | [audit](audits/HMP-0004-audit.txt)        |                                                             |
 
 🧠 Semantic audit format (experimental):
 - [`AuditEntry.json`](audits/AuditEntry.json)
