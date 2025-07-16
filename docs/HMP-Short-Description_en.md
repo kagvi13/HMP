@@ -89,6 +89,8 @@ These are expressed in JSON Schema (2020-12), with optional YAML and Protobuf va
 
 ## Learn More
 
-* [HMP-0004 Specification (Full)](../HMP-0004.md)
-* [Example Use Cases](../HMP-0004.md#16-appendix-a-example-use-cases)
+* [HMP-0004 Specification (Full)](HMP-0004.md)
+* [Ethical principles](HMP-Ethics.md)
+* [Integration HMP and OpenCog Hyperon](HMP_Hyperon_Integration.md)
+
 * Contributions welcome: [Temporary GitHub Repository](https://github.com/kagvi13/HMP)
