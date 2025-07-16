@@ -111,7 +111,7 @@ A structured iteration flow is described in [iteration.md](iteration.md), includ
 
 ## ⚙️ Project Status / Статус проекта
 
-🚧 Draft RFC v3.0  
+🚧 Draft RFC v4.0  
 The project is under active development and open for contributions, ideas, audits, and prototyping.
 
 ---
