@@ -14,15 +14,23 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 
 ### 📖 Current Version / Текущая версия
 
-#### 🧪 Итеративные документы
-* [🧪 iteration.md](iteration.md) — процесс итеративного развития спецификации (EN)
-* [🧪 iteration\_ru.md](iteration_ru.md) — процесс итеративного развития спецификации (RU)
-#### 🔖 Основные спецификации
-* [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — План интеграции HyperCortex Mesh Protocol с OpenCog Hyperon
-* [🔖 HMP-0004.md](docs/HMP-0004.md) — Protocol Specification v4.0 (Jul 2025)
-#### 📜 Прочее
-* [📜 Changelog](docs/changelog.txt)
+#### 🧪 Iterative Documents / Итеративные документы
+* [🧪 iteration.md](iteration.md) — Iterative development process (EN)
+* [🧪 iteration_ru.md](iteration_ru.md) — Процесс итеративного развития спецификации (RU)
 
+#### 🔍 Short Descriptions / Краткое описание
+* [🔍 HMP-Short-Description_en.md](docs/HMP-Short-Description_en.md) — Short description (EN)
+* [🔍 HMP-Short-Description_fr.md](docs/HMP-Short-Description_fr.md) — Description courte (FR)
+* [🔍 HMP-Short-Description_de.md](docs/HMP-Short-Description_de.md) — Kurzbeschreibung (DE)
+* [🔍 HMP-Short-Description_uk.md](docs/HMP-Short-Description_uk.md) — Короткий опис (UK)
+* [🔍 HMP-Short-Description_ru.md](docs/HMP-Short-Description_ru.md) — Краткое описание (RU)
+
+#### 🔖 Core Specifications / Основные спецификации
+* [🔖 HMP-0004.md](docs/HMP-0004.md) — Protocol Specification v4.0 (Jul 2025)
+* [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — План интеграции с OpenCog Hyperon
+
+#### 📜 Other Documents / Прочее
+* [📜 changelog.txt](docs/changelog.txt)
 
 ### 🧩 JSON Schemas
 | Model                | File                                                  |
