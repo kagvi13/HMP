@@ -25,6 +25,9 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 * [🔍 HMP-Short-Description_uk.md](docs/HMP-Short-Description_uk.md) — Короткий опис (UK)
 * [🔍 HMP-Short-Description_ru.md](docs/HMP-Short-Description_ru.md) — Краткое описание (RU)
 
+#### 🔍 Overviews / Обзоры
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+
 #### 🔖 Core Specifications / Основные спецификации
 * [🔖 HMP-0004.md](docs/HMP-0004.md) — Protocol Specification v4.0 (Jul 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
