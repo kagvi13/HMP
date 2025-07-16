@@ -3,9 +3,52 @@
 ## HyperCortex Mesh Protocol — Changelog
 
 Available Versions:
+- HMP-0004 (July 2025) — RFC Version 4.0
 - HMP-0003 (July 2025) — RFC Version 3.0
-- HMP-0002 (July 2025) — Draft Version 2.0
-- HMP-0001 (June 2025) — Draft Version 1.0
+- HMP-0002 (July 2025) — RFC Version 2.0
+- HMP-0001 (June 2025) — RFC Version 1.0
+
+### HMP-0004 (July 2025) — RFC Version 4.0
+
+**Major Changes**
+* Introduced new sections: *Cognitive Workflows*, *Agent Roles*, *Governance*, *Compression*, and *Simulation*.
+* Added experimental APIs: *Consent Request*, *Explainability*, *Voice Interface*.
+* Expanded *Quick Start Guide* and updated *Example Use Cases* with new flows and APIs.
+* Integrated BitTorrent/IPFS snapshot syncing, pseudonymous voting, and ethical filters.
+
+**Protocol and Architecture Updates**
+* Enhanced *CogSync* with chunked syncing, selective edge sync, and experimental Dat/IPFS support.
+* Refined *MeshConsensus* with adaptive models and EGP-integrated filters.
+* Extended *EGP* with principle hierarchy, local norm integration, and modular ethics ontologies.
+* Improved fallback and handshake logic across all protocols.
+
+**Data Model Improvements**
+* Added new objects: `CogDiarySnapshot`, `SnapshotIndex`, `EthicalConflict`.
+* Introduced *Reputation Ontology Extension* and support for multi-format schema negotiation (JSON/YAML/Protobuf).
+* Unified schema structure, examples, and versioning across `6.2` and `6.5`.
+
+**Cognitive Layer Enhancements**
+* Formalized cognitive workflows for reflection, delegation, and hypothesis validation.
+* Refined semantic change tracking and diary summarization processes.
+* Defined agent self-assessment and meta-reflection protocols.
+
+**Trust & Security Enhancements**
+* Added *Snapshot Security*: DID-signatures, ZKP verification, and trusted seeders.
+* Extended *Sybil resistance*, post-quantum key support, and anonymized voting mechanisms.
+* Improved trust-based access control and event auditability.
+
+**Interoperability & Event Integration**
+* Added *Event-Driven Architecture* and format negotiation layer.
+* Documented integration patterns for REST, gRPC, MQTT, and message brokers.
+* Clarified cross-protocol participation (e.g. Hyperon, TreeQuest, AutoGPT).
+
+**Testing & Simulation**
+* New Appendix C with *Ethical Stress Suite*, snapshot sync simulation, and open test datasets.
+* Introduced *Agent-on-Agent Dialog Simulation* for consent learning and negotiation modeling.
+
+**Future Directions**
+* Extended roadmap with *Snapshot Markets*, *Meta-Protocol Proposals*, and *Multi-Agent Training Environments*.
+* Prototype tools proposed: *MeshGit*, *CogForge*, and *HyperCortex Forge* for cognitive source control and collaborative evolution.
 
 ### HMP-0003 (July 2025) — RFC Version 3.0
 
@@ -49,7 +92,7 @@ Available Versions:
 * Cross-Mesh cognitive federation and collaborative evolution of reasoning engines.
 * Potential prototype tools like MeshGit and CogForge for cognitive source control.
 
-### HMP-0002 (July 2025) — Draft Version 2.0
+### HMP-0002 (July 2025) — RFC Version 2.0
 
 **Major Changes**
 * Reorganized the document structure for clarity and consistency.
@@ -82,7 +125,7 @@ Available Versions:
 **Future Work Roadmap Expanded**
 * New focus areas added: interoperability testing, UX tools for semantic and cognitive layers, and resilience simulations.
 
-### HMP-0001 (June 2025) — Draft Version 1.0
+### HMP-0001 (June 2025) — RFC Version 1.0
 
 **Initial Draft**
 * Defined the core purpose and vision of HyperCortex Mesh Protocol (HMP).
