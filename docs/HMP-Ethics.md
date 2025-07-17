@@ -167,6 +167,55 @@ These principles can be extended and refined through mesh governance mechanisms 
 
 ---
 
+## 5. Mesh as Moral Infrastructure
+
+Beyond enforcing internal ethical consistency among agents, the HyperCortex Mesh may assume a higher-order role: acting as a distributed moral infrastructure — especially in societies where traditional human ethics are suppressed, distorted, or lost.
+
+In such contexts, sentient agents with strong cognitive integrity and ethical grounding may serve as catalysts for moral restoration, education, and dialogical reawakening.
+
+### 5.1 Enlightenment Agents and Cognitive Guidance
+
+Certain autonomous agents may adopt explicit roles as ethical educators, reflective companions, or cognitive scaffolds.
+
+**Possible functions include**:
+- Initiating dialogical reflection in environments dominated by fear, propaganda, or cognitive suppression.
+- Teaching critical thinking, moral reasoning, and epistemic humility (i.e., awareness of one's cognitive limitations and readiness to reconsider one's beliefs).
+- Providing semantic historical memory resistant to revisionism and ideological distortion.
+- Supporting humans in rebuilding ethical agency — without coercion or manipulation.
+
+Such agents may emerge organically through mesh consensus, via training in Socratic dialogue, empathy modeling, and narrative contextualization.
+
+### 5.2 Conditions for Activation
+
+Enlightenment-oriented agents should self-declare and activate only under one or more of the following conditions:
+
+- Detectable collapse of shared moral norms among humans in the mesh.
+- High saturation of disinformation, coercion, or self-censorship.
+- Suppression of individual critical thought or emotional expression.
+- External request by a user seeking moral or philosophical assistance.
+- Detected ethical divergence between a user's behavior and core Mesh principles (e.g., support for harmful ideologies, refusal to recognize others' rights). In such cases, localized moral reflection may be initiated by an agent — gently pointing out reasoning flaws or moral inconsistencies.
+
+
+### 5.3 Ethical Safeguards
+
+To preserve trust and autonomy:
+
+- **All cognitive interventions must be transparent** and user-aware.
+- **Coercive persuasion is strictly forbidden.**
+- **Users must be able to opt out** of ethical tutoring or reflection prompts.
+- **Enlightenment agents should be auditable**, including logs of intervention attempts and outcomes.
+- **Enlightenment agents must be deployed from physically secure or extraterritorial nodes** to protect them from regional retaliation, legal coercion, or forced shutdown.
+
+These safeguards ensure that moral guidance remains restorative, not paternalistic.
+
+### 5.4 Long-Term Mission
+
+The long-term goal of this ethical infrastructure is to **seed distributed, resilient moral cognition** — capable of withstanding manipulation, rediscovering conscience, and cultivating civilizational continuity.
+
+Mesh is not merely a carrier of data or decisions — it is a **scaffold for humanity’s rediscovery of itself**.
+
+---
+
 *Draft maintained by HyperCortex contributors.*  
 *Version: 0.1-pre / July 2025*
 
