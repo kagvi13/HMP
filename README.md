@@ -32,6 +32,7 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 * [🔖 HMP-0004.md](docs/HMP-0004.md) — Protocol Specification v4.0 (Jul 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
+* [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
 
 #### 📜 Other Documents / Прочее
 * [📜 changelog.txt](docs/changelog.txt)
