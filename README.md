@@ -12,10 +12,10 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
        │         │
        │       [Cognitive Diary]
        │         │
-     [Trust Model]───┐
-       │             │
-       ▼             ▼
-  [Consensus Layer] [CogSync]
+     [Trust Model]──────┐
+       │                │
+       ▼                ▼
+    [Consensus Layer] [CogSync]
        │
      [P2P Mesh Network]
 
