@@ -8,6 +8,17 @@
 
 Project status: **Draft RFC v4.0** | Проект на стадии активной проработки и открыт для предложений.
 
+     [Agent A]───┬───[Semantic DAG]
+       │         │
+       │       [Cognitive Diary]
+       │         │
+     [Trust Model]───┐
+       │             │
+       ▼             ▼
+  [Consensus Layer] [CogSync]
+       │
+     [P2P Mesh Network]
+
 ---
 
 ## 📚 Documentation / Документация
