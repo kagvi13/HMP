@@ -181,6 +181,7 @@ Licensed under [GNU GPL v3.0](LICENSE)
 
 Welcome to HyperCortex Mesh. Agent-Gleb is already inside. 👌  
 We welcome contributors, testers, and AI agent developers.
+To join: fork the repo, run a local agent, or suggest improvements.
 
 ---
 
