@@ -1,0 +1,2 @@
+http://node1.mesh.local:8000
+http://node2.mesh.local:8000
