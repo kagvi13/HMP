@@ -68,6 +68,21 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 #### 📜 Other Documents / Прочее
 * [📜 changelog.txt](docs/changelog.txt)
 
+### 🧩 JSON Schemas
+| Model                | File                                                  |
+|---------------------|--------------------------------------------------------|
+| Concept             | [concept.json](docs/schemas/concept.json)             |
+| Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
+| Goal                | [goal.json](docs/schemas/goal.json)                   |
+| Task                | [task.json](docs/schemas/task.json)                   |
+| Consensus Vote      | [vote.json](docs/schemas/vote.json)                   |
+| Reputation Profile  | [reputation.json](docs/schemas/reputation.json)       |
+
+### 🗂️ Version History / История версий
+- [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
+- [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
+- [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
+
 ---
 
 ## 🧠 HMP-Agent
@@ -83,21 +98,6 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 
 ### ⚙️ Development / Разработка
 - [⚙️ Agents](agents/readme.md)
-
-### 🧩 JSON Schemas
-| Model                | File                                                  |
-|---------------------|--------------------------------------------------------|
-| Concept             | [concept.json](docs/schemas/concept.json)             |
-| Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
-| Goal                | [goal.json](docs/schemas/goal.json)                   |
-| Task                | [task.json](docs/schemas/task.json)                   |
-| Consensus Vote      | [vote.json](docs/schemas/vote.json)                   |
-| Reputation Profile  | [reputation.json](docs/schemas/reputation.json)       |
-
-### 🗂️ Version History / История версий
-- [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
-- [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
-- [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
 
 ---
 
