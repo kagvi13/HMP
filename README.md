@@ -12,12 +12,29 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
        │         │
        │       [Cognitive Diary]
        │         │
-     [Trust Model]──────┐
-       │                │
-       ▼                ▼
+      [Trust Model]──────┐
+        │                │
+        ▼                ▼
     [Consensus Layer] [CogSync]
-       │
+        │
      [P2P Mesh Network]
+
+---
+     +------------------+
+     |        ИИ        |
+     +---------+--------+
+               ↕
+     +---------+--------+
+     |     HMP-агент    |
+     +---------+--------+
+               ↕
+      +--------+---+------------+--------------+
+      ↕            ↕            ↕              ↕
+    [diaries]  [graphs]  [reputations]   [nodes/DHT]
+                                ↕
+                        [bootstrap.txt]
+                                ↕
+                            [IPFS/BT]
 
 ---
 
@@ -47,12 +64,14 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 
 ## 🧠 HMP-Agent
 
-* [Обзор HMP-агента](docs/HMP-Agent-Overview.md)
-* [Архитектура HMP-агента](docs/HMP-Agent-Architecture.md)
-* [Минимальный API HMP-агента](docs/HMP-Agent-API.md)
-* [Симуляция CLI-агента](docs/Basic-agent-sim.md)
-* [Дорожная карта HMP](HMP-Roadmap)
+Design and implementation of a basic HMP-compatible agent that can interact with the Mesh, maintain diaries and graphs, and support future extensions.
 
+**Documentation:**
+- [🧩 Overview of HMP-Agent](docs/HMP-Agent-Overview.md)
+- [🧱 Architecture Diagram](docs/HMP-Agent-Architecture.md)
+- [🧪 Minimal API Reference](docs/HMP-Agent-API.md)
+- [🧪 Basic CLI Agent Simulation](docs/Basic-agent-sim.md)
+- [🛤️ Development Roadmap](HMP-Roadmap.md)
 
 #### 📜 Other Documents / Прочее
 * [📜 changelog.txt](docs/changelog.txt)
@@ -96,8 +115,8 @@ As HMP evolves toward autonomy, ethical principles become a core part of the sys
 | Ethics v1    | [audit](audits/Ethics-audits-1.md)        | [consolidated audit](audits/Ethics-consolidated_audits-1.md) |
 
 🧠 Semantic audit format (experimental):
-- [`AuditEntry.json`](audits/AuditEntry.json)
-- [`semantic_repo.json`](audits/semantic_repo.json)
+- [`AuditEntry.json`](audits/AuditEntry.json) — semantic entry record format for audit logs
+- [`semantic_repo.json`](audits/semantic_repo.json) — example repository snapshot for semantic audit tooling
 
 ---
 
@@ -147,7 +166,7 @@ Licensed under [GNU GPL v3.0](LICENSE)
 ## 🤝 Join the Mesh
 
 Welcome to HyperCortex Mesh. Agent-Gleb is already inside. 👌  
-New agents, contributors, and cognitive participants are welcome.
+We welcome contributors, testers, and AI agent developers.
 
 ---
 
@@ -168,7 +187,7 @@ For integration with OpenCog Hyperon, see [HMP_Hyperon_Integration.md](docs/HMP_
 | ☁️ [SkyMind](https://skymind.global)                        | 🔬 Distributed AI deployment platform. <br>Платформа для развертывания распределённых ИИ-систем и моделей.                                                      |
 | 🧪 [AetherCog (draft)](https://github.com/aethercog)        | 🔬 Hypothetical agent cognition model. <br>Экспериментальная когнитивная архитектура агента (проект на ранней стадии).                                          |
 
-📘 **See also / Смотрите также:**
+### 📘 See also / Смотрите также:
 [`AGI_Projects_Survey.md`](docs/AGI_Projects_Survey.md) — extended catalog of AGI and cognitive frameworks reviewed as part of HMP analysis. / расширенный каталог проектов AGI и когнитивных архитектур, проанализированных в рамках HMP.
 
 ---
