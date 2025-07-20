@@ -157,6 +157,18 @@ The project is under active development and open for contributions, ideas, audit
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributors! You can:
+- Review and comment on drafts (see `/docs`)
+- Propose new agent modules or interaction patterns
+- Help test and simulate agents in CLI environments
+- Provide audits or ethical scenario suggestions
+
+To get started, see [`iteration.md`](iteration.md) or open an issue.
+
+---
+
 ## 📜 License
 
 Licensed under [GNU GPL v3.0](LICENSE)
