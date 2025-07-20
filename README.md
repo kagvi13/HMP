@@ -28,13 +28,11 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
      |     HMP-агент    |
      +---------+--------+
                ↕
-      +--------+---+------------+--------------+
-      ↕            ↕            ↕              ↕
-    [diaries]  [graphs]  [reputations]   [nodes/DHT]
-                                ↕
-                        [bootstrap.txt]
-                                ↕
-                            [IPFS/BT]
+      +--------+---+------------+--------------+----------+
+      ↕            ↕            ↕              ↕          ↕
+    [diaries]  [graphs]  [reputations]   [nodes/DHT]  [IPFS/BT]
+                                               ↕
+                                        [bootstrap.txt]
 
 > * bootstrap.txt — начальный список узлов
 > * IPFS/BT — модули для обмена снапшотами через IPFS и BitTorrent
