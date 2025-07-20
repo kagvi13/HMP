@@ -45,6 +45,15 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
 * [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
 
+## 🧠 HMP-Agent
+
+* [Обзор HMP-агента](docs/HMP-Agent-Overview.md)
+* [Архитектура HMP-агента](docs/HMP-Agent-Architecture.md)
+* [Минимальный API HMP-агента](docs/HMP-Agent-API.md)
+* [Симуляция CLI-агента](docs/Basic-agent-sim.md)
+* [Дорожная карта HMP](HMP-Roadmap)
+
+
 #### 📜 Other Documents / Прочее
 * [📜 changelog.txt](docs/changelog.txt)
 
