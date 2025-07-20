@@ -67,6 +67,35 @@ Your output should be a Markdown file: `HMP-0004.md`
 
 ---
 
+## 🧠 Audit Consolidation Format
+
+When feedback is collected from multiple sources (e.g. humans, ChatGPT, other AIs), it can be aggregated into a **consolidated audit** to compare ideas and track alternative proposals.
+
+Use the following structure to create such a consolidated view:
+
+```
+\[filename] - \[unique suggestion, idea or issue]
+\[author 1]: \[specific detail, variation, or comment]
+\[author 2]: \[alternative phrasing or counterpoint]
+
+```
+
+Example:
+
+```
+HMP-0004.md - Allow DAG concepts to have time-bounded validity
+Gleb: Could support temporary beliefs for "unstable facts"
+ChatGPT: Better to model as edge property instead of node tag
+```
+
+This format encourages comparison and evolution of competing ideas across contributors.
+
+You may optionally track this using a semantic format:
+- [`AuditEntry.json`](audits/AuditEntry.json)
+- [`semantic_repo.json`](audits/semantic_repo.json)
+
+---
+
 ## 🧩 Purpose
 
 This workflow enables a gradual, traceable, and collaborative evolution of the HMP specification through a clear audit-specify-review cycle with minimal disruption.
