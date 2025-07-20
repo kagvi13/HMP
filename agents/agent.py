@@ -2,6 +2,8 @@
 
 import argparse
 from storage import Storage
+import time
+import threading
 
 def main():
     parser = argparse.ArgumentParser(description="HMP Agent CLI")
@@ -69,6 +71,48 @@ def main():
         parser.print_help()
 
     storage.close()
+
+def run_mcp_agent(config):
+    print(f"[HMP-MCP] MCP-Agent '{config.get('agent_name', 'unnamed')}' запущен в DHT-режиме")
+    
+    bootstrap_path = config.get("bootstrap_file", "bootstrap.txt")
+    update_interval = config.get("update_interval", 30)  # секунд между обновлениями
+    enable_api = config.get("serve_api", True)
+
+    def load_bootstrap():
+        try:
+            with open(bootstrap_path, "r") as f:
+                return [line.strip() for line in f if line.strip()]
+        except FileNotFoundError:
+            print("[Warning] bootstrap.txt не найден. Запуск без исходных узлов.")
+            return []
+
+    def update_dht():
+        nodes = load_bootstrap()
+        print(f"[MCP] Найдено {len(nodes)} узлов в bootstrap.txt:")
+        for node in nodes:
+            print(f" ↪️  Пинг {node} (заглушка)")
+            # Здесь в будущем можно использовать ping + REST-запросы
+        print("[MCP] Обновление DHT завершено.")
+
+    def mcp_loop():
+        while True:
+            update_dht()
+            time.sleep(update_interval)
+
+    # Фоновый цикл обновления DHT
+    threading.Thread(target=mcp_loop, daemon=True).start()
+
+    # REST API заглушка (можно заменить на FastAPI / Flask)
+    if enable_api:
+        print("[MCP] REST API (заглушка) доступен по адресу http://localhost:8000/")
+        print("      В будущем: /bootstrap, /status, /reputation/:id и пр.")
+    
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("\n[MCP] MCP-Agent завершает работу.")
 
 if __name__ == "__main__":
     main()
