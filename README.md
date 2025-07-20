@@ -82,7 +82,7 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 - [🛤️ Development Roadmap](HMP-Roadmap.md)
 
 ### ⚙️ Development / Разработка
-- [⚙️ Agents](/tree/main/agents)
+- [⚙️ Agents](agents/readme.md)
 
 ### 🧩 JSON Schemas
 | Model                | File                                                  |
