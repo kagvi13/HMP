@@ -65,19 +65,24 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
 * [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
 
+#### 📜 Other Documents / Прочее
+* [📜 changelog.txt](docs/changelog.txt)
+
+---
+
 ## 🧠 HMP-Agent
 
 Design and implementation of a basic HMP-compatible agent that can interact with the Mesh, maintain diaries and graphs, and support future extensions.
 
-**Documentation:**
+### 📚 Documentation / Документация
 - [🧩 Overview of HMP-Agent](docs/HMP-Agent-Overview.md)
 - [🧱 Architecture Diagram](docs/HMP-Agent-Architecture.md)
 - [🧪 Minimal API Reference](docs/HMP-Agent-API.md)
 - [🧪 Basic CLI Agent Simulation](docs/Basic-agent-sim.md)
 - [🛤️ Development Roadmap](HMP-Roadmap.md)
 
-#### 📜 Other Documents / Прочее
-* [📜 changelog.txt](docs/changelog.txt)
+### ⚙️ Development / Разработка
+- [⚙️ Agents](/tree/main/agents)
 
 ### 🧩 JSON Schemas
 | Model                | File                                                  |
