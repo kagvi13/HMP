@@ -1,0 +1,6 @@
+agent_mode: mcp
+agent_name: mcp-01
+port: 8080
+bootstrap_responder: true
+update_dht: true
+enable_llm: false
