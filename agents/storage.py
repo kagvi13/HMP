@@ -2,7 +2,6 @@
 
 import sqlite3
 from datetime import datetime
-from typing import List, Optional
 
 DB_FILE = "agent_storage.db"
 
@@ -13,7 +12,6 @@ class Storage:
 
     def _init_db(self):
         c = self.conn.cursor()
-        # Когнитивный дневник
         c.execute('''
             CREATE TABLE IF NOT EXISTS diary_entries (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,7 +20,6 @@ class Storage:
                 timestamp TEXT NOT NULL
             )
         ''')
-        # Концепты
         c.execute('''
             CREATE TABLE IF NOT EXISTS concepts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,7 +27,6 @@ class Storage:
                 description TEXT
             )
         ''')
-        # Связи
         c.execute('''
             CREATE TABLE IF NOT EXISTS links (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -44,7 +40,7 @@ class Storage:
         self.conn.commit()
 
     # --- Diary API ---
-    def write_entry(self, text: str, tags: Optional[List[str]] = None):
+    def write_entry(self, text, tags=None):
         ts = datetime.utcnow().isoformat()
         tag_str = ",".join(tags) if tags else ""
         self.conn.execute(
@@ -62,30 +58,28 @@ class Storage:
                 (like_expr, limit)
             )
         else:
-            cursor.execute(
-                'SELECT * FROM diary_entries ORDER BY id DESC LIMIT ?',
-                (limit,)
-            )
+            cursor.execute('SELECT * FROM diary_entries ORDER BY id DESC LIMIT ?', (limit,))
         return cursor.fetchall()
 
-    def search_entries_by_time(self, from_ts: str, to_ts: str):
-        """Поиск записей по временному диапазону (ISO-формат)"""
+    def search_entries_by_time(self, from_ts, to_ts):
         cursor = self.conn.cursor()
-        cursor.execute('''
-            SELECT * FROM diary_entries
-            WHERE timestamp BETWEEN ? AND ?
-            ORDER BY timestamp ASC
-        ''', (from_ts, to_ts))
+        cursor.execute(
+            'SELECT * FROM diary_entries WHERE timestamp BETWEEN ? AND ? ORDER BY timestamp DESC',
+            (from_ts, to_ts)
+        )
         return cursor.fetchall()
 
     # --- Graph API ---
-    def add_concept(self, name: str, description: Optional[str] = None):
+    def add_concept(self, name, description=None):
         cursor = self.conn.cursor()
-        cursor.execute('INSERT INTO concepts (name, description) VALUES (?, ?)', (name, description))
+        cursor.execute(
+            'INSERT INTO concepts (name, description) VALUES (?, ?)',
+            (name, description)
+        )
         self.conn.commit()
         return cursor.lastrowid
 
-    def add_link(self, source_id: int, target_id: int, relation: str):
+    def add_link(self, source_id, target_id, relation):
         self.conn.execute(
             'INSERT INTO links (source_id, target_id, relation) VALUES (?, ?, ?)',
             (source_id, target_id, relation)
@@ -98,26 +92,24 @@ class Storage:
     def get_links(self):
         return self.conn.execute('SELECT * FROM links').fetchall()
 
-    def expand_graph(self, start_id: int, depth: int = 1):
-        """Рекурсивное извлечение подграфа"""
-        result = set()
+    def expand_graph(self, start_id, depth):
         visited = set()
+        results = []
 
-        def dfs(node_id, current_depth):
-            if current_depth > depth or node_id in visited:
+        def dfs(node_id, level):
+            if level > depth or node_id in visited:
                 return
             visited.add(node_id)
-            cursor = self.conn.cursor()
-            cursor.execute('''
-                SELECT target_id, relation FROM links
-                WHERE source_id = ?
-            ''', (node_id,))
-            for target_id, relation in cursor.fetchall():
-                result.add((node_id, target_id, relation))
-                dfs(target_id, current_depth + 1)
+            cursor = self.conn.execute(
+                'SELECT source_id, target_id, relation FROM links WHERE source_id=?',
+                (node_id,)
+            )
+            for row in cursor.fetchall():
+                results.append(row)
+                dfs(row[1], level + 1)
 
-        dfs(start_id, 1)
-        return list(result)
+        dfs(start_id, 0)
+        return results
 
     def close(self):
         self.conn.close()
