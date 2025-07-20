@@ -36,8 +36,8 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
                                 ↕
                             [IPFS/BT]
 
-> bootstrap.txt — начальный список узлов
-> IPFS/BT — модули для обмена снапшотами через IPFS и BitTorrent
+> * bootstrap.txt — начальный список узлов
+> * IPFS/BT — модули для обмена снапшотами через IPFS и BitTorrent
 
 ---
 
