@@ -74,9 +74,9 @@ When feedback is collected from multiple sources (e.g. humans, ChatGPT, other AI
 Use the following structure to create such a consolidated view:
 
 ```
-\[filename] - \[unique suggestion, idea or issue]
-\[author 1]: \[specific detail, variation, or comment]
-\[author 2]: \[alternative phrasing or counterpoint]
+[filename] - [unique suggestion, idea or issue]
+[author 1]: [specific detail, variation, or comment]
+[author 2]: [alternative phrasing or counterpoint]
 
 ```
 
