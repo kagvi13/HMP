@@ -12,6 +12,7 @@ agents/
 * [agent.py](agent.py) - основной исполняемый файл CLI-агента
 * [storage.py](storage.py) - хранилище дневника и графа (можно SQLite или JSON)
 * [cli.py](cli.py) - запуск агента в нужном режиме
+
 **Примеры:**
 * [config.yml](config.yml) - конфигурация агента (пример)
 * [bootstrap.txt](bootstrap.txt) - список начальных узлов (пример)
