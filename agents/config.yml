@@ -1,6 +1,13 @@
-agent_mode: mcp
-agent_name: mcp-01
-port: 8080
-bootstrap_responder: true
-update_dht: true
-enable_llm: false
+# config.yml — конфигурация HMP-агента
+
+agent_mode: mcp           # Режим работы агента: cli, mcp, или full
+agent_name: mcp-01        # Уникальное имя агента в Mesh-сети
+port: 8080                # Порт для REST API
+
+bootstrap_responder: true # Отвечать ли на запросы начальной загрузки других узлов
+update_dht: true          # Автоматически обновлять DHT из bootstrap.txt
+enable_llm: false         # Подключать ли ИИ-модуль (например, LLM)
+bootstrap_file: bootstrap.txt  # Файл начального списка узлов
+
+update_interval: 60       # Интервал обновления DHT (в секундах)
+serve_api: true           # Запускать REST API (заглушка)
