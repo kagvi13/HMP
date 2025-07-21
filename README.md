@@ -8,19 +8,21 @@
 
 Project status: **Draft RFC v4.0** | Проект на стадии активной проработки и открыт для предложений.
 
-     [Agent A]───┬───[Semantic DAG]
-       │         │
-       │       [Cognitive Diary]
-       │         │
-      [Trust Model]──────┐
-        │                │
-        ▼                ▼
-    [Consensus Layer] [CogSync]
-        │
-     [P2P Mesh Network]
+---
+
+    [HMP-Agent]──┬───[Semantic Graph DB]
+        │        │
+        │     [Cognitive Diary DB]
+        │        │
+     [Reputation Engine]────┐
+            │               │
+            ▼               ▼
+    [MeshConsensus]     [CogSync]
+            │
+    [P2P Mesh Network]
 
 ---
----
+
 ## ⚙️ Два типа [HMP-агентов](docs/HMP-Agent-Overview.md)
 
 | Тип  | Название                        | Роль                    | Инициатор мышления | Основной "ум"     | Примеры использования                            |
