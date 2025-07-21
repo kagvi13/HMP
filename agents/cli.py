@@ -4,6 +4,7 @@ import argparse
 import yaml
 import sys
 from agent import main as cli_main, run_agent, run_mcp_agent
+from repl import run_repl
 
 def load_config(path="config.yml"):
     try:
@@ -26,9 +27,8 @@ def launch():
     config = load_config(args.config)
     mode = args.mode or config.get("agent_mode", "cli")
 
-    if mode == "interactive":
-        print("[HMP-Agent] Интерактивный режим пока не реализован.")
-        # Здесь можно добавить LLM-петлю или REPL-интерфейс
+    elif mode == "interactive":
+        run_repl(config)
 
     elif mode == "cli":
         cli_main()  # запускается agent.py в CLI-режиме
