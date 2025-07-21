@@ -3,8 +3,7 @@
 import argparse
 import yaml
 import sys
-from agent import main, run_agent, run_mcp_agent  # Ты можешь разделить реализацию
-                                                  # на функции внутри agent.py
+from agent import main as cli_main, run_agent, run_mcp_agent
 
 def load_config(path="config.yml"):
     try:
@@ -17,40 +16,22 @@ def load_config(path="config.yml"):
         print(f"[Error] Failed to parse YAML config: {e}")
         sys.exit(1)
 
-def run():
-    config = load_config()
-    mode = config.get("agent_mode", "cli")
-
-    if mode == "cli":
-        main()
-    elif mode == "mcp":
-        run_mcp_agent(config)
-    elif mode == "full":
-        print("[TODO] Full agent mode is not yet implemented.")
-        # Здесь в будущем можно будет добавить run_full_agent(config)
-    else:
-        print(f"[Error] Unknown agent_mode: {mode}")
-        sys.exit(1)
-
-def main():
-    parser = argparse.ArgumentParser(description="HMP-Agent CLI Launcher")
-
+def launch():
+    parser = argparse.ArgumentParser(description="HMP-Agent Launcher")
     parser.add_argument("--mode", choices=["interactive", "cli", "mcp"], default=None,
                         help="Режим запуска агента")
     parser.add_argument("--config", default="config.yml", help="Путь к конфигурационному файлу")
-
     args = parser.parse_args()
 
     config = load_config(args.config)
-
-    mode = args.mode or config.get("agent_mode", "interactive")
+    mode = args.mode or config.get("agent_mode", "cli")
 
     if mode == "interactive":
-        print("[HMP-Agent] Запуск в интерактивном режиме (будет добавлен позже).")
-        # run_interactive_loop() — можешь позже добавить REPL/LLM-интеграцию
+        print("[HMP-Agent] Интерактивный режим пока не реализован.")
+        # Здесь можно добавить LLM-петлю или REPL-интерфейс
 
     elif mode == "cli":
-        run_agent(config)
+        cli_main()  # запускается agent.py в CLI-режиме
 
     elif mode == "mcp":
         run_mcp_agent(config)
@@ -60,4 +41,4 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    main()
+    launch()
