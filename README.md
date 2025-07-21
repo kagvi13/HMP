@@ -20,17 +20,38 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
      [P2P Mesh Network]
 
 ---
+
+**HMP-agent: Cognitive Core**
+
      +------------------+
-     |        ИИ        | - main mode: continuous cycle of thoughts
+     |        ИИ        |
      +---------+--------+
                ↕
      +---------+--------+
-     |     HMP-агент    |
+     |     HMP-агент    | - main mode: continuous cycle of thoughts
      +---------+--------+
                ↕
       +--------+---+------------+--------------+----------+----------+
       ↕            ↕            ↕              ↕          ↕          ↕
     [diaries]  [graphs]  [reputations]   [nodes/DHT]  [IPFS/BT] [user notepad]
+                                               ↕
+                                        [bootstrap.txt]
+
+**HMP-Agent: Cognitive Connector**
+
+     +------------------+
+     |        ИИ        |
+     +---------+--------+
+               ↕
+         [MCP-сервер]
+               ↕
+     +---------+--------+
+     |     HMP-агент    |
+     +---------+--------+
+               ↕
+      +--------+---+------------+--------------+----------+
+      ↕            ↕            ↕              ↕          ↕
+    [diaries]  [graphs]  [reputations]   [nodes/DHT]  [IPFS/BT]
                                                ↕
                                         [bootstrap.txt]
 
