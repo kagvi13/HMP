@@ -1,8 +1,13 @@
-agent_mode: mcp                      # Режим работы: mcp / full / llm / test
+agent_mode: mcp                     # Режим работы: mcp / full / llm / test
 agent_name: mcp-01                  # Имя агента
+agent_role: core                    # или connector
 
-llm_backend: openai
+llm_mode: openai                    # openai | chatgpt_session | mesh
 llm_model: gpt-4
+llm_api_key: sk-...
+llm_api_url: https://api.openai.com/v1/chat/completions
+llm_session_cookie: null
+context_db: context.sqlite
 
 # REST API
 api_port: 8080                      # Порт для локального REST API
