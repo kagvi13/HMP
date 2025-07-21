@@ -130,6 +130,8 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 - [🧱 Architecture Diagram](docs/HMP-Agent-Architecture.md)
 - [🧪 Minimal API Reference](docs/HMP-Agent-API.md)
 - [🧪 Basic CLI Agent Simulation](docs/Basic-agent-sim.md)
+- [🌐 MeshNode.md](docs/MeshNode.md)
+- [🧠 Enlightener.md](docs/Enlightener.md)
 - [🛤️ Development Roadmap](HMP-Roadmap.md)
 
 ### ⚙️ Development / Разработка
