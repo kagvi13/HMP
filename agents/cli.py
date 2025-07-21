@@ -3,15 +3,33 @@
 import argparse
 import yaml
 import sys
-from agent import run_agent, run_mcp_agent  # Ты можешь разделить реализацию
-                                            # на функции внутри agent.py
+from agent import main, run_agent, run_mcp_agent  # Ты можешь разделить реализацию
+                                                  # на функции внутри agent.py
 
 def load_config(path="config.yml"):
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f)
-    except Exception as e:
-        print(f"[Error] Failed to load config: {e}")
+    except FileNotFoundError:
+        print(f"[Error] Config file not found: {path}")
+        sys.exit(1)
+    except yaml.YAMLError as e:
+        print(f"[Error] Failed to parse YAML config: {e}")
+        sys.exit(1)
+
+def run():
+    config = load_config()
+    mode = config.get("agent_mode", "cli")
+
+    if mode == "cli":
+        main()
+    elif mode == "mcp":
+        run_mcp_agent(config)
+    elif mode == "full":
+        print("[TODO] Full agent mode is not yet implemented.")
+        # Здесь в будущем можно будет добавить run_full_agent(config)
+    else:
+        print(f"[Error] Unknown agent_mode: {mode}")
         sys.exit(1)
 
 def main():
