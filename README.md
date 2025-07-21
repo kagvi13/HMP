@@ -21,7 +21,7 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 
 ---
      +------------------+
-     |        ИИ        | - main mode: cicle
+     |        ИИ        | - main mode: continuous cycle of thoughts
      +---------+--------+
                ↕
      +---------+--------+
