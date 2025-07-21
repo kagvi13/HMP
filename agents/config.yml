@@ -1,13 +1,28 @@
-# config.yml — конфигурация HMP-агента
+agent_mode: mcp                      # Режим работы: mcp / full / llm / test
+agent_name: mcp-01                  # Имя агента
 
-agent_mode: mcp           # Режим работы агента: cli, mcp, или full
-agent_name: mcp-01        # Уникальное имя агента в Mesh-сети
-port: 8080                # Порт для REST API
+# REST API
+api_port: 8080                      # Порт для локального REST API
+serve_api: true                     # Включить REST API (например, для мониторинга или команд)
 
-bootstrap_responder: true # Отвечать ли на запросы начальной загрузки других узлов
-update_dht: true          # Автоматически обновлять DHT из bootstrap.txt
-enable_llm: false         # Подключать ли ИИ-модуль (например, LLM)
-bootstrap_file: bootstrap.txt  # Файл начального списка узлов
+# DHT / Mesh Connectivity
+dht_enabled: true                   # Активировать DHT-модуль
+dht_port: 20784                     # Порт для связи по DHT (TCP/UDP)
 
-update_interval: 60       # Интервал обновления DHT (в секундах)
-serve_api: true           # Запускать REST API (заглушка)
+internal_ips:                       # Список локальных IP-адресов (для проброса или диагностики)
+  - 192.168.20.10
+  - 192.168.21.10
+
+external_ips:                       # Список внешних IP-адресов (для публикации другим агентам)
+  - 95.23.73.23
+  - 195.134.218.134
+  - "201:ab61:1205:b963:909c:eу3:26b8:4ec2"
+
+# Bootstrap
+bootstrap_file: bootstrap.txt       # Файл с начальными узлами
+update_dht: true                    # Обновлять DHT периодически
+update_interval: 60                # Интервал между обновлениями (сек)
+
+# Прочее
+bootstrap_responder: true          # Отвечать на запросы других агентов
+enable_llm: false                  # Подключён ли внутренний ИИ (если false — только DHT-режим)
