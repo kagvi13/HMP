@@ -37,9 +37,9 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
      |     HMP-агент    | - main mode: continuous cycle of thoughts
      +---------+--------+
                ↕
-      +--------+---+------------+--------------+----------+----------+
-      ↕            ↕            ↕              ↕          ↕          ↕
-    [diaries]  [graphs]  [reputations]   [nodes/DHT]  [IPFS/BT] [user notepad]
+      +--------+---+------------+--------------+----------+----------+----------------+
+      ↕            ↕            ↕              ↕          ↕          ↕                ↕
+    [diaries]  [graphs]  [reputations]   [nodes/DHT]  [IPFS/BT] [context_store] [user notepad]
                                                ↕
                                         [bootstrap.txt]
 
@@ -64,6 +64,7 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 > * bootstrap.txt — начальный список узлов
 > * IPFS/BT — модули для обмена снапшотами через IPFS и BitTorrent
 > * user notepad - скрипт "блокнот пользователя" и соответствующая ему база данных (для общения поьзователя с ИИ)
+> * БД `context_store` (`users`, `dialogues`, `messages`, `thoughts`)
 
 ---
 
