@@ -22,6 +22,7 @@ agents/
 * [cli.py](cli.py) - запуск агента в нужном режиме
 * [repl.py](repl.py) - интерактивный REPL-режим
 * [diagnose.py](diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
+* tools
   * notebook_store.py - Хранилище пользовательских записей
   * similarity.py - Сравнение смыслов
   * llm.py - Генерация мысли
