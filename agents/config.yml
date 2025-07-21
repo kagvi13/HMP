@@ -1,6 +1,9 @@
 agent_mode: mcp                      # Режим работы: mcp / full / llm / test
 agent_name: mcp-01                  # Имя агента
 
+llm_backend: openai
+llm_model: gpt-4
+
 # REST API
 api_port: 8080                      # Порт для локального REST API
 serve_api: true                     # Включить REST API (например, для мониторинга или команд)
