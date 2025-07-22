@@ -275,6 +275,7 @@ def search_entries(query: str):
 @app.post("/import_graph")
 def import_graph(graph_data: dict):
     concept_store.import_from_json(graph_data)
+    print(f"[INFO] Imported {len(graph_data.get('nodes', []))} nodes, {len(graph_data.get('edges', []))} edges")
     return {"status": "ok"}
 
 # === Shutdown ===
