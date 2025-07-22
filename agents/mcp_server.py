@@ -7,8 +7,8 @@ from datetime import datetime
 from storage import Storage
 from tools.concept_store import ConceptStore
 from tools.notebook_store import NotebookStore
-notebook_store = NotebookStore()
 
+notebook_store = NotebookStore()
 concept_store = ConceptStore()
 app = FastAPI(title="HMP MCP-Agent API", version="0.1")
 
