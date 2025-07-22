@@ -25,7 +25,6 @@ class Notebook:
         ''')
         self.conn.commit()
 
-
     def add_note(self, text, source="user"):
         ts = datetime.utcnow().isoformat()
         self.conn.execute(
