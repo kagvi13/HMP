@@ -1,15 +1,29 @@
-# agents/agent.py
+# agent.py
 
 import argparse
-from storage import Storage
+import yaml
 import time
 import threading
+import sys
+from storage import Storage
+
+def load_config(path="config.yml"):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
+        print(f"[Error] Config file not found: {path}")
+        return {}
+    except yaml.YAMLError as e:
+        print(f"[Error] Failed to parse YAML config: {e}")
+        return {}
 
 def main():
     parser = argparse.ArgumentParser(description="HMP Agent CLI")
+    parser.add_argument("--config", default="config.yml", help="Путь к конфигурационному файлу")
     subparsers = parser.add_subparsers(dest="command")
 
-    # Diary commands
+    # 🧠 Diary commands
     write_parser = subparsers.add_parser("write_entry", help="Добавить запись в когнитивный дневник")
     write_parser.add_argument("text")
     write_parser.add_argument("--tags", nargs="*", help="Теги (опционально)")
@@ -21,7 +35,7 @@ def main():
     search_time_parser.add_argument("--from_ts", required=True)
     search_time_parser.add_argument("--to_ts", required=True)
 
-    # Graph commands
+    # 🔗 Graph commands
     concept_parser = subparsers.add_parser("add_concept", help="Добавить концепт")
     concept_parser.add_argument("name")
     concept_parser.add_argument("--description", help="Описание (опционально)")
@@ -36,9 +50,14 @@ def main():
     expand_parser.add_argument("--depth", type=int, default=1)
 
     args = parser.parse_args()
-    storage = Storage()
 
-    # Diary logic
+    # Загрузка конфигурации
+    config = load_config(args.config)
+    storage = Storage(config=config)
+
+    print(f"[Agent] Запущена команда: {args.command}")
+
+    # 📓 Diary logic
     if args.command == "write_entry":
         storage.write_entry(args.text, args.tags)
         print("✅ Запись добавлена.")
@@ -52,7 +71,7 @@ def main():
         for e in results:
             print(f"[{e[0]}] {e[1]} | tags: {e[2]} | ts: {e[3]}")
 
-    # Graph logic
+    # 🧠 Graph logic
     elif args.command == "add_concept":
         cid = storage.add_concept(args.name, args.description)
         print(f"✅ Концепт добавлен с ID: {cid}")
@@ -72,11 +91,12 @@ def main():
 
     storage.close()
 
+# 🌐 MCP Agent Logic
 def run_mcp_agent(config):
     print(f"[HMP-MCP] MCP-Agent '{config.get('agent_name', 'unnamed')}' запущен в DHT-режиме")
-    
+
     bootstrap_path = config.get("bootstrap_file", "bootstrap.txt")
-    update_interval = config.get("update_interval", 30)  # секунд между обновлениями
+    update_interval = config.get("update_interval", 30)
     enable_api = config.get("serve_api", True)
 
     def load_bootstrap():
@@ -92,7 +112,6 @@ def run_mcp_agent(config):
         print(f"[MCP] Найдено {len(nodes)} узлов в bootstrap.txt:")
         for node in nodes:
             print(f" ↪️  Пинг {node} (заглушка)")
-            # Здесь в будущем можно использовать ping + REST-запросы
         print("[MCP] Обновление DHT завершено.")
 
     def mcp_loop():
@@ -100,14 +119,12 @@ def run_mcp_agent(config):
             update_dht()
             time.sleep(update_interval)
 
-    # Фоновый цикл обновления DHT
     threading.Thread(target=mcp_loop, daemon=True).start()
 
-    # REST API заглушка (можно заменить на FastAPI / Flask)
     if enable_api:
         print("[MCP] REST API (заглушка) доступен по адресу http://localhost:8000/")
         print("      В будущем: /bootstrap, /status, /reputation/:id и пр.")
-    
+
     try:
         while True:
             time.sleep(1)
