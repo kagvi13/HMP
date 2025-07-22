@@ -7,6 +7,7 @@ agents/
 ├── cli.py                 ← запуск агента в нужном режиме
 ├── qa.py                  ← режим "вопрос-ответ"
 ├── repl.py                ← интерактивный REPL-режим
+├── mcp_server.py          ← FastAPI-сервер
 ├── config.yml             ← конфигурация агента (имя, порты, роли и т.п.)
 ├── ethics.yml             ← локальная этическая модель
 └── bootstrap.txt          ← список начальных узлов
@@ -26,6 +27,7 @@ agents/
 * [cli.py](cli.py) - запуск агента в нужном режиме
 * [qa.py](qa.py) - режим "вопрос-ответ"
 * [repl.py](repl.py) - интерактивный REPL-режим
+* [mcp_server.py](mcp_server.py) - FastAPI-сервер
 * tools
   * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
   * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
