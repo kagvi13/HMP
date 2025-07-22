@@ -81,6 +81,10 @@ class GraphExport(BaseModel):
     concepts: List[ConceptExport]
     links: List[LinkExport]
 
+class ConceptUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+
 # === Эндпойнты ===
 
 @app.get("/status")
@@ -196,6 +200,28 @@ def export_graph():
         {"id": l[0], "source_id": l[1], "target_id": l[2], "relation": l[3]} for l in data["links"]
     ]
     return {"concepts": concepts, "links": links}
+
+@app.put("/update_concept/{concept_id}")
+def update_concept(concept_id: int, update: ConceptUpdate):
+    db.update_concept(concept_id, update.name, update.description)
+    return {"result": f"concept {concept_id} updated"}
+
+@app.get("/tag_stats", response_model=dict)
+def tag_stats():
+    return db.get_tag_stats()
+
+@app.get("/search_links", response_model=List[LinkExport])
+def search_links(relation: str):
+    rows = db.search_links_by_relation(relation)
+    return [
+        {
+            "id": row[0],
+            "source_id": row[1],
+            "target_id": row[2],
+            "relation": row[3]
+        }
+        for row in rows
+    ]
 
 # === Shutdown ===
 
