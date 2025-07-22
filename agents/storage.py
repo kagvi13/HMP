@@ -90,6 +90,13 @@ class Storage:
         self.conn.commit()
         return cursor.lastrowid
 
+    def query_concept(self, name_substr):
+        cursor = self.conn.execute(
+            'SELECT id, name, description FROM concepts WHERE name LIKE ?',
+            (f"%{name_substr}%",)
+        )
+    return cursor.fetchall()
+
     def add_link(self, source_id, target_id, relation):
         self.conn.execute(
             'INSERT INTO links (source_id, target_id, relation) VALUES (?, ?, ?)',
