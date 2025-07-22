@@ -1,4 +1,4 @@
-# agents/llm.py
+# agents/tools/llm.py
 
 def ask_llm(prompt: str) -> str:
     # Заглушка — здесь будет вызов модели
