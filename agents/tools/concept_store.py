@@ -27,7 +27,6 @@ class Concept:
             tags=data.get("tags", [])
         )
 
-
 class Edge:
     def __init__(self, source: str, target: str, relation: str = "related_to"):
         self.source = source
