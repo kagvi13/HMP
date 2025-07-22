@@ -17,11 +17,14 @@ class Notebook:
             CREATE TABLE IF NOT EXISTS notes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 text TEXT NOT NULL,
-                source TEXT DEFAULT 'user',  -- например, 'user', 'imported', 'agent'
-                timestamp TEXT NOT NULL
+                source TEXT DEFAULT 'user',
+                timestamp TEXT NOT NULL,
+                read INTEGER DEFAULT 0,
+                tags TEXT
             )
         ''')
         self.conn.commit()
+
 
     def add_note(self, text, source="user"):
         ts = datetime.utcnow().isoformat()
@@ -46,6 +49,42 @@ class Notebook:
             (since_ts,)
         )
         return cursor.fetchall()
+
+    def get_first_unread_note(self):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT id, text, source, timestamp, tags FROM notes WHERE read = 0 ORDER BY id ASC LIMIT 1"
+        )
+        return cursor.fetchone()
+
+    def mark_note_as_read(self, note_id: int):
+        self.conn.execute(
+            "UPDATE notes SET read = 1 WHERE id = ?",
+            (note_id,)
+        )
+        self.conn.commit()
+
+    def set_tags(self, note_id: int, tags: list[str]):
+        tag_str = ",".join(tags)
+        self.conn.execute(
+            "UPDATE notes SET tags = ? WHERE id = ?",
+            (tag_str, note_id)
+        )
+        self.conn.commit()
+
+    def get_random_note_by_tags(self, include_tags: list[str]):
+        cursor = self.conn.cursor()
+        like_clauses = " OR ".join(["tags LIKE ?"] * len(include_tags))
+        values = [f"%{tag}%" for tag in include_tags]
+        query = f"""
+            SELECT id, text, source, timestamp, tags
+            FROM notes
+            WHERE ({like_clauses})
+            ORDER BY RANDOM()
+            LIMIT 1
+        """
+        cursor.execute(query, values)
+        return cursor.fetchone()
 
     def close(self):
         self.conn.close()
