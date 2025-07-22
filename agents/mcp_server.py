@@ -119,10 +119,10 @@ def add_concept(concept: ConceptInput):
     cid = db.add_concept(concept.name, concept.description)
     return {"concept_id": cid}
 
-@app.post("/add_link", response_model=dict)
+@app.post("/add_link", response_model=LinkOutput)
 def add_link(link: LinkInput):
-    db.add_link(link.source_id, link.target_id, link.relation)
-    return {"result": "link added"}
+    link_id = db.add_link(link.source_id, link.target_id, link.relation)
+    return {"link_id": link_id}
 
 @app.get("/expand_graph", response_model=GraphExpansionOutput)
 def expand_graph(start_id: int, depth: int = 1):
@@ -140,17 +140,17 @@ def query_concept(name: str):
         ]
     }
 
-@app.get("/get_concepts", response_model=List[Concept])
-def get_concepts():
-    rows = db.get_concepts()
+@app.get("/list_concepts", response_model=List[Concept])
+def list_concepts():
+    rows = db.list_concepts()
     return [
         {"concept_id": row[0], "name": row[1], "description": row[2]}
         for row in rows
     ]
 
-@app.get("/get_links", response_model=List[Edge])
-def get_links():
-    rows = db.get_links()
+@app.get("/list_links", response_model=List[Edge])
+def list_links():
+    rows = db.list_links()
     return [
         {"source_id": row[1], "target_id": row[2], "relation": row[3]}
         for row in rows
