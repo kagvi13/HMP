@@ -159,5 +159,33 @@ class Storage:
 
         return {"concepts": concepts, "links": links}
 
+    def update_concept(self, concept_id, name=None, description=None):
+        cursor = self.conn.cursor()
+        if name is not None:
+            cursor.execute('UPDATE concepts SET name = ? WHERE id = ?', (name, concept_id))
+        if description is not None:
+            cursor.execute('UPDATE concepts SET description = ? WHERE id = ?', (description, concept_id))
+        self.conn.commit()
+
+    def get_tag_stats(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT tags FROM diary_entries')
+        tag_counts = {}
+        for row in cursor.fetchall():
+            tags = row[0].split(",") if row[0] else []
+            for tag in tags:
+                tag = tag.strip()
+                if tag:
+                    tag_counts[tag] = tag_counts.get(tag, 0) + 1
+        return tag_counts
+
+    def search_links_by_relation(self, relation):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            'SELECT id, source_id, target_id, relation FROM links WHERE relation LIKE ?',
+            (f"%{relation}%",)
+        )
+        return cursor.fetchall()
+
     def close(self):
         self.conn.close()
