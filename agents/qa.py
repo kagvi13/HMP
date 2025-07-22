@@ -1,4 +1,4 @@
-# qa.py
+# agents/qa.py
 
 def run_qa_loop(config):
     print("[HMP-Agent] Запуск в QA-режиме (вопрос → ответ)")
