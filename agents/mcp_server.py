@@ -57,6 +57,30 @@ class Concept(BaseModel):
 class ConceptQueryOutput(BaseModel):
     matches: List[Concept]
 
+class DiaryEntry(BaseModel):
+    id: int
+    text: str
+    tags: List[str]
+    timestamp: str
+
+class DiaryExport(BaseModel):
+    entries: List[DiaryEntry]
+
+class ConceptExport(BaseModel):
+    id: int
+    name: str
+    description: Optional[str] = None
+
+class LinkExport(BaseModel):
+    id: int
+    source_id: int
+    target_id: int
+    relation: str
+
+class GraphExport(BaseModel):
+    concepts: List[ConceptExport]
+    links: List[LinkExport]
+
 # === Эндпойнты ===
 
 @app.get("/status")
@@ -146,6 +170,32 @@ def delete_link(link_id: int):
 def delete_entry(entry_id: int):
     db.delete_entry(entry_id)
     return {"result": f"entry {entry_id} deleted"}
+
+@app.get("/export_diary", response_model=DiaryExport)
+def export_diary():
+    rows = db.export_diary()
+    return {
+        "entries": [
+            {
+                "id": r[0],
+                "text": r[1],
+                "tags": r[2].split(",") if r[2] else [],
+                "timestamp": r[3]
+            }
+            for r in rows
+        ]
+    }
+
+@app.get("/export_graph", response_model=GraphExport)
+def export_graph():
+    data = db.export_graph()
+    concepts = [
+        {"id": c[0], "name": c[1], "description": c[2]} for c in data["concepts"]
+    ]
+    links = [
+        {"id": l[0], "source_id": l[1], "target_id": l[2], "relation": l[3]} for l in data["links"]
+    ]
+    return {"concepts": concepts, "links": links}
 
 # === Shutdown ===
 
