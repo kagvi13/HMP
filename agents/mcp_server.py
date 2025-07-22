@@ -223,6 +223,32 @@ def search_links(relation: str):
         for row in rows
     ]
 
+@app.get("/search_concepts", response_model=List[Concept])
+def search_concepts(query: str):
+    results = db.search_concepts(query)
+    return [
+        {"concept_id": row[0], "name": row[1], "description": row[2]}
+        for row in results
+    ]
+
+@app.post("/merge_concepts", response_model=dict)
+def merge_concepts(source_id: int, target_id: int):
+    db.merge_concepts(source_id, target_id)
+    return {"result": f"concept {source_id} merged into {target_id}"}
+
+@app.post("/relate_concepts", response_model=LinkOutput)
+def relate_concepts(source_name: str, target_name: str, relation: str):
+    sid = db.find_concept_id_by_name(source_name)
+    tid = db.find_concept_id_by_name(target_name)
+    if sid is None or tid is None:
+        raise HTTPException(status_code=404, detail="Concept not found")
+    link_id = db.add_link(sid, tid, relation)
+    return {"link_id": link_id}
+
+@app.get("/tag_cloud", response_model=dict)
+def tag_cloud():
+    return db.get_tag_stats()
+
 # === Shutdown ===
 
 @app.on_event("shutdown")
