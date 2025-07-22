@@ -1,4 +1,4 @@
 **Требования**
 
 - Python
-  - scikit-learn
+  - scikit-learn ("pip install scikit-learn")
