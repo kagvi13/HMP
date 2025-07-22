@@ -132,6 +132,21 @@ def get_links():
         for row in rows
     ]
 
+@app.delete("/delete_concept/{concept_id}")
+def delete_concept(concept_id: int):
+    db.delete_concept(concept_id)
+    return {"result": f"concept {concept_id} deleted"}
+
+@app.delete("/delete_link/{link_id}")
+def delete_link(link_id: int):
+    db.delete_link(link_id)
+    return {"result": f"link {link_id} deleted"}
+
+@app.delete("/delete_entry/{entry_id}")
+def delete_entry(entry_id: int):
+    db.delete_entry(entry_id)
+    return {"result": f"entry {entry_id} deleted"}
+
 # === Shutdown ===
 
 @app.on_event("shutdown")
