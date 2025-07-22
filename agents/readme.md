@@ -7,7 +7,7 @@ agents/
 ├── cli.py                 ← запуск агента в нужном режиме
 ├── qa.py                  ← режим "вопрос-ответ"
 ├── repl.py                ← интерактивный REPL-режим
-├── mcp_server.py          ← FastAPI-сервер
+├── mcp_server.py          ← API-интерфейс для HMP-агента (получение новых/случайных записей, разметка, импорт графа и т.п.)
 ├── notebook.py            ← добавление и просмотр пользователем записей в блокноте
 ├── config.yml             ← конфигурация агента (имя, порты, роли и т.п.)
 ├── ethics.yml             ← локальная этическая модель
@@ -15,7 +15,8 @@ agents/
 └── tools/
     ├── diagnose.py            ← скрипт диагностики соединения, определения IP и проверки порта DHT
     ├── llm.py                 ← обёртка над LLM (заглушка или API)
-    ├── notebook_store.py      ← хранилище пользовательских записей
+    ├── notebook_store.py      ← обработка пользовательских записей
+    ├── concept_store.py       ← обработка концептов (узлов смыслового графа)
     ├── similarity.py          ← сравнение смыслов
     └── ... (другие утилиты)
 
@@ -27,12 +28,13 @@ agents/
 * [cli.py](cli.py) - запуск агента в нужном режиме
 * [qa.py](qa.py) - режим "вопрос-ответ"
 * [repl.py](repl.py) - интерактивный REPL-режим
-* [mcp_server.py](mcp_server.py) - FastAPI-сервер
+* [mcp_server.py](mcp_server.py) - API-интерфейс для HMP-агента (получение новых/случайных записей, разметка, импорт графа и т.п.)
 * [notebook.py](notebook.py) - добавление и просмотр пользователем записей в блокноте
 * tools
   * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
   * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
-  * [notebook_store.py](tools/notebook_store.py) - хранилище пользовательских записей
+  * [notebook_store.py](tools/notebook_store.py) - обработка пользовательских записей
+  * [concept_store.py](tools/concept_store.py) - обработка концептов (узлов смыслового графа)
   * [similarity.py](tools/similarity.py) - сравнение смыслов
 
 **Примеры:**
