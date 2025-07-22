@@ -4,10 +4,11 @@ import sys
 import time
 import select
 from datetime import datetime
+
 from storage import Storage
 from tools.notebook_store import Notebook
-from tools import llm  # генератор мыслей
-# from tools.similarity import is_similar  # можно подключить позже
+from tools import llm
+from tools.similarity import is_similar  # ✅ заменяет заглушку
 
 def print_thought(thought, prefix="💡"):
     print(f"{prefix} {thought}")
@@ -21,14 +22,12 @@ def wait_for_input(timeout=10):
         print("⏱️ Нет ввода. Продолжаю размышления...")
         return None
 
-def thoughts_are_similar(t1, t2):
-    return t1.strip() == t2.strip()  # временная заглушка
-
 def run_repl(config=None):
     print("[🧠 HMP-Agent] Запуск REPL-режима.")
     config = config or {}
     agent_name = config.get("agent_name", "Unnamed-Agent")
     repl_timeout = config.get("repl_timeout", 10)
+    similarity_threshold = config.get("similarity_threshold", 0.9)
 
     db = Storage(config=config)
     notebook = Notebook()
@@ -40,12 +39,12 @@ def run_repl(config=None):
         last = thoughts[-1]
         next_thought = llm.generate_thought(last, config=config)
 
-        if not thoughts_are_similar(last, next_thought):
+        if not is_similar(last, next_thought, threshold=similarity_threshold):
             print_thought(next_thought)
             db.write_entry(next_thought, tags=["thought"])
             thoughts.append(next_thought)
         else:
-            print("🤔 Мысль повторяется. Проверяю блокнот...")
+            print("🤔 Мысль слишком похожа. Проверяю блокнот...")
 
         # Проверка новых пользовательских заметок
         new_notes = notebook.get_notes_after(last_check_time)
