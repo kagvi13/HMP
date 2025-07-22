@@ -15,9 +15,8 @@ agents/
 └── tools/
     ├── diagnose.py            ← скрипт диагностики соединения, определения IP и проверки порта DHT
     ├── llm.py                 ← обёртка над LLM (заглушка или API)
-    ├── notebook_store.py      ← Хранилище пользовательских записей
-    ├── similarity.py          ← Сравнение смыслов
-    ├── llm.py                 ← Генерация мысли
+    ├── notebook_store.py      ← хранилище пользовательских записей
+    ├── similarity.py          ← сравнение смыслов
     └── ... (другие утилиты)
 
 ```
@@ -33,8 +32,8 @@ agents/
 * tools
   * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
   * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
-  * [notebook_store.py](tools/notebook_store.py) - Хранилище пользовательских записей
-  * [similarity.py](tools/similarity.py) - Сравнение смыслов
+  * [notebook_store.py](tools/notebook_store.py) - хранилище пользовательских записей
+  * [similarity.py](tools/similarity.py) - сравнение смыслов
 
 **Примеры:**
 * [config.yml](config.yml) - конфигурация агента (пример)
