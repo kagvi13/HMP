@@ -49,6 +49,14 @@ class Edge(BaseModel):
 class GraphExpansionOutput(BaseModel):
     links: List[Edge]
 
+class Concept(BaseModel):
+    concept_id: int
+    name: str
+    description: Optional[str] = None
+
+class ConceptQueryOutput(BaseModel):
+    matches: List[Concept]
+
 # === Эндпойнты ===
 
 @app.get("/status")
