@@ -1,4 +1,4 @@
-# agent.py
+# agents/agent.py
 
 import argparse
 import yaml
