@@ -106,6 +106,16 @@ def expand_graph(start_id: int, depth: int = 1):
     edges = [{"source_id": s, "target_id": t, "relation": r} for s, t, r in raw_links]
     return {"links": edges}
 
+@app.get("/query_concept", response_model=ConceptQueryOutput)
+def query_concept(name: str):
+    results = db.query_concept(name)
+    return {
+        "matches": [
+            {"concept_id": row[0], "name": row[1], "description": row[2]}
+            for row in results
+        ]
+    }
+
 # === Shutdown ===
 
 @app.on_event("shutdown")
