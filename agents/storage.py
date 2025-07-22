@@ -3,15 +3,18 @@
 import sqlite3
 from datetime import datetime
 
-DB_FILE = "agent_storage.db"
+DEFAULT_DB_PATH = "agent_storage.db"
 
 class Storage:
-    def __init__(self, db_path=DB_FILE):
+    def __init__(self, config=None):
+        self.config = config or {}
+        db_path = self.config.get("db_path", DEFAULT_DB_PATH)
         self.conn = sqlite3.connect(db_path)
         self._init_db()
 
     def _init_db(self):
         c = self.conn.cursor()
+        # 🧠 Таблица дневника
         c.execute('''
             CREATE TABLE IF NOT EXISTS diary_entries (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,6 +23,7 @@ class Storage:
                 timestamp TEXT NOT NULL
             )
         ''')
+        # 📚 Таблица концептов
         c.execute('''
             CREATE TABLE IF NOT EXISTS concepts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,6 +31,7 @@ class Storage:
                 description TEXT
             )
         ''')
+        # 🔗 Таблица связей
         c.execute('''
             CREATE TABLE IF NOT EXISTS links (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,26 +44,32 @@ class Storage:
         ''')
         self.conn.commit()
 
-    # --- Diary API ---
+    # --- 🧠 Diary API ---
     def write_entry(self, text, tags=None):
-        ts = datetime.utcnow().isoformat()
+        timestamp = datetime.utcnow().isoformat()
         tag_str = ",".join(tags) if tags else ""
         self.conn.execute(
             'INSERT INTO diary_entries (text, tags, timestamp) VALUES (?, ?, ?)',
-            (text, tag_str, ts)
+            (text, tag_str, timestamp)
         )
         self.conn.commit()
 
     def read_entries(self, limit=10, tag_filter=None):
         cursor = self.conn.cursor()
         if tag_filter:
+            # Простейшая фильтрация по включению строки
+            if isinstance(tag_filter, list):
+                tag_filter = ",".join(tag_filter)
             like_expr = f"%{tag_filter}%"
             cursor.execute(
                 'SELECT * FROM diary_entries WHERE tags LIKE ? ORDER BY id DESC LIMIT ?',
                 (like_expr, limit)
             )
         else:
-            cursor.execute('SELECT * FROM diary_entries ORDER BY id DESC LIMIT ?', (limit,))
+            cursor.execute(
+                'SELECT * FROM diary_entries ORDER BY id DESC LIMIT ?',
+                (limit,)
+            )
         return cursor.fetchall()
 
     def search_entries_by_time(self, from_ts, to_ts):
@@ -69,7 +80,7 @@ class Storage:
         )
         return cursor.fetchall()
 
-    # --- Graph API ---
+    # --- 🧠 Semantic Graph API ---
     def add_concept(self, name, description=None):
         cursor = self.conn.cursor()
         cursor.execute(
