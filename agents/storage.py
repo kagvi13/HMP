@@ -95,7 +95,8 @@ class Storage:
             'SELECT id, name, description FROM concepts WHERE name LIKE ?',
             (f"%{name_substr}%",)
         )
-    return cursor.fetchall()
+        return cursor.fetchall()
+
 
     def add_link(self, source_id, target_id, relation):
         self.conn.execute(
