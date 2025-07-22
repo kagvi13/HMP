@@ -1,3 +1,4 @@
+Текушие требования: [requirements.txt](requirements.txt)
 
 ```
 agents/
