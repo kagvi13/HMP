@@ -143,5 +143,20 @@ class Storage:
         self.conn.execute('DELETE FROM diary_entries WHERE id = ?', (entry_id,))
         self.conn.commit()
 
+    def export_diary(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT id, text, tags, timestamp FROM diary_entries ORDER BY id ASC')
+        return cursor.fetchall()
+
+    def export_graph(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT id, name, description FROM concepts ORDER BY id ASC')
+        concepts = cursor.fetchall()
+
+        cursor.execute('SELECT id, source_id, target_id, relation FROM links ORDER BY id ASC')
+        links = cursor.fetchall()
+
+        return {"concepts": concepts, "links": links}
+
     def close(self):
         self.conn.close()
