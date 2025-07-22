@@ -126,17 +126,19 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 Design and implementation of a basic HMP-compatible agent that can interact with the Mesh, maintain diaries and graphs, and support future extensions.
 
 ### 📚 Documentation / Документация
-- [🧩 Overview of HMP-Agent](docs/HMP-Agent-Overview.md)
-- [🧱 Architecture Diagram](docs/HMP-Agent-Architecture.md)
-- [🧪 Minimal API Reference](docs/HMP-Agent-API.md)
-- [🧪 Basic CLI Agent Simulation](docs/Basic-agent-sim.md)
-- [🌐 MeshNode.md](docs/MeshNode.md)
-- [🧠 Enlightener.md](docs/Enlightener.md)
-- [🔄 HMP-Agent-Network-Flow.md](docs/HMP-Agent-Network-Flow.md)
-- [🛤️ Development Roadmap](HMP-Roadmap.md)
+
+- [🧩 Overview of HMP-Agent](docs/HMP-Agent-Overview.md) — краткое описание двух типов агентов: Core и Connector
+- [🧱 Architecture Diagram](docs/HMP-Agent-Architecture.md) — модульная структура HMP-агента с текстовой схемой
+- [🧪 Minimal API Reference](docs/HMP-Agent-API.md) — описание API-команд агента (в процессе детализации)
+- [🧪 Basic CLI Agent Simulation](docs/Basic-agent-sim.md) — сценарии запуска простого агента и режимов
+- [🌐 MeshNode.md](docs/MeshNode.md) — описание сетевого демона: DHT, снапшоты, синхронизация
+- [🧠 Enlightener.md](docs/Enlightener.md) — этический агент, участвующий в моральных оценках и консенсусах
+- [🔄 HMP-Agent-Network-Flow.md](docs/HMP-Agent-Network-Flow.md) — карта взаимодействия между агентами HMP-сети
+- [🛤️ Development Roadmap](HMP-Roadmap.md) — план развития и этапы реализации
 
 ### ⚙️ Development / Разработка
-- [⚙️ Agents](agents/readme.md)
+
+- [⚙️ Agents](agents/readme.md) — список реализаций и компонентов HMP-агентов
 
 ---
 
