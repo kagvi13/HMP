@@ -1,4 +1,4 @@
-Текушие требования: [requirements.txt](requirements.txt)
+Текушие требования и зависимости: [requirements.txt](requirements.txt)
 
 ```
 agents/
