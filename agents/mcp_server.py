@@ -249,6 +249,30 @@ def relate_concepts(source_name: str, target_name: str, relation: str):
 def tag_cloud():
     return db.get_tag_stats()
 
+@app.get("/get_concept/{concept_id}")
+def get_concept(concept_id: str):
+    concept = concept_store.get(concept_id)
+    if concept:
+        return concept
+    raise HTTPException(status_code=404, detail="Concept not found")
+
+@app.get("/get_entry/{entry_id}")
+def get_entry(entry_id: str):
+    entry = notebook_store.get(entry_id)
+    if entry:
+        return entry
+    raise HTTPException(status_code=404, detail="Entry not found")
+
+@app.post("/search_entries")
+def search_entries(query: str):
+    results = notebook_store.search(query)
+    return results
+
+@app.post("/import_graph")
+def import_graph(graph_data: dict):
+    concept_store.import_from_json(graph_data)
+    return {"status": "ok"}
+
 # === Shutdown ===
 
 @app.on_event("shutdown")
