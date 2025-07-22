@@ -1,5 +1,6 @@
-# agents/tools/llm.py
+# tools/llm.py
 
-def ask_llm(prompt: str) -> str:
-    # Заглушка — здесь будет вызов модели
-    return f"[LLM-заглушка] Ответ на: {prompt}"
+from datetime import datetime
+
+def generate_thought(previous_thought, config=None):
+    return f"[{datetime.utcnow().isoformat()}] Думаю о: {previous_thought}"
