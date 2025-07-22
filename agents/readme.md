@@ -30,7 +30,6 @@ agents/
   * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
   * notebook_store.py - Хранилище пользовательских записей
   * similarity.py - Сравнение смыслов
-  * llm.py - Генерация мысли
 
 **Примеры:**
 * [config.yml](config.yml) - конфигурация агента (пример)
