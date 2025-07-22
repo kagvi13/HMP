@@ -7,6 +7,8 @@
 
 📚 Подробнее об архитектуре: [HMP-Agent-Architecture.md](HMP-Agent-Architecture.md)
 
+📎 См. карту взаимодействия между агентами: [HMP-Agent-Network-Flow.md](./HMP-Agent-Network-Flow.md)
+
 ---
 
 ## 🧠 HMP-Агент: Cognitive Core
