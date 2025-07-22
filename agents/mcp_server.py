@@ -5,7 +5,9 @@ from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
 from storage import Storage
+from tools.concept_store import ConceptStore
 
+concept_store = ConceptStore()
 app = FastAPI(title="HMP MCP-Agent API", version="0.1")
 
 db = Storage()
