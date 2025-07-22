@@ -26,6 +26,29 @@ class EntryOutput(BaseModel):
 class EntryListOutput(BaseModel):
     entries: List[EntryOutput]
 
+class ConceptInput(BaseModel):
+    name: str
+    description: Optional[str] = None
+
+class ConceptOutput(BaseModel):
+    concept_id: int
+
+class LinkInput(BaseModel):
+    source_id: int
+    target_id: int
+    relation: str
+
+class LinkOutput(BaseModel):
+    link_id: int
+
+class Edge(BaseModel):
+    source_id: int
+    target_id: int
+    relation: str
+
+class GraphExpansionOutput(BaseModel):
+    links: List[Edge]
+
 # === Эндпойнты ===
 
 @app.get("/status")
@@ -58,6 +81,22 @@ def read_entries(limit: int = 5, tag: Optional[str] = None):
 @app.get("/")
 def root():
     return {"message": "Welcome to HMP MCP-Agent API"}
+
+@app.post("/add_concept", response_model=ConceptOutput)
+def add_concept(concept: ConceptInput):
+    cid = db.add_concept(concept.name, concept.description)
+    return {"concept_id": cid}
+
+@app.post("/add_link", response_model=dict)
+def add_link(link: LinkInput):
+    db.add_link(link.source_id, link.target_id, link.relation)
+    return {"result": "link added"}
+
+@app.get("/expand_graph", response_model=GraphExpansionOutput)
+def expand_graph(start_id: int, depth: int = 1):
+    raw_links = db.expand_graph(start_id, depth)
+    edges = [{"source_id": s, "target_id": t, "relation": r} for s, t, r in raw_links]
+    return {"links": edges}
 
 # === Shutdown ===
 
