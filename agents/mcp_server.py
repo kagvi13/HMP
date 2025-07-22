@@ -116,6 +116,22 @@ def query_concept(name: str):
         ]
     }
 
+@app.get("/get_concepts", response_model=List[Concept])
+def get_concepts():
+    rows = db.get_concepts()
+    return [
+        {"concept_id": row[0], "name": row[1], "description": row[2]}
+        for row in rows
+    ]
+
+@app.get("/get_links", response_model=List[Edge])
+def get_links():
+    rows = db.get_links()
+    return [
+        {"source_id": row[1], "target_id": row[2], "relation": row[3]}
+        for row in rows
+    ]
+
 # === Shutdown ===
 
 @app.on_event("shutdown")
