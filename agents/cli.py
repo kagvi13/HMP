@@ -27,7 +27,7 @@ def launch():
     config = load_config(args.config)
     mode = args.mode or config.get("agent_mode", "cli")
 
-    elif mode == "interactive":
+    if mode == "interactive":
         run_repl(config)
 
     elif mode == "cli":
