@@ -26,8 +26,8 @@ agents/
 * [qa.py](qa.py) - режим "вопрос-ответ"
 * [repl.py](repl.py) - интерактивный REPL-режим
 * tools
-  * [llm.py](llm.py) - обёртка над LLM (заглушка или API)
-  * [diagnose.py](diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
+  * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
+  * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
   * notebook_store.py - Хранилище пользовательских записей
   * similarity.py - Сравнение смыслов
   * llm.py - Генерация мысли
