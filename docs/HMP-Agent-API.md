@@ -1,33 +1,49 @@
-## 🧠 **Минимальный API HMP-Агента (v0.1)**
+## 🧠 HMP-Agent API Specification (v0.2)
 
-### 🔹 1. Cognitive Diary API
+Этот документ описывает **базовый API** когнитивного агента HMP. Каждый вызов включает описание, параметры, возвращаемые значения и (опционально) пример использования.
+
+* ✅ Поддерживается в `🧠 Cognitive Core`
+* 🔌 Поддерживается в `Cognitive Connector`
+* 🧠+ Расширяется через `Enlightener` или `MeshNode`
+
+---
+
+### 🔹 1. Cognitive Diary API ✅ 🔌
 
 ```yaml
 write_entry:
-  description: Записать новую запись в дневник.
-  params: 
+  description: Записать новую запись в когнитивный дневник.
+  params:
     - text: str
     - tags: [str] (optional)
-  returns: entry_id: str
+    - timestamp: str (optional, ISO 8601)
+  returns:
+    entry_id: str
 ```
 
 ```yaml
 read_entries:
-  description: Получить последние N записей.
+  description: Получить последние N записей (с фильтром по тегам).
   params:
     - limit: int
     - tag_filter: [str] (optional)
-  returns: [entry]
+  returns:
+    - entries: 
+        - id: str
+          text: str
+          timestamp: str
+          tags: [str]
 ```
 
 ```yaml
 search_entries:
-  description: Найти записи по ключевым словам или диапазону времени.
+  description: Поиск записей по ключевым словам и времени.
   params:
     - query: str
-    - from_date: str (optional)
-    - to_date: str (optional)
-  returns: [entry]
+    - from_date: str (optional, ISO)
+    - to_date: str (optional, ISO)
+  returns:
+    - entries: [entry]
 ```
 
 ---
