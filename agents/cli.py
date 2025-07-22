@@ -1,4 +1,4 @@
-# cli.py
+# agents/cli.py
 
 import argparse
 import yaml
