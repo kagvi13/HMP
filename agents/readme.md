@@ -28,8 +28,8 @@ agents/
 * tools
   * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
   * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
-  * notebook_store.py - Хранилище пользовательских записей
-  * similarity.py - Сравнение смыслов
+  * [notebook_store.py](tools/notebook_store.py) - Хранилище пользовательских записей
+  * [similarity.py](tools/similarity.py) - Сравнение смыслов
 
 **Примеры:**
 * [config.yml](config.yml) - конфигурация агента (пример)
