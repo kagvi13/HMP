@@ -45,10 +45,19 @@ class LinkInput(BaseModel):
 class LinkOutput(BaseModel):
     link_id: int
 
+class Node(BaseModel):
+    id: str
+    label: str
+    tags: List[str] = []
+
 class Edge(BaseModel):
-    source_id: int
-    target_id: int
+    source: str
+    target: str
     relation: str
+
+class GraphImportData(BaseModel):
+    nodes: List[Node] = []
+    edges: List[Edge] = []
 
 class GraphExpansionOutput(BaseModel):
     links: List[Edge]
@@ -273,9 +282,9 @@ def search_entries(query: str):
     return results
 
 @app.post("/import_graph")
-def import_graph(graph_data: dict):
-    concept_store.import_from_json(graph_data)
-    print(f"[INFO] Imported {len(graph_data.get('nodes', []))} nodes, {len(graph_data.get('edges', []))} edges")
+def import_graph(graph_data: GraphImportData):
+    concept_store.import_from_json(graph_data.dict())
+    print(f"[INFO] Imported {len(graph_data.nodes)} nodes, {len(graph_data.edges)} edges")
     return {"status": "ok"}
 
 # === Shutdown ===
