@@ -97,18 +97,19 @@ class Storage:
         )
         return cursor.fetchall()
 
-
     def add_link(self, source_id, target_id, relation):
-        self.conn.execute(
+        cursor = self.conn.cursor()
+        cursor.execute(
             'INSERT INTO links (source_id, target_id, relation) VALUES (?, ?, ?)',
             (source_id, target_id, relation)
         )
         self.conn.commit()
+        return cursor.lastrowid
 
-    def get_concepts(self):
+    def list_concepts(self):
         return self.conn.execute('SELECT * FROM concepts').fetchall()
 
-    def get_links(self):
+    def list_links(self):
         return self.conn.execute('SELECT * FROM links').fetchall()
 
     def expand_graph(self, start_id, depth):
