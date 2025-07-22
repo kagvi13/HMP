@@ -1,4 +1,4 @@
-**Требования и зависимости**
+Требования и зависимости
 
 - Python
   - scikit-learn ("pip install scikit-learn")
