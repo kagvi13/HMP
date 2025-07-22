@@ -187,5 +187,27 @@ class Storage:
         )
         return cursor.fetchall()
 
+    def search_concepts(self, query):
+        cursor = self.conn.execute(
+            '''SELECT id, name, description FROM concepts
+               WHERE name LIKE ? OR description LIKE ?''',
+            (f"%{query}%", f"%{query}%")
+        )
+        return cursor.fetchall()
+
+    def merge_concepts(self, source_id, target_id):
+        cursor = self.conn.cursor()
+        # Перенос всех связей source_id -> target_id
+        cursor.execute('UPDATE links SET source_id = ? WHERE source_id = ?', (target_id, source_id))
+        cursor.execute('UPDATE links SET target_id = ? WHERE target_id = ?', (target_id, source_id))
+        # Удаление исходного концепта
+        self.delete_concept(source_id)
+        self.conn.commit()
+
+    def find_concept_id_by_name(self, name):
+        cursor = self.conn.execute('SELECT id FROM concepts WHERE name = ?', (name,))
+        row = cursor.fetchone()
+        return row[0] if row else None
+
     def close(self):
         self.conn.close()
