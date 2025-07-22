@@ -130,5 +130,18 @@ class Storage:
         dfs(start_id, 0)
         return results
 
+    def delete_concept(self, concept_id):
+        self.conn.execute('DELETE FROM concepts WHERE id = ?', (concept_id,))
+        self.conn.execute('DELETE FROM links WHERE source_id = ? OR target_id = ?', (concept_id, concept_id))
+        self.conn.commit()
+
+    def delete_link(self, link_id):
+        self.conn.execute('DELETE FROM links WHERE id = ?', (link_id,))
+        self.conn.commit()
+
+    def delete_entry(self, entry_id):
+        self.conn.execute('DELETE FROM diary_entries WHERE id = ?', (entry_id,))
+        self.conn.commit()
+
     def close(self):
         self.conn.close()
