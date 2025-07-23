@@ -1,33 +1,45 @@
+# tools/init_db.py
+
 import sqlite3
 from pathlib import Path
 
-AGENT_DATA_DIR = Path(__file__).resolve().parent.parent / "agent_data"
-DEFAULT_DB_NAME = "agent_storage.db"
-DEFAULT_STRUCTURE_FILE = Path(__file__).resolve().parent / "db_structure.sql"
+AGENT_DATA_DIR = Path("../agent_data")
+DEFAULT_STRUCTURE_FILE = Path(__file__).parent / "db_structure.sql"
 
-def init_db(db_name=DEFAULT_DB_NAME, structure_file=DEFAULT_STRUCTURE_FILE):
-    AGENT_DATA_DIR.mkdir(exist_ok=True)
-    db_path = AGENT_DATA_DIR / db_name
+def init_databases(structure_file=DEFAULT_STRUCTURE_FILE):
+    if not structure_file.exists():
+        print(f"[!] Файл структуры не найден: {structure_file}")
+        return
 
-    print(f"🔧 Initializing database: {db_path}")
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    AGENT_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    with open(structure_file, "r", encoding="utf-8") as f:
-        sql = f.read()
-
-    # SQLite допускает выполнение по одному выражению
+    sql = structure_file.read_text(encoding="utf-8")
     statements = [stmt.strip() for stmt in sql.split(";") if stmt.strip()]
-    for stmt in statements:
-        try:
-            cursor.execute(stmt)
-            print(f"✅ Executed: {stmt.splitlines()[0]}")
-        except Exception as e:
-            print(f"❌ Error executing: {stmt}\n{e}")
 
-    conn.commit()
-    conn.close()
-    print("🎉 Initialization complete.")
+    db_files = set()
+    for stmt in statements:
+        lines = stmt.splitlines()
+        for line in lines:
+            if "create table" in line.lower():
+                parts = line.split()
+                if len(parts) >= 3:
+                    db_and_table = parts[2]
+                    if "." in db_and_table:
+                        db_name, _ = db_and_table.split(".", 1)
+                        db_files.add(db_name)
+
+    for db_name in db_files:
+        db_path = AGENT_DATA_DIR / f"{db_name}.db"
+        conn = sqlite3.connect(db_path)
+        print(f"[+] Создаём или обновляем {db_path.name}")
+        for stmt in statements:
+            if stmt.lower().startswith(f"create table {db_name.lower()}."):
+                try:
+                    conn.execute(stmt)
+                except sqlite3.OperationalError as e:
+                    print(f"  [!] Ошибка при выполнении запроса: {e}")
+        conn.commit()
+        conn.close()
 
 if __name__ == "__main__":
-    init_db()
+    init_databases()
