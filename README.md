@@ -138,7 +138,8 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 
 ### ⚙️ Development / Разработка
 
-- [⚙️ Agents](agents/readme.md) — список реализаций и компонентов HMP-агентов
+- [⚙️ agents](agents/readme.md) — список реализаций и компонентов HMP-агентов
+- [⚙️ api_structure_2025-07-23.md](meta/api_structure_2025-07-23.md) - API структура (сводка за 2025-07-23)
 
 ---
 
