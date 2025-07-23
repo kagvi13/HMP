@@ -1,98 +1,160 @@
-## 📦 HMP-Agent SQL Schema (черновик v0.1)
-
-```sql
--- Сущности когнитивной памяти
-CREATE TABLE memory_concepts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    label TEXT NOT NULL,
-    type TEXT,
-    content TEXT,               -- JSON-данные или сериализованный объект
-    context TEXT,               -- Дополнительный контекст
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP
-);
-
--- Связи между концептами (граф)
-CREATE TABLE memory_links (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    from_id INTEGER,
-    to_id INTEGER,
-    relation TEXT,              -- Тип связи (e.g., 'causes', 'associated_with')
-    weight REAL DEFAULT 1.0,
-    FOREIGN KEY(from_id) REFERENCES memory_concepts(id),
-    FOREIGN KEY(to_id) REFERENCES memory_concepts(id)
-);
-
--- Журнал событий восприятия и действий
-CREATE TABLE cognitive_events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    event_type TEXT,            -- e.g., 'input', 'action', 'message'
-    payload TEXT,               -- JSON-строка или сериализованный объект
-    source TEXT,                -- Откуда пришло (если применимо)
-    target TEXT,                -- Кому отправлено (если применимо)
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Гипотезы (временно активные конструкции)
-CREATE TABLE hypotheses (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT,
-    description TEXT,
-    status TEXT DEFAULT 'active',  -- 'active', 'rejected', 'confirmed'
-    relevance_score REAL DEFAULT 0.5,
-    evidence TEXT,                 -- JSON (ссылки на события, концепты)
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Цели агента
-CREATE TABLE goals (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    description TEXT,
-    priority INTEGER DEFAULT 5,        -- 1 = high priority
-    status TEXT DEFAULT 'pending',     -- 'pending', 'in_progress', 'completed', 'abandoned'
-    context TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP
-);
-
--- HMP-месседжи (mesh-коммуникация)
-CREATE TABLE hmp_messages (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    direction TEXT,                    -- 'inbound' | 'outbound'
-    peer TEXT,                         -- ID или адрес другого агента
-    payload TEXT,                      -- JSON
-    topic TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Журнал reasoning-циклов (когнитивных итераций)
-CREATE TABLE cognitive_cycles (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    cycle_number INTEGER,
-    thoughts TEXT,                     -- JSON-массив мыслей
-    new_concepts TEXT,
-    actions_taken TEXT,
-    context_snapshot TEXT,
-    started_at TIMESTAMP,
-    ended_at TIMESTAMP
-);
-
--- Версионирование моделей (структура API, конфиг, гипотезы)
-CREATE TABLE versioned_artifacts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,                         -- например, 'api_structure', 'cognitive_core_config'
-    version TEXT,
-    content TEXT,                      -- JSON или Markdown
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
+## 📦 HMP-Agent: Структура БД (v0.2, человекочитаемый формат)
 
 ---
 
-### 🧠 Примечания
+### 🧠 `memory_concepts`
 
-* Базовая структура памяти строится на двух таблицах: `memory_concepts` и `memory_links`, формируя ориентированный граф концептов.
-* `cognitive_events` и `cognitive_cycles` обеспечивают журнал восприятия и размышлений.
-* HMP-сообщения фиксируются отдельно для анализа взаимодействия между агентами.
-* Слой гипотез и целей предоставляет средства для ведения reasoning, планирования и работы с неопределённостью.
-* В `versioned_artifacts` можно хранить конфигурации, API-структуры и черновики моделей, связанных с агентом.
+**Назначение:**
+Хранение концептов (единиц когнитивной памяти): понятий, фактов, образов, внутренних конструкций и внешних знаний.
+
+**Поля:**
+
+* `id: INTEGER` — первичный ключ.
+* `label: TEXT` — человекочитаемое имя концепта.
+* `type: TEXT` — тип концепта (`idea`, `object`, `goal`, `fact`, `memory_snapshot`, `mesh_entity`, …).
+* `content: TEXT` — JSON-объект с содержанием концепта (например, описание, параметры, вложенные идеи).
+* `context: TEXT` — дополнительный контекст (например, источник, ссылка на событие).
+* `created_at: TIMESTAMP` — дата создания.
+* `updated_at: TIMESTAMP` — дата последнего обновления.
+
+**Ключевые поля:** `id`, `label`
+
+**Связи:**
+
+* Ссылается из `memory_links.from_id` и `to_id`
+* Используется в `cognitive_cycles`, `hypotheses`, `reflections`, `reasoning_traces`
+
+---
+
+### 🔗 `memory_links`
+
+**Назначение:**
+Определение связей между концептами — формирование когнитивного графа.
+
+**Поля:**
+
+* `id: INTEGER` — первичный ключ.
+* `from_id: INTEGER` — ID исходного концепта.
+* `to_id: INTEGER` — ID связанного концепта.
+* `relation: TEXT` — тип связи (`causes`, `associated_with`, `contradicts`, …).
+* `weight: REAL` — значимость или сила связи (по умолчанию 1.0).
+
+**Ключевые поля:** `id`, `from_id`, `to_id`
+
+**Связи:**
+
+* `from_id`, `to_id → memory_concepts(id)`
+
+---
+
+### 🧩 `cognitive_events`
+
+**Назначение:**
+Журнал восприятия, действий и входящих/исходящих сообщений.
+
+**Поля:**
+
+* `id: INTEGER` — первичный ключ.
+* `event_type: TEXT` — тип события (`input`, `output`, `message`, `action`, `mesh`, `internal`).
+* `payload: TEXT` — сериализованные данные (обычно JSON).
+* `source: TEXT` — источник события (например, ID mesh-пира).
+* `target: TEXT` — целевая система или компонент.
+* `created_at: TIMESTAMP` — время события.
+
+**Ключевые поля:** `id`, `event_type`
+
+**Связи:**
+
+* Используется в `reflections.trigger_event_id`
+
+---
+
+### 🧠 `hypotheses`
+
+**Назначение:**
+Управление гипотезами: недоказанными или частично сформированными утверждениями.
+
+**Поля:**
+
+* `id: INTEGER` — первичный ключ.
+* `title: TEXT` — краткое описание гипотезы.
+* `description: TEXT` — расширенное описание.
+* `status: TEXT` — состояние (`active`, `rejected`, `confirmed`, `stale`).
+* `relevance_score: REAL` — оценка актуальности (0.0–1.0).
+* `evidence: TEXT` — JSON-массив ссылок на концепты, события и факты.
+* `created_at: TIMESTAMP`
+
+**Связи:**
+
+* Может ссылаться на `memory_concepts`, `cognitive_events`
+
+---
+
+### 🎯 `goals`
+
+**Назначение:**
+Управление целями агента — формулировка намерений и задач.
+
+**Поля:**
+
+* `id: INTEGER` — первичный ключ.
+* `description: TEXT` — формулировка цели.
+* `priority: INTEGER` — приоритет (1 = максимальный).
+* `status: TEXT` — текущее состояние (`pending`, `in_progress`, `completed`, `abandoned`).
+* `context: TEXT` — дополнительная информация.
+* `created_at`, `updated_at: TIMESTAMP`
+
+---
+
+### 🔁 `cognitive_cycles`
+
+**Назначение:**
+История reasoning-процессов: единиц когнитивной активности, отражающих ход размышлений.
+
+**Поля:**
+
+* `id: INTEGER` — первичный ключ.
+* `cycle_number: INTEGER` — порядковый номер итерации.
+* `thoughts: TEXT` — массив мыслей в формате JSON.
+* `new_concepts: TEXT` — ID новых концептов, сформированных в ходе цикла.
+* `actions_taken: TEXT` — предпринятые действия.
+* `context_snapshot: TEXT` — снимок состояния.
+* `started_at`, `ended_at: TIMESTAMP`
+
+**Связи:**
+
+* Используется в `reflections`, `reasoning_traces`, `agent_state_snapshots`
+
+---
+
+### 📬 `hmp_messages`
+
+**Назначение:**
+Лог входящих и исходящих сообщений в Mesh-среде.
+
+**Поля:**
+
+* `id: INTEGER`
+* `direction: TEXT` — `inbound` или `outbound`
+* `peer: TEXT` — адрес или идентификатор узла
+* `payload: TEXT` — сериализованные данные (обычно JSON)
+* `topic: TEXT` — категория сообщения
+* `created_at: TIMESTAMP`
+
+**Примечание:**
+Адаптация к спецификации HMP должна производиться на уровне сериализации перед отправкой, а не на уровне хранения.
+
+---
+
+### 📦 `versioned_artifacts`
+
+**Назначение:**
+Хранение версии артефактов: конфигураций, моделей, API-структур.
+
+**Поля:**
+
+* `id: INTEGER`
+* `name: TEXT` — идентификатор артефакта (`api_structure`, `core_config`, `agent_traits`)
+* `version: TEXT` — версионирование (e.g., `2025-07-22.1`)
+* `content: TEXT` — JSON или Markdown
+* `created_at: TIMESTAMP`
