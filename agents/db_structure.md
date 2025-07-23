@@ -1,4 +1,4 @@
-sql```
+```sql
 -- Хранение концептов (единиц когнитивной памяти): понятий, фактов, образов, внутренних конструкций и внешних знаний.
 CREATE TABLE memory_concepts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
