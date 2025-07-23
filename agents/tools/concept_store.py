@@ -69,7 +69,12 @@ class ConceptStore:
         return concept.to_dict() if concept else None
 
     def add_edge(self, edge: Edge):
-        if not any(e.source == edge.source and e.target == edge.target and e.relation == edge.relation for e in self.edges):
+        if not any(
+            e.source == edge.source and
+            e.target == edge.target and
+            e.relation == edge.relation
+            for e in self.edges
+        ):
             self.edges.append(edge)
 
     def find_by_label(self, label: str) -> Optional[Concept]:
