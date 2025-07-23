@@ -1,3 +1,4 @@
+sql```
 -- Хранение концептов (единиц когнитивной памяти): понятий, фактов, образов, внутренних конструкций и внешних знаний.
 CREATE TABLE memory_concepts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -109,3 +110,4 @@ CREATE TABLE IF NOT EXISTS diary_entries (
     related_concepts TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
