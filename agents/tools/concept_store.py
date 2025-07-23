@@ -71,6 +71,12 @@ class ConceptStore:
     def add_edge(self, edge: Edge):
         self.edges.append(edge)
 
+    def find_by_label(self, label: str) -> Optional[Concept]:
+        for c in self.concepts.values():
+            if c.label == label:
+                return c
+        return None
+    
     def import_from_json(self, data: dict) -> dict:
         nodes = data.get("nodes", [])
         edges = data.get("edges", [])
