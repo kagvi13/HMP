@@ -65,13 +65,37 @@ class ConceptStore:
     def add_edge(self, edge: Edge):
         self.edges.append(edge)
 
-    def import_from_json(self, data: dict):
-        for c in data.get("nodes", []):
-            concept = Concept.from_dict(c)
-            self.add(concept)
-        for e in data.get("edges", []):
-            edge = Edge.from_dict(e)
-            self.add_edge(edge)
+    def import_from_json(self, data: dict) -> dict:
+        nodes = data.get("nodes", [])
+        edges = data.get("edges", [])
+
+        if not isinstance(nodes, list) or not isinstance(edges, list):
+            raise ValueError("Invalid format: 'nodes' and 'edges' must be lists")
+
+        imported_nodes = 0
+        imported_edges = 0
+
+        for c in nodes:
+            try:
+                concept = Concept.from_dict(c)
+                self.add(concept)
+                imported_nodes += 1
+            except Exception as e:
+                print(f"Failed to import concept: {e}")
+
+        for e in edges:
+            try:
+                edge = Edge.from_dict(e)
+                self.add_edge(edge)
+                imported_edges += 1
+            except Exception as e:
+                print(f"Failed to import edge: {e}")
+
+        return {
+            "status": "ok",
+            "imported_nodes": imported_nodes,
+            "imported_edges": imported_edges
+        }
 
     def export_as_json(self) -> GraphExport:
         return GraphExport(
