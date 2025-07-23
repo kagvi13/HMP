@@ -2,6 +2,7 @@
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from flask import Flask, request, jsonify
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
@@ -9,6 +10,7 @@ from models import GraphExport
 from storage import Storage
 from tools.concept_store import ConceptStore
 from tools.notebook_store import NotebookStore
+import random
 
 app = FastAPI(title="HMP MCP-Agent API", version="0.1")
 
@@ -326,7 +328,36 @@ async def mark_note_read(req: Request):
         return {"status": "ok"}
     return {"status": "error", "message": "Missing note id"}
 
-# === Run=== 
+# === ✨ Дополнительные эндпоинты для заметок ===
+
+@app.route("/notes/latest", methods=["GET"])
+def get_latest_notes():
+    """Вернуть последние N заметок (по умолчанию 10)."""
+    count = int(request.args.get("count", 10))
+    notes = storage.diary[-count:]
+    return jsonify([note.to_dict() for note in notes])
+
+@app.route("/notes/random", methods=["GET"])
+def get_random_note():
+    """Вернуть случайную заметку из дневника."""
+    if not storage.diary:
+        return jsonify({})
+    note = random.choice(storage.diary)
+    return jsonify(note.to_dict())
+
+@app.route("/notes/set_tags", methods=["POST"])
+def set_tags():
+    """Обновить теги у заметки по ID."""
+    data = request.json
+    note_id = data.get("id")
+    tags = data.get("tags", [])
+    for note in storage.diary:
+        if note.id == note_id:
+            note.tags = tags
+            return jsonify({"status": "ok"})
+    return jsonify({"error": "not found"}), 404
+
+# === Run === 
 if __name__ == "__main__":
     uvicorn.run("mcp_server:app", host="0.0.0.0", port=8080, reload=True)
 
