@@ -5,11 +5,17 @@ from typing import Dict, List, Optional
 from models import GraphExport
 
 class Concept:
-    def __init__(self, id: Optional[str] = None, label: str = "", description: str = "", tags: List[str] = []):
+    def __init__(
+        self,
+        id: Optional[str] = None,
+        label: str = "",
+        description: str = "",
+        tags: Optional[List[str]] = None
+    ):
         self.id = id or str(uuid.uuid4())
         self.label = label
         self.description = description
-        self.tags = tags
+        self.tags = tags or []
 
     def to_dict(self):
         return {
