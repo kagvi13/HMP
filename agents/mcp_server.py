@@ -1,17 +1,29 @@
 # agents/mcp_server.py
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
+from models import GraphExport 
 from storage import Storage
 from tools.concept_store import ConceptStore
 from tools.notebook_store import NotebookStore
 
-notebook_store = NotebookStore()
-concept_store = ConceptStore()
 app = FastAPI(title="HMP MCP-Agent API", version="0.1")
 
+# Добавляем CORS (полезно, если API вызывается с веб-клиента)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Можем позже ограничить, если потребуется
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Инициализация хранилищ
+concept_store = ConceptStore()
+notebook_store = NotebookStore()
 db = Storage()
 
 # === Модели запроса/ответа ===
@@ -129,7 +141,7 @@ def read_entries(limit: int = 5, tag: Optional[str] = None):
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to HMP MCP-Agent API"}
+    return {"message": "HMP MCP-Agent API is running"}
 
 @app.post("/add_concept", response_model=ConceptOutput)
 def add_concept(concept: ConceptInput):
@@ -205,14 +217,7 @@ def export_diary():
 
 @app.get("/export_graph", response_model=GraphExport)
 def export_graph():
-    data = db.export_graph()
-    concepts = [
-        {"id": c[0], "name": c[1], "description": c[2]} for c in data["concepts"]
-    ]
-    links = [
-        {"id": l[0], "source_id": l[1], "target_id": l[2], "relation": l[3]} for l in data["links"]
-    ]
-    return {"concepts": concepts, "links": links}
+    return concept_store.export_as_json()
 
 @app.put("/update_concept/{concept_id}")
 def update_concept(concept_id: int, update: ConceptUpdate):
@@ -286,6 +291,44 @@ def import_graph(graph_data: GraphImportData):
     concept_store.import_from_json(graph_data.dict())
     print(f"[INFO] Imported {len(graph_data.nodes)} nodes, {len(graph_data.edges)} edges")
     return {"status": "ok"}
+
+# === Notebook API ===
+
+@app.post("/notebook/add")
+async def add_note(req: Request):
+    data = await req.json()
+    text = data.get("text", "").strip()
+    if not text:
+        return {"status": "error", "message": "Empty text"}
+    notebook.add_note(text, source="user")
+    return {"status": "ok", "message": "Note added"}
+
+@app.get("/notebook/next")
+def get_next_note():
+    note = notebook.get_first_unread_note()
+    if note:
+        note_id, text, source, timestamp, tags = note
+        return {
+            "id": note_id,
+            "text": text,
+            "source": source,
+            "timestamp": timestamp,
+            "tags": tags
+        }
+    return {"status": "empty", "message": "No unread notes"}
+
+@app.post("/notebook/mark_read")
+async def mark_note_read(req: Request):
+    data = await req.json()
+    note_id = data.get("id")
+    if note_id is not None:
+        notebook.mark_note_as_read(note_id)
+        return {"status": "ok"}
+    return {"status": "error", "message": "Missing note id"}
+
+# === Run=== 
+if __name__ == "__main__":
+    uvicorn.run("mcp_server:app", host="0.0.0.0", port=8080, reload=True)
 
 # === Shutdown ===
 
