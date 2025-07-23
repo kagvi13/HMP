@@ -1,6 +1,6 @@
 Текушие требования и зависимости: [requirements.txt](requirements.txt)
 
-SQL-Схемы:
+Структура БД:
 * [db_structure_h.md](db_structure_h.md) - человекочитаемый формат
 * [db_structure.md](db_structure.md) - SQL
 
