@@ -126,3 +126,11 @@ class ConceptStore:
 
     def all_edges(self):
         return [e.to_dict() for e in self.edges]
+
+    def debug_print(self):
+        print("Concepts:")
+        for c in self.concepts.values():
+            print(c.to_dict())
+        print("\nEdges:")
+        for e in self.edges:
+            print(e.to_dict())
