@@ -127,6 +127,17 @@ class ConceptStore:
     def all_edges(self):
         return [e.to_dict() for e in self.edges]
 
+    def remove_concept(self, concept_id: str):
+        if concept_id in self.concepts:
+            del self.concepts[concept_id]
+            self.edges = [e for e in self.edges if e.source != concept_id and e.target != concept_id]
+
+    def remove_edge(self, source_id: str, target_id: str, relation: str):
+        self.edges = [
+            e for e in self.edges
+            if not (e.source == source_id and e.target == target_id and e.relation == relation)
+        ]
+
     def debug_print(self):
         print("Concepts:")
         for c in self.concepts.values():
