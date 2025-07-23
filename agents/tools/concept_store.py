@@ -2,6 +2,7 @@
 
 import uuid
 from typing import Dict, List, Optional
+from models import GraphExport
 
 class Concept:
     def __init__(self, id: Optional[str] = None, label: str = "", description: str = "", tags: List[str] = []):
@@ -72,12 +73,12 @@ class ConceptStore:
             edge = Edge.from_dict(e)
             self.add_edge(edge)
 
-    def export_as_json(self):
-        return {
-            "nodes": [c.to_dict() for c in self.concepts.values()],
-            "edges": [e.to_dict() for e in self.edges]
-        }
-
+    def export_as_json(self) -> GraphExport:
+        return GraphExport(
+            nodes=[c.to_dict() for c in self.concepts.values()],
+            edges=[e.to_dict() for e in self.edges]
+        )
+    
     def all_concepts(self):
         return [c.to_dict() for c in self.concepts.values()]
 
