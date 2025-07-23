@@ -1,8 +1,8 @@
 Текушие требования и зависимости: [requirements.txt](requirements.txt)
 
 Структура БД:
-* [db_structure_h.md](db_structure_h.md) - человекочитаемый формат
-* [db_structure.md](db_structure.md) - SQL
+* [db_structure.md](tools/db_structure.md) - человекочитаемый формат
+* [db_structure.sql](tools/db_structure.sql) - SQL
 
 ```
 agents/
