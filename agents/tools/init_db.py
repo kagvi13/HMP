@@ -3,7 +3,7 @@ from pathlib import Path
 
 AGENT_DATA_DIR = Path(__file__).resolve().parent.parent / "agent_data"
 DEFAULT_DB_NAME = "agent_storage.db"
-DEFAULT_STRUCTURE_FILE = Path(__file__).resolve().parent.parent / "agents/db_structure.md"
+DEFAULT_STRUCTURE_FILE = Path(__file__).resolve().parent / "db_structure.sql"
 
 def init_db(db_name=DEFAULT_DB_NAME, structure_file=DEFAULT_STRUCTURE_FILE):
     AGENT_DATA_DIR.mkdir(exist_ok=True)
