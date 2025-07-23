@@ -357,6 +357,12 @@ def set_tags():
             return jsonify({"status": "ok"})
     return jsonify({"error": "not found"}), 404
 
+@app.route("/notes/by_tag", methods=["GET"])
+def get_notes_by_tag():
+    tag = request.args.get("tag")
+    result = [note.to_dict() for note in storage.diary if tag in note.tags]
+    return jsonify(result)
+
 # === Run === 
 if __name__ == "__main__":
     uvicorn.run("mcp_server:app", host="0.0.0.0", port=8080, reload=True)
