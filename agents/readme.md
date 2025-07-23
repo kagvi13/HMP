@@ -1,5 +1,7 @@
 Текушие требования и зависимости: [requirements.txt](requirements.txt)
 
+SQL-Схемы: [db_structure.md](db_structure.md)
+
 ```
 agents/
 ├── agent.py               ← основной исполняемый файл CLI-агента
