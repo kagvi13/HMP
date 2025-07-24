@@ -1,33 +1,35 @@
-# agents/notebook.py
-
 import argparse
 from datetime import datetime
-from notebook_store import Notebook
+from tools.storage import Storage
 
-notebook = Notebook()
+storage = Storage()
 
 def add_entry():
     print("Введите вашу запись (завершите пустой строкой):")
     lines = []
-    while True:
-        line = input()
-        if line.strip() == "":
-            break
-        lines.append(line)
+    try:
+        while True:
+            line = input()
+            if line.strip() == "":
+                break
+            lines.append(line)
+    except KeyboardInterrupt:
+        print("\n[⚠️] Ввод прерван.")
+        return
+
     text = "\n".join(lines).strip()
     if text:
-        notebook.add_note(text, source="user")
+        storage.write_note(text, tags=[])
         print("[💾] Запись сохранена в блокнот.")
     else:
         print("[⚠️] Пустая запись не сохранена.")
 
 def list_entries(limit=10):
-    notes = notebook.get_last_notes(limit=limit)
+    notes = storage.read_notes(limit=limit)
     for note in notes:
-        timestamp = note['timestamp']
-        source = note['source']
-        text = note['text'].split("\n")[0]
-        print(f"[{timestamp}] ({source}) {text}")
+        note_id, text, tags, source, read, timestamp = note
+        title = text.split("\n")[0]
+        print(f"[{timestamp}] ({source}) {title}")
 
 def main():
     parser = argparse.ArgumentParser(description="Интерфейс пользователя для записи мыслей")
