@@ -1,5 +1,9 @@
 # tools/llm.py
 
+# ЗАГЛУШКА
+def ask_llm(question, config=None):
+    return ask_question(question, config=config)
+
 from datetime import datetime
 import random
 
