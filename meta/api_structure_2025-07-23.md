@@ -61,7 +61,7 @@ API structure, 2025-07-23
 - @app.route("/notes/by_tag", methods=["GET"])
 - @app.on_event("shutdown")
 
-# agents/storage.py
+# agents/tools/storage.py
 
 - class Storage:
   - def __init__(self, config=None):
