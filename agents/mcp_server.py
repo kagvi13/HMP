@@ -89,6 +89,10 @@ class ConceptUpdate(BaseModel):
 class ConceptQueryOutput(BaseModel):
     matches: List[Concept]
 
+class NoteTagUpdate(BaseModel):
+    id: int
+    tags: List[str]
+
 # ======== ROUTES ========
 
 @app.get("/status")
@@ -277,7 +281,7 @@ def get_next_note():
     return None
 
 @app.post("/note/mark_read", response_model=dict)
-async def mark_note_read(req: Request):
+async def mark_note_read(data: NoteTagUpdate):
     data = await req.json()
     note_id = data.get("id")
     if note_id is not None:
@@ -286,7 +290,7 @@ async def mark_note_read(req: Request):
     return {"error": "missing note id"}
 
 @app.post("/note/set_tags", response_model=dict)
-async def set_note_tags(req: Request):
+async def set_note_tags(data: NoteTagUpdate):
     data = await req.json()
     note_id = data.get("id")
     tags = data.get("tags", [])
