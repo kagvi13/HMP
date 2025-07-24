@@ -93,6 +93,12 @@ API structure, 2025-07-23
   - **Методы для заметок**
     - def write_note(self, text, tags=None):
     - def read_notes(self, limit=10, tag_filter=None):
+    - def get_notes_after(self, since_ts):
+    - def get_first_unread_note(self):
+    - def mark_note_as_read(self, note_id: int):
+    - def set_tags(self, note_id: int, tags: list[str]):
+    - def get_random_note_by_tags(self, include_tags: list[str]):
+
   - **Утилиты**
     - def close(self):
 
@@ -123,17 +129,3 @@ API structure, 2025-07-23
   - def remove_concept(self, concept_id: str):
   - def remove_edge(self, source_id: str, target_id: str, relation: str):
   - def debug_print(self):
-
-# agents/tools/notebook_store.py
-
-- class Notebook:
-  - def __init__(self, db_path=DB_FILE):
-  - def _init_db(self):
-  - def add_note(self, text, source="user"):
-  - def get_latest_notes(self, limit=10):
-  - def get_notes_after(self, since_ts):
-  - def get_first_unread_note(self):
-  - def mark_note_as_read(self, note_id: int):
-  - def set_tags(self, note_id: int, tags: list[str]):
-  - def get_random_note_by_tags(self, include_tags: list[str]):
-  - def close(self):
