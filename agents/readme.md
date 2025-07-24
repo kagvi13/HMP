@@ -16,9 +16,6 @@ agents/
     ├── storage.py             ← реализация базового хранилища (`Storage`), подключение SQLite
     ├── diagnose.py            ← скрипт диагностики соединения, определения IP и проверки порта DHT
     ├── llm.py                 ← обёртка над LLM (заглушка или API)
-    ├── concept_store.py       ← обработка концептов (узлов смыслового графа)
-    ├── diary_store.py         ← cog-diary — важные мысли, хронология размышлений
-    ├── graph_store.py         ← семантические связи между концептами
     ├── similarity.py          ← сравнение смыслов
     └── ... (другие утилиты)
 ```
@@ -35,7 +32,6 @@ agents/
   * [init_db.py](tools/init_db.py) - инициализация базы данных
   * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
   * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
-  * [concept_store.py](tools/concept_store.py) - обработка концептов (узлов смыслового графа)
   * [similarity.py](tools/similarity.py) - сравнение смыслов
 
 **Структура БД:**
