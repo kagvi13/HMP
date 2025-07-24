@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS notes (
     text TEXT NOT NULL,
     tags TEXT,
     source TEXT DEFAULT 'user',
+    links TEXT DEFAULT '',
     read INTEGER DEFAULT 0,
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP
 );
