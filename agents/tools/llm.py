@@ -1,11 +1,11 @@
 # tools/llm.py
 
+from datetime import datetime
+import random
+
 # ЗАГЛУШКА
 def ask_llm(question, config=None):
     return ask_question(question, config=config)
-
-from datetime import datetime
-import random
 
 def generate_thought(previous_text, config=None):
     """
