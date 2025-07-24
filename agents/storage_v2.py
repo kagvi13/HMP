@@ -84,6 +84,35 @@ class Storage:
             cursor.execute('SELECT * FROM diary_entries ORDER BY id DESC LIMIT ?', (limit,))
         return cursor.fetchall()
 
+    def search_diary_by_time_range(self, from_ts, to_ts):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            'SELECT * FROM diary_entries WHERE timestamp BETWEEN ? AND ? ORDER BY timestamp DESC',
+            (from_ts, to_ts)
+        )
+        return cursor.fetchall()
+
+    def delete_diary_entry_by_id(self, entry_id):
+        self.conn.execute('DELETE FROM diary_entries WHERE id = ?', (entry_id,))
+        self.conn.commit()
+
+    def get_diary_tag_stats(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT tags FROM diary_entries')
+        tag_counts = {}
+        for row in cursor.fetchall():
+            tags = row[0].split(",") if row[0] else []
+            for tag in tags:
+                tag = tag.strip()
+                if tag:
+                    tag_counts[tag] = tag_counts.get(tag, 0) + 1
+        return tag_counts
+
+    def export_diary_entries(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT id, text, tags, timestamp FROM diary_entries ORDER BY id ASC')
+        return cursor.fetchall()
+      
     # Методы для работы с концептами
     def create_concept(self, name, description=None):
         timestamp = datetime.utcnow().isoformat()
@@ -130,6 +159,82 @@ class Storage:
         )
         return cursor.fetchall()
 
+    # Методы для семантических графов
+
+        def expand_concept_graph(self, start_id, depth):
+        visited = set()
+        results = []
+
+        def dfs(node_id, level):
+            if level > depth or node_id in visited:
+                return
+            visited.add(node_id)
+            cursor = self.conn.execute(
+                'SELECT source_id, target_id, relation FROM links WHERE source_id=?',
+                (node_id,)
+            )
+            for row in cursor.fetchall():
+                results.append(row)
+                dfs(row[1], level + 1)
+
+        dfs(start_id, 0)
+        return results
+
+    def delete_concept_by_id(self, concept_id):
+        self.conn.execute('DELETE FROM concepts WHERE id = ?', (concept_id,))
+        self.conn.execute('DELETE FROM links WHERE source_id = ? OR target_id = ?', (concept_id, concept_id))
+        self.conn.commit()
+
+    def delete_link_by_id(self, link_id):
+        self.conn.execute('DELETE FROM links WHERE id = ?', (link_id,))
+        self.conn.commit()
+
+    def export_semantic_graph(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT id, name, description FROM concepts ORDER BY id ASC')
+        concepts = cursor.fetchall()
+
+        cursor.execute('SELECT id, source_id, target_id, relation FROM links ORDER BY id ASC')
+        links = cursor.fetchall()
+
+        return {"concepts": concepts, "links": links}
+
+    def update_concept_fields(self, concept_id, name=None, description=None):
+        cursor = self.conn.cursor()
+        if name is not None:
+            cursor.execute('UPDATE concepts SET name = ? WHERE id = ?', (name, concept_id))
+        if description is not None:
+            cursor.execute('UPDATE concepts SET description = ? WHERE id = ?', (description, concept_id))
+        self.conn.commit()
+
+    def search_links_by_relation(self, relation):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            'SELECT id, source_id, target_id, relation FROM links WHERE relation LIKE ?',
+            (f"%{relation}%",)
+        )
+        return cursor.fetchall()
+
+    def search_concepts(self, query):
+        cursor = self.conn.execute(
+            '''SELECT id, name, description FROM concepts
+               WHERE name LIKE ? OR description LIKE ?''',
+            (f"%{query}%", f"%{query}%")
+        )
+        return cursor.fetchall()
+
+    def merge_concepts(self, source_id, target_id):
+        cursor = self.conn.cursor()
+        cursor.execute('UPDATE links SET source_id = ? WHERE source_id = ?', (target_id, source_id))
+        cursor.execute('UPDATE links SET target_id = ? WHERE target_id = ?', (target_id, source_id))
+        self.delete_concept_by_id(source_id)
+        self.conn.commit()
+
+    def find_concept_id_by_name(self, name):
+        cursor = self.conn.execute('SELECT id FROM concepts WHERE name = ?', (name,))
+        row = cursor.fetchone()
+        return row[0] if row else None
+    
     # Методы для заметок
     def write_note(self, text, tags=None):
         timestamp = datetime.utcnow().isoformat()
@@ -153,3 +258,8 @@ class Storage:
         else:
             cursor.execute('SELECT * FROM notes ORDER BY id DESC LIMIT ?', (limit,))
         return cursor.fetchall()
+
+    # Утилиты
+
+    def close(self):
+        self.conn.close()
