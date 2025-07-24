@@ -159,8 +159,8 @@ class Storage:
         )
         return cursor.fetchall()
 
-        # Сложные операции над графом
-        def expand_concept_graph(self, start_id, depth):
+    # Сложные операции над графом
+    def expand_concept_graph(self, start_id, depth):
         visited = set()
         results = []
 
@@ -172,7 +172,6 @@ class Storage:
                 'SELECT from_concept_id, to_concept_id, relation_type FROM links WHERE from_concept_id=?',
                 (node_id,)
             )
-
             for row in cursor.fetchall():
                 results.append(row)
                 dfs(row[1], level + 1)
