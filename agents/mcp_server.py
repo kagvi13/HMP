@@ -244,8 +244,8 @@ def query_concept(name: str):
 
 @app.post("/graph/relate_concepts", response_model=LinkOutput)
 def relate_concepts(source_name: str, target_name: str, relation: str):
-    sid = db.find_concept_id_by_name(source_name)
-    tid = db.find_concept_id_by_name(target_name)
+    sid = db.get_concept_id_by_name(source_name)
+    tid = db.get_concept_id_by_name(target_name)
     if sid is None or tid is None:
         raise HTTPException(status_code=404, detail="Concept not found")
     link_id = db.add_link(sid, tid, relation)
