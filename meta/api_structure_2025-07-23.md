@@ -2,63 +2,55 @@ API structure, 2025-07-23
 
 # agents/mcp_server.py
 
-## === Модели запроса/ответа ===
-
-- class EntryInput(BaseModel):
-- class EntryOutput(BaseModel):
-- class EntryListOutput(BaseModel):
+**MODELS**
+- class NoteInput(BaseModel):
+- class NoteOutput(BaseModel):
+- class DiaryInput(BaseModel):
+- class DiaryOutput(BaseModel):
+- class DiaryListOutput(BaseModel):
 - class ConceptInput(BaseModel):
 - class ConceptOutput(BaseModel):
+- class Concept(BaseModel):
 - class LinkInput(BaseModel):
 - class LinkOutput(BaseModel):
-- class Node(BaseModel):
 - class Edge(BaseModel):
-- class GraphImportData(BaseModel):
 - class GraphExpansionOutput(BaseModel):
-- class Concept(BaseModel):
-- class ConceptQueryOutput(BaseModel):
-- class DiaryEntry(BaseModel):
-- class DiaryExport(BaseModel):
-- class ConceptExport(BaseModel):
-- class LinkExport(BaseModel):
 - class GraphExport(BaseModel):
+- class GraphImportData(BaseModel):
 - class ConceptUpdate(BaseModel):
-
-## === Эндпойнты ===
-
+- class ConceptQueryOutput(BaseModel):
+- class NoteTagUpdate(BaseModel):
+**ROUTES**
 - @app.get("/status")
-- @app.post("/write_entry", response_model=dict)
-- @app.get("/read_entries", response_model=EntryListOutput)
-- @app.get("/")
-- @app.post("/add_concept", response_model=ConceptOutput)
-- @app.post("/add_link", response_model=LinkOutput)
-- @app.get("/expand_graph", response_model=GraphExpansionOutput)
-- @app.get("/query_concept", response_model=ConceptQueryOutput)
-- @app.get("/list_concepts", response_model=List[Concept])
-- @app.get("/list_links", response_model=List[Edge])
-- @app.delete("/delete_concept/{concept_id}")
-- @app.delete("/delete_link/{link_id}")
-- @app.delete("/delete_entry/{entry_id}")
-- @app.get("/export_diary", response_model=DiaryExport)
-- @app.get("/export_graph", response_model=GraphExport)
-- @app.put("/update_concept/{concept_id}")
-- @app.get("/tag_stats", response_model=dict)
-- @app.get("/search_links", response_model=List[LinkExport])
-- @app.get("/search_concepts", response_model=List[Concept])
-- @app.post("/merge_concepts", response_model=dict)
-- @app.post("/relate_concepts", response_model=LinkOutput)
-- @app.get("/tag_cloud", response_model=dict)
-- @app.get("/get_concept/{concept_id}")
-- @app.get("/get_entry/{entry_id}")
-- @app.post("/search_entries")
-- @app.post("/import_graph")
-- @app.post("/notebook/add")
-- @app.get("/notebook/next")
-- @app.post("/notebook/mark_read")
-- @app.route("/notes/latest", methods=["GET"])
-- @app.route("/notes/random", methods=["GET"])
-- @app.route("/notes/set_tags", methods=["POST"])
-- @app.route("/notes/by_tag", methods=["GET"])
+- @app.post("/diary/write", response_model=dict)
+- @app.get("/diary/read", response_model=DiaryListOutput)
+- @app.delete("/diary/delete/{entry_id}")
+- @app.get("/diary/get_entry/{entry_id}", response_model=DiaryOutput)
+- @app.post("/diary/search_entries", response_model=DiaryListOutput)
+- @app.get("/diary/tag_stats", response_model=dict)
+- @app.get("/diary/export", response_model=DiaryListOutput)
+- @app.post("/graph/add_concept", response_model=ConceptOutput)
+- @app.post("/graph/add_link", response_model=LinkOutput)
+- @app.get("/graph/expand", response_model=GraphExpansionOutput)
+- @app.get("/graph/list_concepts", response_model=List[Concept])
+- @app.get("/graph/list_links", response_model=List[Edge])
+- @app.get("/graph/get_concept/{id}", response_model=Concept)
+- @app.delete("/graph/delete_concept/{id}")
+- @app.delete("/graph/delete_link/{id}")
+- @app.put("/graph/update_concept/{id}")
+- @app.post("/graph/merge_concepts")
+- @app.get("/graph/search_links", response_model=List[Edge])
+- @app.get("/graph/search_concepts", response_model=List[Concept])
+- @app.get("/graph/query_concept", response_model=ConceptQueryOutput)
+- @app.post("/graph/relate_concepts", response_model=LinkOutput)
+- @app.get("/graph/export", response_model=GraphExport)
+- @app.post("/graph/import")
+- @app.post("/note/write", response_model=dict)
+- @app.get("/note/next", response_model=Optional[NoteOutput])
+- @app.post("/note/mark_read", response_model=dict)
+- @app.post("/note/set_tags", response_model=dict)
+- @app.get("/note/random", response_model=Optional[NoteOutput])
+- @app.get("/note/by_tag", response_model=List[NoteOutput])
 - @app.on_event("shutdown")
 
 # agents/tools/storage.py
