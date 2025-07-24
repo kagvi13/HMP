@@ -91,7 +91,7 @@ class ConceptQueryOutput(BaseModel):
 
 class NoteTagUpdate(BaseModel):
     id: int
-    tags: List[str]
+    tags: List[str] = []
 
 # ======== ROUTES ========
 
@@ -281,23 +281,14 @@ def get_next_note():
     return None
 
 @app.post("/note/mark_read", response_model=dict)
-async def mark_note_read(data: NoteTagUpdate):
-    data = await req.json()
-    note_id = data.get("id")
-    if note_id is not None:
-        db.mark_note_as_read(note_id)
-        return {"result": "ok"}
-    return {"error": "missing note id"}
+def mark_note_read(data: NoteTagUpdate):
+    db.mark_note_as_read(data.id)
+    return {"result": "ok"}
 
 @app.post("/note/set_tags", response_model=dict)
-async def set_note_tags(data: NoteTagUpdate):
-    data = await req.json()
-    note_id = data.get("id")
-    tags = data.get("tags", [])
-    if note_id is not None:
-        db.set_tags(note_id, tags)
-        return {"result": "ok"}
-    return {"error": "missing note id"}
+def set_note_tags(data: NoteTagUpdate):
+    db.set_tags(data.id, data.tags)
+    return {"result": "ok"}
 
 @app.get("/note/random", response_model=Optional[NoteOutput])
 def get_random_note_by_tags(tags: Optional[List[str]] = None):
