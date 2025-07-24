@@ -159,8 +159,7 @@ class Storage:
         )
         return cursor.fetchall()
 
-    # Методы для семантических графов
-
+        # Сложные операции над графом
         def expand_concept_graph(self, start_id, depth):
         visited = set()
         results = []
@@ -170,13 +169,14 @@ class Storage:
                 return
             visited.add(node_id)
             cursor = self.conn.execute(
-                'SELECT source_id, target_id, relation FROM links WHERE source_id=?',
+                'SELECT from_concept_id, to_concept_id, relation_type FROM links WHERE from_concept_id=?',
                 (node_id,)
             )
+
             for row in cursor.fetchall():
                 results.append(row)
                 dfs(row[1], level + 1)
-
+        
         dfs(start_id, 0)
         return results
 
@@ -194,7 +194,7 @@ class Storage:
         cursor.execute('SELECT id, name, description FROM concepts ORDER BY id ASC')
         concepts = cursor.fetchall()
 
-        cursor.execute('SELECT id, source_id, target_id, relation FROM links ORDER BY id ASC')
+        cursor.execute('SELECT id, from_concept_id, to_concept_id, relation_type FROM links ORDER BY id ASC')
         links = cursor.fetchall()
 
         return {"concepts": concepts, "links": links}
