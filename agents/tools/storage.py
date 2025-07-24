@@ -116,7 +116,7 @@ class Storage:
         return cursor.fetchall()
       
     # Методы для работы с концептами
-    def create_concept(self, name, description=None):
+    def add_concept(self, name, description=None):
         timestamp = datetime.utcnow().isoformat()
         self.conn.execute(
             'INSERT INTO concepts (name, description, timestamp) VALUES (?, ?, ?)',
@@ -135,7 +135,7 @@ class Storage:
         return cursor.fetchall()
 
     # Методы для работы с связями
-    def link_concepts(self, from_name, to_name, relation_type):
+    def add_link(self, from_name, to_name, relation_type):
         from_concept = self.get_concept_by_name(from_name)
         to_concept = self.get_concept_by_name(to_name)
         if not from_concept or not to_concept:
@@ -183,7 +183,7 @@ class Storage:
 
     def delete_concept_by_id(self, concept_id):
         self.conn.execute('DELETE FROM concepts WHERE id = ?', (concept_id,))
-        self.conn.execute('DELETE FROM links WHERE source_id = ? OR target_id = ?', (concept_id, concept_id))
+        self.conn.execute('DELETE FROM links WHERE from_concept_id = ? OR to_concept_id = ?', (concept_id, concept_id))
         self.conn.commit()
 
     def delete_link_by_id(self, link_id):
@@ -211,7 +211,7 @@ class Storage:
     def search_links_by_relation(self, relation):
         cursor = self.conn.cursor()
         cursor.execute(
-            'SELECT id, source_id, target_id, relation FROM links WHERE relation LIKE ?',
+            'SELECT id, from_concept_id, to_concept_id, relation_type FROM links WHERE relation LIKE ?',
             (f"%{relation}%",)
         )
         return cursor.fetchall()
@@ -231,7 +231,7 @@ class Storage:
         self.delete_concept_by_id(source_id)
         self.conn.commit()
 
-    def find_concept_id_by_name(self, name):
+    def get_concept_id_by_name(self, name):
         cursor = self.conn.execute('SELECT id FROM concepts WHERE name = ?', (name,))
         row = cursor.fetchone()
         return row[0] if row else None
