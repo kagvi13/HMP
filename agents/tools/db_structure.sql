@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS diary_entries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     text TEXT NOT NULL,
     tags TEXT,
-    priority INTEGER DEFAULT 1, -- от 1 (низкий) до 5 (критический)
+    priority INTEGER DEFAULT 0,  -- приоритет записи (0 — обычный, >0 — важнее)
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -33,30 +33,27 @@ CREATE TABLE IF NOT EXISTS notes (
     tags TEXT,
     source TEXT DEFAULT 'user',
     links TEXT DEFAULT '',
-    read INTEGER DEFAULT 0, -- 0 = непрочитано, 1 = прочитано
-    priority INTEGER DEFAULT 1, -- от 1 до 5
+    read INTEGER DEFAULT 0,             -- 0 = непрочитанное LLM, 1 = прочитано
+    priority INTEGER DEFAULT 0,         -- приоритет записи
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Журнал процессов: запуски, завершения, ошибки
 CREATE TABLE IF NOT EXISTS process_log (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    process_name TEXT NOT NULL,
-    parameters TEXT,
-    status TEXT DEFAULT 'running', -- running / completed / error / unresponsive
-    exit_code INTEGER,
-    output TEXT,
-    error TEXT,
-    timestamp_start TEXT DEFAULT CURRENT_TIMESTAMP,
-    timestamp_end TEXT
+    name TEXT NOT NULL,
+    value TEXT,
+    tags TEXT,
+    status TEXT DEFAULT 'ok',           -- ok | warning | error | timeout | offline
+    priority INTEGER DEFAULT 0,
+    timestamp TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
--- Краткосрочная память LLM: важные фрагменты, которые могут использоваться как контекст
+-- Память LLM (временные сообщения в её контексте)
 CREATE TABLE IF NOT EXISTS llm_memory (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     text TEXT NOT NULL,
-    tags TEXT DEFAULT '',
+    tags TEXT,
     priority INTEGER DEFAULT 0,
-    read INTEGER DEFAULT 0,
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP
 );
