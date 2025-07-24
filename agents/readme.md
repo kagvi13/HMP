@@ -1,9 +1,5 @@
 Текушие требования и зависимости: [requirements.txt](requirements.txt)
 
-Структура БД:
-* [db_structure.md](tools/db_structure.md) - человекочитаемый формат
-* [db_structure.sql](tools/db_structure.sql) - SQL
-
 ```
 agents/
 ├── agent.py               ← основной исполняемый файл CLI-агента
@@ -43,6 +39,10 @@ agents/
   * [notebook_store.py](tools/notebook_store.py) - обработка пользовательских записей
   * [concept_store.py](tools/concept_store.py) - обработка концептов (узлов смыслового графа)
   * [similarity.py](tools/similarity.py) - сравнение смыслов
+
+**Структура БД:**
+* [db_structure.md](tools/db_structure.md) - человекочитаемый формат
+* [db_structure.sql](tools/db_structure.sql) - SQL
 
 **Примеры:**
 * [config.yml](config.yml) - конфигурация агента (пример)
