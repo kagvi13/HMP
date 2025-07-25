@@ -1,4 +1,16 @@
---- license: cc-by-4.0 tags: - hmp - cognitive-architecture - distributed-ai - mesh-protocol library_name: custom inference: false datasets: [] language: ru --- # HyperCortex Mesh Protocol (HMP)
+---
+license: cc-by-4.0
+tags:
+  - hmp
+  - cognitive-architecture
+  - distributed-ai
+  - mesh-protocol
+library_name: custom
+inference: false
+datasets: []
+language: ru
+---
+
 
 # HyperCortex Mesh Protocol (HMP)
 
