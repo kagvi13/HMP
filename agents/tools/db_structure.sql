@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS process_log (
     name TEXT NOT NULL,
     value TEXT,
     tags TEXT,
-    status TEXT DEFAULT 'ok',           -- ok | warning | error | timeout | offline
+    status TEXT DEFAULT 'ok',           -- ok | warning | error | timeout | offline | close
     priority INTEGER DEFAULT 0,
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP
 );
