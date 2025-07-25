@@ -1,0 +1,31 @@
+name: Sync to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+
+      - name: Clone Hugging Face repo
+        run: |
+          git clone https://kagvi13:${{ secrets.HF_TOKEN }}@huggingface.co/kagvi13/HMP hf_repo
+
+      - name: Sync contents to HF repo
+        run: |
+          rsync -av --delete --exclude='.git' ./ hf_repo/
+          cd hf_repo
+          git add .
+          git commit -m "Sync from GitHub" || echo "No changes to commit"
+          git push
