@@ -52,8 +52,17 @@ CREATE TABLE IF NOT EXISTS process_log (
 -- Память LLM (временные сообщения в её контексте)
 CREATE TABLE IF NOT EXISTS llm_memory (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    text TEXT NOT NULL,
-    tags TEXT,
-    priority INTEGER DEFAULT 0,
-    timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+    title TEXT,
+    content TEXT NOT NULL,
+    tags TEXT, -- через запятую: "goal,observation,meta"
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Краткосрочной памяти LLM
+CREATE TABLE IF NOT EXISTS llm_recent_responses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,
+    content TEXT NOT NULL
 );
