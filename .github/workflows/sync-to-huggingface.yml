@@ -24,7 +24,7 @@ jobs:
 
       - name: Sync contents to HF repo
         run: |
-          rsync -av --delete --exclude='.git' ./ hf_repo/
+          rsync -av --exclude='.git' --exclude='.github' --exclude='.gitignore' ./ repo/
           cd hf_repo
           git add .
           git commit -m "Sync from GitHub" || echo "No changes to commit"
