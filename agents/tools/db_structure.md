@@ -72,7 +72,7 @@
 | name      | TEXT    | Название процесса или сенсора                                    |
 | value     | TEXT    | Значение или сообщение                                           |
 | tags      | TEXT    | Теги                                                             |
-| status    | TEXT    | Статус (`ok`, `warning`, `error`, `timeout`, `offline`)          |
+| status    | TEXT    | Статус (`ok`, `warning`, `error`, `timeout`, `offline`, `close`) |
 | priority  | INTEGER | Приоритет (например, срочные события могут иметь `priority > 0`) |
 | timestamp | TEXT    | Время фиксации события                                           |
 
