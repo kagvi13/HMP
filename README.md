@@ -1,3 +1,17 @@
+<pre><code>--- license: mit tags: - hmp - cognitive-architecture - distributed-ai - mesh-protocol library_name: custom inference: false datasets: [] language: ru --- # HyperCortex Mesh Protocol (HMP) </code></pre>
+
+# Source / Ресурсы
+
+## Репозитории
+
+- 🧠 Основной код и разработка: [GitHub](https://github.com/kagvi13/HMP)
+- 🔁 Реплика на Hugging Face (для моделей/документации/Space): [Hugging Face](https://huggingface.co/kagvi13/HMP)
+
+## Блог и публикации
+
+- 📘 Подробная статья: [Основной блог (blogspot.com)](https://hypercortex-mesh.blogspot.com/)
+- 📘 Подробная статья: [Вспомогательны блог (livejournal.com)](https://kagvi13.livejournal.com)
+
 # HyperCortex Mesh Protocol (HMP)
 
 **EN:**  
