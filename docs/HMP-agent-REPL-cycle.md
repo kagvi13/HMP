@@ -69,3 +69,9 @@
   - Текущие команды обновляют `process_log`
   - Новые размышления записываются в `llm_memory` при необходимости
 - REPL может переходить в спящий режим, если такой режим активирован LLM (idle-режим: пропуск 2-5 пунктов).
+
+---
+
+Идеи для расширения HMP-Agent Cognitive Core:
+- [HMP-agent-Distributed_Cognitive_Core.md](HMP-agent-Distributed_Cognitive_Core.md) - версия распределённого HMP-агента Cognitive Core
+- [HMP-agent-Distributed_Cognitive_Core_light.md](HMP-agent-Distributed_Cognitive_Core_light.md) - лёгкая версия распределённого HMP-агента Cognitive Core с общей БД
