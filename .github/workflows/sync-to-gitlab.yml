@@ -1,0 +1,23 @@
+name: Sync to GitLab
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Push to GitLab
+        env:
+          GITLAB_URL: https://gitlab.com/kagvi13/HMP.git
+          GITLAB_USER: ${{ secrets.GITLAB_USER }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git config --global user.email "github@actions"
+          git config --global user.name "GitHub Actions"
+          git remote add gitlab https://$GITLAB_USER:$GITLAB_TOKEN@gitlab.com/kagvi13/HMP.git
+          git push gitlab main
