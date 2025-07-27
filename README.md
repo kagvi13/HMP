@@ -249,6 +249,7 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 - 🧠 Основной код и разработка: [GitHub](https://github.com/kagvi13/HMP)
 - 🔁 Реплика на Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)
+- 🔁 Реплика на GitLab.com: [GitLab.com](https://gitlab.com/kagvi13/HMP)
 
 ## Блог и публикации
 
