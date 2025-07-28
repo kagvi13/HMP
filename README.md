@@ -127,7 +127,7 @@ RU:
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
 
 #### 🔖 Core Specifications / Основные спецификации
-* [🔖 HMP-0004.md](docs/HMP-0004.md) — Protocol Specification v4.0 (Jul 2025)
+* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protocol Specification v4.1 (Jul 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
 * [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
@@ -149,6 +149,7 @@ RU:
 - [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 - [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 - [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
+- [HMP-0003.md](docs/HMP-0004.md) — RFC v4.0
 
 ---
 
