@@ -1,4 +1,1 @@
-Требования и зависимости
-
-- Python (https://www.python.org/downloads/)
-  - scikit-learn ("pip install scikit-learn")
+scikit-learn
