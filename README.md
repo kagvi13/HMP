@@ -88,6 +88,15 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
                                                ↕
                                         [bootstrap.txt]
 
+---
+
+> * `bootstrap.txt` — стартовый список узлов (может редактироваться)
+> * `IPFS/BT` — модули для обмена снапшотами через IPFS и BitTorrent
+> * `user notepad` — блокнот пользователя и соответствующая БД
+> * `context_store` — БД: `users`, `dialogues`, `messages`, `thoughts`
+
+---
+
 EN:
 > **Note on Integration with Large Language Models (LLMs):**
 > The `HMP-Agent: Cognitive Connector` can serve as a compatibility layer for integrating large-scale LLM systems (e.g., ChatGPT, Claude, Gemini, Copilot, Grok, DeepSeek, Qwen, etc.) into the distributed cognitive mesh.
@@ -98,12 +107,6 @@ RU:
 > **Примечание об интеграции с большими языковыми моделями (LLM):**
 > `HMP-Agent: Cognitive Connector` может служить уровнем совместимости для интеграции крупных систем LLM (например, ChatGPT, Claude, Gemini, Copilot, Grok, DeepSeek, Qwen и т. д.) в распределённую когнитивную сеть.
 > Многие поставщики LLM предлагают пользователю опцию, например, «Разрешить использовать мои разговоры для обучения». В будущем аналогичная опция, например, «Разрешить моему агенту взаимодействовать с Mesh», может позволить этим моделям участвовать в федеративном осмыслении и обмене знаниями через HMP, обеспечивая коллективное познание без централизации.
----
-
-> * `bootstrap.txt` — стартовый список узлов (может редактироваться)
-> * `IPFS/BT` — модули для обмена снапшотами через IPFS и BitTorrent
-> * `user notepad` — блокнот пользователя и соответствующая БД
-> * `context_store` — БД: `users`, `dialogues`, `messages`, `thoughts`
 
 ---
 
