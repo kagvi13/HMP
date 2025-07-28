@@ -1,17 +1,21 @@
+# agents/tests/test_storage.py
+
+import os
 import pytest
 from agents.tools.storage import Storage
 
 @pytest.fixture
-def storage():
-    # Создаём инстанс Storage с временной или тестовой базой
-    # Можно настроить, чтобы база была in-memory для быстроты
-    return Storage({"db_path": ":memory:"})
+def temp_storage(tmp_path):
+    db_path = tmp_path / "test.db"
+    storage = Storage(config={"db_path": str(db_path)})
+    yield storage
+    # автоматически удалится tmp_path
 
-def test_add_and_get_journal_entry(storage):
-    text = "Первая тестовая запись"
-    entry_id = storage.add_journal_entry(text)
-    assert isinstance(entry_id, int), "ID записи должен быть числом"
+def test_set_and_get(temp_storage):
+    temp_storage.set("foo", "bar")
+    assert temp_storage.get("foo") == "bar"
 
-    entry = storage.get_journal_entry(entry_id)
-    assert entry is not None, "Запись должна существовать"
-    assert entry["text"] == text, "Текст записи должен совпадать"
+def test_delete(temp_storage):
+    temp_storage.set("key", "value")
+    temp_storage.delete("key")
+    assert temp_storage.get("key") is None
