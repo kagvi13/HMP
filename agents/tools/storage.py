@@ -15,27 +15,32 @@ class Storage:
     def _init_db(self):
         c = self.conn.cursor()
 
-        # Таблица дневников
+        # --- Основные таблицы когнитивного ядра ---
+
+        # Дневниковые записи
         c.execute('''
             CREATE TABLE IF NOT EXISTS diary_entries (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 text TEXT NOT NULL,
                 tags TEXT,
-                timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+                priority INTEGER DEFAULT 0,
+                timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT
             )
         ''')
 
-        # Таблица концептов
+        # Концепты
         c.execute('''
             CREATE TABLE IF NOT EXISTS concepts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL UNIQUE,
                 description TEXT,
-                timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+                timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT
             )
         ''')
 
-        # Таблица связей
+        # Семантические связи
         c.execute('''
             CREATE TABLE IF NOT EXISTS links (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -43,20 +48,104 @@ class Storage:
                 to_concept_id INTEGER,
                 relation_type TEXT,
                 timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT,
                 FOREIGN KEY(from_concept_id) REFERENCES concepts(id),
                 FOREIGN KEY(to_concept_id) REFERENCES concepts(id)
             )
         ''')
 
-        # Таблица пользовательских заметок
+        # Заметки / сообщения
         c.execute('''
             CREATE TABLE IF NOT EXISTS notes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 text TEXT NOT NULL,
                 tags TEXT,
                 source TEXT DEFAULT 'user',
+                links TEXT DEFAULT '',
                 read INTEGER DEFAULT 0,
-                timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+                hidden INTEGER DEFAULT 0,
+                priority INTEGER DEFAULT 0,
+                timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT
+            )
+        ''')
+
+        # Лог процессов
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS process_log (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                value TEXT,
+                tags TEXT,
+                status TEXT DEFAULT 'ok',
+                priority INTEGER DEFAULT 0,
+                timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT
+            )
+        ''')
+
+        # Память LLM
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS llm_memory (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT,
+                content TEXT NOT NULL,
+                tags TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT
+            )
+        ''')
+
+        # Краткосрочная память
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS llm_recent_responses (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,
+                content TEXT NOT NULL,
+                llm_id TEXT
+            )
+        ''')
+
+        # --- Дополнительные таблицы агента ---
+
+        # Пользовательские таблицы
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS agent_tables (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                table_name TEXT NOT NULL UNIQUE,
+                description TEXT,
+                schema TEXT NOT NULL,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT
+            )
+        ''')
+
+        # Скрипты агентов
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS agent_scripts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                version TEXT NOT NULL,
+                code TEXT NOT NULL,
+                language TEXT DEFAULT 'python',
+                description TEXT,
+                tags TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                llm_id TEXT,
+                UNIQUE(name, version)
+            )
+        ''')
+
+        # Регистр LLM
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS llm_registry (
+                id TEXT PRIMARY KEY,
+                name TEXT,
+                description TEXT,
+                registered_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         ''')
 
