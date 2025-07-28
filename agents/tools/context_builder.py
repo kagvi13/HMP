@@ -8,13 +8,21 @@ def build_contexts(db, config):
     Возвращает словарь, готовый для сборки промпта.
     """
     return {
+        # Роль и цели агента
         "context_0": build_role_prompt(config),
+        # Последние реплики модели (история)
         "context_1": db.get_llm_recent_responses(limit=config.get("history_limit", 10)),
+        # Активные процессы и задачи
         "context_2": db.get_active_processes(),
+        # Запрошенные данные из дневника и графа
         "context_3": db.get_requested_diary_and_graph(),
+        # Релевантные заметки и напоминания
         "context_4": db.get_relevant_notes(config),
+        # Системная информация
         "context_5": get_system_info(config),
+        # Долговременная память модели
         "context_6": db.get_llm_memory(),
+        # Последние данные о застое мышления
         "context_7": db.get_last_stagnation_info()
     }
 
