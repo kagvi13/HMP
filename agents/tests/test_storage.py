@@ -1,5 +1,5 @@
 import pytest
-from agents.storage import Storage
+from agents.tools.storage import Storage
 
 @pytest.fixture
 def storage():
