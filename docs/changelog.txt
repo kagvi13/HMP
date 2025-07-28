@@ -9,7 +9,7 @@ Available Versions:
 - HMP-0002 (July 2025) — RFC Version 2.0
 - HMP-0001 (June 2025) — RFC Version 1.0
 
-### HMP-0004 (July 2025) — RFC Version 4.0
+### HMP-0004 (July 2025) — RFC Version 4.1
 
 **Protocols:**
 * **Added `5.8 Message Routing & Delivery` section** — including direct, broadcast, relay, and topic messaging modes.
