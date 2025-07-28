@@ -510,7 +510,7 @@ class Storage:
     
     # process_log — лог задач, ошибок и событий
 
-    def log_event(self, name, value=None, tags=None, status='ok', priority=0, llm_id=None):
+    def log_process_event(self, name, value=None, tags=None, status='ok', priority=0, llm_id=None):
         c = self.conn.cursor()
         c.execute('''
             INSERT INTO process_log (name, value, tags, status, priority, llm_id)
@@ -570,6 +570,21 @@ class Storage:
         c = self.conn.cursor()
         c.execute("SELECT * FROM agent_scripts ORDER BY updated_at DESC LIMIT ?", (limit,))
         return c.fetchall()    
+
+    def get_latest_agent_script(self, name):
+        c = self.conn.cursor()
+        c.execute('''
+            SELECT * FROM agent_scripts
+            WHERE name = ?
+            ORDER BY updated_at DESC
+            LIMIT 1
+        ''', (name,))
+        return c.fetchone()
+
+    def search_agent_scripts_by_tag(self, tag):
+        c = self.conn.cursor()
+        c.execute("SELECT * FROM agent_scripts WHERE tags LIKE ?", (f"%{tag}%",))
+        return c.fetchall()
     
     # llm_registry — реестр LLM-агентов
 
@@ -581,7 +596,7 @@ class Storage:
         ''', (llm_id, name, description))
         self.conn.commit()
 
-    def get_llm_agents(self):
+    def get_registered_llms(self):
         c = self.conn.cursor()
         c.execute('SELECT * FROM llm_registry ORDER BY registered_at DESC')
         return c.fetchall()
