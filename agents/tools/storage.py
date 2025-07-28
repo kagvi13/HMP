@@ -149,6 +149,19 @@ class Storage:
             )
         ''')
 
+        # Быстрые индексы по смысловой карте и дневнику
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS diary_graph_index (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                source_entry_id INTEGER NOT NULL,
+                target_entry_id INTEGER NOT NULL,
+                relation TEXT NOT NULL,
+                strength REAL DEFAULT 1.0,
+                context TEXT,
+                timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+
         self.conn.commit()
 
     # Методы для работы с дневником
