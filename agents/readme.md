@@ -38,6 +38,7 @@ agents/
   * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
   * [command_parser.py](tools/command_parser.py) - Извлечение команд из JSON или размеченного блока.
   * [command_executor.py](tools/command_executor.py) - Выполнение команд (shell, graph, diary и др).
+  * [memory_utils.py](tools/memory_utils.py) - Работа с 'llm_memory', 'llm_recent_responses' и стагнацией.
   * [diagnose.py](tools/diagnose.py) - Скрипт диагностики соединения, определения IP и проверки порта DHT.
   * [similarity.py](tools/similarity.py) - Сравнение смыслов.
 
