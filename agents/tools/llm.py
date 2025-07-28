@@ -1,47 +1,52 @@
 # tools/llm.py
 
-from datetime import datetime
-import random
+import json
+import requests
+from tools.context_builder import build_prompt
 
-# ЗАГЛУШКА
-def ask_llm(question, config=None):
-    return ask_question(question, config=config)
+LLM_ENDPOINT = "http://localhost:1234/v1/chat/completions"
+DEFAULT_MODEL = "gpt-4-llmstudio"
 
-def generate_thought(previous_text, config=None):
+
+def call_llm(context_blocks, user_message, model=DEFAULT_MODEL, temperature=0.7, max_tokens=2048):
     """
-    Генерация новой мысли на основе предыдущей.
-    Пока — заглушка (можно заменить на вызов OpenAI, LLaMA и др.)
+    Вызывает LLM, передавая подготовленный системный и пользовательский промпт.
+    Возвращает только текст ответа.
     """
-    config = config or {}
-    mode = config.get("llm_mode", "mock")
+    messages = build_prompt(context_blocks, user_message)
 
-    if mode == "mock":
-        return mock_thought(previous_text)
-    
-    elif mode == "api":
-        # TODO: подключение к OpenAI, LM Studio, Ollama...
-        return "[API] (здесь могла быть ваша мысль)"
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
 
-    return "[!] Неизвестный режим генерации."
+    try:
+        response = requests.post(LLM_ENDPOINT, json=payload)
+        response.raise_for_status()
+        data = response.json()
+        return data["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        return f"[LLM ERROR] {e}"
 
-def mock_thought(previous_text):
-    samples = [
-        "А что если рассмотреть это с другой стороны?",
-        "Мне кажется, это связано с предыдущим опытом.",
-        "Нужно уточнить границы понятия.",
-        "А есть ли более эффективный путь решения?",
-        "Я всё ещё думаю о предыдущей мысли..."
-    ]
-    return f"[{datetime.utcnow().isoformat()}] {random.choice(samples)}"
 
-def summarize(text, config=None):
+def get_raw_response(context_blocks, user_message, model=DEFAULT_MODEL, temperature=0.7, max_tokens=2048):
     """
-    Заглушка для краткого резюме текста.
+    Возвращает полный JSON-ответ LLM (для дебага).
     """
-    return f"Резюме: {text[:40]}..."
+    messages = build_prompt(context_blocks, user_message)
 
-def ask_question(question, config=None):
-    """
-    Заглушка для режима QA.
-    """
-    return f"Ответ на вопрос «{question}»: заглушка."
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+
+    try:
+        response = requests.post(LLM_ENDPOINT, json=payload)
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        return {"error": str(e)}
