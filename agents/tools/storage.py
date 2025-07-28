@@ -304,9 +304,19 @@ class Storage:
         cursor.execute(query, values)
         return cursor.fetchone()
 
-    
-    
-    # Утилиты
+    # разное
+    def get_llm_recent_responses(self, limit=20, llm_id=None):
+        c = self.conn.cursor()
+        query = "SELECT role, content FROM llm_recent_responses"
+        if llm_id:
+            query += " WHERE llm_id = ?"
+            query += " ORDER BY timestamp DESC LIMIT ?"
+            c.execute(query, (llm_id, limit))
+        else:
+            query += " ORDER BY timestamp DESC LIMIT ?"
+            c.execute(query, (limit,))
+        return c.fetchall()
 
+    # Утилиты
     def close(self):
         self.conn.close()
