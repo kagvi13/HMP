@@ -304,7 +304,7 @@ class Storage:
         cursor.execute(query, values)
         return cursor.fetchone()
 
-    # разное
+    # Разное (LLM responses / memory)
     def get_llm_recent_responses(self, limit=20, llm_id=None):
         c = self.conn.cursor()
         query = "SELECT role, content FROM llm_recent_responses"
@@ -316,6 +316,22 @@ class Storage:
             query += " ORDER BY timestamp DESC LIMIT ?"
             c.execute(query, (limit,))
         return c.fetchall()
+
+    def add_llm_memory(self, content, title=None, tags=None, llm_id=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT INTO llm_memory (title, content, tags, llm_id)
+            VALUES (?, ?, ?, ?)
+        ''', (title, content, tags, llm_id))
+        self.conn.commit()
+
+    def add_llm_recent_response(self, role, content, llm_id=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT INTO llm_recent_responses (role, content, llm_id)
+            VALUES (?, ?, ?)
+        ''', (role, content, llm_id))
+        self.conn.commit()
 
     # Утилиты
     def close(self):
