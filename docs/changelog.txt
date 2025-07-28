@@ -3,10 +3,22 @@
 ## HyperCortex Mesh Protocol — Changelog
 
 Available Versions:
+- HMP-0004 (July 2025) — RFC Version 4.1
 - HMP-0004 (July 2025) — RFC Version 4.0
 - HMP-0003 (July 2025) — RFC Version 3.0
 - HMP-0002 (July 2025) — RFC Version 2.0
 - HMP-0001 (June 2025) — RFC Version 1.0
+
+### HMP-0004 (July 2025) — RFC Version 4.0
+
+**Protocols:**
+* **Added `5.8 Message Routing & Delivery` section** — including direct, broadcast, relay, and topic messaging modes.
+
+**Data Models:**
+* **Defined `6.5.8 Message Object Schema`** — standard JSON format for inter-agent communication.
+
+**Cognitive Workflows:**
+* **Added `7.9 Message Handling & Delivery Workflows`** — describing message processing, relay behavior, and routing.
 
 ### HMP-0004 (July 2025) — RFC Version 4.0
 
