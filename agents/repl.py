@@ -1,70 +1,47 @@
 # agents/repl.py
 
-import sys
 import time
-import select
 from datetime import datetime
-
+from tools.context_builder import build_contexts
+from tools.llm import call_llm
+from tools.command_parser import extract_commands
+from tools.command_executor import execute_commands
+from tools.memory_utils import update_llm_memory, detect_stagnation
 from storage import Storage
-from tools.notebook_store import Notebook
-from tools import llm
-from tools.similarity import is_similar  # ✅ заменяет заглушку
-
-def print_thought(thought, prefix="💡"):
-    print(f"{prefix} {thought}")
-
-def wait_for_input(timeout=10):
-    print(f"⌛ Ожидание ввода пользователя ({timeout} сек)... (введите `exit` для выхода)")
-    rlist, _, _ = select.select([sys.stdin], [], [], timeout)
-    if rlist:
-        return sys.stdin.readline().strip()
-    else:
-        print("⏱️ Нет ввода. Продолжаю размышления...")
-        return None
 
 def run_repl(config=None):
-    print("[🧠 HMP-Agent] Запуск REPL-режима.")
+    print("[🧠 HMP-Agent] Запуск REPL-режима (v2).")
     config = config or {}
-    agent_name = config.get("agent_name", "Unnamed-Agent")
-    repl_timeout = config.get("repl_timeout", 10)
-    similarity_threshold = config.get("similarity_threshold", 0.9)
-
     db = Storage(config=config)
-    notebook = Notebook()
-    thoughts = [f"Привет, я {agent_name}."]
-    last_check_time = datetime.utcnow().isoformat()
-
+    
     while True:
-        # Сгенерировать новую мысль
-        last = thoughts[-1]
-        next_thought = llm.generate_thought(last, config=config)
+        tick_start = datetime.utcnow().isoformat()
+        print(f"\n=== [🌀 Новый тик REPL] {tick_start} ===")
 
-        if not is_similar(last, next_thought, threshold=similarity_threshold):
-            print_thought(next_thought)
-            db.write_entry(next_thought, tags=["thought"])
-            thoughts.append(next_thought)
+        # 1. Построение контекстов
+        contexts = build_contexts(db=db, config=config)
+
+        # 2. Формирование запроса к LLM
+        prompt = build_prompt(contexts)
+        llm_response = call_llm(prompt, config=config)
+
+        # 3. Обнаружение стагнации
+        if detect_stagnation(db, llm_response):
+            print("⚠️ Стагнация выявлена. Активирован Anti-Stagnation Reflex.")
+            llm_response = activate_anti_stagnation(db, config=config)
+
+        # 4. Обновление памяти
+        update_llm_memory(db, llm_response)
+
+        # 5. Извлечение и выполнение команд
+        commands = extract_commands(llm_response)
+        execute_commands(commands, db=db, config=config)
+
+        # 6. Сохранение истории
+        db.write_llm_response(llm_response)
+
+        # 7. Управление режимами ожидания
+        if check_idle_mode(config):
+            wait_idle_trigger(config)
         else:
-            print("🤔 Мысль слишком похожа. Проверяю блокнот...")
-
-        # Проверка новых пользовательских заметок
-        new_notes = notebook.get_notes_after(last_check_time)
-        if new_notes:
-            print(f"📓 Новые записи в блокноте: {len(new_notes)}")
-            for nid, text, source, ts in new_notes:
-                print_thought(text, prefix="📝")
-                db.write_entry(text, tags=["notepad"])
-                thoughts.append(text)
-                last_check_time = ts  # обновляем момент последней обработки
-
-        # Ожидание пользовательского ввода
-        user_input = wait_for_input(timeout=repl_timeout)
-        if user_input:
-            if user_input.strip().lower() in ("exit", "quit"):
-                print("👋 Выход из REPL. До связи!")
-                break
-            else:
-                db.write_entry(user_input, tags=["user"])
-                thoughts.append(user_input)
-
-    db.close()
-    notebook.close()
+            time.sleep(config.get("repl_interval", 5))
