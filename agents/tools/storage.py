@@ -566,6 +566,11 @@ class Storage:
             c.execute('SELECT * FROM agent_scripts ORDER BY updated_at DESC')
         return c.fetchall()
 
+    def list_agent_scripts(limit=50):
+        c = self.conn.cursor()
+        c.execute("SELECT * FROM agent_scripts ORDER BY updated_at DESC LIMIT ?", (limit,))
+        return c.fetchall()    
+    
     # llm_registry — реестр LLM-агентов
 
     def register_llm(self, llm_id, name=None, description=None):
