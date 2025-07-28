@@ -31,6 +31,17 @@ CREATE TABLE IF NOT EXISTS links (
     FOREIGN KEY(to_concept_id) REFERENCES concepts(id)
 );
 
+-- Быстрые индексы по смысловой карте и дневнику
+CREATE TABLE IF NOT EXISTS diary_graph_index (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source_entry_id INTEGER NOT NULL,
+    target_entry_id INTEGER NOT NULL,
+    relation TEXT NOT NULL,
+    strength REAL DEFAULT 1.0,
+    context TEXT,
+    timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Заметки, подсказки, сообщения пользователя и LLM
 CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
