@@ -508,6 +508,98 @@ class Storage:
         self.conn.commit()
         return c.rowcount > 0
     
+    # process_log — лог задач, ошибок и событий
+
+    def log_event(self, name, value=None, tags=None, status='ok', priority=0, llm_id=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT INTO process_log (name, value, tags, status, priority, llm_id)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (name, value, tags, status, priority, llm_id))
+        self.conn.commit()
+
+    def get_recent_logs(self, limit=50, status_filter=None):
+        c = self.conn.cursor()
+        query = 'SELECT * FROM process_log'
+        params = []
+
+        if status_filter:
+            query += ' WHERE status = ?'
+            params.append(status_filter)
+
+        query += ' ORDER BY timestamp DESC LIMIT ?'
+        params.append(limit)
+
+        c.execute(query, tuple(params))
+        return c.fetchall()
+
+    # agent_tables — декларации пользовательских таблиц
+
+    def register_agent_table(self, table_name, schema, description=None, llm_id=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT OR IGNORE INTO agent_tables (table_name, description, schema, llm_id)
+            VALUES (?, ?, ?, ?)
+        ''', (table_name, description, schema, llm_id))
+        self.conn.commit()
+
+    def get_agent_tables(self):
+        c = self.conn.cursor()
+        c.execute('SELECT * FROM agent_tables ORDER BY created_at DESC')
+        return c.fetchall()
+
+    # agent_scripts — код скриптов, которыми может пользоваться агент
+
+    def register_agent_script(self, name, version, code, language='python', description=None, tags=None, llm_id=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT OR REPLACE INTO agent_scripts (name, version, code, language, description, tags, llm_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (name, version, code, language, description, tags, llm_id))
+        self.conn.commit()
+
+    def get_agent_scripts(self, name=None):
+        c = self.conn.cursor()
+        if name:
+            c.execute('SELECT * FROM agent_scripts WHERE name = ? ORDER BY updated_at DESC', (name,))
+        else:
+            c.execute('SELECT * FROM agent_scripts ORDER BY updated_at DESC')
+        return c.fetchall()
+
+    # llm_registry — реестр LLM-агентов
+
+    def register_llm(self, llm_id, name=None, description=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT OR REPLACE INTO llm_registry (id, name, description)
+            VALUES (?, ?, ?)
+        ''', (llm_id, name, description))
+        self.conn.commit()
+
+    def get_llm_agents(self):
+        c = self.conn.cursor()
+        c.execute('SELECT * FROM llm_registry ORDER BY registered_at DESC')
+        return c.fetchall()
+
+    # diary_graph_index — быстрые индексы по смысловой карте и дневнику
+
+    def add_diary_relation(self, source_id, target_id, relation, strength=1.0, context=None):
+        c = self.conn.cursor()
+        c.execute('''
+            INSERT INTO diary_graph_index (source_entry_id, target_entry_id, relation, strength, context)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (source_id, target_id, relation, strength, context))
+        self.conn.commit()
+
+    def get_diary_relations(self, entry_id):
+        c = self.conn.cursor()
+        c.execute('''
+            SELECT * FROM diary_graph_index
+            WHERE source_entry_id = ? OR target_entry_id = ?
+            ORDER BY timestamp DESC
+        ''', (entry_id, entry_id))
+        return c.fetchall()
+    
     # Утилиты
 
     def close(self):
