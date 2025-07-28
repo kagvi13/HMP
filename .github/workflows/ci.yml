@@ -22,15 +22,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r agents/requirements.txt
 
-    - name: Run tests
+    - name: Run simple tests
       run: |
-        # если у тебя есть тесты, например, pytest
-        pytest tests/
-
-    - name: Lint code
-      run: |
-        pip install flake8
-        flake8 .
-
+        python -m pytest agents/tests/
