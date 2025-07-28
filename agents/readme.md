@@ -36,6 +36,7 @@ agents/
   * [init_db.py](tools/init_db.py) - Инициализация базы данных.
   * [llm.py](tools/llm.py) - Работа с LLM (вызов, выбор модели, системный промпт).
   * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
+  * [command_parser.py](tools/command_parser.py) - Извлечение команд из JSON или размеченного блока.
   * [command_executor.py](tools/command_executor.py) - Выполнение команд (shell, graph, diary и др).
   * [diagnose.py](tools/diagnose.py) - Скрипт диагностики соединения, определения IP и проверки порта DHT.
   * [similarity.py](tools/similarity.py) - Сравнение смыслов.
