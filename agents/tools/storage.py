@@ -152,6 +152,7 @@ class Storage:
         self.conn.commit()
 
     # Методы для работы с дневником
+
     def write_diary_entry(self, text, tags=None):
         timestamp = datetime.utcnow().isoformat()
         tag_str = ",".join(tags) if tags else ""
@@ -205,6 +206,7 @@ class Storage:
         return cursor.fetchall()
       
     # Методы для работы с концептами
+
     def add_concept(self, name, description=None):
         timestamp = datetime.utcnow().isoformat()
         self.conn.execute(
@@ -224,6 +226,7 @@ class Storage:
         return cursor.fetchall()
 
     # Методы для работы с связями
+
     def add_link(self, from_name, to_name, relation_type):
         from_concept = self.get_concept_by_name(from_name)
         to_concept = self.get_concept_by_name(to_name)
@@ -251,6 +254,7 @@ class Storage:
         return cursor.fetchall()
 
     # Сложные операции над графом
+
     def expand_concept_graph(self, start_id, depth):
         visited = set()
         results = []
@@ -326,6 +330,7 @@ class Storage:
         return row[0] if row else None
     
     # Методы для заметок
+
     def write_note(self, text, tags=None):
         timestamp = datetime.utcnow().isoformat()
         tag_str = ",".join(tags) if tags else ""
@@ -394,6 +399,7 @@ class Storage:
         return cursor.fetchone()
 
     # Разное (LLM responses / memory)
+
     def get_llm_recent_responses(self, limit=20, llm_id=None):
         c = self.conn.cursor()
         query = "SELECT role, content FROM llm_recent_responses"
@@ -422,6 +428,74 @@ class Storage:
         ''', (role, content, llm_id))
         self.conn.commit()
 
+    # Скрипты агента
+
+    def get_all_agent_scripts(self):
+        c = self.conn.cursor()
+        c.execute("SELECT id, name, version, language, description, tags, created_at, updated_at FROM agent_scripts")
+        return c.fetchall()
+
+    def get_agent_script_by_name(self, name, version=None):
+        c = self.conn.cursor()
+        if version:
+            c.execute("SELECT * FROM agent_scripts WHERE name = ? AND version = ?", (name, version))
+        else:
+            c.execute("""
+                SELECT * FROM agent_scripts
+                WHERE name = ?
+                ORDER BY created_at DESC
+                LIMIT 1
+            """, (name,))
+        return c.fetchone()
+
+    def add_agent_script(self, name, version, code, description="", tags="", language="python", llm_id=None):
+        c = self.conn.cursor()
+        try:
+            c.execute("""
+                INSERT INTO agent_scripts (name, version, code, description, tags, language, llm_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (name, version, code, description, tags, language, llm_id))
+            self.conn.commit()
+            return True
+        except sqlite3.IntegrityError:
+            return False  # Скрипт с таким name+version уже есть
+
+    def update_agent_script(self, name, version, code=None, description=None, tags=None):
+        c = self.conn.cursor()
+        fields = []
+        values = []
+
+        if code is not None:
+            fields.append("code = ?")
+            values.append(code)
+        if description is not None:
+            fields.append("description = ?")
+            values.append(description)
+        if tags is not None:
+            fields.append("tags = ?")
+            values.append(tags)
+
+        if not fields:
+            return False
+
+        fields.append("updated_at = CURRENT_TIMESTAMP")
+        query = f"UPDATE agent_scripts SET {', '.join(fields)} WHERE name = ? AND version = ?"
+        values.extend([name, version])
+
+        c.execute(query, values)
+        self.conn.commit()
+        return c.rowcount > 0
+
+    def delete_agent_script(self, name, version=None):
+        c = self.conn.cursor()
+        if version:
+            c.execute("DELETE FROM agent_scripts WHERE name = ? AND version = ?", (name, version))
+        else:
+            c.execute("DELETE FROM agent_scripts WHERE name = ?", (name,))
+        self.conn.commit()
+        return c.rowcount > 0
+    
     # Утилиты
+
     def close(self):
         self.conn.close()
