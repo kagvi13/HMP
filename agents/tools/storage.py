@@ -585,6 +585,28 @@ class Storage:
         c = self.conn.cursor()
         c.execute("SELECT * FROM agent_scripts WHERE tags LIKE ?", (f"%{tag}%",))
         return c.fetchall()
+
+    def update_agent_script(self, name, version, code, tags=None):
+        c = self.conn.cursor()
+
+        # Проверим, существует ли скрипт с таким name и version
+        c.execute('''
+            SELECT COUNT(*) FROM agent_scripts
+            WHERE name = ? AND version = ?
+        ''', (name, version))
+        count = c.fetchone()[0]
+
+        if count == 0:
+            raise ValueError(f"Agent script '{name}' v{version} does not exist. Use register_agent_script instead.")
+
+        now = datetime.utcnow().isoformat()
+        c.execute('''
+            UPDATE agent_scripts
+            SET code = ?, updated_at = ?, tags = ?
+            WHERE name = ? AND version = ?
+        ''', (code, now, tags, name, version))
+
+        self.conn.commit()
     
     # llm_registry — реестр LLM-агентов
 
