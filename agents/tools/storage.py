@@ -1,9 +1,11 @@
 # agents/tools/storage.py
 
 import sqlite3
+import os
 from datetime import datetime
 
 DEFAULT_DB_PATH = "agent_data.db"
+SCRIPTS_BASE_PATH = "scripts"
 
 class Storage:
     def __init__(self, config=None):
@@ -550,21 +552,50 @@ class Storage:
 
     # agent_scripts — код скриптов, которыми может пользоваться агент
 
+    def resolve_script_path(name, version):
+        return os.path.join(SCRIPTS_BASE_PATH, name, f"v{version}", "script.py")
+
     def register_agent_script(self, name, version, code, language='python', description=None, tags=None, llm_id=None):
         c = self.conn.cursor()
+
+        if code.strip().startswith("@path="):
+            # сохраняем только путь как метку
+            path = code.strip().split("=", 1)[1]
+            code_entry = f"@path={path}"
+        else:
+            # сохраняем и файл
+            path = resolve_script_path(name, version)
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(code)
+            code_entry = f"@path={name}/v{version}/script.py"
+
         c.execute('''
             INSERT OR REPLACE INTO agent_scripts (name, version, code, language, description, tags, llm_id)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (name, version, code, language, description, tags, llm_id))
+        ''', (name, version, code_entry, language, description, tags, llm_id))
         self.conn.commit()
 
-    def get_agent_scripts(self, name=None):
+    def get_agent_script_code(self, name, version=None):
+        """Возвращает только код (из БД или файла)"""
         c = self.conn.cursor()
-        if name:
-            c.execute('SELECT * FROM agent_scripts WHERE name = ? ORDER BY updated_at DESC', (name,))
+        if version:
+            c.execute("SELECT code FROM agent_scripts WHERE name = ? AND version = ?", (name, version))
         else:
-            c.execute('SELECT * FROM agent_scripts ORDER BY updated_at DESC')
-        return c.fetchall()
+            c.execute("SELECT code FROM agent_scripts WHERE name = ? ORDER BY updated_at DESC LIMIT 1", (name,))
+        row = c.fetchone()
+        if not row:
+            return None
+        code_entry = row[0]
+        if code_entry.strip().startswith("@path="):
+            rel_path = code_entry.strip().split("=", 1)[1]
+            full_path = os.path.join(SCRIPTS_BASE_PATH, rel_path)
+            if os.path.isfile(full_path):
+                with open(full_path, "r", encoding="utf-8") as f:
+                    return f.read()
+            else:
+                return f"# Error: File not found at path: {full_path}"
+        return code_entry
 
     def list_agent_scripts(limit=50):
         c = self.conn.cursor()
