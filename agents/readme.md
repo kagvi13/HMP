@@ -25,18 +25,20 @@ agents/
 ```
 
 **Скрипты:**
-* [agent.py](agent.py) - основной исполняемый файл CLI-агента
-* [cli.py](cli.py) - запуск агента в нужном режиме
-* [qa.py](qa.py) - режим "вопрос-ответ"
-* [repl.py](repl.py) - интерактивный REPL-режим
-* [mcp_server.py](mcp_server.py) - API-интерфейс для HMP-агента (получение новых/случайных записей, разметка, импорт графа и т.п.)
-* [notebook.py](notebook.py) - добавление и просмотр пользователем записей в блокноте
+* [agent.py](agent.py) - Основной исполняемый файл CLI-агента.
+* [cli.py](cli.py) - Запуск агента в нужном режиме.
+* [qa.py](qa.py) - Режим "вопрос-ответ".
+* [repl.py](repl.py) - Интерактивный REPL-режим.
+* [mcp_server.py](mcp_server.py) - API-интерфейс для HMP-агента (получение новых/случайных записей, разметка, импорт графа и т.п.).
+* [notebook.py](notebook.py) - Добавление и просмотр пользователем записей в блокноте.
 * tools
-  * [storage.py](tools/storage.py) - реализация базового хранилища (`Storage`), подключение SQLite
-  * [init_db.py](tools/init_db.py) - инициализация базы данных
-  * [llm.py](tools/llm.py) - обёртка над LLM (заглушка или API)
-  * [diagnose.py](tools/diagnose.py) - скрипт диагностики соединения, определения IP и проверки порта DHT
-  * [similarity.py](tools/similarity.py) - сравнение смыслов
+  * [storage.py](tools/storage.py) - Реализация базового хранилища (`Storage`), подключение SQLite.
+  * [init_db.py](tools/init_db.py) - Инициализация базы данных.
+  * [llm.py](tools/llm.py) - Работа с LLM (вызов, выбор модели, системный промпт).
+  * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
+  * [command_executor.py](tools/command_executor.py) - Выполнение команд (shell, graph, diary и др).
+  * [diagnose.py](tools/diagnose.py) - Скрипт диагностики соединения, определения IP и проверки порта DHT.
+  * [similarity.py](tools/similarity.py) - Сравнение смыслов.
 
 **Структура БД:**
 * [db_structure.md](tools/db_structure.md) - человекочитаемый формат
