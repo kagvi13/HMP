@@ -138,19 +138,20 @@ CREATE TABLE IF NOT EXISTS llm_registry (
 );
 
 -- Список пользователей
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS  users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-  ban_active = (ban_until IS NOT NULL AND ban_until > CURRENT_TIMESTAMP)
+  ban_active  DATETIME,
   username TEXT,
   did TEXT UNIQUE,
   password_hash TEXT,
   info TEXT -- JSON
 );
 
--- Список групп пользователей
-CREATE TABLE IF NOT EXISTS users_group (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    group_name TEXT UNIQUE NOT NULL,
-    description TEXT,
-    users TEXT -- JSON-массив или CSV со списком DID, например: '["did:example:123", "did:example:456"]'
+CREATE TABLE IF NOT EXISTS users_group_membership (
+    group_id INTEGER,
+    user_id INTEGER,
+    PRIMARY KEY (group_id, user_id),
+    FOREIGN KEY (group_id) REFERENCES users_group(id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
