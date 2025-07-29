@@ -147,11 +147,12 @@ CREATE TABLE IF NOT EXISTS  users (
   info TEXT -- JSON
 );
 
-CREATE TABLE IF NOT EXISTS users_group_membership (
-    group_id INTEGER,
-    user_id INTEGER,
-    PRIMARY KEY (group_id, user_id),
-    FOREIGN KEY (group_id) REFERENCES users_group(id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+-- Список групп пользователей
+CREATE TABLE IF NOT EXISTS users_group (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_name TEXT UNIQUE NOT NULL,
+    description TEXT,
+    users TEXT -- JSON-массив или CSV со списком DID, например: '["did:example:123", "did:example:456"]'
 );
+
 
