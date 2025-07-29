@@ -110,7 +110,23 @@ class Storage:
             )
         ''')
 
-        # --- Дополнительные таблицы агента ---
+        # Список известных HMP-агентов
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS agent_peers (
+                id TEXT PRIMARY KEY, 
+                name TEXT,
+                addresses TEXT,
+                tags TEXT,
+                status TEXT DEFAULT 'unknown',
+                last_seen DATETIME,
+                description TEXT,
+                capabilities TEXT,
+                pubkey TEXT,
+                software_info TEXT,
+                registered_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+
 
         # Пользовательские таблицы
         c.execute('''
