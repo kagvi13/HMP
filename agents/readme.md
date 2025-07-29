@@ -32,6 +32,8 @@ agents/
 ```
 
 **Скрипты:**
+* [start_repl.bat](start_repl.bat) - Запуск агента в REPL-режиме.
+* [start_repl.sh](start_repl.sh) - Запуск агента в REPL-режиме.
 * [agent.py](agent.py) - Основной исполняемый файл CLI-агента.
 * [cli.py](cli.py) - Запуск агента в нужном режиме.
 * [qa.py](qa.py) - Режим "вопрос-ответ".
