@@ -158,4 +158,15 @@ CREATE TABLE IF NOT EXISTS users_group (
     users TEXT -- JSON-массив или CSV со списком DID, например: '["did:example:123", "did:example:456"]'
 );
 
+-- Таблица для хранения токенов восстановления пароля
+CREATE TABLE password_reset_tokens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  token TEXT UNIQUE NOT NULL,
+  created_at DATETIME NOT NULL,
+  expires_at DATETIME NOT NULL,
+  used BOOLEAN DEFAULT 0,
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
 
