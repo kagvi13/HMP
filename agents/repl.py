@@ -1,5 +1,7 @@
 # agents/repl.py
 
+import json
+import os
 import time
 from datetime import datetime
 from tools.context_builder import build_contexts, build_prompt
@@ -34,9 +36,17 @@ def run_repl(config=None):
         # 2. Формирование запроса и вызов LLM
         prompt = build_prompt(contexts)
         llm_response = call_llm(prompt, config=config)
+        repl_log_entry = {
+            "timestamp": tick_start,
+            "prompt": prompt.strip(),
+            "llm_response": llm_response.strip(),
+        }
+
 
         # 3. Проверка на стагнацию
-        if detect_stagnation(db, llm_response):
+        is_stagnant = detect_stagnation(db, llm_response)
+        repl_log_entry["stagnation_detected"] = is_stagnant
+        if is_stagnant:
             print("⚠️ Стагнация выявлена. Активирован Anti-Stagnation Reflex.")
             llm_response = activate_anti_stagnation(db, config=config)
 
@@ -45,9 +55,14 @@ def run_repl(config=None):
 
         # 5. Извлечение и выполнение команд
         commands = extract_commands(llm_response)
+        repl_log_entry["commands_extracted"] = commands
         execute_commands(commands, db=db, config=config)
 
-        # 6. Сохранение истории и завершение итерации
+        # 6. Логирование полной итерации в файл
+        log_path = config.get("repl_log_path", "logs/repl_log.jsonl")
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(repl_log_entry, ensure_ascii=False) + "\n")
         db.write_llm_response(llm_response)
         db.update_agent_log(timestamp=tick_start)
 
