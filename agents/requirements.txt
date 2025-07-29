@@ -1,2 +1,6 @@
 scikit-learn
 pytest
+openai
+requests
+tiktoken
+python-dotenv
