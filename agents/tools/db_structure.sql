@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     text TEXT NOT NULL,
     tags TEXT,
+    user_did TEXT DEFAULT 'ALL'
     source TEXT DEFAULT 'user', -- user | llm | system
     links TEXT DEFAULT '',
     read INTEGER DEFAULT 0,     -- 0 = непрочитано LLM, 1 = прочитано
@@ -134,4 +135,13 @@ CREATE TABLE IF NOT EXISTS llm_registry (
     name TEXT,
     description TEXT,
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Список пользователей
+CREATE TABLE users (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT,
+  did TEXT UNIQUE,
+  password_hash TEXT,
+  info TEXT -- JSON
 );
