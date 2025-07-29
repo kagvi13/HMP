@@ -88,7 +88,16 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     llm_id TEXT
 );
 
--- Дополнительные таблицы и скрипты агента
+-- Список известных HMP-агентов
+CREATE TABLE IF NOT EXISTS agent_peers (
+    id TEXT PRIMARY KEY, -- UUID или псевдоним агента
+    name TEXT,           -- Человеко-читаемое имя
+    addresses TEXT,      -- JSON-строка: ["http://1.2.3.4:9000", "p2p://..."]
+    tags TEXT,           -- DHT, Postman, Friend, Local, etc.
+    last_seen DATETIME,  -- Когда последний раз был активен
+    description TEXT,
+    registered_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
 -- Список пользовательских таблиц, созданных агентами
 CREATE TABLE IF NOT EXISTS agent_tables (
