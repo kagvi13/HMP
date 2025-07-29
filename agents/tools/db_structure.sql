@@ -90,12 +90,16 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
 
 -- Список известных HMP-агентов
 CREATE TABLE IF NOT EXISTS agent_peers (
-    id TEXT PRIMARY KEY, -- UUID или псевдоним агента
-    name TEXT,           -- Человеко-читаемое имя
-    addresses TEXT,      -- JSON-строка: ["http://1.2.3.4:9000", "p2p://..."]
-    tags TEXT,           -- DHT, Postman, Friend, Local, etc.
-    last_seen DATETIME,  -- Когда последний раз был активен
+    id TEXT PRIMARY KEY,             -- UUID или псевдоним агента
+    name TEXT,                       -- Человеко-читаемое имя
+    addresses TEXT,                  -- JSON: ["http://1.2.3.4:9000", "p2p://..."]
+    tags TEXT,                       -- DHT, Postman, Friend, Local и т.д.
+    status TEXT DEFAULT 'unknown',  -- online | offline | untrusted | blacklisted | quarantined | unknown
+    last_seen DATETIME,             
     description TEXT,
+    capabilities TEXT,               -- JSON: {"can_sync": true, ...}
+    pubkey TEXT,                     -- Публичный ключ или хэш
+    software_info TEXT,              -- JSON: версия, ОС и др.
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
