@@ -23,6 +23,11 @@ def run_repl(config=None):
         tick_start = datetime.utcnow().isoformat()
         print(f"\n=== [🌀 Новый тик REPL] {tick_start} ===")
 
+        # 0. Обновление информации о пирах
+        from tools.peers import refresh_peer_list, check_peer_statuses
+        refresh_peer_list(db)
+        check_peer_statuses(db)
+
         # 1. Построение контекстов
         contexts = build_contexts(db=db, config=config)
 
