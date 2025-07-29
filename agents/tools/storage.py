@@ -451,6 +451,7 @@ class Storage:
         return c.fetchall()
 
     def get_agent_script_by_name(self, name, version=None):
+        """Возвращает скрипт с подгруженным кодом из файла, если он был сохранён через @path"""
         c = self.conn.cursor()
         if version:
             c.execute("SELECT * FROM agent_scripts WHERE name = ? AND version = ?", (name, version))
@@ -458,10 +459,26 @@ class Storage:
             c.execute("""
                 SELECT * FROM agent_scripts
                 WHERE name = ?
-                ORDER BY created_at DESC
+                ORDER BY updated_at DESC
                 LIMIT 1
             """, (name,))
-        return c.fetchone()
+        row = c.fetchone()
+        if not row:
+            return None
+
+        row = list(row)
+        code_entry = row[3]  # code
+
+        if code_entry.strip().startswith("@path="):
+            rel_path = code_entry.strip().split("=", 1)[1]
+            full_path = os.path.join(SCRIPT_ROOT, rel_path)
+            if os.path.isfile(full_path):
+                with open(full_path, "r", encoding="utf-8") as f:
+                    row[3] = f.read()
+            else:
+                row[3] = f"# Error: Script file not found at {full_path}"
+
+        return tuple(row)
 
     def add_agent_script(self, name, version, code, description="", tags="", language="python", llm_id=None):
         c = self.conn.cursor()
@@ -552,6 +569,12 @@ class Storage:
 
     # agent_scripts — код скриптов, которыми может пользоваться агент
 
+    def delete_script_file(name, version):
+        """Удаляет файл скрипта, если он существует"""
+        path = os.path.join(SCRIPT_ROOT, name, f"v{version}", "script.py")
+        if os.path.isfile(path):
+            os.remove(path)
+    
     def resolve_script_path(name, version):
         return os.path.join(SCRIPTS_BASE_PATH, name, f"v{version}", "script.py")
 
@@ -578,15 +601,10 @@ class Storage:
 
     def get_agent_script_code(self, name, version=None):
         """Возвращает только код (из БД или файла)"""
-        c = self.conn.cursor()
-        if version:
-            c.execute("SELECT code FROM agent_scripts WHERE name = ? AND version = ?", (name, version))
-        else:
-            c.execute("SELECT code FROM agent_scripts WHERE name = ? ORDER BY updated_at DESC LIMIT 1", (name,))
-        row = c.fetchone()
+        row = self.get_agent_script_by_name(name, version)
         if not row:
             return None
-        code_entry = row[0]
+        code_entry = row["code_or_path"]
         if code_entry.strip().startswith("@path="):
             rel_path = code_entry.strip().split("=", 1)[1]
             full_path = os.path.join(SCRIPTS_BASE_PATH, rel_path)
@@ -632,22 +650,40 @@ class Storage:
 
     def update_agent_script(self, name, version, code=None, description=None, tags=None, mode="inline"):
         """
-        mode: 'inline' (сохранять в БД), 'file' (сохранять в файл и в БД только ссылку)
+        mode: 'inline' (сохранять код в БД), 'file' (в файл, в БД — @path=...)
         """
         c = self.conn.cursor()
+
+        # Получаем текущий code, чтобы понять, был ли путь к файлу
+        c.execute("SELECT code FROM agent_scripts WHERE name = ? AND version = ?", (name, version))
+        result = c.fetchone()
+        if not result:
+            return False
+        old_code = result[0]
+
         fields = []
         values = []
 
-        # Обработка кода
+        # Обработка поля code
         if code is not None:
+            old_is_file = old_code.strip().startswith("@path=")
+
             if mode == "file":
                 file_path = save_script_to_file(code, name, version)
-                code_ref = f"@path={file_path}"
+                rel_path = os.path.relpath(file_path, SCRIPT_ROOT)
+                code_ref = f"@path={rel_path}"
                 fields.append("code = ?")
                 values.append(code_ref)
-            else:
+
+                # если раньше был inline — ничего не делаем, если файл — перезаписываем
+
+            else:  # inline
                 fields.append("code = ?")
                 values.append(code)
+
+                # если раньше был файл — удалить его
+                if old_is_file:
+                    delete_script_file(name, version)
 
         if description is not None:
             fields.append("description = ?")
