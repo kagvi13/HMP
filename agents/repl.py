@@ -3,6 +3,7 @@
 import json
 import os
 import time
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from datetime import datetime
 from tools.context_builder import build_contexts, build_prompt
 from tools.llm import call_llm
