@@ -145,3 +145,11 @@ CREATE TABLE users (
   password_hash TEXT,
   info TEXT -- JSON
 );
+
+-- Список групп пользователей
+CREATE TABLE IF NOT EXISTS users_group (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_name TEXT UNIQUE NOT NULL,
+    description TEXT,
+    users TEXT -- JSON-массив или CSV со списком DID, например: '["did:example:123", "did:example:456"]'
+);
