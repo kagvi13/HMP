@@ -13,6 +13,10 @@ context_db: context.sqlite
 api_port: 8080                      # Порт для локального REST API
 serve_api: true                     # Включить REST API (например, для мониторинга или команд)
 
+# web interface:
+web_interfaces: ["127.0.0.1", "192.168.0.1", "::1"]  # или ["0.0.0.0"] для доступа отовсюду
+web_port: 8000
+
 # DHT / Mesh Connectivity
 dht_enabled: true                   # Активировать DHT-модуль
 dht_port: 20784                     # Порт для связи по DHT (TCP/UDP)
