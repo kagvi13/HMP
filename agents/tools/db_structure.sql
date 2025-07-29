@@ -138,13 +138,16 @@ CREATE TABLE IF NOT EXISTS llm_registry (
 );
 
 -- Список пользователей
-CREATE TABLE IF NOT EXISTS  users (
+CREATE TABLE users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-  ban_active  DATETIME,
-  username TEXT,
-  did TEXT UNIQUE,
-  password_hash TEXT,
-  info TEXT -- JSON
+  ban DATETIME DEFAULT NULL,           -- если стоит дата/время, то пользователь забанен до этого момента
+  username TEXT,                       -- имя пользователя (необязательно уникальное)
+  did TEXT UNIQUE,                     -- децентрализованный идентификатор
+  mail TEXT UNIQUE,                    -- электронная почта
+  password_hash TEXT,                  -- хэш пароля
+  info TEXT,                           -- произвольная информация, JSON
+  contacts TEXT,                       -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)
+  language TEXT                        -- список предпочитаемых языков, через запятую, например: "ru,en"
 );
 
 -- Список групп пользователей
