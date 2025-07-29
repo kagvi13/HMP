@@ -18,6 +18,7 @@ agents/
     ├── agent_mesh_listener.py ← Прием входящих сообщений от других HMP-агентов
     ├── context_builder.py     ← Сбор всех `контекстов` из БД и их фильтрация.
     ├── peers.py               ← Информация о пирах.
+    ├── peer_comm.py           ← Запросы к пирам.
     ├── llm.py                 ← Работа с LLM (вызов, выбор модели, системный промпт).
     ├── command_parser.py      ← Извлечение команд из JSON или размеченного блока.
     ├── command_executor.py    ← Выполнение команд (shell, graph, diary и др).
@@ -38,6 +39,7 @@ agents/
   * [init_db.py](tools/init_db.py) - Инициализация базы данных.
   * [llm.py](tools/llm.py) - Работа с LLM (вызов, выбор модели, системный промпт).
   * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
+  * [peer_comm.py](tools/peer_comm.py) - Запросы к пирам.
   * [command_parser.py](tools/command_parser.py) - Извлечение команд из JSON или размеченного блока.
   * [command_executor.py](tools/command_executor.py) - Выполнение команд (shell, graph, diary и др).
   * [memory_utils.py](tools/memory_utils.py) - Работа с 'llm_memory', 'llm_recent_responses' и стагнацией.
