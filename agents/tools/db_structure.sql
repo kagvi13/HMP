@@ -140,6 +140,7 @@ CREATE TABLE IF NOT EXISTS llm_registry (
 -- Список пользователей
 CREATE TABLE users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ban_active = (ban_until IS NOT NULL AND ban_until > CURRENT_TIMESTAMP)
   username TEXT,
   did TEXT UNIQUE,
   password_hash TEXT,
