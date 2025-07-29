@@ -617,27 +617,62 @@ class Storage:
         c.execute("SELECT * FROM agent_scripts WHERE tags LIKE ?", (f"%{tag}%",))
         return c.fetchall()
 
-    def update_agent_script(self, name, version, code, tags=None):
+    def ensure_script_path(name, version):
+        """Создаёт папку scripts/{name}/v{version}/ если не существует"""
+        path = os.path.join(SCRIPT_ROOT, name, f"v{version}")
+        os.makedirs(path, exist_ok=True)
+        return os.path.join(path, "script.py")
+
+    def save_script_to_file(code, name, version):
+        """Сохраняет скрипт в файл и возвращает путь"""
+        file_path = ensure_script_path(name, version)
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(code)
+        return file_path
+
+    def update_agent_script(self, name, version, code=None, description=None, tags=None, mode="inline"):
+        """
+        mode: 'inline' (сохранять в БД), 'file' (сохранять в файл и в БД только ссылку)
+        """
         c = self.conn.cursor()
+        fields = []
+        values = []
 
-        # Проверим, существует ли скрипт с таким name и version
-        c.execute('''
-            SELECT COUNT(*) FROM agent_scripts
-            WHERE name = ? AND version = ?
-        ''', (name, version))
-        count = c.fetchone()[0]
+        # Обработка кода
+        if code is not None:
+            if mode == "file":
+                file_path = save_script_to_file(code, name, version)
+                code_ref = f"@path={file_path}"
+                fields.append("code = ?")
+                values.append(code_ref)
+            else:
+                fields.append("code = ?")
+                values.append(code)
 
-        if count == 0:
-            raise ValueError(f"Agent script '{name}' v{version} does not exist. Use register_agent_script instead.")
+        if description is not None:
+            fields.append("description = ?")
+            values.append(description)
 
-        now = datetime.utcnow().isoformat()
-        c.execute('''
+        if tags is not None:
+            fields.append("tags = ?")
+            values.append(tags)
+
+        if not fields:
+            return False
+
+        fields.append("updated_at = ?")
+        values.append(datetime.utcnow().isoformat())
+
+        values.extend([name, version])
+        query = f"""
             UPDATE agent_scripts
-            SET code = ?, updated_at = ?, tags = ?
+            SET {', '.join(fields)}
             WHERE name = ? AND version = ?
-        ''', (code, now, tags, name, version))
+        """
 
+        c.execute(query, values)
         self.conn.commit()
+        return c.rowcount > 0
     
     # llm_registry — реестр LLM-агентов
 
