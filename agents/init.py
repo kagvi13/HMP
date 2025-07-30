@@ -105,7 +105,7 @@ def ensure_directories(config):
         else:
             print(f"[=] Каталог уже существует: {path}")
 
-if __name__ == "__main__":
+def main():
     print("[*] Запуск инициализации HMP-агента...")
     config = load_config(CONFIG_PATH)
     ensure_directories(config)
@@ -117,3 +117,6 @@ if __name__ == "__main__":
     init_config_table(storage, config)
 
     print("[✓] Инициализация завершена.")
+
+if __name__ == "__main__":
+    main()
