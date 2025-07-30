@@ -7,7 +7,7 @@ echo "--------------------------"
 pip install -r requirements.txt
 
 # === RUN AGENT ===
-echo "--------------------------"
-echo "Running HMP REPL-agent..."
-echo "--------------------------"
+echo --------------------------
+echo Running initialization...
+echo --------------------------
 python repl.py
