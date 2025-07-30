@@ -9,6 +9,11 @@ llm_api_url: https://api.openai.com/v1/chat/completions
 llm_session_cookie: null
 context_db: context.sqlite
 
+# operator:
+operator_did: "did:hmp:operator123"
+operator_mail: "operator@localhost"
+operator_username: "Оператор"
+
 # REST API
 api_port: 8080                      # Порт для локального REST API
 serve_api: true                     # Включить REST API (например, для мониторинга или команд)

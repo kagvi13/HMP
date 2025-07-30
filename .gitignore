@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite DB
+agent_storage.db
+agent_data.db
+
+# Environment
+.env
+.venv/
+env/
+venv/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Logs and debug
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# PyInstaller
+*.spec
+dist/
+build/
+
+# Jupyter (на случай экспериментов)
+.ipynb_checkpoints/
+
+# System folders
+.idea/

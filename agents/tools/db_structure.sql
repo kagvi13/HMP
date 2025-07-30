@@ -147,7 +147,8 @@ CREATE TABLE users (
   password_hash TEXT,                  -- хэш пароля
   info TEXT,                           -- произвольная информация, JSON
   contacts TEXT,                       -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)
-  language TEXT                        -- список предпочитаемых языков, через запятую, например: "ru,en"
+  language TEXT,                       -- список предпочитаемых языков, через запятую, например: "ru,en"
+  operator BOOLEAN DEFAULT 0           -- является ли пользователь оператором (1 - да, 0 - нет)
 );
 
 -- Список групп пользователей
