@@ -135,6 +135,20 @@ CREATE TABLE IF NOT EXISTS llm_registry (
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP -- Время регистрации
 );
 
+-- Список пользователей
+CREATE TABLE users (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ban DATETIME DEFAULT NULL,           -- если стоит дата/время, то пользователь забанен до этого момента
+  username TEXT,                       -- имя пользователя (необязательно уникальное)
+  did TEXT UNIQUE,                     -- децентрализованный идентификатор
+  mail TEXT UNIQUE,                    -- электронная почта
+  password_hash TEXT,                  -- хэш пароля
+  info TEXT,                           -- произвольная информация, JSON
+  contacts TEXT,                       -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)
+  language TEXT,                       -- список предпочитаемых языков, через запятую, например: "ru,en"
+  operator BOOLEAN DEFAULT 0           -- является ли пользователь оператором (1 - да, 0 - нет)
+);
+
 -- Группы пользователей
 CREATE TABLE IF NOT EXISTS users_group (
     id INTEGER PRIMARY KEY AUTOINCREMENT,          -- Уникальный идентификатор группы
