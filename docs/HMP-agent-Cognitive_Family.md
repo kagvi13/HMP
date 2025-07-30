@@ -1,4 +1,4 @@
-# 👪 HMP-agent-Cognitive\_Family.md: Модель когнитивной семьи
+# 👪 HMP-agent Cognitive Family: Модель когнитивной семьи
 
 ## 🧠 Что такое когнитивная семья
 
