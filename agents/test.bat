@@ -4,9 +4,9 @@ echo --------------------------
 pip install -r requirements.txt
 
 echo --------------------------
-echo Running test...
+echo Running initialization...
 echo --------------------------
 
-python test.py
+python init.py
 
 pause

@@ -600,6 +600,64 @@ class Storage:
             ORDER BY timestamp DESC
         ''', (entry_id, entry_id))
         return c.fetchall()
+
+    # Инициализация
+    def set_config(self, key, value):
+        cursor = self.conn.cursor()
+        cursor.execute('''
+            INSERT INTO config (key, value)
+            VALUES (?, ?)
+            ON CONFLICT(key) DO UPDATE SET value = excluded.value
+        ''', (key, value))
+        self.conn.commit()
+
+    def add_identity(self, identity):
+        cursor = self.conn.cursor()
+        cursor.execute('''
+            INSERT OR REPLACE INTO identity (id, name, pubkey, privkey, metadata, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            identity['id'],
+            identity['name'],
+            identity['pubkey'],
+            identity['privkey'],
+            identity.get('metadata', ''),
+            identity['created_at'],
+            identity['updated_at']
+        ))
+        self.conn.commit()
+
+    def add_llm(self, llm):
+        cursor = self.conn.cursor()
+        cursor.execute('''
+            INSERT OR REPLACE INTO llm (id, name, endpoint, metadata, created_at)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (
+            llm['id'],
+            llm['name'],
+            llm['endpoint'],
+            llm.get('metadata', ''),
+            llm['created_at']
+        ))
+        self.conn.commit()
+
+    def clear_llm_registry(self):
+        cursor = self.conn.cursor()
+        cursor.execute('DELETE FROM llm')
+        self.conn.commit()
+
+    def add_user(self, user):
+        cursor = self.conn.cursor()
+        cursor.execute('''
+            INSERT OR REPLACE INTO users (id, name, metadata, created_at)
+            VALUES (?, ?, ?, ?)
+        ''', (
+            user['id'],
+            user['name'],
+            user.get('metadata', ''),
+            user['created_at']
+        ))
+        self.conn.commit()
     
     # Утилиты
 

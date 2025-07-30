@@ -4,3 +4,4 @@ openai
 requests
 tiktoken
 python-dotenv
+PyYAML
