@@ -630,35 +630,41 @@ class Storage:
     def add_llm(self, llm):
         cursor = self.conn.cursor()
         cursor.execute('''
-            INSERT OR REPLACE INTO llm (id, name, endpoint, metadata, created_at)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT OR REPLACE INTO llm_registry (id, name, description)
+            VALUES (?, ?, ?)
         ''', (
             llm['id'],
             llm['name'],
-            llm['endpoint'],
-            llm.get('metadata', ''),
-            llm['created_at']
+            llm.get('description', '')
         ))
         self.conn.commit()
 
     def clear_llm_registry(self):
         cursor = self.conn.cursor()
-        cursor.execute('DELETE FROM llm')
+        cursor.execute('DELETE FROM llm_registry')
         self.conn.commit()
 
     def add_user(self, user):
         cursor = self.conn.cursor()
         cursor.execute('''
-            INSERT OR REPLACE INTO users (id, name, metadata, created_at)
-            VALUES (?, ?, ?, ?)
+            INSERT OR REPLACE INTO users (
+                username, did, mail, password_hash,
+                info, contacts, language, operator, ban
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
-            user['id'],
-            user['name'],
-            user.get('metadata', ''),
-            user['created_at']
+            user.get('username'),
+            user.get('did'),
+            user.get('mail'),
+            user.get('password_hash'),
+            user.get('info'),
+            user.get('contacts'),
+            user.get('language'),
+            int(user.get('operator', 0)),
+            user.get('ban')
         ))
         self.conn.commit()
-    
+        return cursor.lastrowid
+
     # Утилиты
 
     def close(self):
