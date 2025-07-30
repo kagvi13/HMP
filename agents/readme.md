@@ -15,7 +15,6 @@ agents/
 ├── ethics.yml             ← Локальная этическая модель.
 └── bootstrap.txt          ← Список начальных узлов.
 └── tools/
-    ├── init_db.py             ← Инициализация базы данных.
     ├── storage.py             ← Реализация базового хранилища (`Storage`), подключение SQLite.
     ├── diagnose.py            ← Скрипт диагностики соединения, определения IP и проверки порта DHT.
     ├── agent_mesh_listener.py ← Прием входящих сообщений от других HMP-агентов
@@ -43,7 +42,6 @@ agents/
 * [logger.py](logger.py) - Ведение логов.
 * tools
   * [storage.py](tools/storage.py) - Реализация базового хранилища (`Storage`), подключение SQLite.
-  * [init_db.py](tools/init_db.py) - Инициализация базы данных.
   * [llm.py](tools/llm.py) - Работа с LLM (вызов, выбор модели, системный промпт).
   * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
   * [peer_comm.py](tools/peer_comm.py) - Запросы к пирам.

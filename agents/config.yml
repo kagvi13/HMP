@@ -1,3 +1,5 @@
+db_path: agents/agent_data/agent_data.db
+
 agent_mode: mcp                     # Режим работы: mcp / full / llm / test
 agent_name: mcp-01                  # Имя агента
 agent_role: core                    # или connector
