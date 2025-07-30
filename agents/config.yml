@@ -1,47 +1,68 @@
-db_path: agents/agent_data/agent_data.db
+# HMP Agent Configuration
 
-agent_mode: mcp                     # Режим работы: mcp / full / llm / test
-agent_name: mcp-01                  # Имя агента
-agent_role: core                    # или connector
+# === Общие параметры ===
+agent_id: ""                      # Оставьте пустым для генерации DiD автоматически
+agent_name: "CognitiveCore"       # Имя агента
+agent_role: "core"                # 'core' или 'shell'
 
-llm_mode: openai                    # openai | chatgpt_session | mesh
-llm_model: gpt-4
-llm_api_key: sk-...
-llm_api_url: https://api.openai.com/v1/chat/completions
-llm_session_cookie: null
-context_db: context.sqlite
+# === Прокси ===
+proxy_mode: false                 # false — прокси не используется, иначе true
+proxy_type: "socks5"              # 'http', 'socks4', 'socks5' и т.д. (если proxy_mode: true)
+proxy_address: "127.0.0.1:9050"
 
-# operator:
-operator_did: "did:hmp:operator123"
-operator_mail: "operator@localhost"
-operator_username: "Оператор"
+# === Функции ядра ===
+enable_llm: true                  # доступ к LLM
 
-# REST API
-api_port: 8080                      # Порт для локального REST API
-serve_api: true                     # Включить REST API (например, для мониторинга или команд)
+serve_api: true                   # REST API
+api_port: 8080
 
-# web interface:
-web_interfaces: ["127.0.0.1", "192.168.0.1", "::1"]  # или ["0.0.0.0"] для доступа отовсюду
-web_port: 8000
+# === DHT-сеть и обмен знаниями ===
+dht_enabled: true                 # Включение участия в DHT-сети (включено принудительно!)
+dht_update: true                  # Регулярные обновления и публикация данных в DHT (включено принудительно!)
+bootstrap_responder: true         # Агент отвечает на bootstrap-запросы (включено принудительно!)
+dht_port: 20784
+update_interval: 60               # секунд (для DHT-обновлений)
 
-# DHT / Mesh Connectivity
-dht_enabled: true                   # Активировать DHT-модуль
-dht_port: 20784                     # Порт для связи по DHT (TCP/UDP)
+# === LLM-бэкенды ===
+llm_backends:
+  - name: "local-model"
+    type: "local"
+    path: "/models/gguf/mistral.gguf"
+    format: "gguf"
+    prompt_template: "mistral"
 
-internal_ips:                       # Список локальных IP-адресов (для проброса или диагностики)
-  - 192.168.20.10
-  - 192.168.21.10
+  - name: "openai-gpt4o"
+    type: "api"
+    provider: "openai"
+    model: "gpt-4o"
+    api_key: "sk-..."
 
-external_ips:                       # Список внешних IP-адресов (для публикации другим агентам)
-  - 95.23.73.23
-  - 195.134.218.134
-  - "201:ab61:1205:b963:909c:eу3:26b8:4ec2"
+  # Пользователь может добавить сколько угодно дополнительных локальных или сетевых LLM
 
-# Bootstrap
-bootstrap_file: bootstrap.txt       # Файл с начальными узлами
-update_dht: true                    # Обновлять DHT периодически
-update_interval: 60                # Интервал между обновлениями (сек)
+default_llm: "local-model"        # если модели нет в списке `llm_backends` используется первая в списке
 
-# Прочее
-bootstrap_responder: true          # Отвечать на запросы других агентов
-enable_llm: false                  # Подключён ли внутренний ИИ (если false — только DHT-режим)
+# === Веб-интерфейс ===
+notebook_ui: true                 # UI в виде блокнота
+# ui_hosts:
+#   - "0.0.0.0"   # (небезопасно) доступ с любых IPv4-адресов
+#   - "::"        # (небезопасно) доступ с любых IPv6-адресов
+ui_hosts:                         # Какие IP прослушиваются, ["0.0.0.0"; "::"] - доступен везде
+  - "127.0.0.1"
+  - "::1"
+ui_port: 8765
+
+# === Данные пользователя ===
+default_user:
+  username: "user"
+  email: "user@example.com"
+  password_hash: ""               # пусто при инициализации, будет установлен при регистрации
+
+
+# === Пути ===
+data_dir: "./data"
+log_dir: "./logs"
+db_path: "./data/agent_storage.db"
+
+# === Отладка и логгирование ===
+debug: true
+log_level: "INFO"                 # DEBUG, INFO, WARNING, ERROR
