@@ -11,7 +11,7 @@ from tools.identity import generate_did
 from tools.crypto import generate_keypair
 from tools.config_utils import update_config
 
-CONFIG_PATH = os.path.join("agents", "config.yml")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yml")
 
 def load_config(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -27,13 +27,16 @@ def init_identity(storage, config):
         pubkey, privkey = generate_keypair()
         identity_id = did.split(":")[-1]
 
-        storage.add_identity(
-            identity_id=identity_id,
-            name=config.get("agent_name", "Unnamed"),
-            pubkey=pubkey,
-            privkey=privkey,
-            metadata=json.dumps({"role": config.get("agent_role", "core")})
-        )
+        identity = {
+            "id": identity_id,
+            "name": config.get("agent_name", "Unnamed"),
+            "pubkey": pubkey,
+            "privkey": privkey,
+            "metadata": json.dumps({"role": config.get("agent_role", "core")}),
+            "created_at": datetime.utcnow().isoformat(),
+            "updated_at": datetime.utcnow().isoformat()
+        }
+        storage.add_identity(identity)
 
         # Обновляем config.yml
         config["agent_id"] = did
@@ -50,13 +53,19 @@ def init_user(storage, config):
         return
 
     did = generate_did()
-    storage.add_user(
-        username=user.get("username", "user"),
-        email=user["email"],
-        password_hash=user.get("password_hash", ""),
-        did=did,
-        operator=True
-    )
+    user_entry = {
+        "username": user.get("username", "user"),
+        "mail": user["email"],
+        "password_hash": user.get("password_hash", ""),
+        "did": did,
+        "ban": None,
+        "info": json.dumps({}),
+        "contacts": json.dumps([]),
+        "language": "ru,en",
+        "operator": 1
+    }
+    storage.add_user(user_entry)
+
     print(f"[+] Пользователь {user['username']} добавлен.")
 
 def init_llm_backends(storage, config):
@@ -65,7 +74,14 @@ def init_llm_backends(storage, config):
     for backend in backends:
         backend_id = str(uuid.uuid4())
         desc = f"{backend.get('type', 'unknown')} model"
-        storage.add_llm(backend_id, backend["name"], desc)
+        llm = {
+            "id": backend_id,
+            "name": backend["name"],
+            "endpoint": desc,
+            "metadata": json.dumps(backend),
+            "created_at": datetime.utcnow().isoformat()
+        }
+        storage.add_llm(llm)
         print(f"[+] Зарегистрирован LLM: {backend['name']}")
 
 def init_config_table(storage, config):
