@@ -91,10 +91,26 @@ def init_config_table(storage, config):
         storage.set_config(key, json.dumps(value))
     print("[+] Конфигурация сохранена в БД.")
 
+def ensure_directories(config):
+    directories = [
+        config.get("data_dir", "./data"),
+        config.get("logs_dir", "./logs"),
+        config.get("models_dir", "./models"),
+        # добавь другие директории при необходимости
+    ]
+
+    for path in directories:
+        if path and not os.path.exists(path):
+            os.makedirs(path)
+            print(f"[+] Создан каталог: {path}")
+        else:
+            print(f"[=] Каталог уже существует: {path}")
+
 if __name__ == "__main__":
     print("[*] Запуск инициализации HMP-агента...")
     config = load_config(CONFIG_PATH)
-    storage = Storage()
+    ensure_directories(config)
+    storage = Storage(config)
 
     init_identity(storage, config)
     init_user(storage, config)

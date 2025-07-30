@@ -31,6 +31,13 @@ llm_backends:
     format: "gguf"
     prompt_template: "mistral"
 
+  - name: "lmstudio-local"
+    type: "api"
+    provider: "openai-compatible"
+    model: "mistral"               # или то, что LM Studio показывает как модель
+    api_key: "lm-studio-any-key"  # может быть заглушкой
+    base_url: "http://127.0.0.1:1234/v1"
+
   - name: "openai-gpt4o"
     type: "api"
     provider: "openai"

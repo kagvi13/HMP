@@ -132,6 +132,7 @@ CREATE TABLE IF NOT EXISTS llm_registry (
     id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор (UUID или псевдоним)
     name TEXT,                                                  -- Имя агента
     description TEXT,                                           -- Описание
+    config_json TEXT,                                           -- JSON-настройки из config.yml
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP            -- Время регистрации
 );
 

@@ -2,6 +2,7 @@
 
 import sqlite3
 import os
+import json
 from datetime import datetime
 
 DEFAULT_DB_PATH = "agent_data.db"
@@ -629,13 +630,15 @@ class Storage:
 
     def add_llm(self, llm):
         cursor = self.conn.cursor()
+        config_json = json.dumps(llm, ensure_ascii=False)
         cursor.execute('''
-            INSERT OR REPLACE INTO llm_registry (id, name, description)
-            VALUES (?, ?, ?)
+            INSERT OR REPLACE INTO llm_registry (id, name, description, config_json)
+            VALUES (?, ?, ?, ?)
         ''', (
-            llm['id'],
+            llm['name'],  # используем name как id
             llm['name'],
-            llm.get('description', '')
+            llm.get('description', ''),
+            config_json
         ))
         self.conn.commit()
 
