@@ -94,10 +94,9 @@ def init_config_table(storage, config):
 def ensure_directories(config):
     directories = [
         config.get("data_dir", "./data"),
-        config.get("logs_dir", "./logs"),
-        config.get("models_dir", "./models"),
-        # добавь другие директории при необходимости
-    ]
+        config.get("log_dir", "./logs"),
+       # добавь другие директории при необходимости
+   ]
 
     for path in directories:
         if path and not os.path.exists(path):
