@@ -20,6 +20,8 @@ agents/
     ├── agent_mesh_listener.py ← Прием входящих сообщений от других HMP-агентов
     ├── context_builder.py     ← Сбор всех `контекстов` из БД и их фильтрация.
     ├── identity.py            ← Генерация DiD.
+    ├── crypto.py              ← Создание и шифрование ключей RSA/Ed25519.
+    ├── config_utils.py        ← Обновляет JSON-файл конфигурации указанными значениями.
     ├── peers.py               ← Информация о пирах.
     ├── peer_comm.py           ← Запросы к пирам.
     ├── peer_sync.py           ← Модуль обмена сообщениями.
@@ -46,6 +48,8 @@ agents/
   * [llm.py](tools/llm.py) - Работа с LLM (вызов, выбор модели, системный промпт).
   * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
   * [identity.py](tools/identity.py) - Генерация DiD.
+  * [crypto.py](tools/crypto.py) - Создание и шифрование ключей RSA/Ed25519.
+  * [config_utils.py](tools/config_utils.py) - Обновляет JSON-файл конфигурации указанными значениями.
   * [peer_comm.py](tools/peer_comm.py) - Запросы к пирам.
   * [command_parser.py](tools/command_parser.py) - Извлечение команд из JSON или размеченного блока.
   * [command_executor.py](tools/command_executor.py) - Выполнение команд (shell, graph, diary и др).
