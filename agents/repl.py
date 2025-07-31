@@ -18,32 +18,9 @@ from tools.memory_utils import (
 )
 from tools.storage import Storage
 from tools.peers import refresh_peer_list, check_peer_statuses
-from agents.init import main as run_init
-from agents.config import load_config
+from tools.check_init import ensure_db_initialized
 
-config = load_config("agents/config.yml")
-db_path = config.get("db_path", "./data/agent_storage.db")
-
-def is_db_initialized(path):
-    if not os.path.exists(path):
-        return False
-    try:
-        conn = sqlite3.connect(path)
-        cursor = conn.cursor()
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='identity'")
-        exists = cursor.fetchone() is not None
-        conn.close()
-        return exists
-    except Exception:
-        return False
-
-if not is_db_initialized(db_path):
-    print("[*] Не инициализирована БД. Выполняется init.py...")
-    try:
-        run_init()
-    except Exception as e:
-        print(f"[!] Ошибка при инициализации: {e}")
-        sys.exit(1)
+config = ensure_db_initialized()
 
 def run_repl(config=None):
     print("[🧠 HMP-Agent] Запуск REPL-режима (v2)")

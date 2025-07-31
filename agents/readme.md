@@ -16,6 +16,7 @@ agents/
 └── bootstrap.txt          ← Список начальных узлов.
 └── tools/
     ├── storage.py             ← Реализация базового хранилища (`Storage`), подключение SQLite.
+    ├── check_init.py          ← Проверка инициализации БД.
     ├── diagnose.py            ← Скрипт диагностики соединения, определения IP и проверки порта DHT.
     ├── agent_mesh_listener.py ← Прием входящих сообщений от других HMP-агентов
     ├── context_builder.py     ← Сбор всех `контекстов` из БД и их фильтрация.
@@ -45,6 +46,7 @@ agents/
 * [logger.py](logger.py) - Ведение логов.
 * tools
   * [storage.py](tools/storage.py) - Реализация базового хранилища (`Storage`), подключение SQLite.
+  * [check_init.py](tools/check_init.py) - Проверка инициализации БД.
   * [llm.py](tools/llm.py) - Работа с LLM (вызов, выбор модели, системный промпт).
   * [context_builder.py](tools/context_builder.py) - Сбор всех `контекстов` из БД и их фильтрация.
   * [identity.py](tools/identity.py) - Генерация DiD.
