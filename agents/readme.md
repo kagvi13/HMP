@@ -62,7 +62,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 │   ├── [`mailer.py`](notebook/mailer.py) ← Простая синхронная отправка email  
 │   └── [templates/](notebook/templates/) ← HTML-шаблоны и стили  
 │       ├── [`index.html`](notebook/templates/index.html) ← Основа  
-│       ├── [`private.html`](notebook/templates/private.html) ← Общий и приватный чат  
+│       ├── [`chat.html`](notebook/templates/chat.html) ← Общий и приватный чат  
 │       ├── [`login.html`](notebook/templates/login.html) ← Вход  
 │       ├── [`register.html`](notebook/templates/register.html) ← Регистрация или сброс пароля  
 │       └── [`style.css`](notebook/templates/style.css) ← Таблица стилей  
