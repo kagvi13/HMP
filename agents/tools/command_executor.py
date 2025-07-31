@@ -1,4 +1,4 @@
-# tools/command_executor.py
+# agents/tools/command_executor.py
 
 def execute_commands(commands, db, config):
     for cmd in commands:

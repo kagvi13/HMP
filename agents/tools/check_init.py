@@ -1,4 +1,4 @@
-# tools/check_init.py
+# agents/tools/check_init.py
 
 import os
 import sqlite3

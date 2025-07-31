@@ -1,4 +1,4 @@
-# tools/crypto.py
+# agents/tools/crypto.py
 
 from cryptography.hazmat.primitives.asymmetric import rsa, ed25519
 from cryptography.hazmat.primitives import serialization, hashes

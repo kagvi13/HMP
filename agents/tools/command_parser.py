@@ -1,4 +1,4 @@
-# tools/command_parser.py
+# agents/tools/command_parser.py
 
 """
 Извлечение команд из JSON или размеченного текста.
