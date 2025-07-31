@@ -59,12 +59,12 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 │   ├── [`auth.py`](notebook/auth.py) ← Регистрация, вход, восстановление  
 │   ├── [`views.py`](notebook/views.py) ← Общий и приватный чаты  
 │   ├── [`mailer.py`](notebook/mailer.py) ← Простая синхронная отправка email  
-│   ├── [templates/](notebook/templates/) ← HTML-шаблоны и стили  
+│   └── [templates/](notebook/templates/) ← HTML-шаблоны и стили  
 │       ├── [`index.html`](notebook/templates/index.html) ← Основа  
 │       ├── [`private.html`](notebook/templates/private.html) ← Общий и приватный чат  
 │       ├── [`login.html`](notebook/templates/login.html) ← Вход  
 │       ├── [`register.html`](notebook/templates/register.html) ← Регистрация или сброс пароля  
-│       ├── [`style.css`](notebook/templates/style.css) ← Таблица стилей  
+│       └── [`style.css`](notebook/templates/style.css) ← Таблица стилей  
 ├── [`config.yml`](config.yml) ← Конфигурация агента (имя, порты, роли и т.п.)  
 ├── [`bootstrap.txt`](bootstrap.txt) ← Локальная этическая модель  
-├── [`ethics.yml`](ethics.yml) ← Список начальных узлов  '
+└── [`ethics.yml`](ethics.yml) ← Список начальных узлов  '
