@@ -173,9 +173,9 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 
 - [⚙️ agents](agents/readme.md) — список реализаций и компонентов HMP-агентов
   - [📦 storage.py](agents/storage.py) - реализация базового хранилища (`Storage`), подключение SQLite
-  - [🌐 mcp_server.py](agents/mcp_server.py) - основной FastAPI сервер
+  - [🌐 start_repl.py](agents/start_repl.py) - Запуск агента в REPL-режиме
   - [🔄 repl.py](agents/repl.py) - интерактивный REPL-режим
-- [⚙️ api_structure_2025-07-23.md](meta/api_structure_2025-07-23.md) - API структура (сводка за 2025-07-23)
+  - [🔄 notebook.py](agents/notebook.py) - UI-интерфейс
 
 ---
 
