@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .note { margin-bottom: 1em; border-bottom: 1px solid #ddd; padding-bottom: 0.5em; }
+        .source-user { color: green; }
+        .source-llm { color: blue; }
+    </style>
+</head>
+<body>
+    <h2>📜 Сообщения</h2>
+
+    {% for note in notes %}
+        <div class="note">
+            <div>
+                <b class="source-{{ note.source }}">{{ note.source }}</b> @ {{ note.timestamp }}:
+            </div>
+            <div>{{ note.text }}</div>
+        </div>
+    {% endfor %}
+
+    <form method="post">
+        <textarea name="message" rows="4" cols="60" placeholder="Введите сообщение..."></textarea><br>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

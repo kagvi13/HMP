@@ -44,7 +44,6 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 │   ├── [`db_structure.sql`](tools/db_structure.sql) ← БД SQL  
 │   ├── [`db_structure.md`](tools/db_structure.md) ← Описание БД SQL  
 │   ├── [`storage.py`](tools/storage.py) ← Реализация базового хранилища (`Storage`), подключение SQLite  
-│   ├── [`check_init.py`](tools/check_init.py) ← Проверка инициализации БД  
 │   ├── [`config_utils.py`](tools/config_utils.py) ← Обновляет JSON-файл конфигурации указанными значениями  
 │   ├── [`crypto.py`](tools/crypto.py) ← Создание и шифрование ключей RSA/Ed25519  
 │   ├── [`identity.py`](tools/identity.py) ← Генерация DiD  

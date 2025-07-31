@@ -1,16 +1,21 @@
 # agents/start_repl.py
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import threading
-from tools.check_init import ensure_db_initialized
+from agents.init import ensure_db_initialized
 
 # Проверка инициализации (вернёт config, если всё ОК)
 config = ensure_db_initialized()
 
 # ⚙️ Включение/отключение компонентов
-ENABLE_REPL = True
+# True | False
+ENABLE_REPL = False
 ENABLE_UI = True
-ENABLE_MESH = True
-ENABLE_SYNC = True
+ENABLE_MESH = False
+ENABLE_SYNC = False
 
 def start_all():
     """

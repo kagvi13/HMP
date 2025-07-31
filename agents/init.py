@@ -6,7 +6,10 @@ import yaml
 import json
 import time
 import uuid
+import sqlite3
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from datetime import datetime
 from tools.storage import Storage
 from tools.identity import generate_did
@@ -107,18 +110,38 @@ def ensure_directories(config):
         else:
             print(f"[=] Каталог уже существует: {path}")
 
-def main():
-    print("[*] Запуск инициализации HMP-агента...")
+def is_db_initialized(db_path):
+    if not os.path.exists(db_path):
+        return False
+    try:
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='identity'")
+            return cursor.fetchone() is not None
+    except Exception:
+        return False
+
+def ensure_db_initialized():
     config = load_config(CONFIG_PATH)
-    ensure_directories(config)
-    storage = Storage(config)
+    db_path = config.get("db_path", "./data/agent_storage.db")
 
-    init_identity(storage, config)
-    init_user(storage, config)
-    init_llm_backends(storage, config)
-    init_config_table(storage, config)
+    if not is_db_initialized(db_path):
+        print("[*] БД не инициализирована — выполняем инициализацию.")
+        try:
+            ensure_directories(config)
+            storage = Storage(config)
+            init_identity(storage, config)
+            init_user(storage, config)
+            init_llm_backends(storage, config)
+            init_config_table(storage, config)
+            save_config(CONFIG_PATH, config)
+        except Exception as e:
+            print(f"[!] Ошибка при инициализации: {e}")
+            sys.exit(1)
+    else:
+        print("[=] БД уже инициализирована.")
 
-    print("[✓] Инициализация завершена.")
+    return config
 
 if __name__ == "__main__":
-    main()
+    ensure_db_initialized()
