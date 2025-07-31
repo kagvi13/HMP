@@ -31,6 +31,10 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 ├── [`start_repl.bat`](start_repl.bat) ← Запуск агента в REPL-режиме (bat)  
 ├── [`start_repl.sh`](start_repl.sh) ← Запуск агента в REPL-режиме (sh)  
 ├── [`start_repl.py`](start_repl.py) ← Запуск агента в REPL-режиме (py)  
+├── [`repl.ru](repl.ru) ← REPL-цикл  
+├── [`notebook.py](notebook.py) ← UI-интерфейс  
+├── [`agent_mesh_listener.py`](tools/agent_mesh_listener.py) ← Прием входящих сообщений от других HMP-агентов  
+├── [`peer_sync.py`](tools/peer_sync.py) ← Фоновая синхронизация с другими пирам  
 ├── [`mcp_server.py`](mcp_server.py) ← API-интерфейс к хранилищу (storage.py): получение/поиск записей, импорт графа, разметка и др. Используется внешними модулями (напр. Cognitive Shell или CMP).  
 ├── [`init.py`](init.py) ← Инициализация БД  
 ├── [`logger.py`](logger.py) ← Ведение логов  
@@ -45,9 +49,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 │   ├── [`crypto.py`](tools/crypto.py) ← Создание и шифрование ключей RSA/Ed25519  
 │   ├── [`identity.py`](tools/identity.py) ← Генерация DiD  
 │   ├── [`llm.py`](tools/llm.py) ← Работа с LLM (вызов, выбор модели, системный промпт)  
-│   ├── [`agent_mesh_listener.py`](tools/agent_mesh_listener.py) ← Прием входящих сообщений от других HMP-агентов  
 │   ├── [`peer_comm.py`](tools/peer_comm.py) ← Низкоуровневые P2P-запросы (отправка, ping, мета)  
-│   ├── [`peer_sync.py`](tools/peer_sync.py) ← Фоновая синхронизация с другими пирам  
 │   ├── [`peers.py`](tools/peers.py) ← Реестр известных пиров (id, ключи, адреса)  
 │   ├── [`memory_utils.py`](tools/memory_utils.py) ← Работа с 'llm_memory', 'llm_recent_responses' и стагнацией  
 │   ├── [`context_builder.py`](tools/context_builder.py) ← Сбор всех `контекстов` из БД и их фильтрация  
