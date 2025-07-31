@@ -6,3 +6,8 @@ tiktoken
 python-dotenv
 PyYAML
 cryptography
+fastapi
+uvicorn
+jinja2
+python-multipart
+passlib[bcrypt]
