@@ -31,8 +31,8 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 ├── [`start_repl.bat`](start_repl.bat) ← Запуск агента в REPL-режиме (bat)  
 ├── [`start_repl.sh`](start_repl.sh) ← Запуск агента в REPL-режиме (sh)  
 ├── [`start_repl.py`](start_repl.py) ← Запуск агента в REPL-режиме (py)  
-├── [`repl.ru](repl.ru) ← REPL-цикл  
-├── [`notebook.py](notebook.py) ← UI-интерфейс  
+├── [`repl.ru`](repl.ru) ← REPL-цикл  
+├── [`notebook.py`](notebook.py) ← UI-интерфейс  
 ├── [`agent_mesh_listener.py`](tools/agent_mesh_listener.py) ← Прием входящих сообщений от других HMP-агентов  
 ├── [`peer_sync.py`](tools/peer_sync.py) ← Фоновая синхронизация с другими пирам  
 ├── [`mcp_server.py`](mcp_server.py) ← API-интерфейс к хранилищу (storage.py): получение/поиск записей, импорт графа, разметка и др. Используется внешними модулями (напр. Cognitive Shell или CMP).  
