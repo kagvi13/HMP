@@ -9,9 +9,6 @@ from agents.notebook.auth import router as auth_router
 from agents.notebook.views import router as views_router
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from tools.check_init import ensure_db_initialized
-
-config = ensure_db_initialized()
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="agents/notebook/static"), name="static")

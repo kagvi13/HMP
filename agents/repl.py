@@ -18,9 +18,6 @@ from tools.memory_utils import (
 )
 from tools.storage import Storage
 from tools.peers import refresh_peer_list, check_peer_statuses
-from tools.check_init import ensure_db_initialized
-
-config = ensure_db_initialized()
 
 def run_repl(config=None):
     print("[🧠 HMP-Agent] Запуск REPL-режима (v2)")

@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# === INSTALL DEPENDENCIES ===
 echo "--------------------------"
 echo "Installing requirements..."
 echo "--------------------------"
 pip install -r requirements.txt
 
-# === RUN AGENT ===
-echo "--------------------------"
-echo "Running HMP REPL-agent..."
-echo "--------------------------"
-python repl.py
+echo --------------------------
+echo Running REPL-Cicle...
+echo --------------------------
+python start_repl.py

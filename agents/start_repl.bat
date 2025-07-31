@@ -1,13 +1,11 @@
-@echo off
 echo --------------------------
 echo Installing requirements...
 echo --------------------------
 pip install -r requirements.txt
 
 echo --------------------------
-echo Running HMP REPL-agent...
+echo Running REPL-Cicle...
 echo --------------------------
-
-python repl.py
+python start_repl.py
 
 pause
