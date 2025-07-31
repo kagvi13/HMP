@@ -187,3 +187,4 @@ HMP-агент может быть расширен за счёт взаимод
 ## 💡 Идеи для расширения HMP-Agent Cognitive Core:
 - [HMP-agent-Distributed_Cognitive_Core.md](HMP-agent-Distributed_Cognitive_Core.md) - версия распределённого HMP-агента Cognitive Core
 - [HMP-agent-Distributed_Cognitive_Core_light.md](HMP-agent-Distributed_Cognitive_Core_light.md) - лёгкая версия распределённого HMP-агента Cognitive Core с общей БД
+- [HMP-agent-Cognitive_Family.md](HMP-agent-Cognitive_Family.md) — модель «семейной» когнитивной сети: несколько агентов HMP синхронизируют свой опыт и знания между собой через доверие и общий ключ
