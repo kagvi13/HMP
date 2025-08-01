@@ -13,7 +13,7 @@ config = ensure_db_initialized()
 # ⚙️ Включение/отключение компонентов
 # True | False
 ENABLE_REPL = False
-ENABLE_UI = False
+ENABLE_UI = True
 ENABLE_MESH = False
 ENABLE_SYNC = False
 
