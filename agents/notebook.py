@@ -1,11 +1,17 @@
+import os
+import sys
+import threading
+import uvicorn
+import asyncio
+
+process_name = os.path.splitext(os.path.basename(__file__))[0]
+
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from agents.notebook.auth import router as auth_router
 from agents.notebook.views import router as notebook_router
 from agents.storage import storage  # если используется
-
-process_name = os.path.splitext(os.path.basename(__file__))[0]
 
 app = FastAPI()
 
