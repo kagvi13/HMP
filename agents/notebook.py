@@ -6,6 +6,7 @@ import threading
 import uvicorn
 import asyncio
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 process_name = os.path.splitext(os.path.basename(__file__))[0]
 
 from fastapi import FastAPI
