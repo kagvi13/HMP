@@ -9,7 +9,7 @@ router = APIRouter()
 templates = Jinja2Templates(directory="agents/notebook/templates")
 storage = Storage()
 
-DID = "did:example:local-user"  # 🔧 временная заглушка
+DID = "did:example:local-user"  # временно
 
 @router.get("/chat")
 def chat_page(request: Request):
@@ -27,3 +27,26 @@ def submit_note(request: Request, message: str = Form(...)):
             (message.strip(), "user", DID)
         )
     return RedirectResponse(url="/chat", status_code=303)
+
+@router.get("/messages")
+def show_messages(request: Request):
+    messages = storage.get_notes(limit=50)  # должна быть в Storage
+    return templates.TemplateResponse("messages.html", {
+        "request": request,
+        "messages": messages
+    })
+
+@router.post("/messages")
+def post_message(
+    request: Request,
+    text: str = Form(...),
+    role: str = Form(default="user"), 
+    user_did: str = Form(default="anon")
+):
+    storage.write_note(
+        content=text,
+        role=role,
+        user_did=user_did,
+        source="web"
+    )
+    return RedirectResponse(url="/messages", status_code=303)

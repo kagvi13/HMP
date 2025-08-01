@@ -1,45 +1,35 @@
-# agents/notebook.py
-
-import os
-import sys
-import threading
-import sqlite3
-import uvicorn
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-# Добавляем корень проекта в sys.path для корректного импорта
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
-# Импорт маршрутов
 from agents.notebook.auth import router as auth_router
-from agents.notebook.views import router as views_router
+from agents.notebook.views import router as notebook_router
+from agents.storage import storage  # если используется
 
-# Создание FastAPI-приложения
+process_name = os.path.splitext(os.path.basename(__file__))[0]
+
 app = FastAPI()
 
-# Настройка статических файлов и шаблонов
-static_dir = os.path.join(os.path.dirname(__file__), "static")
-templates_dir = os.path.join(os.path.dirname(__file__), "templates")
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
-templates = Jinja2Templates(directory=templates_dir)
+app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "notebook/static")), name="static")
+templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "notebook/templates"))
 
-# Подключение роутеров
 app.include_router(auth_router)
-app.include_router(views_router)
+app.include_router(notebook_router)
+
+@app.on_event("startup")
+async def start_heartbeat():
+    asyncio.create_task(heartbeat_loop())
+
+async def heartbeat_loop():
+    while True:
+        storage.update_heartbeat(process_name)
+        if storage.check_stop_flag(process_name):
+            print("⛔ Получен сигнал остановки.")
+            break
+        await asyncio.sleep(60)
 
 def run_notebook(host: str = "127.0.0.1", port: int = 8000):
-    """
-    Запуск FastAPI-сервера в отдельном потоке.
-    """
     uvicorn.run(app, host=host, port=port)
 
 if __name__ == "__main__":
     print("[*] Запуск пользовательского интерфейса...")
-    thread = threading.Thread(target=run_notebook, daemon=True)
-    thread.start()
-    thread.join()
+    run_notebook()

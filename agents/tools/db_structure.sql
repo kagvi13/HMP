@@ -67,6 +67,13 @@ CREATE TABLE IF NOT EXISTS process_log (
     llm_id TEXT                                                 -- Идентификатор LLM
 );
 
+-- Управление основными процессами
+CREATE TABLE IF NOT EXISTS main_process (
+    name TEXT PRIMARY KEY,     -- название процесса (уникальное)
+    heartbeat TEXT,            -- последний "пинг" (ISO-время)
+    stop INTEGER DEFAULT 0     -- если 1 — процесс должен завершиться
+);
+
 -- Долговременная память LLM
 CREATE TABLE IF NOT EXISTS llm_memory (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор записи памяти

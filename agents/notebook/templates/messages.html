@@ -1,0 +1,18 @@
+<!-- templates/messages.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Отправка сообщения агенту</title>
+</head>
+<body>
+    <h2>Новое сообщение</h2>
+    <form method="post" action="/messages">
+        <label for="text">Сообщение:</label><br>
+        <textarea name="text" rows="4" cols="50" required></textarea><br><br>
+
+        <label><input type="checkbox" name="is_private" value="true"> Приватное сообщение</label><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

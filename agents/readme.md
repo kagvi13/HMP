@@ -60,12 +60,14 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 │   ├── [`auth.py`](notebook/auth.py) ← Регистрация, вход, восстановление  
 │   ├── [`views.py`](notebook/views.py) ← Общий и приватный чаты  
 │   ├── [`mailer.py`](notebook/mailer.py) ← Простая синхронная отправка email  
-│   └── [templates/](notebook/templates/) ← HTML-шаблоны и стили  
-│       ├── [`index.html`](notebook/templates/index.html) ← Основа  
-│       ├── [`chat.html`](notebook/templates/chat.html) ← Общий и приватный чат  
-│       ├── [`login.html`](notebook/templates/login.html) ← Вход  
-│       ├── [`register.html`](notebook/templates/register.html) ← Регистрация или сброс пароля  
-│       └── [`style.css`](notebook/templates/style.css) ← Таблица стилей  
+│   ├── [templates/](notebook/templates/) ← HTML-шаблоны  
+│   │   ├── [`index.html`](notebook/templates/index.html) ← Основа  
+│   │   ├── [`chat.html`](notebook/templates/chat.html) ← Форма вывода сообщений  
+│   │   ├── [`messages.html`](notebook/templates/messages.html) ← Форма отправки сообщений  
+│   │   ├── [`login.html`](notebook/templates/login.html) ← Вход в аккаунт  
+│   │   ├── [`register.html`](notebook/templates/register.html) ← Регистрация или сброс пароля    
+│   └── [static/](notebook/static/) ← Статические файлы   
+│       └── [`style.css`](notebook/templates/style.css) ← Таблица стилей    
 ├── [`config.yml`](config.yml) ← Конфигурация агента (имя, порты, роли и т.п.)  
 ├── [`bootstrap.txt`](bootstrap.txt) ← Локальная этическая модель  
 └── [`ethics.yml`](ethics.yml) ← Список начальных узлов  '

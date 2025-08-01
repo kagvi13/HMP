@@ -204,16 +204,10 @@ class Storage:
     
     # Методы для заметок
 
-    def write_note(self, text, tags=None):
-        timestamp = datetime.utcnow().isoformat()
-        tag_str = ",".join(tags) if tags else ""
-        self.conn.execute(
-            'INSERT INTO notes (text, tags, timestamp) VALUES (?, ?, ?)',
-            (text, tag_str, timestamp)
-        )
-        self.conn.commit()
+    #def write_note(self, text, tags=None):
+    # переехал в Web-интерфейс и API
 
-    def read_notes(self, limit=10, tag_filter=None):
+    def get_notes_by_tags(self, limit=10, tag_filter=None):
         cursor = self.conn.cursor()
         if tag_filter:
             if isinstance(tag_filter, list):
@@ -667,6 +661,44 @@ class Storage:
         ))
         self.conn.commit()
         return cursor.lastrowid
+
+    # Управление основными процессами
+    def update_heartbeat(self, name: str):
+        now = datetime.utcnow().isoformat()
+        self.conn.execute(
+            "INSERT INTO main_process (name, heartbeat, stop) VALUES (?, ?, 0) "
+            "ON CONFLICT(name) DO UPDATE SET heartbeat = excluded.heartbeat",
+            (name, now)
+        )
+        self.conn.commit()
+
+    def check_stop_flag(self, name: str) -> bool:
+        cursor = self.conn.execute("SELECT stop FROM main_process WHERE name = ?", (name,))
+        row = cursor.fetchone()
+        if row and row[0] == 1:
+            self.conn.execute("UPDATE main_process SET stop = 0 WHERE name = ?", (name,))
+            self.conn.commit()
+            return True
+        return False
+
+    # Web-интерфейс и API
+    def write_note(self, content, role="user", user_did="anon", source="web"):
+        timestamp = datetime.utcnow().isoformat()
+        self.conn.execute("""
+            INSERT INTO notes (text, role, user_did, source, timestamp)
+            VALUES (?, ?, ?, ?, ?)
+        """, (content, role, user_did, source, timestamp))
+        self.conn.commit()
+
+    def get_notes(self, limit=50):
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            SELECT text, role, source, user_did, timestamp FROM notes
+            WHERE hidden = 0
+            ORDER BY timestamp DESC
+            LIMIT ?
+        """, (limit,))
+        return [dict(row) for row in cursor.fetchall()]
 
     # Утилиты
 
