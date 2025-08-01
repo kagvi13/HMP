@@ -1,3 +1,5 @@
+# agent/notebook.py
+
 import os
 import sys
 import threading
@@ -11,7 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from agents.notebook.auth import router as auth_router
 from agents.notebook.views import router as notebook_router
-from agents.storage import storage  # если используется
+from agents.storage import storage
 
 app = FastAPI()
 
