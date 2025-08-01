@@ -11,6 +11,7 @@ import sqlite3
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from datetime import datetime
+from werkzeug.security import generate_password_hash
 from tools.storage import Storage
 from tools.identity import generate_did
 from tools.crypto import generate_keypair
@@ -56,12 +57,17 @@ def init_user(storage, config):
     if not user.get("email"):
         print("[-] Не указан email пользователя — пропуск.")
         return
+    password = user.get("password")
+    if not password:
+        print("[-] Не указан пароль пользователя — пропуск.")
+        return
+    password_hash = generate_password_hash(password)
 
     did = generate_did()
     user_entry = {
         "username": user.get("username", "user"),
         "mail": user["email"],
-        "password_hash": user.get("password_hash", ""),
+        "password_hash": password_hash,
         "did": did,
         "ban": None,
         "info": json.dumps({}),

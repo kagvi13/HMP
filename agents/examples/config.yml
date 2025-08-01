@@ -62,7 +62,7 @@ ui_port: 8765
 default_user:
   username: "user"
   email: "user@example.com"
-  password_hash: ""               # пусто при инициализации, будет установлен при регистрации
+  password: "password"            # пусто при инициализации, будет установлен при регистрации
 
 
 # === Пути ===
