@@ -168,14 +168,6 @@ CREATE TABLE stagnation_strategies (
     inactive_reason TEXT                               -- Причина отключения, если active = false
 );
 
-
----
-
-Если нужно, можно добавить поддержку created_at, updated_at или полей приоритета. Также могу подготовить Python ORM (например, SQLAlchemy) или миграции.
-
-
-
-
 -- Реестр LLM-агентов (в т.ч. удалённых)
 CREATE TABLE IF NOT EXISTS llm_registry (
     id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор (UUID или псевдоним)
