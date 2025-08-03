@@ -50,7 +50,6 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 ├── [`requirements.txt`](requirements.txt) ← Зависимости  
 ├── [tools/](tools/) ← Вспомогательные скрипты и модули  
 │   ├── [`db_structure.sql`](tools/db_structure.sql) ← БД SQL  
-│   ├── [`db_structure.md`](tools/db_structure.md) ← Описание БД SQL  
 │   ├── [`storage.py`](tools/storage.py) ← Реализация базового хранилища (`Storage`), подключение SQLite  
 │   ├── [`config_utils.py`](tools/config_utils.py) ← Обновляет JSON-файл конфигурации указанными значениями  
 │   ├── [`crypto.py`](tools/crypto.py) ← Создание и шифрование ключей RSA/Ed25519  
