@@ -137,23 +137,23 @@ CREATE TABLE IF NOT EXISTS agent_scripts (
 -- Таблица внешних сервисов (форумы, блоги и т.д.)
 CREATE TABLE external_services (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    name            TEXT NOT NULL,                     -- Название сервиса (например, Reddit)
-    type            TEXT NOT NULL,                     -- Тип: blog, forum, social, etc.
-    base_url        TEXT NOT NULL,                     -- Базовый URL (например, https://reddit.com)
-    description     TEXT,                              -- Краткое описание сервиса
-    active          BOOLEAN DEFAULT true,              -- Используется ли сервис в данный момент
-    inactive_reason TEXT                               -- Причина отключения, если active = false
+    name            TEXT NOT NULL,                              -- Название сервиса (например, Reddit)
+    type            TEXT NOT NULL,                              -- Тип: blog, forum, social, etc.
+    base_url        TEXT NOT NULL,                              -- Базовый URL (например, https://reddit.com)
+    description     TEXT,                                       -- Краткое описание сервиса
+    active          BOOLEAN DEFAULT true,                       -- Используется ли сервис в данный момент
+    inactive_reason TEXT                                        -- Причина отключения, если active = false
 );
 
 -- Аккаунты агента на внешних сервисах
 CREATE TABLE external_accounts (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    service_id      INTEGER NOT NULL,                  -- Внешний ключ на external_services.id
-    login           TEXT NOT NULL,                     -- Логин/имя пользователя
-    password        TEXT NOT NULL,                     -- Пароль или токен (в зашифрованном виде)
-    purpose         TEXT,                              -- Назначение аккаунта (например, для публикаций)
-    active          BOOLEAN DEFAULT true,              -- Активен ли аккаунт
-    inactive_reason TEXT,                              -- Причина отключения, если active = false
+    service_id      INTEGER NOT NULL,                           -- Внешний ключ на external_services.id
+    login           TEXT NOT NULL,                              -- Логин/имя пользователя
+    password        TEXT NOT NULL,                              -- Пароль или токен (в зашифрованном виде)
+    purpose         TEXT,                                       -- Назначение аккаунта (например, для публикаций)
+    active          BOOLEAN DEFAULT true,                       -- Активен ли аккаунт
+    inactive_reason TEXT,                                       -- Причина отключения, если active = false
 
     FOREIGN KEY (service_id) REFERENCES external_services(id) ON DELETE CASCADE
 );
@@ -161,11 +161,11 @@ CREATE TABLE external_accounts (
 -- Способы выхода из когнитивной стагнации
 CREATE TABLE stagnation_strategies (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    name            TEXT NOT NULL,                     -- Название метода (например, "Mesh-вопрос")
-    description     TEXT NOT NULL,                     -- Подробное описание метода
-    source          TEXT,                              -- Источник (например, internal, mesh, user-defined)
-    active          BOOLEAN DEFAULT true,              -- Доступен ли метод для использования
-    inactive_reason TEXT                               -- Причина отключения, если active = false
+    name            TEXT NOT NULL,                              -- Название метода (например, "Mesh-вопрос")
+    description     TEXT NOT NULL,                              -- Подробное описание метода
+    source          TEXT,                                       -- Источник (например, internal, mesh, user-defined)
+    active          BOOLEAN DEFAULT true,                       -- Доступен ли метод для использования
+    inactive_reason TEXT                                        -- Причина отключения, если active = false
 );
 
 -- Реестр LLM-агентов (в т.ч. удалённых)
@@ -203,6 +203,7 @@ CREATE TABLE IF NOT EXISTS users (
   mail TEXT UNIQUE,                                             -- электронная почта
   password_hash TEXT,                                           -- хэш пароля
   info TEXT,                                                    -- произвольная информация, JSON
+  profile TEXT,                                                 -- структурированая информация, JSON
   contacts TEXT,                                                -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)
   language TEXT,                                                -- список предпочитаемых языков, через запятую, например: "ru,en"
   operator BOOLEAN DEFAULT 0                                    -- является ли пользователь оператором (1 - да, 0 - нет)
