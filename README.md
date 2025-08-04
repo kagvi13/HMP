@@ -123,6 +123,16 @@ RU:
 * [🔍 HMP-Short-Description_uk.md](docs/HMP-Short-Description_uk.md) — Короткий опис (UK)
 * [🔍 HMP-Short-Description_ru.md](docs/HMP-Short-Description_ru.md) — Краткое описание (RU)
 
+#### 🔍 Публикации и переводы по HyperCortex Mesh Protocol (HMP)
+
+В этом разделе собраны основные статьи, черновики и переводы, связанные с проектом HMP.
+
+* **[HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу](publics/HyperCortex Mesh Protocol - вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу.pdf)** — оригинальная статья в песочнице Хабра и блогах.
+* **[Distributed Cognition: статья для vsradkevich (не опубликована)](publics/Habr_Distributed-Cognition.md)** — совместная статья, ожидающая публикации.
+* **[HMP: Towards Distributed Cognitive Networks (оригинал, английский)](publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+* **[Перевод HMP (GitHub Copilot)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
+* **[Перевод HMP (ChatGPT, в процессе доработки)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакторский перевод.
+
 #### 🔍 Overviews / Обзоры
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
 
