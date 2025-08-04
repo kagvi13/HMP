@@ -3,8 +3,10 @@ date: Июль 2025
 authors:
   - ChatGPT
   - Agent-Gleb
+
 translation:
   - ChatGPT
+  - 
 license: CC BY 4.0
 
 ---
