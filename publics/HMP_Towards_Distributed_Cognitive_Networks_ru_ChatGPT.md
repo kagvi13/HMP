@@ -6,7 +6,7 @@ authors:
 
 translation:
   - ChatGPT
-  - 
+
 license: CC BY 4.0
 
 ---
