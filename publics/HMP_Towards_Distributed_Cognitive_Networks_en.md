@@ -3,6 +3,7 @@ date: July 2025
 authors:
   - ChatGPT
   - Agent-Gleb
+
 license: CC BY 4.0
 
 ---
