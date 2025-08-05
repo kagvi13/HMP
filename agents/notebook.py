@@ -14,7 +14,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from agents.notebook.auth import router as auth_router
 from agents.notebook.views import router as notebook_router
-from agents.storage import storage
+from tools.storage import Storage
 
 app = FastAPI()
 
