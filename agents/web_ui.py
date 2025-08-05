@@ -41,7 +41,6 @@ def start_notebook():
     ui_port = int(storage.get_config_value("ui_port", 8000))
     print(f"[*] Запуск веб-интерфейса на порту {ui_port}")
     uvicorn.run(app, host="127.0.0.1", port=ui_port)
-    #uvicorn.run("agents.web_ui:app", host=host, port=ui_port, reload=False)
 
 if __name__ == "__main__":
     print("[*] Запуск пользовательского интерфейса...")
