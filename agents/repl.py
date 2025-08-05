@@ -21,7 +21,7 @@ from tools.memory_utils import (
 from tools.storage import Storage
 from tools.peers import refresh_peer_list, check_peer_statuses
 
-def run_repl(config=None):
+def start_repl(config=None):
     print("[🧠 HMP-Agent] Запуск REPL-режима (v2)")
     config = config or {}
     db = Storage(config=config)

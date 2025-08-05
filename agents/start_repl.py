@@ -10,7 +10,7 @@ config = ensure_db_initialized()
 
 # ⚙️ Включение/отключение компонентов
 ENABLE_REPL      = False  # 🧠 repl.py
-ENABLE_UI        = True  # 📓 notebook.py (FastAPI)
+ENABLE_UI        = True  # 📓 web_ui.py (FastAPI)
 ENABLE_MESH      = False  # 🌐 agent_mesh_listener.py
 ENABLE_SYNC      = False  # 🔄 peer_sync.py
 ENABLE_TRANSPORT = False  # 📡 transporter.py
@@ -29,7 +29,7 @@ def start_all():
 
     if ENABLE_UI:
         def ui():
-            from agents.notebook import start_notebook
+            from agents.web_ui import start_notebook
             start_notebook()
         threads.append(threading.Thread(target=ui, name="NotebookUI"))
 

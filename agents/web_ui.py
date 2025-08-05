@@ -12,7 +12,7 @@ process_name = os.path.splitext(os.path.basename(__file__))[0]
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from agents.notebook.auth import router as auth_router
+#from agents.notebook.auth import router as auth_router
 from agents.notebook.views import router as notebook_router
 from tools.storage import Storage
 
@@ -21,7 +21,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "notebook/static")), name="static")
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "notebook/templates"))
 
-app.include_router(auth_router)
+#app.include_router(auth_router)
 app.include_router(notebook_router)
 
 @app.on_event("startup")
@@ -36,7 +36,7 @@ async def heartbeat_loop():
             break
         await asyncio.sleep(60)
 
-def run_notebook(host: str = "127.0.0.1", port: int = 8000):
+def start_notebook(host: str = "127.0.0.1", port: int = 8000):
     uvicorn.run(app, host=host, port=port)
 
 if __name__ == "__main__":
