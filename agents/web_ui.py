@@ -37,7 +37,8 @@ async def heartbeat_loop():
         await asyncio.sleep(60)
 
 def start_notebook(host: str = "127.0.0.1", port: int = 8000):
-    uvicorn.run(app, host=host, port=port)
+    #uvicorn.run(app, host=host, port=port)
+    uvicorn.run("agents.web_ui:app", host=host, port=port, reload=True)
 
 if __name__ == "__main__":
     print("[*] Запуск пользовательского интерфейса...")

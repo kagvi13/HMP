@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS agent_scripts (
 );
 
 -- Таблица внешних сервисов (форумы, блоги и т.д.)
-CREATE TABLE external_services (
+CREATE TABLE IF NOT EXISTS external_services (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     name            TEXT NOT NULL,                              -- Название сервиса (например, Reddit)
     type            TEXT NOT NULL,                              -- Тип: blog, forum, social, etc.
@@ -146,7 +146,7 @@ CREATE TABLE external_services (
 );
 
 -- Аккаунты агента на внешних сервисах
-CREATE TABLE external_accounts (
+CREATE TABLE IF NOT EXISTS external_accounts (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     service_id      INTEGER NOT NULL,                           -- Внешний ключ на external_services.id
     login           TEXT NOT NULL,                              -- Логин/имя пользователя
@@ -159,7 +159,7 @@ CREATE TABLE external_accounts (
 );
 
 -- Способы выхода из когнитивной стагнации
-CREATE TABLE stagnation_strategies (
+CREATE TABLE IF NOT EXISTS stagnation_strategies (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     name            TEXT NOT NULL,                              -- Название метода (например, "Mesh-вопрос")
     description     TEXT NOT NULL,                              -- Подробное описание метода
