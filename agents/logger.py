@@ -2,7 +2,7 @@
 
 import json
 import os
-from datetime import datetime
+from datetime import datetime, UTC
 
 LOG_FILE = "logs/repl_log.jsonl"
 
@@ -10,7 +10,7 @@ def log_event(event_type, message, extra=None):
     os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
     entry = {
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "event": event_type,  # например: 'thought', 'input', 'error', 'action'
         "message": message,
     }
@@ -29,7 +29,7 @@ def log_repl_snapshot(snapshot: dict):
     os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
     entry = {
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "event": "repl_snapshot",
         "message": "Полный REPL-контекст",
         "context": snapshot,

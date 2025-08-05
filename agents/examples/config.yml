@@ -64,12 +64,6 @@ default_user:
   email: "user@example.com"
   password: "password"            # пусто при инициализации, будет установлен при регистрации
 
-
-# === Пути ===
-data_dir: "./data"
-log_dir: "./logs"
-db_path: "./data/agent_storage.db"
-
 # === Отладка и логгирование ===
 debug: true
 log_level: "INFO"                 # DEBUG, INFO, WARNING, ERROR

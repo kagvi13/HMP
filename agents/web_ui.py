@@ -1,4 +1,4 @@
-# agent/notebook.py
+# agent/web_ui.py
 
 import os
 import sys

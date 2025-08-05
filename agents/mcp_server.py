@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
-from datetime import datetime
+from datetime import datetime, UTC
 from tools.storage import Storage
 
 app = FastAPI(title="HMP MCP-Agent API", version="0.2")
@@ -97,7 +97,7 @@ class NoteTagUpdate(BaseModel):
 
 @app.get("/status")
 def status():
-    return {"status": "ok", "timestamp": datetime.utcnow().isoformat()}
+    return {"status": "ok", "timestamp": datetime.now(UTC).isoformat()}
 
 @app.post("/diary/write", response_model=dict)
 def write_diary(entry: DiaryInput):

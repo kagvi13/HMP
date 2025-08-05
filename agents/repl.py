@@ -8,7 +8,7 @@ import sqlite3
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from datetime import datetime
+from datetime import datetime, UTC
 from tools.context_builder import build_contexts, build_prompt
 from tools.llm import call_llm
 from tools.command_parser import extract_commands
@@ -28,7 +28,7 @@ def start_repl(config=None):
 
     try:
         while True:
-            tick_start = datetime.utcnow().isoformat()
+            tick_start = datetime.now(UTC).isoformat()
             print(f"\n=== [🌀 Новый тик REPL] {tick_start} ===")
 
             # 0. Обновление информации о пирах

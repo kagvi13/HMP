@@ -3,7 +3,7 @@
 import uuid
 import json
 import base64
-from datetime import datetime
+from datetime import datetime, UTC
 
 from cryptography.hazmat.primitives.asymmetric import rsa, ed25519
 from cryptography.hazmat.primitives import serialization
@@ -62,7 +62,7 @@ def create_identity(name="Core Identity", key_type=DEFAULT_KEY_TYPE, metadata=No
         "pubkey": serialize_public_key(pub_key),
         "privkey": serialize_private_key(priv_key, password),
         "metadata": json.dumps(metadata or {}),
-        "created_at": datetime.utcnow().isoformat(),
-        "updated_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(UTC).isoformat(),
+        "updated_at": datetime.now(UTC).isoformat(),
     }
     return identity

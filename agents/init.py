@@ -4,20 +4,19 @@ import os
 import sys
 import yaml
 import json
-import time
 import uuid
 import sqlite3
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from datetime import datetime
+from datetime import datetime, UTC
 from werkzeug.security import generate_password_hash
 from tools.storage import Storage
 from tools.identity import generate_did
 from tools.crypto import generate_keypair
-from tools.config_utils import update_config
 
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yml")
+DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "agent_data.db"))  # фиксированный путь
 
 def load_config(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -39,12 +38,11 @@ def init_identity(storage, config):
             "pubkey": pubkey,
             "privkey": privkey,
             "metadata": json.dumps({"role": config.get("agent_role", "core")}),
-            "created_at": datetime.utcnow().isoformat(),
-            "updated_at": datetime.utcnow().isoformat()
+            "created_at": datetime.now(UTC).isoformat(),
+            "updated_at": datetime.now(UTC).isoformat()
         }
         storage.add_identity(identity)
 
-        # Обновляем config.yml
         config["agent_id"] = did
         config["identity_agent"] = identity_id
         save_config(CONFIG_PATH, config)
@@ -61,8 +59,8 @@ def init_user(storage, config):
     if not password:
         print("[-] Не указан пароль пользователя — пропуск.")
         return
-    password_hash = generate_password_hash(password)
 
+    password_hash = generate_password_hash(password)
     did = generate_did()
     user_entry = {
         "username": user.get("username", "user"),
@@ -76,7 +74,6 @@ def init_user(storage, config):
         "operator": 1
     }
     storage.add_user(user_entry)
-
     print(f"[+] Пользователь {user['username']} добавлен.")
 
 def init_llm_backends(storage, config):
@@ -90,7 +87,7 @@ def init_llm_backends(storage, config):
             "name": backend["name"],
             "endpoint": desc,
             "metadata": json.dumps(backend),
-            "created_at": datetime.utcnow().isoformat()
+            "created_at": datetime.now(UTC).isoformat()
         }
         storage.add_llm(llm)
         print(f"[+] Зарегистрирован LLM: {backend['name']}")
@@ -102,19 +99,14 @@ def init_config_table(storage, config):
         storage.set_config(key, json.dumps(value))
     print("[+] Конфигурация сохранена в БД.")
 
-def ensure_directories(config):
-    directories = [
-        config.get("data_dir", "./data"),
-        config.get("log_dir", "./logs"),
-       # добавь другие директории при необходимости
-   ]
-
-    for path in directories:
-        if path and not os.path.exists(path):
-            os.makedirs(path)
-            print(f"[+] Создан каталог: {path}")
+def ensure_directories():
+    for folder in ["logs", "scripts"]:
+        full_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", folder))
+        if not os.path.exists(full_path):
+            os.makedirs(full_path)
+            print(f"[+] Создан каталог: {full_path}")
         else:
-            print(f"[=] Каталог уже существует: {path}")
+            print(f"[=] Каталог уже существует: {full_path}")
 
 def is_db_initialized(db_path):
     if not os.path.exists(db_path):
@@ -129,13 +121,12 @@ def is_db_initialized(db_path):
 
 def ensure_db_initialized():
     config = load_config(CONFIG_PATH)
-    db_path = config.get("db_path", "./data/agent_storage.db")
 
-    if not is_db_initialized(db_path):
+    if not is_db_initialized(DB_PATH):
         print("[*] БД не инициализирована — выполняем инициализацию.")
         try:
-            ensure_directories(config)
-            storage = Storage(config)
+            ensure_directories()
+            storage = Storage()
             init_identity(storage, config)
             init_user(storage, config)
             init_llm_backends(storage, config)

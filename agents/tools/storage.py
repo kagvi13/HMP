@@ -3,15 +3,16 @@
 import sqlite3
 import os
 import json
-from datetime import datetime, timedelta
 
-DEFAULT_DB_PATH = "agent_data.db"
+from datetime import datetime, timedelta, UTC
+
 SCRIPTS_BASE_PATH = "scripts"
 
 class Storage:
     def __init__(self, config=None):
         self.config = config or {}
-        db_path = self.config.get("db_path", DEFAULT_DB_PATH)
+        db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "agent_data.db"))
+        self.db_path = db_path
         self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self._init_db()
 
@@ -27,7 +28,7 @@ class Storage:
     # Методы для работы с дневником
 
     def write_diary_entry(self, text, tags=None):
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(UTC).isoformat()
         tag_str = ",".join(tags) if tags else ""
         self.conn.execute(
             'INSERT INTO diary_entries (text, tags, timestamp) VALUES (?, ?, ?)',
@@ -81,7 +82,7 @@ class Storage:
     # Методы для работы с концептами
 
     def add_concept(self, name, description=None):
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(UTC).isoformat()
         self.conn.execute(
             'INSERT INTO concepts (name, description, timestamp) VALUES (?, ?, ?)',
             (name, description, timestamp)
@@ -107,7 +108,7 @@ class Storage:
             raise ValueError("Один или оба концепта не найдены")
         from_id = from_concept[0]
         to_id = to_concept[0]
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(UTC).isoformat()
         self.conn.execute(
             'INSERT INTO links (from_concept_id, to_concept_id, relation_type, timestamp) VALUES (?, ?, ?, ?)',
             (from_id, to_id, relation_type, timestamp)
@@ -549,7 +550,7 @@ class Storage:
             return False
 
         fields.append("updated_at = ?")
-        values.append(datetime.utcnow().isoformat())
+        values.append(datetime.now(UTC).isoformat())
 
         values.extend([name, version])
         query = f"""
@@ -664,7 +665,7 @@ class Storage:
 
     # Управление основными процессами
     def update_heartbeat(self, name: str):
-        now = datetime.utcnow().isoformat()
+        now = datetime.now(UTC).isoformat()
         self.conn.execute(
             "INSERT INTO main_process (name, heartbeat, stop) VALUES (?, ?, 0) "
             "ON CONFLICT(name) DO UPDATE SET heartbeat = excluded.heartbeat",
@@ -687,7 +688,7 @@ class Storage:
         if row:
             try:
                 last_beat = datetime.fromisoformat(row[0])
-                return (datetime.utcnow() - last_beat).total_seconds() < max_delay
+                return (datetime.now(UTC) - last_beat).total_seconds() < max_delay
             except:
                 return False
         return False
@@ -700,7 +701,7 @@ class Storage:
 
     # Web-интерфейс и API
     def write_note(self, content, role="user", user_did="anon", source="web"):
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(UTC).isoformat()
         self.conn.execute("""
             INSERT INTO notes (text, role, user_did, source, timestamp)
             VALUES (?, ?, ?, ?, ?)

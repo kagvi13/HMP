@@ -1,6 +1,6 @@
 # agents/tools/context_builder.py
 
-from datetime import datetime
+from datetime import datetime, UTC
 
 def build_contexts(db, config):
     """
@@ -61,7 +61,7 @@ def format_context_block(block):
 
 def get_system_info(config):
     return {
-        "iteration_time": datetime.utcnow().isoformat(),
+        "iteration_time": datetime.now(UTC).isoformat(),
         "agent_name": config.get("agent_name", "Unnamed-Agent"),
         "mode": config.get("mode", "auto"),
         "idle_mode": config.get("idle_mode", False),

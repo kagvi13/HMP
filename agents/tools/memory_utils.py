@@ -1,6 +1,6 @@
 # agents/tools/memory_utils.py
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 from difflib import SequenceMatcher
 from typing import Optional, List, Dict
 
@@ -49,8 +49,8 @@ def add_to_llm_memory(db, title: str, content: str, tags: str = "meta"):
         "title": title,
         "content": content,
         "tags": tags,
-        "created_at": datetime.utcnow().isoformat(),
-        "updated_at": datetime.utcnow().isoformat()
+        "created_at": datetime.now(UTC).isoformat(),
+        "updated_at": datetime.now(UTC).isoformat()
     })
 
 
