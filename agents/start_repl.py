@@ -22,52 +22,76 @@ def start_all():
     threads = []
 
     if ENABLE_REPL:
-        def repl():
-            from agents.repl import start_repl
-            start_repl()
-        threads.append(threading.Thread(target=repl, name="REPL"))
+        if not storage.is_process_alive("REPL", max_delay=180):
+            def repl():
+                from agents.repl import start_repl
+                start_repl()
+            threads.append(threading.Thread(target=repl, name="REPL"))
+        else:
+           print("REPL уже работает по данным heartbeat.")
 
     if ENABLE_UI:
-        def ui():
-            from agents.web_ui import start_notebook
-            start_notebook()
-        threads.append(threading.Thread(target=ui, name="NotebookUI"))
+        if not storage.is_process_alive("NotebookUI", max_delay=180):
+            def ui():
+                from agents.web_ui import start_notebook
+                start_notebook()
+            threads.append(threading.Thread(target=ui, name="NotebookUI"))
+        else:
+           print("NotebookUI уже работает по данным heartbeat.")
 
     if ENABLE_MESH:
-        def mesh():
-            from agents.agent_mesh_listener import start_listener
-            start_listener()
-        threads.append(threading.Thread(target=mesh, name="MeshListener"))
+        if not storage.is_process_alive("MeshListener", max_delay=180):
+            def mesh():
+                from agents.agent_mesh_listener import start_listener
+                start_listener()
+            threads.append(threading.Thread(target=mesh, name="MeshListener"))
+        else:
+           print("MeshListener уже работает по данным heartbeat.")
 
     if ENABLE_SYNC:
-        def sync():
-            from agents.peer_sync import start_sync
-            start_sync()
-        threads.append(threading.Thread(target=sync, name="PeerSync"))
+        if not storage.is_process_alive("PeerSync", max_delay=180):
+            def sync():
+                from agents.peer_sync import start_sync
+                start_sync()
+            threads.append(threading.Thread(target=sync, name="PeerSync"))
+        else:
+           print("PeerSync уже работает по данным heartbeat.")
 
     if ENABLE_TRANSPORT:
-        def transport():
-            from agents.transporter import start_transporter
-            start_transporter()
-        threads.append(threading.Thread(target=transport, name="Transporter"))
+        if not storage.is_process_alive("Transporter", max_delay=180):
+            def transport():
+                from agents.transporter import start_transporter
+                start_transporter()
+            threads.append(threading.Thread(target=transport, name="Transporter"))
+        else:
+           print("Transporter уже работает по данным heartbeat.")
 
     if ENABLE_CONTROL:
-        def control():
-            from agents.agent_controller import start_controller
-            start_controller()
-        threads.append(threading.Thread(target=control, name="Controller"))
+        if not storage.is_process_alive("Controller", max_delay=180):
+            def control():
+                from agents.agent_controller import start_controller
+                start_controller()
+            threads.append(threading.Thread(target=control, name="Controller"))
+        else:
+           print("Controller уже работает по данным heartbeat.")
 
     if ENABLE_CONTAINER:
-        def container():
-            from agents.container_agent import start_container
-            start_container()
-        threads.append(threading.Thread(target=container, name="ContainerAgent"))
+        if not storage.is_process_alive("ContainerAgent", max_delay=180):
+            def container():
+                from agents.container_agent import start_container
+                start_container()
+            threads.append(threading.Thread(target=container, name="ContainerAgent"))
+        else:
+           print("ContainerAgent уже работает по данным heartbeat.")
 
     if ENABLE_ETHICS:
-        def ethics():
-            from agents.ethics_guard import start_ethics_guard
-            start_ethics_guard()
-        threads.append(threading.Thread(target=ethics, name="EthicsGuard"))
+        if not storage.is_process_alive("EthicsGuard", max_delay=180):
+            def ethics():
+                from agents.ethics_guard import start_ethics_guard
+                start_ethics_guard()
+            threads.append(threading.Thread(target=ethics, name="EthicsGuard"))
+        else:
+           print("EthicsGuard уже работает по данным heartbeat.")
 
     # Запуск потоков
     for thread in threads:

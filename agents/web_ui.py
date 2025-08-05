@@ -16,6 +16,7 @@ from fastapi.templating import Jinja2Templates
 from agents.notebook.views import router as notebook_router
 from tools.storage import Storage
 
+storage = Storage()
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "notebook/static")), name="static")
@@ -38,7 +39,7 @@ async def heartbeat_loop():
 
 def start_notebook(host: str = "127.0.0.1", port: int = 8000):
     #uvicorn.run(app, host=host, port=port)
-    uvicorn.run("agents.web_ui:app", host=host, port=port, reload=True)
+    uvicorn.run("agents.web_ui:app", host=host, port=port, reload=False)
 
 if __name__ == "__main__":
     print("[*] Запуск пользовательского интерфейса...")

@@ -3,7 +3,7 @@
 import sqlite3
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 
 DEFAULT_DB_PATH = "agent_data.db"
 SCRIPTS_BASE_PATH = "scripts"
@@ -679,6 +679,18 @@ class Storage:
             self.conn.execute("UPDATE main_process SET stop = 0 WHERE name = ?", (name,))
             self.conn.commit()
             return True
+        return False
+
+    # Потоки
+    def is_process_alive(self, name: str, max_delay=180):
+        cursor = self.conn.execute("SELECT heartbeat FROM main_process WHERE name=?", (name,))
+        row = cursor.fetchone()
+        if row:
+            try:
+                last_beat = datetime.fromisoformat(row[0])
+                return (datetime.utcnow() - last_beat).total_seconds() < max_delay
+            except:
+                return False
         return False
 
     # Web-интерфейс и API

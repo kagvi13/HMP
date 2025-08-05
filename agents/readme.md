@@ -39,6 +39,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 ├── [`start_repl.bat`](start_repl.bat) ← Запуск агента в REPL-режиме (bat)  
 ├── [`start_repl.sh`](start_repl.sh) ← Запуск агента в REPL-режиме (sh)  
 ├── [`start_repl.py`](start_repl.py) ← Запуск агента в REPL-режиме (py)  
+├── [`check_agents.py`](check_agents.py) ← Просмотр состояния процессов  
 ├── [`repl.ru`](repl.ru) ← REPL-цикл  
 ├── [`notebook.py`](notebook.py) ← UI-интерфейс  
 ├── [`agent_mesh_listener.py`](tools/agent_mesh_listener.py) ← Прием входящих сообщений от других HMP-агентов  
