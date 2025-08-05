@@ -12,7 +12,7 @@ class Storage:
     def __init__(self, config=None):
         self.config = config or {}
         db_path = self.config.get("db_path", DEFAULT_DB_PATH)
-        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
+        self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self._init_db()
 
     def _init_db(self):
