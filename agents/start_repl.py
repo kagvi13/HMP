@@ -1,26 +1,24 @@
-# agents/start_repl.py
-
 import sys
 import os
+import threading
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import threading
 from agents.init import ensure_db_initialized
 
 # Проверка инициализации (вернёт config, если всё ОК)
 config = ensure_db_initialized()
 
 # ⚙️ Включение/отключение компонентов
-# True | False
-ENABLE_REPL = False
-ENABLE_UI = True
-ENABLE_MESH = False
-ENABLE_SYNC = False
+ENABLE_REPL      = False  # 🧠 repl.py
+ENABLE_UI        = True  # 📓 notebook.py (FastAPI)
+ENABLE_MESH      = False  # 🌐 agent_mesh_listener.py
+ENABLE_SYNC      = False  # 🔄 peer_sync.py
+ENABLE_TRANSPORT = False  # 📡 transporter.py
+ENABLE_CONTROL   = False  # 🧭 agent_controller.py
+ENABLE_CONTAINER = False  # 🧱 container_agent.py
+ENABLE_ETHICS    = False  # 🧠 ethics_guard.py
 
 def start_all():
-    """
-    Стартует все ключевые компоненты агента в отдельных потоках.
-    """
     threads = []
 
     if ENABLE_REPL:
@@ -47,6 +45,30 @@ def start_all():
             start_sync()
         threads.append(threading.Thread(target=sync, name="PeerSync"))
 
+    if ENABLE_TRANSPORT:
+        def transport():
+            from agents.transporter import start_transporter
+            start_transporter()
+        threads.append(threading.Thread(target=transport, name="Transporter"))
+
+    if ENABLE_CONTROL:
+        def control():
+            from agents.agent_controller import start_controller
+            start_controller()
+        threads.append(threading.Thread(target=control, name="Controller"))
+
+    if ENABLE_CONTAINER:
+        def container():
+            from agents.container_agent import start_container
+            start_container()
+        threads.append(threading.Thread(target=container, name="ContainerAgent"))
+
+    if ENABLE_ETHICS:
+        def ethics():
+            from agents.ethics_guard import start_ethics_guard
+            start_ethics_guard()
+        threads.append(threading.Thread(target=ethics, name="EthicsGuard"))
+
     # Запуск потоков
     for thread in threads:
         try:
@@ -55,7 +77,6 @@ def start_all():
         except Exception as e:
             print(f"[⚠️] Ошибка запуска потока {thread.name}: {e}")
 
-    # Блокирующее ожидание завершения
     for thread in threads:
         thread.join()
 
