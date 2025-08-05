@@ -12,7 +12,7 @@ class Storage:
     def __init__(self, config=None):
         self.config = config or {}
         db_path = self.config.get("db_path", DEFAULT_DB_PATH)
-        self.conn = sqlite3.connect(db_path)
+        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
         self._init_db()
 
     def _init_db(self):
@@ -681,7 +681,6 @@ class Storage:
             return True
         return False
 
-    # Потоки
     def is_process_alive(self, name: str, max_delay=180):
         cursor = self.conn.execute("SELECT heartbeat FROM main_process WHERE name=?", (name,))
         row = cursor.fetchone()
@@ -692,6 +691,12 @@ class Storage:
             except:
                 return False
         return False
+
+    # Чтение параметра конфигурации из БД
+    def get_config_value(self, key: str, default=None):
+        cursor = self.conn.execute("SELECT value FROM config WHERE key = ?", (key,))
+        row = cursor.fetchone()
+        return row[0] if row else default
 
     # Web-интерфейс и API
     def write_note(self, content, role="user", user_did="anon", source="web"):
