@@ -1,9 +1,13 @@
 import sys
 import os
 import threading
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from agents.init import ensure_db_initialized
+from tools.storage import Storage
+
+storage = Storage()
 
 # Проверка инициализации (вернёт config, если всё ОК)
 config = ensure_db_initialized()
