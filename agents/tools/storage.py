@@ -7,6 +7,8 @@ import json
 import uuid
 
 from datetime import datetime, timedelta, UTC
+from tools.identity import generate_did
+from tools.crypto import generate_password_hash
 
 SCRIPTS_BASE_PATH = "scripts"
 
@@ -747,21 +749,18 @@ class Storage:
         return [dict(row) for row in cursor.fetchall()]
 
     # Пользователи
-    def _hash_password(self, password: str) -> str:
-        return hashlib.sha256(password.encode()).hexdigest()
-
     def register_user(self, username: str, mail: str, password: str) -> bool:
         mail = mail.lower()
-        did = f"did:example:{uuid.uuid4()}"
+        did = generate_did()
         try:
             self.conn.execute(
                 "INSERT INTO users (username, mail, password_hash, did) VALUES (?, ?, ?, ?)",
-                (username, mail, self._hash_password(password), did)
+                (username, mail, generate_password_hash(password), did)
             )
             self.conn.commit()
             return True
         except sqlite3.IntegrityError:
-            return False  # уже существует (уникальность mail или did)
+            return False
 
     def authenticate_user(self, mail: str, password: str) -> bool:
         mail = mail.lower()
@@ -772,7 +771,7 @@ class Storage:
         )
         result = cursor.fetchone()
         if result:
-            return result["password_hash"] == self._hash_password(password)
+            return result["password_hash"] == generate_password_hash(password)
         return False
 
     def get_user_info(self, mail: str) -> dict | None:
