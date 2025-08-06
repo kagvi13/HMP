@@ -8,7 +8,7 @@ import uuid
 
 from datetime import datetime, timedelta, UTC
 from tools.identity import generate_did
-from tools.crypto import generate_password_hash
+from tools.crypto import generate_keypair
 
 SCRIPTS_BASE_PATH = "scripts"
 
