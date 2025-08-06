@@ -199,9 +199,9 @@ CREATE TABLE IF NOT EXISTS users (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
   ban DATETIME DEFAULT NULL,                                    -- если стоит дата/время, то пользователь забанен до этого момента
   username TEXT,                                                -- имя пользователя (необязательно уникальное)
-  did TEXT UNIQUE,                                              -- децентрализованный идентификатор
-  mail TEXT UNIQUE,                                             -- электронная почта
-  password_hash TEXT,                                           -- хэш пароля
+  did TEXT  UNIQUE NOT NULL,                                    -- децентрализованный идентификатор
+  mail TEXT UNIQUE NOT NULL,                                    -- электронная почта
+  password_hash TEXT NOT NULL,                                  -- хэш пароля
   info TEXT,                                                    -- произвольная информация, JSON
   profile TEXT,                                                 -- структурированая информация, JSON
   contacts TEXT,                                                -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)

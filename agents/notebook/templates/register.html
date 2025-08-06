@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head><title>Регистрация</title></head>
-<body>
-  <h2>Регистрация</h2>
-  {% if error %}<p style="color: red">{{ error }}</p>{% endif %}
-  <form method="post">
-    <input name="username" placeholder="Имя пользователя">
-    <input name="password" type="password" placeholder="Пароль">
-    <button type="submit">Зарегистрироваться</button>
-  </form>
-  <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
-</body>
-</html>
+<form method="post">
+  <label>Имя пользователя: <input type="text" name="username" required></label><br>
+  <label>Email: <input type="email" name="mail" required></label><br>
+  <label>Пароль: <input type="password" name="password" required></label><br>
+  <button type="submit">Зарегистрироваться</button>
+</form>

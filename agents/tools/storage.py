@@ -4,6 +4,7 @@ import hashlib
 import sqlite3
 import os
 import json
+import uuid
 
 from datetime import datetime, timedelta, UTC
 
@@ -17,7 +18,6 @@ class Storage:
         self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self.conn.row_factory = sqlite3.Row
         self._init_db()
-        self._init_user_table()
 
     def _init_db(self):
         # Загружаем и выполняем весь SQL из файла db_structure.sql
@@ -750,38 +750,43 @@ class Storage:
     def _hash_password(self, password: str) -> str:
         return hashlib.sha256(password.encode()).hexdigest()
 
-    def _init_user_table(self):
-        self.conn.execute('''
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT UNIQUE NOT NULL,
-                password_hash TEXT NOT NULL
-            )
-        ''')
-        self.conn.commit()
-
-    def register_user(self, username: str, password: str) -> bool:
-        self._init_user_table()
+    def register_user(self, username: str, mail: str, password: str) -> bool:
+        mail = mail.lower()
+        did = f"did:example:{uuid.uuid4()}"
         try:
             self.conn.execute(
-                "INSERT INTO users (username, password_hash) VALUES (?, ?)",
-                (username, self._hash_password(password))
+                "INSERT INTO users (username, mail, password_hash, did) VALUES (?, ?, ?, ?)",
+                (username, mail, self._hash_password(password), did)
             )
             self.conn.commit()
             return True
         except sqlite3.IntegrityError:
-            return False  # пользователь уже существует
+            return False  # уже существует (уникальность mail или did)
 
-    def authenticate_user(self, username: str, password: str) -> bool:
+    def authenticate_user(self, mail: str, password: str) -> bool:
+        mail = mail.lower()
         cursor = self.conn.cursor()
         cursor.execute(
-            "SELECT password_hash FROM users WHERE username = ?",
-            (username,)
+            "SELECT password_hash FROM users WHERE mail = ?",
+            (mail,)
         )
         result = cursor.fetchone()
         if result:
             return result["password_hash"] == self._hash_password(password)
         return False
+
+    def get_user_info(self, mail: str) -> dict | None:
+        mail = mail.lower()
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT username, did FROM users WHERE mail = ?",
+            (mail,)
+        )
+        result = cursor.fetchone()
+        if result:
+            return {
+                "username": result["username"],
+                "did": result["did"]
 
     # Утилиты
 

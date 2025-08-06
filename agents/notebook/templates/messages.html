@@ -20,11 +20,14 @@
             <a href="/login">Войти</a> | <a href="/register">Регистрация</a>
         {% endif %}
     </div>
+
     <h1>Сообщения</h1>
 
     <form method="post">
         <textarea name="text" rows="3" cols="40" placeholder="Введите сообщение..."></textarea><br>
-        <input type="text" name="user_did" placeholder="User DID" readonly value="{{ username }}">
+        <label>
+            <input type="checkbox" name="hidden"> Скрыто
+        </label><br>
         <button type="submit">Отправить</button>
     </form>
 
@@ -38,10 +41,14 @@
     <hr>
 
     {% for msg in messages %}
-        <div class="message source-{{ msg.source }} {% if msg.user_did == 'did:example:local-user' %}from-self{% endif %}">
+        <div class="message source-{{ msg.source }} {% if msg.user_did == request.session['did'] %}from-self{% endif %}">
             <div>
                 <strong>{{ msg.source }}</strong> — {{ msg.timestamp }}
                 {% if msg.hidden %}<span class="private"></span>{% endif %}
+            </div>
+            <div>
+                от {{ msg.user_did[:10] }}...
+                {% if msg.username %}({{ msg.username }}){% endif %}
             </div>
             <div>{{ msg.text }}</div>
         </div>
