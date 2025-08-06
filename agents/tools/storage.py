@@ -1,5 +1,6 @@
 # agents/tools/storage.py
 
+import hashlib
 import sqlite3
 import os
 import json
@@ -14,7 +15,9 @@ class Storage:
         db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "agent_data.db"))
         self.db_path = db_path
         self.conn = sqlite3.connect(db_path, check_same_thread=False)
+        self.conn.row_factory = sqlite3.Row
         self._init_db()
+        self._init_user_table()
 
     def _init_db(self):
         # Загружаем и выполняем весь SQL из файла db_structure.sql
@@ -700,23 +703,85 @@ class Storage:
         return row[0] if row else default
 
     # Web-интерфейс и API
-    def write_note(self, content, user_did="anon", source="user"):
+    def write_note(self, content, user_did="anon", source="user", hidden=0):
         timestamp = datetime.now(UTC).isoformat()
         self.conn.execute("""
-            INSERT INTO notes (text, user_did, source, timestamp)
-            VALUES (?, ?, ?, ?)
-        """, (content, user_did, source, timestamp))
+            INSERT INTO notes (text, user_did, source, timestamp, hidden)
+            VALUES (?, ?, ?, ?, ?)
+        """, (content, user_did, source, timestamp, hidden))
         self.conn.commit()
 
-    def get_notes(self, limit=50):
+    def get_notes(self, limit=50, user_did="anon", is_operator=False, only_personal=False):
         cursor = self.conn.cursor()
-        cursor.execute("""
-            SELECT text, source, user_did, timestamp FROM notes
-            WHERE hidden = 0
-            ORDER BY timestamp DESC
-            LIMIT ?
-        """, (limit,))
+
+        if is_operator:
+            query = """
+                SELECT id, text, source, user_did, timestamp, hidden
+                FROM notes
+                ORDER BY timestamp DESC
+                LIMIT ?
+            """
+            cursor.execute(query, (limit,))
+        else:
+            if only_personal:
+                # Только личные сообщения
+                query = """
+                    SELECT id, text, source, user_did, timestamp, hidden
+                    FROM notes
+                    WHERE user_did = ? AND hidden = 0
+                    ORDER BY timestamp DESC
+                    LIMIT ?
+                """
+                cursor.execute(query, (user_did, limit))
+            else:
+                # Публичные и личные
+                query = """
+                    SELECT id, text, source, user_did, timestamp, hidden
+                    FROM notes
+                    WHERE (user_did = ? OR user_did = 'ALL') AND hidden = 0
+                    ORDER BY timestamp DESC
+                    LIMIT ?
+                """
+                cursor.execute(query, (user_did, limit))
+
         return [dict(row) for row in cursor.fetchall()]
+
+    # Пользователи
+    def _hash_password(self, password: str) -> str:
+        return hashlib.sha256(password.encode()).hexdigest()
+
+    def _init_user_table(self):
+        self.conn.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                password_hash TEXT NOT NULL
+            )
+        ''')
+        self.conn.commit()
+
+    def register_user(self, username: str, password: str) -> bool:
+        self._init_user_table()
+        try:
+            self.conn.execute(
+                "INSERT INTO users (username, password_hash) VALUES (?, ?)",
+                (username, self._hash_password(password))
+            )
+            self.conn.commit()
+            return True
+        except sqlite3.IntegrityError:
+            return False  # пользователь уже существует
+
+    def authenticate_user(self, username: str, password: str) -> bool:
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT password_hash FROM users WHERE username = ?",
+            (username,)
+        )
+        result = cursor.fetchone()
+        if result:
+            return result["password_hash"] == self._hash_password(password)
+        return False
 
     # Утилиты
 

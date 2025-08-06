@@ -1,18 +1,50 @@
-<!-- templates/messages.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Отправка сообщения агенту</title>
+    <title>Сообщения</title>
+    <style>
+        .message { padding: 8px; margin: 10px 0; border-radius: 8px; }
+        .source-user { background-color: #e0f7fa; }
+        .source-cli { background-color: #dcedc8; }
+        .source-llm { background-color: #f3e5f5; }
+        .source-system { background-color: #fff3e0; }
+        .private::after { content: " 🔒"; }
+        .from-self::before { content: "🧍 "; }
+    </style>
 </head>
 <body>
-    <h2>Новое сообщение</h2>
-    <form method="post" action="/messages">
-        <label for="text">Сообщение:</label><br>
-        <textarea name="text" rows="4" cols="50" required></textarea><br><br>
+    <div style="margin-bottom: 10px;">
+        {% if username %}
+            Привет, {{ username }} | <a href="/logout">Выход</a>
+        {% else %}
+            <a href="/login">Войти</a> | <a href="/register">Регистрация</a>
+        {% endif %}
+    </div>
+    <h1>Сообщения</h1>
 
-        <label><input type="checkbox" name="is_private" value="true"> Приватное сообщение</label><br><br>
-
+    <form method="post">
+        <textarea name="text" rows="3" cols="40" placeholder="Введите сообщение..."></textarea><br>
+        <input type="text" name="user_did" placeholder="User DID" readonly value="{ user_did }">
         <button type="submit">Отправить</button>
     </form>
+
+    <hr>
+
+    <div>
+        <a href="/messages">📢 Все сообщения</a> |
+        <a href="/messages?only_personal=true">🙋 Только мои</a>
+    </div>
+
+    <hr>
+
+    {% for msg in messages %}
+        <div class="message source-{{ msg.source }} {% if msg.user_did == 'did:example:local-user' %}from-self{% endif %}">
+            <div>
+                <strong>{{ msg.source }}</strong> — {{ msg.timestamp }}
+                {% if msg.hidden %}<span class="private"></span>{% endif %}
+            </div>
+            <div>{{ msg.text }}</div>
+        </div>
+    {% endfor %}
 </body>
 </html>
