@@ -79,4 +79,4 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 │       └── [`style.css`](notebook/templates/style.css) ← Таблица стилей    
 ├── [`config.yml`](config.yml) ← Конфигурация агента (имя, порты, роли и т.п.)  
 ├── [`bootstrap.txt`](bootstrap.txt) ← Локальная этическая модель  
-└── [`ethics.yml`](ethics.yml) ← Список начальных узлов  '
+└── [`ethics.yml`](ethics.yml) ← Список начальных узлов  
