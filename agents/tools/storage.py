@@ -787,6 +787,8 @@ class Storage:
             return {
                 "username": result["username"],
                 "did": result["did"]
+            }
+        return None
 
     # Утилиты
 
