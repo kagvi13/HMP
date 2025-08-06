@@ -6,7 +6,7 @@ from fastapi.templating import Jinja2Templates
 from tools.storage import Storage
 
 router = APIRouter()
-templates = Jinja2Templates(directory="agents/notebook/templates")
+templates = Jinja2Templates(directory="notebook/templates")
 storage = Storage()
 
 DID = "did:example:local-user"  # временно
