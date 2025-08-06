@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS notes (
     text TEXT NOT NULL,                                         -- Текст заметки
     tags TEXT,                                                  -- Теги (например: "idea", "instruction")
     user_did TEXT DEFAULT 'ALL',                                -- DID пользователя (или 'ALL' — для всех)
-    source TEXT DEFAULT 'user',                                 -- Источник заметки: user | llm | system
+    source TEXT DEFAULT 'user',                                 -- Источник заметки: user | cli | llm | system
     links TEXT DEFAULT '',                                      -- Ссылки или связи с другими объектами
     read INTEGER DEFAULT 0,                                     -- Статус прочтения LLM: 0 = нет, 1 = да
     hidden INTEGER DEFAULT 0,                                   -- Скрыта ли от пользователя: 0 = нет, 1 = да

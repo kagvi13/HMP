@@ -700,18 +700,18 @@ class Storage:
         return row[0] if row else default
 
     # Web-интерфейс и API
-    def write_note(self, content, role="user", user_did="anon", source="web"):
+    def write_note(self, content, user_did="anon", source="user"):
         timestamp = datetime.now(UTC).isoformat()
         self.conn.execute("""
-            INSERT INTO notes (text, role, user_did, source, timestamp)
-            VALUES (?, ?, ?, ?, ?)
-        """, (content, role, user_did, source, timestamp))
+            INSERT INTO notes (text, user_did, source, timestamp)
+            VALUES (?, ?, ?, ?)
+        """, (content, user_did, source, timestamp))
         self.conn.commit()
 
     def get_notes(self, limit=50):
         cursor = self.conn.cursor()
         cursor.execute("""
-            SELECT text, role, source, user_did, timestamp FROM notes
+            SELECT text, source, user_did, timestamp FROM notes
             WHERE hidden = 0
             ORDER BY timestamp DESC
             LIMIT ?

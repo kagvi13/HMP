@@ -30,7 +30,7 @@ def submit_note(request: Request, message: str = Form(...)):
 
 @router.get("/messages")
 def show_messages(request: Request):
-    messages = storage.get_notes(limit=50)  # должна быть в Storage
+    messages = storage.get_notes(limit=50)
     return templates.TemplateResponse("messages.html", {
         "request": request,
         "messages": messages
@@ -40,13 +40,11 @@ def show_messages(request: Request):
 def post_message(
     request: Request,
     text: str = Form(...),
-    role: str = Form(default="user"), 
     user_did: str = Form(default="anon")
 ):
     storage.write_note(
         content=text,
-        role=role,
         user_did=user_did,
-        source="web"
+        source="user"
     )
     return RedirectResponse(url="/messages", status_code=303)
