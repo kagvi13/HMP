@@ -7,6 +7,7 @@ import json
 import uuid
 
 from datetime import datetime, timedelta, UTC
+from werkzeug.security import generate_password_hash, check_password_hash
 from tools.identity import generate_did
 from tools.crypto import generate_keypair
 
@@ -771,7 +772,7 @@ class Storage:
         )
         result = cursor.fetchone()
         if result:
-            return result["password_hash"] == generate_password_hash(password)
+            return check_password_hash(result["password_hash"], password)
         return False
 
     def get_user_info(self, mail: str) -> dict | None:
