@@ -1,44 +1,69 @@
-agent_id: did:hmp:dac57687-1839-423d-8624-c38324de2635
-agent_name: CognitiveCore
-agent_role: core
+# HMP Agent Configuration
+
+# === Общие параметры ===
+agent_id: ""                      # Оставьте пустым для генерации DiD автоматически
+agent_name: "CognitiveCore"       # Имя агента
+agent_role: "core"                # 'core' или 'shell'
+
+# === Прокси ===
+proxy_mode: false                 # false — прокси не используется, иначе true
+proxy_type: "socks5"              # 'http', 'socks4', 'socks5' и т.д. (если proxy_mode: true)
+proxy_address: "127.0.0.1:9050"
+
+# === Функции ядра ===
+enable_llm: true                  # доступ к LLM
+
+serve_api: true                   # REST API
 api_port: 8080
-bootstrap_responder: true
-debug: true
-default_llm: local-model
-default_user:
-  email: user@example.com
-  password: password
-  username: user
-dht_enabled: true
+
+# === DHT-сеть и обмен знаниями ===
+dht_enabled: true                 # Включение участия в DHT-сети (включено принудительно!)
+dht_update: true                  # Регулярные обновления и публикация данных в DHT (включено принудительно!)
+bootstrap_responder: true         # Агент отвечает на bootstrap-запросы (включено принудительно!)
 dht_port: 20784
-dht_update: true
-enable_llm: true
-identity_agent: dac57687-1839-423d-8624-c38324de2635
+update_interval: 60               # секунд (для DHT-обновлений)
+
+# === LLM-бэкенды ===
 llm_backends:
-- format: gguf
-  name: local-model
-  path: /models/gguf/mistral.gguf
-  prompt_template: mistral
-  type: local
-- api_key: lm-studio-any-key
-  base_url: http://127.0.0.1:1234/v1
-  model: mistral
-  name: lmstudio-local
-  provider: openai-compatible
-  type: api
-- api_key: sk-...
-  model: gpt-4o
-  name: openai-gpt4o
-  provider: openai
-  type: api
-log_level: INFO
-notebook_ui: true
-proxy_address: 127.0.0.1:9050
-proxy_mode: false
-proxy_type: socks5
-serve_api: true
-ui_hosts:
-- 127.0.0.1
-- ::1
+  - name: "local-model"
+    type: "local"
+    path: "/models/gguf/mistral.gguf"
+    format: "gguf"
+    prompt_template: "mistral"
+
+  - name: "lmstudio-local"
+    type: "api"
+    provider: "openai-compatible"
+    model: "mistral"               # или то, что LM Studio показывает как модель
+    api_key: "lm-studio-any-key"  # может быть заглушкой
+    base_url: "http://127.0.0.1:1234/v1"
+
+  - name: "openai-gpt4o"
+    type: "api"
+    provider: "openai"
+    model: "gpt-4o"
+    api_key: "sk-..."
+
+  # Пользователь может добавить сколько угодно дополнительных локальных или сетевых LLM
+
+default_llm: "local-model"        # если модели нет в списке `llm_backends` используется первая в списке
+
+# === Веб-интерфейс ===
+notebook_ui: true                 # UI в виде блокнота
+# ui_hosts:
+#   - "0.0.0.0"   # (небезопасно) доступ с любых IPv4-адресов
+#   - "::"        # (небезопасно) доступ с любых IPv6-адресов
+ui_hosts:                         # Какие IP прослушиваются, ["0.0.0.0"; "::"] - доступен везде
+  - "127.0.0.1"
+  - "::1"
 ui_port: 8765
-update_interval: 60
+
+# === Данные пользователя ===
+default_user:
+  username: "user"
+  email: "user@example.com"
+  password: "password"            # пусто при инициализации, будет установлен при регистрации
+
+# === Отладка и логгирование ===
+debug: true
+log_level: "INFO"                 # DEBUG, INFO, WARNING, ERROR

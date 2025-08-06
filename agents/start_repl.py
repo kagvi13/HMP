@@ -7,10 +7,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from agents.init import ensure_db_initialized
 from tools.storage import Storage
 
-storage = Storage()
-
 # Проверка инициализации (вернёт config, если всё ОК)
 config = ensure_db_initialized()
+
+storage = Storage()
 
 # ⚙️ Включение/отключение компонентов
 ENABLE_REPL      = False  # 🧠 repl.py
