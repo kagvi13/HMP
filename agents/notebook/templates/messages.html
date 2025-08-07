@@ -41,8 +41,8 @@
     {% for msg in messages %}
         <div class="message source-{{ msg.source }}">
             <div>
-                {% if msg.user_did == request.session['did'] %}<span class="from-self"></span>{% endif %}
-                {% if msg.hidden %}<span class="private"></span>{% endif %}
+                {% if msg.user_did == request.session['did'] %}<span class="from-self" title="это ваше сообщение"></span>{% endif %}
+                {% if msg.hidden %}<span class="private" title="личное сообщение"></span>{% endif %}
                 Источник: <i>{{ msg.source }}</i> — {{ msg.timestamp[:19].replace('T', ' ') }}
             </div>
             <div>
