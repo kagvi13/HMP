@@ -769,6 +769,18 @@ class Storage:
             return check_password_hash(result["password_hash"], password)
         return False
 
+    def is_banned(self, user_did):
+        result = self.conn.execute("""
+            SELECT ban
+            FROM users
+            WHERE did = ?
+        """, (user_did,)).fetchone()
+
+        if result and result["ban"]:
+            return datetime.fromisoformat(result["ban"]) > datetime.now(UTC)
+
+        return False
+
     def get_user_info(self, mail: str) -> dict | None:
         mail = mail.lower()
         cursor = self.conn.cursor()

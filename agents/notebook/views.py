@@ -1,7 +1,7 @@
 # agents/notebook/views.py
 
 from fastapi import APIRouter, Request, Form
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 from starlette.status import HTTP_303_SEE_OTHER
 from tools.storage import Storage
@@ -65,6 +65,10 @@ def post_message(
 ):
     did = request.session.get("did", "anon")
     is_hidden = 1 if hidden.lower() == "true" else 0
+
+    # Проверка на бан
+    if storage.is_banned(did):
+        return HTMLResponse(content="Вы забанены и не можете отправлять сообщения.", status_code=403)
 
     if text.strip():
         storage.write_note(
