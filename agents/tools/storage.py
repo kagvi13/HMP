@@ -790,6 +790,21 @@ class Storage:
             }
         return None
 
+    def get_user_info_by_did(self, did: str) -> dict | None:
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT username, mail, operator FROM users WHERE did = ?",
+            (did,)
+        )
+        result = cursor.fetchone()
+        if result:
+            return {
+                "username": result["username"],
+                "mail": result["mail"],
+                "operator": result["operator"]
+            }
+        return None
+
     # Утилиты
 
     def close(self):
