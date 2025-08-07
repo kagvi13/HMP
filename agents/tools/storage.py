@@ -722,7 +722,7 @@ class Storage:
             query = """
                 SELECT id, text, source, user_did, timestamp, hidden
                 FROM notes
-                WHERE user_did = ?
+                WHERE user_did = ? AND hidden = 1
                 ORDER BY timestamp DESC
                 LIMIT ?
             """
