@@ -735,7 +735,7 @@ class Storage:
                 FROM notes n
                 LEFT JOIN users u ON n.user_did = u.did
                 WHERE n.user_did = ?
-                   OR ((n.source = 'user' OR n.source = 'llm') AND n.hidden = 0)
+                   OR ((n.source = 'user' OR n.source = 'llm' OR n.source = 'cli') AND n.hidden = 0)
                 ORDER BY n.timestamp DESC
                 LIMIT ?
             """
