@@ -45,8 +45,7 @@
                 {% if msg.hidden %}<span class="private"></span>{% endif %}
             </div>
             <div>
-                участник: {{ msg.user_did[:10] }}...
-                {% if msg.username %}({{ msg.username }}){% endif %}
+                участник: {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} ({{ msg.user_did[:10] }})...
             </div>
             <hr>
             <div>{{ msg.text }}</div>
