@@ -1,5 +1,7 @@
 # agents/notebook/views.py
 
+import bleach
+
 from fastapi import APIRouter, Request, Form
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -9,6 +11,14 @@ from tools.storage import Storage
 router = APIRouter()
 templates = Jinja2Templates(directory="notebook/templates")
 storage = Storage()
+
+allowed_tags = ['b', 'i', 'a']
+allowed_attributes = {
+    'a': ['href', 'title']
+}
+
+def sanitize_html(text):
+    return bleach.clean(text, tags=allowed_tags, attributes=allowed_attributes, strip=True)
 
 @router.get("/chat")
 def chat_page(request: Request):
@@ -72,7 +82,7 @@ def post_message(
 
     if text.strip():
         storage.write_note(
-            content=text.strip(),
+            content=sanitize_html(text.strip()),
             user_did=did,
             source="user",
             hidden=is_hidden

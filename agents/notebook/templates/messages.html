@@ -49,7 +49,7 @@
                 {% if msg.badges %}{{ msg.badges }}{% endif %}Пользователь: {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} {% if msg.user_did %}({{ msg.user_did }}){% endif %}
             </div>
             <hr>
-            <div>{{ msg.text }}</div>
+            <div>{{ msg.text|safe }}</div>
         </div>
     {% endfor %}
 </body>
