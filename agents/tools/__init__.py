@@ -1,1 +1,1 @@
-from agents.tools.storage import Storage
+from tools.storage import Storage
