@@ -1,7 +1,10 @@
-<form method="post">
-  <label>Имя пользователя: <input type="text" name="username" required></label><br>
-  <label>Email: <input type="email" name="mail" required></label><br>
-  <label>Пароль: <input type="password" name="password" required></label><br>
-  <button type="submit">Зарегистрироваться</button>
-</form>
-Есть учетка: <a href="/login">войти</a>
+<table>
+ <form method="post">
+   <tr><th><label>Имя:</th><td><input type="text" name="username" required></label></td></tr>
+   <tr><th><label>Email:</th><td><input type="email" name="mail" required></label></td></tr>
+   <tr><th><label>Пароль:</th><td><input type="password" name="password" required></label></td></tr>
+   <tr><th colspan="2"><button type="submit">Зарегистрироваться</button></th></tr>
+ </form>
+</table>
+
+<hr>Есть учетка: <a href="/login">Войти</a>
