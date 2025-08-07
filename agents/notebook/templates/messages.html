@@ -48,6 +48,7 @@
                 участник: {{ msg.user_did[:10] }}...
                 {% if msg.username %}({{ msg.username }}){% endif %}
             </div>
+            <hr>
             <div>{{ msg.text }}</div>
         </div>
     {% endfor %}
