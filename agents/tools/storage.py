@@ -718,23 +718,25 @@ class Storage:
         cursor = self.conn.cursor()
 
         if only_personal:
-            # Только личные сообщения пользователя
+            # Только личные (скрытые) сообщения пользователя
             query = """
-                SELECT id, text, source, user_did, timestamp, hidden
-                FROM notes
-                WHERE user_did = ? AND hidden = 1
-                ORDER BY timestamp DESC
+                SELECT n.id, n.text, n.source, n.user_did, u.username, n.timestamp, n.hidden
+                FROM notes n
+                LEFT JOIN users u ON n.user_did = u.did
+                WHERE n.user_did = ? AND n.hidden = 1
+                ORDER BY n.timestamp DESC
                 LIMIT ?
             """
             cursor.execute(query, (user_did, limit))
         else:
             # Личные сообщения + публичные от user/llm, которые не скрыты
             query = """
-                SELECT id, text, source, user_did, timestamp, hidden
-                FROM notes
-                WHERE user_did = ?
-                   OR ((source = 'user' OR source = 'llm') AND hidden = 0)
-                ORDER BY timestamp DESC
+                SELECT n.id, n.text, n.source, n.user_did, u.username, n.timestamp, n.hidden
+                FROM notes n
+                LEFT JOIN users u ON n.user_did = u.did
+                WHERE n.user_did = ?
+                   OR ((n.source = 'user' OR n.source = 'llm') AND n.hidden = 0)
+                ORDER BY n.timestamp DESC
                 LIMIT ?
             """
             cursor.execute(query, (user_did, limit))
