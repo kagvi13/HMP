@@ -1,5 +1,6 @@
 # agents/notebook/views.py
 
+import re
 import bleach
 
 from fastapi import APIRouter, Request, Form
@@ -12,13 +13,20 @@ router = APIRouter()
 templates = Jinja2Templates(directory="notebook/templates")
 storage = Storage()
 
-allowed_tags = ['b', 'i', 's', 'u', 'a', 'ol', 'ul', 'li', 'dl', 'dt', 'dd', 'table', 'caption', 'tr', 'th', 'td']
+allowed_tags = ['b', 'i', 's', 'u', 'a', 'ol', 'ul', 'li', 'dl', 'dt', 'dd', 'table', 'caption', 'tr', 'th', 'td', 'code', 'pre', 'blockquote', 'br', 'hr']
 allowed_attributes = {
     'a': ['href', 'title']
 }
 
-def sanitize_html(text):
-    return bleach.clean(text, tags=allowed_tags, attributes=allowed_attributes, strip=True)
+# Очистка сообщений
+def sanitize_html(text: str) -> str:
+    # 1. Сначала очищаем HTML
+    cleaned = bleach.clean(text, tags=allowed_tags, attributes=allowed_attributes, strip=True)
+
+    # 2. Заменяем 3 и более <br> подряд на ровно два
+    cleaned = re.sub(r'(<br\s*/?>\s*){3,}', '<br><br>', cleaned, flags=re.IGNORECASE)
+
+    return cleaned
 
 @router.get("/chat")
 def chat_page(request: Request):
