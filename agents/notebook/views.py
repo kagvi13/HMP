@@ -12,7 +12,7 @@ router = APIRouter()
 templates = Jinja2Templates(directory="notebook/templates")
 storage = Storage()
 
-allowed_tags = ['b', 'i', 'a']
+allowed_tags = ['b', 'i', 'a', 'ol', 'ul', 'li', 'dl', 'dt', 'dd', 'table', 'caption', 'tr', 'th', 'td']
 allowed_attributes = {
     'a': ['href', 'title']
 }
