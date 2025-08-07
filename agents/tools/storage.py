@@ -714,38 +714,30 @@ class Storage:
         """, (content, user_did, source, timestamp, hidden))
         self.conn.commit()
 
-    def get_notes(self, limit=50, user_did="anon", is_operator=False, only_personal=False):
+    def get_notes(self, limit=50, user_did="anon", only_personal=False):
         cursor = self.conn.cursor()
 
-        if is_operator:
+        if only_personal:
+            # Только личные сообщения пользователя
             query = """
                 SELECT id, text, source, user_did, timestamp, hidden
                 FROM notes
+                WHERE user_did = ?
                 ORDER BY timestamp DESC
                 LIMIT ?
             """
-            cursor.execute(query, (limit,))
+            cursor.execute(query, (user_did, limit))
         else:
-            if only_personal:
-                # Только личные сообщения
-                query = """
-                    SELECT id, text, source, user_did, timestamp, hidden
-                    FROM notes
-                    WHERE user_did = ? AND hidden = 0
-                    ORDER BY timestamp DESC
-                    LIMIT ?
-                """
-                cursor.execute(query, (user_did, limit))
-            else:
-                # Публичные и личные
-                query = """
-                    SELECT id, text, source, user_did, timestamp, hidden
-                    FROM notes
-                    WHERE (user_did = ? OR user_did = 'ALL') AND hidden = 0
-                    ORDER BY timestamp DESC
-                    LIMIT ?
-                """
-                cursor.execute(query, (user_did, limit))
+            # Личные сообщения + публичные от user/llm, которые не скрыты
+            query = """
+                SELECT id, text, source, user_did, timestamp, hidden
+                FROM notes
+                WHERE user_did = ?
+                   OR ((source = 'user' OR source = 'llm') AND hidden = 0)
+                ORDER BY timestamp DESC
+                LIMIT ?
+            """
+            cursor.execute(query, (user_did, limit))
 
         return [dict(row) for row in cursor.fetchall()]
 

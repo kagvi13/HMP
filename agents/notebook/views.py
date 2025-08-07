@@ -45,14 +45,9 @@ def show_messages(request: Request, only_personal: bool = False):
     if not did:
         return RedirectResponse("/login", status_code=303)
 
-    # Получаем инфу о пользователе, чтобы понять, оператор ли он
-    user_info = storage.get_user_info_by_did(did)
-    is_operator = bool(user_info and user_info.get("operator"))
-
     messages = storage.get_notes(
         limit=50,
         user_did=did,
-        is_operator=is_operator,
         only_personal=only_personal
     )
     return templates.TemplateResponse("messages.html", {
