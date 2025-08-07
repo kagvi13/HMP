@@ -12,7 +12,6 @@ process_name = os.path.splitext(os.path.basename(__file__))[0]
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-#from agents.notebook.auth import router as auth_router
 from starlette.middleware.sessions import SessionMiddleware
 from agents.notebook.views import router as notebook_router
 from tools.storage import Storage
@@ -25,7 +24,6 @@ app.add_middleware(SessionMiddleware, secret_key="очень_секретный_
 app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "notebook/static")), name="static")
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "notebook/templates"))
 
-#app.include_router(auth_router)
 app.include_router(notebook_router)
 
 @app.on_event("startup")

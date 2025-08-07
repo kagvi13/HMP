@@ -1,3 +1,5 @@
+# agents/notebook/views.py
+
 from fastapi import APIRouter, Request, Form
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
@@ -43,7 +45,10 @@ def show_messages(request: Request, only_personal: bool = False):
     if not did:
         return RedirectResponse("/login", status_code=303)
 
-    is_operator = False  # Пока не реализовано
+    # Получаем инфу о пользователе, чтобы понять, оператор ли он
+    user_info = storage.get_user_info_by_did(did)
+    is_operator = bool(user_info and user_info.get("operator"))
+
     messages = storage.get_notes(
         limit=50,
         user_did=did,
@@ -61,17 +66,18 @@ def show_messages(request: Request, only_personal: bool = False):
 def post_message(
     request: Request,
     text: str = Form(...),
-    hidden: str = Form(default=None)
+    hidden: str = Form(default="false")
 ):
     did = request.session.get("did", "anon")
-    is_hidden = 1 if hidden else 0
+    is_hidden = 1 if hidden.lower() == "true" else 0
 
-    storage.write_note(
-        content=text,
-        user_did=did,
-        source="user",
-        hidden=is_hidden
-    )
+    if text.strip():
+        storage.write_note(
+            content=text.strip(),
+            user_did=did,
+            source="user",
+            hidden=is_hidden
+        )
     return RedirectResponse(url="/messages", status_code=303)
 
 @router.get("/login")
