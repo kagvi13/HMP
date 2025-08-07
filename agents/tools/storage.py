@@ -731,7 +731,7 @@ class Storage:
         else:
             # Личные сообщения + публичные от user/llm, которые не скрыты
             query = """
-                SELECT n.id, n.text, n.source, n.user_did, u.username, n.timestamp, n.hidden
+                SELECT n.id, n.text, n.source, n.user_did, u.username, u.badges, n.timestamp, n.hidden
                 FROM notes n
                 LEFT JOIN users u ON n.user_did = u.did
                 WHERE n.user_did = ?
