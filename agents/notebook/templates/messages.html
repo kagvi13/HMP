@@ -46,7 +46,7 @@
                 Источник: <i>{{ msg.source }}</i> — {{ msg.timestamp[:19].replace('T', ' ') }}
             </div>
             <div>
-                {{ msg.badges }}Пользователь: {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} {% if msg.user_did !="" %}({{ msg.user_did }}){% endif %}
+                {% if msg.badges %}{{ msg.badges }}{% endif %}Пользователь: {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} {% if msg.user_did %}({{ msg.user_did }}){% endif %}
             </div>
             <hr>
             <div>{{ msg.text }}</div>
