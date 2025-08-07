@@ -41,11 +41,11 @@
     {% for msg in messages %}
         <div class="message source-{{ msg.source }} {% if msg.user_did == request.session['did'] %}from-self{% endif %}">
             <div>
-                <strong>{{ msg.source }}</strong> — {{ msg.timestamp }}
+                От <i>{{ msg.source }}</i> — {{ msg.timestamp }}
                 {% if msg.hidden %}<span class="private"></span>{% endif %}
             </div>
             <div>
-                участник: {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} ({{ msg.user_did[:10] }})...
+                {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} ({{ msg.user_did }})
             </div>
             <hr>
             <div>{{ msg.text }}</div>
