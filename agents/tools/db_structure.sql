@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS attachments (
     message_id INTEGER NOT NULL,            -- Связь с notes.id
     filename TEXT,                          -- Имя файла
     mime_type TEXT,                         -- Тип (например, image/png, application/zip)
+    size INTEGER,                           -- Размер файла
     binary BLOB NOT NULL,                   -- Сами данные
     FOREIGN KEY (message_id) REFERENCES notes(id) ON DELETE CASCADE
 );

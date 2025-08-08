@@ -5,6 +5,7 @@ import sqlite3
 import os
 import json
 import uuid
+import time
 
 from datetime import datetime, timedelta, UTC
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -714,6 +715,23 @@ class Storage:
         """, (content, user_did, source, timestamp, hidden))
         self.conn.commit()
 
+    def write_note_returning_id(self, content, user_did, source="user", hidden=False, code=None):
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            INSERT INTO notes (timestamp, text, user_did, source, hidden, code)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (time.time(), content, user_did, source, int(hidden), code))
+        self.conn.commit()
+        return cursor.lastrowid
+
+    def save_attachment(self, message_id, filename, mime_type, content):
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            INSERT INTO attachments (message_id, filename, mime_type, size, binary)
+            VALUES (?, ?, ?, ?, ?)
+        """, (message_id, filename, mime_type, len(content), content))
+        self.conn.commit()
+
     def get_notes(self, limit=50, user_did="anon", only_personal=False):
         cursor = self.conn.cursor()
 
@@ -741,6 +759,18 @@ class Storage:
             """
             cursor.execute(query, (user_did, limit))
 
+        return [dict(row) for row in cursor.fetchall()]
+
+        for note in result:
+            note["attachments"] = self.get_attachments_for_note(note["id"])
+        return result
+
+    def get_attachments_for_note(self, message_id):
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            SELECT id, filename, mime_type, size FROM attachments
+            WHERE message_id = ?
+        """, (message_id,))
         return [dict(row) for row in cursor.fetchall()]
 
     # Пользователи

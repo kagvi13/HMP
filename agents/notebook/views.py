@@ -2,11 +2,13 @@
 
 import re
 import bleach
+import uuid
 
-from fastapi import APIRouter, Request, Form
+from fastapi import APIRouter, Request, Form, UploadFile, File
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 from starlette.status import HTTP_303_SEE_OTHER
+from typing import List
 from tools.storage import Storage
 
 router = APIRouter()
@@ -76,25 +78,43 @@ def show_messages(request: Request, only_personal: bool = False):
     })
 
 @router.post("/messages")
-def post_message(
+async def post_message(
     request: Request,
     text: str = Form(...),
-    hidden: str = Form(default="false")
+    code: str = Form(None),
+    hidden: str = Form(default="false"),
+    binary_files: List[UploadFile] = File(default=[])
 ):
     did = request.session.get("did", "anon")
     is_hidden = 1 if hidden.lower() == "true" else 0
 
-    # Проверка на бан
     if storage.is_banned(did):
         return HTMLResponse(content="Вы забанены и не можете отправлять сообщения.", status_code=403)
 
-    if text.strip():
-        storage.write_note(
-            content=sanitize_html(text.strip()),
+    if text.strip() or code or binary_files:
+        # Очистка текста
+        safe_text = sanitize_html(text.strip()) if text else ""
+
+        # Сохраняем сообщение и получаем message_id
+        message_id = storage.write_note_returning_id(
+            content=safe_text,
             user_did=did,
             source="user",
-            hidden=is_hidden
+            hidden=is_hidden,
+            code=code.strip() if code else None
         )
+
+        # Сохраняем файлы
+        for upload in binary_files:
+            data = await upload.read()
+            if data:
+                storage.save_attachment(
+                    message_id=message_id,
+                    filename=upload.filename,
+                    mime_type=upload.content_type,
+                    content=data
+                )
+
     return RedirectResponse(url="/messages", status_code=303)
 
 @router.get("/login")

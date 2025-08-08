@@ -10,6 +10,12 @@
         .source-system { background-color: #fff3e0; }
         .private::after { content: " 🔒"; }
         .from-self::before { content: "🧍 "; }
+        pre.code-block {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
@@ -23,8 +29,10 @@
 
     <h1>Сообщения</h1>
 
-    <form method="post">
-        <textarea name="text" rows="3" cols="40" placeholder="Введите сообщение..."></textarea><br>
+    <form method="post" enctype="multipart/form-data">
+        <textarea name="text" rows="3" cols="60" placeholder="Введите сообщение..."></textarea><br>
+        <textarea name="code" rows="6" cols="60" placeholder="Прикрепите код (опционально)..."></textarea><br>
+        <label>Файлы: <input type="file" name="binary_files" multiple></label><br>
         <button name="hidden" value="false" type="submit">📢 Отправить</button>
         <button name="hidden" value="true" type="submit">🙋 Отправить приватно</button>
     </form>
@@ -50,6 +58,22 @@
             </div>
             <hr>
             <div>{{ msg.text|safe }}</div>
+
+            {% if msg.code %}
+                <hr>
+                <div><b>Код:</b></div>
+                <pre class="code-block">{{ msg.code }}</pre>
+            {% endif %}
+
+            {% if msg.files %}
+                <hr>
+                <div><b>Файлы:</b></div>
+                <ul>
+                    {% for file in msg.files %}
+                        <li><a href="/download/{{ file.id }}">{{ file.name }}</a> ({{ file.size }} байт)</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
     {% endfor %}
 </body>

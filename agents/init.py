@@ -101,7 +101,7 @@ def init_config_table(storage, config):
 
 def ensure_directories():
     for folder in ["logs", "scripts"]:
-        full_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", folder))
+        full_path = os.path.abspath(os.path.join(os.path.dirname(__file__), folder))
         if not os.path.exists(full_path):
             os.makedirs(full_path)
             print(f"[+] Создан каталог: {full_path}")
