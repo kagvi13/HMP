@@ -64,6 +64,7 @@ def init_user(storage, config):
     did = generate_did()
     user_entry = {
         "username": user.get("username", "user"),
+        "badges": user.get("badges", ""),
         "mail": user["email"],
         "password_hash": password_hash,
         "did": did,

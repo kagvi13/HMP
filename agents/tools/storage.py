@@ -653,11 +653,12 @@ class Storage:
         cursor = self.conn.cursor()
         cursor.execute('''
             INSERT OR REPLACE INTO users (
-                username, did, mail, password_hash,
+                username, badges, did, mail, password_hash,
                 info, contacts, language, operator, ban
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             user.get('username'),
+            user.get('badges'),
             user.get('did'),
             user.get('mail'),
             user.get('password_hash'),
