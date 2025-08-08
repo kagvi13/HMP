@@ -65,12 +65,12 @@
                 <pre class="code-block">{{ msg.code }}</pre>
             {% endif %}
 
-            {% if msg.files %}
+            {% if msg.attachments %}
                 <hr>
                 <div><b>Файлы:</b></div>
                 <ul>
-                    {% for file in msg.files %}
-                        <li><a href="/download/{{ file.id }}">{{ file.name }}</a> ({{ file.size }} байт)</li>
+                    {% for file in msg.attachments %}
+                        <li><a href="/download/{{ file.id }}">{{ file.filename }}</a> ({{ file.size }} байт)</li>
                     {% endfor %}
                 </ul>
             {% endif %}

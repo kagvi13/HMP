@@ -732,13 +732,23 @@ class Storage:
         """, (message_id, filename, mime_type, len(content), content))
         self.conn.commit()
 
+    def get_attachment_by_id(self, file_id):
+        cursor = self.conn.cursor()
+        cursor.execute("""
+            SELECT id, filename, mime_type, size, binary
+            FROM attachments
+            WHERE id = ?
+        """, (file_id,))
+        row = cursor.fetchone()
+        return dict(row) if row else None
+
     def get_notes(self, limit=50, user_did="anon", only_personal=False):
         cursor = self.conn.cursor()
 
         if only_personal:
             # Только личные (скрытые) сообщения пользователя
             query = """
-                SELECT n.id, n.text, n.source, n.user_did, u.username, n.timestamp, n.hidden
+                SELECT n.id, n.text, n.code, n.source, n.user_did, u.username, n.timestamp, n.hidden
                 FROM notes n
                 LEFT JOIN users u ON n.user_did = u.did
                 WHERE n.user_did = ? AND n.hidden = 1
@@ -749,7 +759,7 @@ class Storage:
         else:
             # Личные сообщения + публичные от user/llm, которые не скрыты
             query = """
-                SELECT n.id, n.text, n.source, n.user_did, u.username, u.badges, n.timestamp, n.hidden
+                SELECT n.id, n.text, n.code, n.source, n.user_did, u.username, u.badges, n.timestamp, n.hidden
                 FROM notes n
                 LEFT JOIN users u ON n.user_did = u.did
                 WHERE n.user_did = ?
@@ -759,10 +769,11 @@ class Storage:
             """
             cursor.execute(query, (user_did, limit))
 
-        return [dict(row) for row in cursor.fetchall()]
+        result = [dict(row) for row in cursor.fetchall()]
 
         for note in result:
             note["attachments"] = self.get_attachments_for_note(note["id"])
+
         return result
 
     def get_attachments_for_note(self, message_id):

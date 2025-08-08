@@ -5,7 +5,7 @@ import bleach
 import uuid
 
 from fastapi import APIRouter, Request, Form, UploadFile, File
-from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.responses import RedirectResponse, HTMLResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
 from starlette.status import HTTP_303_SEE_OTHER
 from typing import List
@@ -116,6 +116,20 @@ async def post_message(
                 )
 
     return RedirectResponse(url="/messages", status_code=303)
+
+@router.get("/download/{file_id}")
+def download_file(file_id: int):
+    file = storage.get_attachment_by_id(file_id)
+    if not file:
+        raise HTTPException(status_code=404, detail="Файл не найден")
+
+    return StreamingResponse(
+        iter([file["binary"]]),
+        media_type=file["mime_type"],
+        headers={
+            "Content-Disposition": f'attachment; filename="{file["filename"]}"'
+        }
+    )
 
 @router.get("/login")
 def login_page(request: Request):
