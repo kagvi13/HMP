@@ -7,6 +7,7 @@ import uuid
 from fastapi import APIRouter, Request, Form, UploadFile, File
 from fastapi.responses import RedirectResponse, HTMLResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
+from datetime import datetime
 from starlette.status import HTTP_303_SEE_OTHER
 from typing import List
 from tools.storage import Storage
@@ -19,6 +20,16 @@ allowed_tags = ['b', 'i', 's', 'u', 'a', 'ol', 'ul', 'li', 'dl', 'dt', 'dd', 'ta
 allowed_attributes = {
     'a': ['href', 'title']
 }
+
+# Обработка даты и времени
+def format_timestamp(value):
+    try:
+        dt = datetime.fromtimestamp(float(value))
+        return dt.strftime("%Y-%m-%d %H:%M:%S")
+    except Exception:
+        return str(value)
+
+templates.env.filters['format_timestamp'] = format_timestamp
 
 # Очистка сообщений
 def sanitize_html(text: str) -> str:

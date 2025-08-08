@@ -20,7 +20,6 @@ storage = Storage()
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="очень_секретный_ключ")
 
-
 app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "notebook/static")), name="static")
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "notebook/templates"))
 

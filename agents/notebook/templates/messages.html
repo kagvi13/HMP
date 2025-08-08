@@ -51,7 +51,7 @@
             <div>
                 {% if msg.user_did == request.session['did'] %}<span class="from-self" title="это ваше сообщение"></span>{% endif %}
                 {% if msg.hidden %}<span class="private" title="личное сообщение"></span>{% endif %}
-                Источник: <i>{{ msg.source }}</i> — {{ msg.timestamp[:19].replace('T', ' ') }}
+                Источник: <i>{{ msg.source }}</i> — {{ msg.timestamp | format_timestamp }}
             </div>
             <div>
                 {% if msg.badges %}{{ msg.badges }}{% endif %}Пользователь: {% if msg.username %}<b>{{ msg.username }}</b>{% endif %} {% if msg.user_did %}({{ msg.user_did }}){% endif %}
