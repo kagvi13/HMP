@@ -42,17 +42,28 @@ CREATE TABLE IF NOT EXISTS diary_graph_index (
 
 -- Заметки, подсказки, сообщения пользователя и LLM
 CREATE TABLE IF NOT EXISTS notes (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор заметки
-    text TEXT NOT NULL,                                         -- Текст заметки
-    tags TEXT,                                                  -- Теги (например: "idea", "instruction")
-    user_did TEXT DEFAULT 'ALL',                                -- DID пользователя (или 'ALL' — для всех)
-    source TEXT DEFAULT 'user',                                 -- Источник заметки: user | cli | llm | system
-    links TEXT DEFAULT '',                                      -- Ссылки или связи с другими объектами
-    read INTEGER DEFAULT 0,                                     -- Статус прочтения LLM: 0 = нет, 1 = да
-    hidden INTEGER DEFAULT 0,                                   -- Скрыта ли от пользователя: 0 = нет, 1 = да
-    priority INTEGER DEFAULT 0,                                 -- Приоритет заметки
+    id INTEGER PRIMARY KEY AUTOINCREMENT,                       
+    text TEXT NOT NULL,                                         -- Основной текст заметки/сообщения
+    code TEXT,                                                  -- Прикреплённый код (Python, JS и т.п.)
+    tags TEXT,                                                  -- Теги (устанавливаются агентом, например: "idea", "instruction")
+    user_did TEXT DEFAULT 'ALL',                                -- Идентификатор пользователя (или 'ALL')
+    source TEXT DEFAULT 'user',                                 -- Источник: user | cli | llm | system
+    links TEXT DEFAULT '',                                      -- Ссылки на другие объекты (например, JSON со связями)
+    read INTEGER DEFAULT 0,                                     -- Агент прочитал: 0 = нет, 1 = да
+    hidden INTEGER DEFAULT 0,                                   -- Скрыто от UI (например, технические записи)
+    priority INTEGER DEFAULT 0,                                 -- Приоритет обработки (>0: срочность/важность, задается вручную или агентом)
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Время создания
-    llm_id TEXT                                                 -- Идентификатор LLM
+    llm_id TEXT                                                 -- Идентификатор агента, добавившего сообщение
+);
+
+-- Вложения (может быть несколько к одной заметке)
+CREATE TABLE IF NOT EXISTS attachments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    message_id INTEGER NOT NULL,            -- Связь с notes.id
+    filename TEXT,                          -- Имя файла
+    mime_type TEXT,                         -- Тип (например, image/png, application/zip)
+    binary BLOB NOT NULL,                   -- Сами данные
+    FOREIGN KEY (message_id) REFERENCES notes(id) ON DELETE CASCADE
 );
 
 -- Лог процессов: задачи, ошибки, события
