@@ -40,20 +40,56 @@ CREATE TABLE IF NOT EXISTS diary_graph_index (
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP                    -- Время создания индекса
 );
 
+-- Таблица системных промптов (короткая и полная версии)
+CREATE TABLE IF NOT EXISTS system_prompts (
+    id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор промпта (UUID или осмысленный ID)
+    name TEXT NOT NULL,                                         -- Человекочитаемое имя (например: "prompt.md", "prompt-short")
+    type TEXT CHECK(type IN ('full','short')),                  -- Тип промпта: полный или компактный
+    version TEXT,                                               -- Версия промпта
+    source TEXT CHECK(source IN ('local','mesh','mixed')),      -- Источник получения промпта
+    content TEXT NOT NULL,                                      -- Текстовое содержимое промпта
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP              -- Дата и время последнего обновления
+);
+
+-- Таблица этических норм и правил
+CREATE TABLE IF NOT EXISTS ethics_policies (
+    id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор политики (UUID или осмысленный ID)
+    version TEXT,                                               -- Версия этических норм
+    source TEXT CHECK(source IN ('local','mesh','mixed')),      -- Источник получения политики
+    sync_enabled BOOLEAN,                                       -- Флаг: разрешена ли синхронизация с Mesh
+    mesh_endpoint TEXT,                                         -- URL Mesh-эндпоинта для синхронизации
+    consensus_threshold REAL,                                   -- Минимальный порог консенсуса для принятия обновлений
+    check_interval TEXT,                                        -- Интервал проверки обновлений (например: "12h")
+    model_type TEXT,                                            -- Тип этической модели (utilitarian, deontological, virtue, hybrid)
+    model_weights_json TEXT,                                    -- Веса модели в формате JSON
+    principles_json TEXT,                                       -- Список принципов и норм в формате JSON
+    evaluation_json TEXT,                                       -- Параметры методики оценки в формате JSON
+    violation_policy_json TEXT,                                 -- Политика реагирования на нарушения в формате JSON
+    audit_json TEXT,                                            -- Настройки аудита и логирования в формате JSON
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP              -- Дата и время последнего обновления
+);
+
 -- Заметки, подсказки, сообщения пользователя и LLM
+-- ПРИ ТРАНСЛЯЦИИ СООБЩЕНИЙ В ДРУГИЕ ЧАТЫ:
+--   - Поля `tags`, `llm_id`, `hidden` НЕ передаются.
+--   - Полю `read` всегда присваивается значение 0.
+--   - Остальные поля передаются без изменений.
 CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       
     text TEXT NOT NULL,                                         -- Основной текст заметки/сообщения
     code TEXT,                                                  -- Прикреплённый код (Python, JS и т.п.)
     tags TEXT,                                                  -- Теги (устанавливаются агентом, например: "idea", "instruction")
+    mentions TEXT DEFAULT '[]',                                 -- JSON-массив упомянутых DID
+    hashtags TEXT DEFAULT '[]',                                 -- JSON-массив пользовательских хештегов
     user_did TEXT DEFAULT 'ALL',                                -- Идентификатор пользователя (или 'ALL')
+    agent_did TEXT,                                             -- Идентификатор агента (он же идентификатор чата)
     source TEXT DEFAULT 'user',                                 -- Источник: user | cli | llm | system
     links TEXT DEFAULT '',                                      -- Ссылки на другие объекты (например, JSON со связями)
     read INTEGER DEFAULT 0,                                     -- Агент прочитал: 0 = нет, 1 = да
     hidden INTEGER DEFAULT 0,                                   -- Скрыто от UI (например, технические записи)
     priority INTEGER DEFAULT 0,                                 -- Приоритет обработки (>0: срочность/важность, задается вручную или агентом)
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Время создания
-    llm_id TEXT                                                 -- Идентификатор агента, добавившего сообщение
+    llm_id TEXT                                                 -- Идентификатор LLM, добавившей сообщение
 );
 
 -- Вложения (может быть несколько к одной заметке)
@@ -219,6 +255,7 @@ CREATE TABLE IF NOT EXISTS users (
   profile TEXT,                                                 -- структурированая информация, JSON
   contacts TEXT,                                                -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)
   language TEXT,                                                -- список предпочитаемых языков, через запятую, например: "ru,en"
+  groups TEXT DEFAULT '[]'                                      -- JSON-массив DID или идентификаторов групп
   operator BOOLEAN DEFAULT 0                                    -- является ли пользователь оператором (1 - да, 0 - нет)
 );
 
@@ -227,7 +264,6 @@ CREATE TABLE IF NOT EXISTS users_group (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор группы
     group_name TEXT UNIQUE NOT NULL,                            -- Название группы
     description TEXT,                                           -- Описание группы
-    users TEXT                                                  -- JSON-массив DID пользователей в группе
 );
 
 -- Таблица для хранения токенов восстановления пароля

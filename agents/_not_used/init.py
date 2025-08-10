@@ -111,7 +111,38 @@ def init_prompts_and_ethics():
 
     with sqlite3.connect(DB_PATH) as conn:
         cur = conn.cursor()
- 
+
+        # Создаём таблицы при необходимости
+        cur.execute("""
+        CREATE TABLE IF NOT EXISTS system_prompts (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            type TEXT CHECK(type IN ('full','short')),
+            version TEXT,
+            source TEXT CHECK(source IN ('local','mesh','mixed')),
+            content TEXT NOT NULL,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        """)
+        cur.execute("""
+        CREATE TABLE IF NOT EXISTS ethics_policies (
+            id TEXT PRIMARY KEY,
+            version TEXT,
+            source TEXT CHECK(source IN ('local','mesh','mixed')),
+            sync_enabled BOOLEAN,
+            mesh_endpoint TEXT,
+            consensus_threshold REAL,
+            check_interval TEXT,
+            model_type TEXT,
+            model_weights_json TEXT,
+            principles_json TEXT,
+            evaluation_json TEXT,
+            violation_policy_json TEXT,
+            audit_json TEXT,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        """)
+
         # Загружаем промпты
         for fname, ptype in prompt_files:
             fpath = os.path.join(folder, fname)
