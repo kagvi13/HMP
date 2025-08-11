@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS users_group (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор группы
     group_name TEXT UNIQUE NOT NULL,                            -- Название группы
-    description TEXT,                                           -- Описание группы
+    description TEXT                                           -- Описание группы
 );
 
 -- Таблица для хранения токенов восстановления пароля
