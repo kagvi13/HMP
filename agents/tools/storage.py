@@ -716,12 +716,12 @@ class Storage:
         """, (content, user_did, source, timestamp, hidden))
         self.conn.commit()
 
-    def write_note_returning_id(self, content, user_did, source="user", hidden=False, code=None):
+    def write_note_returning_id(self, content, user_did, source="user", hidden=False, code=None, mentions="[]", hashtags="[]"):
         cursor = self.conn.cursor()
         cursor.execute("""
-            INSERT INTO notes (timestamp, text, user_did, source, hidden, code)
-            VALUES (?, ?, ?, ?, ?, ?)
-        """, (time.time(), content, user_did, source, int(hidden), code))
+            INSERT INTO notes (timestamp, text, code, mentions, hashtags, user_did, source, hidden)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, (time.time(), content, code, mentions, hashtags, user_did, source, int(hidden)))
         self.conn.commit()
         return cursor.lastrowid
 

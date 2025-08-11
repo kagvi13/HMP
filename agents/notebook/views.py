@@ -3,6 +3,7 @@
 import re
 import bleach
 import uuid
+import json
 
 from fastapi import APIRouter, Request, Form, UploadFile, File
 from fastapi.responses import RedirectResponse, HTMLResponse, StreamingResponse
@@ -40,6 +41,16 @@ def sanitize_html(text: str) -> str:
     cleaned = re.sub(r'(<br\s*/?>\s*){3,}', '<br><br>', cleaned, flags=re.IGNORECASE)
 
     return cleaned
+
+# Обработка упоминаний и хештегов
+def extract_mentions_and_hashtags(text: str):
+    # Пример: упоминания в виде @did:example:123 или @username
+    mentions = re.findall(r'@([\w:.-]+)', text)
+
+    # Пример: хештеги в виде #tag
+    hashtags = re.findall(r'#(\w+)', text)
+
+    return mentions, hashtags
 
 @router.get("/chat")
 def chat_page(request: Request):
@@ -106,13 +117,18 @@ async def post_message(
         # Очистка текста
         safe_text = sanitize_html(text.strip()) if text else ""
 
+        # Извлечение mentions, hashtags
+        mentions, hashtags = extract_mentions_and_hashtags(safe_text)
+
         # Сохраняем сообщение и получаем message_id
         message_id = storage.write_note_returning_id(
             content=safe_text,
             user_did=did,
             source="user",
             hidden=is_hidden,
-            code=code.strip() if code else None
+            code=code.strip() if code else None,
+            mentions=json.dumps(mentions, ensure_ascii=False),
+            hashtags=json.dumps(hashtags, ensure_ascii=False)
         )
 
         # Сохраняем файлы
