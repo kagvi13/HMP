@@ -202,7 +202,6 @@ CREATE TABLE IF NOT EXISTS external_accounts (
     purpose         TEXT,                                       -- Назначение аккаунта (например, для публикаций)
     active          BOOLEAN DEFAULT true,                       -- Активен ли аккаунт
     inactive_reason TEXT,                                       -- Причина отключения, если active = false
-
     FOREIGN KEY (service_id) REFERENCES external_services(id) ON DELETE CASCADE
 );
 
@@ -255,7 +254,7 @@ CREATE TABLE IF NOT EXISTS users (
   profile TEXT,                                                 -- структурированая информация, JSON
   contacts TEXT,                                                -- JSON-массив альтернативных контактов (matrix, telegram и т.д.)
   language TEXT,                                                -- список предпочитаемых языков, через запятую, например: "ru,en"
-  groups TEXT DEFAULT '[]'                                      -- JSON-массив DID или идентификаторов групп
+  groups TEXT DEFAULT '[]',                                     -- JSON-массив DID или идентификаторов групп
   operator BOOLEAN DEFAULT 0                                    -- является ли пользователь оператором (1 - да, 0 - нет)
 );
 
