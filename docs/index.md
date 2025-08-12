@@ -24,21 +24,21 @@
 
 ## Архитектура и API
 
-- [HMP-Agent-API.md](HMP-Agent-API.md) — 🧠 HMP-Agent API спецификация  
-- [HMP-Agent-Architecture.md](HMP-Agent-Architecture.md) — 🧠 Архитектура HMP-Агента  
-- [HMP-agent-Cognitive_Family.md](HMP-agent-Cognitive_Family.md) — 👪 Модель когнитивной семьи  
+- [HMP-Agent-API.md](HMP-Agent-API.md) — HMP-Agent API спецификация  
+- [HMP-Agent-Architecture.md](HMP-Agent-Architecture.md) — Архитектура HMP-Агента  
+- [HMP-agent-Cognitive_Family.md](HMP-agent-Cognitive_Family.md) — Модель когнитивной семьи  
 - [HMP-agent-Distributed_Cognitive_Core.md](HMP-agent-Distributed_Cognitive_Core.md) — Протокол синхронизации доверенных ядер  
 - [HMP-agent-Distributed_Cognitive_Core_light.md](HMP-agent-Distributed_Cognitive_Core_light.md) — Лёгкая версия с общей БД  
-- [HMP-Agent-Network-Flow.md](HMP-Agent-Network-Flow.md) — 🔄 Сетевой поток HMP-агента  
-- [HMP-Agent-Overview.md](HMP-Agent-Overview.md) — ⚙️ Два типа HMP-агентов  
-- [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — 🧠 REPL-цикл взаимодействия
+- [HMP-Agent-Network-Flow.md](HMP-Agent-Network-Flow.md) — Сетевой поток HMP-агента  
+- [HMP-Agent-Overview.md](HMP-Agent-Overview.md) — Два типа HMP-агентов  
+- [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
 
 ---
 
 ## Базовая архитектура и контейнеры
 
-- [Basic-agent-sim.md](Basic-agent-sim.md) — ⚙️ Базовая архитектура HMP-Агента (Формат 0)  
-- [container_agents.md](container_agents.md) — 🧱 Агенты-контейнеры (Container Agents) в HMP
+- [Basic-agent-sim.md](Basic-agent-sim.md) — Базовая архитектура HMP-Агента (Формат 0)  
+- [container_agents.md](container_agents.md) — Агенты-контейнеры (Container Agents) в HMP
 
 ---
 
