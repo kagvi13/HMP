@@ -1,6 +1,6 @@
 # 🧠 HMP-Agent: REPL-цикл взаимодействия
 
-СтруктураБД, описанная в документе:[db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
+Структура БД, описанная в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
 
 ## 1. Обновление process_log
 
