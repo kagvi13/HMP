@@ -127,11 +127,11 @@ RU:
 
 В этом разделе собраны основные статьи, черновики и переводы, связанные с проектом HMP.
 
-* **[HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу](publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — оригинальная статья в песочнице Хабра и блогах.
-* **[Distributed Cognition: статья для vsradkevich (не опубликована)](publics/Habr_Distributed-Cognition.md)** — совместная статья, ожидающая публикации.
-* **[HMP: Towards Distributed Cognitive Networks (оригинал, английский)](publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[Перевод HMP (GitHub Copilot)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
-  * **[Перевод HMP (ChatGPT)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакторский перевод (в процессе доработки).
+* **[HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — оригинальная статья в песочнице Хабра и блогах.
+* **[Distributed Cognition: статья для vsradkevich (не опубликована)](docs/publics/Habr_Distributed-Cognition.md)** — совместная статья, ожидающая публикации.
+* **[HMP: Towards Distributed Cognitive Networks (оригинал, английский)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+  * **[Перевод HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
+  * **[Перевод HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакторский перевод (в процессе доработки).
 
 #### 🔍 Overviews / Обзоры
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
