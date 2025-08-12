@@ -282,6 +282,10 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 - 🔁 Реплика на Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)
 - 🔁 Реплика на GitLab.com: [GitLab](https://gitlab.com/kagvi13/HMP)
 
+## Документация
+
+- 📄 Официальная документация: [https://kagvi13.github.io/HMP/](https://kagvi13.github.io/HMP/)
+
 ## Блог и публикации
 
 - 📘 Основной блог: [blogspot](https://hypercortex-mesh.blogspot.com/)
