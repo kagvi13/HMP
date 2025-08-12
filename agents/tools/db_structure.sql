@@ -95,11 +95,11 @@ CREATE TABLE IF NOT EXISTS notes (
 -- Вложения (может быть несколько к одной заметке)
 CREATE TABLE IF NOT EXISTS attachments (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    message_id INTEGER NOT NULL,            -- Связь с notes.id
-    filename TEXT,                          -- Имя файла
-    mime_type TEXT,                         -- Тип (например, image/png, application/zip)
-    size INTEGER,                           -- Размер файла
-    binary BLOB NOT NULL,                   -- Сами данные
+    message_id INTEGER NOT NULL,                                -- Связь с notes.id
+    filename TEXT,                                              -- Имя файла
+    mime_type TEXT,                                             -- Тип (например, image/png, application/zip)
+    size INTEGER,                                               -- Размер файла
+    binary BLOB NOT NULL,                                       -- Сами данные
     FOREIGN KEY (message_id) REFERENCES notes(id) ON DELETE CASCADE
 );
 
@@ -117,9 +117,9 @@ CREATE TABLE IF NOT EXISTS process_log (
 
 -- Управление основными процессами
 CREATE TABLE IF NOT EXISTS main_process (
-    name TEXT PRIMARY KEY,     -- название процесса (уникальное)
-    heartbeat TEXT,            -- последний "пинг" (ISO-время)
-    stop INTEGER DEFAULT 0     -- если 1 — процесс должен завершиться
+    name TEXT PRIMARY KEY,                                      -- название процесса (уникальное)
+    heartbeat TEXT,                                             -- последний "пинг" (ISO-время)
+    stop INTEGER DEFAULT 0                                      -- если 1 — процесс должен завершиться
 );
 
 -- Долговременная память LLM
@@ -159,12 +159,12 @@ CREATE TABLE IF NOT EXISTS agent_peers (
 
 -- Таблицы, созданные агентами
 CREATE TABLE IF NOT EXISTS agent_tables (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,                        -- Уникальный идентификатор
-    table_name TEXT NOT NULL UNIQUE,                             -- Название таблицы
-    description TEXT,                                            -- Описание назначения таблицы
-    schema TEXT NOT NULL,                                        -- SQL-схема таблицы
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,               -- Дата создания
-    llm_id TEXT                                                  -- Идентификатор LLM
+    id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор
+    table_name TEXT NOT NULL UNIQUE,                            -- Название таблицы
+    description TEXT,                                           -- Описание назначения таблицы
+    schema TEXT NOT NULL,                                       -- SQL-схема таблицы
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,              -- Дата создания
+    llm_id TEXT                                                 -- Идентификатор LLM
 );
 
 -- Скрипты, утилиты и код агентов
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS users_group (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор группы
     group_name TEXT UNIQUE NOT NULL,                            -- Название группы
-    description TEXT                                           -- Описание группы
+    description TEXT                                            -- Описание группы
 );
 
 -- Таблица для хранения токенов восстановления пароля
