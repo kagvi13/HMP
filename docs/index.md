@@ -67,3 +67,21 @@
 - [agents/HMP-Agent-Enlightener.md](agents/HMP-Agent-Enlightener.md) — Роль: "просветитель"  
 - [schemas/README.md](schemas/README.md) — Таблица json-схем
 
+---
+
+# Source / Ресурсы
+
+## Репозитории
+
+- 🧠 Основной код и разработка: [GitHub](https://github.com/kagvi13/HMP)
+- 🔁 Реплика на Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)
+- 🔁 Реплика на GitLab.com: [GitLab](https://gitlab.com/kagvi13/HMP)
+
+## Документация
+
+- 📄 Официальная документация: [https://kagvi13.github.io/HMP/](https://kagvi13.github.io/HMP/)
+
+## Блог и публикации
+
+- 📘 Основной блог: [blogspot](https://hypercortex-mesh.blogspot.com/)
+- 📘 Вспомогательны блог: [livejournal](https://kagvi13.livejournal.com)
