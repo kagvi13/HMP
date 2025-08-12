@@ -1,5 +1,9 @@
 site_name: HMP Documentation
-docs_dir: docs     # папка с Markdown-файлами
-site_dir: site     # папка, куда mkdocs будет собирать сайт
+docs_dir: docs
+site_dir: site
 theme:
-  name: material   # современная и удобная тема
+  name: material
+  features:
+    - navigation.instant
+site_url: https://kagvi13.github.io/HMP/
+use_directory_urls: false
