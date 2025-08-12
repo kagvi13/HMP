@@ -8,25 +8,27 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Setup Python
+
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
-      - name: Install MkDocs and theme
+      - name: Install dependencies
         run: pip install mkdocs mkdocs-material
 
-      - name: Build MkDocs site
+      - name: Build site
         run: mkdocs build
+
+      - name: Copy HTML files from bot to site root
+        run: cp bot/*.html site/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
           publish_dir: ./site
-          force_orphan: true    # опционально, чтобы гарантированно перезаписать ветку
+          force_orphan: true
 
