@@ -284,7 +284,7 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 ## Документация
 
-- 📄 Официальная документация: [https://kagvi13.github.io/HMP/](https://kagvi13.github.io/HMP/)
+- 📄 Официальная документация: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
 ## Блог и публикации
 
