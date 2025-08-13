@@ -23,7 +23,7 @@ jobs:
         run: mkdocs build
 
       - name: Copy HTML files from bot to site root
-        run: cp bot/*.html site/
+        run: cp bot/*.* site/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
