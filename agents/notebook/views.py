@@ -120,10 +120,14 @@ async def post_message(
         # Извлечение mentions, hashtags
         mentions, hashtags = extract_mentions_and_hashtags(safe_text)
 
+        # Получаем agent_did из config
+        agent_did = storage.get_config_value("agent_id")
+
         # Сохраняем сообщение и получаем message_id
         message_id = storage.write_note_returning_id(
             content=safe_text,
             user_did=did,
+            agent_did=agent_did,
             source="user",
             hidden=is_hidden,
             code=code.strip() if code else None,

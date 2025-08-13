@@ -705,7 +705,24 @@ class Storage:
     def get_config_value(self, key: str, default=None):
         cursor = self.conn.execute("SELECT value FROM config WHERE key = ?", (key,))
         row = cursor.fetchone()
-        return row[0] if row else default
+        if not row:
+            return default
+
+        value = row[0]
+
+        # Если это JSON-строка в кавычках — парсим
+        try:
+            parsed = json.loads(value)
+            if isinstance(parsed, (str, int, float, bool, dict, list)):
+                return parsed
+        except (json.JSONDecodeError, TypeError):
+            pass
+
+        # На всякий случай убираем лишние кавычки
+        if isinstance(value, str) and len(value) >= 2 and value[0] == '"' and value[-1] == '"':
+            return value[1:-1]
+
+        return value
 
     # Web-интерфейс и API
     def write_note(self, content, user_did="anon", source="user", hidden=0):
@@ -716,12 +733,12 @@ class Storage:
         """, (content, user_did, source, timestamp, hidden))
         self.conn.commit()
 
-    def write_note_returning_id(self, content, user_did, source="user", hidden=False, code=None, mentions="[]", hashtags="[]"):
+    def write_note_returning_id(self, content, user_did, agent_did, source="user", hidden=False, code=None, mentions="[]", hashtags="[]"):
         cursor = self.conn.cursor()
         cursor.execute("""
-            INSERT INTO notes (timestamp, text, code, mentions, hashtags, user_did, source, hidden)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (time.time(), content, code, mentions, hashtags, user_did, source, int(hidden)))
+            INSERT INTO notes (timestamp, text, code, mentions, hashtags, user_did, agent_did, source, hidden)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (time.time(), content, code, mentions, hashtags, user_did, agent_did, source, int(hidden)))
         self.conn.commit()
         return cursor.lastrowid
 
