@@ -77,6 +77,7 @@
 
   * [Перевод HMP (GitHub Copilot)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md) — перевод GitHub Copilot, сохранён как исторический вариант.
   * [Перевод HMP (ChatGPT)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md) — текущий редакторский перевод (в процессе доработки).
+* [HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)
 
 ---
 
