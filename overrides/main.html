@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if config.extra.description %}
+    <meta name="description" content="{{ config.extra.description | e }}">
+  {% endif %}
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+  <div style="text-align:center; margin-top: 1em; font-size: 0.9em; opacity: 0.8;">
+    <a href="https://github.com/kagvi13/HMP/blob/main/docs/{{ page.file.src_uri }}">
+      📄 Исходный файл (.md)
+    </a>
+  </div>
+{% endblock %}
