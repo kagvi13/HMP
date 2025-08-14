@@ -12,9 +12,9 @@
 {% block footer %}
   {{ super() }}
   {% if page and page.file and page.file.src_uri %}
-    <div style="text-align:center; margin-top: 1em; font-size: 0.9em; opacity: 0.8;">
+    <div style="text-align:center; margin-top: 1.5em;">
       <a href="https://github.com/kagvi13/HMP/blob/main/docs/{{ page.file.src_uri }}"
-         style="display:inline-flex; align-items:center; gap:0.3em; text-decoration:none;">
+        class="md-button md-button--primary">
         {% include "partials/icons/github.svg" %}
         Исходный файл (.md)
       </a>
