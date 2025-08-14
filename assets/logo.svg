@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="80" viewBox="0 0 150 80" style="background-color:transparent">
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150" style="background-color:transparent">
   <!-- Символ 👌🏾 слева -->
-  <text x="5" y="35" font-family="Segoe UI Emoji, Apple Color Emoji, NotoColorEmoji, sans-serif" font-size="32">👌🏾</text>
+  <text x="5" y="70" font-family="Segoe UI Emoji, Apple Color Emoji, NotoColorEmoji, sans-serif" font-size="32">👌🏾</text>
   <!-- Надпись HMP справа с обводкой -->
-  <text x="35" y="57" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="bold"
+  <text x="35" y="92" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="bold"
         fill="#2c3e50" stroke="#000000" stroke-width="2">HMP</text>
 </svg>
