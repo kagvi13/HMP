@@ -2,16 +2,20 @@
 
 {% block extrahead %}
   {{ super() }}
-  {% if config.extra.description %}
+  {% if page and page.meta and page.meta.description %}
+    <meta name="description" content="{{ page.meta.description | e }}">
+  {% elif config.extra.description %}
     <meta name="description" content="{{ config.extra.description | e }}">
   {% endif %}
 {% endblock %}
 
 {% block footer %}
   {{ super() }}
-  <div style="text-align:center; margin-top: 1em; font-size: 0.9em; opacity: 0.8;">
-    <a href="https://github.com/kagvi13/HMP/blob/main/docs/{{ page.file.src_uri }}">
-      📄 Исходный файл (.md)
-    </a>
-  </div>
+  {% if page and page.file and page.file.src_uri %}
+    <div style="text-align:center; margin-top: 1em; font-size: 0.9em; opacity: 0.8;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/{{ page.file.src_uri }}">
+        📄 Исходный файл (.md)
+      </a>
+    </div>
+  {% endif %}
 {% endblock %}
