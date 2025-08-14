@@ -13,6 +13,10 @@ jobs:
         with:
           fetch-depth: 0  # Без shallow clone
 
+      - name: Remove PNG files from index
+        run: |
+          git rm --cached -r '*.png' || true
+
       - name: Push to GitLab
         env:
           GITLAB_URL: https://gitlab.com/kagvi13/HMP.git
