@@ -1,4 +1,4 @@
-name: Sync to GitLab with LFS
+name: Sync to GitLab with LFS (optimized)
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           sudo apt-get install -y git-lfs
           git lfs install
 
-      - name: Pull LFS objects
+      - name: Pull all LFS objects
         run: git lfs pull
 
       - name: Configure Git
@@ -31,10 +31,7 @@ jobs:
         env:
           GITLAB_USER: ${{ secrets.GITLAB_USER }}
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-        run: |
-          git remote add gitlab https://$GITLAB_USER:$GITLAB_TOKEN@gitlab.com/kagvi13/HMP.git
+        run: git remote add gitlab https://$GITLAB_USER:$GITLAB_TOKEN@gitlab.com/kagvi13/HMP.git
 
-      - name: Push repository and LFS to GitLab
-        run: |
-          git push --force gitlab main
-          git lfs push --all gitlab main
+      - name: Push repository with LFS
+        run: git push --force gitlab main && git lfs push --all gitlab main
