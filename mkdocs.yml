@@ -3,7 +3,10 @@ docs_dir: docs
 site_dir: site
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.instant
 site_url: https://kagvi13.github.io/HMP/
 use_directory_urls: false
+extra:
+  description: "HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей."
