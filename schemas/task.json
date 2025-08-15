@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hypercortex.org/schemas/task.json",
+  "title": "Task",
+  "description": "An actionable step contributing to a goal within the Mesh.",
+  "version": "1.0",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the task."
+    },
+    "goal_id": {
+      "type": "string",
+      "description": "ID of the parent goal this task is associated with."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short, human-readable title of the task."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed explanation of the task's objective."
+    },
+    "assigned_to": {
+      "type": "array",
+      "description": "List of agent IDs assigned to execute the task.",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "description": "Current state of the task.",
+      "enum": ["proposed", "in-progress", "completed", "failed"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the task was created (ISO 8601 format)."
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional task completion deadline (ISO 8601 format)."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Optional tags for task classification.",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["id", "goal_id", "title", "description", "created_at", "status"],
+  "additionalProperties": false
+}
