@@ -132,7 +132,8 @@ RU:
 * **[HMP: Towards Distributed Cognitive Networks (оригинал, английский)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
   * **[Перевод HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
   * **[Перевод HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакторский перевод (в процессе доработки).
-* **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)**
+* **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** - англоязычная версия статьи
+  * **[HMP: создавая множество разумов (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** - русскоязычная версия статьи
 
 #### 🔍 Overviews / Обзоры
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
