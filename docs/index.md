@@ -49,7 +49,7 @@
 * [HMP-Short-Description_fr.md](HMP-Short-Description_fr.md) — Краткое описание HMP (французский)  
 * [HMP-Short-Description_ru.md](HMP-Short-Description_ru.md) — Краткое описание HMP (русский)  
 * [HMP-Short-Description_uk.md](HMP-Short-Description_uk.md) — Краткое описание HMP (украинский)  
-* [HMP_Hyperon_Integration.md](HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon  
+* [HMP_Hyperon_Integration.md](HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon
 * [logos.md](logos.md) — Логотипы и графические материалы
 
 ---
@@ -58,6 +58,7 @@
 
 * [AGI_Projects_Survey.md](AGI_Projects_Survey.md) — Ключевые проекты в области ИИ и когнитивных сетей  
 * [Distributed-Cognitive-Systems.md](Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HMP и др.
+* [HMP_HyperCortex_Comparison.md](HMP_HyperCortex_Comparison.md) - Сравнение HMP и Hyper-Cortex
 
 ---
 
