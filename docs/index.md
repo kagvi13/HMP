@@ -58,8 +58,7 @@
 
 * [AGI_Projects_Survey.md](AGI_Projects_Survey.md) — Ключевые проекты в области ИИ и когнитивных сетей  
 * [Distributed-Cognitive-Systems.md](Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HMP и др.
-* [HMP_HyperCortex_Comparison.md](HMP_HyperCortex_Comparison.md) - Сравнение HMP и Hyper-Cortex
-
+* [HMP_HyperCortex_Comparison.md](HMP_HyperCortex_Comparison.md) — Сравнение протокола HMP и проекта Hyper-Cortex: сетевой обмен знаниями между независимыми агентами и параллельные когнитивные ветвления с консенсусом
 ---
 
 ## Папки с агентами и схемами
