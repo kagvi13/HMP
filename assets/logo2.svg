@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <!-- Однородный фон -->
+  <rect width="150" height="150" fill="white" />
+
+  <!-- Символ 👌🏾 слева (сдвинут внутрь и чуть уменьшен) -->
+  <text x="20" y="80" font-family="Segoe UI Emoji, Apple Color Emoji, NotoColorEmoji, sans-serif" font-size="28">👌🏾</text>
+
+  <!-- Надпись HMP справа с обводкой (сдвинута и масштабирована) -->
+  <text x="55" y="92" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="bold"
+        fill="#2c3e50" stroke="#000000" stroke-width="2">HMP</text>
+</svg>
