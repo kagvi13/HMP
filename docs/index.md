@@ -4,7 +4,7 @@
 
 ## Лендинг
 
-[**презентация**](landing/HMP.html){:target="_blank"}
+<b><a href="landing/HMP.html" target="_blank">Презентация</a></b>
 
 ---
 
