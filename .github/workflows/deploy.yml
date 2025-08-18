@@ -25,6 +25,9 @@ jobs:
       - name: Copy HTML files from bot to site root
         run: cp bot/*.* site/
 
+      - name: Copy landing folder including subdirs
+        run: cp -r landing/* site/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
