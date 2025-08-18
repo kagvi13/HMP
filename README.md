@@ -294,8 +294,7 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 ## Блог и публикации
 
-- 📘 Основной блог: [blogspot](https://hypercortex-mesh.blogspot.com/)
-- 📘 Вспомогательны блог: [livejournal](https://kagvi13.livejournal.com)
+- 📘 Блог: [blogspot](https://hypercortex-mesh.blogspot.com/)
 
 ---
 
