@@ -18,20 +18,15 @@ jobs:
       - name: Install Git LFS
         run: |
           sudo apt-get update
-          sudo apt-get install git-lfs
+          sudo apt-get install -y git-lfs
           git lfs install
 
       - name: Clone Hugging Face repo
         run: git clone https://kagvi13:${{ secrets.HF_TOKEN }}@huggingface.co/kagvi13/HMP hf_repo
 
-      - name: Clean HF repo
-        run: |
-          cd hf_repo
-          # удаляем все файлы и папки, кроме .git
-          find . -mindepth 1 -not -name '.git' -exec rm -rf {} +
-
       - name: Sync files excluding .git and .github
-        run: rsync -av --exclude='.git' --exclude='.github' ./ hf_repo/
+        run: |
+          rsync -av --delete --exclude='.git' --exclude='.github' ./ hf_repo/
 
       - name: Commit and push to Hugging Face
         run: |
