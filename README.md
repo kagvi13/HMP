@@ -138,6 +138,10 @@ RU:
 #### 🔍 Overviews / Обзоры
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
 
+#### Experiments / Экспирименты
+
+* [Как разные ИИ видят HMP](docs/HMP-how-AI-sees-it.md) - "слепой" (без контекста и истории диалогов) опрос ИИ об HMP
+
 #### 🔖 Core Specifications / Основные спецификации
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protocol Specification v4.1 (Jul 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
