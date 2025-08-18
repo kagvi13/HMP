@@ -29,7 +29,7 @@ jobs:
         run: mkdir -p site/landing
 
       - name: Copy landing folder including subdirs
-        run: cp -r landing/* site/landing/
+        run: cp -r docs/landing/* site/landing/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
