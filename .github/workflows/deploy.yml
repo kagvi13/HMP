@@ -25,6 +25,9 @@ jobs:
       - name: Copy HTML files from bot to site root
         run: cp bot/*.* site/
 
+      - name: Create landing folder in site
+        run: mkdir -p site/landing
+
       - name: Copy landing folder including subdirs
         run: cp -r landing/* site/landing/
 
