@@ -24,9 +24,10 @@ jobs:
       - name: Clone Hugging Face repo
         run: git clone https://kagvi13:${{ secrets.HF_TOKEN }}@huggingface.co/kagvi13/HMP hf_repo
 
-      - name: Sync files excluding .git and .github
+      - name: Sync files excluding .git, .github, hf_repo
         run: |
-          rsync -av --delete --exclude='.git' --exclude='.github' ./ hf_repo/
+          rsync -av --delete --exclude='.git' --exclude='.github' --exclude='hf_repo' ./ hf_repo/
+
 
       - name: Commit and push to Hugging Face
         run: |
