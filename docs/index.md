@@ -4,7 +4,8 @@
 
 ## Лендинг
 
-<b><a href="landing/HMP.html" target="_blank">Презентация</a></b>
+* <b><a href="landing/HMP.html" target="_blank">Презентация HTML</a></b>
+* <b><a href="landing/assets/HMP.pdf" target="_blank">Презентация PDF</a></b>
 
 ---
 
