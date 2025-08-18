@@ -85,6 +85,8 @@
 * [HMP: Building a Plurality of Minds (EN)](publics/HMP_Building_a_Plurality_of_Minds_en.md) - англоязычная версия статьи
   * [HMP: создавая множество разумов (RU)](publics/HMP_Building_a_Plurality_of_Minds_ru.md) - русскоязычная версия статьи
 
+---
+
 ## Experiments / Экспирименты
 
 * [Как разные ИИ видят HMP](HMP-how-AI-sees-it.md) — "слепой" опрос ИИ об HMP (без контекста и истории диалогов)
