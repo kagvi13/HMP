@@ -870,6 +870,49 @@ class Storage:
             }
         return None
 
+    # Работа с пирам (agent_peers)
+    def add_or_update_peer(self, peer_id, name, addresses, source="discovery", status="unknown"):
+        c = self.conn.cursor()
+        c.execute("""
+            INSERT INTO agent_peers (id, name, addresses, source, status, last_seen)
+            VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET
+                addresses=excluded.addresses,
+                source=excluded.source,
+                status=excluded.status,
+                last_seen=excluded.last_seen
+        """, (
+            peer_id,
+            name,
+            json.dumps(addresses),
+            source,
+            status,
+            datetime.now(UTC).isoformat()
+        ))
+        self.conn.commit()
+
+    def get_online_peers(self, limit=50):
+        c = self.conn.cursor()
+        c.execute("SELECT id, addresses FROM agent_peers WHERE status='online' LIMIT ?", (limit,))
+        return c.fetchall()
+
+    def load_bootstrap(self, bootstrap_file="bootstrap.txt"):
+        if not os.path.exists(bootstrap_file):
+            return
+        with open(bootstrap_file, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                # Пример: http://node1.mesh.local:8000
+                try:
+                    peer_url = line
+                    peer_id = str(uuid.uuid4())  # временно генерим ID, потом можно подтянуть DID
+                    name = peer_url.split("://")[1].split(":")[0]
+                    self.add_or_update_peer(peer_id, name, [peer_url], source="bootstrap")
+                except Exception as e:
+                    print(f"[Storage] Ошибка парсинга bootstrap: {line} -> {e}")
+
     # Утилиты
 
     def close(self):

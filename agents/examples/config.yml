@@ -20,7 +20,8 @@ api_port: 8080
 dht_enabled: true                 # Включение участия в DHT-сети (включено принудительно!)
 dht_update: true                  # Регулярные обновления и публикация данных в DHT (включено принудительно!)
 bootstrap_responder: true         # Агент отвечает на bootstrap-запросы (включено принудительно!)
-dht_port: 20784
+udp_port: 4000
+tcp_port: 5000
 update_interval: 60               # секунд (для DHT-обновлений)
 
 # === LLM-бэкенды ===
