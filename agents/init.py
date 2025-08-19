@@ -27,6 +27,17 @@ def save_config(path, config):
     with open(path, 'w', encoding='utf-8') as f:
         yaml.dump(config, f, allow_unicode=True)
 
+def expand_addresses(addresses):
+    expanded = []
+    for addr in addresses:
+        if addr.startswith("any://"):
+            ip_port = addr[len("any://"):]
+            expanded.append(f"tcp://{ip_port}")
+            expanded.append(f"udp://{ip_port}")
+        else:
+            expanded.append(addr)
+    return expanded
+
 def init_identity(storage, config):
     if not config.get("agent_id"):
         did = generate_did()
@@ -97,6 +108,11 @@ def init_llm_backends(storage, config):
 def init_config_table(storage, config):
     exclude_keys = {"default_user", "llm_backends"}
     flat_config = {k: v for k, v in config.items() if k not in exclude_keys}
+
+    # 🟢 разворачиваем any:// только для addresses
+    if "addresses" in flat_config:
+        flat_config["addresses"] = expand_addresses(flat_config["addresses"])
+
     for key, value in flat_config.items():
         storage.set_config(key, json.dumps(value))
     print("[+] Конфигурация сохранена в БД.")

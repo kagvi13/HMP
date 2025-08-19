@@ -20,8 +20,10 @@ api_port: 8080
 dht_enabled: true                 # Включение участия в DHT-сети (включено принудительно!)
 dht_update: true                  # Регулярные обновления и публикация данных в DHT (включено принудительно!)
 bootstrap_responder: true         # Агент отвечает на bootstrap-запросы (включено принудительно!)
-udp_port: 4000
-tcp_port: 5000
+addresses:                        # Список protocol://IP:port которые слушает агент, protocol может быть tcp, utp или any - tcp+utp
+  - "any://192.168.0.1:4000"
+  - "tcp://192.168.1.1:4020"
+  - "udp://192.168.1.1:4030"
 update_interval: 60               # секунд (для DHT-обновлений)
 
 # === LLM-бэкенды ===
