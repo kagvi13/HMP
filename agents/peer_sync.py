@@ -9,6 +9,7 @@ import ipaddress
 import re
 from tools.storage import Storage
 from datetime import datetime
+import select
 
 storage = Storage()
 my_id = storage.get_config_value("agent_id", str(uuid.uuid4()))
@@ -174,6 +175,38 @@ def udp_discovery_sender():
         time.sleep(1)
 
 # ======================
+# TCP Listener (для Peer Exchange)
+# ======================
+def tcp_listener():
+    sockets = []
+    for host, port in tcp_ports:
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            bind_host = "" if host in ["0.0.0.0", "any"] else host
+            sock.bind((bind_host, port))
+            sock.listen(5)
+            sockets.append(sock)
+            print(f"[TCP Listener] Слушаем на {bind_host}:{port}")
+        except Exception as e:
+            print(f"[TCP Listener] Ошибка bind/listen {host}:{port} -> {e}")
+
+    while True:
+        if not sockets:
+            time.sleep(1)
+            continue
+        readable, _, _ = select.select(sockets, [], [], 1)
+        for s in readable:
+            try:
+                conn, addr = s.accept()
+                data = conn.recv(1024)
+                if data == b"PEER_EXCHANGE_REQUEST":
+                    print(f"[TCP Listener] Получен PEER_EXCHANGE_REQUEST от {addr}")
+                conn.close()
+            except:
+                continue
+
+# ======================
 # Peer Exchange (TCP)
 # ======================
 def peer_exchange():
@@ -194,6 +227,7 @@ def peer_exchange():
                     proto, hostport = norm.split("://")
                     if proto not in ["tcp", "any"]:
                         continue
+
                     try:
                         host, port = parse_hostport(hostport)
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -218,6 +252,7 @@ def start_sync():
     threading.Thread(target=udp_discovery_sender, daemon=True).start()
     threading.Thread(target=peer_exchange, daemon=True).start()
     threading.Thread(target=lan_discovery, daemon=True).start()
+    threading.Thread(target=tcp_listener, daemon=True).start()
 
     while True:
         time.sleep(60)
