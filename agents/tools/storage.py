@@ -7,10 +7,12 @@ import json
 import uuid
 import time
 
-from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta, UTC, timezone
 from werkzeug.security import generate_password_hash, check_password_hash
 from tools.identity import generate_did
 from tools.crypto import generate_keypair
+
+UTC = timezone.utc
 
 SCRIPTS_BASE_PATH = "scripts"
 
@@ -724,6 +726,14 @@ class Storage:
 
         return value
 
+    def set_config_value(self, key, value):
+        c = self.conn.cursor()
+        c.execute("""
+            INSERT INTO config(key, value) VALUES (?, ?)
+            ON CONFLICT(key) DO UPDATE SET value=excluded.value
+        """, (key, value))
+        self.conn.commit()
+
     # Web-интерфейс и API
     def write_note(self, content, user_did="anon", source="user", hidden=0):
         timestamp = datetime.now(UTC).isoformat()
@@ -896,18 +906,16 @@ class Storage:
         c.execute("SELECT id, addresses FROM agent_peers WHERE status='online' LIMIT ?", (limit,))
         return c.fetchall()
 
+    # Нормализация адресов
     def normalize_address(self, addr: str) -> str:
-        """Нормализует адрес в формате tcp://, udp:// или any://"""
         addr = addr.strip()
         if not addr:
             return None
-
         if "://" not in addr:
-            # Универсальная запись → считаем, что оба порта используются
             return f"any://{addr}"
-
         return addr
 
+    # Bootstrap
     def load_bootstrap(self, bootstrap_file="bootstrap.txt"):
         """
         Загружает узлы из bootstrap.txt.
