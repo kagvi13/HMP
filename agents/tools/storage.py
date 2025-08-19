@@ -896,24 +896,92 @@ class Storage:
         c.execute("SELECT id, addresses FROM agent_peers WHERE status='online' LIMIT ?", (limit,))
         return c.fetchall()
 
+    def normalize_address(self, addr: str) -> str:
+        """Нормализует адрес в формате tcp://, udp:// или any://"""
+        addr = addr.strip()
+        if not addr:
+            return None
+
+        if "://" not in addr:
+            # Универсальная запись → считаем, что оба порта используются
+            return f"any://{addr}"
+
+        return addr
+
     def load_bootstrap(self, bootstrap_file="bootstrap.txt"):
-        if not os.path.exists(bootstrap_file):
+        """
+        Загружает узлы из bootstrap.txt.
+        Поддерживаются адреса:
+            tcp://host:port
+            udp://host:port
+            any://host:port
+        TCP-узлы проверяются запросом /identity.
+        UDP/any регистрируются без проверки (any учитывается как TCP+UDP).
+        """
+        import requests
+
+        # Абсолютный путь к bootstrap.txt в корне проекта
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        bootstrap_path = os.path.join(base_path, bootstrap_file)
+
+        if not os.path.exists(bootstrap_path):
+            print(f"[Bootstrap] Файл {bootstrap_file} не найден по пути {bootstrap_path}")
             return
-        with open(bootstrap_file, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith("#"):
+
+        for line in open(bootstrap_path, encoding="utf-8"):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+
+            try:
+                addr = self.normalize_address(line)
+                if addr is None:
                     continue
-                # Пример: http://node1.mesh.local:8000
-                try:
-                    peer_url = line
-                    peer_id = str(uuid.uuid4())  # временно генерим ID, потом можно подтянуть DID
-                    name = peer_url.split("://")[1].split(":")[0]
-                    self.add_or_update_peer(peer_id, name, [peer_url], source="bootstrap")
-                except Exception as e:
-                    print(f"[Storage] Ошибка парсинга bootstrap: {line} -> {e}")
+
+                proto, hostport = addr.split("://")
+
+                # TCP или any → проверяем identity
+                if proto in ["tcp", "any"]:
+                    try:
+                        url = f"http://{hostport}/identity"
+                        r = requests.get(url, timeout=3)
+                        if r.status_code == 200:
+                            info = r.json()
+                            peer_id = info.get("id")
+                            name = info.get("name", "unknown")
+                            pubkey = info.get("pubkey")
+                            capabilities = info.get("capabilities", {})
+
+                            self.add_or_update_peer(
+                                peer_id=peer_id,
+                                name=name,
+                                addresses=[addr],
+                                source="bootstrap",
+                                status="online",
+                                pubkey=pubkey,
+                                capabilities=capabilities,
+                            )
+                            print(f"[Bootstrap] Добавлен узел {peer_id} ({addr})")
+                        else:
+                            print(f"[Bootstrap] {addr} недоступен (HTTP {r.status_code})")
+                    except Exception as e:
+                        print(f"[Bootstrap] Ошибка при подключении к {addr}: {e}")
+
+                # UDP или any → просто регистрируем
+                if proto in ["udp", "any"]:
+                    peer_id = str(uuid.uuid4())
+                    self.add_or_update_peer(
+                        peer_id=peer_id,
+                        name="unknown",
+                        addresses=[addr],
+                        source="bootstrap",
+                        status="unknown"
+                    )
+                    print(f"[Bootstrap] Добавлен адрес (без проверки): {addr}")
+
+            except Exception as e:
+                print(f"[Bootstrap] Ошибка парсинга {line}: {e}")
 
     # Утилиты
-
     def close(self):
         self.conn.close()

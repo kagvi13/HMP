@@ -1,2 +1,3 @@
-http://node1.mesh.local:8000
-http://node2.mesh.local:8000
+tcp://node1.mesh.local:8000
+udp://node2.mesh.local:8000
+any://node3.mesh.local:8000
