@@ -883,6 +883,24 @@ class Storage:
     # Работа с пирам (agent_peers)
     def add_or_update_peer(self, peer_id, name, addresses, source="discovery", status="unknown"):
         c = self.conn.cursor()
+
+        # ищем существующий peer по любому совпадающему адресу
+        c.execute("SELECT id, addresses FROM agent_peers")
+        rows = c.fetchall()
+        existing_id = None
+        for row in rows:
+            db_id, db_addresses_json = row
+            try:
+                db_addresses = json.loads(db_addresses_json)
+            except Exception:
+                db_addresses = []
+            if any(addr in db_addresses for addr in addresses):
+                existing_id = db_id
+                break
+
+        if existing_id:
+            peer_id = existing_id  # используем существующий ID
+
         c.execute("""
             INSERT INTO agent_peers (id, name, addresses, source, status, last_seen)
             VALUES (?, ?, ?, ?, ?, ?)
