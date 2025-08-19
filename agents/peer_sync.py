@@ -87,23 +87,32 @@ def peer_exchange():
             try:
                 addr_list = json.loads(addresses)
                 for addr in addr_list:
-                    proto, hostport = addr.split("://") if "://" in addr else ("any", addr)
+                    # Нормализация адреса через storage
+                    norm = storage.normalize_address(addr)
+                    if norm is None:
+                        continue
+
+                    proto, hostport = norm.split("://")
+
+                    # TCP и any обрабатываются как TCP
                     if proto not in ["tcp", "any"]:
                         continue  # пропускаем UDP
 
-                    host, port = hostport.split(":")
                     try:
+                        host, port = hostport.split(":")
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         s.settimeout(2)
                         s.connect((host, int(port)))
                         s.sendall(b"PEER_EXCHANGE_REQUEST")
                         s.close()
-                        print(f"[PeerSync] Успешно подключились к {peer_id} ({addr})")
-                        break  # успешное подключение — можно не пробовать остальные адреса
+                        print(f"[PeerSync] Успешно подключились к {peer_id} ({norm})")
+                        break  # успешное подключение — остальные адреса не пробуем
                     except Exception as e:
-                        print(f"[PeerSync] Не удалось подключиться к {peer_id} ({addr}): {e}")
+                        print(f"[PeerSync] Не удалось подключиться к {peer_id} ({norm}): {e}")
+
             except Exception as e:
                 print(f"[PeerSync] Ошибка обработки адресов {peer_id} ({addresses}): {e}")
+
         time.sleep(PEER_EXCHANGE_INTERVAL)
 
 # ======================
