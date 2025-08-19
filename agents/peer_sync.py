@@ -7,6 +7,7 @@ import json
 import uuid
 import ipaddress
 from tools.storage import Storage
+from datetime import datetime
 
 storage = Storage()
 my_id = storage.get_config_value("agent_id", str(uuid.uuid4()))
@@ -16,8 +17,8 @@ agent_name = storage.get_config_value("agent_name", "HMP-Agent")
 # Формируем TCP/UDP порты для прослушивания
 # ======================
 def get_listening_ports():
-    tcp_ports = []
-    udp_ports = []
+    tcp_ports = set()
+    udp_ports = set()
 
     for key in ["global_addresses", "local_addresses"]:
         addresses = json.loads(storage.get_config_value(key, "[]"))
@@ -26,14 +27,14 @@ def get_listening_ports():
             host, port = hostport.split(":")
             port = int(port)
             if proto == "tcp":
-                tcp_ports.append((host, port))
-            elif proto == "udp" or proto == "utp":
-                udp_ports.append((host, port))
+                tcp_ports.add(port)
+            elif proto in ["udp", "utp"]:
+                udp_ports.add(port)
             elif proto == "any":
-                tcp_ports.append((host, port))
-                udp_ports.append((host, port))
+                tcp_ports.add(port)
+                udp_ports.add(port)
 
-    return tcp_ports, udp_ports
+    return sorted(tcp_ports), sorted(udp_ports)
 
 tcp_ports, udp_ports = get_listening_ports()
 
@@ -42,7 +43,7 @@ tcp_ports, udp_ports = get_listening_ports()
 # ======================
 def lan_discovery():
     DISCOVERY_INTERVAL = 300  # каждые 5 минут
-    udp_port_set = set(port for _, port in udp_ports)
+    udp_port_set = set(udp_ports)
 
     while True:
         local_ip = get_local_ip()
@@ -79,9 +80,8 @@ def get_local_ip():
 # UDP Discovery Listener
 # ======================
 def udp_discovery_listener():
-    udp_port_set = set(port for _, port in udp_ports)
     sockets = []
-    for port in udp_port_set:
+    for port in udp_ports:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind(("", port))
@@ -97,7 +97,7 @@ def udp_discovery_listener():
                     continue  # не добавляем себя
 
                 name = msg.get("name", "unknown")
-                addresses = msg.get("addresses", [f"{addr[0]}:{msg.get('tcp_port', sock.getsockname()[1])}"])
+                addresses = msg.get("addresses", [f"{addr[0]}:{sock.getsockname()[1]}"])
                 normalized_addresses = []
                 for a in addresses:
                     norm = storage.normalize_address(a)
@@ -118,11 +118,10 @@ def udp_discovery_listener():
 def udp_discovery_sender():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
-    msg = {
-        "id": my_id,
-        "name": agent_name,
-        "addresses": json.loads(storage.get_config_value("global_addresses", "[]"))
-    }
+
+    global_addresses = json.loads(storage.get_config_value("global_addresses", "[]"))
+    msg = {"id": my_id, "name": agent_name, "addresses": global_addresses}
+
     last_broadcast = 0
     DISCOVERY_INTERVAL = 60
     BROADCAST_INTERVAL = 600
@@ -131,11 +130,11 @@ def udp_discovery_sender():
         now = time.time()
         if int(now) % DISCOVERY_INTERVAL == 0:
             for port in udp_ports:
-                sock.sendto(json.dumps(msg).encode("utf-8"), ("239.255.0.1", port[1]))
+                sock.sendto(json.dumps(msg).encode("utf-8"), ("239.255.0.1", port))
         if now - last_broadcast > BROADCAST_INTERVAL:
             sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
             for port in udp_ports:
-                sock.sendto(json.dumps(msg).encode("utf-8"), ("255.255.255.255", port[1]))
+                sock.sendto(json.dumps(msg).encode("utf-8"), ("255.255.255.255", port))
             last_broadcast = now
         time.sleep(1)
 
@@ -149,7 +148,7 @@ def peer_exchange():
         for peer in peers:
             peer_id, addresses = peer["id"], peer["addresses"]
             if peer_id == my_id:
-                continue
+                continue  # пропускаем себя
 
             try:
                 addr_list = json.loads(addresses)
