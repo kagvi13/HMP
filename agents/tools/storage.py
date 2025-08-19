@@ -946,7 +946,6 @@ class Storage:
         """
         import requests
 
-        # Абсолютный путь к bootstrap.txt в корне проекта
         base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         bootstrap_path = os.path.join(base_path, bootstrap_file)
 
@@ -964,49 +963,60 @@ class Storage:
                 if addr is None:
                     continue
 
+                # Разворачиваем any:// на tcp и udp
+                addrs_to_register = []
                 proto, hostport = addr.split("://")
+                if proto == "any":
+                    addrs_to_register.append(f"tcp://{hostport}")
+                    addrs_to_register.append(f"udp://{hostport}")
+                else:
+                    addrs_to_register.append(addr)
 
-                # TCP или any → проверяем identity
-                if proto in ["tcp", "any"]:
-                    try:
-                        url = f"http://{hostport}/identity"
-                        r = requests.get(url, timeout=3)
-                        if r.status_code == 200:
-                            info = r.json()
-                            peer_id = info.get("id")
-                            name = info.get("name", "unknown")
-                            pubkey = info.get("pubkey")
-                            capabilities = info.get("capabilities", {})
+                for a in addrs_to_register:
+                    proto2, hostport2 = a.split("://")
 
-                            self.add_or_update_peer(
-                                peer_id=peer_id,
-                                name=name,
-                                addresses=[addr],
-                                source="bootstrap",
-                                status="online",
-                                pubkey=pubkey,
-                                capabilities=capabilities,
-                            )
-                            print(f"[Bootstrap] Добавлен узел {peer_id} ({addr})")
-                        else:
-                            print(f"[Bootstrap] {addr} недоступен (HTTP {r.status_code})")
-                    except Exception as e:
-                        print(f"[Bootstrap] Ошибка при подключении к {addr}: {e}")
+                    # TCP → проверяем /identity
+                    if proto2 == "tcp":
+                        try:
+                            url = f"http://{hostport2}/identity"
+                            r = requests.get(url, timeout=3)
+                            if r.status_code == 200:
+                                info = r.json()
+                                peer_id = info.get("id")
+                                name = info.get("name", "unknown")
+                                pubkey = info.get("pubkey")
+                                capabilities = info.get("capabilities", {})
 
-                # UDP или any → просто регистрируем
-                if proto in ["udp", "any"]:
-                    peer_id = str(uuid.uuid4())
-                    self.add_or_update_peer(
-                        peer_id=peer_id,
-                        name="unknown",
-                        addresses=[addr],
-                        source="bootstrap",
-                        status="unknown"
-                    )
-                    print(f"[Bootstrap] Добавлен адрес (без проверки): {addr}")
+                                self.add_or_update_peer(
+                                    peer_id=peer_id,
+                                    name=name,
+                                    addresses=[a],
+                                    source="bootstrap",
+                                    status="online",
+                                    pubkey=pubkey,
+                                    capabilities=capabilities,
+                                )
+                                print(f"[Bootstrap] Добавлен узел {peer_id} ({a})")
+                            else:
+                                print(f"[Bootstrap] {a} недоступен (HTTP {r.status_code})")
+                        except Exception as e:
+                            print(f"[Bootstrap] Ошибка при подключении к {a}: {e}")
+
+                    # UDP → просто регистрируем
+                    elif proto2 == "udp":
+                        peer_id = str(uuid.uuid4())
+                        self.add_or_update_peer(
+                            peer_id=peer_id,
+                            name="unknown",
+                            addresses=[a],
+                            source="bootstrap",
+                            status="unknown"
+                        )
+                        print(f"[Bootstrap] Добавлен адрес (без проверки): {a}")
 
             except Exception as e:
                 print(f"[Bootstrap] Ошибка парсинга {line}: {e}")
+
 
     # Утилиты
     def close(self):
