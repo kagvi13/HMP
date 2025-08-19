@@ -6,6 +6,7 @@ import time
 import json
 import uuid
 import ipaddress
+import re
 from tools.storage import Storage
 from datetime import datetime
 
@@ -14,36 +15,60 @@ my_id = storage.get_config_value("agent_id", str(uuid.uuid4()))
 agent_name = storage.get_config_value("agent_name", "HMP-Agent")
 
 # ======================
-# Формируем TCP/UDP порты для прослушивания
+# Парсер host:port
+# ======================
+def parse_hostport(hostport):
+    if hostport.startswith("["):  # IPv6
+        match = re.match(r"\[(.+)\]:(\d+)", hostport)
+        if match:
+            host = match.group(1)
+            port = int(match.group(2))
+            return host, port
+    else:  # IPv4
+        if ":" in hostport:
+            host, port = hostport.rsplit(":", 1)
+            return host, int(port)
+    return None, None
+
+# ======================
+# Сбор TCP/UDP портов для прослушивания
 # ======================
 def get_listening_ports():
     tcp_ports = set()
     udp_ports = set()
-
     for key in ["global_addresses", "local_addresses"]:
-        addresses = json.loads(storage.get_config_value(key, "[]"))
+        addresses = storage.get_config_value(key, [])
         for a in addresses:
-            proto, hostport = a.split("://")
-            host, port = hostport.split(":")
-            port = int(port)
-            if proto == "tcp":
-                tcp_ports.add(port)
-            elif proto in ["udp", "utp"]:
-                udp_ports.add(port)
-            elif proto == "any":
-                tcp_ports.add(port)
-                udp_ports.add(port)
-
+            try:
+                proto, hostport = a.split("://", 1)
+                host, port = parse_hostport(hostport)
+                if host is None or port is None:
+                    continue
+                if proto == "tcp":
+                    tcp_ports.add((host, port))
+                elif proto in ["udp", "utp"]:
+                    udp_ports.add((host, port))
+                elif proto == "any":
+                    tcp_ports.add((host, port))
+                    udp_ports.add((host, port))
+            except Exception as e:
+                print(f"[PeerSync] Ошибка разбора адреса {a}: {e}")
+                continue
     return sorted(tcp_ports), sorted(udp_ports)
 
 tcp_ports, udp_ports = get_listening_ports()
 
 # ======================
-# LAN Discovery
+# LAN Discovery (только local_addresses)
 # ======================
 def lan_discovery():
-    DISCOVERY_INTERVAL = 300  # каждые 5 минут
-    udp_port_set = set(udp_ports)
+    DISCOVERY_INTERVAL = 300
+    local_addresses = storage.get_config_value("local_addresses", [])
+    udp_port_set = set()
+    for a in local_addresses:
+        _, port = parse_hostport(a.split("://", 1)[1])
+        if port:
+            udp_port_set.add(port)
 
     while True:
         local_ip = get_local_ip()
@@ -59,7 +84,11 @@ def lan_discovery():
                 try:
                     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                     sock.settimeout(0.5)
-                    msg = json.dumps({"id": my_id, "name": agent_name}).encode("utf-8")
+                    msg = json.dumps({
+                        "id": my_id,
+                        "name": agent_name,
+                        "addresses": local_addresses
+                    }).encode("utf-8")
                     sock.sendto(msg, (str(ip), port))
                     sock.close()
                 except:
@@ -81,7 +110,7 @@ def get_local_ip():
 # ======================
 def udp_discovery_listener():
     sockets = []
-    for port in udp_ports:
+    for _, port in udp_ports:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind(("", port))
@@ -90,11 +119,11 @@ def udp_discovery_listener():
     while True:
         for sock in sockets:
             try:
-                data, addr = sock.recvfrom(1024)
+                data, addr = sock.recvfrom(2048)
                 msg = json.loads(data.decode("utf-8"))
                 peer_id = msg.get("id")
                 if peer_id == my_id:
-                    continue  # не добавляем себя
+                    continue
 
                 name = msg.get("name", "unknown")
                 addresses = msg.get("addresses", [f"{addr[0]}:{sock.getsockname()[1]}"])
@@ -113,14 +142,20 @@ def udp_discovery_listener():
                 continue
 
 # ======================
-# UDP Discovery Sender
+# UDP Discovery Sender (только global_addresses)
 # ======================
 def udp_discovery_sender():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
 
-    global_addresses = json.loads(storage.get_config_value("global_addresses", "[]"))
+    global_addresses = storage.get_config_value("global_addresses", [])
     msg = {"id": my_id, "name": agent_name, "addresses": global_addresses}
+
+    udp_port_set = set()
+    for a in global_addresses:
+        _, port = parse_hostport(a.split("://", 1)[1])
+        if port:
+            udp_port_set.add(port)
 
     last_broadcast = 0
     DISCOVERY_INTERVAL = 60
@@ -129,11 +164,11 @@ def udp_discovery_sender():
     while True:
         now = time.time()
         if int(now) % DISCOVERY_INTERVAL == 0:
-            for port in udp_ports:
+            for port in udp_port_set:
                 sock.sendto(json.dumps(msg).encode("utf-8"), ("239.255.0.1", port))
         if now - last_broadcast > BROADCAST_INTERVAL:
             sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-            for port in udp_ports:
+            for port in udp_port_set:
                 sock.sendto(json.dumps(msg).encode("utf-8"), ("255.255.255.255", port))
             last_broadcast = now
         time.sleep(1)
@@ -148,7 +183,7 @@ def peer_exchange():
         for peer in peers:
             peer_id, addresses = peer["id"], peer["addresses"]
             if peer_id == my_id:
-                continue  # пропускаем себя
+                continue
 
             try:
                 addr_list = json.loads(addresses)
@@ -160,10 +195,10 @@ def peer_exchange():
                     if proto not in ["tcp", "any"]:
                         continue
                     try:
-                        host, port = hostport.split(":")
+                        host, port = parse_hostport(hostport)
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         s.settimeout(2)
-                        s.connect((host, int(port)))
+                        s.connect((host, port))
                         s.sendall(b"PEER_EXCHANGE_REQUEST")
                         s.close()
                         break
