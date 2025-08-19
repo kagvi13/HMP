@@ -4,7 +4,7 @@ import threading
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from agents.init import ensure_db_initialized
+from init import ensure_db_initialized
 from tools.storage import Storage
 
 # Проверка инициализации (вернёт config, если всё ОК)
@@ -28,7 +28,7 @@ def start_all():
     if ENABLE_REPL:
         if not storage.is_process_alive("REPL", max_delay=180):
             def repl():
-                from agents.repl import start_repl
+                from repl import start_repl
                 start_repl()
             threads.append(threading.Thread(target=repl, name="REPL"))
         else:
@@ -37,7 +37,7 @@ def start_all():
     if ENABLE_UI:
         if not storage.is_process_alive("NotebookUI", max_delay=180):
             def ui():
-                from agents.web_ui import start_notebook
+                from web_ui import start_notebook
                 start_notebook()
             threads.append(threading.Thread(target=ui, name="NotebookUI"))
         else:
@@ -46,7 +46,7 @@ def start_all():
     if ENABLE_MESH:
         if not storage.is_process_alive("MeshListener", max_delay=180):
             def mesh():
-                from agents.agent_mesh_listener import start_listener
+                from agent_mesh_listener import start_listener
                 start_listener()
             threads.append(threading.Thread(target=mesh, name="MeshListener"))
         else:
@@ -55,7 +55,7 @@ def start_all():
     if ENABLE_SYNC:
         if not storage.is_process_alive("PeerSync", max_delay=180):
             def sync():
-                from agents.peer_sync import start_sync
+                from peer_sync import start_sync
                 start_sync()
             threads.append(threading.Thread(target=sync, name="PeerSync"))
         else:
@@ -64,7 +64,7 @@ def start_all():
     if ENABLE_TRANSPORT:
         if not storage.is_process_alive("Transporter", max_delay=180):
             def transport():
-                from agents.transporter import start_transporter
+                from transporter import start_transporter
                 start_transporter()
             threads.append(threading.Thread(target=transport, name="Transporter"))
         else:
@@ -73,7 +73,7 @@ def start_all():
     if ENABLE_CONTROL:
         if not storage.is_process_alive("Controller", max_delay=180):
             def control():
-                from agents.agent_controller import start_controller
+                from agent_controller import start_controller
                 start_controller()
             threads.append(threading.Thread(target=control, name="Controller"))
         else:
@@ -82,7 +82,7 @@ def start_all():
     if ENABLE_CONTAINER:
         if not storage.is_process_alive("ContainerAgent", max_delay=180):
             def container():
-                from agents.container_agent import start_container
+                from container_agent import start_container
                 start_container()
             threads.append(threading.Thread(target=container, name="ContainerAgent"))
         else:
@@ -91,7 +91,7 @@ def start_all():
     if ENABLE_ETHICS:
         if not storage.is_process_alive("EthicsGuard", max_delay=180):
             def ethics():
-                from agents.ethics_guard import start_ethics_guard
+                from ethics_guard import start_ethics_guard
                 start_ethics_guard()
             threads.append(threading.Thread(target=ethics, name="EthicsGuard"))
         else:

@@ -13,7 +13,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
-from agents.notebook.views import router as notebook_router
+from notebook.views import router as notebook_router
 from tools.storage import Storage
 
 storage = Storage()
