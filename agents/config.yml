@@ -22,11 +22,11 @@ dht_update: true                  # Регулярные обновления и
 bootstrap_responder: true         # Агент отвечает на bootstrap-запросы (включено принудительно!)
 
 # Список "protocol://IP:port" которые слушает агент, protocol может быть tcp, utp или any - tcp+utp
-Global_addresses:                 # глобальные адреса
+global_addresses:                 # глобальные адреса
   - "tcp://95.80.96.17:4000"
   - "utp://195.112.230.165:4000"
   - "any://[201:ab61:1403:b973:909c:ef3:26b8:49c2]:4000"
-Local_addresses:                  # локальные адреса
+local_addresses:                  # локальные адреса
   - "any://192.168.0.10:4000"
   - "any://192.168.1.10:4000"
   - "any://127.0.0.1:4000"
