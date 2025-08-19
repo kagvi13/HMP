@@ -881,41 +881,59 @@ class Storage:
         return None
 
     # Работа с пирам (agent_peers)
-    def add_or_update_peer(self, peer_id, name, addresses, source="discovery", status="unknown"):
+    def add_or_update_peer(self, peer_id, name, addresses, source="discovery", status="unknown", pubkey=None, capabilities=None):
         c = self.conn.cursor()
 
         # ищем существующий peer по любому совпадающему адресу
-        c.execute("SELECT id, addresses FROM agent_peers")
+        c.execute("SELECT id, addresses, pubkey, capabilities FROM agent_peers")
         rows = c.fetchall()
         existing_id = None
+        existing_addresses = []
+        existing_pubkey = None
+        existing_capabilities = {}
+
         for row in rows:
-            db_id, db_addresses_json = row
+            db_id, db_addresses_json, db_pubkey, db_capabilities_json = row
             try:
                 db_addresses = json.loads(db_addresses_json)
             except Exception:
                 db_addresses = []
+
             if any(addr in db_addresses for addr in addresses):
                 existing_id = db_id
+                existing_addresses = db_addresses
+                existing_pubkey = db_pubkey
+                try:
+                    existing_capabilities = json.loads(db_capabilities_json) if db_capabilities_json else {}
+                except:
+                    existing_capabilities = {}
                 break
 
-        if existing_id:
-            peer_id = existing_id  # используем существующий ID
+        combined_addresses = list(set(existing_addresses) | set(addresses))
+        final_peer_id = existing_id or peer_id
+        final_pubkey = pubkey or existing_pubkey
+        final_capabilities = capabilities or existing_capabilities
 
         c.execute("""
-            INSERT INTO agent_peers (id, name, addresses, source, status, last_seen)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO agent_peers (id, name, addresses, source, status, last_seen, pubkey, capabilities)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO UPDATE SET
+                name=excluded.name,
                 addresses=excluded.addresses,
                 source=excluded.source,
                 status=excluded.status,
-                last_seen=excluded.last_seen
+                last_seen=excluded.last_seen,
+                pubkey=excluded.pubkey,
+                capabilities=excluded.capabilities
         """, (
-            peer_id,
+            final_peer_id,
             name,
-            json.dumps(addresses),
+            json.dumps(combined_addresses),
             source,
             status,
-            datetime.now(UTC).isoformat()
+            datetime.now(UTC).isoformat(),
+            final_pubkey,
+            json.dumps(final_capabilities)
         ))
         self.conn.commit()
 
