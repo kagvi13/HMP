@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
 -- Список известных агентов в сети HMP
 CREATE TABLE IF NOT EXISTS agent_peers (
     id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор (UUID или псевдоним)
+    remote_did TEXT,                                            -- DiD агента
     name TEXT,                                                  -- Имя агента
     addresses TEXT,                                             -- Адреса для связи (JSON)
     tags TEXT,                                                  -- Теги (Postman, Friend и т.д.)
