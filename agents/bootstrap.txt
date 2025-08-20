@@ -1,4 +1,4 @@
-did:hmp:ac0e063e-8609-4ef9-84ed-d7dcafc65977 ["tcp://node1.mesh.local:8000","udp://node1.mesh.local:8030"]
-did:hmp:ac0e063e-8709-4ef9-84ed-d7dcafc65977 ["tcp://node2.mesh.local:8010"]
-did:hmp:ac0e063e-8609-4ff9-84ed-d7dc46c65977 ["tcp://node3.mesh.local:8020"]
-did:hmp:ac0f053e-8609-4ef9-84ed-d7dcafc65977 ["any://node4.mesh.local:8000"]
+did:hmp:ac0e063e-8609-4ef9-75f8-d7dcafc65977 ["tcp://node1.mesh.local:8000","udp://node1.mesh.local:8030"]
+did:hmp:ac0e063e-8709-4ef9-75f8-d7dcafc65977 ["tcp://node2.mesh.local:8010"]
+did:hmp:ac0e063e-8609-4ff9-75f8-d7dc46c65977 ["tcp://node3.mesh.local:8020"]
+did:hmp:ac0f053e-8609-4ef9-75f8-d7dcafc65977 ["any://node4.mesh.local:8000"]
