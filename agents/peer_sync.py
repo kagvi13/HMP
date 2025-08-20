@@ -7,6 +7,7 @@ import json
 import uuid
 import ipaddress
 import re
+import netifaces
 from tools.storage import Storage
 from datetime import datetime
 import select
@@ -60,10 +61,21 @@ def get_listening_ports():
 tcp_ports, udp_ports = get_listening_ports()
 
 # ======================
-# LAN Discovery (только local_addresses)
+# Получение всех локальных IP
 # ======================
-def lan_discovery():
+def get_all_local_ips():
+    ips = []
+    for iface in netifaces.interfaces():
+        for addr in netifaces.ifaddresses(iface).get(netifaces.AF_INET, []):
+            ips.append(addr['addr'])
+    return ips
+
+# ======================
+# Объединённый UDP/LAN Discovery
+# ======================
+def udp_lan_discovery():
     DISCOVERY_INTERVAL = 30
+
     local_addresses = storage.get_config_value("local_addresses", [])
     udp_port_set = set()
     for a in local_addresses:
@@ -71,55 +83,25 @@ def lan_discovery():
         if port:
             udp_port_set.add(port)
 
-    while True:
-        local_ip = get_local_ip()
-        if not local_ip:
-            time.sleep(DISCOVERY_INTERVAL)
-            continue
+    # Сокеты для приёма
+    listen_sockets = []
+    for port in udp_port_set:
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            sock.bind(("", port))
+            listen_sockets.append(sock)
+        except Exception as e:
+            print(f"[UDP/LAN Discovery] Не удалось создать сокет на порту {port}: {e}")
 
-        net = ipaddress.ip_network(local_ip + '/24', strict=False)
-        for ip in net.hosts():
-            if str(ip) == local_ip:
-                continue
-            for port in udp_port_set:
-                try:
-                    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                    sock.settimeout(0.5)
-                    msg = json.dumps({
-                        "id": my_id,
-                        "name": agent_name,
-                        "addresses": local_addresses
-                    }).encode("utf-8")
-                    sock.sendto(msg, (str(ip), port))
-                    sock.close()
-                except:
-                    continue
-        time.sleep(DISCOVERY_INTERVAL)
-
-def get_local_ip():
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(("8.8.8.8", 80))
-        ip = s.getsockname()[0]
-        s.close()
-        return ip
-    except:
-        return None
-
-# ======================
-# UDP Discovery Listener
-# ======================
-def udp_discovery_listener():
-    sockets = []
-    for _, port in udp_ports:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        sock.bind(("", port))
-        sockets.append(sock)
+    send_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    send_sock.settimeout(0.5)
 
     while True:
-        for sock in sockets:
+        # ------------------ Приём ------------------
+        for sock in listen_sockets:
             try:
+                sock.settimeout(0.1)
                 data, addr = sock.recvfrom(2048)
                 msg = json.loads(data.decode("utf-8"))
                 peer_id = msg.get("id")
@@ -128,38 +110,59 @@ def udp_discovery_listener():
 
                 name = msg.get("name", "unknown")
                 addresses = msg.get("addresses", [f"{addr[0]}:{sock.getsockname()[1]}"])
-
                 expanded_addresses = []
+
                 for a in addresses:
                     norm = storage.normalize_address(a)
                     if norm is None:
                         continue
                     proto, rest = norm.split("://", 1)
-
-                    # --- фильтруем loopback ---
                     host_port = rest.split(":")[0]
-                    if host_port.startswith("127."):
+                    if host_port.startswith("127.") or host_port.startswith("0."):
                         continue
-
-                    if proto == "udp":
-                        expanded_addresses.append(f"udp://{rest}")
-                        expanded_addresses.append(f"tcp://{rest}")
-                    elif proto == "any":
+                    if proto in ["udp", "any"]:
                         expanded_addresses.append(f"udp://{rest}")
                         expanded_addresses.append(f"tcp://{rest}")
                     elif proto == "tcp":
                         expanded_addresses.append(f"tcp://{rest}")
 
                 if expanded_addresses:
-                    print(f"[UDP Discovery] получен пакет от {addr}, id={peer_id}, "
-                          f"addresses(raw)={addresses}, addresses(expanded)={expanded_addresses}")
+                    print(f"[UDP/LAN Discovery] получен пакет от {addr} через {sock.getsockname()}, "
+                          f"id={peer_id}, addresses={expanded_addresses}")
                     storage.add_or_update_peer(peer_id, name, expanded_addresses, "discovery", "online")
+            except socket.timeout:
+                continue
             except Exception as e:
-                print(f"[UDP Discovery] ошибка при обработке пакета: {e}")
+                print(f"[UDP/LAN Discovery] ошибка при обработке пакета: {e}")
                 continue
 
+        # ------------------ Отправка ------------------
+        local_ips = get_all_local_ips()
+        msg_data = json.dumps({
+            "id": my_id,
+            "name": agent_name,
+            "addresses": local_addresses
+        }).encode("utf-8")
+
+        for local_ip in local_ips:
+            try:
+                net = ipaddress.ip_network(local_ip + '/24', strict=False)
+            except Exception:
+                continue
+            for ip in net.hosts():
+                ip_str = str(ip)
+                if ip_str == local_ip or ip_str.startswith("127.") or ip_str.startswith("0."):
+                    continue
+                for port in udp_port_set:
+                    try:
+                        send_sock.sendto(msg_data, (ip_str, port))
+                    except Exception:
+                        continue
+
+        time.sleep(DISCOVERY_INTERVAL)
+
 # ======================
-# UDP Discovery Sender (только global_addresses)
+# UDP Discovery Sender (для global_addresses)
 # ======================
 def udp_discovery_sender():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -191,7 +194,7 @@ def udp_discovery_sender():
         time.sleep(1)
 
 # ======================
-# TCP Listener (для Peer Exchange)
+# TCP Listener (Peer Exchange)
 # ======================
 def tcp_listener():
     sockets = []
@@ -239,7 +242,6 @@ def tcp_listener():
                 print(f"[TCP Listener] Ошибка при обработке соединения: {e}")
                 continue
 
-
 # ======================
 # Peer Exchange (TCP)
 # ======================
@@ -282,10 +284,9 @@ def peer_exchange():
 def start_sync():
     print("[PeerSync] Запуск фоновой синхронизации")
     storage.load_bootstrap()
-    threading.Thread(target=udp_discovery_listener, daemon=True).start()
+    threading.Thread(target=udp_lan_discovery, daemon=True).start()
     threading.Thread(target=udp_discovery_sender, daemon=True).start()
     threading.Thread(target=peer_exchange, daemon=True).start()
-    threading.Thread(target=lan_discovery, daemon=True).start()
     threading.Thread(target=tcp_listener, daemon=True).start()
 
     while True:
