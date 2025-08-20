@@ -63,7 +63,7 @@ tcp_ports, udp_ports = get_listening_ports()
 # LAN Discovery (только local_addresses)
 # ======================
 def lan_discovery():
-    DISCOVERY_INTERVAL = 300
+    DISCOVERY_INTERVAL = 30
     local_addresses = storage.get_config_value("local_addresses", [])
     udp_port_set = set()
     for a in local_addresses:
@@ -128,18 +128,34 @@ def udp_discovery_listener():
 
                 name = msg.get("name", "unknown")
                 addresses = msg.get("addresses", [f"{addr[0]}:{sock.getsockname()[1]}"])
-                normalized_addresses = []
+
+                expanded_addresses = []
                 for a in addresses:
                     norm = storage.normalize_address(a)
                     if norm is None:
                         continue
-                    proto, _ = norm.split("://")
-                    if proto in ["udp", "any"]:
-                        normalized_addresses.append(norm)
+                    proto, rest = norm.split("://", 1)
 
-                if normalized_addresses:
-                    storage.add_or_update_peer(peer_id, name, normalized_addresses, "discovery", "online")
-            except:
+                    # --- фильтруем loopback ---
+                    host_port = rest.split(":")[0]
+                    if host_port.startswith("127."):
+                        continue
+
+                    if proto == "udp":
+                        expanded_addresses.append(f"udp://{rest}")
+                        expanded_addresses.append(f"tcp://{rest}")
+                    elif proto == "any":
+                        expanded_addresses.append(f"udp://{rest}")
+                        expanded_addresses.append(f"tcp://{rest}")
+                    elif proto == "tcp":
+                        expanded_addresses.append(f"tcp://{rest}")
+
+                if expanded_addresses:
+                    print(f"[UDP Discovery] получен пакет от {addr}, id={peer_id}, "
+                          f"addresses(raw)={addresses}, addresses(expanded)={expanded_addresses}")
+                    storage.add_or_update_peer(peer_id, name, expanded_addresses, "discovery", "online")
+            except Exception as e:
+                print(f"[UDP Discovery] ошибка при обработке пакета: {e}")
                 continue
 
 # ======================
@@ -202,9 +218,27 @@ def tcp_listener():
                 data = conn.recv(1024)
                 if data == b"PEER_EXCHANGE_REQUEST":
                     print(f"[TCP Listener] Получен PEER_EXCHANGE_REQUEST от {addr}")
+                    try:
+                        peers = []
+                        for pid, addresses_json in storage.get_online_peers(limit=50):
+                            try:
+                                addresses = json.loads(addresses_json)
+                            except Exception:
+                                addresses = []
+                            peers.append({
+                                "id": pid,
+                                "addresses": addresses
+                            })
+                        payload = json.dumps(peers).encode("utf-8")
+                        conn.sendall(payload)
+                        print(f"[TCP Listener] Отправлен список пиров ({len(peers)}) в {addr}")
+                    except Exception as e:
+                        print(f"[TCP Listener] Ошибка при отправке списка пиров: {e}")
                 conn.close()
-            except:
+            except Exception as e:
+                print(f"[TCP Listener] Ошибка при обработке соединения: {e}")
                 continue
+
 
 # ======================
 # Peer Exchange (TCP)
