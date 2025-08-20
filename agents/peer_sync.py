@@ -6,6 +6,7 @@ import time
 import threading
 import select
 import netifaces
+import re
 
 from datetime import datetime, timezone as UTC
 from tools.storage import Storage
@@ -45,6 +46,53 @@ def is_ipv6(host: str):
         return True
     except OSError:
         return False
+
+# ---------------------------
+# Загрузка bootstrap
+# ---------------------------
+
+def load_bootstrap_peers(filename="bootstrap.txt"):
+    """
+    Читает bootstrap.txt и добавляет узлы в storage.
+    Формат строки: did [JSON-список адресов]
+    """
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"[Bootstrap] File {filename} not found")
+        return
+
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+
+        match = re.match(r"^(did:hmp:[\w-]+)\s+(.+)$", line)
+        if not match:
+            print(f"[Bootstrap] Invalid line format: {line}")
+            continue
+
+        did, addresses_json = match.groups()
+        try:
+            addresses = json.loads(addresses_json)
+        except Exception as e:
+            print(f"[Bootstrap] Invalid JSON addresses for {did}: {e}")
+            continue
+
+        # Разворачиваем any:// в tcp:// и udp://
+        expanded_addresses = []
+        for addr in addresses:
+            if addr.startswith("any://"):
+                hostport = addr[len("any://"):]
+                expanded_addresses.append(f"tcp://{hostport}")
+                expanded_addresses.append(f"udp://{hostport}")
+            else:
+                expanded_addresses.append(addr)
+
+        storage.add_or_update_peer(did, name=None, addresses=expanded_addresses,
+                                   source="bootstrap", status="offline")
+        print(f"[Bootstrap] Loaded peer {did} -> {expanded_addresses}")
 
 # ---------------------------
 # TCP Listener (обработка входящих PEER_EXCHANGE_REQUEST)
@@ -352,7 +400,14 @@ def tcp_listener():
 # ---------------------------
 # Запуск потоков
 # ---------------------------
-def start_sync():
+def start_sync(bootstrap_file="bootstrap.txt"):
+    # Загружаем bootstrap-пиров перед запуском discovery/peer exchange
+    load_bootstrap_peers(bootstrap_file)
+
+    # Печать локальных портов для логов
+    print(f"[PeerSync] Local ports: {local_ports}")
+
+    # Запуск потоков
     threading.Thread(target=udp_discovery, daemon=True).start()
     threading.Thread(target=tcp_peer_exchange, daemon=True).start()
     threading.Thread(target=tcp_listener, daemon=True).start()
