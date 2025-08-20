@@ -1,3 +1,4 @@
-tcp://node1.mesh.local:8000
-udp://node2.mesh.local:8000
-any://node3.mesh.local:8000
+["tcp://node1.mesh.local:8000","udp://node1.mesh.local:8000"]
+["tcp://node2.mesh.local:8010"]
+["tcp://node1.mesh.local:8020"]
+["any://node3.mesh.local:8000"]
