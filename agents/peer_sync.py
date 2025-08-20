@@ -256,28 +256,44 @@ def udp_discovery():
 # TCP Peer Exchange
 # ---------------------------
 def tcp_peer_exchange():
-    PEER_EXCHANGE_INTERVAL = 120
+    PEER_EXCHANGE_INTERVAL = 20  # для отладки сделаем меньше
     while True:
         peers = storage.get_online_peers(limit=50)
+        print(f"[PeerExchange] Checking {len(peers)} peers...")
+
         for peer in peers:
-            peer_id, addresses_json = peer["id"], peer["addresses"]
+            # peer может быть tuple (id, addresses) или dict
+            if isinstance(peer, dict):
+                peer_id, addresses_json = peer["id"], peer["addresses"]
+            else:
+                peer_id, addresses_json = peer[0], peer[1]
+
             if peer_id == my_id:
                 continue
+
             try:
                 addr_list = json.loads(addresses_json)
-            except:
+            except Exception as e:
+                print(f"[PeerExchange] JSON decode error for peer {peer_id}: {e}")
                 addr_list = []
+
+            print(f"[PeerExchange] Peer {peer_id} -> addresses={addr_list}")
 
             for addr in addr_list:
                 norm = storage.normalize_address(addr)
                 if not norm:
                     continue
-                proto, hostport = norm.split("://")
+
+                proto, hostport = norm.split("://", 1)
                 if proto not in ["tcp", "any"]:
                     continue
+
                 host, port = parse_hostport(hostport)
                 if not host or not port:
                     continue
+
+                print(f"[PeerExchange] Trying {peer_id} at {host}:{port} (proto={proto})")
+
                 try:
                     # IPv6 link-local
                     if is_ipv6(host) and host.startswith("fe80:"):
@@ -291,6 +307,7 @@ def tcp_peer_exchange():
                             sock.settimeout(3)
                             sock.connect((host, port, 0, scope_id))
                         else:
+                            print(f"[PeerExchange] Skipping {host}, no scope_id found")
                             continue
                     else:
                         sock = socket.socket(socket.AF_INET6 if is_ipv6(host) else socket.AF_INET, socket.SOCK_STREAM)
@@ -302,6 +319,7 @@ def tcp_peer_exchange():
                     sock.close()
 
                     if not data:
+                        print(f"[PeerExchange] No data from {host}:{port}")
                         continue
 
                     try:
@@ -309,15 +327,19 @@ def tcp_peer_exchange():
                         for p in peers_recv:
                             if p.get("id") and p["id"] != my_id:
                                 storage.add_or_update_peer(
-                                    p["id"], p.get("name", "unknown"), p.get("addresses", []), "peer_exchange", "online"
+                                    p["id"], p.get("name", "unknown"), p.get("addresses", []),
+                                    "peer_exchange", "online"
                                 )
                         print(f"[PeerExchange] Received {len(peers_recv)} peers from {host}:{port}")
-                    except:
+                    except Exception as e:
+                        print(f"[PeerExchange] Decode error from {host}:{port} -> {e}")
                         continue
 
-                    break  # успешное соединение
-                except Exception:
+                    break  # успешное соединение — идём к следующему пиру
+                except Exception as e:
+                    print(f"[PeerExchange] Connection to {host}:{port} failed: {e}")
                     continue
+
         time.sleep(PEER_EXCHANGE_INTERVAL)
 
 # ---------------------------

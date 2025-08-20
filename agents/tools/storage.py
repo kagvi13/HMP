@@ -881,36 +881,36 @@ class Storage:
         return None
 
     # Работа с пирам (agent_peers)
-    def add_or_update_peer(self, peer_id, name, addresses, source="discovery", status="unknown", pubkey=None, capabilities=None):
+    def add_or_update_peer(
+        self, peer_id, name, addresses,
+        source="discovery", status="unknown",
+        pubkey=None, capabilities=None
+    ):
         c = self.conn.cursor()
 
-        # ищем существующий peer по любому совпадающему адресу
-        c.execute("SELECT id, addresses, pubkey, capabilities FROM agent_peers")
-        rows = c.fetchall()
+        # нормализация адресов
+        addresses = list({a.strip() for a in (addresses or []) if a and a.strip()})
+
         existing_id = None
         existing_addresses = []
         existing_pubkey = None
         existing_capabilities = {}
 
-        for row in rows:
-            db_id, db_addresses_json, db_pubkey, db_capabilities_json = row
-            try:
-                db_addresses = json.loads(db_addresses_json)
-            except Exception:
-                db_addresses = []
-
-            if any(addr in db_addresses for addr in addresses):
-                existing_id = db_id
-                existing_addresses = db_addresses
-                existing_pubkey = db_pubkey
+        if peer_id:
+            c.execute("SELECT id, addresses, pubkey, capabilities FROM agent_peers WHERE id=?", (peer_id,))
+            row = c.fetchone()
+            if row:
+                existing_id, db_addresses_json, existing_pubkey, db_caps_json = row
                 try:
-                    existing_capabilities = json.loads(db_capabilities_json) if db_capabilities_json else {}
+                    existing_addresses = json.loads(db_addresses_json) or []
+                except:
+                    existing_addresses = []
+                try:
+                    existing_capabilities = json.loads(db_caps_json) if db_caps_json else {}
                 except:
                     existing_capabilities = {}
-                break
 
-        combined_addresses = list(set(existing_addresses) | set(addresses))
-        final_peer_id = existing_id or peer_id
+        combined_addresses = list({*existing_addresses, *addresses})
         final_pubkey = pubkey or existing_pubkey
         final_capabilities = capabilities or existing_capabilities
 
@@ -926,7 +926,7 @@ class Storage:
                 pubkey=excluded.pubkey,
                 capabilities=excluded.capabilities
         """, (
-            final_peer_id,
+            peer_id,
             name,
             json.dumps(combined_addresses),
             source,
