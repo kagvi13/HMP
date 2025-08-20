@@ -134,7 +134,7 @@ def tcp_listener():
                 if data == b"PEER_EXCHANGE_REQUEST":
                     print(f"[TCP Listener] PEER_EXCHANGE_REQUEST from {addr}")
                     peers_list = []
-                    for peer in storage.get_online_peers(limit=50):
+                    for peer in storage.get_known_peers(limit=50):
                         peer_id = peer["id"]
                         addresses_json = peer["addresses"]
                         try:
@@ -258,8 +258,8 @@ def udp_discovery():
 def tcp_peer_exchange():
     PEER_EXCHANGE_INTERVAL = 20  # для отладки сделаем меньше
     while True:
-        peers = storage.get_online_peers(limit=50)
-        print(f"[PeerExchange] Checking {len(peers)} peers...")
+        peers = storage.get_known_peers(limit=50)
+        print(f"[PeerExchange] Checking {len(peers)} peers (raw DB)...")
 
         for peer in peers:
             # peer может быть tuple (id, addresses) или dict
@@ -385,7 +385,7 @@ def tcp_listener():
                     print(f"[TCP Listener] PEER_EXCHANGE_REQUEST from {addr}")
                     peers_list = []
 
-                    for peer in storage.get_online_peers(limit=50):
+                    for peer in storage.get_known_peers(limit=50):
                         peer_id = peer["id"]
                         addresses_json = peer["addresses"]
                         try:

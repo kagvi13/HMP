@@ -942,6 +942,11 @@ class Storage:
         c.execute("SELECT id, addresses FROM agent_peers WHERE status='online' LIMIT ?", (limit,))
         return c.fetchall()
 
+    def get_known_peers(self, limit=50):
+        c = self.conn.cursor()
+        c.execute("SELECT id, addresses FROM agent_peers WHERE id != ? LIMIT ?", (my_id, limit))
+        return c.fetchall()
+
     # Нормализация адресов
     def normalize_address(self, addr: str) -> str:
         addr = addr.strip()
