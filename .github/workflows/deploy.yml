@@ -11,33 +11,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set locale to UTF-8
-        run: |
-          sudo update-locale LANG=en_US.UTF-8
-          export LANG=en_US.UTF-8
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install mkdocs mkdocs-material
+        run: pip install mkdocs mkdocs-material
 
       - name: Build site
-        run: |
-          mkdocs build --clean
+        run: mkdocs build
 
       - name: Copy HTML files from bot to site root
-        run: cp bot/*.* site/ || echo "No bot files found"
+        run: cp bot/*.* site/
 
       - name: Create landing folder in site
         run: mkdir -p site/landing
 
       - name: Copy landing folder including subdirs
-        run: cp -r docs/landing/* site/landing/ || echo "No landing files found"
+        run: cp -r docs/landing/* site/landing/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
