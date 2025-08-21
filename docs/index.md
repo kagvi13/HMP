@@ -55,6 +55,9 @@
 * [HMP-Short-Description_fr.md](HMP-Short-Description_fr.md) — Краткое описание HMP (французский)  
 * [HMP-Short-Description_ru.md](HMP-Short-Description_ru.md) — Краткое описание HMP (русский)  
 * [HMP-Short-Description_uk.md](HMP-Short-Description_uk.md) — Краткое описание HMP (украинский)  
+* [HMP-Short-Description_fr.md](HMP-Short-Description_zh.md) — Краткое описание HMP (китайский)  
+* [HMP-Short-Description_ru.md](HMP-Short-Description_ja.md) — Краткое описание HMP (японский)  
+* [HMP-Short-Description_uk.md](HMP-Short-Description_ko.md) — Краткое описание HMP (корейский)  
 * [HMP_Hyperon_Integration.md](HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon
 * [logos.md](logos.md) — Логотипы и графические материалы
 

@@ -141,6 +141,10 @@ RU:
 * [🔍 HMP-Short-Description_de.md](docs/HMP-Short-Description_de.md) — Kurzbeschreibung (DE)
 * [🔍 HMP-Short-Description_uk.md](docs/HMP-Short-Description_uk.md) — Короткий опис (UK)
 * [🔍 HMP-Short-Description_ru.md](docs/HMP-Short-Description_ru.md) — Краткое описание (RU)
+* [🔍 HMP-Short-Description_zh.md](docs/HMP-Short-Description_zh.md) — 简短描述 (ZH)
+* [🔍 HMP-Short-Description_ja.md](docs/HMP-Short-Description_ja.md) — 簡単な説明 (JA)
+* [🔍 HMP-Short-Description_ko.md](docs/HMP-Short-Description_ko.md) — 간략한 설명 (KO)
+
 
 #### 🔍 Публикации и переводы по HyperCortex Mesh Protocol (HMP)
 
