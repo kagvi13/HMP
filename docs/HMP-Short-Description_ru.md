@@ -1,4 +1,4 @@
-# Протокол HyperCortex Mesh (HMP) — Краткое описание
+# HyperCortex Mesh Protocol (HMP) — Краткое описание
 
 **Версия:** RFC v4.0
 **Дата:** Июль 2025
