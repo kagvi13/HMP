@@ -50,14 +50,14 @@
 
 ## Локализации и интеграция
 
-* [HMP-Short-Description_de.md](HMP-Short-Description_de.md) — Краткое описание HMP (немецкий)  
-* [HMP-Short-Description_en.md](HMP-Short-Description_en.md) — Краткое описание HMP (английский)  
-* [HMP-Short-Description_fr.md](HMP-Short-Description_fr.md) — Краткое описание HMP (французский)  
-* [HMP-Short-Description_ru.md](HMP-Short-Description_ru.md) — Краткое описание HMP (русский)  
-* [HMP-Short-Description_uk.md](HMP-Short-Description_uk.md) — Краткое описание HMP (украинский)  
-* [HMP-Short-Description_fr.md](HMP-Short-Description_zh.md) — Краткое описание HMP (китайский)  
-* [HMP-Short-Description_ru.md](HMP-Short-Description_ja.md) — Краткое описание HMP (японский)  
-* [HMP-Short-Description_uk.md](HMP-Short-Description_ko.md) — Краткое описание HMP (корейский)  
+* [HMP-Short-Description_en.md](HMP-Short-Description_en.md) — Short description (EN)  
+* [HMP-Short-Description_de.md](HMP-Short-Description_de.md) — Kurzbeschreibung (DE)  
+* [HMP-Short-Description_fr.md](HMP-Short-Description_fr.md) — Description courte (FR)  
+* [HMP-Short-Description_uk.md](HMP-Short-Description_uk.md) — Короткий опис (UK)  
+* [HMP-Short-Description_ru.md](HMP-Short-Description_ru.md) — Краткое описание (RU)  
+* [HMP-Short-Description_zh.md](HMP-Short-Description_zh.md) — 简短描述 (ZH)  
+* [HMP-Short-Description_ja.md](HMP-Short-Description_ja.md) — 簡単な説明 (JA)  
+* [HMP-Short-Description_ko.md](HMP-Short-Description_ko.md) — 간략한 설명 (KO)  
 * [HMP_Hyperon_Integration.md](HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon
 * [logos.md](logos.md) — Логотипы и графические материалы
 
