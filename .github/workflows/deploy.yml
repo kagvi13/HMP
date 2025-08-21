@@ -6,10 +6,8 @@ on:
       - main
 
 jobs:
-  report-build-status:
+  deploy:
     runs-on: ubuntu-latest
-    outputs:
-      site-dir: ${{ steps.build.outputs.site-dir }}
     steps:
       - uses: actions/checkout@v3
 
@@ -29,37 +27,21 @@ jobs:
           pip install mkdocs mkdocs-material
 
       - name: Build site
-        id: build
         run: |
           mkdocs build --clean
-          echo "::set-output name=site-dir::site"
-
-      - name: Check build result
-        run: |
-          if [ ! -d "site" ]; then
-            echo "Build failed: site folder not found!"
-            exit 1
-          fi
-          echo "Build successful."
-
-  deploy:
-    needs: report-build-status
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
       - name: Copy HTML files from bot to site root
-        run: cp bot/*.* ${{ needs.report-build-status.outputs.site-dir }}/ || echo "No bot files found"
+        run: cp bot/*.* site/ || echo "No bot files found"
 
       - name: Create landing folder in site
-        run: mkdir -p ${{ needs.report-build-status.outputs.site-dir }}/landing
+        run: mkdir -p site/landing
 
       - name: Copy landing folder including subdirs
-        run: cp -r docs/landing/* ${{ needs.report-build-status.outputs.site-dir }}/landing/ || echo "No landing files found"
+        run: cp -r docs/landing/* site/landing/ || echo "No landing files found"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
-          publish_dir: ${{ needs.report-build-status.outputs.site-dir }}
+          publish_dir: ./site
           force_orphan: true
