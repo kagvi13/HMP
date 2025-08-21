@@ -48,6 +48,25 @@ def is_ipv6(host: str):
         return False
 
 # ---------------------------
+# Конфигурация
+# ---------------------------
+my_id = storage.get_config_value("agent_id")
+agent_name = storage.get_config_value("agent_name", "unknown")
+local_addresses = storage.get_config_value("local_addresses", [])
+
+# Получаем уникальные локальные порты для прослушки TCP/UDP
+def get_local_ports():
+    ports = set()
+    for addr in local_addresses:
+        _, port = parse_hostport(addr.split("://", 1)[1])
+        if port:
+            ports.add(port)
+    return sorted(ports)
+
+local_ports = get_local_ports()
+print(f"[PeerSync] Local ports: {local_ports}")
+
+# ---------------------------
 # Загрузка bootstrap
 # ---------------------------
 
@@ -131,8 +150,22 @@ def tcp_listener():
             try:
                 conn, addr = s.accept()
                 data = conn.recv(1024)
+
                 if data == b"PEER_EXCHANGE_REQUEST":
                     print(f"[TCP Listener] PEER_EXCHANGE_REQUEST from {addr}")
+
+                    # --- (1) Сохраняем нового пира ---
+                    peer_host, peer_port = addr[0], addr[1]
+                    peer_id = f"did:hmp:{peer_host}:{peer_port}"  # временный ID, пока пир не представился
+                    storage.add_or_update_peer(
+                        peer_id,
+                        name="incoming",
+                        addresses=[f"tcp4://{peer_host}:{peer_port}"],
+                        source="incoming",
+                        status="online"
+                    )
+
+                    # --- (2) Отправляем список известных ---
                     peers_list = []
                     for peer in storage.get_known_peers(my_id, limit=50):
                         peer_id = peer["id"]
@@ -144,28 +177,29 @@ def tcp_listener():
                         peers_list.append({"id": peer_id, "addresses": addresses})
                     payload = json.dumps(peers_list).encode("utf-8")
                     conn.sendall(payload)
+
+                    # --- (3) Делаем встречный запрос ---
+                    try:
+                        with socket.create_connection((peer_host, peer_port), timeout=3) as s2:
+                            s2.sendall(b"PEER_EXCHANGE_REQUEST")
+                            resp = s2.recv(65536)
+                            if resp:
+                                new_peers = json.loads(resp.decode("utf-8"))
+                                for p in new_peers:
+                                    storage.add_or_update_peer(
+                                        p["id"],
+                                        name="from_incoming",
+                                        addresses=p.get("addresses", []),
+                                        source="reverse-sync",
+                                        status="online"
+                                    )
+                                print(f"[TCP Listener] Reverse sync: got {len(new_peers)} peers from {peer_host}:{peer_port}")
+                    except Exception as e:
+                        print(f"[TCP Listener] Reverse sync failed with {peer_host}:{peer_port}: {e}")
+
                 conn.close()
             except Exception as e:
                 print(f"[TCP Listener] Connection handling error: {e}")
-
-# ---------------------------
-# Конфигурация
-# ---------------------------
-my_id = storage.get_config_value("agent_id")
-agent_name = storage.get_config_value("agent_name", "unknown")
-
-# Получаем уникальные локальные порты для прослушки TCP/UDP
-def get_local_ports():
-    ports = set()
-    local_addresses = storage.get_config_value("local_addresses", [])
-    for addr in local_addresses:
-        _, port = parse_hostport(addr.split("://", 1)[1])
-        if port:
-            ports.add(port)
-    return sorted(ports)
-
-local_ports = get_local_ports()
-print(f"[PeerSync] Local ports: {local_ports}")
 
 # ---------------------------
 # UDP Discovery
@@ -262,7 +296,6 @@ def tcp_peer_exchange():
         print(f"[PeerExchange] Checking {len(peers)} peers (raw DB)...")
 
         for peer in peers:
-            # peer может быть tuple (id, addresses) или dict
             if isinstance(peer, dict):
                 peer_id, addresses_json = peer["id"], peer["addresses"]
             else:
@@ -314,7 +347,15 @@ def tcp_peer_exchange():
                         sock.settimeout(3)
                         sock.connect((host, port))
 
-                    sock.sendall(b"PEER_EXCHANGE_REQUEST")
+                    # 🔑 Отправляем данные о себе
+                    handshake = {
+                        "type": "PEER_EXCHANGE_REQUEST",
+                        "id": my_id,
+                        "name": agent_name,
+                        "addresses": my_addresses,  # список вроде ["tcp4://192.168.0.10:4010"]
+                    }
+                    sock.sendall(json.dumps(handshake).encode("utf-8"))
+
                     data = sock.recv(64 * 1024)
                     sock.close()
 
@@ -381,10 +422,34 @@ def tcp_listener():
             try:
                 conn, addr = s.accept()
                 data = conn.recv(1024)
-                if data == b"PEER_EXCHANGE_REQUEST":
-                    print(f"[TCP Listener] PEER_EXCHANGE_REQUEST from {addr}")
-                    peers_list = []
 
+                if not data:
+                    conn.close()
+                    continue
+
+                try:
+                    msg = json.loads(data.decode("utf-8"))
+                except Exception:
+                    conn.close()
+                    continue
+
+                if msg.get("type") == "PEER_EXCHANGE_REQUEST":
+                    peer_id = msg.get("id") or f"did:hmp:{addr[0]}:{addr[1]}"
+                    peer_name = msg.get("name", "unknown")
+                    peer_addrs = msg.get("addresses", [])
+
+                    # Сохраняем нового пира
+                    storage.add_or_update_peer(
+                        peer_id,
+                        peer_name,
+                        peer_addrs,
+                        source="incoming",
+                        status="online"
+                    )
+                    print(f"[TCP Listener] Handshake from {peer_id} ({addr})")
+
+                    # Отправляем список известных пиров
+                    peers_list = []
                     for peer in storage.get_known_peers(my_id, limit=50):
                         peer_id = peer["id"]
                         addresses_json = peer["addresses"]
@@ -393,7 +458,7 @@ def tcp_listener():
                         except:
                             addresses = []
 
-                        # Обработка IPv6 link-local: добавить scope_id в адрес
+                        # Обработка IPv6 link-local: добавить scope_id
                         updated_addresses = []
                         for a in addresses:
                             proto, hostport = a.split("://")
@@ -415,6 +480,7 @@ def tcp_listener():
 
                     payload = json.dumps(peers_list).encode("utf-8")
                     conn.sendall(payload)
+
                 conn.close()
             except Exception as e:
                 print(f"[TCP Listener] Connection handling error: {e}")
