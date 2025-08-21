@@ -110,10 +110,12 @@ def init_config_table(storage, config):
     flat_config = {k: v for k, v in config.items() if k not in exclude_keys}
 
     # 🟢 разворачиваем any:// только для addresses
-    if "local_addresses" in flat_config:
-        flat_config["local_addresses"] = expand_addresses(flat_config["local_addresses"])
-    if "global_addresses" in flat_config:
-        flat_config["global_addresses"] = expand_addresses(flat_config["global_addresses"])
+    for addr_key in ("local_addresses", "global_addresses"):
+        value = flat_config.get(addr_key)
+        if not value:  # None или пусто
+            flat_config[addr_key] = []
+        else:
+            flat_config[addr_key] = expand_addresses(value)
 
     for key, value in flat_config.items():
         storage.set_config(key, json.dumps(value))
