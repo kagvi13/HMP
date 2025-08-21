@@ -175,8 +175,8 @@ RU:
 ---
 
 ### 🧩 JSON Schemas
-| Model                | File                                                  |
-|---------------------|--------------------------------------------------------|
+| Model               | File                                                  |
+|---------------------|-------------------------------------------------------|
 | Concept             | [concept.json](docs/schemas/concept.json)             |
 | Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
 | Goal                | [goal.json](docs/schemas/goal.json)                   |
