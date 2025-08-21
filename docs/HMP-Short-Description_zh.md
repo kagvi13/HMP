@@ -89,7 +89,7 @@ HMP 定义了核心认知对象的形式化结构：
 
 ## 了解更多
 
-* [HMP-0004 规范 (完整版)](HMP-0004.md)
+* [HMP v4.1 规范 (完整版)](HMP-0004-v4.1.md)
 * [伦理原则](HMP-Ethics.md)
 * [HMP 与 OpenCog Hyperon 集成](HMP_Hyperon_Integration.md)
 

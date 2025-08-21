@@ -89,7 +89,7 @@ JSON Schema (2020-12) 기반이며, YAML 및 Protobuf 버전 선택 가능.
 
 ## 자세히 알아보기
 
-* [HMP-0004 사양 (전체)](HMP-0004.md)
+* [HMP v4.1 사양 (전체)](HMP-0004-v4.1.md)
 * [윤리 원칙](HMP-Ethics.md)
 * [HMP와 OpenCog Hyperon 통합](HMP_Hyperon_Integration.md)
 

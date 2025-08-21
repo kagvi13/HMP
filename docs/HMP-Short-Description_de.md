@@ -89,7 +89,7 @@ Primärformat: JSON Schema (2020-12), alternativ YAML und Protobuf.
 
 ## Weitere Informationen
 
-* [Vollständige Spezifikation HMP-0004](HMP-0004.md)
+* [Vollständige Spezifikation HMP v4.1](HMP-0004-v4.1.md)
 * [Ethische Prinzipien](HMP-Ethics.md)
 * [Integration HMP ↔ OpenCog Hyperon](HMP_Hyperon_Integration.md)
 

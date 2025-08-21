@@ -89,7 +89,7 @@ These are expressed in JSON Schema (2020-12), with optional YAML and Protobuf va
 
 ## Learn More
 
-* [HMP-0004 Specification (Full)](HMP-0004.md)
+* [Full Specification HMP v4.1](HMP-0004-v4.1.md)
 * [Ethical principles](HMP-Ethics.md)
 * [Integration HMP and OpenCog Hyperon](HMP_Hyperon_Integration.md)
 
