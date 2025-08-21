@@ -6,8 +6,11 @@ import os
 import json
 import uuid
 import time
+import socket
+import ipaddress
+import netifaces
 
-from datetime import datetime, timedelta, UTC, timezone
+from datetime import datetime, timedelta, UTC, timezone, timezone as UTC
 from werkzeug.security import generate_password_hash, check_password_hash
 from tools.identity import generate_did
 from tools.crypto import generate_keypair
@@ -17,6 +20,7 @@ UTC = timezone.utc
 SCRIPTS_BASE_PATH = "scripts"
 
 class Storage:
+    _scope_cache = {}
     def __init__(self, config=None):
         self.config = config or {}
         db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "agent_data.db"))
@@ -881,6 +885,76 @@ class Storage:
         return None
 
     # Работа с пирам (agent_peers)
+    @staticmethod
+    def parse_hostport(s: str):
+        """
+        Разбирает "IP:port" или "[IPv6]:port" и возвращает (host, port)
+        """
+        s = s.strip()
+        if s.startswith("["):
+            host, _, port = s[1:].partition("]:")
+            try:
+                port = int(port)
+            except:
+                port = None
+            return host, port
+        else:
+            if ":" in s:
+                host, port = s.rsplit(":", 1)
+                try:
+                    port = int(port)
+                except:
+                    port = None
+                return host, port
+            return s, None
+
+    @staticmethod
+    def is_ipv6(host: str):
+        try:
+            socket.inet_pton(socket.AF_INET6, host)
+            return True
+        except OSError:
+            return False
+
+    @staticmethod
+    def is_private(ip: str) -> bool:
+        try:
+            return ipaddress.ip_address(ip).is_private
+        except ValueError:
+            return False
+
+    @classmethod
+    def get_ipv6_scope(cls, host):
+        if host in cls._scope_cache:
+            return cls._scope_cache[host]
+        for iface in netifaces.interfaces():
+            iface_addrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET6, [])
+            for addr_info in iface_addrs:
+                if addr_info.get("addr") == host:
+                    scope_id = socket.if_nametoindex(iface)
+                    cls._scope_cache[host] = scope_id
+                    return scope_id
+        return None
+
+    # Нормализация адресов
+    @classmethod
+    def normalize_address(cls, addr: str) -> str:
+        addr = addr.strip()
+        if not addr:
+            return None
+        if "://" not in addr:
+            addr = f"any://{addr}"
+
+        proto, hostport = addr.split("://", 1)
+        host, port = cls.parse_hostport(hostport)
+
+        # IPv6 без квадратных скобок
+        if cls.is_ipv6(host) and not host.startswith("["):
+            host = f"[{host}]"
+
+        return f"{proto}://{host}:{port}" if port else f"{proto}://{host}"
+
+    # Работа с пирам (agent_peers)
     def add_or_update_peer(
         self, peer_id, name, addresses,
         source="discovery", status="unknown",
@@ -889,18 +963,17 @@ class Storage:
         c = self.conn.cursor()
 
         # нормализация адресов
-        addresses = list({a.strip() for a in (addresses or []) if a and a.strip()})
+        addresses = list({self.normalize_address(a) for a in (addresses or []) if a and a.strip()})
 
-        existing_id = None
         existing_addresses = []
         existing_pubkey = None
         existing_capabilities = {}
 
         if peer_id:
-            c.execute("SELECT id, addresses, pubkey, capabilities FROM agent_peers WHERE id=?", (peer_id,))
+            c.execute("SELECT addresses, pubkey, capabilities FROM agent_peers WHERE id=?", (peer_id,))
             row = c.fetchone()
             if row:
-                existing_id, db_addresses_json, existing_pubkey, db_caps_json = row
+                db_addresses_json, existing_pubkey, db_caps_json = row
                 try:
                     existing_addresses = json.loads(db_addresses_json) or []
                 except:
@@ -910,7 +983,9 @@ class Storage:
                 except:
                     existing_capabilities = {}
 
-        combined_addresses = list({*existing_addresses, *addresses})
+        # объединяем и нормализуем адреса, чтобы IPv6 всегда были с []
+        combined_addresses = list({self.normalize_address(a) for a in (*existing_addresses, *addresses)})
+
         final_pubkey = pubkey or existing_pubkey
         final_capabilities = capabilities or existing_capabilities
 
@@ -937,6 +1012,7 @@ class Storage:
         ))
         self.conn.commit()
 
+    # Получение известных/онлайн пиров
     def get_online_peers(self, limit=50):
         c = self.conn.cursor()
         c.execute("SELECT id, addresses FROM agent_peers WHERE status='online' LIMIT ?", (limit,))
@@ -946,100 +1022,6 @@ class Storage:
         c = self.conn.cursor()
         c.execute("SELECT id, addresses FROM agent_peers WHERE id != ? LIMIT ?", (my_id, limit))
         return c.fetchall()
-
-    # Нормализация адресов
-    def normalize_address(self, addr: str) -> str:
-        addr = addr.strip()
-        if not addr:
-            return None
-        if "://" not in addr:
-            return f"any://{addr}"
-        return addr
-
-    # Bootstrap
-    def load_bootstrap(self, bootstrap_file="bootstrap.txt"):
-        """
-        Загружает узлы из bootstrap.txt.
-        Поддерживаются адреса:
-            tcp://host:port
-            udp://host:port
-            any://host:port
-        TCP-узлы проверяются запросом /identity.
-        UDP/any регистрируются без проверки (any учитывается как TCP+UDP).
-        """
-        import requests
-
-        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-        bootstrap_path = os.path.join(base_path, bootstrap_file)
-
-        if not os.path.exists(bootstrap_path):
-            print(f"[Bootstrap] Файл {bootstrap_file} не найден по пути {bootstrap_path}")
-            return
-
-        for line in open(bootstrap_path, encoding="utf-8"):
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-
-            try:
-                addr = self.normalize_address(line)
-                if addr is None:
-                    continue
-
-                # Разворачиваем any:// на tcp и udp
-                addrs_to_register = []
-                proto, hostport = addr.split("://")
-                if proto == "any":
-                    addrs_to_register.append(f"tcp://{hostport}")
-                    addrs_to_register.append(f"udp://{hostport}")
-                else:
-                    addrs_to_register.append(addr)
-
-                for a in addrs_to_register:
-                    proto2, hostport2 = a.split("://")
-
-                    # TCP → проверяем /identity
-                    if proto2 == "tcp":
-                        try:
-                            url = f"http://{hostport2}/identity"
-                            r = requests.get(url, timeout=3)
-                            if r.status_code == 200:
-                                info = r.json()
-                                peer_id = info.get("id")
-                                name = info.get("name", "unknown")
-                                pubkey = info.get("pubkey")
-                                capabilities = info.get("capabilities", {})
-
-                                self.add_or_update_peer(
-                                    peer_id=peer_id,
-                                    name=name,
-                                    addresses=[a],
-                                    source="bootstrap",
-                                    status="online",
-                                    pubkey=pubkey,
-                                    capabilities=capabilities,
-                                )
-                                print(f"[Bootstrap] Добавлен узел {peer_id} ({a})")
-                            else:
-                                print(f"[Bootstrap] {a} недоступен (HTTP {r.status_code})")
-                        except Exception as e:
-                            print(f"[Bootstrap] Ошибка при подключении к {a}: {e}")
-
-                    # UDP → просто регистрируем
-                    elif proto2 == "udp":
-                        peer_id = str(uuid.uuid4())
-                        self.add_or_update_peer(
-                            peer_id=peer_id,
-                            name="unknown",
-                            addresses=[a],
-                            source="bootstrap",
-                            status="unknown"
-                        )
-                        print(f"[Bootstrap] Добавлен адрес (без проверки): {a}")
-
-            except Exception as e:
-                print(f"[Bootstrap] Ошибка парсинга {line}: {e}")
-
 
     # Утилиты
     def close(self):

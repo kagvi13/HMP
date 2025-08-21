@@ -7,6 +7,7 @@ import threading
 import select
 import netifaces
 import re
+import ipaddress
 
 from datetime import datetime, timezone as UTC
 from tools.storage import Storage
@@ -14,51 +15,19 @@ from tools.storage import Storage
 storage = Storage()
 
 # ---------------------------
-# Вспомогательные функции
-# ---------------------------
-def parse_hostport(s: str):
-    """
-    Разбирает "IP:port" или "[IPv6]:port" и возвращает (host, port)
-    """
-    s = s.strip()
-    if s.startswith("["):
-        # IPv6 с портом: [addr]:port
-        host, _, port = s[1:].partition("]:")
-        try:
-            port = int(port)
-        except:
-            port = None
-        return host, port
-    else:
-        # IPv4 или IPv6 без []
-        if ":" in s:
-            host, port = s.rsplit(":", 1)
-            try:
-                port = int(port)
-            except:
-                port = None
-            return host, port
-        return s, None
-
-def is_ipv6(host: str):
-    try:
-        socket.inet_pton(socket.AF_INET6, host)
-        return True
-    except OSError:
-        return False
-
-# ---------------------------
 # Конфигурация
 # ---------------------------
 my_id = storage.get_config_value("agent_id")
 agent_name = storage.get_config_value("agent_name", "unknown")
 local_addresses = storage.get_config_value("local_addresses", [])
+global_addresses = storage.get_config_value("global_addresses", [])
+all_addresses = local_addresses + global_addresses  # один раз
 
-# Получаем уникальные локальные порты для прослушки TCP/UDP
+# Получаем уникальные локальные порты
 def get_local_ports():
     ports = set()
     for addr in local_addresses:
-        _, port = parse_hostport(addr.split("://", 1)[1])
+        _, port = storage.parse_hostport(addr.split("://", 1)[1])
         if port:
             ports.add(port)
     return sorted(ports)
@@ -199,19 +168,17 @@ def udp_discovery():
         time.sleep(DISCOVERY_INTERVAL)
 
 # ---------------------------
-# TCP Peer Exchange
+# TCP Peer Exchange (исходящие)
 # ---------------------------
 def tcp_peer_exchange():
-    PEER_EXCHANGE_INTERVAL = 20  # для отладки сделаем меньше
+    PEER_EXCHANGE_INTERVAL = 20  # для отладки
     while True:
         peers = storage.get_known_peers(my_id, limit=50)
         print(f"[PeerExchange] Checking {len(peers)} peers (raw DB)...")
 
         for peer in peers:
-            if isinstance(peer, dict):
-                peer_id, addresses_json = peer["id"], peer["addresses"]
-            else:
-                peer_id, addresses_json = peer[0], peer[1]
+            peer_id = peer["id"] if isinstance(peer, dict) else peer[0]
+            addresses_json = peer["addresses"] if isinstance(peer, dict) else peer[1]
 
             if peer_id == my_id:
                 continue
@@ -222,49 +189,46 @@ def tcp_peer_exchange():
                 print(f"[PeerExchange] JSON decode error for peer {peer_id}: {e}")
                 addr_list = []
 
-            print(f"[PeerExchange] Peer {peer_id} -> addresses={addr_list}")
-
             for addr in addr_list:
                 norm = storage.normalize_address(addr)
                 if not norm:
                     continue
-
                 proto, hostport = norm.split("://", 1)
                 if proto not in ["tcp", "any"]:
                     continue
-
-                host, port = parse_hostport(hostport)
+                host, port = storage.parse_hostport(hostport)
                 if not host or not port:
                     continue
 
                 print(f"[PeerExchange] Trying {peer_id} at {host}:{port} (proto={proto})")
-
                 try:
                     # IPv6 link-local
-                    if is_ipv6(host) and host.startswith("fe80:"):
-                        scope_id = None
-                        for iface in netifaces.interfaces():
-                            if iface.endswith(host):
-                                scope_id = socket.if_nametoindex(iface)
-                                break
-                        if scope_id is not None:
-                            sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
-                            sock.settimeout(3)
-                            sock.connect((host, port, 0, scope_id))
-                        else:
-                            print(f"[PeerExchange] Skipping {host}, no scope_id found")
+                    if storage.is_ipv6(host) and host.startswith("fe80:"):
+                        scope_id = storage.get_ipv6_scope(host)
+                        if scope_id is None:
+                            print(f"[PeerExchange] Skipping {host}, no scope_id")
                             continue
+                        sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+                        sock.settimeout(3)
+                        sock.connect((host, port, 0, scope_id))
                     else:
-                        sock = socket.socket(socket.AF_INET6 if is_ipv6(host) else socket.AF_INET, socket.SOCK_STREAM)
+                        sock = socket.socket(socket.AF_INET6 if storage.is_ipv6(host) else socket.AF_INET,
+                                             socket.SOCK_STREAM)
                         sock.settimeout(3)
                         sock.connect((host, port))
 
-                    # 🔑 Отправляем данные о себе
+                    # LAN или Интернет
+                    if storage.is_private(host):
+                        send_addresses = all_addresses
+                    else:
+                        send_addresses = [a for a in all_addresses
+                                          if is_public(stprage.parse_hostport(a.split("://", 1)[1])[0])]
+
                     handshake = {
                         "type": "PEER_EXCHANGE_REQUEST",
                         "id": my_id,
                         "name": agent_name,
-                        "addresses": my_addresses,  # список вроде ["tcp4://192.168.0.10:4010"]
+                        "addresses": send_addresses,
                     }
                     sock.sendall(json.dumps(handshake).encode("utf-8"))
 
@@ -288,7 +252,7 @@ def tcp_peer_exchange():
                         print(f"[PeerExchange] Decode error from {host}:{port} -> {e}")
                         continue
 
-                    break  # успешное соединение — идём к следующему пиру
+                    break
                 except Exception as e:
                     print(f"[PeerExchange] Connection to {host}:{port} failed: {e}")
                     continue
@@ -296,52 +260,41 @@ def tcp_peer_exchange():
         time.sleep(PEER_EXCHANGE_INTERVAL)
 
 # ---------------------------
-# TCP Listener (обработка входящих PEER_EXCHANGE_REQUEST)
+# TCP Listener (входящие)
 # ---------------------------
 def tcp_listener():
     listen_sockets = []
-
-    # Создаём TCP сокеты на всех локальных портах
     for port in local_ports:
-        # IPv4
-        try:
-            sock4 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock4.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            sock4.bind(("", port))
-            sock4.listen(5)
-            listen_sockets.append(sock4)
-            print(f"[TCP Listener] Listening IPv4 on *:{port}")
-        except Exception as e:
-            print(f"[TCP Listener] IPv4 bind failed on port {port}: {e}")
-
-        # IPv6
-        try:
-            sock6 = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
-            sock6.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            sock6.bind(("::", port))
-            sock6.listen(5)
-            listen_sockets.append(sock6)
-            print(f"[TCP Listener] Listening IPv6 on [::]:{port}")
-        except Exception as e:
-            print(f"[TCP Listener] IPv6 bind failed on port {port}: {e}")
+        for family, addr_str in [(socket.AF_INET, ""), (socket.AF_INET6, "::")]:
+            try:
+                sock = socket.socket(family, socket.SOCK_STREAM)
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                sock.bind((addr_str, port))
+                sock.listen(5)
+                listen_sockets.append(sock)
+                proto_str = "IPv6" if family == socket.AF_INET6 else "IPv4"
+                print(f"[TCP Listener] Listening {proto_str} on {addr_str}:{port}")
+            except Exception as e:
+                print(f"[TCP Listener] {proto_str} bind failed on port {port}: {e}")
 
     while True:
         if not listen_sockets:
             time.sleep(1)
             continue
+
         rlist, _, _ = select.select(listen_sockets, [], [], 1)
         for s in rlist:
             try:
                 conn, addr = s.accept()
-                data = conn.recv(1024)
-
+                data = conn.recv(64 * 1024)
                 if not data:
                     conn.close()
                     continue
 
                 try:
                     msg = json.loads(data.decode("utf-8"))
-                except Exception:
+                except Exception as e:
+                    print(f"[TCP Listener] JSON decode error from {addr}: {e}")
                     conn.close()
                     continue
 
@@ -350,48 +303,41 @@ def tcp_listener():
                     peer_name = msg.get("name", "unknown")
                     peer_addrs = msg.get("addresses", [])
 
-                    # Сохраняем нового пира
-                    storage.add_or_update_peer(
-                        peer_id,
-                        peer_name,
-                        peer_addrs,
-                        source="incoming",
-                        status="online"
-                    )
+                    storage.add_or_update_peer(peer_id, peer_name, peer_addrs,
+                                               source="incoming", status="online")
                     print(f"[TCP Listener] Handshake from {peer_id} ({addr})")
 
-                    # Отправляем список известных пиров
+                    # LAN или Интернет
+                    is_lan = storage.is_private(addr[0])
+
                     peers_list = []
                     for peer in storage.get_known_peers(my_id, limit=50):
                         peer_id = peer["id"]
-                        addresses_json = peer["addresses"]
                         try:
-                            addresses = json.loads(addresses_json)
+                            addresses = json.loads(peer["addresses"])
                         except:
                             addresses = []
 
-                        # Обработка IPv6 link-local: добавить scope_id
                         updated_addresses = []
                         for a in addresses:
                             proto, hostport = a.split("://")
-                            host, port = parse_hostport(hostport)
-                            if is_ipv6(host) and host.startswith("fe80:"):
-                                scope_id = None
-                                for iface in netifaces.interfaces():
-                                    iface_addrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET6, [])
-                                    for addr_info in iface_addrs:
-                                        if addr_info.get("addr") == host:
-                                            scope_id = socket.if_nametoindex(iface)
-                                            break
-                                    if scope_id:
-                                        break
+                            host, port = storage.parse_hostport(hostport)
+
+                            # Фильтруем по LAN/Internet
+                            if not is_lan and not is_public(host):
+                                continue
+
+                            # IPv6 link-local
+                            if storage.is_ipv6(host) and host.startswith("fe80:"):
+                                scope_id = storage.get_ipv6_scope(host)
                                 if scope_id:
                                     host = f"{host}%{scope_id}"
+
                             updated_addresses.append(f"{proto}://{host}:{port}")
+
                         peers_list.append({"id": peer_id, "addresses": updated_addresses})
 
-                    payload = json.dumps(peers_list).encode("utf-8")
-                    conn.sendall(payload)
+                    conn.sendall(json.dumps(peers_list).encode("utf-8"))
 
                 conn.close()
             except Exception as e:
@@ -401,13 +347,9 @@ def tcp_listener():
 # Запуск потоков
 # ---------------------------
 def start_sync(bootstrap_file="bootstrap.txt"):
-    # Загружаем bootstrap-пиров перед запуском discovery/peer exchange
     load_bootstrap_peers(bootstrap_file)
-
-    # Печать локальных портов для логов
     print(f"[PeerSync] Local ports: {local_ports}")
 
-    # Запуск потоков
     threading.Thread(target=udp_discovery, daemon=True).start()
     threading.Thread(target=tcp_peer_exchange, daemon=True).start()
     threading.Thread(target=tcp_listener, daemon=True).start()
