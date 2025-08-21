@@ -11,7 +11,6 @@ datasets: []
 language: ru
 ---
 
-
 # HyperCortex Mesh Protocol (HMP)
 
 **EN:**  
@@ -145,7 +144,6 @@ RU:
 * [🔍 HMP-Short-Description_ja.md](docs/HMP-Short-Description_ja.md) — 簡単な説明 (JA)
 * [🔍 HMP-Short-Description_ko.md](docs/HMP-Short-Description_ko.md) — 간략한 설명 (KO)
 
-
 #### 🔍 Публикации и переводы по HyperCortex Mesh Protocol (HMP)
 
 В этом разделе собраны основные статьи, черновики и переводы, связанные с проектом HMP.
@@ -174,6 +172,8 @@ RU:
 #### 📜 Other Documents / Прочее
 * [📜 changelog.txt](docs/changelog.txt)
 
+---
+
 ### 🧩 JSON Schemas
 | Model                | File                                                  |
 |---------------------|--------------------------------------------------------|
@@ -183,6 +183,8 @@ RU:
 | Task                | [task.json](docs/schemas/task.json)                   |
 | Consensus Vote      | [vote.json](docs/schemas/vote.json)                   |
 | Reputation Profile  | [reputation.json](docs/schemas/reputation.json)       |
+
+---
 
 ### 🗂️ Version History / История версий
 - [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
@@ -207,6 +209,8 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 - [🧠 Enlightener.md](docs/Enlightener.md) — этический агент, участвующий в моральных оценках и консенсусах
 - [🔄 HMP-Agent-Network-Flow.md](docs/HMP-Agent-Network-Flow.md) — карта взаимодействия между агентами HMP-сети
 - [🛤️ Development Roadmap](HMP-Roadmap.md) — план развития и этапы реализации
+
+---
 
 ### ⚙️ Development / Разработка
 
@@ -379,6 +383,7 @@ For integration with OpenCog Hyperon, see [HMP\_Hyperon\_Integration.md](docs/HM
 ### 📘 See also / Смотрите также:
 * [`AGI_Projects_Survey.md`](docs/AGI_Projects_Survey.md) — extended catalog of AGI and cognitive frameworks reviewed as part of HMP analysis. / расширенный каталог проектов AGI и когнитивных архитектур, проанализированных в рамках HMP.
 * ["На пути к суперинтеллекту: от интернета агентов до кодирования гравитации"](https://habr.com/ru/articles/939026/) - свежий обзор исследований об ИИ (июль 2025)
+
 ---
 
 ### 🗂️ Легенда пометок:
