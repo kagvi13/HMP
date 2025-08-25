@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy-blogger:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,14 +18,13 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib markdown2
+        run: pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
-      - name: Save token.pkl from secret
-        run: |
-          echo "${{ secrets.TOKEN_PKL }}" | base64 -d > token.pkl
+      - name: Decode Blogger token
+        run: echo "${{ secrets.BLOGGER_TOKEN_BASE64 }}" | base64 --decode > token.pkl
 
-      - name: Publish posts to Blogger
-        env:
-          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+      - name: Publish to Blogger
         run: python scripts/publish_to_blogger.py
+        env:
+          CLIENT_SECRET_JSON: ${{ secrets.BLOGGER_CLIENT_SECRET_JSON }}
+          BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
