@@ -40,7 +40,7 @@ jobs:
           git clone --branch gh-pages https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git .
 
           # Копируем файл published_posts.json
-          cp ../scripts/published_posts.json .
+          cp ../published_posts.json .
 
           # Коммитим и пушим
           git add published_posts.json
