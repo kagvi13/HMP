@@ -5,22 +5,30 @@ import hashlib
 from googleapiclient.discovery import build
 import markdown2
 
+# Загружаем токен
 TOKEN_FILE = os.environ.get('TOKEN_FILE', 'token.pkl')
-BLOG_ID = os.environ['BLOG_ID']
-POSTS_DIR = 'docs'
+with open(TOKEN_FILE, 'rb') as f:
+    creds = pickle.load(f)
 
-# Путь к текущему скрипту
+service = build('blogger', 'v3', credentials=creds)
+BLOG_ID = os.environ['BLOG_ID']
+
+# published_posts.json лежит рядом со скриптом
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_FILE = os.path.join(SCRIPT_DIR, 'published_posts.json')
 
+# Безопасная загрузка JSON
 if os.path.exists(JSON_FILE):
-    with open(JSON_FILE, 'r', encoding='utf-8') as f:
-        try:
+    try:
+        with open(JSON_FILE, 'r', encoding='utf-8') as f:
             published = json.load(f)
-        except json.JSONDecodeError:
-            published = {}
+    except (json.JSONDecodeError, ValueError):
+        published = {}
 else:
     published = {}
+
+print("Успешно загружен список опубликованных постов:", published)
+
 # Загружаем OAuth токен
 with open(TOKEN_FILE, 'rb') as f:
     creds = pickle.load(f)
