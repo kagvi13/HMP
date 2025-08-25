@@ -10,6 +10,15 @@ BLOG_ID = os.environ['BLOG_ID']
 POSTS_DIR = 'docs'
 JSON_FILE = 'scripts/published_posts.json'
 
+if os.path.exists(JSON_FILE):
+    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+        try:
+            published = json.load(f)
+        except json.JSONDecodeError:
+            published = {}
+else:
+    published = {}
+
 # Загружаем OAuth токен
 with open(TOKEN_FILE, 'rb') as f:
     creds = pickle.load(f)
