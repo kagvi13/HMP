@@ -1,4 +1,3 @@
-import time
 import json
 import os
 import hashlib
@@ -7,6 +6,7 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 from googleapiclient.errors import HttpError
 import pickle
+import sys
 
 # Файлы
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -25,9 +25,9 @@ if os.path.exists(JSON_FILE):
     try:
         with open(JSON_FILE, 'r', encoding='utf-8') as f:
             published = json.load(f)
-        print(f"Успешно загружен список опубликованных постов: {published}")
+        print(f"✅ Загружен список опубликованных постов: {list(published.keys())}")
     except json.JSONDecodeError:
-        print("published_posts.json пустой или поврежден — начинаем с нуля.")
+        print("⚠ published_posts.json пустой или поврежден — начинаем с нуля.")
         published = {}
 else:
     published = {}
@@ -49,7 +49,7 @@ for root, _, files in os.walk("docs"):
 
         # Пропускаем если ничего не изменилось
         if title in published and published[title]['hash'] == content_hash:
-            print(f"Без изменений: {title}")
+            print(f"⏭ Без изменений: {title}")
             continue
 
         post = {
@@ -65,28 +65,28 @@ for root, _, files in os.walk("docs"):
                 updated_post = service.posts().update(
                     blogId=BLOG_ID, postId=post_id, body=post
                 ).execute()
-                print(f"Пост обновлён: {updated_post['url']}")
+                print(f"♻️ Пост обновлён: {updated_post['url']}")
                 published[title] = {"id": post_id, "hash": content_hash}
             else:
                 # публикуем новый
                 new_post = service.posts().insert(
                     blogId=BLOG_ID, body=post, isDraft=False
                 ).execute()
-                print(f"Пост опубликован: {new_post['url']}")
+                print(f"🆕 Пост опубликован: {new_post['url']}")
                 published[title] = {"id": new_post['id'], "hash": content_hash}
 
             # 💾 сохраняем прогресс
             with open(JSON_FILE, 'w', encoding='utf-8') as f:
                 json.dump(published, f, ensure_ascii=False, indent=2)
 
-            # 🕒 пауза в 10 мин.
-            print("Пауза 10 мин. перед следующим постом...")
-            time.sleep(600)
+            print("✅ Завершаем выполнение после первого поста.")
+            sys.exit(0)
 
         except HttpError as e:
             if e.resp.status == 403 and "quotaExceeded" in str(e):
-                print("⚠ Достигнут лимит Blogger API. Засыпаем на 1 час...")
-                time.sleep(1 * 3600)
-                continue
+                print("⚠ Достигнут лимит Blogger API. Попробуйте снова позже.")
+                sys.exit(1)
             else:
                 raise
+
+print("🎉 Все посты уже актуальны — новых публикаций нет.")
