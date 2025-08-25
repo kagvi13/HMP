@@ -4,13 +4,13 @@ import base64
 from googleapiclient.discovery import build
 import markdown2
 
-# Загружаем OAuth токен из GitHub Secrets (base64)
+# Загружаем OAuth токен из переменной окружения
 token_b64 = os.environ['TOKEN_PKL']
-token_bytes = base64.b64decode(token_b64)
-creds = pickle.loads(token_bytes)
+creds = pickle.loads(base64.b64decode(token_b64))
 
+# Инициализируем сервис Blogger API
 service = build('blogger', 'v3', credentials=creds)
-BLOG_ID = os.environ['BLOGGER_BLOG_ID']
+BLOG_ID = os.environ['BLOG_ID']  # Укажем через GitHub Secrets
 
 # Папка с Markdown-файлами для публикации
 POSTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs')
