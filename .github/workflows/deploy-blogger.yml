@@ -18,11 +18,13 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib markdown2
+        run: pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib markdown2
+
+      - name: Write token.pkl
+        run: echo "${{ secrets.BLOGGER_TOKEN_PKL }}" | base64 --decode > token.pkl
 
       - name: Publish to Blogger
         run: python scripts/publish_to_blogger.py
         env:
-          TOKEN_PKL: ${{ secrets.BLOGGER_TOKEN_BASE64 }}
           BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          TOKEN_FILE: token.pkl
