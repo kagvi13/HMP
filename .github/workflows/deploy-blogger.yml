@@ -31,17 +31,18 @@ jobs:
 
       - name: Push updated published_posts.json to gh-pages
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
           # Клонируем gh-pages в отдельную временную директорию
           TMP_DIR=$(mktemp -d)
           git clone --branch gh-pages https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR"
 
-          # Копируем файл published_posts.json в клонированный репозиторий
+          # Копируем файл published_posts.json
           cp published_posts.json "$TMP_DIR/published_posts.json"
 
           cd "$TMP_DIR"
+
+          # Настраиваем имя и email для коммитов в этом репозитории
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Коммитим и пушим
           git add published_posts.json
