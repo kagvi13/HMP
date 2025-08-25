@@ -8,7 +8,10 @@ import markdown2
 TOKEN_FILE = os.environ.get('TOKEN_FILE', 'token.pkl')
 BLOG_ID = os.environ['BLOG_ID']
 POSTS_DIR = 'docs'
-JSON_FILE = 'scripts/published_posts.json'
+
+# Путь к текущему скрипту
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+JSON_FILE = os.path.join(SCRIPT_DIR, 'published_posts.json')
 
 if os.path.exists(JSON_FILE):
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
@@ -18,7 +21,6 @@ if os.path.exists(JSON_FILE):
             published = {}
 else:
     published = {}
-
 # Загружаем OAuth токен
 with open(TOKEN_FILE, 'rb') as f:
     creds = pickle.load(f)
