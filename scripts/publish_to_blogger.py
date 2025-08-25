@@ -10,7 +10,7 @@ import sys
 
 # Файлы
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_FILE = os.path.join(SCRIPT_DIR, "published_posts.json")
+JSON_FILE = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "published_posts.json"))
 
 # Загружаем токен
 TOKEN_FILE = os.environ.get('TOKEN_FILE', 'token.pkl')
