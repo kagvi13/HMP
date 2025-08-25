@@ -10,11 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Чек-аут ветки main
-      - name: Checkout main
-        uses: actions/checkout@v3
-        with:
-          ref: main
+      - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -33,24 +29,20 @@ jobs:
           BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
           TOKEN_FILE: token.pkl
 
-      # Переключаемся на gh-pages и пушим только updated published_posts.json
-      - name: Push published_posts.json to gh-pages
+      - name: Push updated published_posts.json to gh-pages
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Копируем файл в отдельную директорию
-          mkdir tmp_push
-          cp scripts/published_posts.json tmp_push/
-          
-          # Чек-аут ветки gh-pages
-          git fetch origin gh-pages:gh-pages
-          git checkout gh-pages
-          
-          # Копируем файл в корень gh-pages и коммитим
-          cp tmp_push/published_posts.json .
+
+          # Создаём отдельную директорию для gh-pages
+          mkdir tmp_ghpages
+          cd tmp_ghpages
+          git clone --branch gh-pages https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git .
+
+          # Копируем файл published_posts.json
+          cp ../scripts/published_posts.json .
+
+          # Коммитим и пушим
           git add published_posts.json
           git commit -m "Update published_posts.json" || echo "No changes to commit"
-          
-          # Пушим в gh-pages
-          git push "https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:gh-pages
+          git push origin gh-pages
