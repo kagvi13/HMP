@@ -321,7 +321,8 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 ### Блог и публикации
 
-- 📘 Блог: [blogspot](https://hypercortex-mesh.blogspot.com/)
+- 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
+- 📘 Блог (документация): [blogspot](https://hmp-docs.blogspot.com/)
 
 ---
 
