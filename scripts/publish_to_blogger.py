@@ -8,9 +8,8 @@ from googleapiclient.errors import HttpError
 import pickle
 import sys
 
-# Файлы
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_FILE = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "published_posts.json"))
+# Файлы — всегда в корне репозитория
+JSON_FILE = os.path.join(os.getcwd(), "published_posts.json")
 
 # Загружаем токен
 TOKEN_FILE = os.environ.get('TOKEN_FILE', 'token.pkl')
@@ -60,7 +59,6 @@ for root, _, files in os.walk("docs"):
 
         try:
             if title in published:
-                # обновляем
                 post_id = published[title]['id']
                 updated_post = service.posts().update(
                     blogId=BLOG_ID, postId=post_id, body=post
@@ -68,7 +66,6 @@ for root, _, files in os.walk("docs"):
                 print(f"♻️ Пост обновлён: {updated_post['url']}")
                 published[title] = {"id": post_id, "hash": content_hash}
             else:
-                # публикуем новый
                 new_post = service.posts().insert(
                     blogId=BLOG_ID, body=post, isDraft=False
                 ).execute()
