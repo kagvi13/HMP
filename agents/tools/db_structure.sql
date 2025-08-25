@@ -143,6 +143,7 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     reflection TEXT,                            -- Краткая сводка/мета-комментарий
     novelty_score REAL,                         -- Количественная оценка новизны
     new_ideas JSON,                             -- JSON-список новых идей
+    refined_ideas TEXT,                         -- JSON доработанных (уточнённых, изменённых) идей
     discarded_ideas JSON                        -- JSON-список отбракованных идей
 );
 
