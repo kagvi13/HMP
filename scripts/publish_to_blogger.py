@@ -30,3 +30,4 @@ for filename in os.listdir(POSTS_DIR):
         }
         new_post = service.posts().insert(blogId=BLOG_ID, body=post, isDraft=False).execute()
         print(f"Пост опубликован: {new_post['url']}")
+        
