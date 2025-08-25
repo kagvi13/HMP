@@ -86,8 +86,8 @@ for path in md_files:
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump(published, f, ensure_ascii=False, indent=2)
 
-        print("⏱ Пауза 10 минут перед следующим постом...")
-        time.sleep(600)
+        print("⏱ Пауза 1 минута перед следующим постом...")
+        time.sleep(60)
 
     except HttpError as e:
         if e.resp.status == 403 and "quotaExceeded" in str(e):
