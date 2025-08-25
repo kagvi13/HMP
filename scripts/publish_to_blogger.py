@@ -1,99 +1,100 @@
-import json
+#!/usr/bin/env python3
 import os
+import json
 import hashlib
-import markdown2
+import time
 from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
-from googleapiclient.errors import HttpError
-import pickle
-import time
+import argparse
 
-# Файлы
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_FILE = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "published_posts.json"))
+# === Настройки ===
+SITE_DIR = "site"  # HTML-файлы после mkdocs build
+PUBLISHED_FILE = "published_posts.json"
+SLEEP_BETWEEN_POSTS = 60  # секунд
+BLOG_ID = os.environ.get("BLOG_ID")
+TOKEN_FILE = os.environ.get("TOKEN_FILE", "token.pkl")
 
-# Загружаем токен
-TOKEN_FILE = os.environ.get('TOKEN_FILE', 'token.pkl')
-with open(TOKEN_FILE, 'rb') as f:
-    creds = pickle.load(f)
+# === Утилиты ===
+def md5sum(path):
+    with open(path, "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()
 
-service = build('blogger', 'v3', credentials=creds)
-BLOG_ID = os.environ['BLOG_ID']
-
-# Загружаем список опубликованных постов
-if os.path.exists(JSON_FILE):
-    try:
-        with open(JSON_FILE, 'r', encoding='utf-8') as f:
-            published = json.load(f)
-        print(f"✅ Загружен список опубликованных постов: {list(published.keys())}")
-    except json.JSONDecodeError:
-        print("⚠ published_posts.json пустой или поврежден — начинаем с нуля.")
-        published = {}
-else:
-    published = {}
+def load_published():
+    if os.path.exists(PUBLISHED_FILE):
+        with open(PUBLISHED_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
     print("⚠ published_posts.json не найден — начинаем с нуля.")
+    return {}
 
-# Обход markdown файлов
-md_files = []
-for root, _, files in os.walk("docs"):
-    for filename in files:
-        if filename.endswith(".md"):
-            md_files.append(os.path.join(root, filename))
+def save_published(data):
+    with open(PUBLISHED_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
-# Сортируем для последовательной публикации
-md_files.sort()
+def get_service():
+    creds = Credentials.from_authorized_user_file(TOKEN_FILE)
+    return build("blogger", "v3", credentials=creds)
 
-for path in md_files:
-    title = os.path.splitext(os.path.basename(path))[0]
+# === Основная логика ===
+def publish_site():
+    service = get_service()
+    published = load_published()
 
-    with open(path, 'r', encoding='utf-8') as f:
-        md_content = f.read()
+    # собираем все html-файлы
+    html_files = []
+    for root, _, files in os.walk(SITE_DIR):
+        for name in files:
+            if name.endswith(".html"):
+                path = os.path.join(root, name)
+                rel_path = os.path.relpath(path, SITE_DIR)  # ключ
+                html_files.append((rel_path, path))
 
-    html_content = markdown2.markdown(md_content)
-    content_hash = hashlib.md5(md_content.encode('utf-8')).hexdigest()
+    for rel_path, path in html_files:
+        content_hash = md5sum(path)
+        post_meta = published.get(rel_path)
 
-    # Пропускаем если ничего не изменилось
-    if title in published and published[title]['hash'] == content_hash:
-        print(f"⏭ Без изменений: {title}")
-        continue
+        # читаем содержимое html
+        with open(path, "r", encoding="utf-8") as f:
+            html_content = f.read()
 
-    print(f"📝 Новый или изменённый пост: {title}")
+        if post_meta and post_meta["hash"] == content_hash:
+            print(f"⏭ Пропускаем {rel_path} — без изменений")
+            continue
 
-    post = {
-        "kind": "blogger#post",
-        "title": title,
-        "content": html_content
-    }
+        title = os.path.splitext(os.path.basename(rel_path))[0]
 
-    try:
-        if title in published:
-            # обновляем
-            post_id = published[title]['id']
-            updated_post = service.posts().update(
-                blogId=BLOG_ID, postId=post_id, body=post
-            ).execute()
-            print(f"♻️ Пост обновлён: {updated_post['url']}")
-            published[title] = {"id": post_id, "hash": content_hash}
-        else:
-            # публикуем новый
-            new_post = service.posts().insert(
-                blogId=BLOG_ID, body=post, isDraft=False
-            ).execute()
-            print(f"🆕 Пост опубликован: {new_post['url']}")
-            published[title] = {"id": new_post['id'], "hash": content_hash}
+        if post_meta:  # обновление поста
+            post_id = post_meta["id"]
+            print(f"🔄 Обновляем пост {rel_path}")
+            post = (
+                service.posts()
+                .update(
+                    blogId=BLOG_ID,
+                    postId=post_id,
+                    body={"title": title, "content": html_content},
+                )
+                .execute()
+            )
+        else:  # новый пост
+            print(f"🆕 Публикуем новый пост {rel_path}")
+            post = (
+                service.posts()
+                .insert(
+                    blogId=BLOG_ID,
+                    body={"title": title, "content": html_content},
+                )
+                .execute()
+            )
 
-        # 💾 сохраняем прогресс после каждого поста
-        with open(JSON_FILE, 'w', encoding='utf-8') as f:
-            json.dump(published, f, ensure_ascii=False, indent=2)
+        url = post.get("url")
+        post_id = post.get("id")
+        print(f"✅ {rel_path} → {url}")
 
-        print("⏱ Пауза 1 минута перед следующим постом...")
-        time.sleep(60)
+        # сохраняем метаданные
+        published[rel_path] = {"id": post_id, "hash": content_hash}
+        save_published(published)
 
-    except HttpError as e:
-        if e.resp.status == 403 and "quotaExceeded" in str(e):
-            print("⚠ Достигнут лимит Blogger API. Попробуйте снова позже.")
-            break
-        else:
-            raise
+        print(f"⏱ Пауза {SLEEP_BETWEEN_POSTS} секунд перед следующим постом…")
+        time.sleep(SLEEP_BETWEEN_POSTS)
 
-print("🎉 Все посты обработаны.")
+if __name__ == "__main__":
+    publish_site()
