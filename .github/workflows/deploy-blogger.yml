@@ -1,0 +1,31 @@
+name: Deploy to Blogger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-blogger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib markdown2
+
+      - name: Save token.pkl from secret
+        run: |
+          echo "${{ secrets.TOKEN_PKL }}" | base64 -d > token.pkl
+
+      - name: Publish posts to Blogger
+        env:
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+        run: python scripts/publish_to_blogger.py
