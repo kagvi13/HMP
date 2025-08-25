@@ -133,13 +133,17 @@ CREATE TABLE IF NOT EXISTS llm_memory (
     llm_id TEXT                                                 -- Идентификатор LLM
 );
 
--- Краткосрочная память (диалоговая история)
+-- Краткосрочная память (диалоговая история с рефлексией)
 CREATE TABLE IF NOT EXISTS llm_recent_responses (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,               -- Время сообщения
-    role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,    -- Роль автора
-    content TEXT NOT NULL,                                      -- Содержимое сообщения
-    llm_id TEXT                                                 -- Идентификатор LLM
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,
+    content TEXT NOT NULL,                      -- Содержимое сообщения
+    llm_id TEXT,                                -- Идентификатор LLM
+    reflection TEXT,                            -- Краткая сводка/мета-комментарий
+    novelty_score REAL,                         -- Количественная оценка новизны
+    new_ideas JSON,                             -- JSON-список новых идей
+    discarded_ideas JSON                        -- JSON-список отбракованных идей
 );
 
 -- Список известных агентов в сети HMP
