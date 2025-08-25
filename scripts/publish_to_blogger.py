@@ -1,100 +1,105 @@
-#!/usr/bin/env python3
 import os
 import json
 import hashlib
 import time
+import re
+from pathlib import Path
+
+import markdown2
 from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-import argparse
 
-# === Настройки ===
-SITE_DIR = "site"  # HTML-файлы после mkdocs build
+
+BLOG_ID = os.environ["BLOG_ID"]
+TOKEN_FILE = os.environ["TOKEN_FILE"]
 PUBLISHED_FILE = "published_posts.json"
-SLEEP_BETWEEN_POSTS = 60  # секунд
-BLOG_ID = os.environ.get("BLOG_ID")
-TOKEN_FILE = os.environ.get("TOKEN_FILE", "token.pkl")
+GH_PAGES_BASE = "https://kagvi13.github.io/HMP/"
 
-# === Утилиты ===
-def md5sum(path):
-    with open(path, "rb") as f:
-        return hashlib.md5(f.read()).hexdigest()
+
+def convert_md_links(md_text: str) -> str:
+    """
+    Конвертирует относительные ссылки (*.md) в абсолютные ссылки на GitHub Pages.
+    """
+    def replacer(match):
+        text = match.group(1)
+        link = match.group(2)
+
+        # если это абсолютный URL или не .md — оставляем как есть
+        if link.startswith("http://") or link.startswith("https://") or not link.endswith(".md"):
+            return match.group(0)
+
+        abs_link = GH_PAGES_BASE + link.replace(".md", "").lstrip("./")
+        return f"[{text}]({abs_link})"
+
+    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", replacer, md_text)
+
 
 def load_published():
-    if os.path.exists(PUBLISHED_FILE):
+    if Path(PUBLISHED_FILE).exists():
         with open(PUBLISHED_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     print("⚠ published_posts.json не найден — начинаем с нуля.")
     return {}
 
+
 def save_published(data):
     with open(PUBLISHED_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def get_service():
-    creds = Credentials.from_authorized_user_file(TOKEN_FILE)
-    return build("blogger", "v3", credentials=creds)
 
-# === Основная логика ===
-def publish_site():
-    service = get_service()
+def file_hash(path):
+    return hashlib.md5(Path(path).read_bytes()).hexdigest()
+
+
+def main():
+    creds = Credentials.from_authorized_user_file(TOKEN_FILE)
+    service = build("blogger", "v3", credentials=creds)
+
     published = load_published()
 
-    # собираем все html-файлы
-    html_files = []
-    for root, _, files in os.walk(SITE_DIR):
-        for name in files:
-            if name.endswith(".html"):
-                path = os.path.join(root, name)
-                rel_path = os.path.relpath(path, SITE_DIR)  # ключ
-                html_files.append((rel_path, path))
+    md_files = list(Path("docs").rglob("*.md"))
+    for md_file in md_files:
+        name = md_file.stem
+        h = file_hash(md_file)
 
-    for rel_path, path in html_files:
-        content_hash = md5sum(path)
-        post_meta = published.get(rel_path)
+        if name in published and published[name]["hash"] == h:
+            continue  # ничего не изменилось
 
-        # читаем содержимое html
-        with open(path, "r", encoding="utf-8") as f:
-            html_content = f.read()
+        print(f"📝 Новый или изменённый пост: {name}")
 
-        if post_meta and post_meta["hash"] == content_hash:
-            print(f"⏭ Пропускаем {rel_path} — без изменений")
-            continue
+        md_text = md_file.read_text(encoding="utf-8")
+        md_text = convert_md_links(md_text)
+        html_content = markdown2.markdown(md_text)
 
-        title = os.path.splitext(os.path.basename(rel_path))[0]
+        body = {
+            "kind": "blogger#post",
+            "title": name,
+            "content": html_content,
+        }
 
-        if post_meta:  # обновление поста
-            post_id = post_meta["id"]
-            print(f"🔄 Обновляем пост {rel_path}")
-            post = (
-                service.posts()
-                .update(
-                    blogId=BLOG_ID,
-                    postId=post_id,
-                    body={"title": title, "content": html_content},
-                )
-                .execute()
-            )
-        else:  # новый пост
-            print(f"🆕 Публикуем новый пост {rel_path}")
-            post = (
-                service.posts()
-                .insert(
-                    blogId=BLOG_ID,
-                    body={"title": title, "content": html_content},
-                )
-                .execute()
-            )
+        try:
+            if name in published:
+                post_id = published[name]["id"]
+                post = service.posts().update(blogId=BLOG_ID, postId=post_id, body=body).execute()
+                print(f"♻ Обновлён пост: {post['url']}")
+            else:
+                post = service.posts().insert(blogId=BLOG_ID, body=body).execute()
+                print(f"🆕 Пост опубликован: {post['url']}")
+                post_id = post["id"]
 
-        url = post.get("url")
-        post_id = post.get("id")
-        print(f"✅ {rel_path} → {url}")
+            published[name] = {"id": post_id, "hash": h}
+            save_published(published)
 
-        # сохраняем метаданные
-        published[rel_path] = {"id": post_id, "hash": content_hash}
-        save_published(published)
+            print("⏱ Пауза 60 секунд перед следующим постом...")
+            time.sleep(60)
 
-        print(f"⏱ Пауза {SLEEP_BETWEEN_POSTS} секунд перед следующим постом…")
-        time.sleep(SLEEP_BETWEEN_POSTS)
+        except HttpError as e:
+            print(f"❌ Ошибка при публикации {name}: {e}")
+            save_published(published)
+            break
+
 
 if __name__ == "__main__":
-    publish_site()
+    main()
