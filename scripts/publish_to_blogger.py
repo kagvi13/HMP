@@ -6,7 +6,8 @@ import re
 import argparse
 from pathlib import Path
 
-import markdown2
+import markdown
+from markdown.extensions import tables, fenced_code, codehilite, toc
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google.auth.transport.requests import Request
@@ -83,7 +84,22 @@ def main(force: bool = False):
         md_text = source_link + md_text
 
         md_text = convert_md_links(md_text)
-        html_content = markdown2.markdown(md_text)
+
+        # Конвертация Markdown в HTML с расширениями
+        html_content = markdown.markdown(
+            md_text,
+            extensions=["tables", "fenced_code", "codehilite", "toc"]
+        )
+
+        # Добавляем CSS для корректного отображения таблиц и блок-схем
+        style = """
+        <style>
+        table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 6px 12px; }
+        pre { display: block; max-width: 100%; overflow-x: auto; padding: 10px; background-color: #f8f8f8; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; white-space: pre; }
+        </style>
+        """
+        html_content = style + html_content
 
         body = {
             "kind": "blogger#post",
