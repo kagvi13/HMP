@@ -25,8 +25,14 @@ jobs:
           git fetch origin gh-pages
           git checkout origin/gh-pages -- published_posts.json || echo "{}" > published_posts.json
 
+      - name: Select random token
+        run: |
+          TOKENS=("TOKEN_JSON" "TOKEN_JSON1" "TOKEN_JSON2" "TOKEN_JSON3")
+          SELECTED=${TOKENS[$((RANDOM % ${#TOKENS[@]}))]}
+          echo "SELECTED=$SELECTED" >> $GITHUB_ENV
+
       - name: Write token.json
-        run: echo "${{ secrets.TOKEN_JSON }}" | base64 --decode > token.json
+        run: echo "${{ secrets[env.SELECTED] }}" | base64 --decode > token.json
 
       - name: Publish to Blogger
         run: python scripts/publish_to_blogger.py
