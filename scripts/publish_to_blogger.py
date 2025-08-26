@@ -77,6 +77,11 @@ def main(force: bool = False):
         print(f"📝 {'Форс-обновление' if force else 'Новый или изменённый'} пост: {name}")
 
         md_text = md_file.read_text(encoding="utf-8")
+        
+        # Добавляем ссылку на исходный файл в начале
+        source_link = f"Источник: [ {md_file.name} ](https://github.com/kagvi13/HMP/blob/main/docs/{md_file.name})\n\n"
+        md_text = source_link + md_text
+
         md_text = convert_md_links(md_text)
         html_content = markdown2.markdown(md_text)
 
