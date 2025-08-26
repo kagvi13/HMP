@@ -3,7 +3,7 @@ import json
 import hashlib
 import time
 import re
-import pickle
+import argparse
 from pathlib import Path
 
 import markdown2
@@ -26,7 +26,6 @@ def convert_md_links(md_text: str) -> str:
         text = match.group(1)
         link = match.group(2)
 
-        # если это абсолютный URL или не .md — оставляем как есть
         if link.startswith("http://") or link.startswith("https://") or not link.endswith(".md"):
             return match.group(0)
 
@@ -53,20 +52,18 @@ def file_hash(path):
     return hashlib.md5(Path(path).read_bytes()).hexdigest()
 
 
-def main():
-    # Загружаем токен.json (который кладём через secrets.TOKEN_JSON)
+def main(force: bool = False):
+    # Загружаем токен.json
     creds = None
     if os.path.exists(TOKEN_FILE):
         creds = Credentials.from_authorized_user_file(TOKEN_FILE, ["https://www.googleapis.com/auth/blogger"])
 
-    # Если токен просрочен, обновим
     if creds and creds.expired and creds.refresh_token:
         creds.refresh(Request())
         with open(TOKEN_FILE, "w") as token_file:
             token_file.write(creds.to_json())
 
     service = build("blogger", "v3", credentials=creds)
-
     published = load_published()
 
     md_files = list(Path("docs").rglob("*.md"))
@@ -74,10 +71,10 @@ def main():
         name = md_file.stem
         h = file_hash(md_file)
 
-        if name in published and published[name]["hash"] == h:
+        if not force and name in published and published[name]["hash"] == h:
             continue  # ничего не изменилось
 
-        print(f"📝 Новый или изменённый пост: {name}")
+        print(f"📝 {'Форс-обновление' if force else 'Новый или изменённый'} пост: {name}")
 
         md_text = md_file.read_text(encoding="utf-8")
         md_text = convert_md_links(md_text)
@@ -112,4 +109,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--force", action="store_true", help="Обновить все посты, даже без изменений")
+    args = parser.parse_args()
+
+    main(force=args.force)
