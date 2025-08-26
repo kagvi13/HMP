@@ -27,7 +27,7 @@ jobs:
 
       - name: Select random token
         run: |
-          TOKENS=("TOKEN_JSON" "TOKEN_JSON1" "TOKEN_JSON2" "TOKEN_JSON3")
+          TOKENS=("TOKEN_JSON")
           SELECTED=${TOKENS[$((RANDOM % ${#TOKENS[@]}))]}
           echo "SELECTED=$SELECTED" >> $GITHUB_ENV
 
