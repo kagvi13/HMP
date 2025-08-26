@@ -12,7 +12,6 @@ from googleapiclient.errors import HttpError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 
-
 BLOG_ID = os.environ["BLOG_ID"]
 TOKEN_FILE = os.environ["TOKEN_FILE"]
 PUBLISHED_FILE = "published_posts.json"
@@ -55,8 +54,17 @@ def file_hash(path):
 
 
 def main():
-    with open(TOKEN_FILE, "rb") as f:
-        creds = pickle.load(f)
+    # Загружаем токен.json (который кладём через secrets.TOKEN_JSON)
+    creds = None
+    if os.path.exists(TOKEN_FILE):
+        creds = Credentials.from_authorized_user_file(TOKEN_FILE, ["https://www.googleapis.com/auth/blogger"])
+
+    # Если токен просрочен, обновим
+    if creds and creds.expired and creds.refresh_token:
+        creds.refresh(Request())
+        with open(TOKEN_FILE, "w") as token_file:
+            token_file.write(creds.to_json())
+
     service = build("blogger", "v3", credentials=creds)
 
     published = load_published()
