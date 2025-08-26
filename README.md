@@ -159,7 +159,7 @@ RU:
 #### 🔍 Overviews / Обзоры
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
 
-#### Experiments / Экспирименты
+#### Experiments / Эксперименты
 
 * [Как разные ИИ видят HMP](docs/HMP-how-AI-sees-it.md) — "слепой" опрос ИИ об HMP (без контекста и истории диалогов)
 
