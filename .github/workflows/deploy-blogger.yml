@@ -22,9 +22,10 @@ jobs:
 
       - name: Fetch published_posts.json from gh-blogs (or init)
         run: |
-          git fetch origin gh-blogs || echo "Branch gh-blogs does not exist"
+          # Проверяем, существует ли ветка gh-blogs
           if git ls-remote --exit-code origin gh-blogs; then
             echo "Branch gh-blogs exists, fetching published_posts.json..."
+            git fetch origin gh-blogs
             git checkout origin/gh-blogs -- published_posts.json || echo "{}" > published_posts.json
           else
             echo "Branch gh-blogs does not exist, creating initial JSON..."
@@ -64,15 +65,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Настройка LFS
+          # Настройка Git LFS
           git lfs install
           git lfs track "*.png" "*.pdf" "*.aac" || echo "No new LFS files"
           git add .gitattributes || echo "No changes to .gitattributes"
 
-          # Копируем JSON
-          cp ../published_posts.json published_posts.json
-          git add published_posts.json
+          # Копируем JSON из рабочего пространства
+          cp $GITHUB_WORKSPACE/published_posts.json published_posts.json
 
-          # Коммит и пуш
+          git add published_posts.json
           git commit -m "Update published_posts.json" || echo "No changes to commit"
           git push origin gh-blogs --force
