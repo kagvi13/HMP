@@ -111,5 +111,5 @@
 
 ### Блог и публикации
 
-* 📘 Основной блог: [blogspot](https://hypercortex-mesh.blogspot.com/)
-* 📘 Вспомогательны блог: [livejournal](https://kagvi13.livejournal.com)
+* 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
+* 📘 Блог (документация): [blogspot](https://hmp-docs.blogspot.com/)
