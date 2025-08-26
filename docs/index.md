@@ -4,9 +4,9 @@
 
 ## Лендинг
 
-* <b><a href="landing/HMP.html" target="_blank">Презентация HTML</a></b>
-* <b><a href="landing/assets/HMP.pdf" target="_blank">Презентация PDF</a></b>
-* <b><a href="landing/assets/hmp-notebooklm.aac" target="_blank">🎧 Послушать: ИИ-диалог Google NotebookLM об HMP (эксперимент)</a></b>
+* <b><a href="https://kagvi13.github.io/HMP/landing/HMP.html" target="_blank">Презентация HTML</a></b>
+* <b><a href="https://kagvi13.github.io/HMP/landing/assets/HMP.pdf" target="_blank">Презентация PDF</a></b>
+* <b><a href="https://kagvi13.github.io/HMP/landing/assets/hmp-notebooklm.aac" target="_blank">🎧 Послушать: ИИ-диалог Google NotebookLM об HMP (эксперимент)</a></b>
 
 ---
 
