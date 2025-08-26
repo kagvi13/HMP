@@ -61,7 +61,8 @@ jobs:
             git rm -rf .
           fi
 
-          cp ../published_posts.json ./published_posts.json
+          # Копируем JSON из рабочего каталога Actions
+          cp $GITHUB_WORKSPACE/published_posts.json ./published_posts.json
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
