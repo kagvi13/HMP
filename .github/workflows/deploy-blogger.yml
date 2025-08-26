@@ -26,7 +26,7 @@ jobs:
           if git ls-remote --exit-code origin gh-blogs; then
             echo "Branch gh-blogs exists, fetching published_posts.json..."
             git fetch origin gh-blogs
-            git checkout origin/gh-blogs -- published_posts.json || echo "{}" > published_posts.json
+            git checkout origin/gh-blogs -- published_posts.json
           else
             echo "Branch gh-blogs does not exist, creating initial JSON..."
             echo "{}" > published_posts.json
@@ -53,26 +53,19 @@ jobs:
           git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR"
           cd "$TMP_DIR"
 
-          # Проверяем, существует ли ветка
-          if git ls-remote --exit-code origin gh-blogs; then
+          # Проверяем, есть ли ветка gh-blogs
+          if git show-ref --quiet refs/heads/gh-blogs; then
             git checkout gh-blogs
           else
             git checkout --orphan gh-blogs
             git rm -rf .
           fi
 
-          # Настройка Git пользователя
+          cp ../published_posts.json ./published_posts.json
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Настройка Git LFS
-          git lfs install
-          git lfs track "*.png" "*.pdf" "*.aac" || echo "No new LFS files"
-          git add .gitattributes || echo "No changes to .gitattributes"
-
-          # Копируем JSON из рабочего пространства
-          cp $GITHUB_WORKSPACE/published_posts.json published_posts.json
-
           git add published_posts.json
-          git commit -m "Update published_posts.json" || echo "No changes to commit"
-          git push origin gh-blogs --force
+          git commit -m "Update published_posts.json" --quiet || echo "No changes to commit"
+          git push origin gh-blogs --force --quiet
