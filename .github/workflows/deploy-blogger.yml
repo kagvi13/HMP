@@ -22,11 +22,10 @@ jobs:
 
       - name: Fetch published_posts.json from gh-blogs (or init)
         run: |
-          # Проверяем, существует ли ветка gh-blogs
+          git fetch origin gh-blogs || echo "Branch gh-blogs does not exist"
           if git ls-remote --exit-code origin gh-blogs; then
             echo "Branch gh-blogs exists, fetching published_posts.json..."
-            git fetch origin gh-blogs
-            git checkout origin/gh-blogs -- published_posts.json
+            git checkout origin/gh-blogs -- published_posts.json || echo "{}" > published_posts.json
           else
             echo "Branch gh-blogs does not exist, creating initial JSON..."
             echo "{}" > published_posts.json
@@ -53,23 +52,27 @@ jobs:
           git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR"
           cd "$TMP_DIR"
 
+          # Проверяем, существует ли ветка
+          if git ls-remote --exit-code origin gh-blogs; then
+            git checkout gh-blogs
+          else
+            git checkout --orphan gh-blogs
+            git rm -rf .
+          fi
+
           # Настройка Git пользователя
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Если ветка gh-blogs отсутствует, создаём orphan ветку
-          if ! git show-ref --verify --quiet refs/heads/gh-blogs; then
-            git checkout --orphan gh-blogs
-            echo "{}" > published_posts.json
-            git add published_posts.json
-            git commit -m "Initial gh-blogs commit with empty JSON"
-            git push origin gh-blogs
-          else
-            git checkout gh-blogs
-          fi
+          # Настройка LFS
+          git lfs install
+          git lfs track "*.png" "*.pdf" "*.aac" || echo "No new LFS files"
+          git add .gitattributes || echo "No changes to .gitattributes"
 
-          # Обновляем JSON и коммитим
+          # Копируем JSON
           cp ../published_posts.json published_posts.json
           git add published_posts.json
+
+          # Коммит и пуш
           git commit -m "Update published_posts.json" || echo "No changes to commit"
-          git push origin gh-blogs
+          git push origin gh-blogs --force
