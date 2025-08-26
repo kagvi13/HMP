@@ -23,6 +23,13 @@ jobs:
       - name: Write token.json
         run: echo "${{ secrets.TOKEN_JSON }}" | base64 --decode > token.json
 
+      # ✅ Подтянуть published_posts.json из gh-pages
+      - name: Fetch published_posts.json from gh-pages
+        run: |
+          git fetch origin gh-pages:gh-pages
+          git checkout gh-pages -- published_posts.json || echo "{}" > published_posts.json
+          git checkout -
+
       - name: Publish to Blogger
         run: python scripts/publish_to_blogger.py
         env:
