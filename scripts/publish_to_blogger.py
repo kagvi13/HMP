@@ -56,7 +56,6 @@ def get_existing_posts(service):
         try:
             response = service.posts().list(blogId=BLOG_ID, maxResults=500, pageToken=nextPageToken).execute()
             for post in response.get("items", []):
-                # Проверяем наличие доступа на редактирование
                 post_id = post["id"]
                 title = post["title"]
                 existing[title] = post_id
@@ -88,11 +87,6 @@ def main(force: bool = False):
         name = md_file.stem
         h = file_hash(md_file)
 
-        if not force and name in published and published[name]["hash"] == h:
-            continue  # ничего не изменилось
-
-        print(f"📝 {'Форс-обновление' if force else 'Новый или изменённый'} пост: {name}")
-
         md_text = md_file.read_text(encoding="utf-8")
         source_link = f"Источник: [ {md_file.name} ](https://github.com/kagvi13/HMP/blob/main/docs/{md_file.name})\n\n"
         md_text = source_link + md_text
@@ -119,17 +113,21 @@ def main(force: bool = False):
         }
 
         try:
-            if name in existing_posts:
-                # Пытаемся обновить
+            post_id = existing_posts.get(name)
+
+            if post_id:
+                # Есть существующий пост, проверяем хэш
+                if not force and name in published and published[name]["hash"] == h:
+                    print(f"✅ Пост '{name}' без изменений — пропускаем.")
+                    continue
+
                 try:
-                    post_id = existing_posts[name]
                     post = service.posts().update(blogId=BLOG_ID, postId=post_id, body=body).execute()
                     print(f"♻ Обновлён пост: {post['url']}")
                 except HttpError as e:
                     if e.resp.status == 403:
-                        # Нет прав на обновление → создаём новый пост
                         post = service.posts().insert(blogId=BLOG_ID, body=body).execute()
-                        print(f"⚠ Пост существовал, но права нет. Создан новый: {post['url']}")
+                        print(f"⚠ Пост существовал, но прав нет. Создан новый: {post['url']}")
                         post_id = post["id"]
                     else:
                         raise e
