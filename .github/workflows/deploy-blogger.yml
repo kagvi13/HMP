@@ -22,7 +22,6 @@ jobs:
 
       - name: Fetch published_posts.json from gh-blogs (or init)
         run: |
-          # Проверяем, существует ли ветка gh-blogs
           if git ls-remote --exit-code origin gh-blogs; then
             echo "Branch gh-blogs exists, fetching published_posts.json..."
             git fetch origin gh-blogs
@@ -50,19 +49,22 @@ jobs:
       - name: Push updated published_posts.json to gh-blogs
         run: |
           TMP_DIR=$(mktemp -d)
-          git clone --branch gh-blogs https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR" || {
-            echo "Branch gh-blogs does not exist yet, creating..."
-            git clone https://github.com/${{ github.repository }}.git "$TMP_DIR"
-            cd "$TMP_DIR"
-            git checkout --orphan gh-blogs
-            git rm -rf .
-          }
-
-          cp published_posts.json "$TMP_DIR/published_posts.json"
-
+          git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR"
           cd "$TMP_DIR"
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Если ветка gh-blogs отсутствует, создаём orphan ветку и initial commit
+          if ! git show-ref --verify --quiet refs/heads/gh-blogs; then
+            git checkout --orphan gh-blogs
+            echo "{}" > published_posts.json
+            git add published_posts.json
+            git commit -m "Initial gh-blogs commit with empty JSON"
+            git push origin gh-blogs
+          else
+            git checkout gh-blogs
+          fi
+
+          # Обновляем JSON и коммитим
+          cp ../published_posts.json published_posts.json
           git add published_posts.json
           git commit -m "Update published_posts.json" || echo "No changes to commit"
-          git push origin gh-blogs --force
+          git push origin gh-blogs
