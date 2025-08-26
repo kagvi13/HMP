@@ -27,7 +27,7 @@ jobs:
         run: python scripts/publish_to_blogger.py
         env:
           BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
-          TOKEN_FILE: token.pkl
+          TOKEN_FILE: token.json
 
       - name: Push updated published_posts.json to gh-pages
         run: |
