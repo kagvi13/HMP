@@ -3,6 +3,7 @@ import json
 import hashlib
 import time
 import re
+import pickle
 from pathlib import Path
 
 import markdown2
@@ -54,7 +55,8 @@ def file_hash(path):
 
 
 def main():
-    creds = Credentials.from_authorized_user_file(TOKEN_FILE)
+    with open(TOKEN_FILE, "rb") as f:
+        creds = pickle.load(f)
     service = build("blogger", "v3", credentials=creds)
 
     published = load_published()
