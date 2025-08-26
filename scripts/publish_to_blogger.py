@@ -20,19 +20,14 @@ GH_PAGES_BASE = "https://kagvi13.github.io/HMP/"
 
 
 def convert_md_links(md_text: str) -> str:
-    """
-    Конвертирует относительные ссылки (*.md) в абсолютные ссылки на GitHub Pages.
-    """
+    """Конвертирует относительные ссылки (*.md) в абсолютные ссылки на GitHub Pages."""
     def replacer(match):
         text = match.group(1)
         link = match.group(2)
-
         if link.startswith("http://") or link.startswith("https://") or not link.endswith(".md"):
             return match.group(0)
-
         abs_link = GH_PAGES_BASE + link.replace(".md", "").lstrip("./")
         return f"[{text}]({abs_link})"
-
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", replacer, md_text)
 
 
@@ -53,8 +48,28 @@ def file_hash(path):
     return hashlib.md5(Path(path).read_bytes()).hexdigest()
 
 
+def get_existing_posts(service):
+    """Возвращает словарь title → post_id для постов, которые можно редактировать."""
+    existing = {}
+    nextPageToken = None
+    while True:
+        try:
+            response = service.posts().list(blogId=BLOG_ID, maxResults=500, pageToken=nextPageToken).execute()
+            for post in response.get("items", []):
+                # Проверяем наличие доступа на редактирование
+                post_id = post["id"]
+                title = post["title"]
+                existing[title] = post_id
+            nextPageToken = response.get("nextPageToken")
+            if not nextPageToken:
+                break
+        except HttpError as e:
+            print(f"❌ Ошибка при получении списка постов: {e}")
+            break
+    return existing
+
+
 def main(force: bool = False):
-    # Загружаем токен.json
     creds = None
     if os.path.exists(TOKEN_FILE):
         creds = Credentials.from_authorized_user_file(TOKEN_FILE, ["https://www.googleapis.com/auth/blogger"])
@@ -66,6 +81,7 @@ def main(force: bool = False):
 
     service = build("blogger", "v3", credentials=creds)
     published = load_published()
+    existing_posts = get_existing_posts(service)
 
     md_files = list(Path("docs").rglob("*.md"))
     for md_file in md_files:
@@ -78,20 +94,15 @@ def main(force: bool = False):
         print(f"📝 {'Форс-обновление' if force else 'Новый или изменённый'} пост: {name}")
 
         md_text = md_file.read_text(encoding="utf-8")
-        
-        # Добавляем ссылку на исходный файл в начале
         source_link = f"Источник: [ {md_file.name} ](https://github.com/kagvi13/HMP/blob/main/docs/{md_file.name})\n\n"
         md_text = source_link + md_text
-
         md_text = convert_md_links(md_text)
 
-        # Конвертация Markdown в HTML с расширениями
         html_content = markdown.markdown(
             md_text,
             extensions=["tables", "fenced_code", "codehilite", "toc"]
         )
 
-        # Добавляем CSS для корректного отображения таблиц и блок-схем
         style = """
         <style>
         table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
@@ -108,10 +119,20 @@ def main(force: bool = False):
         }
 
         try:
-            if name in published:
-                post_id = published[name]["id"]
-                post = service.posts().update(blogId=BLOG_ID, postId=post_id, body=body).execute()
-                print(f"♻ Обновлён пост: {post['url']}")
+            if name in existing_posts:
+                # Пытаемся обновить
+                try:
+                    post_id = existing_posts[name]
+                    post = service.posts().update(blogId=BLOG_ID, postId=post_id, body=body).execute()
+                    print(f"♻ Обновлён пост: {post['url']}")
+                except HttpError as e:
+                    if e.resp.status == 403:
+                        # Нет прав на обновление → создаём новый пост
+                        post = service.posts().insert(blogId=BLOG_ID, body=body).execute()
+                        print(f"⚠ Пост существовал, но права нет. Создан новый: {post['url']}")
+                        post_id = post["id"]
+                    else:
+                        raise e
             else:
                 post = service.posts().insert(blogId=BLOG_ID, body=body).execute()
                 print(f"🆕 Пост опубликован: {post['url']}")
