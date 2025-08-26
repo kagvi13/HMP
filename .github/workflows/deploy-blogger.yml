@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib markdown2
 
-      - name: Write token.pkl
-        run: echo "${{ secrets.TOKEN_PKL }}" | base64 --decode > token.pkl
+      - name: Write token.json
+        run: echo "${{ secrets.TOKEN_JSON }}" | base64 --decode > token.json
 
       - name: Publish to Blogger
         run: python scripts/publish_to_blogger.py
