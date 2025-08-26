@@ -22,6 +22,7 @@ jobs:
 
       - name: Fetch published_posts.json from gh-blogs (or init)
         run: |
+          # Проверяем, существует ли ветка gh-blogs
           if git ls-remote --exit-code origin gh-blogs; then
             echo "Branch gh-blogs exists, fetching published_posts.json..."
             git fetch origin gh-blogs
@@ -52,7 +53,11 @@ jobs:
           git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR"
           cd "$TMP_DIR"
 
-          # Если ветка gh-blogs отсутствует, создаём orphan ветку и initial commit
+          # Настройка Git пользователя
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Если ветка gh-blogs отсутствует, создаём orphan ветку
           if ! git show-ref --verify --quiet refs/heads/gh-blogs; then
             git checkout --orphan gh-blogs
             echo "{}" > published_posts.json
