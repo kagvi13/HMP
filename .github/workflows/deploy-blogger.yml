@@ -35,7 +35,7 @@ jobs:
         run: echo "${{ secrets[env.SELECTED] }}" | base64 --decode > token.json
 
       - name: Publish to Blogger
-        run: python scripts/publish_to_blogger.py --force
+        run: python scripts/publish_to_blogger.py
         env:
           BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
           TOKEN_FILE: token.json
