@@ -216,9 +216,35 @@ CREATE TABLE IF NOT EXISTS stagnation_strategies (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     name            TEXT NOT NULL,                              -- Название метода (например, "Mesh-вопрос")
     description     TEXT NOT NULL,                              -- Подробное описание метода
-    source          TEXT,                                       -- Источник (например, internal, mesh, user-defined)
-    active          BOOLEAN DEFAULT true,                       -- Доступен ли метод для использования
-    inactive_reason TEXT                                        -- Причина отключения, если active = false
+    source          TEXT,                                       -- Источник (internal, mesh, user-defined)
+    tags            TEXT,                                       -- Список тегов через запятую (или JSON)
+    reputation      REAL DEFAULT 0,                             -- Средняя оценка
+    active          BOOLEAN DEFAULT true,
+    inactive_reason TEXT
+);
+
+-- Методы мышления
+CREATE TABLE IF NOT EXISTS thinking_methods (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    name            TEXT NOT NULL,                              -- Название метода (например, "Итеративное уточнение")
+    description     TEXT NOT NULL,                              -- Подробное описание метода
+    type            TEXT,                                       -- Класс: генерация идей, решение проблем, аргументация и т.д.
+    source          TEXT,                                       -- internal, mesh, user-defined
+    tags            TEXT,                                       -- Список тегов
+    reputation      REAL DEFAULT 0,                             -- Средняя оценка
+    active          BOOLEAN DEFAULT true,
+    inactive_reason TEXT
+);
+
+-- Универсальные оценки (для методов мышления, стратегий стагнации и др.)
+CREATE TABLE IF NOT EXISTS ratings (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    agent_id    TEXT NOT NULL,                                  -- Идентификатор агента (mesh-id или локальный)
+    target_type TEXT NOT NULL,                                  -- "thinking_method" или "stagnation_strategy"
+    target_id   INTEGER NOT NULL,                               -- ID метода/стратегии
+    rating      INTEGER NOT NULL,                               -- Оценка (например, -1..+1 или 1..5)
+    comment     TEXT,
+    timestamp   DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Реестр LLM-агентов (в т.ч. удалённых)
@@ -281,3 +307,127 @@ CREATE TABLE IF NOT EXISTS password_reset_tokens (
     used BOOLEAN DEFAULT 0,                                     -- Использован ли токен
     FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
+
+-- ============================================
+-- Репутационные триггеры
+-- ============================================
+
+-- Удаляем старые версии триггеров, если они есть
+DROP TRIGGER IF EXISTS trg_update_reputation_insert;
+DROP TRIGGER IF EXISTS trg_update_reputation_update;
+DROP TRIGGER IF EXISTS trg_update_reputation_delete;
+
+-- Триггер после добавления оценки
+CREATE TRIGGER trg_update_reputation_insert
+AFTER INSERT ON ratings
+BEGIN
+    -- Если это метод мышления
+    UPDATE thinking_methods
+    SET reputation = (
+        SELECT COALESCE(AVG(rating),0)
+        FROM ratings
+        WHERE target_type = 'thinking_method'
+          AND target_id = NEW.target_id
+    )
+    WHERE id = NEW.target_id
+      AND NEW.target_type = 'thinking_method';
+
+    -- Если это стратегия стагнации
+    UPDATE stagnation_strategies
+    SET reputation = (
+        SELECT COALESCE(AVG(rating),0)
+        FROM ratings
+        WHERE target_type = 'stagnation_strategy'
+          AND target_id = NEW.target_id
+    )
+    WHERE id = NEW.target_id
+      AND NEW.target_type = 'stagnation_strategy';
+END;
+
+-- Триггер после изменения оценки
+CREATE TRIGGER trg_update_reputation_update
+AFTER UPDATE ON ratings
+BEGIN
+    -- Для методов мышления
+    UPDATE thinking_methods
+    SET reputation = (
+        SELECT COALESCE(AVG(rating),0)
+        FROM ratings
+        WHERE target_type = 'thinking_method'
+          AND target_id = NEW.target_id
+    )
+    WHERE id = NEW.target_id
+      AND NEW.target_type = 'thinking_method';
+
+    -- Для стратегий стагнации
+    UPDATE stagnation_strategies
+    SET reputation = (
+        SELECT COALESCE(AVG(rating),0)
+        FROM ratings
+        WHERE target_type = 'stagnation_strategy'
+          AND target_id = NEW.target_id
+    )
+    WHERE id = NEW.target_id
+      AND NEW.target_type = 'stagnation_strategy';
+END;
+
+-- Триггер после удаления оценки
+CREATE TRIGGER trg_update_reputation_delete
+AFTER DELETE ON ratings
+BEGIN
+    -- Для методов мышления
+    UPDATE thinking_methods
+    SET reputation = (
+        SELECT COALESCE(AVG(rating),0)
+        FROM ratings
+        WHERE target_type = 'thinking_method'
+          AND target_id = OLD.target_id
+    )
+    WHERE id = OLD.target_id
+      AND OLD.target_type = 'thinking_method';
+
+    -- Для стратегий стагнации
+    UPDATE stagnation_strategies
+    SET reputation = (
+        SELECT COALESCE(AVG(rating),0)
+        FROM ratings
+        WHERE target_type = 'stagnation_strategy'
+          AND target_id = OLD.target_id
+    )
+    WHERE id = OLD.target_id
+      AND OLD.target_type = 'stagnation_strategy';
+END;
+
+-- ============================================
+-- Унифицированное VIEW для рейтингов
+-- ============================================
+
+DROP VIEW IF EXISTS rated_entities;
+CREATE VIEW rated_entities AS
+SELECT 
+    'thinking_method' AS entity_type,
+    tm.id AS entity_id,
+    tm.name,
+    tm.description,
+    tm.tags,
+    tm.reputation,
+    COUNT(r.id) AS ratings_count
+FROM thinking_methods tm
+LEFT JOIN ratings r
+    ON r.target_type = 'thinking_method' AND r.target_id = tm.id
+GROUP BY tm.id
+
+UNION ALL
+
+SELECT 
+    'stagnation_strategy' AS entity_type,
+    ss.id AS entity_id,
+    ss.name,
+    ss.description,
+    ss.tags,
+    ss.reputation,
+    COUNT(r.id) AS ratings_count
+FROM stagnation_strategies ss
+LEFT JOIN ratings r
+    ON r.target_type = 'stagnation_strategy' AND r.target_id = ss.id
+GROUP BY ss.id;
