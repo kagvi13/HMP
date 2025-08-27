@@ -159,6 +159,9 @@ CREATE TABLE IF NOT EXISTS agent_peers (
     description TEXT,                                           -- Описание агента
     capabilities TEXT,                                          -- Возможности (JSON)
     pubkey TEXT,                                                -- Публичный ключ
+    pow_nonce INTEGER,                                          -- Nonce для PoW
+    pow_hash TEXT,                                              -- Контрольный хеш PoW (например, sha256(pubkey + addresses + nonce))
+    heard_from TEXT,                                            -- JSON список DID, от кого агент о нем узнал
     software_info TEXT,                                         -- Информация о ПО агента (JSON)
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP            -- Время регистрации
 );
