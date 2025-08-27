@@ -677,6 +677,16 @@ class Storage:
         self.conn.commit()
         return cursor.lastrowid
 
+    def generate_pow(peer_id, pubkey, addresses, difficulty=4):
+        nonce = 0
+        prefix = "0" * difficulty
+        while True:
+            base = f"{peer_id}{pubkey}{''.join(addresses)}{nonce}".encode()
+            h = hashlib.sha256(base).hexdigest()
+            if h.startswith(prefix):
+                return nonce, h
+            nonce += 1
+
     # Управление основными процессами
     def update_heartbeat(self, name: str):
         now = datetime.now(UTC).isoformat()
@@ -884,7 +894,7 @@ class Storage:
             }
         return None
 
-    # Работа с пирам (agent_peers)
+    # Нормализация адресов
     @staticmethod
     def parse_hostport(s: str):
         """
@@ -936,7 +946,6 @@ class Storage:
                     return scope_id
         return None
 
-    # Нормализация адресов
     @classmethod
     def normalize_address(cls, addr: str) -> str:
         addr = addr.strip()
@@ -955,10 +964,17 @@ class Storage:
         return f"{proto}://{host}:{port}" if port else f"{proto}://{host}"
 
     # Работа с пирам (agent_peers)
+    def verify_pow(peer_id, pubkey, addresses, nonce, pow_hash, difficulty=4):
+        base = f"{peer_id}{pubkey}{''.join(addresses)}{nonce}".encode()
+        h = hashlib.sha256(base).hexdigest()
+        return h == pow_hash and h.startswith("0" * difficulty)
+
     def add_or_update_peer(
         self, peer_id, name, addresses,
         source="discovery", status="unknown",
-        pubkey=None, capabilities=None
+        pubkey=None, capabilities=None,
+        pow_nonce=None, pow_hash=None,
+        heard_from=None
     ):
         c = self.conn.cursor()
 
@@ -968,12 +984,13 @@ class Storage:
         existing_addresses = []
         existing_pubkey = None
         existing_capabilities = {}
+        existing_heard_from = []
 
         if peer_id:
-            c.execute("SELECT addresses, pubkey, capabilities FROM agent_peers WHERE id=?", (peer_id,))
+            c.execute("SELECT addresses, pubkey, capabilities, heard_from FROM agent_peers WHERE id=?", (peer_id,))
             row = c.fetchone()
             if row:
-                db_addresses_json, existing_pubkey, db_caps_json = row
+                db_addresses_json, existing_pubkey, db_caps_json, db_heard_from = row
                 try:
                     existing_addresses = json.loads(db_addresses_json) or []
                 except:
@@ -982,16 +999,32 @@ class Storage:
                     existing_capabilities = json.loads(db_caps_json) if db_caps_json else {}
                 except:
                     existing_capabilities = {}
+                try:
+                    existing_heard_from = json.loads(db_heard_from) if db_heard_from else []
+                except:
+                    existing_heard_from = []
 
-        # объединяем и нормализуем адреса, чтобы IPv6 всегда были с []
+        # объединяем адреса
         combined_addresses = list({self.normalize_address(a) for a in (*existing_addresses, *addresses)})
-
         final_pubkey = pubkey or existing_pubkey
         final_capabilities = capabilities or existing_capabilities
 
+        # обновляем heard_from
+        combined_heard_from = list(set(existing_heard_from + (heard_from or [])))
+
+        # TODO: Проверка PoW (например, pow_hash.startswith("0000"))
+        if pow_hash and pow_nonce:
+            # простейшая проверка PoW
+            import hashlib
+            base = f"{peer_id}{final_pubkey}{''.join(combined_addresses)}{pow_nonce}".encode()
+            calc_hash = hashlib.sha256(base).hexdigest()
+            if calc_hash != pow_hash:
+                print(f"[WARN] Peer {peer_id} failed PoW validation")
+                return  # не вставляем
+
         c.execute("""
-            INSERT INTO agent_peers (id, name, addresses, source, status, last_seen, pubkey, capabilities)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO agent_peers (id, name, addresses, source, status, last_seen, pubkey, capabilities, pow_nonce, pow_hash, heard_from)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(id) DO UPDATE SET
                 name=excluded.name,
                 addresses=excluded.addresses,
@@ -999,7 +1032,10 @@ class Storage:
                 status=excluded.status,
                 last_seen=excluded.last_seen,
                 pubkey=excluded.pubkey,
-                capabilities=excluded.capabilities
+                capabilities=excluded.capabilities,
+                pow_nonce=excluded.pow_nonce,
+                pow_hash=excluded.pow_hash,
+                heard_from=excluded.heard_from
         """, (
             peer_id,
             name,
@@ -1008,7 +1044,10 @@ class Storage:
             status,
             datetime.now(UTC).isoformat(),
             final_pubkey,
-            json.dumps(final_capabilities)
+            json.dumps(final_capabilities),
+            pow_nonce,
+            pow_hash,
+            json.dumps(combined_heard_from)
         ))
         self.conn.commit()
 

@@ -40,10 +40,15 @@ def expand_addresses(addresses):
 
 def init_identity(storage, config):
     if not config.get("agent_id"):
+        # 1. Сгенерировать DID
         did = generate_did()
-        pubkey, privkey = generate_keypair()
         identity_id = did.split(":")[-1]
 
+        # 2. Сгенерировать ключи через storage
+        privkey, pubkey = generate_keypair(method="ed25519")
+        privkey, pubkey = privkey.decode(), pubkey.decode()
+
+        # 3. Создать запись в identity
         identity = {
             "id": identity_id,
             "name": config.get("agent_name", "Unnamed"),
@@ -55,8 +60,12 @@ def init_identity(storage, config):
         }
         storage.add_identity(identity)
 
+        # 4. Записать в config
         config["agent_id"] = did
         config["identity_agent"] = identity_id
+        config["pubkey"] = pubkey
+        config["privkey"] = privkey
+
         save_config(CONFIG_PATH, config)
         print(f"[+] Создана личность: {identity_id}")
     else:
