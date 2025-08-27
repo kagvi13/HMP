@@ -44,11 +44,15 @@ def init_identity(storage, config):
         did = generate_did()
         identity_id = did.split(":")[-1]
 
-        # 2. Сгенерировать ключи через storage
+        # 2. Сгенерировать ключи через crypto
         privkey, pubkey = generate_keypair(method="ed25519")
         privkey, pubkey = privkey.decode(), pubkey.decode()
 
-        # 3. Создать запись в identity
+        # 3. Выполнить PoW (для начальных адресов можно пока [] или config["local_addresses"])
+        addresses = config.get("local_addresses", [])
+        nonce, pow_hash = storage.generate_pow(identity_id, pubkey, addresses, difficulty=4)
+
+        # 4. Создать запись в identity
         identity = {
             "id": identity_id,
             "name": config.get("agent_name", "Unnamed"),
@@ -60,14 +64,16 @@ def init_identity(storage, config):
         }
         storage.add_identity(identity)
 
-        # 4. Записать в config
+        # 5. Записать в config
         config["agent_id"] = did
         config["identity_agent"] = identity_id
         config["pubkey"] = pubkey
         config["privkey"] = privkey
+        config["pow_nonce"] = nonce
+        config["pow_hash"] = pow_hash
 
         save_config(CONFIG_PATH, config)
-        print(f"[+] Создана личность: {identity_id}")
+        print(f"[+] Создана личность: {identity_id}, PoW: {pow_hash[:8]}...")
     else:
         print("[=] agent_id уже задан, пропускаем генерацию DiD.")
 

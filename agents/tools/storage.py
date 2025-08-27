@@ -677,7 +677,7 @@ class Storage:
         self.conn.commit()
         return cursor.lastrowid
 
-    def generate_pow(peer_id, pubkey, addresses, difficulty=4):
+    def generate_pow(self, peer_id, pubkey, addresses, difficulty=4):
         nonce = 0
         prefix = "0" * difficulty
         while True:
