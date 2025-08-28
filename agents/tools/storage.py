@@ -953,7 +953,12 @@ class Storage:
         return None
 
     @classmethod
-    def normalize_address(cls, addr: str) -> str:
+    def normalize_address(cls, addr) -> str:
+        if isinstance(addr, dict) and "addr" in addr:
+            addr = addr["addr"]
+        if not isinstance(addr, str):
+            return None
+
         addr = addr.strip()
         if not addr:
             return None
@@ -963,7 +968,6 @@ class Storage:
         proto, hostport = addr.split("://", 1)
         host, port = cls.parse_hostport(hostport)
 
-        # IPv6 без квадратных скобок
         if cls.is_ipv6(host) and not host.startswith("["):
             host = f"[{host}]"
 
@@ -1133,6 +1137,26 @@ class Storage:
         c = self.conn.cursor()
         c.execute("SELECT id, addresses FROM agent_peers WHERE id != ? LIMIT ?", (my_id, limit))
         return c.fetchall()
+
+    def get_peer_address(self, peer_id: str, addr_str: str):
+        """Возвращает запись адреса пира по peer_id и addr_str, или None если не найден"""
+        peers = self.get_known_peers(my_id="", limit=1000)  # передаем "" чтобы не фильтровать по my_id
+        for p in peers:
+            pid = p["id"] if isinstance(p, dict) else p[0]
+            addresses_json = p["addresses"] if isinstance(p, dict) else p[1]
+
+            if pid != peer_id:
+                continue
+
+            try:
+                addresses = json.loads(addresses_json)
+            except Exception:
+                continue
+
+            for a in addresses:
+                if a.get("addr") == addr_str:
+                    return a
+        return None
 
     # Утилиты
     def close(self):
