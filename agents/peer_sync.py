@@ -29,8 +29,6 @@ print(f"[PeerSync] Local ports: {local_ports}")
 # ---------------------------
 # Загрузка bootstrap
 # ---------------------------
-import json
-
 def load_bootstrap_peers(filename="bootstrap.txt"):
     try:
         with open(filename, "r", encoding="utf-8") as f:
@@ -74,23 +72,46 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
             print(f"[Bootstrap] Failed to parse JSON addresses: {line} ({e})")
             continue
 
-        # Расширяем any:// в tcp/udp
+        # Расширяем any:// в tcp/udp и приводим к новому формату
         expanded_addresses = []
         for addr in addresses:
             if isinstance(addr, dict):
-                addr_str = addr.get("address")
-                if addr_str.startswith("any://"):
-                    hostport = addr_str[len("any://"):]
-                    expanded_addresses.append({"address": f"tcp://{hostport}", **addr})
-                    expanded_addresses.append({"address": f"udp://{hostport}", **addr})
-                else:
+                # старый формат с address/pow → конвертим
+                if "address" in addr:
+                    addr_str = addr["address"]
+                    if addr_str.startswith("any://"):
+                        hostport = addr_str[len("any://"):]
+                        variants = [f"tcp://{hostport}", f"udp://{hostport}"]
+                    else:
+                        variants = [addr_str]
+
+                    for v in variants:
+                        expanded_addresses.append({
+                            "addr": v,
+                            "nonce": addr.get("pow", {}).get("nonce"),
+                            "pow_hash": addr.get("pow", {}).get("hash"),
+                            "difficulty": addr.get("pow", {}).get("difficulty"),
+                            "expires": addr.get("expires", "")
+                        })
+                # уже новый формат → оставляем как есть
+                elif "addr" in addr:
                     expanded_addresses.append(addr)
-            else:
+
+            elif isinstance(addr, str):
                 if addr.startswith("any://"):
                     hostport = addr[len("any://"):]
-                    expanded_addresses.extend([f"tcp://{hostport}", f"udp://{hostport}"])
+                    expanded_addresses.extend([
+                        {"addr": f"tcp://{hostport}", "nonce": None, "pow_hash": None, "difficulty": None, "expires": ""},
+                        {"addr": f"udp://{hostport}", "nonce": None, "pow_hash": None, "difficulty": None, "expires": ""}
+                    ])
                 else:
-                    expanded_addresses.append(addr)
+                    expanded_addresses.append({
+                        "addr": addr,
+                        "nonce": None,
+                        "pow_hash": None,
+                        "difficulty": None,
+                        "expires": ""
+                    })
 
         # Сохраняем в storage
         storage.add_or_update_peer(
