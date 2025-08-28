@@ -24,13 +24,35 @@ global_addresses = storage.get_config_value("global_addresses", [])
 all_addresses = local_addresses + global_addresses  # один раз
 
 # Получаем уникальные локальные порты
-def get_local_ports():
-    ports = set()
-    for addr in local_addresses:
-        _, port = storage.parse_hostport(addr.split("://", 1)[1])
-        if port:
-            ports.add(port)
-    return sorted(ports)
+    def get_local_ports(storage):
+        """
+        Возвращает список портов для всех локальных адресов.
+        Формат конфигурации: список dict {"addr": str, "nonce": int, "pow_hash": str, "expires": ...}
+        """
+        local_addrs_json = storage.get_config("local_addresses")
+        if not local_addrs_json:
+            return []
+
+        try:
+            local_addrs = json.loads(local_addrs_json)
+        except:
+            print("[WARN] Не удалось разобрать local_addresses из БД")
+            return []
+
+        ports = []
+        for entry in local_addrs:
+            # Если entry — словарь, берём поле addr, иначе предполагаем строку
+            addr_str = entry["addr"] if isinstance(entry, dict) else entry
+
+            # Разбираем протокол и host:port
+            try:
+                proto, hostport = addr_str.split("://", 1)
+                _, port = storage.parse_hostport(hostport)
+                ports.append(port)
+            except Exception as e:
+                print(f"[WARN] Не удалось разобрать адрес {addr_str}: {e}")
+
+        return ports
 
 local_ports = get_local_ports()
 print(f"[PeerSync] Local ports: {local_ports}")
@@ -38,12 +60,7 @@ print(f"[PeerSync] Local ports: {local_ports}")
 # ---------------------------
 # Загрузка bootstrap
 # ---------------------------
-
 def load_bootstrap_peers(filename="bootstrap.txt"):
-    """
-    Читает bootstrap.txt и добавляет узлы в storage.
-    Формат строки: did [JSON-список адресов]
-    """
     try:
         with open(filename, "r", encoding="utf-8") as f:
             lines = f.readlines()
@@ -56,19 +73,57 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
         if not line or line.startswith("#"):
             continue
 
-        match = re.match(r"^(did:hmp:[\w-]+)\s+(.+)$", line)
-        if not match:
-            print(f"[Bootstrap] Invalid line format: {line}")
+        # 1. DID
+        did_end = line.find(" ")
+        if did_end == -1:
+            print(f"[Bootstrap] Invalid line (no DID): {line}")
             continue
+        did = line[:did_end]
+        rest = line[did_end + 1:].strip()
 
-        did, addresses_json = match.groups()
+        # 2. JSON-адреса
+        addr_start = rest.find("[")
+        addr_end = rest.find("]") + 1
+        if addr_start == -1 or addr_end == 0:
+            print(f"[Bootstrap] Invalid JSON addresses: {line}")
+            continue
+        addresses_json = rest[addr_start:addr_end]
         try:
             addresses = json.loads(addresses_json)
         except Exception as e:
-            print(f"[Bootstrap] Invalid JSON addresses for {did}: {e}")
+            print(f"[Bootstrap] Failed to parse JSON addresses: {line} ({e})")
+            continue
+        rest = rest[addr_end:].strip()
+
+        # 3. pubkey (в кавычках)
+        pub_start = rest.find('"')
+        pub_end = rest.find('"', pub_start + 1)
+        if pub_start == -1 or pub_end == -1:
+            print(f"[Bootstrap] Invalid pubkey: {line}")
+            continue
+        pubkey = rest[pub_start + 1:pub_end].replace("\\n", "\n")
+        rest = rest[pub_end + 1:].strip()
+
+        # 4. pow_nonce
+        nonce_end = rest.find(" ")
+        if nonce_end == -1:
+            print(f"[Bootstrap] Invalid pow_nonce: {line}")
+            continue
+        try:
+            pow_nonce = int(rest[:nonce_end])
+        except ValueError:
+            print(f"[Bootstrap] Invalid pow_nonce: {rest[:nonce_end]} in line: {line}")
+            continue
+        rest = rest[nonce_end:].strip()
+
+        # 5. pow_hash (в кавычках)
+        if rest.startswith('"') and rest.endswith('"'):
+            pow_hash = rest[1:-1]
+        else:
+            print(f"[Bootstrap] Invalid pow_hash: {line}")
             continue
 
-        # Разворачиваем any:// в tcp:// и udp://
+        # Разворачиваем any://
         expanded_addresses = []
         for addr in addresses:
             if addr.startswith("any://"):
@@ -78,8 +133,18 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
             else:
                 expanded_addresses.append(addr)
 
-        storage.add_or_update_peer(did, name=None, addresses=expanded_addresses,
-                                   source="bootstrap", status="offline")
+        storage.add_or_update_peer(
+            peer_id=did,
+            name=None,
+            addresses=expanded_addresses,
+            source="bootstrap",
+            status="offline",
+            pubkey=pubkey,
+            capabilities=None,
+            pow_nonce=pow_nonce,
+            pow_hash=pow_hash
+        )
+
         print(f"[Bootstrap] Loaded peer {did} -> {expanded_addresses}")
 
 # ---------------------------

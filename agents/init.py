@@ -48,11 +48,7 @@ def init_identity(storage, config):
         privkey, pubkey = generate_keypair(method="ed25519")
         privkey, pubkey = privkey.decode(), pubkey.decode()
 
-        # 3. Выполнить PoW (для начальных адресов можно пока [] или config["local_addresses"])
-        addresses = config.get("local_addresses", [])
-        nonce, pow_hash = storage.generate_pow(identity_id, pubkey, addresses, difficulty=4)
-
-        # 4. Создать запись в identity
+        # 3. Создать запись в identity
         identity = {
             "id": identity_id,
             "name": config.get("agent_name", "Unnamed"),
@@ -64,16 +60,14 @@ def init_identity(storage, config):
         }
         storage.add_identity(identity)
 
-        # 5. Записать в config
+        # 4. Записать в config
         config["agent_id"] = did
         config["identity_agent"] = identity_id
         config["pubkey"] = pubkey
         config["privkey"] = privkey
-        config["pow_nonce"] = nonce
-        config["pow_hash"] = pow_hash
 
         save_config(CONFIG_PATH, config)
-        print(f"[+] Создана личность: {identity_id}, PoW: {pow_hash[:8]}...")
+        print(f"[+] Создана личность: {identity_id}.")
     else:
         print("[=] agent_id уже задан, пропускаем генерацию DiD.")
 
@@ -132,9 +126,64 @@ def init_config_table(storage, config):
         else:
             flat_config[addr_key] = expand_addresses(value)
 
+    # Сохраняем конфиг в БД
     for key, value in flat_config.items():
         storage.set_config(key, json.dumps(value))
     print("[+] Конфигурация сохранена в БД.")
+
+def update_pow_for_addresses(storage, difficulty=4):
+    raw_id = storage.get_config_value("agent_id")
+    if not raw_id:
+        print("[-] Нет agent_id в config — пропуск обновления PoW.")
+        return
+    agent_id = storage.normalize_did(raw_id)
+    pubkey = storage.get_config_value("pubkey")
+
+    if not agent_id or not pubkey:
+        print("[-] Нет agent_id/pubkey в config — пропуск обновления PoW.")
+        return
+
+    for addr_key in ("local_addresses", "global_addresses"):
+        raw = storage.get_config_value(addr_key)
+        if not raw:
+            continue
+
+        # raw может быть либо JSON-строкой, либо уже list
+        if isinstance(raw, str):
+            try:
+                addresses = json.loads(raw)
+            except Exception as e:
+                print(f"[!] Ошибка при чтении {addr_key}: {e}")
+                continue
+        else:
+            addresses = raw
+
+        enriched = []
+        for addr in addresses:
+            # если уже dict → PoW записан
+            if isinstance(addr, dict):
+                enriched.append(addr)
+                continue
+
+            nonce, hash_value = storage.generate_pow(
+                peer_id=agent_id,
+                pubkey=pubkey,
+                address=addr,
+                difficulty=difficulty
+            )
+            enriched.append({
+                "address": addr,
+                "expires": "",
+                "pow": {
+                    "nonce": nonce,
+                    "hash": hash_value,
+                    "difficulty": difficulty
+                }
+            })
+
+        storage.set_config(addr_key, json.dumps(enriched))
+
+    print("[+] Адреса обновлены с PoW.")
 
 def init_prompts_and_ethics():
     folder = os.path.dirname(__file__)
@@ -246,6 +295,7 @@ def ensure_db_initialized():
             init_user(storage, config)
             init_llm_backends(storage, config)
             init_config_table(storage, config)
+            update_pow_for_addresses(storage, difficulty=4)
             save_config(CONFIG_PATH, config)
             init_prompts_and_ethics()
         except Exception as e:
