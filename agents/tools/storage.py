@@ -967,6 +967,35 @@ class Storage:
 
         return f"{proto}://{host}:{port}" if port else f"{proto}://{host}"
 
+    # Получаем уникальные локальные порты
+    def get_local_ports(self):
+        """
+        Возвращает список портов для всех локальных адресов.
+        Формат конфигурации: список dict {"address": str, "pow": {...}, "expires": str, "difficulty": int}
+        """
+        local_addrs_json = self.get_config_value("local_addresses")
+        if not local_addrs_json:
+            return []
+
+        try:
+            local_addrs = json.loads(local_addrs_json)
+        except Exception:
+            print("[WARN] Не удалось разобрать local_addresses из БД")
+            return []
+
+        ports = []
+        for entry in local_addrs:
+            addr_str = entry["address"] if isinstance(entry, dict) else entry
+
+            try:
+                proto, hostport = addr_str.split("://", 1)
+                _, port = self.parse_hostport(hostport)
+                ports.append(port)
+            except Exception as e:
+                print(f"[WARN] Не удалось разобрать адрес {addr_str}: {e}")
+
+        return ports
+
     # Нормализация DID
     @staticmethod
     def normalize_did(did: str) -> str:

@@ -23,38 +23,7 @@ local_addresses = storage.get_config_value("local_addresses", [])
 global_addresses = storage.get_config_value("global_addresses", [])
 all_addresses = local_addresses + global_addresses  # один раз
 
-# Получаем уникальные локальные порты
-    def get_local_ports(storage):
-        """
-        Возвращает список портов для всех локальных адресов.
-        Формат конфигурации: список dict {"addr": str, "nonce": int, "pow_hash": str, "expires": ...}
-        """
-        local_addrs_json = storage.get_config("local_addresses")
-        if not local_addrs_json:
-            return []
-
-        try:
-            local_addrs = json.loads(local_addrs_json)
-        except:
-            print("[WARN] Не удалось разобрать local_addresses из БД")
-            return []
-
-        ports = []
-        for entry in local_addrs:
-            # Если entry — словарь, берём поле addr, иначе предполагаем строку
-            addr_str = entry["addr"] if isinstance(entry, dict) else entry
-
-            # Разбираем протокол и host:port
-            try:
-                proto, hostport = addr_str.split("://", 1)
-                _, port = storage.parse_hostport(hostport)
-                ports.append(port)
-            except Exception as e:
-                print(f"[WARN] Не удалось разобрать адрес {addr_str}: {e}")
-
-        return ports
-
-local_ports = get_local_ports()
+local_ports = storage.get_local_ports()
 print(f"[PeerSync] Local ports: {local_ports}")
 
 # ---------------------------
