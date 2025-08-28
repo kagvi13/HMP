@@ -160,30 +160,41 @@ def update_pow_for_addresses(storage, difficulty=4):
 
         enriched = []
         for addr in addresses:
-            # если уже dict → PoW записан
             if isinstance(addr, dict):
-                enriched.append(addr)
-                continue
+                # уже в новом формате → оставляем как есть
+                if "addr" in addr and "pow_hash" in addr:
+                    enriched.append(addr)
+                    continue
+                # старый формат с "address"/"pow" → конвертим
+                if "address" in addr and "pow" in addr:
+                    enriched.append({
+                        "addr": addr["address"],
+                        "nonce": addr["pow"].get("nonce"),
+                        "pow_hash": addr["pow"].get("hash"),
+                        "difficulty": addr["pow"].get("difficulty", difficulty),
+                        "expires": addr.get("expires", "")
+                    })
+                    continue
 
-            nonce, hash_value = storage.generate_pow(
-                peer_id=agent_id,
-                pubkey=pubkey,
-                address=addr,
-                difficulty=difficulty
-            )
-            enriched.append({
-                "address": addr,
-                "expires": "",
-                "pow": {
+            # строка → нужно сгенерировать PoW
+            if isinstance(addr, str):
+                nonce, hash_value = storage.generate_pow(
+                    peer_id=agent_id,
+                    pubkey=pubkey,
+                    address=addr,
+                    difficulty=difficulty
+                )
+                enriched.append({
+                    "addr": addr,
                     "nonce": nonce,
-                    "hash": hash_value,
-                    "difficulty": difficulty
-                }
-            })
+                    "pow_hash": hash_value,
+                    "difficulty": difficulty,
+                    "expires": ""
+                })
 
         storage.set_config(addr_key, json.dumps(enriched))
 
-    print("[+] Адреса обновлены с PoW.")
+    print("[+] Адреса обновлены с PoW в унифицированном формате.")
 
 def init_prompts_and_ethics():
     folder = os.path.dirname(__file__)

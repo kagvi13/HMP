@@ -29,6 +29,8 @@ print(f"[PeerSync] Local ports: {local_ports}")
 # ---------------------------
 # Загрузка bootstrap
 # ---------------------------
+import json
+
 def load_bootstrap_peers(filename="bootstrap.txt"):
     try:
         with open(filename, "r", encoding="utf-8") as f:
@@ -42,76 +44,64 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
         if not line or line.startswith("#"):
             continue
 
-        # 1. DID
-        did_end = line.find(" ")
-        if did_end == -1:
-            print(f"[Bootstrap] Invalid line (no DID): {line}")
-            continue
-        did = line[:did_end]
-        rest = line[did_end + 1:].strip()
+        # Разделяем строку на ключ:значение по ";"
+        parts = [p.strip() for p in line.split(";") if p.strip()]
+        data = {}
+        for part in parts:
+            if ":" not in part:
+                continue
+            key, val = part.split(":", 1)
+            key = key.strip().upper()
+            val = val.strip()
+            if val.startswith('"') and val.endswith('"'):
+                val = val[1:-1].replace("\\n", "\n")
+            data[key] = val
 
-        # 2. JSON-адреса
-        addr_start = rest.find("[")
-        addr_end = rest.find("]") + 1
-        if addr_start == -1 or addr_end == 0:
-            print(f"[Bootstrap] Invalid JSON addresses: {line}")
+        # Проверка обязательных полей
+        did = data.get("DID")
+        pubkey = data.get("KEY")
+        addresses_json = data.get("ADDRESS")
+        name = data.get("NAME")
+
+        if not did or not pubkey or not addresses_json:
+            print(f"[Bootstrap] Missing required fields in line: {line}")
             continue
-        addresses_json = rest[addr_start:addr_end]
+
+        # Парсим адреса
         try:
             addresses = json.loads(addresses_json)
         except Exception as e:
             print(f"[Bootstrap] Failed to parse JSON addresses: {line} ({e})")
             continue
-        rest = rest[addr_end:].strip()
 
-        # 3. pubkey (в кавычках)
-        pub_start = rest.find('"')
-        pub_end = rest.find('"', pub_start + 1)
-        if pub_start == -1 or pub_end == -1:
-            print(f"[Bootstrap] Invalid pubkey: {line}")
-            continue
-        pubkey = rest[pub_start + 1:pub_end].replace("\\n", "\n")
-        rest = rest[pub_end + 1:].strip()
-
-        # 4. pow_nonce
-        nonce_end = rest.find(" ")
-        if nonce_end == -1:
-            print(f"[Bootstrap] Invalid pow_nonce: {line}")
-            continue
-        try:
-            pow_nonce = int(rest[:nonce_end])
-        except ValueError:
-            print(f"[Bootstrap] Invalid pow_nonce: {rest[:nonce_end]} in line: {line}")
-            continue
-        rest = rest[nonce_end:].strip()
-
-        # 5. pow_hash (в кавычках)
-        if rest.startswith('"') and rest.endswith('"'):
-            pow_hash = rest[1:-1]
-        else:
-            print(f"[Bootstrap] Invalid pow_hash: {line}")
-            continue
-
-        # Разворачиваем any://
+        # Расширяем any:// в tcp/udp
         expanded_addresses = []
         for addr in addresses:
-            if addr.startswith("any://"):
-                hostport = addr[len("any://"):]
-                expanded_addresses.append(f"tcp://{hostport}")
-                expanded_addresses.append(f"udp://{hostport}")
+            if isinstance(addr, dict):
+                addr_str = addr.get("address")
+                if addr_str.startswith("any://"):
+                    hostport = addr_str[len("any://"):]
+                    expanded_addresses.append({"address": f"tcp://{hostport}", **addr})
+                    expanded_addresses.append({"address": f"udp://{hostport}", **addr})
+                else:
+                    expanded_addresses.append(addr)
             else:
-                expanded_addresses.append(addr)
+                if addr.startswith("any://"):
+                    hostport = addr[len("any://"):]
+                    expanded_addresses.extend([f"tcp://{hostport}", f"udp://{hostport}"])
+                else:
+                    expanded_addresses.append(addr)
 
+        # Сохраняем в storage
         storage.add_or_update_peer(
             peer_id=did,
-            name=None,
+            name=name,
             addresses=expanded_addresses,
             source="bootstrap",
             status="offline",
             pubkey=pubkey,
             capabilities=None,
-            pow_nonce=pow_nonce,
-            pow_hash=pow_hash
+            heard_from=None
         )
 
         print(f"[Bootstrap] Loaded peer {did} -> {expanded_addresses}")
