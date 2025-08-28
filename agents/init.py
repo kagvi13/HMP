@@ -132,6 +132,17 @@ def init_config_table(storage, config):
     print("[+] Конфигурация сохранена в БД.")
 
 def update_pow_for_addresses(storage, difficulty=4):
+    """
+    Обновляет PoW для всех локальных и глобальных адресов агента.
+    Используется новый формат:
+    {
+        "addr": "tcp://95.69.92.23:8010",
+        "nonce": 108834,
+        "pow_hash": "0000665ea1440781356d7a9b899fc03a01a4f8342d3cfa3d75bb2619b66b4cfb",
+        "difficulty": 4,
+        "datetime": "2025-08-28T11:00:00+03:00"
+    }
+    """
     raw_id = storage.get_config_value("agent_id")
     if not raw_id:
         print("[-] Нет agent_id в config — пропуск обновления PoW.")
@@ -160,41 +171,35 @@ def update_pow_for_addresses(storage, difficulty=4):
 
         enriched = []
         for addr in addresses:
-            if isinstance(addr, dict):
+            dt_now = datetime.now(UTC).isoformat()
+
+            if isinstance(addr, dict) and "addr" in addr and "pow_hash" in addr:
                 # уже в новом формате → оставляем как есть
-                if "addr" in addr and "pow_hash" in addr:
-                    enriched.append(addr)
-                    continue
-                # старый формат с "address"/"pow" → конвертим
-                if "address" in addr and "pow" in addr:
-                    enriched.append({
-                        "addr": addr["address"],
-                        "nonce": addr["pow"].get("nonce"),
-                        "pow_hash": addr["pow"].get("hash"),
-                        "difficulty": addr["pow"].get("difficulty", difficulty),
-                        "expires": addr.get("expires", "")
-                    })
-                    continue
+                enriched.append(addr)
+                continue
 
             # строка → нужно сгенерировать PoW
-            if isinstance(addr, str):
-                nonce, hash_value = storage.generate_pow(
+            addr_str = addr if isinstance(addr, str) else addr.get("address")
+            dt_now = datetime.now(UTC).isoformat()
+            if addr_str:
+                nonce, hash_value, dt_now = storage.generate_pow(
                     peer_id=agent_id,
                     pubkey=pubkey,
-                    address=addr,
+                    address=addr_str,
+                    dt=dt_now,
                     difficulty=difficulty
                 )
                 enriched.append({
-                    "addr": addr,
+                    "addr": addr_str,
                     "nonce": nonce,
                     "pow_hash": hash_value,
                     "difficulty": difficulty,
-                    "expires": ""
+                    "datetime": dt_now
                 })
 
         storage.set_config(addr_key, json.dumps(enriched))
 
-    print("[+] Адреса обновлены с PoW в унифицированном формате.")
+    print("[+] Адреса обновлены с PoW в новом формате с datetime.")
 
 def init_prompts_and_ethics():
     folder = os.path.dirname(__file__)

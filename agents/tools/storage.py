@@ -677,18 +677,20 @@ class Storage:
         self.conn.commit()
         return cursor.lastrowid
 
-    def generate_pow(self, peer_id, pubkey, address, expires=None, difficulty=4):
+    def generate_pow(self, peer_id, pubkey, address, dt=None, difficulty=4):
         """
-        Генерирует PoW для одной пары (peer_id + pubkey + address + expires).
+        Генерирует PoW для (peer_id + pubkey + address + datetime).
         """
+        if dt is None:
+            dt = datetime.now(UTC).isoformat()
+
         nonce = 0
         prefix = "0" * difficulty
-        expires_str = str(expires) if expires is not None else ""
         while True:
-            base = f"{peer_id}{pubkey}{address}{expires_str}{nonce}".encode()
+            base = f"{peer_id}{pubkey}{address}{dt}{nonce}".encode()
             h = hashlib.sha256(base).hexdigest()
             if h.startswith(prefix):
-                return nonce, h
+                return nonce, h, dt
             nonce += 1
 
     # Управление основными процессами
@@ -971,7 +973,7 @@ class Storage:
     def get_local_ports(self):
         """
         Возвращает список портов для всех локальных адресов.
-        Формат конфигурации: список dict {"address": str, "pow": {...}, "expires": str, "difficulty": int}
+        Формат конфигурации: список dict {"address": str, "pow": {...}, "datetime": str, "difficulty": int}
         """
         local_addrs_json = self.get_config_value("local_addresses")
         if not local_addrs_json:
@@ -1003,12 +1005,11 @@ class Storage:
 
     # Работа с пирам (agent_peers)
     @staticmethod
-    def verify_pow(peer_id, pubkey, address, nonce, pow_hash, expires=None, difficulty=4):
+    def verify_pow(peer_id, pubkey, address, nonce, pow_hash, dt, difficulty=4):
         """
-        Проверяет PoW для одной пары (peer_id + pubkey + address + expires).
+        Проверяет PoW (peer_id + pubkey + address + datetime).
         """
-        expires_str = str(expires) if expires is not None else ""
-        base = f"{peer_id}{pubkey}{address}{expires_str}{nonce}".encode()
+        base = f"{peer_id}{pubkey}{address}{dt}{nonce}".encode()
         h = hashlib.sha256(base).hexdigest()
         return h == pow_hash and h.startswith("0" * difficulty)
 
@@ -1024,14 +1025,20 @@ class Storage:
         norm_addresses = []
         for a in (addresses or []):
             if isinstance(a, dict) and "addr" in a:
+                dt = a.get("datetime") or datetime.now(UTC).isoformat()
                 norm_addresses.append({
                     "addr": self.normalize_address(a["addr"]),
                     "nonce": a.get("nonce"),
                     "pow_hash": a.get("pow_hash"),
-                    "expires": a.get("expires")
+                    "datetime": dt
                 })
             elif isinstance(a, str):
-                norm_addresses.append({"addr": self.normalize_address(a), "nonce": None, "pow_hash": None, "expires": None})
+                norm_addresses.append({
+                    "addr": self.normalize_address(a),
+                    "nonce": None,
+                    "pow_hash": None,
+                    "datetime": datetime.now(UTC).isoformat()
+                })
 
         # получаем существующую запись
         existing_addresses = []
@@ -1066,19 +1073,28 @@ class Storage:
             return
         final_pubkey = existing_pubkey or pubkey
 
-        # Объединяем адреса по addr, проверяем PoW
+        # Объединяем адреса по addr, проверяем PoW и актуальность
         addr_map = {a["addr"]: a for a in existing_addresses if isinstance(a, dict)}
         for a in norm_addresses:
             addr = a["addr"]
             nonce = a.get("nonce")
             pow_hash = a.get("pow_hash")
-            expires = a.get("expires")
+            dt = a.get("datetime")
+
             # проверка PoW
             if nonce is not None and pow_hash is not None:
-                if not self.verify_pow(peer_id, final_pubkey, addr, nonce, pow_hash, expires):
+                if not self.verify_pow(peer_id, final_pubkey, addr, nonce, pow_hash, dt):
                     print(f"[WARN] Peer {peer_id} address {addr} failed PoW validation")
                     continue
-            addr_map[addr] = {"addr": addr, "nonce": nonce, "pow_hash": pow_hash, "expires": expires}
+
+            # проверка актуальности по datetime
+            if addr in addr_map:
+                old_dt = addr_map[addr].get("datetime")
+                if old_dt and dt <= old_dt:
+                    continue  # оставляем более свежий адрес
+
+            # обновляем запись
+            addr_map[addr] = {"addr": addr, "nonce": nonce, "pow_hash": pow_hash, "datetime": dt}
 
         combined_addresses = list(addr_map.values())
 

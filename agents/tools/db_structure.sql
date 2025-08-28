@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
 CREATE TABLE IF NOT EXISTS agent_peers (
     id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор (UUID или псевдоним)
     name TEXT,                                                  -- Имя агента
-    addresses TEXT,                                             -- Адреса для связи (JSON), каждый адрес содержит addr, nonce, pow_hash, expiries
+    addresses TEXT,                                             -- Адреса для связи (JSON), каждый адрес содержит addr, nonce, pow_hash, datatime
     tags TEXT,                                                  -- Теги (Postman, Friend и т.д.)
     status TEXT DEFAULT 'unknown',                              -- online | offline | untrusted | blacklisted и др.
     source TEXT,                                                -- bootstrap | discovery | exchange

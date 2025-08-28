@@ -91,7 +91,7 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
                             "nonce": addr.get("pow", {}).get("nonce"),
                             "pow_hash": addr.get("pow", {}).get("hash"),
                             "difficulty": addr.get("pow", {}).get("difficulty"),
-                            "expires": addr.get("expires", "")
+                            "datetime": addr.get("datetime", "")
                         })
                 # уже новый формат → оставляем как есть
                 elif "addr" in addr:
@@ -101,8 +101,8 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
                 if addr.startswith("any://"):
                     hostport = addr[len("any://"):]
                     expanded_addresses.extend([
-                        {"addr": f"tcp://{hostport}", "nonce": None, "pow_hash": None, "difficulty": None, "expires": ""},
-                        {"addr": f"udp://{hostport}", "nonce": None, "pow_hash": None, "difficulty": None, "expires": ""}
+                        {"addr": f"tcp://{hostport}", "nonce": None, "pow_hash": None, "difficulty": None, "datetime": ""},
+                        {"addr": f"udp://{hostport}", "nonce": None, "pow_hash": None, "difficulty": None, "datetime": ""}
                     ])
                 else:
                     expanded_addresses.append({
@@ -110,10 +110,13 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
                         "nonce": None,
                         "pow_hash": None,
                         "difficulty": None,
-                        "expires": ""
+                        "datetime": ""
                     })
 
         # Сохраняем в storage
+        print(f"[DEBUG] Saving peer {did} with addresses:")
+        for a in expanded_addresses:
+            print(a)
         storage.add_or_update_peer(
             peer_id=did,
             name=name,
