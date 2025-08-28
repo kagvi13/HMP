@@ -677,12 +677,14 @@ class Storage:
         self.conn.commit()
         return cursor.lastrowid
 
+    # --- Генерация PoW ---
     def generate_pow(self, peer_id, pubkey, address, dt=None, difficulty=4):
         """
         Генерирует PoW для (peer_id + pubkey + address + datetime).
+        Используется ISO 8601 без микросекунд, UTC.
         """
         if dt is None:
-            dt = datetime.now(UTC).isoformat()
+            dt = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
         nonce = 0
         prefix = "0" * difficulty
@@ -1008,10 +1010,12 @@ class Storage:
         return did.strip().strip('"').strip("'")
 
     # Работа с пирам (agent_peers)
+    # --- Проверка PoW ---
     @staticmethod
     def verify_pow(peer_id, pubkey, address, nonce, pow_hash, dt, difficulty=4):
         """
         Проверяет PoW (peer_id + pubkey + address + datetime).
+        dt ожидается в формате ISO 8601 без микросекунд, UTC.
         """
         base = f"{peer_id}{pubkey}{address}{dt}{nonce}".encode()
         h = hashlib.sha256(base).hexdigest()
@@ -1029,7 +1033,18 @@ class Storage:
         norm_addresses = []
         for a in (addresses or []):
             if isinstance(a, dict) and "addr" in a:
-                dt = a.get("datetime") or datetime.now(UTC).isoformat()
+                # нормализация datetime: ISO 8601 без микросекунд
+                dt_raw = a.get("datetime")
+                if dt_raw:
+                    try:
+                        dt_obj = datetime.fromisoformat(dt_raw)
+                        dt_obj = dt_obj.astimezone(timezone.utc).replace(microsecond=0)
+                        dt = dt_obj.isoformat()
+                    except Exception:
+                        dt = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+                else:
+                    dt = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
                 norm_addresses.append({
                     "addr": self.normalize_address(a["addr"]),
                     "nonce": a.get("nonce"),
@@ -1041,7 +1056,7 @@ class Storage:
                     "addr": self.normalize_address(a),
                     "nonce": None,
                     "pow_hash": None,
-                    "datetime": datetime.now(UTC).isoformat()
+                    "datetime": datetime.now(timezone.utc).replace(microsecond=0).isoformat()
                 })
 
         # получаем существующую запись
@@ -1120,7 +1135,7 @@ class Storage:
             json.dumps(combined_addresses),
             source,
             status,
-            datetime.now(UTC).isoformat(),
+            datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             final_pubkey,
             json.dumps(final_capabilities),
             json.dumps(combined_heard_from)

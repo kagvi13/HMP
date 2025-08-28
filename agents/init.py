@@ -55,8 +55,8 @@ def init_identity(storage, config):
             "pubkey": pubkey,
             "privkey": privkey,
             "metadata": json.dumps({"role": config.get("agent_role", "core")}),
-            "created_at": datetime.now(UTC).isoformat(),
-            "updated_at": datetime.now(UTC).isoformat()
+            "created_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
+            "updated_at": datetime.now(UTC).replace(microsecond=0).isoformat()
         }
         storage.add_identity(identity)
 
@@ -109,7 +109,7 @@ def init_llm_backends(storage, config):
             "name": backend["name"],
             "endpoint": desc,
             "metadata": json.dumps(backend),
-            "created_at": datetime.now(UTC).isoformat()
+            "created_at": datetime.now(UTC).replace(microsecond=0).isoformat()
         }
         storage.add_llm(llm)
         print(f"[+] Зарегистрирован LLM: {backend['name']}")
@@ -140,7 +140,7 @@ def update_pow_for_addresses(storage, difficulty=4):
         "nonce": 108834,
         "pow_hash": "0000665ea1440781356d7a9b899fc03a01a4f8342d3cfa3d75bb2619b66b4cfb",
         "difficulty": 4,
-        "datetime": "2025-08-28T11:00:00+03:00"
+        "datetime": "2025-08-28T11:00:00+00:00"
     }
     """
     raw_id = storage.get_config_value("agent_id")
@@ -171,7 +171,7 @@ def update_pow_for_addresses(storage, difficulty=4):
 
         enriched = []
         for addr in addresses:
-            dt_now = datetime.now(UTC).isoformat()
+            dt_now = datetime.now(UTC).replace(microsecond=0).isoformat()
 
             if isinstance(addr, dict) and "addr" in addr and "pow_hash" in addr:
                 # уже в новом формате → оставляем как есть
@@ -180,7 +180,7 @@ def update_pow_for_addresses(storage, difficulty=4):
 
             # строка → нужно сгенерировать PoW
             addr_str = addr if isinstance(addr, str) else addr.get("address")
-            dt_now = datetime.now(UTC).isoformat()
+            dt_now = datetime.now(UTC).replace(microsecond=0).isoformat()
             if addr_str:
                 nonce, hash_value, dt_now = storage.generate_pow(
                     peer_id=agent_id,
@@ -227,7 +227,7 @@ def init_prompts_and_ethics():
                 ON CONFLICT(id) DO UPDATE SET
                     content=excluded.content,
                     updated_at=excluded.updated_at
-            """, (pid, fname, ptype, "1.0", "local", content, datetime.now(UTC).isoformat()))
+            """, (pid, fname, ptype, "1.0", "local", content, datetime.now(UTC).replace(microsecond=0).isoformat()))
             print(f"[+] Загружен промпт: {fname} ({ptype})")
 
         # Загружаем ethics.yml
@@ -273,7 +273,7 @@ def init_prompts_and_ethics():
                 json.dumps(ethics_data.get("evaluation"), ensure_ascii=False),
                 json.dumps(ethics_data.get("violation_policy"), ensure_ascii=False),
                 json.dumps(ethics_data.get("audit"), ensure_ascii=False),
-                datetime.now(UTC).isoformat()
+                datetime.now(UTC).replace(microsecond=0).isoformat()
             ))
             print(f"[+] Загружена этическая политика: {eid}")
         else:
