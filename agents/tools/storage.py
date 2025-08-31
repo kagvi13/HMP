@@ -977,24 +977,17 @@ class Storage:
 
     # Получаем уникальные локальные порты
     def get_local_ports(self):
-        """
-        Возвращает список портов для всех локальных адресов.
-        Формат конфигурации: список dict {"address": str, "pow": {...}, "datetime": str, "difficulty": int}
-        """
-        local_addrs_json = self.get_config_value("local_addresses")
-        if not local_addrs_json:
-            return []
-
-        try:
-            local_addrs = json.loads(local_addrs_json)
-        except Exception:
-            print("[WARN] Не удалось разобрать local_addresses из БД")
-            return []
+        local_addrs = self.get_config_value("local_addresses", [])
+        if not isinstance(local_addrs, list):
+            try:
+                local_addrs = json.loads(local_addrs)
+            except Exception:
+                print("[WARN] Не удалось разобрать local_addresses из БД")
+                return []
 
         ports = []
         for entry in local_addrs:
-            addr_str = entry["address"] if isinstance(entry, dict) else entry
-
+            addr_str = entry.get("addr") or entry.get("address") if isinstance(entry, dict) else entry
             try:
                 proto, hostport = addr_str.split("://", 1)
                 _, port = self.parse_hostport(hostport)
@@ -1003,6 +996,25 @@ class Storage:
                 print(f"[WARN] Не удалось разобрать адрес {addr_str}: {e}")
 
         return ports
+
+    # Получить локальные или глобальные адреса
+    def get_addresses(self, which="local"):
+        key = f"{which}_addresses"
+        addrs = self.get_config_value(key, [])
+        if not isinstance(addrs, list):
+            try:
+                addrs = json.loads(addrs)
+            except Exception:
+                print(f"[WARN] Не удалось разобрать {key} из БД")
+                return []
+
+        result = []
+        for entry in addrs:
+            if isinstance(entry, dict):
+                result.append(entry.get("addr") or entry.get("address"))
+            elif isinstance(entry, str):
+                result.append(entry)
+        return result
 
     # Нормализация DID
     @staticmethod
@@ -1025,15 +1037,14 @@ class Storage:
         self, peer_id, name, addresses,
         source="discovery", status="unknown",
         pubkey=None, capabilities=None,
-        heard_from=None
+        heard_from=None, strict: bool = True
     ):
         c = self.conn.cursor()
 
-        # нормализуем входные адреса
+        # --- нормализуем входные адреса ---
         norm_addresses = []
         for a in (addresses or []):
             if isinstance(a, dict) and "addr" in a:
-                # нормализация datetime: ISO 8601 без микросекунд
                 dt_raw = a.get("datetime")
                 if dt_raw:
                     try:
@@ -1059,7 +1070,7 @@ class Storage:
                     "datetime": datetime.now(timezone.utc).replace(microsecond=0).isoformat()
                 })
 
-        # получаем существующую запись
+        # --- получаем существующую запись ---
         existing_addresses = []
         existing_pubkey = None
         existing_capabilities = {}
@@ -1086,38 +1097,48 @@ class Storage:
         final_capabilities = capabilities or existing_capabilities
         combined_heard_from = list(set(existing_heard_from + (heard_from or [])))
 
-        # Проверка неизменности pubkey
-        if existing_pubkey and pubkey and existing_pubkey != pubkey:
-            print(f"[WARN] Peer {peer_id} pubkey mismatch! Possible impersonation attempt.")
-            return
-        final_pubkey = existing_pubkey or pubkey
+        # --- строгий режим ---
+        if strict:
+            # Проверка pubkey
+            if existing_pubkey and pubkey and existing_pubkey != pubkey:
+                print(f"[WARN] Peer {peer_id} pubkey mismatch! Possible impersonation attempt.")
+                return
+            final_pubkey = existing_pubkey or pubkey
 
-        # Объединяем адреса по addr, проверяем PoW и актуальность
-        addr_map = {a["addr"]: a for a in existing_addresses if isinstance(a, dict)}
-        for a in norm_addresses:
-            addr = a["addr"]
-            nonce = a.get("nonce")
-            pow_hash = a.get("pow_hash")
-            dt = a.get("datetime")
+            # Объединяем адреса по addr, проверяем PoW и datetime
+            addr_map = {a["addr"]: a for a in existing_addresses if isinstance(a, dict)}
+            for a in norm_addresses:
+                addr = a["addr"]
+                nonce = a.get("nonce")
+                pow_hash = a.get("pow_hash")
+                dt = a.get("datetime")
 
-            # проверка PoW
-            if nonce is not None and pow_hash is not None:
-                if not self.verify_pow(peer_id, final_pubkey, addr, nonce, pow_hash, dt):
-                    print(f"[WARN] Peer {peer_id} address {addr} failed PoW validation")
-                    continue
+                # проверка PoW
+                if nonce is not None and pow_hash is not None:
+                    if not self.verify_pow(peer_id, final_pubkey, addr, nonce, pow_hash, dt):
+                        print(f"[WARN] Peer {peer_id} address {addr} failed PoW validation")
+                        continue
 
-            # проверка актуальности по datetime
-            if addr in addr_map:
-                old_dt = addr_map[addr].get("datetime")
-                if old_dt and dt <= old_dt:
-                    continue  # оставляем более свежий адрес
+                # проверка актуальности datetime
+                if addr in addr_map:
+                    old_dt = addr_map[addr].get("datetime")
+                    if old_dt and dt <= old_dt:
+                        continue
 
-            # обновляем запись
-            addr_map[addr] = {"addr": addr, "nonce": nonce, "pow_hash": pow_hash, "datetime": dt}
+                addr_map[addr] = {"addr": addr, "nonce": nonce, "pow_hash": pow_hash, "datetime": dt}
 
-        combined_addresses = list(addr_map.values())
+            combined_addresses = list(addr_map.values())
 
-        # Вставка/обновление записи
+        # --- упрощённый режим ---
+        else:
+            final_pubkey = existing_pubkey or pubkey
+            addr_map = {a["addr"]: a for a in existing_addresses if isinstance(a, dict)}
+            for a in norm_addresses:
+                # просто перезаписываем адреса без PoW и datetime проверки
+                addr_map[a["addr"]] = a
+            combined_addresses = list(addr_map.values())
+
+        # --- запись в БД ---
         c.execute("""
             INSERT INTO agent_peers (id, name, addresses, source, status, last_seen, pubkey, capabilities, heard_from)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)

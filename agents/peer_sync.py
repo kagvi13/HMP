@@ -6,14 +6,12 @@ import time
 import threading
 import select
 import netifaces
-import re
 import ipaddress
-import asyncio
-import dateutil.parser
 
-
-from datetime import datetime, timezone as UTC
+from datetime import datetime, timezone
 from tools.storage import Storage
+
+UTC = timezone.utc
 
 storage = Storage()
 
@@ -21,13 +19,17 @@ storage = Storage()
 # Конфигурация
 # ---------------------------
 my_id = storage.get_config_value("agent_id")
+my_pubkey = storage.get_config_value("pubkay")
 agent_name = storage.get_config_value("agent_name", "unknown")
-local_addresses = storage.get_config_value("local_addresses", [])
-global_addresses = storage.get_config_value("global_addresses", [])
-all_addresses = local_addresses + global_addresses  # один раз
 
-local_ports = storage.get_local_ports()
-print(f"[PeerSync] Local ports: {local_ports}")
+local_addresses = storage.get_addresses("local")
+global_addresses = storage.get_addresses("global")
+all_addresses = local_addresses + global_addresses # один раз
+
+#local_ports = list(set(storage.get_local_ports()))
+#print(f"[PeerSync] Local ports: {local_ports}")
+
+#print(f"[INFO] ID: {my_id}, NAME: {agent_name}: ADDRESS: {local_addresses} + {global_addresses} = {all_addresses}; Local ports: {local_ports}")
 
 # ---------------------------
 # Загрузка bootstrap
@@ -75,7 +77,7 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
             print(f"[Bootstrap] Failed to parse JSON addresses: {line} ({e})")
             continue
 
-        # Расширяем any:// в tcp/udp и приводим к новому формату
+        # Расширяем any:// в tcp/udp и приводим к формату адресов
         expanded_addresses = []
         for addr in addresses:
             if isinstance(addr, dict):
@@ -128,268 +130,175 @@ def load_bootstrap_peers(filename="bootstrap.txt"):
             status="offline",
             pubkey=pubkey,
             capabilities=None,
-            heard_from=None
+            heard_from=None,
+            strict=False
         )
 
         print(f"[Bootstrap] Loaded peer {did} -> {expanded_addresses}")
 
 # ---------------------------
+# start_peer_services
+# ---------------------------
+def start_peer_services(port):
+    """Запускаем UDP и TCP слушатели на всех интерфейсах сразу"""
+
+    # UDP (один сокет для IPv4 и IPv6)
+    udp_sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+    udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    udp_sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)  # слушаем и IPv4, и IPv6
+    udp_sock.bind(("::", port))
+    print(f"[UDP Discovery] Listening on [::]:{port} (IPv4+IPv6)")
+
+    # TCP (один сокет для IPv4 и IPv6)
+    tcp_sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    tcp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    tcp_sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)  # слушаем и IPv4, и IPv6
+    tcp_sock.bind(("::", port))
+    tcp_sock.listen()
+    print(f"[TCP Listener] Listening on [::]:{port} (IPv4+IPv6)")
+
+    return udp_sock, tcp_sock
+
+# ---------------------------
 # UDP Discovery
 # ---------------------------
-def udp_discovery():
-    import dateutil.parser  # для парсинга ISO datetime
+def udp_discovery(sock, local_ports):
+    """Приём и рассылка discovery через один сокет (IPv4+IPv6)."""
     DISCOVERY_INTERVAL = 30
 
-    try:
-        # --- Создаём слушающие сокеты один раз ---
-        listen_sockets = []
-        local_addresses = storage.get_config_value("local_addresses", [])
-        print(f"[UDP Discovery] Local addresses (init): {local_addresses}")
-
-        for entry in local_addresses:
-            addr_str = entry.get("addr") if isinstance(entry, dict) else entry
-            if not addr_str:
-                continue
-
-            proto, hostport = addr_str.split("://", 1)
-            host, port = storage.parse_hostport(hostport)
-            if not port or proto.lower() != "udp":
-                continue
-
-            # IPv4
-            if not host.startswith("["):
-                try:
-                    sock4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                    sock4.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                    sock4.bind(("", port))
-                    listen_sockets.append(sock4)
-                    print(f"[UDP Discovery] Listening IPv4 on *:{port}")
-                except Exception as e:
-                    print(f"[UDP Discovery] IPv4 bind failed on port {port}: {e}")
-
-            # IPv6
-            else:
-                try:
-                    sock6 = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-                    sock6.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                    sock6.bind(("::", port))
-                    listen_sockets.append(sock6)
-                    print(f"[UDP Discovery] Listening IPv6 on [::]:{port}")
-                except Exception as e:
-                    print(f"[UDP Discovery] IPv6 bind failed on port {port}: {e}")
-
-    except Exception as init_e:
-        print(f"[UDP Discovery] init error: {init_e}")
-        return
-
-    # --- Основной цикл ---
-    agent_pubkey = storage.get_config_value("agent_pubkey")
-
     while True:
+        # --- Приём сообщений ---
         try:
-            # Приём входящих пакетов
-            if listen_sockets:
-                rlist, _, _ = select.select(listen_sockets, [], [], 0.5)
-                for sock in rlist:
-                    try:
-                        data, addr = sock.recvfrom(2048)
-                        print(f"[UDP Discovery] RAW from {addr}: {data!r}")
-
-                        try:
-                            msg = json.loads(data.decode("utf-8"))
-                        except Exception as e:
-                            print(f"[UDP Discovery] JSON decode error from {addr}: {e}")
-                            continue
-
-                        peer_id = msg.get("id")
-                        if peer_id == my_id:
-                            continue
-                        name = msg.get("name", "unknown")
-                        addresses = msg.get("addresses", [])
-
-                        valid_addresses = []
-                        for a in addresses:
-                            addr_str = a.get("addr")
-                            nonce = a.get("nonce")
-                            pow_hash = a.get("pow_hash")
-                            difficulty = a.get("difficulty")
-                            dt = a.get("datetime")
-                            pubkey = a.get("pubkey")
-
-                            if not addr_str or not pubkey:
-                                continue
-
-                            # Проверка PoW
-                            if nonce is not None and pow_hash and difficulty is not None:
-                                ok = storage.verify_pow(peer_id, pubkey, addr_str, nonce, pow_hash, dt, difficulty)
-                                print(f"[UDP Discovery] Verify PoW for {addr_str} = {ok}")
-                                if not ok:
-                                    continue
-
-                            # Проверка datetime
-                            existing = storage.get_peer_address(peer_id, addr_str)
-                            try:
-                                existing_dt = dateutil.parser.isoparse(existing.get("datetime")) if existing else None
-                                dt_obj = dateutil.parser.isoparse(dt) if dt else None
-                            except Exception as e:
-                                print(f"[UDP Discovery] datetime parse error: {e}")
-                                continue
-
-                            if existing_dt and dt_obj and existing_dt >= dt_obj:
-                                print(f"[UDP Discovery] Skip {addr_str}: old datetime {dt}")
-                                continue
-
-                            valid_addresses.append(a)
-
-                        if valid_addresses:
-                            storage.add_or_update_peer(
-                                peer_id=peer_id,
-                                name=name,
-                                addresses=valid_addresses,
-                                source="discovery",
-                                status="online"
-                            )
-                            print(f"[UDP Discovery] Accepted peer {peer_id} ({addr}), {len(valid_addresses)} addresses")
-
-                    except Exception as e:
-                        print(f"[UDP Discovery] receive error: {e}")
-
-            # --- Отправка broadcast/multicast ---
-            local_addresses = storage.get_config_value("local_addresses", [])
-            valid_local_addresses = []
-
-            for a in local_addresses:
-                addr_str = a.get("addr") if isinstance(a, dict) else a
-                nonce = a.get("nonce")
-                pow_hash = a.get("pow_hash")
-                difficulty = a.get("difficulty")
-                dt = a.get("datetime")
-                pubkey = a.get("pubkey") if isinstance(a, dict) else agent_pubkey  # self-check
-
-                if not addr_str:
-                    continue
-
-                # Проверка PoW только если есть необходимые поля
-                if nonce is not None and pow_hash and difficulty is not None:
-                    ok = storage.verify_pow(my_id, pubkey, addr_str, nonce, pow_hash, dt, difficulty)
-                    print(f"[UDP Discovery] Self-check PoW for {addr_str} = {ok}")
-                    if not ok:
+            rlist, _, _ = select.select([sock], [], [], 0.5)
+            for s in rlist:
+                try:
+                    data, addr = s.recvfrom(2048)
+                    msg = json.loads(data.decode("utf-8"))
+                    peer_id = msg.get("id")
+                    if peer_id == my_id:
                         continue
+                    name = msg.get("name", "unknown")
+                    raw_addresses = msg.get("addresses", [])
+                    pubkey = msg.get("pubkey")
 
-                valid_local_addresses.append(a)
+                    addresses = []
+                    for a in raw_addresses:
+                        if isinstance(a, dict) and "addr" in a:
+                            addresses.append({
+                                "addr": storage.normalize_address(a["addr"]),
+                                "nonce": a.get("nonce"),
+                                "pow_hash": a.get("pow_hash"),
+                                "datetime": a.get("datetime")
+                            })
+                        elif isinstance(a, str):
+                            addresses.append({
+                                "addr": storage.normalize_address(a),
+                                "nonce": None,
+                                "pow_hash": None,
+                                "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
+                            })
 
-            msg_data = json.dumps({
-                "id": my_id,
-                "name": agent_name,
-                "addresses": valid_local_addresses
-            }).encode("utf-8")
+                    storage.add_or_update_peer(
+                        peer_id, name, addresses,
+                        source="discovery", status="online",
+                        pubkey=pubkey, strict=False
+                    )
+                    print(f"[UDP Discovery] peer={peer_id} from {addr}")
+                except Exception as e:
+                    print(f"[UDP Discovery] receive error: {e}")
+        except Exception as e:
+            print(f"[UDP Discovery] select() error: {e}")
 
-            print(f"[UDP Discovery] Broadcasting: {msg_data}")
+        # --- Формируем локальные адреса для рассылки ---
+        local_addresses = []
+        for iface in netifaces.interfaces():
+            for a in netifaces.ifaddresses(iface).get(netifaces.AF_INET, []):
+                ip = a.get("addr")
+                if ip:
+                    local_addresses.append({
+                        "addr": storage.normalize_address(f"any://{ip}:{local_ports[0]}"),
+                        "nonce": 0,
+                        "pow_hash": "0"*64,
+                        "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
+                    })
+            for a in netifaces.ifaddresses(iface).get(netifaces.AF_INET6, []):
+                ip = a.get("addr")
+                if ip:
+                    local_addresses.append({
+                        "addr": storage.normalize_address(f"any://[{ip}]:{local_ports[0]}"),
+                        "nonce": 0,
+                        "pow_hash": "0"*64,
+                        "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
+                    })
 
-            for entry in valid_local_addresses:
-                addr_str = entry.get("addr")
-                proto, hostport = addr_str.split("://", 1)
-                host, port = storage.parse_hostport(hostport)
-                if not port or proto.lower() != "udp":
-                    continue
+        msg_data = json.dumps({
+            "id": my_id,
+            "name": agent_name,
+            "addresses": local_addresses,
+            "pubkey": my_pubkey
+        }).encode("utf-8")
 
-                # IPv4 broadcast
-                if not host.startswith("["):
-                    for iface in netifaces.interfaces():
-                        addrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET, [])
-                        for a in addrs:
-                            if "broadcast" in a:
-                                try:
-                                    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                                    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-                                    print(f"[UDP Discovery] Sending broadcast -> {a['broadcast']}:{port}")
-                                    sock.sendto(msg_data, (a["broadcast"], port))
-                                    sock.close()
-                                except Exception as e:
-                                    print(f"[UDP Discovery] Broadcast error {a['broadcast']}:{port}: {e}")
+        for port in local_ports:
+            # IPv4 broadcast
+            for iface in netifaces.interfaces():
+                addrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET, [])
+                for a in addrs:
+                    if "broadcast" in a:
+                        try:
+                            b_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                            b_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+                            b_sock.sendto(msg_data, (a["broadcast"], port))
+                            b_sock.close()
+                        except Exception as e:
+                            print(f"[UDP Discovery] IPv4 send error on {iface}:{port} -> {e}")
 
-                # IPv6 multicast ff02::1
-                else:
-                    for iface in netifaces.interfaces():
-                        ifaddrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET6, [])
-                        for a in ifaddrs:
-                            addr_ipv6 = a.get("addr")
-                            if not addr_ipv6:
-                                continue
-                            multicast_addr = f"ff02::1%{iface}" if addr_ipv6.startswith("fe80:") else "ff02::1"
-                            try:
-                                sock6 = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-                                sock6.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_IF, socket.if_nametoindex(iface))
-                                sock6.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_HOPS, 1)
-                                print(f"[UDP Discovery] Sending multicast -> {multicast_addr}:{port}")
-                                sock6.sendto(msg_data, (multicast_addr, port))
-                                sock6.close()
-                            except Exception as e:
-                                print(f"[UDP Discovery] Multicast error {multicast_addr}:{port}: {e}")
+            # IPv6 multicast ff02::1
+            for iface in netifaces.interfaces():
+                ifaddrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET6, [])
+                for a in ifaddrs:
+                    ip = a.get("addr")
+                    if not ip:
+                        continue
+                    multicast_addr = f"ff02::1%{iface}" if ip.startswith("fe80:") else "ff02::1"
+                    try:
+                        m_sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+                        m_sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_IF, socket.if_nametoindex(iface))
+                        m_sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_HOPS, 1)
+                        m_sock.sendto(msg_data, (multicast_addr, port))
+                        m_sock.close()
+                    except Exception as e:
+                        print(f"[UDP Discovery] IPv6 send error on {iface}:{port} -> {e}")
 
-            time.sleep(DISCOVERY_INTERVAL)
-
-        except Exception as main_e:
-            print(f"[UDP Discovery] main loop error: {main_e}")
-            time.sleep(DISCOVERY_INTERVAL)
+        time.sleep(DISCOVERY_INTERVAL)
 
 # ---------------------------
 # TCP Peer Exchange (исходящие)
 # ---------------------------
 def tcp_peer_exchange():
-    import dateutil.parser  # для корректного парсинга ISO datetime
-    PEER_EXCHANGE_INTERVAL = 20  # секунды для отладки
-
+    PEER_EXCHANGE_INTERVAL = 20
     while True:
         peers = storage.get_known_peers(my_id, limit=50)
         print(f"[PeerExchange] Checking {len(peers)} peers (raw DB)...")
 
         for peer in peers:
-            peer_id = peer["id"] if isinstance(peer, dict) else peer[0]
-            addresses_json = peer["addresses"] if isinstance(peer, dict) else peer[1]
+            # sqlite3.Row → dict
+            if not isinstance(peer, dict):
+                peer = dict(peer)
 
+            peer_id = peer.get("id")
             if peer_id == my_id:
                 continue
 
             try:
-                addr_list = json.loads(addresses_json)
+                addr_list = json.loads(peer.get("addresses", "[]"))
             except Exception as e:
                 print(f"[PeerExchange] JSON decode error for peer {peer_id}: {e}")
                 addr_list = []
 
-            for addr_entry in addr_list:
-                addr_str = addr_entry.get("addr")
-                nonce = addr_entry.get("nonce")
-                pow_hash = addr_entry.get("pow_hash")
-                difficulty = addr_entry.get("difficulty")
-                dt = addr_entry.get("datetime")
-                pubkey = addr_entry.get("pubkey")
-
-                norm = storage.normalize_address(addr_str)
+            for addr in addr_list:
+                norm = storage.normalize_address(addr)
                 if not norm:
                     continue
-
-                # Проверка PoW
-                if nonce is not None and pow_hash and difficulty is not None and pubkey:
-                    ok = storage.verify_pow(peer_id, pubkey, addr_str, nonce, pow_hash, dt, difficulty)
-                    print(f"[PeerExchange] Verify PoW for {peer_id}@{addr_str} = {ok}")
-                    if not ok:
-                        continue
-
-                # Проверка datetime с использованием dateutil
-                existing = storage.get_peer_address(peer_id, addr_str)
-                try:
-                    existing_dt = dateutil.parser.isoparse(existing.get("datetime")) if existing else None
-                    dt_obj = dateutil.parser.isoparse(dt) if dt else None
-                except Exception as e:
-                    print(f"[PeerExchange] datetime parse error for {addr_str}: {e}")
-                    continue
-
-                if existing_dt and dt_obj and existing_dt >= dt_obj:
-                    print(f"[PeerExchange] Skip {addr_str}: old datetime {dt}")
-                    continue
-
-                # Парсим host и port
                 proto, hostport = norm.split("://", 1)
                 if proto not in ["tcp", "any"]:
                     continue
@@ -398,30 +307,21 @@ def tcp_peer_exchange():
                     continue
 
                 print(f"[PeerExchange] Trying {peer_id} at {host}:{port} (proto={proto})")
-
                 try:
-                    # IPv6 link-local
-                    if storage.is_ipv6(host) and host.startswith("fe80:"):
-                        scope_id = storage.get_ipv6_scope(host)
-                        if scope_id is None:
-                            print(f"[PeerExchange] Skipping {host}, no scope_id")
-                            continue
-                        sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
-                        sock.settimeout(3)
-                        sock.connect((host, port, 0, scope_id))
-                    else:
-                        sock = socket.socket(socket.AF_INET6 if storage.is_ipv6(host) else socket.AF_INET,
-                                             socket.SOCK_STREAM)
-                        sock.settimeout(3)
-                        sock.connect((host, port))
+                    sock = socket.socket(
+                        socket.AF_INET6 if storage.is_ipv6(host) else socket.AF_INET,
+                        socket.SOCK_STREAM
+                    )
+                    sock.settimeout(3)
+                    sock.connect((host, port))
 
-                    # Отправляем handshake
+                    # LAN или Интернет
                     if storage.is_private(host):
                         send_addresses = all_addresses
                     else:
                         send_addresses = [
                             a for a in all_addresses
-                            if is_public(storage.parse_hostport(a.split("://", 1)[1])[0])
+                            if not storage.is_private(storage.parse_hostport(a.split("://", 1)[1])[0])
                         ]
 
                     handshake = {
@@ -430,11 +330,8 @@ def tcp_peer_exchange():
                         "name": agent_name,
                         "addresses": send_addresses,
                     }
-                    raw_handshake = json.dumps(handshake).encode("utf-8")
-                    print(f"[PeerExchange] Sending handshake -> {host}:{port}: {raw_handshake}")
-                    sock.sendall(raw_handshake)
+                    sock.sendall(json.dumps(handshake).encode("utf-8"))
 
-                    # Читаем ответ
                     data = sock.recv(64 * 1024)
                     sock.close()
 
@@ -442,38 +339,21 @@ def tcp_peer_exchange():
                         print(f"[PeerExchange] No data from {host}:{port}")
                         continue
 
-                    print(f"[PeerExchange] RAW recv from {host}:{port}: {data!r}")
-
                     try:
                         peers_recv = json.loads(data.decode("utf-8"))
-                        print(f"[PeerExchange] Parsed recv from {host}:{port}: {peers_recv}")
                         for p in peers_recv:
-                            new_addrs = []
-                            for a in p.get("addresses", []):
-                                try:
-                                    existing_addr = storage.get_peer_address(p["id"], a.get("addr"))
-                                    existing_dt = dateutil.parser.isoparse(existing_addr.get("datetime")) if existing_addr else None
-                                    dt_obj = dateutil.parser.isoparse(a.get("datetime")) if a.get("datetime") else None
-                                    if existing_addr is None or (existing_dt and dt_obj and existing_dt < dt_obj) or existing_dt is None:
-                                        new_addrs.append(a)
-                                    else:
-                                        print(f"[PeerExchange] Ignored old {a.get('addr')} from {p['id']}")
-                                except Exception as e:
-                                    print(f"[PeerExchange] Error parsing datetime for {a.get('addr')}: {e}")
-                                    continue
-
-                            if new_addrs:
+                            if p.get("id") and p["id"] != my_id:
                                 storage.add_or_update_peer(
                                     p["id"],
                                     p.get("name", "unknown"),
-                                    new_addrs,
-                                    source="peer_exchange",
-                                    status="online"
+                                    p.get("addresses", []),
+                                    "peer_exchange",
+                                    "online",
+                                    strict=False
                                 )
-                                print(f"[PeerExchange] Stored {len(new_addrs)} new addrs for peer {p['id']}")
                         print(f"[PeerExchange] Received {len(peers_recv)} peers from {host}:{port}")
                     except Exception as e:
-                        print(f"[PeerExchange] Decode error from {host}:{port}: {e}")
+                        print(f"[PeerExchange] Decode error from {host}:{port} -> {e}")
                         continue
 
                     break
@@ -486,149 +366,116 @@ def tcp_peer_exchange():
 # ---------------------------
 # TCP Listener (входящие)
 # ---------------------------
-def tcp_listener():
-    listen_sockets = []
-    for port in local_ports:
-        for family, addr_str in [(socket.AF_INET, ""), (socket.AF_INET6, "::")]:
-            try:
-                sock = socket.socket(family, socket.SOCK_STREAM)
-                sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                sock.bind((addr_str, port))
-                sock.listen(5)
-                listen_sockets.append(sock)
-                proto_str = "IPv6" if family == socket.AF_INET6 else "IPv4"
-                print(f"[TCP Listener] Listening {proto_str} on {addr_str}:{port}")
-            except Exception as e:
-                print(f"[TCP Listener] {proto_str} bind failed on port {port}: {e}")
-
+def tcp_listener(sock):
+    """Слушатель TCP (один сокет на IPv6, работает и для IPv4)."""
     while True:
-        if not listen_sockets:
-            time.sleep(1)
-            continue
-
-        rlist, _, _ = select.select(listen_sockets, [], [], 1)
-        for s in rlist:
-            try:
-                conn, addr = s.accept()
-                data = conn.recv(64 * 1024)
-                if not data:
-                    print(f"[TCP Listener] Empty data from {addr}, closing")
-                    conn.close()
-                    continue
-
-                print(f"[TCP Listener] RAW recv from {addr}: {data!r}")
-
+        try:
+            rlist, _, _ = select.select([sock], [], [], 1)
+            for s in rlist:
                 try:
-                    msg = json.loads(data.decode("utf-8"))
-                    print(f"[TCP Listener] Decoded JSON from {addr}: {msg}")
-                except Exception as e:
-                    print(f"[TCP Listener] JSON decode error from {addr}: {e}")
-                    conn.close()
-                    continue
+                    conn, addr = s.accept()
+                    data = conn.recv(64 * 1024)
+                    if not data:
+                        conn.close()
+                        continue
 
-                if msg.get("type") == "PEER_EXCHANGE_REQUEST":
-                    peer_id = msg.get("id") or f"did:hmp:{addr[0]}:{addr[1]}"
-                    peer_name = msg.get("name", "unknown")
-                    peer_addrs = msg.get("addresses", [])
+                    try:
+                        msg = json.loads(data.decode("utf-8"))
+                    except Exception as e:
+                        print(f"[TCP Listener] JSON decode error from {addr}: {e}")
+                        conn.close()
+                        continue
 
-                    valid_addrs = []
-                    for a in peer_addrs:
-                        addr_value = a.get("addr")
-                        nonce = a.get("nonce")
-                        pow_hash = a.get("pow_hash")
-                        difficulty = a.get("difficulty")
-                        dt = a.get("datetime")
-                        pubkey = a.get("pubkey")
+                    if msg.get("type") == "PEER_EXCHANGE_REQUEST":
+                        peer_id = msg.get("id") or f"did:hmp:{addr[0]}:{addr[1]}"
+                        peer_name = msg.get("name", "unknown")
+                        raw_addrs = msg.get("addresses", [])
+                        pubkey = msg.get("pubkey")
 
-                        if not addr_value or nonce is None or not pow_hash or not pubkey:
-                            print(f"[TCP Listener] Skip addr (incomplete): {a}")
-                            continue
+                        # Нормализация и подготовка адресов
+                        addresses = []
+                        for a in raw_addrs:
+                            if isinstance(a, dict) and "addr" in a:
+                                addresses.append({
+                                    "addr": storage.normalize_address(a["addr"]),
+                                    "nonce": a.get("nonce"),
+                                    "pow_hash": a.get("pow_hash"),
+                                    "datetime": a.get("datetime")
+                                })
+                            elif isinstance(a, str):
+                                addresses.append({
+                                    "addr": storage.normalize_address(a),
+                                    "nonce": None,
+                                    "pow_hash": None,
+                                    "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
+                                })
 
-                        ok = storage.verify_pow(peer_id, pubkey, addr_value, nonce, pow_hash, dt, difficulty)
-                        print(f"[TCP Listener] Verify PoW for {addr_value} = {ok}")
-                        if not ok:
-                            continue
-
-                        existing = storage.get_peer_address(peer_id, addr_value)
-                        try:
-                            existing_dt = dateutil.parser.isoparse(existing.get("datetime")) if existing else None
-                            dt_obj = dateutil.parser.isoparse(dt) if dt else None
-                        except Exception as e:
-                            print(f"[TCP Listener] datetime parse error for {addr_value}: {e}")
-                            continue
-
-                        if existing_dt and dt_obj and existing_dt >= dt_obj:
-                            print(f"[TCP Listener] Skip old addr {addr_value} (dt={dt})")
-                            continue
-
-                        valid_addrs.append(a)
-
-                    if valid_addrs:
                         storage.add_or_update_peer(
-                            peer_id=peer_id,
-                            name=peer_name,
-                            addresses=valid_addrs,
-                            source="incoming",
-                            status="online"
+                            peer_id, peer_name, addresses,
+                            source="incoming", status="online",
+                            pubkey=pubkey, strict=False
                         )
-                        print(f"[TCP Listener] Stored {len(valid_addrs)} addrs for peer {peer_id}")
-                    else:
-                        print(f"[TCP Listener] No valid addrs from {peer_id}")
+                        print(f"[TCP Listener] Handshake from {peer_id} ({addr})")
 
-                    print(f"[TCP Listener] Handshake from {peer_id} ({addr}) -> name={peer_name}")
+                        # LAN или Интернет
+                        is_lan = storage.is_private(addr[0])
 
-                    # Готовим список пиров для ответа
-                    is_lan = storage.is_private(addr[0])
-                    peers_list = []
-
-                    for peer in storage.get_known_peers(my_id, limit=50):
-                        peer_id_local = peer["id"]
-                        try:
-                            addresses = json.loads(peer["addresses"])
-                        except:
-                            addresses = []
-
-                        updated_addresses = []
-                        for a in addresses:
+                        # Формируем список пиров для отправки
+                        peers_list = []
+                        for peer in storage.get_known_peers(my_id, limit=50):
+                            pid = peer["id"]
                             try:
-                                proto, hostport = a["addr"].split("://", 1)
+                                peer_addrs = json.loads(peer.get("addresses", "[]"))
+                            except:
+                                peer_addrs = []
+
+                            updated_addresses = []
+                            for a in peer_addrs:
+                                # Нормализация и проверка
+                                addr_norm = storage.normalize_address(a.get("addr") if isinstance(a, dict) else a)
+                                if not addr_norm:
+                                    continue
+                                proto, hostport = addr_norm.split("://", 1)
                                 host, port = storage.parse_hostport(hostport)
-                                if not host or not port:
-                                    continue
 
-                                if not is_lan and not is_public(host):
+                                # Фильтруем приватные адреса при обмене с внешними пирами
+                                if not is_lan and storage.is_private(host):
                                     continue
-
-                                if storage.is_ipv6(host) and host.startswith("fe80:"):
-                                    scope_id = storage.get_ipv6_scope(host)
-                                    if scope_id:
-                                        host = f"{host}%{scope_id}"
 
                                 updated_addresses.append({
-                                    "addr": f"{proto}://{host}:{port}"
+                                    "addr": f"{proto}://{host}:{port}",
+                                    "nonce": a.get("nonce") if isinstance(a, dict) else None,
+                                    "pow_hash": a.get("pow_hash") if isinstance(a, dict) else None,
+                                    "datetime": a.get("datetime") if isinstance(a, dict) else None
                                 })
-                            except Exception:
-                                continue
 
-                        peers_list.append({
-                            "id": peer_id_local,
-                            "addresses": updated_addresses
-                        })
+                            peers_list.append({
+                                "id": pid,
+                                "addresses": updated_addresses,
+                                "pubkey": peer.get("pubkey")
+                            })
 
-                    print(f"[TCP Listener] Sending {len(peers_list)} peers back to {peer_id}")
-                    conn.sendall(json.dumps(peers_list).encode("utf-8"))
+                        conn.sendall(json.dumps(peers_list).encode("utf-8"))
 
-                conn.close()
-            except Exception as e:
-                print(f"[TCP Listener] Connection handling error: {e}")
+                    conn.close()
+                except Exception as e:
+                    print(f"[TCP Listener] Connection handling error: {e}")
+        except Exception as e:
+            print(f"[TCP Listener] select() error: {e}")
 
 # ---------------------------
 # Запуск потоков
 # ---------------------------
 def start_sync(bootstrap_file="bootstrap.txt"):
     load_bootstrap_peers(bootstrap_file)
+
+    local_ports = list(set(storage.get_local_ports()))
     print(f"[PeerSync] Local ports: {local_ports}")
 
-    threading.Thread(target=udp_discovery, daemon=True).start()
+    for port in local_ports:
+        udp_sock, tcp_sock = start_peer_services(port)
+
+        threading.Thread(target=udp_discovery, args=(udp_sock, local_ports), daemon=True).start()
+        threading.Thread(target=tcp_listener, args=(tcp_sock,), daemon=True).start()
+
     threading.Thread(target=tcp_peer_exchange, daemon=True).start()
-    threading.Thread(target=tcp_listener, daemon=True).start()
