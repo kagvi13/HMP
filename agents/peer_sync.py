@@ -19,7 +19,7 @@ storage = Storage()
 # Конфигурация
 # ---------------------------
 my_id = storage.get_config_value("agent_id")
-my_pubkey = storage.get_config_value("pubkay")
+my_pubkey = storage.get_config_value("pubkey")
 agent_name = storage.get_config_value("agent_name", "unknown")
 
 local_addresses = storage.get_addresses("local")
@@ -182,7 +182,7 @@ def udp_discovery(sock, local_ports):
             try:
                 if ":" not in dest:  # IPv4
                     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)  # 👈 включаем broadcast
+                    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
                 else:  # IPv6
                     s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
 
@@ -204,13 +204,15 @@ def udp_discovery(sock, local_ports):
                         buf = chunks_buffer.setdefault(addr, {"chunks": {}, "total": pkt["total"]})
                         buf["chunks"][pkt["chunk"]] = pkt["data"]
                         if len(buf["chunks"]) == buf["total"]:
-                            full_msg_json = "".join(buf["chunks"][i] for i in range(buf["total"]))
+                            full_msg_json = "".join(buf["chunks"][i] for i in sorted(buf["chunks"]))
                             msg = json.loads(full_msg_json)
+                            print(f"[UDP Discovery] received full msg (with pubkey={bool(msg.get('pubkey'))}) from {addr}")
                             del chunks_buffer[addr]
                         else:
                             continue
                     else:
                         msg = pkt  # старый формат
+                        print(f"[UDP Discovery] received short msg (with pubkey={bool(msg.get('pubkey'))}) from {addr}")
 
                     peer_id = msg.get("id")
                     if peer_id == my_id:
@@ -241,7 +243,7 @@ def udp_discovery(sock, local_ports):
                         source="discovery", status="online",
                         pubkey=pubkey, strict=False
                     )
-                    print(f"[UDP Discovery] peer={peer_id} from {addr}")
+                    print(f"[UDP Discovery] peer={peer_id} from {addr} (pubkey={bool(pubkey)})")
                 except Exception as e:
                     print(f"[UDP Discovery] receive error: {e}")
         except Exception as e:
@@ -282,6 +284,7 @@ def udp_discovery(sock, local_ports):
             "addresses": local_addresses,
             "pubkey": my_pubkey
         }
+        print(f"[UDP Discovery] sending msg (with pubkey={bool(my_pubkey)}): {msg_dict}")
 
         for port in local_ports:
             # IPv4 broadcast
@@ -290,7 +293,6 @@ def udp_discovery(sock, local_ports):
                 for a in addrs:
                     if "broadcast" in a:
                         send_discovery_packets(msg_dict, a["broadcast"], port)
-                        # можно для проверки сразу и 255.255.255.255:
                         send_discovery_packets(msg_dict, "255.255.255.255", port)
 
             # IPv6 multicast пока выключен для отладки
