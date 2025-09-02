@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS llm_memory (
     llm_id TEXT                                                 -- Идентификатор LLM
 );
 
--- Краткосрочная память (диалоговая история с рефлексией)
+-- Краткосрочная память (диалоговая история с рефлексией и тегами)
 CREATE TABLE IF NOT EXISTS llm_recent_responses (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -144,7 +144,10 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     novelty_score REAL,                         -- Количественная оценка новизны
     new_ideas JSON,                             -- JSON-список новых идей
     refined_ideas TEXT,                         -- JSON доработанных (уточнённых, изменённых) идей
-    discarded_ideas JSON                        -- JSON-список отбракованных идей
+    discarded_ideas JSON,                       -- JSON-список отбракованных идей
+    tags JSON                                   -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
+);
+
 );
 
 -- Список известных агентов в сети HMP
