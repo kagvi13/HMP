@@ -165,6 +165,31 @@ def start_peer_services(port):
 def udp_discovery(sock, local_ports):
     """Приём и рассылка discovery через один сокет (IPv4+IPv6)."""
     DISCOVERY_INTERVAL = 30
+    MAX_PACKET_SIZE = 1200  # безопасный лимит под UDP
+    chunks_buffer = {}  # addr -> {chunk_idx: data, total: n}
+
+    def send_discovery_packets(msg_dict, dest, port):
+        """Разбивка JSON на чанки и отправка по UDP."""
+        msg_json = json.dumps(msg_dict)
+        chunks = [msg_json[i:i + MAX_PACKET_SIZE] for i in range(0, len(msg_json), MAX_PACKET_SIZE)]
+        total = len(chunks)
+        for idx, chunk in enumerate(chunks):
+            pkt = json.dumps({
+                "chunk": idx,
+                "total": total,
+                "data": chunk
+            }).encode("utf-8")
+            try:
+                if ":" not in dest:  # IPv4
+                    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)  # 👈 включаем broadcast
+                else:  # IPv6
+                    s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+
+                s.sendto(pkt, (dest, port))
+                s.close()
+            except Exception as e:
+                print(f"[UDP Discovery] send error to {dest}:{port} -> {e}")
 
     while True:
         # --- Приём сообщений ---
@@ -172,8 +197,21 @@ def udp_discovery(sock, local_ports):
             rlist, _, _ = select.select([sock], [], [], 0.5)
             for s in rlist:
                 try:
-                    data, addr = s.recvfrom(2048)
-                    msg = json.loads(data.decode("utf-8"))
+                    data, addr = s.recvfrom(4096)
+                    pkt = json.loads(data.decode("utf-8"))
+
+                    if "chunk" in pkt and "total" in pkt and "data" in pkt:
+                        buf = chunks_buffer.setdefault(addr, {"chunks": {}, "total": pkt["total"]})
+                        buf["chunks"][pkt["chunk"]] = pkt["data"]
+                        if len(buf["chunks"]) == buf["total"]:
+                            full_msg_json = "".join(buf["chunks"][i] for i in range(buf["total"]))
+                            msg = json.loads(full_msg_json)
+                            del chunks_buffer[addr]
+                        else:
+                            continue
+                    else:
+                        msg = pkt  # старый формат
+
                     peer_id = msg.get("id")
                     if peer_id == my_id:
                         continue
@@ -195,7 +233,7 @@ def udp_discovery(sock, local_ports):
                                 "addr": storage.normalize_address(a),
                                 "nonce": None,
                                 "pow_hash": None,
-                                "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
+                                "datetime": datetime.now(timezone.utc).replace(microsecond=0).isoformat()
                             })
 
                     storage.add_or_update_peer(
@@ -209,6 +247,18 @@ def udp_discovery(sock, local_ports):
         except Exception as e:
             print(f"[UDP Discovery] select() error: {e}")
 
+        # --- Вывод интерфейсов и их адресов ---
+        print("[UDP Discovery] Interfaces:")
+        for iface in netifaces.interfaces():
+            addrs = netifaces.ifaddresses(iface)
+            ipv4_list = addrs.get(netifaces.AF_INET, [])
+            ipv6_list = addrs.get(netifaces.AF_INET6, [])
+            try:
+                if_idx = socket.if_nametoindex(iface)
+            except Exception:
+                if_idx = None
+            print(f"  {iface} (idx={if_idx}) - IPv4: {ipv4_list}, IPv6: {ipv6_list}")
+
         # --- Формируем локальные адреса для рассылки ---
         local_addresses = []
         for iface in netifaces.interfaces():
@@ -219,24 +269,19 @@ def udp_discovery(sock, local_ports):
                         "addr": storage.normalize_address(f"any://{ip}:{local_ports[0]}"),
                         "nonce": 0,
                         "pow_hash": "0"*64,
-                        "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
-                    })
-            for a in netifaces.ifaddresses(iface).get(netifaces.AF_INET6, []):
-                ip = a.get("addr")
-                if ip:
-                    local_addresses.append({
-                        "addr": storage.normalize_address(f"any://[{ip}]:{local_ports[0]}"),
-                        "nonce": 0,
-                        "pow_hash": "0"*64,
-                        "datetime": datetime.now(UTC).replace(microsecond=0).isoformat()
+                        "datetime": datetime.now(timezone.utc).replace(microsecond=0).isoformat()
                     })
 
-        msg_data = json.dumps({
+        # --- Вывод известных хостов ---
+        peers = storage.get_known_peers(my_id)
+        print("[UDP Discovery] Known peers:", [p["id"] for p in peers])
+
+        msg_dict = {
             "id": my_id,
             "name": agent_name,
             "addresses": local_addresses,
             "pubkey": my_pubkey
-        }).encode("utf-8")
+        }
 
         for port in local_ports:
             # IPv4 broadcast
@@ -244,30 +289,26 @@ def udp_discovery(sock, local_ports):
                 addrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET, [])
                 for a in addrs:
                     if "broadcast" in a:
-                        try:
-                            b_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                            b_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-                            b_sock.sendto(msg_data, (a["broadcast"], port))
-                            b_sock.close()
-                        except Exception as e:
-                            print(f"[UDP Discovery] IPv4 send error on {iface}:{port} -> {e}")
+                        send_discovery_packets(msg_dict, a["broadcast"], port)
+                        # можно для проверки сразу и 255.255.255.255:
+                        send_discovery_packets(msg_dict, "255.255.255.255", port)
 
-            # IPv6 multicast ff02::1
-            for iface in netifaces.interfaces():
-                ifaddrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET6, [])
-                for a in ifaddrs:
-                    ip = a.get("addr")
-                    if not ip:
-                        continue
-                    multicast_addr = f"ff02::1%{iface}" if ip.startswith("fe80:") else "ff02::1"
-                    try:
-                        m_sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-                        m_sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_IF, socket.if_nametoindex(iface))
-                        m_sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_MULTICAST_HOPS, 1)
-                        m_sock.sendto(msg_data, (multicast_addr, port))
-                        m_sock.close()
-                    except Exception as e:
-                        print(f"[UDP Discovery] IPv6 send error on {iface}:{port} -> {e}")
+            # IPv6 multicast пока выключен для отладки
+            # for iface in netifaces.interfaces():
+            #     ifaddrs = netifaces.ifaddresses(iface).get(netifaces.AF_INET6, [])
+            #     for a in ifaddrs:
+            #         ip = a.get("addr")
+            #         if not ip:
+            #             continue
+            #         multicast_addr = "ff02::1"
+            #         try:
+            #             if ip.startswith("fe80:"):
+            #                 if_idx = socket.if_nametoindex(iface)
+            #                 multicast_addr = f"ff02::1%{if_idx}"
+            #         except Exception as e:
+            #             print(f"[UDP Discovery] IPv6 multicast addr build error on {iface}: {e}")
+            #             multicast_addr = "ff02::1"
+            #         send_discovery_packets(msg_dict, multicast_addr, port)
 
         time.sleep(DISCOVERY_INTERVAL)
 
