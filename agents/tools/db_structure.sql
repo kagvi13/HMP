@@ -148,8 +148,6 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     tags JSON                                   -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
 );
 
-);
-
 -- Список известных агентов в сети HMP
 CREATE TABLE IF NOT EXISTS agent_peers (
     id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор (UUID или псевдоним)
