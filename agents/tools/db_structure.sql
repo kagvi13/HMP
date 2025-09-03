@@ -145,7 +145,8 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     new_ideas JSON,                             -- JSON-список новых идей
     refined_ideas TEXT,                         -- JSON доработанных (уточнённых, изменённых) идей
     discarded_ideas JSON,                       -- JSON-список отбракованных идей
-    tags JSON                                   -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
+    tags JSON,                                  -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
+    emotions JSON                               -- JSON-массив эмоциональных состояний, например ["радость:5", "тревожность:2"]
 );
 
 -- Список известных агентов в сети HMP
