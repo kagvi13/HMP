@@ -118,7 +118,9 @@ def main(force=False):
 
     for md_file in md_files:
         name = md_file.stem
-        slug = name.lower().replace("_", "-")
+        slug = re.sub(r'[^a-z0-9-]', '-', name.lower())
+        slug = re.sub(r'-+', '-', slug).strip('-')
+        slug = slug[:250]
         h = file_hash(md_file)
 
         if not force and name in published and published[name]["hash"] == h:
