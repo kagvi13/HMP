@@ -61,7 +61,6 @@ def create_post(title, slug, markdown_content):
         "input": {
             "title": title,
             "contentMarkdown": markdown_content,
-            "slug": slug,
             "publicationId": HASHNODE_PUBLICATION_ID
         }
     }
