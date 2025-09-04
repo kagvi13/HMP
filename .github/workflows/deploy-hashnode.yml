@@ -35,7 +35,7 @@ jobs:
         run: python scripts/publish_to_hashnode.py
         env:
           HASHNODE_TOKEN: ${{ secrets.HASHNODE_TOKEN }}
-          PUBLICATION_ID: ${{ secrets.HASHNODE_PUBLICATION_ID }}
+          HASHNODE_PUBLICATION_ID: ${{ secrets.HASHNODE_PUBLICATION_ID }}
           JSON_FILE: published_posts.json
 
       - name: Push updated published_posts.json to gh-hashnode
