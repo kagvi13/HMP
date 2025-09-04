@@ -146,20 +146,22 @@ def main(force=False):
         slug = re.sub(r'-+', '-', slug).strip('-')
         slug = slug[:250]
 
-        h = file_hash(md_file)
-
-        if not force and name in published and published[name]["hash"] == h:
-            print(f"✅ Пост '{name}' без изменений — пропускаем.")
-            continue
-
         md_text = md_file.read_text(encoding="utf-8")
         source_link = f"Источник: [ {md_file.name} ](https://github.com/kagvi13/HMP/blob/main/docs/{md_file.name})\n\n"
         md_text = source_link + md_text
         md_text = convert_md_links(md_text)
 
+        # Хэш после добавления источника
+        h = hashlib.md5(md_text.encode("utf-8")).hexdigest()
+
+        # Проверка публикации по title
+        if not force and title in published and published[title]["hash"] == h:
+            print(f"✅ Пост '{title}' без изменений — пропускаем.")
+            continue
+
         try:
-            if name in published and "id" in published[name]:
-                post_id = published[name]["id"]
+            if title in published and "id" in published[title]:
+                post_id = published[title]["id"]
                 post = update_post(post_id, title, slug, md_text)
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
@@ -167,14 +169,14 @@ def main(force=False):
                 post = publish_draft(post["id"])
                 print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
 
-            published[name] = {"id": post["id"], "slug": post["slug"], "hash": h}
+            published[title] = {"id": post["id"], "slug": post["slug"], "hash": h}
             save_published(published)
 
             print("⏱ Пауза 30 секунд перед следующим постом...")
             time.sleep(30)
 
         except Exception as e:
-            print(f"❌ Ошибка при публикации {name}: {e}")
+            print(f"❌ Ошибка при публикации {title}: {e}")
             save_published(published)
             break
 
