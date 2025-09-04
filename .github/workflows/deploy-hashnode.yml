@@ -1,0 +1,61 @@
+name: Deploy to Hashnode
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # каждый час
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests markdown2
+
+      - name: Fetch published_posts.json from gh-hashnode (or init)
+        run: |
+          if git ls-remote --exit-code origin gh-hashnode; then
+            echo "Branch gh-hashnode exists, fetching published_posts.json..."
+            git fetch origin gh-hashnode
+            git checkout origin/gh-hashnode -- published_posts.json
+          else
+            echo "Branch gh-hashnode does not exist, creating initial JSON..."
+            echo "{}" > published_posts.json
+          fi
+
+      - name: Publish to Hashnode
+        run: python scripts/publish_to_hashnode.py
+        env:
+          HASHNODE_TOKEN: ${{ secrets.HASHNODE_TOKEN }}
+          PUBLICATION_ID: ${{ secrets.HASHNODE_PUBLICATION_ID }}
+          JSON_FILE: published_posts.json
+
+      - name: Push updated published_posts.json to gh-hashnode
+        run: |
+          TMP_DIR=$(mktemp -d)
+          git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git "$TMP_DIR"
+          cd "$TMP_DIR"
+
+          if git show-ref --quiet refs/heads/gh-hashnode; then
+            git checkout gh-hashnode
+          else
+            git checkout --orphan gh-hashnode
+            git rm -rf .
+          fi
+
+          cp $GITHUB_WORKSPACE/published_posts.json ./published_posts.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add published_posts.json
+          git commit -m "Update published_posts.json" --quiet || echo "No changes to commit"
+          git push origin gh-hashnode --force --quiet
