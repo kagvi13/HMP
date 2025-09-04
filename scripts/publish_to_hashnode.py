@@ -134,14 +134,18 @@ def main(force=False):
 
     for md_file in md_files:
         name = md_file.stem
+
+        # Если короткое имя, добавляем суффикс
         if len(name) < 6:
             title = name + "-HMP"
         else:
             title = name
 
-        slug = re.sub(r'[^a-z0-9-]', '-', name.lower())
+        # slug формируем из title, чтобы Hashnode не ругался
+        slug = re.sub(r'[^a-z0-9-]', '-', title.lower())
         slug = re.sub(r'-+', '-', slug).strip('-')
         slug = slug[:250]
+
         h = file_hash(md_file)
 
         if not force and name in published and published[name]["hash"] == h:
@@ -156,10 +160,10 @@ def main(force=False):
         try:
             if name in published and "id" in published[name]:
                 post_id = published[name]["id"]
-                post = update_post(post_id, name, slug, md_text)
+                post = update_post(post_id, title, slug, md_text)
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
-                post = create_post(name, slug, md_text)
+                post = create_post(title, slug, md_text)
                 post = publish_draft(post["id"])
                 print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
 
