@@ -91,12 +91,11 @@ def create_post(title, slug, markdown_content):
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
 
-def update_post(post_id, title, slug, markdown_content):
+def update_post(slug, title, markdown_content):
     query = """
-    mutation UpdateDraft($id: ID!, $input: UpdateDraftInput!) {
-      updateDraft(id: $id, input: $input) {
+    mutation UpdateDraft($slug: String!, $input: UpdateDraftInput!) {
+      updateDraft(slug: $slug, input: $input) {
         draft {
-          id
           slug
           title
         }
@@ -104,12 +103,11 @@ def update_post(post_id, title, slug, markdown_content):
     }
     """
     variables = {
-        "id": post_id,
+        "slug": slug,
         "input": {
             "title": title,
             "contentMarkdown": markdown_content,
-            "slug": slug,
-            "tags": [{"name": tag} for tag in HMP_TAGS]  # <-- теги при обновлении
+            "tags": [{"name": tag} for tag in HMP_TAGS]
         }
     }
     return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
@@ -163,9 +161,9 @@ def main(force=False):
             continue
 
         try:
-            if title in published and "id" in published[title]:
-                post_id = published[title]["id"]
-                post = update_post(post_id, title, slug, md_text)
+            if title in published and "slug" in published[title]:
+                post_id = published[title]["slug"]
+                post = update_post(slug, title, md_text)
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
                 post = create_post(title, slug, md_text)
