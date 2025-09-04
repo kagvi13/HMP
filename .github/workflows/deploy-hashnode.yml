@@ -18,7 +18,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install requests markdown2
+        run: pip install requests markdown markdown2
 
       - name: Fetch published_posts.json from gh-hashnode (or init)
         run: |
