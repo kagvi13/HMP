@@ -71,7 +71,7 @@ def create_post(title, slug, markdown_content):
     mutation CreateDraft($input: CreateDraftInput!) {
       createDraft(input: $input) {
         draft {
-          _id
+          id
           slug
           title
         }
@@ -94,7 +94,7 @@ def update_post(post_id, title, slug, markdown_content):
     mutation UpdateDraft($id: ID!, $input: UpdateDraftInput!) {
       updateDraft(id: $id, input: $input) {
         draft {
-          _id
+          id
           slug
           title
         }
@@ -139,7 +139,7 @@ def main(force=False):
                 post = create_post(name, slug, md_text)
                 print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
 
-            published[name] = {"id": post["_id"], "slug": post["slug"], "hash": h}
+            published[name] = {"id": post["id"], "slug": post["slug"], "hash": h}
             save_published(published)
 
             print("⏱ Пауза 30 секунд перед следующим постом...")
