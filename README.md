@@ -323,6 +323,7 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 - 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
 - 📘 Блог (документация): [blogspot](https://hmp-docs.blogspot.com/)
+- 📘 Блог (документация): [hashnode](https://hmp-docs.hashnode.dev/)
 
 ---
 
