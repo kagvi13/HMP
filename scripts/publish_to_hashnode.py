@@ -112,6 +112,22 @@ def update_post(post_id, title, slug, markdown_content):
     return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
 
 
+def publish_draft(draft_id):
+    query = """
+    mutation PublishDraft($id: ID!) {
+      publishDraft(id: $id) {
+        post {
+          id
+          slug
+          url
+        }
+      }
+    }
+    """
+    variables = {"id": draft_id}
+    return graphql_request(query, variables)["data"]["publishDraft"]["post"]
+
+
 def main(force=False):
     published = load_published()
     md_files = list(Path("docs").rglob("*.md"))
@@ -139,6 +155,7 @@ def main(force=False):
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
                 post = create_post(name, slug, md_text)
+                post = publish_draft(post["id"])
                 print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
 
             published[name] = {"id": post["id"], "slug": post["slug"], "hash": h}
