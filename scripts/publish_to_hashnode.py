@@ -134,6 +134,11 @@ def main(force=False):
 
     for md_file in md_files:
         name = md_file.stem
+        if len(name) < 6:
+            title = name + "-HMP"
+        else:
+            title = name
+
         slug = re.sub(r'[^a-z0-9-]', '-', name.lower())
         slug = re.sub(r'-+', '-', slug).strip('-')
         slug = slug[:250]
