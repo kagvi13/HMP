@@ -114,8 +114,8 @@ def update_post(post_id, title, slug, markdown_content):
 
 def publish_draft(draft_id):
     query = """
-    mutation PublishDraft($id: ID!) {
-      publishDraft(id: $id) {
+    mutation PublishDraft($input: PublishDraftInput!) {
+      publishDraft(input: $input) {
         post {
           id
           slug
@@ -124,7 +124,7 @@ def publish_draft(draft_id):
       }
     }
     """
-    variables = {"id": draft_id}
+    variables = {"input": {"draftId": draft_id}}
     return graphql_request(query, variables)["data"]["publishDraft"]["post"]
 
 
