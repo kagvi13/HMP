@@ -56,17 +56,17 @@ def create_post(title, slug, markdown_content):
                            "slug": slug, "publicationId": HASHNODE_PUBLICATION_ID}}
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
-def update_post(slug, title, markdown_content):
+def update_post(draft_id, title, markdown_content):
     query = """
-    mutation UpdateDraft($slug: String!, $input: UpdateDraftInput!) {
-      updateDraft(slug: $slug, input: $input) {
-        draft { slug title id }
+    mutation UpdateDraft($input: UpdateDraftInput!) {
+      updateDraft(input: $input) {
+        draft { id slug title }
       }
     }
     """
     variables = {
-        "slug": slug,
         "input": {
+            "draftId": draft_id,
             "title": title,
             "contentMarkdown": markdown_content
         }
@@ -102,7 +102,7 @@ def main(force=False):
 
         try:
             if name in published and "id" in published[name]:
-                post = update_post(published[name]["id"], title, md_text)
+                update_post(published[name]["id"], title, md_text)
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
                 draft = create_post(title, slug, md_text)
