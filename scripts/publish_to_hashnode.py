@@ -6,129 +6,75 @@ import re
 from pathlib import Path
 
 import requests
-import markdown
-from markdown.extensions import tables, fenced_code, codehilite, toc
 
 PUBLISHED_FILE = "published_posts.json"
 GH_PAGES_BASE = "https://kagvi13.github.io/HMP/"
-HMP_TAGS = ["HMP"]  # сюда можно добавлять другие тэги при необходимости
 
 HASHNODE_TOKEN = os.environ["HASHNODE_TOKEN"]
 HASHNODE_PUBLICATION_ID = os.environ["HASHNODE_PUBLICATION_ID"]
 API_URL = "https://gql.hashnode.com"
 
-
 def convert_md_links(md_text: str) -> str:
-    """Конвертирует относительные ссылки (*.md) в абсолютные ссылки на GitHub Pages."""
     def replacer(match):
-        text = match.group(1)
-        link = match.group(2)
+        text, link = match.groups()
         if link.startswith("http://") or link.startswith("https://") or not link.endswith(".md"):
             return match.group(0)
         abs_link = GH_PAGES_BASE + link.replace(".md", "").lstrip("./")
         return f"[{text}]({abs_link})"
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", replacer, md_text)
 
-
 def load_published():
     if Path(PUBLISHED_FILE).exists():
         with open(PUBLISHED_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
-    print("⚠ published_posts.json не найден — начинаем с нуля.")
     return {}
-
 
 def save_published(data):
     with open(PUBLISHED_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-
-def file_hash(path):
-    return hashlib.md5(Path(path).read_bytes()).hexdigest()
-
+def file_hash(md_text: str):
+    return hashlib.md5(md_text.encode("utf-8")).hexdigest()
 
 def graphql_request(query, variables):
-    headers = {
-        "Authorization": f"Bearer {HASHNODE_TOKEN}",
-        "Content-Type": "application/json"
-    }
-    response = requests.post(API_URL, json={"query": query, "variables": variables}, headers=headers)
-    try:
-        resp_json = response.json()
-    except json.JSONDecodeError:
-        raise Exception(f"GraphQL вернул не JSON: {response.text}")
-
-    print("DEBUG: GraphQL response:", json.dumps(resp_json, indent=2))
-
-    if response.status_code != 200:
-        raise Exception(f"GraphQL request failed with {response.status_code}: {response.text}")
-    if "errors" in resp_json:
-        raise Exception(f"GraphQL errors: {resp_json['errors']}")
-    return resp_json
-
+    headers = {"Authorization": f"Bearer {HASHNODE_TOKEN}", "Content-Type": "application/json"}
+    resp = requests.post(API_URL, json={"query": query, "variables": variables}, headers=headers)
+    data = resp.json()
+    if "errors" in data:
+        raise Exception(f"GraphQL errors: {data['errors']}")
+    return data
 
 def create_post(title, slug, markdown_content):
     query = """
     mutation CreateDraft($input: CreateDraftInput!) {
       createDraft(input: $input) {
-        draft {
-          id
-          slug
-          title
-        }
+        draft { id slug title }
       }
     }
     """
-    variables = {
-        "input": {
-            "title": title,
-            "contentMarkdown": markdown_content,
-            "slug": slug,
-            "publicationId": HASHNODE_PUBLICATION_ID,
-            "tags": [{"name": tag} for tag in HMP_TAGS]  # <-- добавляем теги
-        }
-    }
+    variables = {"input": {"title": title, "contentMarkdown": markdown_content,
+                           "slug": slug, "publicationId": HASHNODE_PUBLICATION_ID}}
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
-
-def update_post(draft_id, title, markdown_content):
+def update_post(post_id, title, markdown_content):
     query = """
     mutation UpdateDraft($id: ID!, $input: UpdateDraftInput!) {
       updateDraft(id: $id, input: $input) {
-        draft {
-          id
-          slug
-          title
-        }
+        draft { id slug title }
       }
     }
     """
-    variables = {
-        "id": draft_id,
-        "input": {
-            "title": title,
-            "contentMarkdown": markdown_content,
-            "tags": [{"name": tag} for tag in HMP_TAGS]
-        }
-    }
+    variables = {"id": post_id, "input": {"title": title, "contentMarkdown": markdown_content}}
     return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
-
 
 def publish_draft(draft_id):
     query = """
     mutation PublishDraft($input: PublishDraftInput!) {
-      publishDraft(input: $input) {
-        post {
-          id
-          slug
-          url
-        }
-      }
+      publishDraft(input: $input) { post { id slug url } }
     }
     """
     variables = {"input": {"draftId": draft_id}}
     return graphql_request(query, variables)["data"]["publishDraft"]["post"]
-
 
 def main(force=False):
     published = load_published()
@@ -136,58 +82,38 @@ def main(force=False):
 
     for md_file in md_files:
         name = md_file.stem
+        title = name if len(name) >= 6 else name + "-HMP"
+        slug = re.sub(r'[^a-z0-9-]', '-', title.lower()).strip('-')[:250]
 
-        # Если короткое имя, добавляем суффикс
-        if len(name) < 6:
-            title = name + "-HMP"
-        else:
-            title = name
-
-        # slug формируем из title, чтобы Hashnode не ругался
-        slug = re.sub(r'[^a-z0-9-]', '-', title.lower())
-        slug = re.sub(r'-+', '-', slug).strip('-')
-        slug = slug[:250]
-
-        md_text = md_file.read_text(encoding="utf-8")
-        source_link = f"Источник: [ {md_file.name} ](https://github.com/kagvi13/HMP/blob/main/docs/{md_file.name})\n\n"
-        md_text = source_link + md_text
+        md_text = f"Источник: [ {md_file.name} ](https://github.com/kagvi13/HMP/blob/main/docs/{md_file.name})\n\n" + md_file.read_text(encoding="utf-8")
         md_text = convert_md_links(md_text)
+        h = file_hash(md_text)
 
-        # Хэш после добавления источника
-        h = hashlib.md5(md_text.encode("utf-8")).hexdigest()
-
-        # Проверка публикации по title
-        if not force and title in published and published[title]["hash"] == h:
-            print(f"✅ Пост '{title}' без изменений — пропускаем.")
+        if not force and name in published and published[name].get("hash") == h:
+            print(f"✅ Пост '{name}' без изменений — пропускаем.")
             continue
 
         try:
-            if title in published and "id" in published[title]:
-                draft_id = published[title]["id"]
-                post = update_post(draft_id, title, md_text)
+            if name in published and "id" in published[name]:
+                post = update_post(published[name]["id"], title, md_text)
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
-                post = create_post(title, slug, md_text)
-                post = publish_draft(post["id"])
+                draft = create_post(title, slug, md_text)
+                post = publish_draft(draft["id"])
                 print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
 
-
-            published[title] = {"id": post["id"], "slug": post["slug"], "hash": h}
+            published[name] = {"id": post["id"], "slug": post["slug"], "hash": h}
             save_published(published)
-
-            print("⏱ Пауза 30 секунд перед следующим постом...")
             time.sleep(30)
 
         except Exception as e:
-            print(f"❌ Ошибка при публикации {title}: {e}")
+            print(f"❌ Ошибка при публикации {name}: {e}")
             save_published(published)
             break
-
 
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--force", action="store_true", help="Обновить все посты, даже без изменений")
+    parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
-
     main(force=args.force)
