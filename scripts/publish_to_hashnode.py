@@ -47,14 +47,17 @@ def file_hash(path):
 
 
 def graphql_request(query, variables):
-    headers = {"Authorization": f"Bearer {HASHNODE_TOKEN}"}
+    headers = {
+        "Authorization": f"Bearer {HASHNODE_TOKEN}",
+        "Content-Type": "application/json"
+    }
     response = requests.post(API_URL, json={"query": query, "variables": variables}, headers=headers)
     try:
         resp_json = response.json()
     except json.JSONDecodeError:
         raise Exception(f"GraphQL вернул не JSON: {response.text}")
 
-    print("DEBUG: GraphQL response:", json.dumps(resp_json, indent=2))  # 🔹 печать ответа
+    print("DEBUG: GraphQL response:", json.dumps(resp_json, indent=2))
 
     if response.status_code != 200:
         raise Exception(f"GraphQL request failed with {response.status_code}: {response.text}")
@@ -63,15 +66,14 @@ def graphql_request(query, variables):
     return resp_json
 
 
-
-def create_post(title, slug, html):
+def create_post(title, slug, markdown_content):
     query = """
-    mutation CreatePost($input: CreateStoryInput!) {
-      createStory(input: $input) {
-        post {
+    mutation CreateDraft($input: CreateDraftInput!) {
+      createDraft(input: $input) {
+        draft {
           _id
           slug
-          url
+          title
         }
       }
     }
@@ -79,24 +81,22 @@ def create_post(title, slug, html):
     variables = {
         "input": {
             "title": title,
+            "contentMarkdown": markdown_content,
             "slug": slug,
-            "contentMarkdown": html,
-            "isPartOfPublication": {
-                "publicationId": HASHNODE_PUBLICATION_ID
-            }
+            "publicationId": HASHNODE_PUBLICATION_ID
         }
     }
-    return graphql_request(query, variables)["data"]["createStory"]["post"]
+    return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
 
-def update_post(post_id, title, slug, html):
+def update_post(post_id, title, slug, markdown_content):
     query = """
-    mutation UpdatePost($id: ID!, $input: UpdateStoryInput!) {
-      updateStory(id: $id, input: $input) {
-        post {
+    mutation UpdateDraft($id: ID!, $input: UpdateDraftInput!) {
+      updateDraft(id: $id, input: $input) {
+        draft {
           _id
           slug
-          url
+          title
         }
       }
     }
@@ -105,11 +105,11 @@ def update_post(post_id, title, slug, html):
         "id": post_id,
         "input": {
             "title": title,
-            "slug": slug,
-            "contentMarkdown": html
+            "contentMarkdown": markdown_content,
+            "slug": slug
         }
     }
-    return graphql_request(query, variables)["data"]["updateStory"]["post"]
+    return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
 
 
 def main(force=False):
@@ -130,21 +130,14 @@ def main(force=False):
         md_text = source_link + md_text
         md_text = convert_md_links(md_text)
 
-        # Hashnode принимает Markdown, так что HTML-конвертация не обязательна
-        # Но мы можем оставить HTML для единообразия
-        html_content = markdown.markdown(
-            md_text,
-            extensions=["tables", "fenced_code", "codehilite", "toc"]
-        )
-
         try:
             if name in published and "id" in published[name]:
                 post_id = published[name]["id"]
                 post = update_post(post_id, name, slug, md_text)
-                print(f"♻ Обновлён пост: {post['url']}")
+                print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
                 post = create_post(name, slug, md_text)
-                print(f"🆕 Пост опубликован: {post['url']}")
+                print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
 
             published[name] = {"id": post["_id"], "slug": post["slug"], "hash": h}
             save_published(published)
