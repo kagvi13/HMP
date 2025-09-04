@@ -11,6 +11,7 @@ from markdown.extensions import tables, fenced_code, codehilite, toc
 
 PUBLISHED_FILE = "published_posts.json"
 GH_PAGES_BASE = "https://kagvi13.github.io/HMP/"
+HMP_TAGS = ["HMP"]  # сюда можно добавлять другие тэги при необходимости
 
 HASHNODE_TOKEN = os.environ["HASHNODE_TOKEN"]
 HASHNODE_PUBLICATION_ID = os.environ["HASHNODE_PUBLICATION_ID"]
@@ -83,7 +84,8 @@ def create_post(title, slug, markdown_content):
             "title": title,
             "contentMarkdown": markdown_content,
             "slug": slug,
-            "publicationId": HASHNODE_PUBLICATION_ID
+            "publicationId": HASHNODE_PUBLICATION_ID,
+            "tags": [{"name": tag} for tag in HMP_TAGS]  # <-- добавляем теги
         }
     }
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
@@ -106,7 +108,8 @@ def update_post(post_id, title, slug, markdown_content):
         "input": {
             "title": title,
             "contentMarkdown": markdown_content,
-            "slug": slug
+            "slug": slug,
+            "tags": [{"name": tag} for tag in HMP_TAGS]  # <-- теги при обновлении
         }
     }
     return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
