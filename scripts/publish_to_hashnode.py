@@ -91,11 +91,12 @@ def create_post(title, slug, markdown_content):
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
 
-def update_post(slug, title, markdown_content):
+def update_post(draft_id, title, markdown_content):
     query = """
-    mutation UpdateDraft($slug: String!, $input: UpdateDraftInput!) {
-      updateDraft(slug: $slug, input: $input) {
+    mutation UpdateDraft($id: ID!, $input: UpdateDraftInput!) {
+      updateDraft(id: $id, input: $input) {
         draft {
+          id
           slug
           title
         }
@@ -103,7 +104,7 @@ def update_post(slug, title, markdown_content):
     }
     """
     variables = {
-        "slug": slug,
+        "id": draft_id,
         "input": {
             "title": title,
             "contentMarkdown": markdown_content,
@@ -161,14 +162,15 @@ def main(force=False):
             continue
 
         try:
-            if title in published and "slug" in published[title]:
-                post_id = published[title]["slug"]
-                post = update_post(slug, title, md_text)
+            if title in published and "id" in published[title]:
+                draft_id = published[title]["id"]
+                post = update_post(draft_id, title, md_text)
                 print(f"♻ Обновлён пост: https://hashnode.com/@yourusername/{post['slug']}")
             else:
                 post = create_post(title, slug, md_text)
                 post = publish_draft(post["id"])
                 print(f"🆕 Пост опубликован: https://hashnode.com/@yourusername/{post['slug']}")
+
 
             published[title] = {"id": post["id"], "slug": post["slug"], "hash": h}
             save_published(published)
