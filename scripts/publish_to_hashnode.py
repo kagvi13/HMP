@@ -56,16 +56,23 @@ def create_post(title, slug, markdown_content):
                            "slug": slug, "publicationId": HASHNODE_PUBLICATION_ID}}
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
-def update_post(post_id, title, markdown_content):
+def update_post(slug, title, markdown_content):
     query = """
-    mutation UpdateDraft($id: ID!, $input: UpdateDraftInput!) {
-      updateDraft(id: $id, input: $input) {
-        draft { id slug title }
+    mutation UpdateDraft($slug: String!, $input: UpdateDraftInput!) {
+      updateDraft(slug: $slug, input: $input) {
+        draft { slug title id }
       }
     }
     """
-    variables = {"id": post_id, "input": {"title": title, "contentMarkdown": markdown_content}}
+    variables = {
+        "slug": slug,
+        "input": {
+            "title": title,
+            "contentMarkdown": markdown_content
+        }
+    }
     return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
+
 
 def publish_draft(draft_id):
     query = """
