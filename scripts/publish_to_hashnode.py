@@ -49,12 +49,19 @@ def file_hash(path):
 def graphql_request(query, variables):
     headers = {"Authorization": f"Bearer {HASHNODE_TOKEN}"}
     response = requests.post(API_URL, json={"query": query, "variables": variables}, headers=headers)
-    resp_json = response.json()
+    try:
+        resp_json = response.json()
+    except json.JSONDecodeError:
+        raise Exception(f"GraphQL вернул не JSON: {response.text}")
+
+    print("DEBUG: GraphQL response:", json.dumps(resp_json, indent=2))  # 🔹 печать ответа
+
     if response.status_code != 200:
         raise Exception(f"GraphQL request failed with {response.status_code}: {response.text}")
     if "errors" in resp_json:
         raise Exception(f"GraphQL errors: {resp_json['errors']}")
     return resp_json
+
 
 
 def create_post(title, slug, html):
