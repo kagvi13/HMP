@@ -134,7 +134,7 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 
 #### 🧪 Iterative Documents
 * [🧪 iteration.md](iteration.md) — Iterative development process (EN)
-* [🧪 iteration_ru.md](iteration_ru.md) — Процесс итеративного развития спецификации (RU)
+* [🧪 iteration_ru.md](iteration_ru.md) — Iterative development process (RU)
 
 #### 🔍 Short Descriptions
 * [🔍 HMP-Short-Description_en.md](docs/HMP-Short-Description_en.md) — Short description (EN)
