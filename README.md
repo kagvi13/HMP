@@ -61,7 +61,6 @@ Particularly relevant sections:
 |  1  | 🧠 **Consciousness / Cognitive Core**   | Independent subject          | **Agent (LLM)**  | Embedded LLM      | Autonomous AI companion, thinking agent        |
 |  2  | 🔌 **Connector / Cognitive Shell**     | Extension of external AI     | **External LLM** | External model    | Distributed systems, data access agent         |
 
-
 ---
 
 ### 🧠 HMP-Agent: Cognitive Core
@@ -122,7 +121,6 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 ## 📚 Documentation
 
 ### 📖 Current Version
-
 
 #### 🔖 Core Specifications
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protocol Specification v4.1 (Jul 2025)
@@ -322,7 +320,6 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 * 📘 Blog (publications): [blogspot](https://hypercortex-mesh.blogspot.com/)
 * 📘 Blog (documentation): [blogspot](https://hmp-docs.blogspot.com/)
 * 📘 Blog (documentation): [hashnode](https://hmp-docs.hashnode.dev/)
-
 
 ---
 
