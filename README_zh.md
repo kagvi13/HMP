@@ -148,7 +148,7 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 ### 🧩 JSON 模式
 
 ### 🧩 JSON Schemas
-| Model               | File                                                  |
+| 模型                | 文件                                                  |
 |---------------------|-------------------------------------------------------|
 | Concept             | [concept.json](docs/schemas/concept.json)             |
 | Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
