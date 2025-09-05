@@ -8,7 +8,7 @@ tags:
 library_name: custom
 inference: false
 datasets: []
-language: en
+language: uk
 ---
 
 # HyperCortex Mesh Protocol (HMP)
