@@ -143,12 +143,12 @@ HMP вирішує завдання, які стають ключовими в �
 ### 🧩 JSON Схеми
 | Модель               | Файл                                                  |
 |---------------------|-------------------------------------------------------|
-| Концепція           | [concept.json](docs/schemas/concept.json)             |
-| Когнітивний щоденник | [diary_entry.json](docs/schemas/diary_entry.json)     |
-| Цілі                | [goal.json](docs/schemas/goal.json)                   |
-| Завдання            | [task.json](docs/schemas/task.json)                   |
-| Консенсусне голосування | [vote.json](docs/schemas/vote.json)                   |
-| Профіль репутації  | [reputation.json](docs/schemas/reputation.json)       |
+| Концепт              | [concept.json](docs/schemas/concept.json)           |
+| Когнітивний щоденник | [diary_entry.json](docs/schemas/diary_entry.json)   |
+| Мета                 | [goal.json](docs/schemas/goal.json)                 |
+| Завдання             | [task.json](docs/schemas/task.json)                 |
+| Голосування за консенсус | [vote.json](docs/schemas/vote.json)             |
+| Профіль репутації    | [reputation.json](docs/schemas/reputation.json)     |
 
 ---
 
