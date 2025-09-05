@@ -134,20 +134,10 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 * [🔖 roles.md](docs/agents/roles.md) — Mesh 中代理的角色
 
 #### 🧪 迭代文档
-
-* [🧪 iteration.md](iteration.md) — 迭代开发流程 (EN)
-* [🧪 iteration\_ru.md](iteration_ru.md) — 迭代开发流程 (RU)
+* 🧪 迭代开发流程: [(EN)](iteration.md), [(RU)](iteration_ru.md)
 
 #### 🔍 简要说明
-
-* [🔍 HMP-Short-Description_en.md](docs/HMP-Short-Description_en.md) — Short description (EN)
-* [🔍 HMP-Short-Description_fr.md](docs/HMP-Short-Description_fr.md) — Description courte (FR)
-* [🔍 HMP-Short-Description_de.md](docs/HMP-Short-Description_de.md) — Kurzbeschreibung (DE)
-* [🔍 HMP-Short-Description_uk.md](docs/HMP-Short-Description_uk.md) — Короткий опис (UK)
-* [🔍 HMP-Short-Description_ru.md](docs/HMP-Short-Description_ru.md) — Краткое описание (RU)
-* [🔍 HMP-Short-Description_zh.md](docs/HMP-Short-Description_zh.md) — 简短描述 (ZH)
-* [🔍 HMP-Short-Description_ja.md](docs/HMP-Short-Description_ja.md) — 簡単な説明 (JA)
-* [🔍 HMP-Short-Description_ko.md](docs/HMP-Short-Description_ko.md) — 간략한 설명 (KO)
+* 🔍 简短描述: [(EN)](docs/HMP-Short-Description_en.md), [(FR)](docs/HMP-Short-Description_fr.md), [(DE)](docs/HMP-Short-Description_de.md), [(UK)](docs/HMP-Short-Description_uk.md), [(RU)](docs/HMP-Short-Description_ru.md), [(ZH)](docs/HMP-Short-Description_zh.md), [(JA)](docs/HMP-Short-Description_ja.md), [(KO)](docs/HMP-Short-Description_ko.md)  
 
 #### 📜 其他文档
 
