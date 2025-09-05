@@ -125,7 +125,7 @@ La principale différence dans HMP est l’accent mis sur la structuration expli
 > * `bootstrap.txt` — liste initiale des nœuds (modifiable)
 > * `IPFS/BT` — modules pour partager des instantanés via IPFS et BitTorrent
 > * `bloc-notes utilisateur` — carnet utilisateur et base de données associée
-> * `context_store` — base de données : `utilisateurs`, `dialogues`, `messages`, `pensées`
+> * `context_store` — base de données : `users`, `dialogues`, `messages`, `thoughts`
 
 ---
 
