@@ -142,8 +142,6 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 * [🔍 HMP-Short-Description_ja.md](docs/HMP-Short-Description_ja.md) — 簡単な説明 (JA)
 * [🔍 HMP-Short-Description_ko.md](docs/HMP-Short-Description_ko.md) — 간략한 설명 (KO)
 
----
-
 #### 📜 Other Documents
 * [📜 changelog.txt](docs/changelog.txt)
 
