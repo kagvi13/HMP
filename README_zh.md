@@ -147,15 +147,14 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 
 ### 🧩 JSON 模式
 
-### 🧩 JSON Schemas
-| 模型                | 文件                                                  |
-|---------------------|-------------------------------------------------------|
-| Concept             | [concept.json](docs/schemas/concept.json)             |
-| Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
-| Goal                | [goal.json](docs/schemas/goal.json)                   |
-| Task                | [task.json](docs/schemas/task.json)                   |
-| Consensus Vote      | [vote.json](docs/schemas/vote.json)                   |
-| Reputation Profile  | [reputation.json](docs/schemas/reputation.json)       |
+| 模型                  | 文件                                                   |
+|----------------------|------------------------------------------------------|
+| 概念                  | [concept.json](docs/schemas/concept.json)           |
+| 认知日记              | [diary_entry.json](docs/schemas/diary_entry.json)   |
+| 目标                  | [goal.json](docs/schemas/goal.json)                 |
+| 任务                  | [task.json](docs/schemas/task.json)                 |
+| 共识投票              | [vote.json](docs/schemas/vote.json)                 |
+| 声誉档案              | [reputation.json](docs/schemas/reputation.json)     |
 
 ---
 
