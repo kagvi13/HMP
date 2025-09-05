@@ -51,10 +51,10 @@ See the latest review of state-of-the-art AGI research (July 2025):
 ["On the Path to Superintelligence: From Agentic Internet to Gravity Encoding"](https://habr.com/ru/articles/939026/).  
 
 Particularly relevant sections:  
-- [Beyond Tokens: Building the Intelligence of the Future](https://arxiv.org/abs/2507.00951)  
-- [Self-Evolving Agents](https://arxiv.org/abs/2507.21046)  
-- [MemOS: A New Operating System for Memory](https://arxiv.org/abs/2507.03724)  
-- [Ella: An Embodied Agent with Memory and Personality](https://arxiv.org/abs/2506.24019)  
+* [Beyond Tokens: Building the Intelligence of the Future](https://arxiv.org/abs/2507.00951)  
+* [Self-Evolving Agents](https://arxiv.org/abs/2507.21046)  
+* [MemOS: A New Operating System for Memory](https://arxiv.org/abs/2507.03724)  
+* [Ella: An Embodied Agent with Memory and Personality](https://arxiv.org/abs/2506.24019)  
 
 ---
 
