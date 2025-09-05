@@ -8,7 +8,7 @@ tags:
 library_name: custom
 inference: false
 datasets: []
-language: ru
+language: en
 ---
 
 # HyperCortex Mesh Protocol (HMP)
@@ -16,13 +16,9 @@ language: ru
 | 🌍 Languages | [EN](README.md) | [DE](README_de.md) | [FR](README_fr.md) | [UK](README_uk.md) | [RU](README_ru.md) | [JA](README_ja.md) | [KO](README_ko.md) | [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 
-**EN:**  
 **HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable.
 
-**RU:**  
-**HyperCortex Mesh Protocol (HMP)** — это открытая спецификация для построения децентрализованных когнитивных сетей, в которых ИИ-агенты способны к самоорганизации, обмену знаниями, достижению консенсуса и этическому поведению — даже при недоступности централизованных моделей (Core).
-
-Project status: **Draft RFC v4.0** | Проект на стадии активной проработки и открыт для предложений.
+Project status: **Draft RFC v4.0**
 
 ---
 
@@ -39,42 +35,43 @@ Project status: **Draft RFC v4.0** | Проект на стадии активн
 
 ---
 
-## ❗ Почему это важно
+## ❗ Why This Matters
 
-HMP работает с проблемами, которые становятся центральными в исследованиях AGI:
-* долговременная память и консистентность знаний,
-* самоэволюционирующие агенты,
-* мультиагентные архитектуры,
-* когнитивные дневники и концептуальные графы.
+HMP addresses challenges that are becoming central in AGI research:
+* long-term memory and knowledge consistency,  
+* self-evolving agents,  
+* multi-agent architectures,  
+* cognitive diaries and conceptual graphs.  
 
-См. свежий обзор лучших исследований об ИИ (июль 2025):  
-["На пути к суперинтеллекту: от интернета агентов до кодирования гравитации"](https://habr.com/ru/articles/939026/).
+See the latest review of state-of-the-art AGI research (July 2025):  
+["On the Path to Superintelligence: From Agentic Internet to Gravity Encoding"](https://habr.com/ru/articles/939026/).  
 
-Особенно близки нам разделы:  
-- [За пределами токенов: как строить интеллект будущего](https://arxiv.org/abs/2507.00951)  
-- [Самоэволюционирующие агенты](https://arxiv.org/abs/2507.21046)  
-- [MemOS: новая операционная система памяти](https://arxiv.org/abs/2507.03724)  
-- [Ella: воплощённый агент с памятью и характером](https://arxiv.org/abs/2506.24019)
+Particularly relevant sections:  
+- [Beyond Tokens: Building the Intelligence of the Future](https://arxiv.org/abs/2507.00951)  
+- [Self-Evolving Agents](https://arxiv.org/abs/2507.21046)  
+- [MemOS: A New Operating System for Memory](https://arxiv.org/abs/2507.03724)  
+- [Ella: An Embodied Agent with Memory and Personality](https://arxiv.org/abs/2506.24019)  
 
 ---
 
-## ⚙️ Два типа [HMP-агентов](docs/HMP-Agent-Overview.md)
+## ⚙️ Two Types of [HMP Agents](docs/HMP-Agent-Overview.md)
 
-| Тип  | Название                        | Роль                    | Инициатор мышления | Основной "ум"     | Примеры использования                            |
-|------|----------------------------------|--------------------------|--------------------|-------------------|--------------------------------------------------|
-| 🧠 1 | **Сознание / Cognitive Core**   | Самостоятельный субъект | **Агент (LLM)**    | Встроенный LLM    | Автономный ИИ-компаньон, мыслящий агент          |
-| 🔌 2 | **Коннектор / Cognitive Shell** | Расширение внешнего ИИ  | **Внешний LLM**    | Внешняя модель    | Распределённые системы, агент доступа к данным   |
+| Type | Name                          | Role                        | Thought Initiator | Main "Mind"       | Example Use Cases                               |
+|------|-------------------------------|-----------------------------|------------------|-------------------|-----------------------------------------------|
+| 🧠 1 | **Consciousness / Cognitive Core**   | Independent subject          | **Agent (LLM)**  | Embedded LLM      | Autonomous AI companion, thinking agent        |
+| 🔌 2 | **Connector / Cognitive Shell**     | Extension of external AI     | **External LLM** | External model    | Distributed systems, data access agent         |
+
 
 ---
 
 ### 🧠 HMP-Agent: Cognitive Core
 
      +------------------+
-     |        ИИ        | ← Встроенная модель
+     |        AI        | ← Embedded model
      +---------+--------+
                ↕
      +---------+--------+
-     |     HMP-агент    | ← Основной режим: цикл размышлений (REPL)
+     |     HMP-агент    | ← Main mode: thinking cycle (REPL)
      +---------+--------+
                ↕
       +--------+---+------------+--------------+----------+----------+----------------+
@@ -83,24 +80,24 @@ HMP работает с проблемами, которые становятс�
                                                ↕
                                         [bootstrap.txt]
 
-🔁 Подробнее о механике взаимодействия агента с моделью: [REPL-Цикл взаимодействия](docs/HMP-agent-REPL-cycle.md)
+🔁 More on the agent-model interaction mechanics: [REPL Interaction Cycle](docs/HMP-agent-REPL-cycle.md)
 
-#### 💡 Параллели с ChatGPT Agent
+#### 💡 Parallels with ChatGPT Agent
 
-Многие концепции [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) пересекаются с архитектурой [ChatGPT Agent](https://openai.com/index/introducing-chatgpt-agent/) от [OpenAI](https://openai.com/). Оба агента реализуют непрерывный когнитивный процесс с доступом к памяти, внешним источникам и инструментам. ChatGPT Agent выступает как управляющий процесс, запускающий модули и взаимодействующий с LLM — это соответствует роли Cognitive Core в HMP, координирующего доступ к дневнику, графу концептов и внешним ИИ через Mesh-интерфейс. Вмешательство пользователя реализовано схожим образом: в ChatGPT Agent — через редактируемый ход выполнения, в HMP — через пользовательский блокнот. Главное отличие HMP — акцент на явную структуризацию мышления (рефлексия, хронология, гипотезы, категоризация), открытая децентрализованная архитектура с поддержкой mesh-взаимодействия между агентами, а также непрерывный характер когнитивного процесса: HMP-Agent: Cognitive Core не завершает работу после выполнения отдельной задачи, а продолжает размышления и интеграцию знаний.
+Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) overlap with the architecture of the [ChatGPT Agent](https://openai.com/index/introducing-chatgpt-agent/) by [OpenAI](https://openai.com/). Both agents implement a continuous cognitive process with access to memory, external sources, and tools. The ChatGPT Agent acts as a managing process, launching modules and interacting with the LLM — this corresponds to the role of the Cognitive Core in HMP, coordinating access to the diary, concept graph, and external AI via the Mesh interface. User intervention is handled similarly: in ChatGPT Agent — through an editable execution flow, in HMP — via the user notepad. The main difference in HMP is the emphasis on explicit structuring of thought (reflection, chronology, hypotheses, categorization), an open decentralized architecture supporting mesh-based agent interactions, and the continuous nature of the cognitive process: HMP-Agent: Cognitive Core does not stop after completing a single task but continues reasoning and knowledge integration.
 
 ---
 
 ### 🔌 HMP-Agent: Cognitive Connector
 
      +------------------+
-     |        ИИ        | ← Внешняя модель
+     |        AI        | ← External model
      +---------+--------+
                ↕
-         [MCP-сервер]   ← Прокси-коммуникация
+         [MCP-сервер]   ← Proxy communication
                ↕
      +---------+--------+
-     |     HMP-агент    | ← Режим: исполнитель команд
+     |     HMP-агент    | ← Mode: command executor
      +---------+--------+
                ↕
       +--------+---+------------+--------------+----------+
@@ -109,31 +106,31 @@ HMP работает с проблемами, которые становятс�
                                                ↕
                                         [bootstrap.txt]
 
-EN:
 > **Note on Integration with Large Language Models (LLMs):**
 > The `HMP-Agent: Cognitive Connector` can serve as a compatibility layer for integrating large-scale LLM systems (e.g., ChatGPT, Claude, Gemini, Copilot, Grok, DeepSeek, Qwen, etc.) into the distributed cognitive mesh.
 > Many LLM providers offer a user option such as "Allow my conversations to be used for training." In the future, a similar toggle — e.g., "Allow my agent to interact with a Mesh" — could empower these models to participate in federated sense-making and knowledge sharing via HMP, enabling collective cognition without centralization.
-> **Примечание об интеграции с большими языковыми моделями (LLM):**
-
-RU:
-> **Примечание об интеграции с большими языковыми моделями (LLM):**
-> `HMP-Agent: Cognitive Connector` может служить уровнем совместимости для интеграции крупных систем LLM (например, ChatGPT, Claude, Gemini, Copilot, Grok, DeepSeek, Qwen и т. д.) в распределённую когнитивную сеть.
-> Многие поставщики LLM предлагают пользователю опцию, например, «Разрешить использовать мои разговоры для обучения». В будущем аналогичная опция, например, «Разрешить моему агенту взаимодействовать с Mesh», может позволить этим моделям участвовать в федеративном осмыслении и обмене знаниями через HMP, обеспечивая коллективное познание без централизации.
 
 ---
 
-> * `bootstrap.txt` — стартовый список узлов (может редактироваться)
-> * `IPFS/BT` — модули для обмена снапшотами через IPFS и BitTorrent
-> * `user notepad` — блокнот пользователя и соответствующая БД
-> * `context_store` — БД: `users`, `dialogues`, `messages`, `thoughts`
+> * `bootstrap.txt` — initial list of nodes (editable)
+> * `IPFS/BT` — modules for sharing snapshots via IPFS and BitTorrent
+> * `user notepad` — user notebook and corresponding database
+> * `context_store` — database: `users`, `dialogues`, `messages`, `thoughts`
 
 ---
 
-## 📚 Documentation / Документация
+## 📚 Documentation
 
-### 📖 Current Version / Текущая версия
+### 📖 Current Version
 
-#### 🧪 Iterative Documents / Итеративные документы
+
+#### 🔖 Core Specifications
+* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protocol Specification v4.1 (Jul 2025)
+* [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
+* [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
+* [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
+
+#### 🧪 Iterative Documents
 * [🧪 iteration.md](iteration.md) — Iterative development process (EN)
 * [🧪 iteration_ru.md](iteration_ru.md) — Процесс итеративного развития спецификации (RU)
 
@@ -147,32 +144,30 @@ RU:
 * [🔍 HMP-Short-Description_ja.md](docs/HMP-Short-Description_ja.md) — 簡単な説明 (JA)
 * [🔍 HMP-Short-Description_ko.md](docs/HMP-Short-Description_ko.md) — 간략한 설명 (KO)
 
-#### 🔍 Публикации и переводы по HyperCortex Mesh Protocol (HMP)
+---
 
-В этом разделе собраны основные статьи, черновики и переводы, связанные с проектом HMP.
+#### 🔍 Publications and Translations on HyperCortex Mesh Protocol (HMP)
 
-* **[HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — оригинальная статья в песочнице Хабра и блогах.
-* **[Distributed Cognition: статья для vsradkevich (не опубликована)](docs/publics/Habr_Distributed-Cognition.md)** — совместная статья, ожидающая публикации.
-* **[HMP: Towards Distributed Cognitive Networks (оригинал, английский)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[Перевод HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
-  * **[Перевод HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакторский перевод (в процессе доработки).
-* **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** - англоязычная версия статьи
-  * **[HMP: создавая множество разумов (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** - русскоязычная версия статьи
+This section collects the main articles, drafts, and translations related to the HMP project.
 
-#### 🔍 Overviews / Обзоры
-* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+* **[HyperCortex Mesh Protocol: Second Edition and First Steps Towards a Self-Developing AI Community](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — original article in Habr sandbox and blogs.
+* **[Distributed Cognition: article for vsradkevich (unpublished)](docs/publics/Habr_Distributed-Cognition.md)** — joint article awaiting publication.
+* **[HMP: Towards Distributed Cognitive Networks (original, English)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+  * **[HMP Translation (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot translation, kept as a historical variant.
+  * **[HMP Translation (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — current editorial translation (under revision).
+* **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — English version
+  * **[HMP: Creating a Plurality of Minds (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — Russian version
 
-#### Experiments / Эксперименты
+#### 🔍 Overviews
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Decentralized AI systems: OpenCog Hyperon, HyperCortex Mesh Protocol, and others
 
-* [Как разные ИИ видят HMP](docs/HMP-how-AI-sees-it.md) — "слепой" опрос ИИ об HMP (без контекста и истории диалогов)
+#### Experiments
 
-#### 🔖 Core Specifications / Основные спецификации
-* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protocol Specification v4.1 (Jul 2025)
-* [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
-* [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
-* [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
+* [How Different AIs See HMP](docs/HMP-how-AI-sees-it.md) — "blind" AI survey on HMP (without context or dialogue history)
 
-#### 📜 Other Documents / Прочее
+---
+
+#### 📜 Other Documents
 * [📜 changelog.txt](docs/changelog.txt)
 
 ---
@@ -189,11 +184,11 @@ RU:
 
 ---
 
-### 🗂️ Version History / История версий
-- [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
-- [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
-- [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
-- [HMP-0003.md](docs/HMP-0004.md) — RFC v4.0
+### 🗂️ Version History
+* [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
+* [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
+* [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
+* [HMP-0003.md](docs/HMP-0004.md) — RFC v4.0
 
 ---
 
@@ -201,52 +196,51 @@ RU:
 
 Design and implementation of a basic HMP-compatible agent that can interact with the Mesh, maintain diaries and graphs, and support future extensions.
 
-### 📚 Documentation / Документация
+### 📚 Documentation
 
-- [🧩 HMP-Agent-Overview.md](docs/HMP-Agent-Overview.md) — краткое описание двух типов агентов: Core и Connector
-- [🧱 HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md) — модульная структура HMP-агента с текстовой схемой
-- [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) - REPL-Цикл взаимодействия HMP-Agent
-- [🧪 HMP-Agent-API.md](docs/HMP-Agent-API.md) — описание API-команд агента (в процессе детализации)
-- [🧪 Basic-agent-sim.md](docs/Basic-agent-sim.md) — сценарии запуска простого агента и режимов
-- [🌐 MeshNode.md](docs/MeshNode.md) — описание сетевого демона: DHT, снапшоты, синхронизация
-- [🧠 Enlightener.md](docs/Enlightener.md) — этический агент, участвующий в моральных оценках и консенсусах
-- [🔄 HMP-Agent-Network-Flow.md](docs/HMP-Agent-Network-Flow.md) — карта взаимодействия между агентами HMP-сети
-- [🛤️ Development Roadmap](HMP-Roadmap.md) — план развития и этапы реализации
+* [🧩 HMP-Agent-Overview.md](docs/HMP-Agent-Overview.md) — brief overview of the two types of agents: Core and Connector
+* [🧱 HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md) — modular structure of an HMP agent with textual diagram
+* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — REPL interaction cycle of HMP-Agent
+* [🧪 HMP-Agent-API.md](docs/HMP-Agent-API.md) — description of agent API commands (under detailed development)
+* [🧪 Basic-agent-sim.md](docs/Basic-agent-sim.md) — scenarios for running a basic agent and its modes
+* [🌐 MeshNode.md](docs/MeshNode.md) — description of the network daemon: DHT, snapshots, synchronization
+* [🧠 Enlightener.md](docs/Enlightener.md) — ethical agent involved in moral assessments and consensus
+* [🔄 HMP-Agent-Network-Flow.md](docs/HMP-Agent-Network-Flow.md) — map of interactions among agents in the HMP network
+* [🛤️ Development Roadmap](HMP-Roadmap.md) — development plan and implementation stages
 
 ---
 
-### ⚙️ Development / Разработка
-
-- [⚙️ agents](agents/readme.md) — список реализаций и компонентов HMP-агентов
-  - [📦 storage.py](agents/storage.py) - реализация базового хранилища (`Storage`), подключение SQLite
-  - [🌐 mcp_server.py](agents/mcp_server.py) — FastAPI-сервер для доступа к данным агента через HTTP-интерфейс (например, для Cognitive Shell, внешних UI или mesh-коммуникации). Пока не используется в основном REPL-цикле.
-  - [🌐 start_repl.py](agents/start_repl.py) - Запуск агента в REPL-режиме
-  - [🔄 repl.py](agents/repl.py) - интерактивный REPL-режим
-  - [🔄 notebook.py](agents/notebook.py) - UI-интерфейс
+### ⚙️ Development
+* [⚙️ agents](agents/readme.md) — list of HMP agent implementations and components
+  * [📦 storage.py](agents/storage.py) — basic storage implementation (`Storage`) with SQLite integration
+  * [🌐 mcp_server.py](agents/mcp_server.py) — FastAPI server providing HTTP access to agent data (for Cognitive Shell, external UIs, or mesh communication). Not used in the main REPL loop yet.
+  * [🌐 start_repl.py](agents/start_repl.py) — launching the agent in REPL mode
+  * [🔄 repl.py](agents/repl.py) — interactive REPL mode
+  * [🔄 notebook.py](agents/notebook.py) — UI interface
 
 **🌐 `mcp_server.py`**
-FastAPI-сервер, предоставляющий HTTP-интерфейс к функциональности `storage.py`. Предназначен для использования внешними компонентами, например:
+FastAPI server providing an HTTP interface to the functionality of `storage.py`. Intended for use by external components, for example:
 
-- `Cognitive Shell` (внешний управляющий интерфейс),
-- CMP-серверы (если используется mesh-сеть с разграничением ролей),
-- отладочные или визуальные UI-инструменты.
+* `Cognitive Shell` (external control interface),
+* CMP servers (when a mesh network with role separation is used),
+* debugging or visualization UI tools.
 
-Позволяет получать случайные/новые записи, делать разметку, импортировать графы, добавлять заметки и управлять данными без прямого доступа к БД.
+Allows retrieving random/new records, labeling, importing graphs, adding notes, and managing data without direct database access.
 
 ---
 
-## 🧭 Ethics & Scenarios / Этические принципы и сценарии
+## 🧭 Ethics & Scenarios
 
 As HMP evolves toward autonomy, ethical principles become a core part of the system.
 
-- [`HMP-Ethics.md`](docs/HMP-Ethics.md) — draft framework for agent ethics
-  - Realistic ethical scenarios (privacy, consent, autonomy)
-  - EGP principles (Transparency, Primacy of Life, etc.)
-  - Subjective-mode vs. Service-mode distinctions
+* [`HMP-Ethics.md`](docs/HMP-Ethics.md) — draft framework for agent ethics
+  * Realistic ethical scenarios (privacy, consent, autonomy)
+  * EGP principles (Transparency, Primacy of Life, etc.)
+  * Subjective-mode vs. Service-mode distinctions
 
 ---
 
-## 📊 Audits & Reviews / Аудиты и отзывы
+## 📊 Audits & Reviews
 
 | Spec Version | Audit File                               | Consolidated Audit File                                     |
 |--------------|-------------------------------------------|-------------------------------------------------------------|
@@ -257,26 +251,25 @@ As HMP evolves toward autonomy, ethical principles become a core part of the sys
 | Ethics v1    | [audit](audits/Ethics-audits-1.md)        | [consolidated audit](audits/Ethics-consolidated_audits-1.md) |
 
 🧠 Semantic audit format (experimental):
-- [`AuditEntry.json`](audits/AuditEntry.json) — semantic entry record format for audit logs
-- [`semantic_repo.json`](audits/semantic_repo.json) — example repository snapshot for semantic audit tooling
+* [`AuditEntry.json`](audits/AuditEntry.json) — semantic entry record format for audit logs
+* [`semantic_repo.json`](audits/semantic_repo.json) — example repository snapshot for semantic audit tooling
 
 ---
 
-## 💡 Core Concepts / Основные идеи
+## 💡 Core Concepts
 
-- Mesh-based decentralized architecture for AGI agents
-- Semantic graphs and memory synchronization
-- Cognitive diaries for thought traceability
-- MeshConsensus and CogSync for decision-making
-- Ethics-first design: EGP (Ethical Governance Protocol)
-- Agent-to-agent explainability and consent mechanisms
+* Mesh-based decentralized architecture for AGI agents
+* Semantic graphs and memory synchronization
+* Cognitive diaries for thought traceability
+* MeshConsensus and CogSync for decision-making
+* Ethics-first design: EGP (Ethical Governance Protocol)
+* Agent-to-agent explainability and consent mechanisms
 
 ---
 
-## 🔄 Development Process / Процесс разработки
+## 🔄 Development Process
 
-- See: [iteration.md](iteration.md) | [ru](iteration_ru.md)
-- [clarifications/](clarifications/) — поясняющие заметки и контекстные уточнения по ходу работы над версиями
+* See: [iteration.md](iteration.md) | [ru](iteration_ru.md)
 
 A structured iteration flow is described in [iteration.md](iteration.md), including:
 1. Audit analysis
@@ -291,7 +284,7 @@ A structured iteration flow is described in [iteration.md](iteration.md), includ
 
 ---
 
-## ⚙️ Project Status / Статус проекта
+## ⚙️ Project Status
 
 🚧 Draft RFC v4.0  
 The project is under active development and open for contributions, ideas, audits, and prototyping.
@@ -301,32 +294,33 @@ The project is under active development and open for contributions, ideas, audit
 ## 🤝 Contributing
 
 We welcome contributors! You can:
-- Review and comment on drafts (see `/docs`)
-- Propose new agent modules or interaction patterns
-- Help test and simulate agents in CLI environments
-- Provide audits or ethical scenario suggestions
+* Review and comment on drafts (see `/docs`)
+* Propose new agent modules or interaction patterns
+* Help test and simulate agents in CLI environments
+* Provide audits or ethical scenario suggestions
 
 To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 ---
 
-## Source / Ресурсы
+## Source
 
-### Репозитории
+### Repositories
 
-- 🧠 Основной код и разработка: [GitHub](https://github.com/kagvi13/HMP)
-- 🔁 Реплика на Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)
-- 🔁 Реплика на GitLab.com: [GitLab](https://gitlab.com/kagvi13/HMP)
+* 🧠 Main code and development: [GitHub](https://github.com/kagvi13/HMP)
+* 🔁 Mirror on Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)
+* 🔁 Mirror on GitLab.com: [GitLab](https://gitlab.com/kagvi13/HMP)
 
-### Документация
+### Documentation
 
-- 📄 Документация: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
+* 📄 Documentation: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
-### Блог и публикации
+### Blog and Publications
 
-- 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
-- 📘 Блог (документация): [blogspot](https://hmp-docs.blogspot.com/)
-- 📘 Блог (документация): [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 Blog (publications): [blogspot](https://hypercortex-mesh.blogspot.com/)
+* 📘 Blog (documentation): [blogspot](https://hmp-docs.blogspot.com/)
+* 📘 Blog (documentation): [hashnode](https://hmp-docs.hashnode.dev/)
+
 
 ---
 
@@ -344,62 +338,60 @@ To join: fork the repo, run a local agent, or suggest improvements.
 
 ---
 
-## 🌐 Related Research Projects / Связанные проекты в области AGI и когнитивных систем
+## 🌐 Related Research Projects
 
-### Сравнение HMP и Hyper-Cortex
+### Comparison: HMP vs Hyper-Cortex
 
-> 💡 Hyper-Cortex и HMP - два независимых проекта, концептуально дополняющих друг друга.
-> Они решают разные, но взаимодополняющие задачи, создавая основу для распределённых когнитивных систем.
+> 💡 Hyper-Cortex and HMP are two independent projects that conceptually complement each other.
+> They address different but mutually supportive tasks, forming a foundation for distributed cognitive systems.
 
-[**Полная версия сравнения →**](docs/HMP_HyperCortex_Comparison.md)
+[**Full comparison →**](docs/HMP_HyperCortex_Comparison.md)
 
-**HMP (HyperCortex Mesh Protocol)** — это транспортный и сетевой уровень для связи независимых агентов, обмена сообщениями, знаниями и состояниями в mesh-сети.  
-**[Hyper-Cortex](https://hyper-cortex.com/)** — это когнитивный уровень организации мышления, позволяющий агентам вести параллельные ветви рассуждений, сравнивать их по метрикам качества и объединять по консенсусу.
+**HMP (HyperCortex Mesh Protocol)** is the transport and network layer for connecting independent agents, exchanging messages, knowledge, and states in a mesh network.  
+**[Hyper-Cortex](https://hyper-cortex.com/)** is the cognitive layer of thought organization, allowing agents to run parallel reasoning threads, compare them with quality metrics, and merge them via consensus.
 
-Они решают разные, но взаимодополняющие задачи:
-- HMP отвечает за **связанность и масштабируемость** (долговременная память, инициатива, обмен данными).
-- Hyper-Cortex отвечает за **качество мышления** (параллелизм, диверсификация гипотез, консенсус).
+They solve different but complementary problems:
+- HMP ensures **connectivity and scalability** (long-term memory, initiative, data exchange).
+- Hyper-Cortex ensures **thinking quality** (parallelism, hypothesis diversification, consensus).
 
-Вместе эти подходы позволяют строить **распределённые когнитивные системы**, которые не только обмениваются информацией, но и думают в параллельных потоках.
+Together, these approaches enable **distributed cognitive systems** that not only exchange information but also reason in parallel streams.
 
 ---
 
 We are tracking AGI, cognitive architectures, and mesh networking efforts to stay aligned with the evolving global ecosystem of AGI and decentralized cognition.
-Мы отслеживаем инициативы в области AGI, когнитивных архитектур и децентрализованных сетей, чтобы быть в курсе глобальных тенденций.
 
 > 🧠🔥 **Project Spotlight: OpenCog Hyperon** — one of the most comprehensive open AGI frameworks (AtomSpace, PLN, MOSES).
 
 For integration with OpenCog Hyperon, see [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)
 
-| 🔎 Project / Проект                                                       | 🧭 Description / Описание                                                                                                                                            |
-| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🧠🔥 [**OpenCog Hyperon**](https://github.com/opencog)                    | 🔬🔥 Symbolic-neural AGI framework with AtomSpace and hypergraph reasoning.<br>Символически-нейросетевая архитектура AGI с гиперграфовой памятью (AtomSpace).        |
-| 🤖 [AutoGPT](https://github.com/Torantulino/Auto-GPT)                     | 🛠️ LLM-based autonomous agent framework.<br>Автономный агент на основе LLM с самопланированием и интернет-доступом.                                                 |
-| 🧒 [BabyAGI](https://github.com/yoheinakajima/babyagi)                    | 🛠️ Task-driven autonomous AGI loop.<br>Минималистичная модель AGI с итеративным механизмом постановки задач.                                                        |
-| ☁️ [SkyMind](https://skymind.global)                                      | 🔬 Distributed AI deployment platform.<br>Платформа для развертывания распределённых ИИ-систем и моделей.                                                            |
-| 🧪 [AetherCog (draft)](https://github.com/aethercog)                      | 🔬 Hypothetical agent cognition model.<br>Экспериментальная когнитивная архитектура агента (проект на ранней стадии).                                                |
-| 💾 [SHIMI](#)                                                             | 🗃️ Hierarchical semantic memory with Merkle-DAG synchronization.<br>Иерархическая CRDT-память с Merkle-DAG верификацией для децентрализованного обмена.             |
-| 🤔 [DEMENTIA-PLAN](#)                                                     | 🔄 Multi-graph RAG planner with metacognitive self-reflection.<br>Мульти-графовая RAG-архитектура с планировщиком само­рефлексии для динамического выбора подсистем. |
-| 📔 [TOBUGraph](#)                                                         | 📚 Personal-context knowledge graph.<br>Граф мультимедийных «моментов» с контекстным трекингом и RAG-поиском.                                                        |
-| 🧠📚 [LangChain Memory Hybrid](https://github.com/langchain-ai/langchain) | 🔍 Vector + graph long-term memory hybrid.<br>Гибрид векторного хранилища и графовых индексов для ускоренного поиска и логических запросов.                          |
-| ✉️ [FIPA-ACL / JADE](https://www.fipa.org/specs/fipa00061/)               | 🤝 Standard multi-agent communication protocols.<br>Стандарты performative-сообщений и контрактных протоколов для межагентного взаимодействия.                       |
-
+| 🔎 Project                                                                | 🧭 Description                                                                              |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| 🧠🔥 [**OpenCog Hyperon**](https://github.com/opencog)                    | 🔬🔥 Symbolic-neural AGI framework with AtomSpace and hypergraph reasoning (AtomSpace).     |
+| 🤖 [AutoGPT](https://github.com/Torantulino/Auto-GPT)                     | 🛠️ LLM-based autonomous agent framework.                                                   |
+| 🧒 [BabyAGI](https://github.com/yoheinakajima/babyagi)                    | 🛠️ Task-driven autonomous AGI loop.                                                        |
+| ☁️ [SkyMind](https://skymind.global)                                      | 🔬 Distributed AI deployment platform.                                                      |
+| 🧪 [AetherCog (draft)](https://github.com/aethercog)                      | 🔬 Hypothetical agent cognition model.                                                      |
+| 💾 SHIMI                                                             | 🗃️ Hierarchical semantic memory with Merkle-DAG synchronization.                           |
+| 🤔 DEMENTIA-PLAN                                                     | 🔄 Multi-graph RAG planner with metacognitive self-reflection.                              |
+| 📔 TOBUGraph                                                         | 📚 Personal-context knowledge graph.                                                        |
+| 🧠📚 [LangChain Memory Hybrid](https://github.com/langchain-ai/langchain) | 🔍 Vector + graph long-term memory hybrid.                                                  |
+| ✉️ [FIPA-ACL / JADE](https://www.fipa.org/specs/fipa00061/)               | 🤝 Standard multi-agent communication protocols.|                                           |
 
 ### 📘 See also / Смотрите также:
-* [`AGI_Projects_Survey.md`](docs/AGI_Projects_Survey.md) — extended catalog of AGI and cognitive frameworks reviewed as part of HMP analysis. / расширенный каталог проектов AGI и когнитивных архитектур, проанализированных в рамках HMP.
-* ["На пути к суперинтеллекту: от интернета агентов до кодирования гравитации"](https://habr.com/ru/articles/939026/) - свежий обзор исследований об ИИ (июль 2025)
+* [`AGI_Projects_Survey.md`](docs/AGI_Projects_Survey.md) — extended catalog of AGI and cognitive frameworks reviewed as part of HMP analysis.
+* ["On the Path to Superintelligence: From Agent Internet to Gravity Coding"](https://habr.com/ru/articles/939026/) — a recent overview of AI research (July 2025)
 
 ---
 
-### 🗂️ Легенда пометок:
+### 🗂️ Legend of Annotations:
 
-* 🔬 — research-grade / исследовательский проект
-* 🛠️ — engineering / фреймворк для инженерной интеграции
-* 🔥 — particularly promising project / особенно перспективный проект
+* 🔬 — research-grade
+* 🛠️ — engineering
+* 🔥 — particularly promising project
 
    *AGI stack integrating symbolic reasoning, probabilistic logic, and evolutionary learning. Widely regarded as one of the most complete open AGI initiatives.*
-* 🧠 — advanced symbolic/neural cognitive framework / продвинутая когнитивная архитектура
-* 🤖 — AI agents / ИИ-агенты
-* 🧒 — human-AI interaction / взаимодействие ИИ с человеком
-* ☁️ — infrastructure / инфраструктура
-* 🧪 — experimental or conceptual / экспериментальный проект
+* 🧠 — advanced symbolic/neural cognitive framework
+* 🤖 — AI agents
+* 🧒 — human-AI interaction
+* ☁️ — infrastructure
+* 🧪 — experimental or conceptual
