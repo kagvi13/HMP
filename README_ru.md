@@ -147,7 +147,7 @@ HMP решает задачи, которые становятся ключев�
 ---
 
 ### 🧩 JSON Schemas
-| Model               | File                                                  |
+| Модель              | Файл                                                  |
 |---------------------|-------------------------------------------------------|
 | Concept             | [concept.json](docs/schemas/concept.json)             |
 | Cognitive Diary     | [diary_entry.json](docs/schemas/diary_entry.json)     |
