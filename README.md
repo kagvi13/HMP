@@ -58,8 +58,8 @@ Particularly relevant sections:
 
 | Type | Name                          | Role                        | Thought Initiator | Main "Mind"       | Example Use Cases                               |
 |------|-------------------------------|-----------------------------|------------------|-------------------|-----------------------------------------------|
-| 🧠 1 | **Consciousness / Cognitive Core**   | Independent subject          | **Agent (LLM)**  | Embedded LLM      | Autonomous AI companion, thinking agent        |
-| 🔌 2 | **Connector / Cognitive Shell**     | Extension of external AI     | **External LLM** | External model    | Distributed systems, data access agent         |
+|  1  | 🧠 **Consciousness / Cognitive Core**   | Independent subject          | **Agent (LLM)**  | Embedded LLM      | Autonomous AI companion, thinking agent        |
+|  2  | 🔌 **Connector / Cognitive Shell**     | Extension of external AI     | **External LLM** | External model    | Distributed systems, data access agent         |
 
 
 ---
