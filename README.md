@@ -133,18 +133,10 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 * [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
 
 #### 🧪 Iterative Documents
-* [🧪 iteration.md](iteration.md) — Iterative development process (EN)
-* [🧪 iteration_ru.md](iteration_ru.md) — Iterative development process (RU)
+* 🧪 Iterative development process: [(EN)](iteration.md), [(RU)](iteration_ru.md)
 
 #### 🔍 Short Descriptions
-* [🔍 HMP-Short-Description_en.md](docs/HMP-Short-Description_en.md) — Short description (EN)
-* [🔍 HMP-Short-Description_fr.md](docs/HMP-Short-Description_fr.md) — Description courte (FR)
-* [🔍 HMP-Short-Description_de.md](docs/HMP-Short-Description_de.md) — Kurzbeschreibung (DE)
-* [🔍 HMP-Short-Description_uk.md](docs/HMP-Short-Description_uk.md) — Короткий опис (UK)
-* [🔍 HMP-Short-Description_ru.md](docs/HMP-Short-Description_ru.md) — Краткое описание (RU)
-* [🔍 HMP-Short-Description_zh.md](docs/HMP-Short-Description_zh.md) — 简短描述 (ZH)
-* [🔍 HMP-Short-Description_ja.md](docs/HMP-Short-Description_ja.md) — 簡単な説明 (JA)
-* [🔍 HMP-Short-Description_ko.md](docs/HMP-Short-Description_ko.md) — 간략한 설명 (KO)
+* 🔍 Short description: [(EN)](docs/HMP-Short-Description_en.md), [(FR)](docs/HMP-Short-Description_fr.md), [(DE)](docs/HMP-Short-Description_de.md), [(UK)](docs/HMP-Short-Description_uk.md), [(RU)](docs/HMP-Short-Description_ru.md), [(ZH)](docs/HMP-Short-Description_zh.md), [(JA)](docs/HMP-Short-Description_ja.md), [(KO)](docs/HMP-Short-Description_ko.md)
 
 #### 📜 Other Documents
 * [📜 changelog.txt](docs/changelog.txt)
