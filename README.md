@@ -16,7 +16,8 @@ language: en
 | 🌍 Languages | [EN](README.md) | [DE](README_de.md) | [FR](README_fr.md) | [UK](README_uk.md) | [RU](README_ru.md) | [JA](README_ja.md) | [KO](README_ko.md) | [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | Status       | ✅              | ❌                 | ❌                 | ❌                 | ✅                 | ❌                 | ❌                 | ❌                 |
-
+✅ — language implemented and ready for use  
+❌ — not yet implemented / planned
 
 **HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable.
 
