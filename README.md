@@ -74,7 +74,7 @@ Particularly relevant sections:
      +---------+--------+
                ↕
      +---------+--------+
-     |     HMP-агент    | ← Main mode: thinking cycle (REPL)
+     |     HMP-agent    | ← Main mode: thinking cycle (REPL)
      +---------+--------+
                ↕
       +--------+---+------------+--------------+----------+----------+----------------+
@@ -97,10 +97,10 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
      |        AI        | ← External model
      +---------+--------+
                ↕
-         [MCP-сервер]   ← Proxy communication
+         [MCP-server]   ← Proxy communication
                ↕
      +---------+--------+
-     |     HMP-агент    | ← Mode: command executor
+     |     HMP-agent    | ← Mode: command executor
      +---------+--------+
                ↕
       +--------+---+------------+--------------+----------+
