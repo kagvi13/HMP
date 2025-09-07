@@ -480,21 +480,82 @@ GROUP BY ss.id;
 
 DROP VIEW IF EXISTS tag_usage;
 CREATE VIEW tag_usage AS
-WITH split_tags AS (
+-- Дневник
+WITH diary_split AS (
     SELECT
-        id AS entry_id,
+        id AS source_id,
+        'diary_entries' AS source_table,
         TRIM(value) AS tag,
         timestamp AS entry_time
     FROM diary_entries,
-         json_each('[' || REPLACE(tags, ',', '","') || ']')
+         json_each('[' || REPLACE(IFNULL(tags,''), ',', '","') || ']')
+),
+
+-- Концепты
+concepts_split AS (
+    SELECT
+        id AS source_id,
+        'concepts' AS source_table,
+        TRIM(value) AS tag,
+        timestamp AS entry_time
+    FROM concepts,
+         json_each('[' || REPLACE(IFNULL(tags,''), ',', '","') || ']')
+),
+
+-- Семантические связи
+links_split AS (
+    SELECT
+        id AS source_id,
+        'links' AS source_table,
+        TRIM(value) AS tag,
+        timestamp AS entry_time
+    FROM links,
+         json_each('[' || REPLACE(IFNULL(tags,''), ',', '","') || ']')
+),
+
+-- Цели
+goals_split AS (
+    SELECT
+        id AS source_id,
+        'goals' AS source_table,
+        TRIM(value) AS tag,
+        timestamp AS entry_time
+    FROM goals,
+         json_each('[' || REPLACE(IFNULL(tags,''), ',', '","') || ']')
+),
+
+-- Задачи
+tasks_split AS (
+    SELECT
+        id AS source_id,
+        'tasks' AS source_table,
+        TRIM(value) AS tag,
+        timestamp AS entry_time
+    FROM tasks,
+         json_each('[' || REPLACE(IFNULL(tags,''), ',', '","') || ']')
+),
+
+-- Объединение
+all_tags AS (
+    SELECT * FROM diary_split
+    UNION ALL
+    SELECT * FROM concepts_split
+    UNION ALL
+    SELECT * FROM links_split
+    UNION ALL
+    SELECT * FROM goals_split
+    UNION ALL
+    SELECT * FROM tasks_split
 )
+
+-- Финальная выборка
 SELECT
     tag,
-    COUNT(entry_id) AS usage_count,
+    COUNT(source_id) AS usage_count,
     MIN(entry_time) AS first_used,
-    MAX(entry_time) AS last_used
-FROM split_tags
+    MAX(entry_time) AS last_used,
+    GROUP_CONCAT(DISTINCT source_table) AS sources
+FROM all_tags
+WHERE tag IS NOT NULL AND tag <> ''
 GROUP BY tag
 ORDER BY usage_count DESC;
-
-
