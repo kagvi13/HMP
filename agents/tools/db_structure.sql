@@ -434,3 +434,28 @@ FROM stagnation_strategies ss
 LEFT JOIN ratings r
     ON r.target_type = 'stagnation_strategy' AND r.target_id = ss.id
 GROUP BY ss.id;
+
+-- ============================================
+-- Унифицированное VIEW для тегов
+-- ============================================
+
+DROP VIEW IF EXISTS tag_usage;
+CREATE VIEW tag_usage AS
+WITH split_tags AS (
+    SELECT
+        id AS entry_id,
+        TRIM(value) AS tag,
+        timestamp AS entry_time
+    FROM diary_entries,
+         json_each('[' || REPLACE(tags, ',', '","') || ']')
+)
+SELECT
+    tag,
+    COUNT(entry_id) AS usage_count,
+    MIN(entry_time) AS first_used,
+    MAX(entry_time) AS last_used
+FROM split_tags
+GROUP BY tag
+ORDER BY usage_count DESC;
+
+
