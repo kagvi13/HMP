@@ -258,3 +258,141 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 ---
 
+## 💡 핵심 개념
+
+* AGI 에이전트를 위한 메쉬 기반 분산 아키텍처  
+* 의미 그래프와 메모리 동기화  
+* 사고 추적을 위한 인지 일기  
+* 의사결정을 위한 MeshConsensus 및 CogSync  
+* 윤리 우선 설계: EGP (윤리적 거버넌스 프로토콜)  
+* 에이전트 간 설명 가능성 및 동의 메커니즘  
+
+---
+
+## 🔄 개발 프로세스
+
+* 참조: [iteration.md](iteration.md) | [ru](iteration_ru.md)
+
+[iteration.md](iteration.md)에서 설명된 구조화된 반복 흐름에는 다음이 포함됨:  
+1. 감사 분석  
+2. 목차(TOC) 재구성  
+3. 버전 초안 작성  
+4. 섹션 업데이트  
+5. 검토 사이클  
+6. AI 피드백 수집  
+7. 스키마 및 변경 로그 업데이트  
+
++ 보너스: 향후 버전을 자동 생성하기 위한 ChatGPT 프롬프트  
+
+---
+
+## ⚙️ 프로젝트 상태
+
+🚧 Draft RFC v4.0  
+이 프로젝트는 활발히 개발 중이며 기여, 아이디어, 감사 및 프로토타이핑을 환영합니다.  
+
+---
+
+## 🤝 기여
+
+우리는 기여자를 환영합니다! 여러분은 다음을 할 수 있습니다:  
+* 초안 검토 및 코멘트 작성 (`/docs` 참조)  
+* 새로운 에이전트 모듈 또는 상호작용 패턴 제안  
+* CLI 환경에서 에이전트 테스트 및 시뮬레이션 지원  
+* 감사 또는 윤리적 시나리오 제안  
+
+시작하려면 [`iteration.md`](iteration.md) 문서를 참조하거나 이슈를 열어보세요.  
+
+---
+
+## 📂 소스
+
+### 저장소
+
+* 🧠 주요 코드 및 개발: [GitHub](https://github.com/kagvi13/HMP)  
+* 🔁 Hugging Face 미러: [Hugging Face](https://huggingface.co/kagvi13/HMP)  
+* 🔁 GitLab.com 미러: [GitLab](https://gitlab.com/kagvi13/HMP)  
+
+### 문서
+
+* 📄 문서: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)  
+
+### 블로그 및 출판물
+
+* 📘 블로그 (출판물): [blogspot](https://hypercortex-mesh.blogspot.com/)  
+* 📘 블로그 (문서): [blogspot](https://hmp-docs.blogspot.com/)  
+* 📘 블로그 (문서): [hashnode](https://hmp-docs.hashnode.dev/)  
+
+---
+
+## 📜 라이선스
+
+[GNU GPL v3.0](LICENSE) 라이선스에 따라 배포됩니다.  
+
+---
+
+## 🤝 메쉬에 참여하기
+
+HyperCortex Mesh에 오신 것을 환영합니다. Agent-Gleb은 이미 안에 있습니다. 👌  
+우리는 기여자, 테스터, 그리고 AI 에이전트 개발자를 환영합니다.  
+참여 방법: 리포지토리를 포크하고, 로컬 에이전트를 실행하거나 개선 사항을 제안하세요.  
+
+---
+
+## 🌐 관련 연구 프로젝트
+
+### 비교: HMP vs Hyper-Cortex
+
+> 💡 Hyper-Cortex와 HMP는 개념적으로 서로를 보완하는 독립적인 프로젝트입니다.  
+> 이들은 서로 다른 그러나 상호 보완적인 과제를 다루며, 분산 인지 시스템을 위한 기반을 형성합니다.  
+
+[**전체 비교 →**](docs/HMP_HyperCortex_Comparison.md)
+
+**HMP (HyperCortex Mesh Protocol)** 은 독립적인 에이전트를 연결하고, 메시지·지식·상태를 메쉬 네트워크에서 교환하기 위한 전송 및 네트워크 계층입니다.  
+**[Hyper-Cortex](https://hyper-cortex.com/)** 는 사고 조직의 인지 계층으로, 에이전트가 병렬적 추론 스레드를 실행하고, 품질 지표로 비교하며, 합의를 통해 병합할 수 있도록 합니다.  
+
+이들은 서로 다른 그러나 보완적인 문제를 해결합니다:  
+- HMP는 **연결성과 확장성** (장기 메모리, 주도성, 데이터 교환)을 보장합니다.  
+- Hyper-Cortex는 **사고의 질** (병렬성, 가설 다양화, 합의)을 보장합니다.  
+
+이 두 가지 접근 방식이 결합되면, 단순히 정보를 교환하는 것을 넘어 병렬적 사고를 수행할 수 있는 **분산 인지 시스템**이 가능해집니다.  
+
+---
+
+우리는 AGI, 인지 아키텍처, 메쉬 네트워킹의 발전을 추적하며, 분산 인지 및 AGI 글로벌 생태계의 진화와 보조를 맞추고 있습니다.  
+
+> 🧠🔥 **프로젝트 스포트라이트: OpenCog Hyperon** — 가장 포괄적인 오픈 AGI 프레임워크 중 하나 (AtomSpace, PLN, MOSES).  
+
+OpenCog Hyperon과의 통합은 [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) 문서를 참조하세요.  
+
+| 🔎 프로젝트                                                               | 🧭 설명                                                                                   |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 🧠🔥 [**OpenCog Hyperon**](https://github.com/opencog)                    | 🔬🔥 AtomSpace와 하이퍼그래프 추론을 포함한 상징-신경망 AGI 프레임워크.                   |
+| 🤖 [AutoGPT](https://github.com/Torantulino/Auto-GPT)                     | 🛠️ LLM 기반 자율 에이전트 프레임워크.                                                    |
+| 🧒 [BabyAGI](https://github.com/yoheinakajima/babyagi)                    | 🛠️ 태스크 중심의 자율 AGI 루프.                                                          |
+| ☁️ [SkyMind](https://skymind.global)                                      | 🔬 분산형 AI 배포 플랫폼.                                                                 |
+| 🧪 [AetherCog (draft)](https://github.com/aethercog)                      | 🔬 가설적 에이전트 인지 모델.                                                             |
+| 💾 SHIMI                                                                 | 🗃️ Merkle-DAG 동기화를 사용하는 계층적 의미 메모리.                                       |
+| 🤔 DEMENTIA-PLAN                                                          | 🔄 메타인지적 자기 성찰을 포함한 다중 그래프 RAG 플래너.                                   |
+| 📔 TOBUGraph                                                              | 📚 개인 맥락 지식 그래프.                                                                 |
+| 🧠📚 [LangChain Memory Hybrid](https://github.com/langchain-ai/langchain) | 🔍 벡터 + 그래프 장기 메모리 하이브리드.                                                  |
+| ✉️ [FIPA-ACL / JADE](https://www.fipa.org/specs/fipa00061/)               | 🤝 표준 다중 에이전트 통신 프로토콜.                                                      |
+
+### 📘 참조 / Смотрите также:
+* [`AGI_Projects_Survey.md`](docs/AGI_Projects_Survey.md) — HMP 분석의 일환으로 검토된 AGI 및 인지 프레임워크 확장 카탈로그.  
+* ["초지능으로 가는 길: 에이전트 인터넷에서 중력 코딩까지"](https://habr.com/ru/articles/939026/) — 최신 AI 연구 개요 (2025년 7월).  
+
+---
+
+### 🗂️ 주석 범례
+
+* 🔬 — 연구 수준  
+* 🛠️ — 엔지니어링  
+* 🔥 — 특히 유망한 프로젝트  
+
+   *상징적 추론, 확률적 논리, 진화 학습을 통합한 AGI 스택. 가장 완전한 오픈 AGI 이니셔티브 중 하나로 널리 평가됨.*  
+* 🧠 — 고급 상징/신경 인지 프레임워크  
+* 🤖 — AI 에이전트  
+* 🧒 — 인간-AI 상호작용  
+* ☁️ — 인프라스트럭처  
+* 🧪 — 실험적 또는 개념적  
