@@ -183,6 +183,85 @@ REPL-цикл является основой HMP-агента [Cognitive Core](
 
 ---
 
+## 💬 Список команд от LLM по категориям
+
+### 🔎 Общие
+
+* `help [команда]` — справка по команде
+
+### 📔 Когнитивный дневник (`diary_entries`)
+
+* `diary list/search/read/add/update/delete`
+* `diary pin/unpin` — закрепить/открепить запись (внимание)
+
+### 🧩 Семантический граф
+
+* `concepts list/read/add/update/delete`
+* `links list/read/add/update/delete`
+* `concepts pin/unpin` — закрепить/открепить концепт
+
+### 🎯 Цели и задачи
+
+* `goals list/read/add/update/delete`
+* `tasks list/read/add/update/delete`
+* `tasks pin/unpin` — закрепить/открепить задачу
+
+### 🏷️ Теги
+
+* `tags stats [--source=diary|concepts|links|goals|tasks|all]` — статистика по тегам
+
+### 👥 Репутация агентов
+
+* `reputation list/read/set/increase/decrease`
+* `reputation notes` — комментарии/заметки к профилю
+
+### 📩 Сообщения
+
+* `messages send` — отправка другому агенту
+* `notes list/read/add/update/delete`
+* `notes tag/readmark` — управление тегами и статусом прочтения
+
+### 🧠 Память
+
+* `llm_memory list/add/delete` — блокнот LLM
+* `identity read/update` — идентичность агента
+* `config read/update` — настройки агента
+
+### 🌐 Mesh
+
+* `agents list/add/delete` — список известных пиров (`agent_peers`)
+* `mesh interact` — команды взаимодействия с Mesh
+
+### 🧰 Утилиты и расширения
+
+* `llm_registry list/select/update` — выбор текущего LLM
+* `agent_scripts list/add/delete`
+* `agent_tables list/add/delete`
+* `stagnation_strategies list/add/delete`
+* `thinking_methods list/add/delete`
+* `ratings list/add/delete`
+* `external_services list/add/delete`
+* `external_accounts list/add/delete`
+
+### ⚙️ Внешние процессы
+
+* `process list/start/stop/mark`
+* `process cleanup` — очистка устаревших
+
+### 🔄 Настройки цикла
+
+* `cycle set responses=N` — количество последних ответов
+* `cycle concentration on/off` — включение/выключение режима концентрации
+
+  * `tags=[…]`, `emotions=[…]`, `mode=and|or`
+* `cycle mode auto/manual [filter=…]` — обработка сообщений
+* `cycle pause N` — пауза между итерациями
+* `cycle idle on/off` — режим ожидания с условиями пробуждения
+
+> Это не полный список команд.
+
+---
+
 ## 🧍‍♂️🌀 Обработка стагнации мышления
 
 ### 📍 Признаки когнитивной стагнации:
