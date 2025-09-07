@@ -67,21 +67,21 @@ def create_post(title, slug, markdown_content):
     return graphql_request(query, variables)["data"]["createDraft"]["draft"]
 
 
-def update_post(draft_id, title, markdown_content):
-    """Используем draftId для обновления, чтобы соответствовать текущему API Hashnode."""
+def update_post(post_id, title, markdown_content):
+    """Обновляем уже опубликованный пост."""
     query = """
-    mutation UpdateDraft($input: UpdateDraftInput!) {
-      updateDraft(input: $input) { draft { id slug title } }
+    mutation UpdatePost($input: UpdatePostInput!) {
+      updatePost(input: $input) { post { id slug title } }
     }
     """
     variables = {
         "input": {
-            "draftId": draft_id,
+            "id": post_id,
             "title": title,
             "contentMarkdown": markdown_content
         }
     }
-    return graphql_request(query, variables)["data"]["updateDraft"]["draft"]
+    return graphql_request(query, variables)["data"]["updatePost"]["post"]
 
 
 def publish_draft(draft_id):
