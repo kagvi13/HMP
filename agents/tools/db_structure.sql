@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS concepts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор концепта
     name TEXT NOT NULL UNIQUE,                                  -- Название концепта
     description TEXT,                                           -- Описание или определение концепта
+    tags TEXT,                                                  -- Теги для классификации
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Время создания концепта
     llm_id TEXT                                                 -- Идентификатор LLM, добавившего концепт
 );
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS links (
     from_concept_id INTEGER,                                    -- Идентификатор исходного концепта
     to_concept_id INTEGER,                                      -- Идентификатор целевого концепта
     relation_type TEXT,                                         -- Тип отношения (например: "is_a", "causes", "related_to")
+    tags TEXT,                                                  -- Теги для классификации
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Время создания связи
     llm_id TEXT,                                                -- Идентификатор LLM, создавшего связь
     FOREIGN KEY(from_concept_id) REFERENCES concepts(id),
@@ -38,6 +40,31 @@ CREATE TABLE IF NOT EXISTS diary_graph_index (
     strength REAL DEFAULT 1.0,                                  -- Сила связи (0-1)
     context TEXT,                                               -- Дополнительный контекст связи
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP                    -- Время создания индекса
+);
+
+-- Цели
+CREATE TABLE IF NOT EXISTS goals (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,                                         -- Краткое название цели
+    description TEXT,                                           -- Подробное описание
+    tags TEXT,                                                  -- Теги для классификации
+    status TEXT DEFAULT 'active',                               -- active / achieved / abandoned
+    timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда цель поставлена
+    llm_id TEXT                                                 -- Кто сформулировал цель
+);
+
+-- Задачи
+CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    goal_id INTEGER,                                            -- Связь с целью (если есть)
+    name TEXT NOT NULL,                                         -- Краткое название задачи
+    description TEXT,                                           -- Подробное описание
+    tags TEXT,                                                  -- Теги для классификации
+    status TEXT DEFAULT 'open',                                 -- open / in_progress / done / frozen
+    pinned INTEGER DEFAULT 0,                                   -- 0 = обычная, 1 = закреплённая
+    timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда задача создана
+    llm_id TEXT,                                                -- Кто предложил задачу
+    FOREIGN KEY(goal_id) REFERENCES goals(id)
 );
 
 -- Таблица системных промптов (короткая и полная версии)
