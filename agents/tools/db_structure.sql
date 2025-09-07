@@ -67,6 +67,18 @@ CREATE TABLE IF NOT EXISTS tasks (
     FOREIGN KEY(goal_id) REFERENCES goals(id)
 );
 
+-- Репутационные профили
+CREATE TABLE IF NOT EXISTS agent_reputation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    agent_id INTEGER NOT NULL,                                  -- ссылка на agent_peers.id
+    identity TEXT,                                              -- идентичность/маска
+    reputation_score REAL DEFAULT 0.0,                          -- общий рейтинг
+    trust_level TEXT,                                           -- high / medium / low
+    notes TEXT,                                                 -- заметки
+    last_interaction TEXT,                                      -- последняя активность
+    FOREIGN KEY(agent_id) REFERENCES agent_peers(id)
+);
+
 -- Таблица системных промптов (короткая и полная версии)
 CREATE TABLE IF NOT EXISTS system_prompts (
     id TEXT PRIMARY KEY,                                        -- Уникальный идентификатор промпта (UUID или осмысленный ID)
