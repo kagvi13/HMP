@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pyyaml
+          pip install pyyaml markdown beautifulsoup4 jsonschema lxml requests
 
 
       - name: Run AI_friendly.py
