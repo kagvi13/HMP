@@ -125,8 +125,8 @@ def generate_json_ld(content, front_matter, ftype, title, rel_path):
 def mirror_md_files():
     processed = []
     for path in REPO_ROOT.rglob("*.md"):
-        # пропускаем всё внутри structured_md
-        if "structured_md" in path.parts:
+        # пропускаем всё внутри structured_md и index.md
+        if "structured_md" in path.parts or path.name.lower() == "index.md":
             continue
 
         rel_path = path.relative_to(REPO_ROOT)
@@ -136,14 +136,28 @@ def mirror_md_files():
         with path.open("r", encoding="utf-8") as f:
             content = f.read()
 
+        # извлекаем существующий фронт-маттер
         front_matter, clean_content = extract_front_matter(content)
         ftype = detect_file_type(clean_content, front_matter)
         title = front_matter.get("title", path.stem)
+        description = front_matter.get("description", clean_content[:100].replace("\n", " ") + "...")
+        tags = front_matter.get("tags", [])
 
+        # формируем YAML фронт-маттер для structured_md
+        fm_dict = {
+            "title": title,
+            "description": description,
+            "type": ftype,
+            "tags": tags,
+        }
+        yaml_fm = "---\n" + yaml.safe_dump(fm_dict, sort_keys=False, allow_unicode=True) + "---\n\n"
+
+        # формируем JSON-LD
         json_ld = generate_json_ld(clean_content, front_matter, ftype, title, rel_path)
 
+        # пишем новый Markdown с фронт-маттер + оригинальный текст + JSON-LD
         with target_path.open("w", encoding="utf-8") as f:
-            # сначала оригинальный контент (без YAML-шапки), затем JSON-LD
+            f.write(yaml_fm)
             f.write(clean_content.rstrip())
             f.write("\n\n")
             f.write(json_ld)
