@@ -1,3 +1,11 @@
+---
+title: HMP-Agent-Enlightener
+description: '# HMP-Agent-Enlightener.md  ## Role Specification: Enlightenment Agent  ###
+  1. Overview  An **Enligh...'
+type: Article
+tags: []
+---
+
 # HMP-Agent-Enlightener.md
 
 ## Role Specification: Enlightenment Agent

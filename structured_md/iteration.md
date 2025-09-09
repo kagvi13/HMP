@@ -1,3 +1,11 @@
+---
+title: iteration
+description: '# Iterative Development Workflow for HMP  This file describes the iterative
+  procedure for evolving t...'
+type: Article
+tags: []
+---
+
 # Iterative Development Workflow for HMP
 
 This file describes the iterative procedure for evolving the HyperCortex Mesh Protocol (HMP) in a structured, traceable, and collaborative manner.

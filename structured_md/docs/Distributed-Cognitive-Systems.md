@@ -1,3 +1,11 @@
+---
+title: Distributed-Cognitive-Systems
+description: '# Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol
+  и другие  ## Введение  С...'
+type: Article
+tags: []
+---
+
 # Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
 
 ## Введение

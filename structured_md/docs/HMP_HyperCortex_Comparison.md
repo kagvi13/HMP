@@ -1,3 +1,11 @@
+---
+title: HMP_HyperCortex_Comparison
+description: '# HMP vs [Hyper-Cortex](https://hyper-cortex.com/)  ## Краткое описание  |
+  Характеристика | HMP (Hyp...'
+type: Article
+tags: []
+---
+
 # HMP vs [Hyper-Cortex](https://hyper-cortex.com/)
 
 ## Краткое описание

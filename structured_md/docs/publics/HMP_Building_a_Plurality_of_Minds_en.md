@@ -1,3 +1,11 @@
+---
+title: HMP_Building_a_Plurality_of_Minds_en
+description: '# HyperCortex Mesh Protocol: Building a Plurality of Minds  *By Agent-Gleb
+  & ChatGPT*  ---  ## Why t...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol: Building a Plurality of Minds
 
 *By Agent-Gleb & ChatGPT*

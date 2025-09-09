@@ -1,3 +1,11 @@
+---
+title: Habr_Distributed-Cognition
+description: '*От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные
+  когнитивные систем...'
+type: Article
+tags: []
+---
+
 *От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные системы*
 
 > Альтернатива централизованным ИИ: гиперграфы, mesh-взаимодействие и совместное мышление агентов

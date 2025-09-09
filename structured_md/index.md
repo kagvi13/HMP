@@ -54,7 +54,6 @@
     - [HMP-Agent-Enlightener.md](docs/agents/HMP-Agent-Enlightener.md)
     - [roles.md](docs/agents/roles.md)
   - [container_agents.md](docs/container_agents.md)
-  - [index.md](docs/index.md)
   - [logos.md](docs/logos.md)
   - publics
     - [HMP_Building_a_Plurality_of_Minds_en.md](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)

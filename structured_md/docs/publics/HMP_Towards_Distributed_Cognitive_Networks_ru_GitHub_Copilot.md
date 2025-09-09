@@ -1,3 +1,11 @@
+---
+title: HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot
+description: 'title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  date: Июль 2025 authors:   - ...'
+type: Article
+tags: []
+---
+
 title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
 date: Июль 2025
 authors:

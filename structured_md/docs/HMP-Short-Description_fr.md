@@ -1,3 +1,11 @@
+---
+title: HMP-Short-Description_fr
+description: '# HyperCortex Mesh Protocol (HMP) — Description Courte  **Version :**
+  RFC v4.0 **Date :** Juillet 20...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol (HMP) — Description Courte
 
 **Version :** RFC v4.0

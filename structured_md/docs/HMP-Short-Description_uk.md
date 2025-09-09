@@ -1,3 +1,11 @@
+---
+title: HMP-Short-Description_uk
+description: '# HyperCortex Mesh Protocol (HMP) — Короткий опис  **Версія:** RFC v4.0
+  **Дата:** Липень 2025  ---  ...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol (HMP) — Короткий опис
 
 **Версія:** RFC v4.0

@@ -1,3 +1,11 @@
+---
+title: readme
+description: 'Запуск: `start_repl.bat` или `start_repl.sh`  Установка зависимостей
+  из `requirements.txt` Конфигура...'
+type: Article
+tags: []
+---
+
 Запуск: `start_repl.bat` или `start_repl.sh`
 
 Установка зависимостей из `requirements.txt`

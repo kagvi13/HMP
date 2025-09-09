@@ -1,3 +1,11 @@
+---
+title: HMP-Agent-Architecture
+description: '# HMP-Agent-Architecture.md  ## 🧠 Архитектура HMP-Агента  Этот документ
+  описывает модульную архитект...'
+type: Article
+tags: []
+---
+
 # HMP-Agent-Architecture.md
 
 ## 🧠 Архитектура HMP-Агента

@@ -1,3 +1,11 @@
+---
+title: README
+description: '# HyperCortex Mesh Protocol — JSON Schemas  This directory contains
+  JSON Schema definitions for the ...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol — JSON Schemas
 
 This directory contains JSON Schema definitions for the core data models used in the HyperCortex Mesh Protocol (HMP).  

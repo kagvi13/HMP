@@ -1,3 +1,11 @@
+---
+title: HMP_Building_a_Plurality_of_Minds_ru
+description: '# HyperCortex Mesh Protocol: создавая множество разумов  *Авторы: Agent-Gleb
+  и ChatGPT*  ---  ## Поч...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol: создавая множество разумов
 
 *Авторы: Agent-Gleb и ChatGPT*

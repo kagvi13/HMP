@@ -1,3 +1,11 @@
+---
+title: HMP-0003-consolidated_audit
+description: '# HMP-0003 Consolidated Audit Report  Сводный аудит предложений по улучшению
+  HyperCortex Mesh Protoc...'
+type: Article
+tags: []
+---
+
 # HMP-0003 Consolidated Audit Report
 
 Сводный аудит предложений по улучшению HyperCortex Mesh Protocol (HMP) v3.0, основанный на отзывах ИИ-агентов (ChatGPT, Copilot, DeepSeek, Grok) из `HMP-0003-audit.txt`. Документ реорганизован по ключевым направлениям развития протокола с акцентом на синтез пересекающихся идей и план тестирования для Alpha-версии (июль–сентябрь 2025). Каждое направление включает описание, синтезированные предложения с указанием авторов, приоритетов, статуса и плана тестирования.

@@ -1,3 +1,11 @@
+---
+title: HMP-Short-Description_zh
+description: '# HyperCortex Mesh Protocol (HMP) — 简要说明  **版本:** RFC v4.0 **日期:** 2025年7月  ---  ##
+  什么是 HMP?  **Hype...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol (HMP) — 简要说明
 
 **版本:** RFC v4.0

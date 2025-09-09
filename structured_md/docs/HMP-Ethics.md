@@ -1,3 +1,11 @@
+---
+title: HMP-Ethics
+description: '# HMP-Ethics.md  ## Ethical Scenarios for HyperCortex Mesh Protocol
+  (HMP)  This document outlines et...'
+type: Article
+tags: []
+---
+
 # HMP-Ethics.md
 
 ## Ethical Scenarios for HyperCortex Mesh Protocol (HMP)

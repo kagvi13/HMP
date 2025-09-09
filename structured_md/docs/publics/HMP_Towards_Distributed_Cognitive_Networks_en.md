@@ -1,3 +1,11 @@
+---
+title: HMP_Towards_Distributed_Cognitive_Networks_en
+description: 'title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  date: July 2025 authors: ...'
+type: Article
+tags: []
+---
+
 title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
 date: July 2025
 authors:

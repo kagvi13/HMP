@@ -1,3 +1,11 @@
+---
+title: HMP-Short-Description_ko
+description: '# HyperCortex Mesh Protocol (HMP) — 간략 설명  **버전:** RFC v4.0 **날짜:**
+  2025년 7월  ---  ## HMP란?  **Hyper...'
+type: Article
+tags: []
+---
+
 # HyperCortex Mesh Protocol (HMP) — 간략 설명
 
 **버전:** RFC v4.0

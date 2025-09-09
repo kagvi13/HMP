@@ -1,3 +1,11 @@
+---
+title: MeshNode
+description: '## 📄 MeshNode.md  ### 🌐 MeshNode  `MeshNode` — агент/демон, отвечающий
+  за сетевую инфраструктуру HMP...'
+type: Article
+tags: []
+---
+
 ## 📄 MeshNode.md
 
 ### 🌐 MeshNode

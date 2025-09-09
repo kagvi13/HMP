@@ -1,3 +1,11 @@
+---
+title: HMP_Hyperon_Integration
+description: '## HMP ↔ OpenCog Hyperon Integration Strategy  > **Status:** Draft –
+  July 2025 > This document outli...'
+type: Article
+tags: []
+---
+
 ## HMP ↔ OpenCog Hyperon Integration Strategy
 
 > **Status:** Draft – July 2025

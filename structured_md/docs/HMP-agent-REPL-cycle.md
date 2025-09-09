@@ -1,3 +1,11 @@
+---
+title: HMP-agent-REPL-cycle
+description: '# 🧠 HMP-Agent: REPL-цикл взаимодействия  Структура БД, используемая
+  в документе: [db_structure.sql](...'
+type: Article
+tags: []
+---
+
 # 🧠 HMP-Agent: REPL-цикл взаимодействия
 
 Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)

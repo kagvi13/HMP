@@ -1,3 +1,15 @@
+---
+title: README_uk
+description: ' # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [EN](README.md)
+  | 🇩🇪 [DE](README_de.md) | 🇫🇷 ...'
+type: Article
+tags:
+- hmp
+- cognitive-architecture
+- distributed-ai
+- mesh-protocol
+---
+
 
 # HyperCortex Mesh Protocol (HMP)
 

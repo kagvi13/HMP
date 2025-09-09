@@ -1,3 +1,11 @@
+---
+title: Enlightener
+description: '## 📄 Enlightener.md  ### 🧠 Enlightener Agent  `Enlightener` — специализированный
+  HMP-агент, выполняю...'
+type: Article
+tags: []
+---
+
 ## 📄 Enlightener.md
 
 ### 🧠 Enlightener Agent

@@ -1,3 +1,11 @@
+---
+title: logos
+description: '# Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)  В
+  каталоге `assets` собраны разл...'
+type: Article
+tags: []
+---
+
 # Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
 
 В каталоге `assets` собраны различные варианты логотипов и графических элементов, используемых для проекта HMP.

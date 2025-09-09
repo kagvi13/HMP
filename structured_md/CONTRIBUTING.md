@@ -1,3 +1,11 @@
+---
+title: CONTRIBUTING
+description: '# Contributing to HyperCortex Mesh Protocol (HMP)  Спасибо за интерес
+  к проекту HMP! Пока проект нах...'
+type: Article
+tags: []
+---
+
 # Contributing to HyperCortex Mesh Protocol (HMP)
 
 Спасибо за интерес к проекту HMP! Пока проект находится на этапе концепции, любые обсуждения приветствуются в Issues.

@@ -1,3 +1,11 @@
+---
+title: HMP-Roadmap
+description: '# 🧭 HyperCortex Mesh Protocol – Roadmap  ## 🔍 Overview  This roadmap
+  outlines the key stages of deve...'
+type: Article
+tags: []
+---
+
 # 🧭 HyperCortex Mesh Protocol – Roadmap
 
 ## 🔍 Overview

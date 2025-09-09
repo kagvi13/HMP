@@ -1,3 +1,11 @@
+---
+title: roles
+description: '# HMP Agent Role Registry  This file maintains a registry of agent roles
+  defined, proposed, or plann...'
+type: Article
+tags: []
+---
+
 # HMP Agent Role Registry
 
 This file maintains a registry of agent roles defined, proposed, or planned in the HyperCortex Mesh Protocol.

@@ -1,3 +1,10 @@
+---
+title: HMP-Agent_Emotions
+description: '# Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))  Эт...'
+type: Article
+tags: []
+---
+
 # Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
 
 Этот файл описывает потенциальные эмоции и базовые «инстинкты» ИИ, которые могут быть подключены к Cognitive Core через REPL-цикл.  

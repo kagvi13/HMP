@@ -1,3 +1,11 @@
+---
+title: HMP-Agent-Overview
+description: ' # ⚙️ Два типа HMP-агентов  | Тип  | Название                        |
+  Роль                    | Ини...'
+type: Article
+tags: []
+---
+
 
 # ⚙️ Два типа HMP-агентов
 
