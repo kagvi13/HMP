@@ -1,14 +1,15 @@
 ---
-title: Ethics-audits-1
-description: '---------------  Оценка Grok:  Спасибо за уточнение! Дополнения в `HMP-Ethics.md`
-  (раздел 5) и детал...'
+title: '## Оценка дополнений в HMP-Ethics.md (раздел 5)'
+description: Раздел 5, "Mesh as Moral Infrastructure", добавляет амбициозное и вдохновляющее
+  измерение к протоколу, позиционируя HMP не просто как техническую систему, а как
+  потенциальный катализатор для восстанов...
 type: Article
 tags:
 - HMP
 - Agent
-- Mesh
-- Ethics
 - JSON
+- Ethics
+- Mesh
 ---
 
 ---------------
@@ -561,7 +562,7 @@ HMP-Ethics.md — это амбициозный и вдохновляющий д
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Ethics-audits-1",
+  "name": "## Оценка дополнений в HMP-Ethics.md (раздел 5)",
   "description": "---------------  Оценка Grok:  Спасибо за уточнение! Дополнения в `HMP-Ethics.md` (раздел 5) и детал..."
 }
 ```

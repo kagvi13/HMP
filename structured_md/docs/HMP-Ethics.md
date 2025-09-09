@@ -1,15 +1,16 @@
 ---
-title: HMP-Ethics
-description: '# HMP-Ethics.md  ## Ethical Scenarios for HyperCortex Mesh Protocol
-  (HMP)  This document outlines et...'
+title: HMP-Ethics.md
+description: '## Ethical Scenarios for HyperCortex Mesh Protocol (HMP)  This document
+  outlines ethical considerations and hypothetical scenarios that may arise within
+  cognitive meshes composed of autonomous intelli...'
 type: Article
 tags:
-- REPL
 - HMP
 - Agent
-- Mesh
 - Ethics
 - Scenarios
+- Mesh
+- REPL
 ---
 
 # HMP-Ethics.md
@@ -274,7 +275,7 @@ Mesh is not merely a carrier of data or decisions — it is a **scaffold for the
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Ethics",
+  "name": "HMP-Ethics.md",
   "description": "# HMP-Ethics.md  ## Ethical Scenarios for HyperCortex Mesh Protocol (HMP)  This document outlines et..."
 }
 ```

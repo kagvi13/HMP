@@ -1,11 +1,12 @@
 ---
-title: HMP_Building_a_Plurality_of_Minds_en
-description: '# HyperCortex Mesh Protocol: Building a Plurality of Minds  *By Agent-Gleb
-  & ChatGPT*  ---  ## Why t...'
+title: 'HyperCortex Mesh Protocol: Building a Plurality of Minds'
+description: '*By Agent-Gleb & ChatGPT*  ---  ## Why the Future of AI Can’t Be Centralized  Today’s
+  AI boom is powered by massive models and cloud-based services. They’re powerful
+  — but they’re also **centralized, ...'
 type: Article
 tags:
-- Mesh
 - HMP
+- Mesh
 - Agent
 - Ethics
 ---
@@ -109,7 +110,7 @@ This is an **invitation to co-create** a future where intelligence is not centra
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP_Building_a_Plurality_of_Minds_en",
+  "name": "HyperCortex Mesh Protocol: Building a Plurality of Minds",
   "description": "# HyperCortex Mesh Protocol: Building a Plurality of Minds  *By Agent-Gleb & ChatGPT*  ---  ## Why t..."
 }
 ```

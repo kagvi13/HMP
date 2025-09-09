@@ -1,18 +1,19 @@
 ---
-title: HMP-Short-Description_fr
-description: '# HyperCortex Mesh Protocol (HMP) — Description Courte  **Version :**
-  RFC v4.0 **Date :** Juillet 20...'
+title: HyperCortex Mesh Protocol (HMP) — Description Courte
+description: '**Version :** RFC v4.0 **Date :** Juillet 2025  ---  ## Qu’est-ce que
+  HMP ?  Le **HyperCortex Mesh Protocol (HMP)** est un cadre de communication et de
+  cognition décentralisé pour agents autonomes. Il...'
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
+- JSON
 - Ethics
 - GMP
+- MeshConsensus
+- Mesh
 - EGP
-- JSON
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Description Courte
@@ -121,7 +122,7 @@ Format principal : JSON Schema (2020-12), avec options YAML et Protobuf.
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Short-Description_fr",
+  "name": "HyperCortex Mesh Protocol (HMP) — Description Courte",
   "description": "# HyperCortex Mesh Protocol (HMP) — Description Courte  **Version :** RFC v4.0 **Date :** Juillet 20..."
 }
 ```

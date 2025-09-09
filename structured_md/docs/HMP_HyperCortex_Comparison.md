@@ -1,12 +1,13 @@
 ---
-title: HMP_HyperCortex_Comparison
-description: '# HMP vs [Hyper-Cortex](https://hyper-cortex.com/)  ## Краткое описание  |
-  Характеристика | HMP (Hyp...'
+title: HMP vs [Hyper-Cortex](https://hyper-cortex.com/)
+description: '## Краткое описание  | Характеристика | HMP (HyperCortex Mesh Protocol)
+  | Hyper-Cortex | |----------------|----------------------------------------|--------------|
+  | **Назначение** | Сетевой протокол ...'
 type: Article
 tags:
-- REPL
-- Mesh
 - HMP
+- Mesh
+- REPL
 ---
 
 # HMP vs [Hyper-Cortex](https://hyper-cortex.com/)
@@ -60,7 +61,7 @@ HMP и Hyper-Cortex решают разные, но дополняющие др�
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP_HyperCortex_Comparison",
+  "name": "HMP vs [Hyper-Cortex](https://hyper-cortex.com/)",
   "description": "# HMP vs [Hyper-Cortex](https://hyper-cortex.com/)  ## Краткое описание  | Характеристика | HMP (Hyp..."
 }
 ```

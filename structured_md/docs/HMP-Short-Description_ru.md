@@ -1,17 +1,18 @@
 ---
-title: HMP-Short-Description_ru
-description: '# HyperCortex Mesh Protocol (HMP) — Краткое описание  **Версия:** RFC
-  v4.0 **Дата:** Июль 2025  --- ...'
+title: HyperCortex Mesh Protocol (HMP) — Краткое описание
+description: '**Версия:** RFC v4.0 **Дата:** Июль 2025  ---  ## Что такое HMP?  **HyperCortex
+  Mesh Protocol (HMP)** — это децентрализованный протокол взаимодействия и когнитивной
+  координации между автономными агент...'
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
-- Mesh
+- JSON
 - Ethics
 - GMP
+- MeshConsensus
+- Mesh
 - EGP
-- JSON
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Краткое описание
@@ -120,7 +121,7 @@ HMP поддерживает распределённую сеть когнит�
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Short-Description_ru",
+  "name": "HyperCortex Mesh Protocol (HMP) — Краткое описание",
   "description": "# HyperCortex Mesh Protocol (HMP) — Краткое описание  **Версия:** RFC v4.0 **Дата:** Июль 2025  --- ..."
 }
 ```

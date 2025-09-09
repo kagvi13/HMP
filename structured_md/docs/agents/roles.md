@@ -1,11 +1,12 @@
 ---
-title: roles
-description: '# HMP Agent Role Registry  This file maintains a registry of agent roles
-  defined, proposed, or plann...'
+title: HMP Agent Role Registry
+description: 'This file maintains a registry of agent roles defined, proposed, or
+  planned in the HyperCortex Mesh Protocol.  ---  ## Core Role Categories  ### 🧠 Cognitive
+  - **Observer** — monitors cognitive states ...'
 type: Article
 tags:
-- Mesh
 - HMP
+- Mesh
 - Agent
 ---
 
@@ -53,7 +54,7 @@ This file maintains a registry of agent roles defined, proposed, or planned in t
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "roles",
+  "name": "HMP Agent Role Registry",
   "description": "# HMP Agent Role Registry  This file maintains a registry of agent roles defined, proposed, or plann..."
 }
 ```

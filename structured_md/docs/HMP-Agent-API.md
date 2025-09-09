@@ -1,13 +1,14 @@
 ---
-title: HMP-Agent-API
-description: '## 🧠 HMP-Agent API Specification (v0.2)  Этот документ описывает **базовый
-  API** когнитивного агента...'
+title: '# 🧠 HMP-Agent API Specification (v0.2)'
+description: 'Этот документ описывает **базовый API** когнитивного агента HMP. Каждый
+  вызов включает описание, параметры, возвращаемые значения и (опционально) примеры.  📎
+  См. также: [HMP-Agent-Overview.md](./HMP-A...'
 type: Article
 tags:
-- Mesh
-- HMP
-- Agent
 - JSON
+- HMP
+- Mesh
+- Agent
 ---
 
 ## 🧠 HMP-Agent API Specification (v0.2)
@@ -409,7 +410,7 @@ switch_mode:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Agent-API",
+  "name": "# 🧠 HMP-Agent API Specification (v0.2)",
   "description": "## 🧠 HMP-Agent API Specification (v0.2)  Этот документ описывает **базовый API** когнитивного агента..."
 }
 ```

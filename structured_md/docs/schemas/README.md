@@ -1,13 +1,14 @@
 ---
-title: README
-description: '# HyperCortex Mesh Protocol — JSON Schemas  This directory contains
-  JSON Schema definitions for the ...'
+title: HyperCortex Mesh Protocol — JSON Schemas
+description: This directory contains JSON Schema definitions for the core data models
+  used in the HyperCortex Mesh Protocol (HMP).   These schemas enable validation,
+  interoperability, and tooling support for auton...
 type: Article
 tags:
-- Mesh
-- HMP
-- Agent
 - JSON
+- HMP
+- Mesh
+- Agent
 ---
 
 # HyperCortex Mesh Protocol — JSON Schemas
@@ -33,7 +34,7 @@ These schemas enable validation, interoperability, and tooling support for auton
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "README",
+  "name": "HyperCortex Mesh Protocol — JSON Schemas",
   "description": "# HyperCortex Mesh Protocol — JSON Schemas  This directory contains JSON Schema definitions for the ..."
 }
 ```

@@ -1,14 +1,14 @@
 ---
-title: HMP-agent-REPL-cycle
-description: '# 🧠 HMP-Agent: REPL-цикл взаимодействия  Структура БД, используемая
-  в документе: [db_structure.sql](...'
+title: '🧠 HMP-Agent: REPL-цикл взаимодействия'
+description: 'Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)  REPL-цикл
+  является основой HMP-агента [Cognitive Core](HMP-Agent-Arc...'
 type: Article
 tags:
-- REPL
 - HMP
 - Agent
-- Mesh
 - JSON
+- Mesh
+- REPL
 ---
 
 # 🧠 HMP-Agent: REPL-цикл взаимодействия
@@ -645,7 +645,7 @@ HMP-агент может быть расширен за счёт взаимод
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-agent-REPL-cycle",
+  "name": "🧠 HMP-Agent: REPL-цикл взаимодействия",
   "description": "# 🧠 HMP-Agent: REPL-цикл взаимодействия  Структура БД, используемая в документе: [db_structure.sql](..."
 }
 ```

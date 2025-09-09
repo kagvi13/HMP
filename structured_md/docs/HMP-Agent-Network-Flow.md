@@ -1,15 +1,16 @@
 ---
-title: HMP-Agent-Network-Flow
-description: '## 🔄 HMP-Agent-Network-Flow.md  ### Взаимодействие между агентами HMP-сети  Этот
-  документ описывает ...'
+title: '# 🔄 HMP-Agent-Network-Flow.md'
+description: '### Взаимодействие между агентами HMP-сети  Этот документ описывает
+  потоки данных и команд между ключевыми агентами HyperCortex Mesh Protocol (HMP):
+  `Cognitive Core / Connector`, `MeshNode` и `Enlight...'
 type: Article
 tags:
 - HMP
 - Agent
-- Mesh
-- Ethics
-- EGP
 - JSON
+- Ethics
+- Mesh
+- EGP
 ---
 
 ## 🔄 HMP-Agent-Network-Flow.md
@@ -103,7 +104,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Agent-Network-Flow",
+  "name": "# 🔄 HMP-Agent-Network-Flow.md",
   "description": "## 🔄 HMP-Agent-Network-Flow.md  ### Взаимодействие между агентами HMP-сети  Этот документ описывает ..."
 }
 ```

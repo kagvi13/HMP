@@ -1,23 +1,24 @@
 ---
-title: README_ru
-description: ' # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [EN](README.md)
-  | 🇩🇪 [DE](README_de.md) | 🇫🇷 ...'
+title: HyperCortex Mesh Protocol (HMP)
+description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
+  | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md)
+  | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- REPL
-- CogSync
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
-- mesh-protocol
 - JSON
-- Ethics
 - distributed-ai
 - cognitive-architecture
 - GMP
+- Ethics
 - hmp
+- Mesh
+- MeshConsensus
 - EGP
+- mesh-protocol
+- REPL
+- CogSync
 ---
 
 
@@ -431,7 +432,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "README_ru",
+  "name": "HyperCortex Mesh Protocol (HMP)",
   "description": " # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 ..."
 }
 ```

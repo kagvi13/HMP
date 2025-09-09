@@ -1,17 +1,18 @@
 ---
-title: iteration
-description: '# Iterative Development Workflow for HMP  This file describes the iterative
-  procedure for evolving t...'
+title: Iterative Development Workflow for HMP
+description: 'This file describes the iterative procedure for evolving the HyperCortex
+  Mesh Protocol (HMP) in a structured, traceable, and collaborative manner.  ---  ##
+  🔄 Version Naming Convention  - `000N` — curr...'
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
-- Ethics
-- EGP
 - JSON
+- Ethics
+- MeshConsensus
+- Mesh
+- EGP
+- CogSync
 ---
 
 # Iterative Development Workflow for HMP
@@ -135,7 +136,7 @@ It also lays the foundation for future automation through `AuditEntry.json` and 
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "iteration",
+  "name": "Iterative Development Workflow for HMP",
   "description": "# Iterative Development Workflow for HMP  This file describes the iterative procedure for evolving t..."
 }
 ```

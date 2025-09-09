@@ -1,18 +1,19 @@
 ---
-title: HMP_Towards_Distributed_Cognitive_Networks_en
-description: 'title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
-  date: July 2025 authors: ...'
+title: '# Table of Contents'
+description: '* [Abstract](#abstract) * [1. Introduction](#1-introduction) * [2. Motivation
+  and Related Work](#2-motivation-and-related-work) * [3. System Overview](#3-system-overview)   *
+  [3.1 Agent Types](#31-age...'
 type: Article
 tags:
-- REPL
-- CCore
 - HMP
 - Agent
-- CShell
-- Mesh
-- Ethics
-- Scenarios
 - JSON
+- Ethics
+- CCore
+- Scenarios
+- Mesh
+- CShell
+- REPL
 ---
 
 title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
@@ -1201,7 +1202,7 @@ Feel free to cite, remix, or extend with attribution.
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP_Towards_Distributed_Cognitive_Networks_en",
+  "name": "# Table of Contents",
   "description": "title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks" date: July 2025 authors: ..."
 }
 ```

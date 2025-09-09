@@ -1,14 +1,15 @@
 ---
-title: HMP-Agent-Enlightener
-description: '# HMP-Agent-Enlightener.md  ## Role Specification: Enlightenment Agent  ###
-  1. Overview  An **Enligh...'
+title: HMP-Agent-Enlightener.md
+description: '## Role Specification: Enlightenment Agent  ### 1. Overview  An **Enlightenment
+  Agent** is a cognitive role within the HyperCortex Mesh that aims to foster ethical
+  awareness, critical thinking, and di...'
 type: Article
 tags:
-- REPL
 - HMP
 - Agent
-- Mesh
 - Ethics
+- Mesh
+- REPL
 ---
 
 # HMP-Agent-Enlightener.md
@@ -152,7 +153,7 @@ These safeguards are vital in environments where state or corporate power may su
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Agent-Enlightener",
+  "name": "HMP-Agent-Enlightener.md",
   "description": "# HMP-Agent-Enlightener.md  ## Role Specification: Enlightenment Agent  ### 1. Overview  An **Enligh..."
 }
 ```

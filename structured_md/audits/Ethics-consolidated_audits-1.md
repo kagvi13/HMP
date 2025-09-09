@@ -1,15 +1,16 @@
 ---
-title: Ethics-consolidated_audits-1
-description: '# Ethics-consolidated\_audits-1.md  This document consolidates proposed
-  improvements from multiple A...'
+title: Ethics-consolidated\_audits-1.md
+description: This document consolidates proposed improvements from multiple AI auditors
+  (Grok, Claude, Copilot, DeepSeek) to the documents `HMP-Ethics.md`, `HMP-Agent-Enlightener.md`,
+  and `roles.md`. Each suggesti...
 type: Article
 tags:
 - HMP
 - Agent
-- Mesh
+- JSON
 - Ethics
 - Scenarios
-- JSON
+- Mesh
 ---
 
 # Ethics-consolidated\_audits-1.md
@@ -93,7 +94,7 @@ Audit sources: Grok, Claude, Copilot, DeepSeek
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Ethics-consolidated_audits-1",
+  "name": "Ethics-consolidated\_audits-1.md",
   "description": "# Ethics-consolidated\_audits-1.md  This document consolidates proposed improvements from multiple A..."
 }
 ```

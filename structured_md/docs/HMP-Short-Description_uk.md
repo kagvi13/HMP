@@ -1,17 +1,18 @@
 ---
-title: HMP-Short-Description_uk
-description: '# HyperCortex Mesh Protocol (HMP) — Короткий опис  **Версія:** RFC v4.0
-  **Дата:** Липень 2025  ---  ...'
+title: HyperCortex Mesh Protocol (HMP) — Короткий опис
+description: '**Версія:** RFC v4.0 **Дата:** Липень 2025  ---  ## Що таке HMP?  **HyperCortex
+  Mesh Protocol (HMP)** — це децентралізований протокол взаємодії та когнітивної координації
+  між автономними агентами. Він...'
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
-- Mesh
+- JSON
 - Ethics
 - GMP
+- MeshConsensus
+- Mesh
 - EGP
-- JSON
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Короткий опис
@@ -120,7 +121,7 @@ HMP визначає схеми для основних когнітивних �
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Short-Description_uk",
+  "name": "HyperCortex Mesh Protocol (HMP) — Короткий опис",
   "description": "# HyperCortex Mesh Protocol (HMP) — Короткий опис  **Версія:** RFC v4.0 **Дата:** Липень 2025  ---  ..."
 }
 ```

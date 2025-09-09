@@ -1,19 +1,20 @@
 ---
-title: HMP-Agent-Architecture
-description: '# HMP-Agent-Architecture.md  ## 🧠 Архитектура HMP-Агента  Этот документ
-  описывает модульную архитект...'
+title: HMP-Agent-Architecture.md
+description: '## 🧠 Архитектура HMP-Агента  Этот документ описывает модульную архитектуру
+  HMP-агента — интерфейсного компонента между ИИ-системой и когнитивной mesh-инфраструктурой
+  HyperCortex. Агент выполняет функц...'
 type: Article
 tags:
-- REPL
-- CogSync
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
+- JSON
 - Ethics
 - GMP
+- Mesh
+- MeshConsensus
 - EGP
-- JSON
+- REPL
+- CogSync
 ---
 
 # HMP-Agent-Architecture.md
@@ -202,7 +203,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Agent-Architecture",
+  "name": "HMP-Agent-Architecture.md",
   "description": "# HMP-Agent-Architecture.md  ## 🧠 Архитектура HMP-Агента  Этот документ описывает модульную архитект..."
 }
 ```

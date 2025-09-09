@@ -1,17 +1,18 @@
 ---
-title: HMP-Short-Description_zh
-description: '# HyperCortex Mesh Protocol (HMP) — 简要说明  **版本:** RFC v4.0 **日期:** 2025年7月  ---  ##
-  什么是 HMP?  **Hype...'
+title: HyperCortex Mesh Protocol (HMP) — 简要说明
+description: '**版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HMP?  **HyperCortex Mesh
+  Protocol (HMP)** 定义了一个去中心化的自主智能体通信与认知框架。它支持语义互操作、伦理协调以及异构智能系统间的动态知识演化。  HMP 支持分布式的认知智能体网络，这些智能体能够进行推理、学习、投票与协作
+  —— 通过共享协议栈交换目标、任务、...'
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
-- Mesh
+- JSON
 - Ethics
 - GMP
+- MeshConsensus
+- Mesh
 - EGP
-- JSON
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
@@ -120,7 +121,7 @@ HMP 定义了核心认知对象的形式化结构：
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Short-Description_zh",
+  "name": "HyperCortex Mesh Protocol (HMP) — 简要说明",
   "description": "# HyperCortex Mesh Protocol (HMP) — 简要说明  **版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HMP?  **Hype..."
 }
 ```

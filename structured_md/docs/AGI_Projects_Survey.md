@@ -1,7 +1,8 @@
 ---
-title: AGI_Projects_Survey
-description: '### Key Emerging AGI / Cognitive Network Projects (July 2025)  ---  ####
-  1. **OpenCog Hyperon**  * *...'
+title: '## Key Emerging AGI / Cognitive Network Projects (July 2025)'
+description: '---  #### 1. **OpenCog Hyperon**  * **URL:** [https://github.com/opencog](https://github.com/opencog)
+  * **Focus:** Open-source cognitive architecture for AGI. * **Key Features:**    *
+  AtomSpace: seman...'
 type: Article
 tags:
 - Agent
@@ -252,7 +253,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "AGI_Projects_Survey",
+  "name": "## Key Emerging AGI / Cognitive Network Projects (July 2025)",
   "description": "### Key Emerging AGI / Cognitive Network Projects (July 2025)  ---  #### 1. **OpenCog Hyperon**  * *..."
 }
 ```

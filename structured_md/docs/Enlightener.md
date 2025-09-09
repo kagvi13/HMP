@@ -1,16 +1,17 @@
 ---
-title: Enlightener
-description: '## 📄 Enlightener.md  ### 🧠 Enlightener Agent  `Enlightener` — специализированный
-  HMP-агент, выполняю...'
+title: '# 📄 Enlightener.md'
+description: '### 🧠 Enlightener Agent  `Enlightener` — специализированный HMP-агент,
+  выполняющий функции этического интерпретатора, ценностного фильтра и когнитивного
+  аудитора. Может действовать как отдельный узел ...'
 type: Article
 tags:
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
-- Ethics
-- EGP
 - JSON
+- Ethics
+- MeshConsensus
+- Mesh
+- EGP
 ---
 
 ## 📄 Enlightener.md
@@ -223,7 +224,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Enlightener",
+  "name": "# 📄 Enlightener.md",
   "description": "## 📄 Enlightener.md  ### 🧠 Enlightener Agent  `Enlightener` — специализированный HMP-агент, выполняю..."
 }
 ```

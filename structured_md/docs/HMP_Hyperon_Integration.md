@@ -1,16 +1,17 @@
 ---
-title: HMP_Hyperon_Integration
-description: '## HMP ↔ OpenCog Hyperon Integration Strategy  > **Status:** Draft –
-  July 2025 > This document outli...'
+title: '# HMP ↔ OpenCog Hyperon Integration Strategy'
+description: '> **Status:** Draft – July 2025 > This document outlines the technical
+  and conceptual plan for integrating the HyperCortex Mesh Protocol (HMP) with the
+  OpenCog Hyperon framework. This includes semanti...'
 type: Article
 tags:
-- CogSync
 - HMP
 - Agent
-- Mesh
-- Scenarios
-- EGP
 - JSON
+- Scenarios
+- Mesh
+- EGP
+- CogSync
 ---
 
 ## HMP ↔ OpenCog Hyperon Integration Strategy
@@ -221,7 +222,7 @@ This integration plan fulfills multiple requests from `HMP-0003-consolidated_aud
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP_Hyperon_Integration",
+  "name": "# HMP ↔ OpenCog Hyperon Integration Strategy",
   "description": "## HMP ↔ OpenCog Hyperon Integration Strategy  > **Status:** Draft – July 2025 > This document outli..."
 }
 ```

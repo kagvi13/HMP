@@ -1,17 +1,18 @@
 ---
-title: HMP-0003-consolidated_audit
-description: '# HMP-0003 Consolidated Audit Report  Сводный аудит предложений по улучшению
-  HyperCortex Mesh Protoc...'
+title: HMP-0003 Consolidated Audit Report
+description: Сводный аудит предложений по улучшению HyperCortex Mesh Protocol (HMP)
+  v3.0, основанный на отзывах ИИ-агентов (ChatGPT, Copilot, DeepSeek, Grok) из `HMP-0003-audit.txt`.
+  Документ реорганизован по ключ...
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
-- Ethics
-- EGP
 - JSON
+- Ethics
+- MeshConsensus
+- Mesh
+- EGP
+- CogSync
 ---
 
 # HMP-0003 Consolidated Audit Report
@@ -384,7 +385,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-0003-consolidated_audit",
+  "name": "HMP-0003 Consolidated Audit Report",
   "description": "# HMP-0003 Consolidated Audit Report  Сводный аудит предложений по улучшению HyperCortex Mesh Protoc..."
 }
 ```

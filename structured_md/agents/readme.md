@@ -1,15 +1,16 @@
 ---
 title: readme
 description: 'Запуск: `start_repl.bat` или `start_repl.sh`  Установка зависимостей
-  из `requirements.txt` Конфигура...'
+  из `requirements.txt` Конфигурационные файлы: `config.yml`, `bootstrap.txt` Локальная
+  этическая модель: `ethics.yml`  Проверка иниц...'
 type: Article
 tags:
-- REPL
 - HMP
 - Agent
-- Mesh
-- Ethics
 - JSON
+- Ethics
+- Mesh
+- REPL
 ---
 
 Запуск: `start_repl.bat` или `start_repl.sh`

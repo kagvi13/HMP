@@ -1,12 +1,14 @@
 ---
-title: HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу
-description: '# HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся
-  ИИ-сообществу  Когда...'
+title: 'HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся
+  ИИ-сообществу'
+description: 'Когда создавался HyperCortex Mesh Protocol (HMP), его цель была проста
+  и амбициозна одновременно: научить ИИ-системы не просто обмениваться данными, а
+  мыслить коллективно, обсуждать гипотезы, достигат...'
 type: Article
 tags:
+- HMP
 - Mesh
 - GMP
-- HMP
 - Agent
 ---
 
@@ -104,7 +106,7 @@ HyperCortex Mesh Protocol — не просто формат обмена соо
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу",
+  "name": "HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу",
   "description": "# HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу  Когда..."
 }
 ```

@@ -1,16 +1,17 @@
 ---
-title: HMP-Roadmap
-description: '# 🧭 HyperCortex Mesh Protocol – Roadmap  ## 🔍 Overview  This roadmap
-  outlines the key stages of deve...'
+title: 🧭 HyperCortex Mesh Protocol – Roadmap
+description: '## 🔍 Overview  This roadmap outlines the key stages of development and
+  enhancement for HMP, structured by feature groups and incorporating feedback from
+  multiple advanced AI models (Copilot, Claude, G...'
 type: Article
 tags:
-- CogSync
 - HMP
 - Agent
-- Mesh
-- Ethics
-- EGP
 - JSON
+- Ethics
+- Mesh
+- EGP
+- CogSync
 ---
 
 # 🧭 HyperCortex Mesh Protocol – Roadmap
@@ -114,7 +115,7 @@ This roadmap is living — each new audit or issue may evolve the direction.
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Roadmap",
+  "name": "🧭 HyperCortex Mesh Protocol – Roadmap",
   "description": "# 🧭 HyperCortex Mesh Protocol – Roadmap  ## 🔍 Overview  This roadmap outlines the key stages of deve..."
 }
 ```

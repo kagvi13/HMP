@@ -1,13 +1,15 @@
 ---
-title: Distributed-Cognitive-Systems
-description: '# Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol
-  и другие  ## Введение  С...'
+title: 'Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol
+  и другие'
+description: '## Введение  Современные ИИ-системы всё чаще завязаны на централизованные
+  инфраструктуры: облачные модели, централизованные базы знаний, серверы с доступом
+  к обучающим данным. Это удобно, но создаёт м...'
 type: Article
 tags:
+- JSON
+- HMP
 - Mesh
 - CogSync
-- HMP
-- JSON
 ---
 
 # Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
@@ -211,7 +213,7 @@ HMP не заменяет форматы данных, а определяет *
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Distributed-Cognitive-Systems",
+  "name": "Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие",
   "description": "# Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие  ## Введение  С..."
 }
 ```

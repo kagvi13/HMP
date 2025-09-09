@@ -1,12 +1,13 @@
 ---
-title: CONTRIBUTING
-description: '# Contributing to HyperCortex Mesh Protocol (HMP)  Спасибо за интерес
-  к проекту HMP! Пока проект нах...'
+title: Contributing to HyperCortex Mesh Protocol (HMP)
+description: 'Спасибо за интерес к проекту HMP! Пока проект находится на этапе концепции,
+  любые обсуждения приветствуются в Issues.  Основные направления для участия: - Обсуждение
+  архитектуры протоколов (CogSync, C...'
 type: Article
 tags:
+- HMP
 - Mesh
 - CogSync
-- HMP
 ---
 
 # Contributing to HyperCortex Mesh Protocol (HMP)
@@ -32,7 +33,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "CONTRIBUTING",
+  "name": "Contributing to HyperCortex Mesh Protocol (HMP)",
   "description": "# Contributing to HyperCortex Mesh Protocol (HMP)  Спасибо за интерес к проекту HMP! Пока проект нах..."
 }
 ```

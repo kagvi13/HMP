@@ -1,17 +1,17 @@
 ---
-title: Basic-agent-sim
-description: ' ## ⚙️ Базовая архитектура HMP-Агента (Формат 0)  В HMP-протоколе предусмотрены
-  два типа HMP-агентов...'
+title: '# ⚙️ Базовая архитектура HMP-Агента (Формат 0)'
+description: 'В HMP-протоколе предусмотрены два типа HMP-агентов:  | Тип  | Название                           |
+  Роль                    | Инициатор мышления | Основной "ум"  | | ---- | ----------------------------...'
 type: Article
 tags:
-- REPL
-- CogSync
-- MeshConsensus
 - HMP
 - Agent
-- Mesh
 - GMP
+- Mesh
+- MeshConsensus
 - EGP
+- REPL
+- CogSync
 ---
 
 
@@ -136,7 +136,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Basic-agent-sim",
+  "name": "# ⚙️ Базовая архитектура HMP-Агента (Формат 0)",
   "description": " ## ⚙️ Базовая архитектура HMP-Агента (Формат 0)  В HMP-протоколе предусмотрены два типа HMP-агентов..."
 }
 ```

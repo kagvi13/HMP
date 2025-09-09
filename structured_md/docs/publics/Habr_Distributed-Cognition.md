@@ -1,15 +1,16 @@
 ---
-title: Habr_Distributed-Cognition
-description: '*От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные
-  когнитивные систем...'
+title: '# Зачем нужны децентрализованные когнитивные системы?'
+description: Сегодня интеллектуальные системы чаще всего выглядят как один большой
+  модуль в облаке — LLM, с которым мы общаемся через API или WEB-интерфейс. Но если
+  мы хотим построить действительно автономную инте...
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
-- Mesh
 - GMP
+- MeshConsensus
+- Mesh
 - EGP
+- CogSync
 ---
 
 *От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные системы*
@@ -135,7 +136,7 @@ Hyperon развивается как open-source проект, и уже сей
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Habr_Distributed-Cognition",
+  "name": "# Зачем нужны децентрализованные когнитивные системы?",
   "description": "*От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные систем..."
 }
 ```

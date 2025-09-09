@@ -1,12 +1,14 @@
 ---
-title: HMP-Agent_Emotions
-description: '# Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))  Эт...'
+title: Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
+description: Этот файл описывает потенциальные эмоции и базовые «инстинкты» ИИ, которые
+  могут быть подключены к Cognitive Core через REPL-цикл.   Эти эмоции не управляют
+  напрямую поведением агента, а служат **сигн...
 type: Article
 tags:
-- REPL
-- Mesh
-- HMP
 - Agent
+- HMP
+- Mesh
+- REPL
 ---
 
 # Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
@@ -63,7 +65,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Agent_Emotions",
+  "name": "Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))",
   "description": "# Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))  Эт..."
 }
 ```

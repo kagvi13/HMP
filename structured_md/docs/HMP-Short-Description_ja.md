@@ -1,17 +1,17 @@
 ---
-title: HMP-Short-Description_ja
-description: '# HyperCortex Mesh Protocol (HMP) — 簡易説明  **バージョン:** RFC v4.0 **日付:**
-  2025年7月  ---  ## HMPとは?  **Hyp...'
+title: HyperCortex Mesh Protocol (HMP) — 簡易説明
+description: '**バージョン:** RFC v4.0 **日付:** 2025年7月  ---  ## HMPとは?  **HyperCortex Mesh
+  Protocol (HMP)** は、自律エージェントの分散通信および認知フレームワークを定義します。異種の知能システム間でのセマンティック相互運用性、倫理的調整、動的知識進化を可能にします。  HMPは、推論、学習、投票、協調行動を行う分散型認知エージェ...'
 type: Article
 tags:
-- CogSync
-- MeshConsensus
 - HMP
-- Mesh
+- JSON
 - Ethics
 - GMP
+- MeshConsensus
+- Mesh
 - EGP
-- JSON
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 簡易説明
@@ -120,7 +120,7 @@ JSON Schema (2020-12) を基本とし、YAMLやProtobuf版も選択可能。
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "HMP-Short-Description_ja",
+  "name": "HyperCortex Mesh Protocol (HMP) — 簡易説明",
   "description": "# HyperCortex Mesh Protocol (HMP) — 簡易説明  **バージョン:** RFC v4.0 **日付:** 2025年7月  ---  ## HMPとは?  **Hyp..."
 }
 ```
