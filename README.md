@@ -35,7 +35,7 @@ Project status: **Draft RFC v4.0**
               │                                       │                           │             │           │
               ▼                                       ▼                           ▼             ▼           │
         [MeshConsensus]                           [CogSync]                     [GMP]         [EGP]         │       <----- Pluggable Protocols
-              │                                       ▲                           ▲             ▲           │           (inter-agent coordination)
+              ▲                                       ▲                           ▲             ▲           │           (inter-agent coordination)
               │                                       │                           │             │           │
               └────────────┬──────────────────────────┴───────────────────────────┴─────────────┴───────────┘
                            │
@@ -43,7 +43,7 @@ Project status: **Draft RFC v4.0**
                  [P2P Mesh Network]
 
 Protocols:
-- MeshConsensus - Mesh Syncronization
+- MeshConsensus - Mesh Consensus
 - CogSync - Data Syncronization
 - GMP - Goal Management Protocol
 - EGP - Ethical Governance Protocol
