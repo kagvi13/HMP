@@ -28,7 +28,7 @@ Project status: **Draft RFC v4.0**
               ┌─────┴────────────────┬────────────────────────┬───────────────────┬─────────────┬───────────┐
               │                      │                        │                   │             │           │
               ▼                      ▼                        ▼                   ▼             ▼           ▼
-       [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
+       [Reputation Profile]   [Semantic Graph]        [Cognitive Diary]    [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
               ▲      ▲               ▲                        ▲                   ▲             ▲           ▲         (local agent state)
               │      │               │                        │                   │             │           │
               │      └───────────────┴────────────────┬───────┘                   │             │           │
