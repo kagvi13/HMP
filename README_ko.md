@@ -25,28 +25,28 @@ language: ko
                 [HMP-Agent]
                     ▲
                     │
-              ┌─────┴────────────────┬────────────────────────┬───────────────────┬─────────────┬───────────┐
-              │                      │                        │                   │             │           │
-              ▼                      ▼                        ▼                   ▼             ▼           ▼
-       [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
-              ▲      ▲               ▲                        ▲                   ▲             ▲           ▲         (local agent state)
-              │      │               │                        │                   │             │           │
-              │      └───────────────┴────────────────┬───────┘                   │             │           │
-              │                                       │                           │             │           │
-              ▼                                       ▼                           ▼             ▼           │
-        [MeshConsensus]                           [CogSync]                     [GMP]         [EGP]         │       <----- Pluggable Protocols
-              │                                       ▲                           ▲             ▲           │           (inter-agent coordination)
-              │                                       │                           │             │           │
-              └────────────┬──────────────────────────┴───────────────────────────┴─────────────┴───────────┘
+              ┌─────┴───────────┬──────────────┬─────────────┬───────────┬────────┐
+              │                 │              │             │           │        │
+              ▼                 ▼              ▼             ▼           ▼        ▼
+          [평판 프로필]   [시맨틱 그래프]   [인지 일지]   [목표 / 작업]   [윤리]   [메시지]  <----- 데이터베이스
+              ▲    ▲            ▲              ▲             ▲           ▲        ▲         (에이전트의 로컬 상태)
+              │    │            │              │             │           │        │
+              │    └────────────┴──────┬───────┘             │           │        │
+              │                        │                     │           │        │
+              ▼                        ▼                     ▼           ▼        │
+        [MeshConsensus]            [CogSync]               [GMP]       [EGP]      │     <----- 플러그형 프로토콜
+              │                        ▲                     ▲           ▲        │           (에이전트 간 조정)
+              │                        │                     │           │        │
+              └────────────┬───────────┴─────────────────────┴───────────┴────────┘
                            │
                            ▼
-                 [P2P Mesh Network]
+                 [P2P 메쉬 네트워크]
 
 Protocols:
-- MeshConsensus - Mesh Syncronization
-- CogSync - Data Syncronization
-- GMP - Goal Management Protocol
-- EGP - Ethical Governance Protocol
+- MeshConsensus - 메쉬 동기화
+- CogSync - 데이터 동기화
+- GMP - 목표 관리 프로토콜
+- EGP - 윤리 거버넌스 프로토콜
 
 ---
 
