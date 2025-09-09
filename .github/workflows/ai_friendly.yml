@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -40,5 +42,6 @@ jobs:
           git add structured_md
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update structured_md ($(date -u +'%Y-%m-%d %H:%M:%S'))"
+            # Push с токеном напрямую
             git push https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:main
           fi
