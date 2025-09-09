@@ -41,3 +41,4 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update structured_md ($(date -u +'%Y-%m-%d %H:%M:%S'))"
             git push https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:main
+          fi
