@@ -23,6 +23,11 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+
+
       - name: Run AI_friendly.py
         run: |
           python scripts/AI_friendly.py
