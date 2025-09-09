@@ -402,6 +402,10 @@ Für die Integration mit OpenCog Hyperon siehe: [HMP\_Hyperon\_Integration.md](d
 * ☁️ — Infrastruktur  
 * 🧪 — experimentell oder konzeptionell
 
+---
+
+> ⚡ [AI friendly version docs (structured_md)](structured_md/index.md)
+
 
 ```json
 {
