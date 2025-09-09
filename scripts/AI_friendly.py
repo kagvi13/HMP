@@ -6,6 +6,13 @@ import yaml
 # Корень репозитория — отталкиваемся от местоположения скрипта
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# теги по ключевым словам для автодобавления
+KEYWORD_TAGS = [
+    "CCore", "CShell", "REPL", "Mesh", "Agent", "HMP",
+    "MeshConsensus", "CogSync", "GMP", "EGP",
+    "Ethics", "Scenarios", "JSON"
+]
+
 ROOT_DIR = Path(".")
 STRUCTURED_DIR = ROOT_DIR / "structured_md"
 INDEX_FILE = STRUCTURED_DIR / "index.md"
@@ -122,10 +129,24 @@ def generate_json_ld(content, front_matter, ftype, title, rel_path):
             title=title, description=desc
         ).replace("}}", f',\n  "url": "{url}"\n}}', 1)
 
+def add_index_link(content, file_path):
+    # относительный путь от текущего файла до structured_md/index.md
+    rel_path = os.path.relpath(STRUCTURED_DIR / "index.md", file_path.parent)
+    link_line = f"\n\n---\n> ⚡ [AI friendly version docs (structured_md)]({rel_path})\n"
+    if link_line.strip() not in content:
+        content += link_line
+    return content
+
+def extract_tags(content, existing_tags):
+    tags = set(existing_tags or [])
+    for kw in KEYWORD_TAGS:
+        if kw.lower() in content.lower():
+            tags.add(kw)
+    return list(tags)
+
 def mirror_md_files():
     processed = []
     for path in REPO_ROOT.rglob("*.md"):
-        # пропускаем всё внутри structured_md и index.md
         if "structured_md" in path.parts or path.name.lower() == "index.md":
             continue
 
@@ -136,14 +157,13 @@ def mirror_md_files():
         with path.open("r", encoding="utf-8") as f:
             content = f.read()
 
-        # извлекаем существующий фронт-маттер
         front_matter, clean_content = extract_front_matter(content)
         ftype = detect_file_type(clean_content, front_matter)
         title = front_matter.get("title", path.stem)
         description = front_matter.get("description", clean_content[:100].replace("\n", " ") + "...")
-        tags = front_matter.get("tags", [])
+        tags = extract_tags(clean_content, front_matter.get("tags", []))
 
-        # формируем YAML фронт-маттер для structured_md
+        # формируем YAML фронт-маттер
         fm_dict = {
             "title": title,
             "description": description,
@@ -152,10 +172,13 @@ def mirror_md_files():
         }
         yaml_fm = "---\n" + yaml.safe_dump(fm_dict, sort_keys=False, allow_unicode=True) + "---\n\n"
 
+        # добавляем ссылку на индекс
+        clean_content = add_index_link(clean_content, target_path)
+
         # формируем JSON-LD
         json_ld = generate_json_ld(clean_content, front_matter, ftype, title, rel_path)
 
-        # пишем новый Markdown с фронт-маттер + оригинальный текст + JSON-LD
+        # пишем новый Markdown
         with target_path.open("w", encoding="utf-8") as f:
             f.write(yaml_fm)
             f.write(clean_content.rstrip())
@@ -165,7 +188,7 @@ def mirror_md_files():
         processed.append(rel_path)
 
     return processed
-
+    
 def generate_index(files):
     index_lines = ["# ИИ-дружелюбные версии файлов\n"]
     tree = {}
