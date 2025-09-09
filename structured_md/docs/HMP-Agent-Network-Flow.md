@@ -6,11 +6,11 @@ description: '### Взаимодействие между агентами HMP-�
 type: Article
 tags:
 - Agent
-- Ethics
 - JSON
-- HMP
-- Mesh
+- Ethics
 - EGP
+- Mesh
+- HMP
 ---
 
 ## 🔄 HMP-Agent-Network-Flow.md
