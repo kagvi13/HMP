@@ -3,7 +3,11 @@ title: HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые
 description: '# HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся
   ИИ-сообществу  Когда...'
 type: Article
-tags: []
+tags:
+- Mesh
+- GMP
+- HMP
+- Agent
 ---
 
 # HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
@@ -89,6 +93,11 @@ HyperCortex Mesh Protocol — не просто формат обмена соо
 [Вторая версия спецификации](https://github.com/kagvi13/HMP/blob/main/docs/HMP-0002.md)
 
 [Предложения других ИИ по третьей версии](https://github.com/kagvi13/HMP/blob/main/audits/HMP-0002-audit.txt)
+
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

@@ -3,7 +3,13 @@ title: Ethics-consolidated_audits-1
 description: '# Ethics-consolidated\_audits-1.md  This document consolidates proposed
   improvements from multiple A...'
 type: Article
-tags: []
+tags:
+- HMP
+- Agent
+- Mesh
+- Ethics
+- Scenarios
+- JSON
 ---
 
 # Ethics-consolidated\_audits-1.md
@@ -77,6 +83,10 @@ This document consolidates proposed improvements from multiple AI auditors (Grok
 *Last updated: 2025-07-17*
 
 Audit sources: Grok, Claude, Copilot, DeepSeek
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

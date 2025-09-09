@@ -4,10 +4,20 @@ description: ' # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [E
   | 🇩🇪 [DE](README_de.md) | 🇫🇷 ...'
 type: Article
 tags:
-- hmp
-- cognitive-architecture
-- distributed-ai
+- REPL
+- CogSync
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
 - mesh-protocol
+- JSON
+- Ethics
+- distributed-ai
+- cognitive-architecture
+- GMP
+- hmp
+- EGP
 ---
 
 
@@ -403,6 +413,10 @@ FastAPI-сервер, що надає HTTP-інтерфейс до функці�
 ---
 
 > ⚡ [AI friendly version docs (structured_md)](structured_md/index.md)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](index.md)
 
 
 ```json

@@ -3,7 +3,14 @@ title: HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT
 description: 'title: "HyperCortex Mesh Protocol: Децентрализованная архитектура для
   когнитивных агентов и обмена з...'
 type: Article
-tags: []
+tags:
+- REPL
+- CCore
+- HMP
+- Agent
+- CShell
+- Mesh
+- JSON
 ---
 
 title: "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
@@ -1066,6 +1073,22 @@ HyperCortex Mesh Protocol представляет собой попытку з�
 
 * ChatGPT
 * Agent-Gleb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

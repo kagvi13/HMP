@@ -3,7 +3,15 @@ title: HMP-Short-Description_ja
 description: '# HyperCortex Mesh Protocol (HMP) — 簡易説明  **バージョン:** RFC v4.0 **日付:**
   2025年7月  ---  ## HMPとは?  **Hyp...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Mesh
+- Ethics
+- GMP
+- EGP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 簡易説明
@@ -102,6 +110,10 @@ JSON Schema (2020-12) を基本とし、YAMLやProtobuf版も選択可能。
 * [HMP と OpenCog Hyperon 統合](HMP_Hyperon_Integration.md)
 
 * 貢献歓迎: [一時GitHubリポジトリ](https://github.com/kagvi13/HMP)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

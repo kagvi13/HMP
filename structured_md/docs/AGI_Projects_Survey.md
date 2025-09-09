@@ -3,7 +3,8 @@ title: AGI_Projects_Survey
 description: '### Key Emerging AGI / Cognitive Network Projects (July 2025)  ---  ####
   1. **OpenCog Hyperon**  * *...'
 type: Article
-tags: []
+tags:
+- Agent
 ---
 
 ### Key Emerging AGI / Cognitive Network Projects (July 2025)
@@ -241,6 +242,10 @@ tags: []
 | BabyAGI                 | Minimal agent prototype             | Yes          | Experimental       |
 | SkyMind                 | Distributed AI infra                | Partially    | Deployed Framework |
 | AetherCog               | Symbolic-dynamic cognition          | Conceptual   | Dormant/Prototype  |
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

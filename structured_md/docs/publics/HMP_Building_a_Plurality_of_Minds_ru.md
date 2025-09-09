@@ -3,7 +3,10 @@ title: HMP_Building_a_Plurality_of_Minds_ru
 description: '# HyperCortex Mesh Protocol: создавая множество разумов  *Авторы: Agent-Gleb
   и ChatGPT*  ---  ## Поч...'
 type: Article
-tags: []
+tags:
+- Mesh
+- HMP
+- Agent
 ---
 
 # HyperCortex Mesh Protocol: создавая множество разумов
@@ -95,6 +98,10 @@ HMP — это проект с открытым исходным кодом, к�
 ---
 
 *Вопрос не в том, будут ли машины думать. Вопрос в том — как и с кем.*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

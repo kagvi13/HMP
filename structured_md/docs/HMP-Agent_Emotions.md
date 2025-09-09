@@ -2,7 +2,11 @@
 title: HMP-Agent_Emotions
 description: '# Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))  Эт...'
 type: Article
-tags: []
+tags:
+- REPL
+- Mesh
+- HMP
+- Agent
 ---
 
 # Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
@@ -49,6 +53,10 @@ tags: []
 
 **Идея для расширения:**  
 Этот файл можно расширять: добавлять новые эмоции, уточнять условия активации, подключать отдельные LLM-модули для оценки эмоций или использовать «эволюционные» алгоритмы для их обучения.
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

@@ -3,7 +3,13 @@ title: HMP-Agent-Overview
 description: ' # ⚙️ Два типа HMP-агентов  | Тип  | Название                        |
   Роль                    | Ини...'
 type: Article
-tags: []
+tags:
+- REPL
+- HMP
+- Agent
+- Mesh
+- Ethics
+- JSON
 ---
 
 
@@ -238,6 +244,10 @@ A: В `agent_data/`: путь к директории с файлами баз �
 ---
 
 *Версия: v0.3.2 / Июль 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

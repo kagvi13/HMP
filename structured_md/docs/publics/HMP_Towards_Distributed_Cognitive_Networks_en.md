@@ -3,7 +3,16 @@ title: HMP_Towards_Distributed_Cognitive_Networks_en
 description: 'title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
   date: July 2025 authors: ...'
 type: Article
-tags: []
+tags:
+- REPL
+- CCore
+- HMP
+- Agent
+- CShell
+- Mesh
+- Ethics
+- Scenarios
+- JSON
 ---
 
 title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
@@ -1181,6 +1190,11 @@ Let us build not a single artificial intelligence, but a *plurality* of minds â€
 
 This document is shared under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.  
 Feel free to cite, remix, or extend with attribution.
+
+
+
+---
+> âš¡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

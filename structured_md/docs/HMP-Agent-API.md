@@ -3,7 +3,11 @@ title: HMP-Agent-API
 description: '## 🧠 HMP-Agent API Specification (v0.2)  Этот документ описывает **базовый
   API** когнитивного агента...'
 type: Article
-tags: []
+tags:
+- Mesh
+- HMP
+- Agent
+- JSON
 ---
 
 ## 🧠 HMP-Agent API Specification (v0.2)
@@ -395,6 +399,10 @@ switch_mode:
 ---
 
 Версия: v0.3 / Июль 2025
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

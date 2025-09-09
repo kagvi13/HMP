@@ -3,7 +3,12 @@ title: HMP-Agent-Enlightener
 description: '# HMP-Agent-Enlightener.md  ## Role Specification: Enlightenment Agent  ###
   1. Overview  An **Enligh...'
 type: Article
-tags: []
+tags:
+- REPL
+- HMP
+- Agent
+- Mesh
+- Ethics
 ---
 
 # HMP-Agent-Enlightener.md
@@ -137,6 +142,10 @@ These safeguards are vital in environments where state or corporate power may su
 ---
 
 *Status: Draft v0.1-pre / July 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

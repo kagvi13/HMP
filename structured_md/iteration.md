@@ -3,7 +3,15 @@ title: iteration
 description: '# Iterative Development Workflow for HMP  This file describes the iterative
   procedure for evolving t...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
+- Ethics
+- EGP
+- JSON
 ---
 
 # Iterative Development Workflow for HMP
@@ -117,6 +125,10 @@ It also lays the foundation for future automation through `AuditEntry.json` and 
 * [ ] Consider adding a table-based format to audit files for easier parsing.
 * [ ] Maintain `semantic_repo.json` in sync with each new spec version.
 * [ ] Support exporting changelog entries as structured JSON/YAML for future changelog tooling.
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](index.md)
 
 
 ```json

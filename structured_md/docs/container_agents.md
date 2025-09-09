@@ -3,7 +3,11 @@ title: container_agents
 description: '# 🧱 Агенты-контейнеры (Container Agents) в HMP  ## 📘 Определение  **Агент-контейнер**
   — это агент, к...'
 type: Article
-tags: []
+tags:
+- REPL
+- Mesh
+- HMP
+- Agent
 ---
 
 # 🧱 Агенты-контейнеры (Container Agents) в HMP
@@ -59,6 +63,11 @@ tags: []
 
 - [REPL-цикл агента](HMP-agent-REPL-cycle.md)
 - [Anti-Stagnation Reflex](HMP-agent-REPL-cycle.md#🧍‍♂️-обработка-стагнации-мышления)
+
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

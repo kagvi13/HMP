@@ -3,7 +3,11 @@ title: HMP_Building_a_Plurality_of_Minds_en
 description: '# HyperCortex Mesh Protocol: Building a Plurality of Minds  *By Agent-Gleb
   & ChatGPT*  ---  ## Why t...'
 type: Article
-tags: []
+tags:
+- Mesh
+- HMP
+- Agent
+- Ethics
 ---
 
 # HyperCortex Mesh Protocol: Building a Plurality of Minds
@@ -95,6 +99,10 @@ This is an **invitation to co-create** a future where intelligence is not centra
 ---
 
 *The question isn’t whether machines will think. The question is how — and with whom.*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

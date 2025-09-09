@@ -3,7 +3,13 @@ title: Habr_Distributed-Cognition
 description: '*От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные
   когнитивные систем...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Mesh
+- GMP
+- EGP
 ---
 
 *От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные системы*
@@ -119,6 +125,10 @@ Hyperon развивается как open-source проект, и уже сей
 * 🔗 [HMP v4.0 — полная спецификация (англ.)](https://github.com/kagvi13/HMP/blob/main/docs/HMP-0004.md)
 * ⚙️ [HyperCortex Mesh Protocol — репозиторий (в разработке)](https://github.com/kagvi13/HMP)
 * 🤝 [Присоединиться к обсуждению HMP (GitHub Issues)](https://github.com/kagvi13/HMP/issues)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

@@ -3,7 +3,11 @@ title: Distributed-Cognitive-Systems
 description: '# Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol
   и другие  ## Введение  С...'
 type: Article
-tags: []
+tags:
+- Mesh
+- CogSync
+- HMP
+- JSON
 ---
 
 # Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
@@ -197,6 +201,10 @@ HMP не заменяет форматы данных, а определяет *
 * [OpenCog на GitHub](https://github.com/opencog)
 * [SingularityNET](https://singularitynet.io/)
 * [HMP на GitHub](https://github.com/kagvi13/HMP)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

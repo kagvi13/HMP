@@ -3,7 +3,13 @@ title: readme
 description: 'Запуск: `start_repl.bat` или `start_repl.sh`  Установка зависимостей
   из `requirements.txt` Конфигура...'
 type: Article
-tags: []
+tags:
+- REPL
+- HMP
+- Agent
+- Mesh
+- Ethics
+- JSON
 ---
 
 Запуск: `start_repl.bat` или `start_repl.sh`
@@ -89,7 +95,11 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 ├── [`bootstrap.txt`](bootstrap.txt) ← Локальная этическая модель  
 ├── [`prompt.md`](prompt.md) ← Промпт: полная версия  
 ├── [`prompt-short.md`](prompt-short.md) ← Промпт: короткая версия  
-├── [`ethics.yml`](ethics.yml) ← Список начальных узлов
+├── [`ethics.yml`](ethics.yml) ← Список начальных узлов  
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

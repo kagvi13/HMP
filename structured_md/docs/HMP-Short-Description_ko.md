@@ -3,7 +3,15 @@ title: HMP-Short-Description_ko
 description: '# HyperCortex Mesh Protocol (HMP) — 간략 설명  **버전:** RFC v4.0 **날짜:**
   2025년 7월  ---  ## HMP란?  **Hyper...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Mesh
+- Ethics
+- GMP
+- EGP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 간략 설명
@@ -102,6 +110,10 @@ JSON Schema (2020-12) 기반이며, YAML 및 Protobuf 버전 선택 가능.
 * [HMP와 OpenCog Hyperon 통합](HMP_Hyperon_Integration.md)
 
 * 기여 환영: [임시 GitHub 저장소](https://github.com/kagvi13/HMP)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

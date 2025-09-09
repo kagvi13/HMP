@@ -3,7 +3,16 @@ title: HMP-Short-Description_en
 description: '# HyperCortex Mesh Protocol (HMP) — Short Description  **Version:**
   RFC v4.0 **Date:** July 2025  --...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
+- Ethics
+- GMP
+- EGP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Short Description
@@ -102,6 +111,10 @@ These are expressed in JSON Schema (2020-12), with optional YAML and Protobuf va
 * [Integration HMP and OpenCog Hyperon](HMP_Hyperon_Integration.md)
 
 * Contributions welcome: [Temporary GitHub Repository](https://github.com/kagvi13/HMP)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

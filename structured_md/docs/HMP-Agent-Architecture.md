@@ -3,7 +3,17 @@ title: HMP-Agent-Architecture
 description: '# HMP-Agent-Architecture.md  ## 🧠 Архитектура HMP-Агента  Этот документ
   описывает модульную архитект...'
 type: Article
-tags: []
+tags:
+- REPL
+- CogSync
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
+- Ethics
+- GMP
+- EGP
+- JSON
 ---
 
 # HMP-Agent-Architecture.md
@@ -182,6 +192,10 @@ tags: []
 ---
 
 *Версия: v0.3.1 / Июль 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

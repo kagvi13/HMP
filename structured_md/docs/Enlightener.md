@@ -3,7 +3,14 @@ title: Enlightener
 description: '## 📄 Enlightener.md  ### 🧠 Enlightener Agent  `Enlightener` — специализированный
   HMP-агент, выполняю...'
 type: Article
-tags: []
+tags:
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
+- Ethics
+- EGP
+- JSON
 ---
 
 ## 📄 Enlightener.md
@@ -206,6 +213,10 @@ tags: []
 ---
 
 *Версия: v0.3 / Июль 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

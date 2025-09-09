@@ -3,7 +3,14 @@ title: HMP-Roadmap
 description: '# 🧭 HyperCortex Mesh Protocol – Roadmap  ## 🔍 Overview  This roadmap
   outlines the key stages of deve...'
 type: Article
-tags: []
+tags:
+- CogSync
+- HMP
+- Agent
+- Mesh
+- Ethics
+- EGP
+- JSON
 ---
 
 # 🧭 HyperCortex Mesh Protocol – Roadmap
@@ -97,6 +104,10 @@ Feedback integrated from:
 This roadmap is living — each new audit or issue may evolve the direction.
 
 > *"Build not only for intelligence, but for wisdom."*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](index.md)
 
 
 ```json

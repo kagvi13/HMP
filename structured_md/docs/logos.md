@@ -3,7 +3,9 @@ title: logos
 description: '# Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)  В
   каталоге `assets` собраны разл...'
 type: Article
-tags: []
+tags:
+- Mesh
+- HMP
 ---
 
 # Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
@@ -29,6 +31,10 @@ tags: []
 Если у вас есть предложения по улучшению дизайна логотипов или дополнительные материалы — пожалуйста, создавайте Pull Requests или открывайте Issues в репозитории.
 
 Спасибо за участие и поддержку проекта!
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

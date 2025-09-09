@@ -3,7 +3,12 @@ title: MeshNode
 description: '## 📄 MeshNode.md  ### 🌐 MeshNode  `MeshNode` — агент/демон, отвечающий
   за сетевую инфраструктуру HMP...'
 type: Article
-tags: []
+tags:
+- CogSync
+- HMP
+- Agent
+- Mesh
+- JSON
 ---
 
 ## 📄 MeshNode.md
@@ -165,6 +170,10 @@ MeshNode может поддерживать *inline-сценарии* (мини
 ---
 
 *Версия: v0.3 / Июль 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

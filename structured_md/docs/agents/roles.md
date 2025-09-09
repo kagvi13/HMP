@@ -3,7 +3,10 @@ title: roles
 description: '# HMP Agent Role Registry  This file maintains a registry of agent roles
   defined, proposed, or plann...'
 type: Article
-tags: []
+tags:
+- Mesh
+- HMP
+- Agent
 ---
 
 # HMP Agent Role Registry
@@ -40,6 +43,10 @@ This file maintains a registry of agent roles defined, proposed, or planned in t
 
 *Draft maintained by HyperCortex Mesh Contributors*  
 *Version: 0.1-pre / July 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

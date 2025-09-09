@@ -3,7 +3,13 @@ title: HMP-Agent-Network-Flow
 description: '## 🔄 HMP-Agent-Network-Flow.md  ### Взаимодействие между агентами HMP-сети  Этот
   документ описывает ...'
 type: Article
-tags: []
+tags:
+- HMP
+- Agent
+- Mesh
+- Ethics
+- EGP
+- JSON
 ---
 
 ## 🔄 HMP-Agent-Network-Flow.md
@@ -87,6 +93,10 @@ tags: []
 ---
 
 *Версия: v0.3 / Июль 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

@@ -3,7 +3,14 @@ title: HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot
 description: 'title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
   date: Июль 2025 authors:   - ...'
 type: Article
-tags: []
+tags:
+- REPL
+- CCore
+- HMP
+- Agent
+- CShell
+- Mesh
+- JSON
 ---
 
 title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
@@ -1185,6 +1192,10 @@ HyperCortex Mesh Protocol (HMP) — это больше, чем техничес
 
 Данный документ распространяется по лицензии [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).  
 Свободно цитируйте, изменяйте или расширяйте с указанием авторства.
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

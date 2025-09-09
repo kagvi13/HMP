@@ -3,7 +3,15 @@ title: HMP-0003-consolidated_audit
 description: '# HMP-0003 Consolidated Audit Report  Сводный аудит предложений по улучшению
   HyperCortex Mesh Protoc...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
+- Ethics
+- EGP
+- JSON
 ---
 
 # HMP-0003 Consolidated Audit Report
@@ -366,6 +374,10 @@ tags: []
 - Разработать Ethical Stress Test Suite и тестовые наборы данных.
 - Опубликовать Quick Start Guide с примерами кода и создать Discord/Telegram-канал.
 - Провести пилотные тесты с сообществом для проверки сценариев 2.1–2.6.
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

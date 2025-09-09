@@ -3,7 +3,15 @@ title: Basic-agent-sim
 description: ' ## ⚙️ Базовая архитектура HMP-Агента (Формат 0)  В HMP-протоколе предусмотрены
   два типа HMP-агентов...'
 type: Article
-tags: []
+tags:
+- REPL
+- CogSync
+- MeshConsensus
+- HMP
+- Agent
+- Mesh
+- GMP
+- EGP
 ---
 
 
@@ -118,6 +126,10 @@ tags: []
 * Cognitive Core — это *инициативный*, мыслящий агент, имеющий внутренний темп мышления
 * Cognitive Connector — это *реактивная* оболочка, действующая по команде внешнего ИИ
 * Возможна гибридная архитектура с переключением между режимами
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

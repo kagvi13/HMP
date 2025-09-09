@@ -3,7 +3,15 @@ title: HMP-Short-Description_zh
 description: '# HyperCortex Mesh Protocol (HMP) — 简要说明  **版本:** RFC v4.0 **日期:** 2025年7月  ---  ##
   什么是 HMP?  **Hype...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Mesh
+- Ethics
+- GMP
+- EGP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
@@ -102,6 +110,10 @@ HMP 定义了核心认知对象的形式化结构：
 * [HMP 与 OpenCog Hyperon 集成](HMP_Hyperon_Integration.md)
 
 * 欢迎贡献: [临时 GitHub 仓库](https://github.com/kagvi13/HMP)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

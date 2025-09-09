@@ -3,7 +3,13 @@ title: HMP-Ethics
 description: '# HMP-Ethics.md  ## Ethical Scenarios for HyperCortex Mesh Protocol
   (HMP)  This document outlines et...'
 type: Article
-tags: []
+tags:
+- REPL
+- HMP
+- Agent
+- Mesh
+- Ethics
+- Scenarios
 ---
 
 # HMP-Ethics.md
@@ -258,6 +264,10 @@ Mesh is not merely a carrier of data or decisions — it is a **scaffold for the
 
 *Draft maintained by HyperCortex contributors.*
 *Version: 0.1-pre / July 2025*
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

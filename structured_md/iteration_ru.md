@@ -3,7 +3,14 @@ title: iteration_ru
 description: ' # Итерационный процесс развития HMP  Этот документ описывает структурированный,
   отслеживаемый и коо...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Mesh
+- Ethics
+- EGP
+- JSON
 ---
 
 
@@ -110,6 +117,10 @@ ChatGPT: Лучше оформить как свойство связи, а не
 * [ ] Добавить табличный формат для audit-файлов для удобства разбора
 * [ ] Поддерживать `semantic_repo.json` в актуальном состоянии
 * [ ] Автоматизировать экспорт изменений и changelog в форматах JSON/YAML
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](index.md)
 
 
 ```json

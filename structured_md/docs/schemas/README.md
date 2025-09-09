@@ -3,7 +3,11 @@ title: README
 description: '# HyperCortex Mesh Protocol — JSON Schemas  This directory contains
   JSON Schema definitions for the ...'
 type: Article
-tags: []
+tags:
+- Mesh
+- HMP
+- Agent
+- JSON
 ---
 
 # HyperCortex Mesh Protocol — JSON Schemas
@@ -19,6 +23,10 @@ These schemas enable validation, interoperability, and tooling support for auton
 | Task                 | Actionable unit contributing to a goal          |
 | ConsensusVote        | Vote in a Mesh consensus process                |
 | ReputationProfile    | Tracks agent trust and contribution metrics     |
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../../index.md)
 
 
 ```json

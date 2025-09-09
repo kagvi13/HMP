@@ -3,7 +3,15 @@ title: HMP-Short-Description_uk
 description: '# HyperCortex Mesh Protocol (HMP) — Короткий опис  **Версія:** RFC v4.0
   **Дата:** Липень 2025  ---  ...'
 type: Article
-tags: []
+tags:
+- CogSync
+- MeshConsensus
+- HMP
+- Mesh
+- Ethics
+- GMP
+- EGP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Короткий опис
@@ -102,6 +110,10 @@ HMP визначає схеми для основних когнітивних �
 * [Інтеграція HMP та OpenCog Hyperon](HMP_Hyperon_Integration.md)
 
 > **Тимчасове сховище проєкту:** [GitHub Repository](https://github.com/kagvi13/HMP)
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json

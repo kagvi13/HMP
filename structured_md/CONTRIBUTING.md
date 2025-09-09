@@ -3,7 +3,10 @@ title: CONTRIBUTING
 description: '# Contributing to HyperCortex Mesh Protocol (HMP)  Спасибо за интерес
   к проекту HMP! Пока проект нах...'
 type: Article
-tags: []
+tags:
+- Mesh
+- CogSync
+- HMP
 ---
 
 # Contributing to HyperCortex Mesh Protocol (HMP)
@@ -19,6 +22,10 @@ tags: []
 Все обсуждения — конструктивны, уважительны и открыты.
 
 Контакт: GitHub Issues или дискуссии.
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](index.md)
 
 
 ```json

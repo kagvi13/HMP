@@ -3,7 +3,14 @@ title: HMP_Hyperon_Integration
 description: '## HMP ↔ OpenCog Hyperon Integration Strategy  > **Status:** Draft –
   July 2025 > This document outli...'
 type: Article
-tags: []
+tags:
+- CogSync
+- HMP
+- Agent
+- Mesh
+- Scenarios
+- EGP
+- JSON
 ---
 
 ## HMP ↔ OpenCog Hyperon Integration Strategy
@@ -204,6 +211,10 @@ This integration plan fulfills multiple requests from `HMP-0003-consolidated_aud
 * AtomSpace supports efficient querying, so JSON → AtomSpace mapping should preserve logical semantics.
 * EGP filters should work as composable modules before inserting into AtomSpace.
 * BitTorrent `magnet:` links can serve as transport layer for semantic deltas.
+
+
+---
+> ⚡ [AI friendly version docs (structured_md)](../index.md)
 
 
 ```json
