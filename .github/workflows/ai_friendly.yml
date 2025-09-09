@@ -27,17 +27,17 @@ jobs:
         run: |
           pip install pyyaml markdown beautifulsoup4 jsonschema lxml requests
 
-
       - name: Run AI_friendly.py
         run: |
           python scripts/AI_friendly.py
 
       - name: Commit changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add structured_md
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update structured_md ($(date -u +'%Y-%m-%d %H:%M:%S'))"
-            git push
-          fi
+            git push https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:main
