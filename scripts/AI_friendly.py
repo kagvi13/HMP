@@ -3,6 +3,10 @@ import re
 from pathlib import Path
 import yaml
 
+# Корень репозитория — отталкиваемся от местоположения скрипта
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
 ROOT_DIR = Path(".")
 STRUCTURED_DIR = ROOT_DIR / "structured_md"
 INDEX_FILE = STRUCTURED_DIR / "index.md"
