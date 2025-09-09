@@ -460,6 +460,10 @@ OpenCog Hyperonとの統合については [HMP\_Hyperon\_Integration.md](docs/H
 * ☁️ — インフラストラクチャ
 * 🧪 — 実験的または概念的
 
+---
+
+> ⚡ [AI friendly version docs (structured_md)](structured_md/index.md)
+
 
 ```json
 {
