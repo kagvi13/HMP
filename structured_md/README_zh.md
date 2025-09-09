@@ -417,6 +417,10 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 * ☁️ — 基础设施
 * 🧪 — 实验性或概念性
 
+---
+
+> ⚡ [AI friendly version docs (structured_md)](structured_md/index.md)
+
 
 ```json
 {
