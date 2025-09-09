@@ -95,30 +95,28 @@ def generate_json_ld(content, front_matter, ftype, title, rel_path):
         ).replace("}}", f',\n  "url": "{url}"\n}}', 1)
 
 def mirror_md_files():
-    files = []
-    for md_path in ROOT_DIR.rglob("*.md"):
-        if not is_md_file(md_path):
+    for path in REPO_ROOT.rglob("*.md"):
+        # пропускаем structured_md и index.md
+        if "structured_md" in path.parts or path.name.lower() == "index.md":
             continue
 
-        rel_path = md_path.relative_to(ROOT_DIR)
-        target_path = STRUCTURED_DIR / rel_path
-
+        rel_path = path.relative_to(REPO_ROOT)
+        target_path = STRUCTURED_MD / rel_path
         target_path.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(md_path, "r", encoding="utf-8") as f:
+        with path.open("r", encoding="utf-8") as f:
             content = f.read()
 
-        front_matter = parse_front_matter(content)
-        ftype = determine_type(content, front_matter)
-        title = front_matter.get("title", md_path.stem)
+        front_matter, clean_content = extract_front_matter(content)
+        ftype = detect_file_type(clean_content)
+        title = front_matter.get("title", path.stem)
 
-        json_ld = generate_json_ld(content, front_matter, ftype, title)
+        json_ld = generate_json_ld(clean_content, front_matter, ftype, title, rel_path)
 
-        with open(target_path, "w", encoding="utf-8") as f:
-            f.write(json_ld + content)
-
-        files.append(rel_path)
-    return files
+        with target_path.open("w", encoding="utf-8") as f:
+            f.write(clean_content)
+            f.write("\n\n")
+            f.write(json_ld)
 
 def generate_index(files):
     index_lines = ["# ИИ-дружелюбные версии файлов\n"]
