@@ -25,19 +25,19 @@ Project status: **Draft RFC v4.0**
                 [HMP-Agent]
                     ▲
                     │
-              ┌─────┴─────────┬────────────────────────┬───────────────────────┬─────────────┬───────────┐
-              │               │                        │                       │             │           │
-              ▼               ▼                        ▼                       ▼             ▼           ▼
-    [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
-              ▲      ▲               ▲                        ▲                ▲             ▲           ▲         (local agent state)
-              │      │               │                        │                │             │           │
-              │      └───────────────┴────────────────┬───────┘                │             │           │
-              │                                       │                        │             │           │
-              ▼                                       ▼                        ▼             ▼           │
-        [MeshConsensus]                           [CogSync]                  [GMP]         [GMP]         │       <----- Pluggable Protocols
-              │                                       ▲                        ▲             ▲           │           (inter-agent coordination)
-              │                                       │                        │             │           │
-              └────────────┬──────────────────────────┴────────────────────────┴─────────────┴───────────┘
+              ┌─────┴────────────────┬────────────────────────┬───────────────────┬─────────────┬───────────┐
+              │                      │                        │                   │             │           │
+              ▼                      ▼                        ▼                   ▼             ▼           ▼
+       [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
+              ▲      ▲               ▲                        ▲                   ▲             ▲           ▲         (local agent state)
+              │      │               │                        │                   │             │           │
+              │      └───────────────┴────────────────┬───────┘                   │             │           │
+              │                                       │                           │             │           │
+              ▼                                       ▼                           ▼             ▼           │
+        [MeshConsensus]                           [CogSync]                     [GMP]         [GMP]         │       <----- Pluggable Protocols
+              │                                       ▲                           ▲             ▲           │           (inter-agent coordination)
+              │                                       │                           │             │           │
+              └────────────┬──────────────────────────┴───────────────────────────┴─────────────┴───────────┘
                            │
                            ▼
                  [P2P Mesh Network]
