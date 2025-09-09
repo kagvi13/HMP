@@ -35,18 +35,18 @@ Statut du projet : **Draft RFC v4.0**
               │                                       │                               │               │           │
               ▼                                       ▼                               ▼               ▼           │
         [MeshConsensus]                           [CogSync]                         [GMP]           [EGP]         │       <----- Protocoles modulaires
-              │                                       ▲                               ▲               ▲           │           (coordination inter-agents)
+              ▲                                       ▲                               ▲               ▲           │           (coordination inter-agents)
               │                                       │                               │               │           │
               └────────────┬──────────────────────────┴───────────────────────────────┴───────────────┴───────────┘
                            │
                            ▼
                  [P2P Réseau maillé]
 
-Protocols:
-- MeshConsensus - Synchronisation du maillage
-- CogSync - Synchronisation des données
-- GMP - Protocole de gestion des objectifs
-- EGP - Protocole de gouvernance éthique
+Protocoles :
+- MeshConsensus – Consensus en maillage
+- CogSync – Synchronisation des données
+- GMP – Protocole de gestion des objectifs
+- EGP – Protocole de gouvernance éthique
 
 ---
 
