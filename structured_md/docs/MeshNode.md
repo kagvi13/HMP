@@ -7,9 +7,9 @@ type: Article
 tags:
 - CogSync
 - Agent
+- HMP
 - JSON
 - Mesh
-- HMP
 ---
 
 ## 📄 MeshNode.md
