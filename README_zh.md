@@ -35,18 +35,18 @@ language: zh
               │               │                     │          │        │
               ▼               ▼                     ▼          ▼        │
         [MeshConsensus]   [CogSync]               [GMP]      [EGP]      │     <----- 可插拔协议
-              │               ▲                     ▲          ▲        │           (代理间协调)
+              ▲               ▲                     ▲          ▲        │           (代理间协调)
               │               │                     │          │        │
               └────────────┬──┴─────────────────────┴──────────┴────────┘
                            │
                            ▼
-                 [P2P Mesh 网络]
+                 [P2P 网格网络]
 
-Protocols:
-- MeshConsensus - Mesh 同步
-- CogSync - 数据同步
-- GMP - 目标管理协议
-- EGP - 伦理治理协议
+协议：
+- MeshConsensus – 网格共识
+- CogSync – 数据同步
+- GMP – 目标管理协议
+- EGP – 伦理治理协议
 
 ---
 
