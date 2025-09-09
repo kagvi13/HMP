@@ -35,18 +35,18 @@ Projektstatus: **Entwurf RFC v4.0**
               │                                       │                           │                │           │
               ▼                                       ▼                           ▼                ▼           │
         [MeshConsensus]                           [CogSync]                     [GMP]            [EGP]         │         <----- Austauschbare Protokolle
-              │                                       ▲                           ▲                ▲           │             (koordination zwischen agenten)
+              ▲                                       ▲                           ▲                ▲           │             (koordination zwischen agenten)
               │                                       │                           │                │           │
               └────────────┬──────────────────────────┴───────────────────────────┴────────────────┴───────────┘
                            │
                            ▼
                  [P2P Mesh-Netzwerk]
 
-Protocols:
-- MeshConsensus - Mesh-Synchronisation
-- CogSync - Daten-Synchronisation
-- GMP - Zielverwaltungsprotokoll
-- EGP - Ethisches Governance-Protokoll
+Protokolle:
+- MeshConsensus – Mesh-Konsens
+- CogSync – Datensynchronisation
+- GMP – Zielverwaltungsprotokoll
+- EGP – Ethisches Governance-Protokoll
 
 ---
 
