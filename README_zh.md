@@ -25,28 +25,28 @@ language: zh
                 [HMP-Agent]
                     ▲
                     │
-              ┌─────┴────────────────┬────────────────────────┬───────────────────┬─────────────┬───────────┐
-              │                      │                        │                   │             │           │
-              ▼                      ▼                        ▼                   ▼             ▼           ▼
-       [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
-              ▲      ▲               ▲                        ▲                   ▲             ▲           ▲         (local agent state)
-              │      │               │                        │                   │             │           │
-              │      └───────────────┴────────────────┬───────┘                   │             │           │
-              │                                       │                           │             │           │
-              ▼                                       ▼                           ▼             ▼           │
-        [MeshConsensus]                           [CogSync]                     [GMP]         [EGP]         │       <----- Pluggable Protocols
-              │                                       ▲                           ▲             ▲           │           (inter-agent coordination)
-              │                                       │                           │             │           │
-              └────────────┬──────────────────────────┴───────────────────────────┴─────────────┴───────────┘
+              ┌─────┴─────┬───────────┬─────────────┬──────────┬────────┐
+              │           │           │             │          │        │
+              ▼           ▼           ▼             ▼          ▼        ▼
+           [声誉档案]   [语义图]   [认知日记]   [目标 / 任务]   [伦理]   [消息]  <----- 数据库
+              ▲   ▲       ▲           ▲             ▲          ▲        ▲        (代理的本地状态)
+              │   │       │           │             │          │        │
+              │   └───────┴───┬───────┘             │          │        │
+              │               │                     │          │        │
+              ▼               ▼                     ▼          ▼        │
+        [MeshConsensus]   [CogSync]               [GMP]      [EGP]      │     <----- 可插拔协议
+              │               ▲                     ▲          ▲        │           (代理间协调)
+              │               │                     │          │        │
+              └────────────┬──┴─────────────────────┴──────────┴────────┘
                            │
                            ▼
-                 [P2P Mesh Network]
+                 [P2P Mesh 网络]
 
 Protocols:
-- MeshConsensus - Mesh Syncronization
-- CogSync - Data Syncronization
-- GMP - Goal Management Protocol
-- EGP - Ethical Governance Protocol
+- MeshConsensus - Mesh 同步
+- CogSync - 数据同步
+- GMP - 目标管理协议
+- EGP - 伦理治理协议
 
 ---
 
