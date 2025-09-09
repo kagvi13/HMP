@@ -34,8 +34,8 @@ Project status: **Draft RFC v4.0**
               │      └───────────────┴────────────────┬───────┘                    │             │           │
               │                                       │                            │             │           │
               ▼                                       ▼                            ▼             │           │
-        [MeshConsensus]                           [CogSync]                      [GMP]         [EGP]         │      <----- Pluggable Protocols
-              │                                       ▲                            ▲             ▲           │          (inter-agent coordination)
+        [MeshConsensus]                           [CogSync]                      [GMP]         [EGP]         │  <----- Pluggable Protocols
+              │                                       ▲                            ▲             ▲           │      (inter-agent coordination)
               │                                       │                            │             │           │
               └────────────┬──────────────────────────┴────────────────────────────┴─────────────┴───────────┘
                            │
