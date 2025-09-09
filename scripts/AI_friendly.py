@@ -159,8 +159,17 @@ def mirror_md_files():
 
         front_matter, clean_content = extract_front_matter(content)
         ftype = detect_file_type(clean_content, front_matter)
-        title = front_matter.get("title", path.stem)
-        description = front_matter.get("description", clean_content[:100].replace("\n", " ") + "...")
+
+        # ищем заголовок 1-го уровня для title/description
+        h1_match = re.search(r"^#\s*(.+)$", clean_content, re.MULTILINE)
+        if h1_match:
+            title = h1_match.group(1).strip()
+            rest_content = clean_content[h1_match.end():].strip()
+            description = front_matter.get("description", rest_content[:200].replace("\n", " ") + "...")
+        else:
+            title = front_matter.get("title", path.stem)
+            description = front_matter.get("description", clean_content[:200].replace("\n", " ") + "...")
+
         tags = extract_tags(clean_content, front_matter.get("tags", []))
 
         # формируем YAML фронт-маттер
@@ -172,7 +181,7 @@ def mirror_md_files():
         }
         yaml_fm = "---\n" + yaml.safe_dump(fm_dict, sort_keys=False, allow_unicode=True) + "---\n\n"
 
-        # добавляем ссылку на индекс
+        # добавляем корректную ссылку на индекс
         clean_content = add_index_link(clean_content, target_path)
 
         # формируем JSON-LD
