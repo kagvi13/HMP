@@ -411,3 +411,7 @@ OpenCog Hyperon과의 통합은 [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_
 * 🧒 — 인간-AI 상호작용  
 * ☁️ — 인프라스트럭처  
 * 🧪 — 실험적 또는 개념적  
+
+---
+
+> ⚡ [AI friendly version docs (structured_md)](structured_md/index.md)
