@@ -1,0 +1,38 @@
+name: Build AI-friendly MD
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # каждые 6 часов
+  workflow_dispatch:        # запуск вручную из GitHub UI
+  push:
+    paths:
+      - "scripts/AI_friendly.py"
+      - "**.md"
+      - "!structured_md/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run AI_friendly.py
+        run: |
+          python scripts/AI_friendly.py
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add structured_md
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update structured_md ($(date -u +'%Y-%m-%d %H:%M:%S'))"
+            git push
+          fi
