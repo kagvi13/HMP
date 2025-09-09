@@ -6,7 +6,6 @@ import yaml
 # Корень репозитория — отталкиваемся от местоположения скрипта
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-
 ROOT_DIR = Path(".")
 STRUCTURED_DIR = ROOT_DIR / "structured_md"
 INDEX_FILE = STRUCTURED_DIR / "index.md"
@@ -45,6 +44,31 @@ FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
 def is_md_file(path):
     return path.suffix.lower() == MD_EXT and STRUCTURED_DIR not in path.parents
+
+def extract_front_matter(content: str):
+    """Возвращает (front_matter_dict, clean_content) — без YAML-шапки."""
+    match = FRONT_MATTER_RE.match(content)
+    if match:
+        try:
+            data = yaml.safe_load(match.group(1)) or {}
+        except Exception:
+            data = {}
+        clean = content[match.end():]
+        return data, clean
+    return {}, content
+
+def detect_file_type(content: str, front_matter: dict | None = None) -> str:
+    """Определяет тип: FAQ / HowTo / Article (по front-matter или заголовкам)."""
+    front_matter = front_matter or {}
+    if "type" in front_matter:
+        return front_matter["type"]
+
+    # Простые эвристики по заголовкам
+    if re.search(r"^#\s*FAQ\b", content, re.MULTILINE) or re.search(r"^##\s*Q&A\b", content, re.MULTILINE):
+        return "FAQ"
+    if re.search(r"^#\s*HowTo\b", content, re.MULTILINE) or re.search(r"^#\s*Как\s+сделать\b", content, re.IGNORECASE | re.MULTILINE):
+        return "HowTo"
+    return "Article"
 
 def parse_front_matter(content):
     match = FRONT_MATTER_RE.match(content)
@@ -99,28 +123,34 @@ def generate_json_ld(content, front_matter, ftype, title, rel_path):
         ).replace("}}", f',\n  "url": "{url}"\n}}', 1)
 
 def mirror_md_files():
+    processed = []
     for path in REPO_ROOT.rglob("*.md"):
-        # пропускаем structured_md и index.md
-        if "structured_md" in path.parts or path.name.lower() == "index.md":
+        # пропускаем всё внутри structured_md
+        if "structured_md" in path.parts:
             continue
 
         rel_path = path.relative_to(REPO_ROOT)
-        target_path = STRUCTURED_MD / rel_path
+        target_path = STRUCTURED_DIR / rel_path
         target_path.parent.mkdir(parents=True, exist_ok=True)
 
         with path.open("r", encoding="utf-8") as f:
             content = f.read()
 
         front_matter, clean_content = extract_front_matter(content)
-        ftype = detect_file_type(clean_content)
+        ftype = detect_file_type(clean_content, front_matter)
         title = front_matter.get("title", path.stem)
 
         json_ld = generate_json_ld(clean_content, front_matter, ftype, title, rel_path)
 
         with target_path.open("w", encoding="utf-8") as f:
-            f.write(clean_content)
+            # сначала оригинальный контент (без YAML-шапки), затем JSON-LD
+            f.write(clean_content.rstrip())
             f.write("\n\n")
             f.write(json_ld)
+
+        processed.append(rel_path)
+
+    return processed
 
 def generate_index(files):
     index_lines = ["# ИИ-дружелюбные версии файлов\n"]
