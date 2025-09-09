@@ -29,28 +29,28 @@ language: ja
                 [HMP-Agent]
                     ▲
                     │
-              ┌─────┴────────────────┬────────────────────────┬───────────────────┬─────────────┬───────────┐
-              │                      │                        │                   │             │           │
-              ▼                      ▼                        ▼                   ▼             ▼           ▼
-       [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
-              ▲      ▲               ▲                        ▲                   ▲             ▲           ▲         (local agent state)
-              │      │               │                        │                   │             │           │
-              │      └───────────────┴────────────────┬───────┘                   │             │           │
-              │                                       │                           │             │           │
-              ▼                                       ▼                           ▼             ▼           │
-        [MeshConsensus]                           [CogSync]                     [GMP]         [EGP]         │       <----- Pluggable Protocols
-              │                                       ▲                           ▲             ▲           │           (inter-agent coordination)
-              │                                       │                           │             │           │
-              └────────────┬──────────────────────────┴───────────────────────────┴─────────────┴───────────┘
+              ┌─────┴────────────────┬───────────────┬──────────────┬────────────┬───────────┐
+              │                      │               │              │            │           │
+              ▼                      ▼               ▼              ▼            ▼           ▼
+       [評判プロファイル]   [セマンティックグラフ]   [認知日記]   [目標 / タスク]   [倫理]   [メッセージ]  <----- データベース
+              ▲      ▲               ▲               ▲              ▲            ▲           ▲         (エージェントのローカル状態)
+              │      │               │               │              │            │           │
+              │      └───────────────┴───────┬───────┘              │            │           │
+              │                              │                      │            │           │
+              ▼                              ▼                      ▼            ▼           │
+        [MeshConsensus]                  [CogSync]                [GMP]        [EGP]         │       <----- プラグ可能なプロトコル
+              │                              ▲                      ▲            ▲           │              (エージェント間の調整)
+              │                              │                      │            │           │
+              └────────────┬─────────────────┴──────────────────────┴────────────┴───────────┘
                            │
                            ▼
-                 [P2P Mesh Network]
+                 [P2P メッシュネットワーク]
 
 Protocols:
-- MeshConsensus - Mesh Syncronization
-- CogSync - Data Syncronization
-- GMP - Goal Management Protocol
-- EGP - Ethical Governance Protocol
+- MeshConsensus - メッシュ同期
+- CogSync - データ同期
+- GMP - 目標管理プロトコル
+- EGP - 倫理ガバナンスプロトコル
 
 ---
 
