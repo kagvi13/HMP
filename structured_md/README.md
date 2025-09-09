@@ -402,7 +402,7 @@ For integration with OpenCog Hyperon, see [HMP\_Hyperon\_Integration.md](docs/HM
 
 ---
 
-> ⚡ [ИИ-дружелюбная версия документов (structured_md)](structured_md/index.md)
+> ⚡ [AI friendly version docs (structured_md)](structured_md/index.md)
 
 
 ```json
