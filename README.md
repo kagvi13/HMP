@@ -22,16 +22,31 @@ Project status: **Draft RFC v4.0**
 
 ---
 
-    [HMP-Agent]──┬───[Semantic Graph DB]
-        │        │
-        │     [Cognitive Diary DB]
-        │        │
-     [Reputation Engine]────┐
-            │               │
-            ▼               ▼
-    [MeshConsensus]     [CogSync]
-            │
-    [P2P Mesh Network]
+                [HMP-Agent]
+                    ▲
+                    │
+              ┌─────┴─────────┬────────────────────────┬────────────────────┬─────────────┬───────────┐
+              │               │                        │                    │             │           │
+              ▼               ▼                        ▼                    ▼             ▼           ▼
+    [Reputation Profile]   [Semantic Graph DB]   [Cognitive Diary DB]   [Goals / Tasks]   [Ethics]   [Messages] <----- DataBase
+              ▲      ▲               ▲                        ▲                    ▲             ▲           ▲    (local agent state)
+              │      │               │                        │                    │             │           │
+              │      └───────────────┴────────────────┬───────┘                    │             │           │
+              │                                       │                            │             │           │
+              ▼                                       ▼                            ▼             │           │
+        [MeshConsensus]                           [CogSync]                      [GMP]         [EGP]         │      <----- Pluggable Protocols
+              │                                       ▲                            ▲             ▲           │          (inter-agent coordination)
+              │                                       │                            │             │           │
+              └────────────┬──────────────────────────┴────────────────────────────┴─────────────┴───────────┘
+                           │
+                           ▼
+                 [P2P Mesh Network]
+
+Protocols:
+- MeshConsensus - Mesh Syncronization
+- CogSync - Data Syncronization
+- GMP - Goal Management Protocol
+- EGP - Ethical Governance Protocol
 
 ---
 
