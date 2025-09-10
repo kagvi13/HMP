@@ -4,10 +4,10 @@ description: 'Структура БД, используемая в докуме�
   является основой HMP-агента [Cognitive Core](HMP-Agent-Arc...'
 type: Article
 tags:
-- JSON
-- HMP
 - Mesh
 - REPL
+- HMP
+- JSON
 - Agent
 ---
 
