@@ -5,11 +5,11 @@ description: '| Тип  | Название                        | Роль    
   | ---- | ------------------------------- |...'
 type: Article
 tags:
+- Ethics
+- JSON
 - Agent
 - HMP
 - REPL
-- JSON
-- Ethics
 - Mesh
 ---
 
