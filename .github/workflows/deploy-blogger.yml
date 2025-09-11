@@ -5,6 +5,10 @@ on:
     - cron: "0 * * * *"   # каждый час в начале часа
   workflow_dispatch:
 
+concurrency:
+  group: "blog-deploy"
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
