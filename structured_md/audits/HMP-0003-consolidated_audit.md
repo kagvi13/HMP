@@ -6,12 +6,12 @@ description: Сводный аудит предложений по улучше�
 type: Article
 tags:
 - EGP
-- HMP
-- Ethics
-- Mesh
-- JSON
-- MeshConsensus
 - CogSync
+- MeshConsensus
+- Ethics
+- JSON
+- Mesh
+- HMP
 - Agent
 ---
 
