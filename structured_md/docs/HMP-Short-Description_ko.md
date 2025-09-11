@@ -6,11 +6,11 @@ description: '**버전:** RFC v4.0 **날짜:** 2025년 7월  ---  ## HMP란?  **
 type: Article
 tags:
 - CogSync
-- JSON
-- Ethics
-- GMP
 - Mesh
 - MeshConsensus
+- Ethics
+- GMP
+- JSON
 - HMP
 - EGP
 ---

@@ -6,9 +6,9 @@ description: '### Взаимодействие между агентами HMP-�
 type: Article
 tags:
 - Agent
-- JSON
-- Ethics
 - Mesh
+- Ethics
+- JSON
 - HMP
 - EGP
 ---

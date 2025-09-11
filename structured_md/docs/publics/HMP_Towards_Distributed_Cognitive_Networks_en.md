@@ -6,13 +6,13 @@ description: '* [Abstract](#abstract) * [1. Introduction](#1-introduction) * [2.
 type: Article
 tags:
 - Agent
-- JSON
-- Ethics
-- Mesh
 - CCore
+- Scenarios
 - CShell
 - REPL
-- Scenarios
+- Mesh
+- Ethics
+- JSON
 - HMP
 ---
 

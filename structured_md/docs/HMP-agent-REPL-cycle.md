@@ -5,9 +5,9 @@ description: 'Структура БД, используемая в докуме�
 type: Article
 tags:
 - Agent
-- JSON
-- Mesh
 - REPL
+- Mesh
+- JSON
 - HMP
 ---
 

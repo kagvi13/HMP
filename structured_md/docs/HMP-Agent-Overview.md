@@ -6,10 +6,10 @@ description: '| Тип  | Название                        | Роль    
 type: Article
 tags:
 - Agent
-- JSON
-- Ethics
-- Mesh
 - REPL
+- Mesh
+- Ethics
+- JSON
 - HMP
 ---
 
