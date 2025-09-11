@@ -10,6 +10,10 @@ on:
       - "**.md"
       - "!structured_md/**"
 
+concurrency:
+  group: "blog-deploy"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
