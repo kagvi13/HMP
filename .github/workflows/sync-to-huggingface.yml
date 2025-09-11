@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: "blog-deploy"
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
