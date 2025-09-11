@@ -5,12 +5,12 @@ description: This document consolidates proposed improvements from multiple AI a
   and `roles.md`. Each suggesti...
 type: Article
 tags:
-- JSON
 - Ethics
-- Agent
-- Mesh
-- HMP
 - Scenarios
+- JSON
+- HMP
+- Mesh
+- Agent
 ---
 
 # Ethics-consolidated\_audits-1.md
