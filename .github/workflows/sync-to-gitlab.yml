@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ]
 
+concurrency:
+  group: "blog-deploy"
+  cancel-in-progress: false
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
