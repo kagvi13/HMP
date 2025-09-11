@@ -301,6 +301,7 @@ CREATE TABLE IF NOT EXISTS llm_registry (
     name TEXT,                                                  -- Имя агента
     description TEXT,                                           -- Описание
     config_json TEXT,                                           -- JSON-настройки из config.yml
+    is_validator BOOLEAN DEFAULT 0,                             -- Флаг: участвует ли в валидации
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP            -- Время регистрации
 );
 
