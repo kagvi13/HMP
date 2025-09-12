@@ -8,8 +8,8 @@ type: Article
 tags:
 - CogSync
 - HMP
-- Mesh
 - JSON
+- Mesh
 ---
 
 # Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
