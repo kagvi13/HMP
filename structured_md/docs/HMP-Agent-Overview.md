@@ -6,11 +6,11 @@ description: '| Тип  | Название                        | Роль    
 type: Article
 tags:
 - Mesh
-- HMP
 - Agent
-- JSON
-- REPL
 - Ethics
+- REPL
+- HMP
+- JSON
 ---
 
 
