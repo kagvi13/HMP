@@ -5,13 +5,13 @@ description: '### 🧠 Enlightener Agent  `Enlightener` — специализи
   аудитора. Может действовать как отдельный узел ...'
 type: Article
 tags:
-- MeshConsensus
-- Mesh
-- Agent
-- EGP
 - Ethics
-- JSON
+- EGP
 - HMP
+- JSON
+- Mesh
+- MeshConsensus
+- Agent
 ---
 
 ## 📄 Enlightener.md
