@@ -1,0 +1,222 @@
+{
+  "HMP-Ethics": {
+    "id": "68b9ed15196b97eec86ecb05",
+    "slug": "hmp-ethics",
+    "hash": "b58599898e3da22eb7c4f0a3b999aaaf"
+  },
+  "HMP-agent-Distributed_Cognitive_Core_light": {
+    "id": "68b9ed34af39a56c483d2618",
+    "slug": "hmp-agent-distributedcognitivecorelight",
+    "hash": "1c8986d98b1c1056bbe461418f7251d2"
+  },
+  "HMP-Short-Description_fr": {
+    "id": "68b9ed5369f24e651b6ae618",
+    "slug": "hmp-short-descriptionfr",
+    "hash": "3c4affc3cb1b3b4108d01441c70faa91"
+  },
+  "HMP-Short-Description_de": {
+    "id": "68b9ed736c42707e3ac13608",
+    "slug": "hmp-short-descriptionde",
+    "hash": "79bd4c812957df2ba597d520c7e90292"
+  },
+  "HMP-Short-Description_ko": {
+    "id": "68b9ed922d276321e1371fb7",
+    "slug": "hmp-short-descriptionko",
+    "hash": "2a0c407990b93f7d63fad0263edbaf46"
+  },
+  "HMP-Agent-API": {
+    "id": "68b9edb16c42707e3ac1360e",
+    "slug": "hmp-agent-api",
+    "hash": "5724028c5da85dd401991c532a41ce00"
+  },
+  "HMP-0004-v4.1": {
+    "id": "68b9edd2196b97eec86ecb0a",
+    "slug": "hmp-0004-v41",
+    "hash": "070a886519b7e71a0758d923e25b465b"
+  },
+  "index": {
+    "id": "68b9edf27daad84c00b76a68",
+    "slug": "index-hmp",
+    "hash": "0159b69f47ca3e75501e33dac7641e29"
+  },
+  "Distributed-Cognitive-Systems": {
+    "id": "68b9ee11ab973687abc17bd4",
+    "slug": "distributed-cognitive-systems",
+    "hash": "c160557387886aebed553fea9aa998cf"
+  },
+  "HMP-0001": {
+    "id": "68b9ee315f634c66cd7d388b",
+    "slug": "hmp-0001",
+    "hash": "8e70e0f92b8e0ff374ab65501adc0407"
+  },
+  "HMP_Hyperon_Integration": {
+    "id": "68b9ee51cbfe8e1e04199290",
+    "slug": "hmphyperonintegration",
+    "hash": "d178b8ee457fbf04409eb33147f470eb"
+  },
+  "HMP-agent-REPL-cycle": {
+    "id": "68b9ee7134624e12aa1c5808",
+    "slug": "hmp-agent-repl-cycle",
+    "hash": "ff0adbbd497bb126eb7f838ad5d9ade4"
+  },
+  "HMP-Short-Description_uk": {
+    "id": "68b9ee90ab973687abc17bd8",
+    "slug": "hmp-short-descriptionuk",
+    "hash": "7e873e9fc3f749784ad15b390fbc7472"
+  },
+  "HMP-Agent-Architecture": {
+    "id": "68b9eeb0196b97eec86ecb10",
+    "slug": "hmp-agent-architecture",
+    "hash": "1aba8abe134495994c168d38db9197ae"
+  },
+  "HMP-Agent-Network-Flow": {
+    "id": "68b9eecf01896f20f0a88565",
+    "slug": "hmp-agent-network-flow",
+    "hash": "6e58572500f7ef43830ab7055d84d0a2"
+  },
+  "MeshNode": {
+    "id": "68b9eeee3c0725faec55d6e9",
+    "slug": "meshnode",
+    "hash": "0f1f201b4dd83d14ca6c51ccdf838cfe"
+  },
+  "HMP-Short-Description_ja": {
+    "id": "68b9ef0d3c0725faec55d6eb",
+    "slug": "hmp-short-descriptionja",
+    "hash": "328fa846743d166f0a50a889e9324d5f"
+  },
+  "HMP-how-AI-sees-it": {
+    "id": "68b9ef2d3c0725faec55d6ed",
+    "slug": "hmp-how-ai-sees-it",
+    "hash": "74283dca33229b4e7597e6d967c8a2ce"
+  },
+  "AGI_Projects_Survey": {
+    "id": "68b9ef4c69f24e651b6ae627",
+    "slug": "agiprojectssurvey",
+    "hash": "9378694df37484411d189b9a87238d0a"
+  },
+  "HMP-0002": {
+    "id": "68b9ef6c7daad84c00b76a71",
+    "slug": "hmp-0002",
+    "hash": "995652cc742dfe36dd714f93e8900fa0"
+  },
+  "HMP-agent-Cognitive_Family": {
+    "id": "68b9ef8b713d5a606125457e",
+    "slug": "hmp-agent-cognitivefamily",
+    "hash": "bd87010af011eed6973c0c174fe5564c"
+  },
+  "HMP-Short-Description_ru": {
+    "id": "68b9efab196b97eec86ecb18",
+    "slug": "hmp-short-descriptionru",
+    "hash": "b87d93bf121039d323046dd8f20484ea"
+  },
+  "logos": {
+    "id": "68b9efca0c95f177242ef53a",
+    "slug": "logos-hmp",
+    "hash": "150fc20694b185ecd01f737d54985a75"
+  },
+  "HMP-Short-Description_zh": {
+    "id": "68b9efeaef9e94e12c612f3c",
+    "slug": "hmp-short-descriptionzh",
+    "hash": "14c563cbba71c96cb94727ff1d764ab5"
+  },
+  "Enlightener": {
+    "id": "68b9f00953861a4cb419cb49",
+    "slug": "enlightener",
+    "hash": "27b24a8efadb7fb28d6e699cc82be449"
+  },
+  "HMP-Short-Description_en": {
+    "id": "68b9f028ef9e94e12c612f40",
+    "slug": "hmp-short-descriptionen",
+    "hash": "57153c783e9577189841c3083e65f083"
+  },
+  "HMP-agent-Distributed_Cognitive_Core": {
+    "id": "68b9f04853861a4cb419cb4d",
+    "slug": "hmp-agent-distributedcognitivecore",
+    "hash": "ebbddf2d43070708cdcfca3a007f81a6"
+  },
+  "HMP-Agent-Overview": {
+    "id": "68b9f0670c95f177242ef542",
+    "slug": "hmp-agent-overview",
+    "hash": "379ac5c76bada1eb060923e66290923f"
+  },
+  "HMP-0003": {
+    "id": "68b9f088fb22782d136ed0f2",
+    "slug": "hmp-0003-1",
+    "hash": "9d4c3b0046dba0263be98740190969b8"
+  },
+  "container_agents": {
+    "id": "68b9f0a7fb22782d136ed0f4",
+    "slug": "containeragents",
+    "hash": "311edec60928ba565f0f2e0a7b031de3"
+  },
+  "HMP-Agent_Emotions": {
+    "id": "68b9f0c73c0725faec55d6f9",
+    "slug": "hmp-agentemotions",
+    "hash": "c73715fba63dfcb9157ee69581246156"
+  },
+  "HMP-0004": {
+    "id": "68b9f0e787f2807ea0b18407",
+    "slug": "hmp-0004-1",
+    "hash": "173e2ff571def2e073bcde3b712a6278"
+  },
+  "HMP_HyperCortex_Comparison": {
+    "id": "68b9f1073c0725faec55d6fd",
+    "slug": "hmphypercortexcomparison",
+    "hash": "069376ff58bdc1fa29f410ed3783fa20"
+  },
+  "Basic-agent-sim": {
+    "id": "68b9f127ab973687abc17bdb",
+    "slug": "basic-agent-sim",
+    "hash": "c8e837f699719f65241898cb45209473"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT": {
+    "id": "68b9f146196b97eec86ecb1b",
+    "slug": "hmptowardsdistributedcognitivenetworksruchatgpt",
+    "hash": "2189e5081b1c0f5a7329bf5466f4b6c6"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot": {
+    "id": "68b9f166ef9e94e12c612f50",
+    "slug": "hmptowardsdistributedcognitivenetworksrugithubcopilot",
+    "hash": "bfe9cc76a615f60f0b310ff5de6edace"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_en": {
+    "id": "68b9f186196b97eec86ecb1d",
+    "slug": "hmptowardsdistributedcognitivenetworksen",
+    "hash": "e1ec156e8a962bdec1f02576c2055c0b"
+  },
+  "HMP_Building_a_Plurality_of_Minds_ru": {
+    "id": "68b9f1a6d01e910bff11fa77",
+    "slug": "hmpbuildingapluralityofmindsru",
+    "hash": "668b68ae97fdf275a319aef6c6fd13f4"
+  },
+  "HMP_Building_a_Plurality_of_Minds_en": {
+    "id": "68b9f1c5ef9e94e12c612f54",
+    "slug": "hmpbuildingapluralityofmindsen",
+    "hash": "ab6c4c6926b047931a98ee1705510e6d"
+  },
+  "HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу": {
+    "id": "68b9f1e5ef9e94e12c612f57",
+    "slug": "hypercortexmeshprotocol-vtoraya-redakciyaipervyeshagiksamorazvivayushemusyaii-soobshestvu",
+    "hash": "863898fb2d50d75938feee46f3bb5bca"
+  },
+  "Habr_Distributed-Cognition": {
+    "id": "68b9f204c609e15f58c69e55",
+    "slug": "habrdistributed-cognition",
+    "hash": "8fb8cef9bf4e94d147ae4c21b7a315ec"
+  },
+  "roles": {
+    "id": "68b9f2235f9b2901e9d67388",
+    "slug": "roles-hmp",
+    "hash": "cb5ad9071493b123b63b2d9f4c579351"
+  },
+  "HMP-Agent-Enlightener": {
+    "id": "68b9f2433c0725faec55d707",
+    "slug": "hmp-agent-enlightener",
+    "hash": "6cd5a439b60acdb138ed0d8d5cb583b7"
+  },
+  "README": {
+    "id": "68b9f2625f9b2901e9d6738d",
+    "slug": "readme",
+    "hash": "48a1375eb87e2778c679dcb593be89ca"
+  }
+}
