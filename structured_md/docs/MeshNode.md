@@ -6,9 +6,9 @@ description: '### 🌐 MeshNode  `MeshNode` — агент/демон, отве�
 type: Article
 tags:
 - Mesh
+- HMP
 - JSON
 - CogSync
-- HMP
 - Agent
 ---
 
