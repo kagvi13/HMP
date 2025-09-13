@@ -7,12 +7,12 @@ type: Article
 tags:
 - Ethics
 - EGP
-- HMP
-- JSON
 - Mesh
+- JSON
+- CogSync
+- HMP
 - MeshConsensus
 - Agent
-- CogSync
 ---
 
 # Iterative Development Workflow for HMP
