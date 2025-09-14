@@ -7,8 +7,8 @@ type: Article
 tags:
 - JSON
 - Agent
-- HMP
 - CogSync
+- HMP
 - Mesh
 ---
 

@@ -8,9 +8,9 @@ tags:
 - JSON
 - Agent
 - Ethics
-- HMP
-- MeshConsensus
 - EGP
+- MeshConsensus
+- HMP
 - Mesh
 ---
 
