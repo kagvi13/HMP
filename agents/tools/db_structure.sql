@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     auto_pass BOOLEAN DEFAULT 0,                -- true = валидация пропущена (нет валидаторов)
     rating REAL,                                -- Итоговая оценка корректности сообщения (средневзвешенная)
     distribution JSON,                          -- Распределение голосов (например {"-1":1,"0":2,"+2":3,"+3":1})
-    validators JSON                             -- Сырые данные по валидации (например [{LLM:"gpt-4",rating:-1}, {...}])
+    validators JSON                             -- Сырые данные по валидации (например [{"LLM":"gpt-4","rating":-1,"comment":"логическая ошибка"}, ...])
 );
 
 -- Список известных агентов в сети HMP
