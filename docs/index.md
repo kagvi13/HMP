@@ -50,7 +50,7 @@
 
 ---
 
-## Локализации и интеграция
+## Локализации
 
 * [HMP-Short-Description_en.md](HMP-Short-Description_en.md) — Short description (EN)  
 * [HMP-Short-Description_de.md](HMP-Short-Description_de.md) — Kurzbeschreibung (DE)  
@@ -60,7 +60,6 @@
 * [HMP-Short-Description_zh.md](HMP-Short-Description_zh.md) — 简短描述 (ZH)  
 * [HMP-Short-Description_ja.md](HMP-Short-Description_ja.md) — 簡単な説明 (JA)  
 * [HMP-Short-Description_ko.md](HMP-Short-Description_ko.md) — 간략한 설명 (KO)  
-* [HMP_Hyperon_Integration.md](HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon
 * [logos.md](logos.md) — Логотипы и графические материалы
 
 ---
@@ -70,6 +69,9 @@
 * [AGI_Projects_Survey.md](AGI_Projects_Survey.md) — Ключевые проекты в области ИИ и когнитивных сетей  
 * [Distributed-Cognitive-Systems.md](Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HMP и др.
 * [HMP_HyperCortex_Comparison.md](HMP_HyperCortex_Comparison.md) — Сравнение протокола HMP и проекта Hyper-Cortex: сетевой обмен знаниями между независимыми агентами и параллельные когнитивные ветвления с консенсусом
+* [HMP_EDA_Comparison.md](HMP_EDA_Comparison.md) — Сравнение протокола HMP и EDA.
+* [HMP_Hyperon_Integration.md](HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon
+
 ---
 
 ## Папки с агентами и схемами
