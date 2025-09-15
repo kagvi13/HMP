@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- hmp
-- HMP
-- Agent
-- MeshConsensus
-- mesh-protocol
 - Ethics
-- JSON
-- CogSync
+- mesh-protocol
+- EGP
 - Mesh
 - GMP
-- EGP
+- Agent
 - REPL
+- MeshConsensus
 - cognitive-architecture
+- hmp
+- JSON
+- distributed-ai
+- CogSync
+- HMP
 ---
 
 
@@ -255,6 +255,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
   * **[Перевод HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакционный перевод (в работе).
 * **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — английская версия
   * **[HMP: Создание множества разума (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — русская версия
+* **[Непрерывное обучение, когнитивные дневники и семантические графы: эффективное обучение ИИ](docs/publics/hmp-continual-learning.md)** — статья о сочетании непрерывного обучения с когнитивными дневниками и семантическими графами.
 
 ### Обзоры
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие

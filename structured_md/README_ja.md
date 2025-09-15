@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- hmp
-- HMP
-- Agent
-- MeshConsensus
-- mesh-protocol
 - Ethics
-- JSON
-- CogSync
+- mesh-protocol
+- EGP
 - Mesh
 - GMP
-- EGP
+- Agent
 - REPL
+- MeshConsensus
 - cognitive-architecture
+- hmp
+- JSON
+- distributed-ai
+- CogSync
+- HMP
 ---
 
 
@@ -262,12 +262,11 @@ HMPプロジェクトに関連する主な記事、ドラフト、翻訳をま�
 * **[HyperCortex Mesh Protocol: 第二版および自己発展型AIコミュニティへの第一歩](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habrサンドボックスとブログでのオリジナル記事
 * **[分散認知: vsradkevich向け記事（未公開）](docs/publics/Habr_Distributed-Cognition.md)** — 公開待ちの共同記事
 * **[HMP: 分散型認知ネットワークに向けて（オリジナル, 英語）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-
   * **[HMP翻訳（GitHub Copilot版）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilotによる翻訳（歴史的バリアントとして保持）
   * **[HMP翻訳（ChatGPT版）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 現行編集翻訳（改訂中）
 * **[HMP: 複数の知性を構築する（英語版）](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — 英語版
-
   * **[HMP: 複数の知性を創造する（ロシア語版）](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — ロシア語版
+* **[継続学習、認知ダイアリー、セマンティックグラフ：効果的なAI学習](docs/publics/hmp-continual-learning.md)** — 継続学習を認知ダイアリーやセマンティックグラフと組み合わせる方法に関する記事。
 
 ### 概要
 

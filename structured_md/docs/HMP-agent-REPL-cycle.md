@@ -5,11 +5,11 @@ description: 'Структура БД, используемая в докуме�
 type: Article
 tags:
 - CCore
-- HMP
-- Agent
-- JSON
 - Mesh
+- Agent
 - REPL
+- JSON
+- HMP
 ---
 
 # 🧠 HMP-Agent: REPL-цикл взаимодействия

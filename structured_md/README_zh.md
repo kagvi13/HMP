@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- hmp
-- HMP
-- Agent
-- MeshConsensus
-- mesh-protocol
 - Ethics
-- JSON
-- CogSync
+- mesh-protocol
+- EGP
 - Mesh
 - GMP
-- EGP
+- Agent
 - REPL
+- MeshConsensus
 - cognitive-architecture
+- hmp
+- JSON
+- distributed-ai
+- CogSync
+- HMP
 ---
 
 
@@ -254,12 +254,11 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 * **[HyperCortex Mesh Protocol：第二版及迈向自我发展的 AI 社区的第一步](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habr 沙箱及博客的原创文章
 * **[分布式认知：vsradkevich 的文章（未发布）](docs/publics/Habr_Distributed-Cognition.md)** — 待发布的联合文章
 * **[HMP: 面向分布式认知网络（原文，英文）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-
   * **[HMP 翻译（GitHub Copilot）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot 翻译，保留为历史版本
   * **[HMP 翻译（ChatGPT）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 当前编辑翻译（修订中）
 * **[HMP: 构建多元思维 (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — 英文版
-
   * **[HMP: 创建多元思维 (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — 俄文版
+* **[持续学习、认知日记与语义图谱：高效的人工智能学习](docs/publics/hmp-continual-learning.md)** — 关于将持续学习与认知日记和语义图谱结合的文章。
 
 ### 概览
 
