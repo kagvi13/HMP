@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS ethics_policies (
 --   - Поля `tags`, `llm_id`, `hidden` НЕ передаются.
 --   - Полю `read` всегда присваивается значение 0.
 --   - Остальные поля передаются без изменений.
+-- Eсли сообщение сгенерировано вспомогательным REPL-циклом, то source='llm:task' и task_id содержит идентификатор задачи.
 CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       
     text TEXT NOT NULL,                                         -- Основной текст заметки/сообщения
