@@ -171,6 +171,7 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 | 任务                  | [task.json](docs/schemas/task.json)                 |
 | 共识投票              | [vote.json](docs/schemas/vote.json)                 |
 | 声誉档案              | [reputation.json](docs/schemas/reputation.json)     |
+| DHT 协议             | [dht_protocol.json](docs/schemas/dht_protocol.json)   |
 
 ---
 

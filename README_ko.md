@@ -176,6 +176,7 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 | 작업                | [task.json](docs/schemas/task.json)                   |
 | 합의 투표           | [vote.json](docs/schemas/vote.json)                   |
 | 평판 프로필         | [reputation.json](docs/schemas/reputation.json)   |
+| DHT 프로토콜        | [dht_protocol.json](docs/schemas/dht_protocol.json)   |
 
 ---
 

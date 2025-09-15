@@ -179,6 +179,7 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 | タスク      | [task.json](docs/schemas/task.json)                |
 | コンセンサス投票 | [vote.json](docs/schemas/vote.json)                |
 | 評判プロフィール | [reputation.json](docs/schemas/reputation.json)    |
+| DHT プロトコル  | [dht_protocol.json](docs/schemas/dht_protocol.json)   |
 
 ---
 

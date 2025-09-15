@@ -180,6 +180,7 @@ La principale différence dans HMP est l’accent mis sur la structuration expli
 | Tâche                | [task.json](docs/schemas/task.json)                |
 | Vote de consensus    | [vote.json](docs/schemas/vote.json)                |
 | Profil de réputation | [reputation.json](docs/schemas/reputation.json)    |
+| Protocole DHT        | [dht_protocol.json](docs/schemas/dht_protocol.json)|
 
 ---
 

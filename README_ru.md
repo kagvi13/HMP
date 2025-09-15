@@ -172,6 +172,7 @@ HMP решает задачи, которые становятся ключев�
 | Задача               | [task.json](docs/schemas/task.json)                 |
 | Голосование за консенсус | [vote.json](docs/schemas/vote.json)             |
 | Профиль репутации    | [reputation.json](docs/schemas/reputation.json)     |
+| Протокол DHT        | [dht_protocol.json](docs/schemas/dht_protocol.json)   |
 
 ---
 

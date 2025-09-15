@@ -164,6 +164,7 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 | Task                | [task.json](docs/schemas/task.json)                   |
 | Consensus Vote      | [vote.json](docs/schemas/vote.json)                   |
 | Reputation Profile  | [reputation.json](docs/schemas/reputation.json)       |
+| DHT Protocol        | [dht_protocol.json](docs/schemas/dht_protocol.json)   |
 
 ---
 
