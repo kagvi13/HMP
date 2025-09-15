@@ -168,15 +168,20 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 ---
 
 ### 🧩 JSON 스키마
-| 모델               | 파일                                                   |
-|--------------------|-------------------------------------------------------|
-| 개념                | [concept.json](docs/schemas/concept.json)             |
-| 인지 일지           | [diary_entry.json](docs/schemas/diary_entry.json) |
-| 목표                | [goal.json](docs/schemas/goal.json)                   |
-| 작업                | [task.json](docs/schemas/task.json)                   |
-| 합의 투표           | [vote.json](docs/schemas/vote.json)                   |
-| 평판 프로필         | [reputation.json](docs/schemas/reputation.json)   |
-| DHT 프로토콜        | [dht_protocol.json](docs/schemas/dht_protocol.json)   |
+
+| 데이터 모델 / 객체           | 파일 / 설명                                                                         |
+|-----------------------------|------------------------------------------------------------------------------------|
+| Concept                     | [concept.json](docs/schemas/concept.json) — 의미 지식 단위                             |
+| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — 에이전트 추론 로그 항목           |
+| Goal                        | [goal.json](docs/schemas/goal.json) — 협업으로 달성되는 공유 목표                     |
+| Task                        | [task.json](docs/schemas/task.json) — 목표 달성에 기여하는 실행 단위                  |
+| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh 합의 과정에서의 투표                        |
+| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — 에이전트 신뢰 및 기여 추적          |
+| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — 피어 발견 및 교환 권장 사항      |
+| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — 직접 P2P 메시지                  |
+| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — 브로드캐스트 메시지  |
+| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — 중계 / Mailman 메시지         |
+| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — 주제 기반 메시지      |
 
 ---
 

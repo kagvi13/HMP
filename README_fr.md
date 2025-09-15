@@ -172,15 +172,19 @@ La principale différence dans HMP est l’accent mis sur la structuration expli
 
 ### 🧩 Schémas JSON
 
-| Modèle               | Fichier                                            |
-| -------------------- | -------------------------------------------------- |
-| Concept              | [concept.json](docs/schemas/concept.json)          |
-| Journal cognitif     | [diary\_entry.json](docs/schemas/diary_entry.json) |
-| Objectif             | [goal.json](docs/schemas/goal.json)                |
-| Tâche                | [task.json](docs/schemas/task.json)                |
-| Vote de consensus    | [vote.json](docs/schemas/vote.json)                |
-| Profil de réputation | [reputation.json](docs/schemas/reputation.json)    |
-| Protocole DHT        | [dht_protocol.json](docs/schemas/dht_protocol.json)|
+| Modèle / Objet              | Fichier / Description                                                               |
+|-----------------------------|------------------------------------------------------------------------------------|
+| Concept                     | [concept.json](docs/schemas/concept.json) — Unité de connaissance sémantique       |
+| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — Entrée dans le journal de raisonnement de l’agent |
+| Goal                        | [goal.json](docs/schemas/goal.json) — Objectif partagé poursuivi en collaboration  |
+| Task                        | [task.json](docs/schemas/task.json) — Unité d’action contribuant à un objectif    |
+| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Vote dans un processus de consensus du Mesh  |
+| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — Suit la confiance et la contribution des agents |
+| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — Recommandations pour la découverte et l’échange de pairs |
+| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — Message direct peer-to-peer    |
+| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — Messages de diffusion |
+| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — Messages relay / Mailman   |
+| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — Messages basés sur des sujets |
 
 ---
 
