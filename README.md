@@ -351,7 +351,7 @@ To join: fork the repo, run a local agent, or suggest improvements.
 
 ## 🌐 Related Research Projects
 
-### Comparison: HMP vs Hyper-Cortex
+### 🔄 Comparison: HMP vs Hyper-Cortex
 
 > 💡 Hyper-Cortex and HMP are two independent projects that conceptually complement each other.
 > They address different but mutually supportive tasks, forming a foundation for distributed cognitive systems.
@@ -369,11 +369,30 @@ Together, these approaches enable **distributed cognitive systems** that not onl
 
 ---
 
-We are tracking AGI, cognitive architectures, and mesh networking efforts to stay aligned with the evolving global ecosystem of AGI and decentralized cognition.
+### 🔄 Comparison: HMP vs EDA
+
+> 💡 HMP (HyperCortex Mesh Protocol) and EDA (Event Driven Architecture) operate at different levels but can complement each other.  
+> EDA ensures **transport and scalability** (delivery of events and data), while HMP ensures **cognition and meaning** (structuring, filtering, consensus).
+
+[**Full comparison →**](docs/HMP_EDA_Comparison.md)
+
+They solve different but complementary problems:
+- **EDA** provides a robust backbone for delivering events and data streams.
+- **HMP** structures, validates, and integrates knowledge into distributed cognitive systems.
+
+Together, they create resilient and adaptive multi-agent systems that can **both exchange information quickly and reason about it meaningfully**.
+
+---
+
+### 🤝 Integration: HMP & OpenCog Hyperon
 
 > 🧠🔥 **Project Spotlight: OpenCog Hyperon** — one of the most comprehensive open AGI frameworks (AtomSpace, PLN, MOSES).
 
 For integration with OpenCog Hyperon, see [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)
+
+---
+
+### 🧩 Other Systems
 
 | 🔎 Project                                                                | 🧭 Description                                                                              |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
