@@ -236,6 +236,7 @@ This section collects the main articles, drafts, and translations related to the
   * **[HMP Translation (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — current editorial translation (under revision).
 * **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — English version
   * **[HMP: Creating a Plurality of Minds (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — Russian version
+* **[Continual Learning, Cognitive Diaries, and Semantic Graphs: Effective AI Learning](docs/publics/hmp-continual-learning.md)** — article on combining continual learning with cognitive diaries and semantic graphs.
 
 ### Overviews
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Decentralized AI systems: OpenCog Hyperon, HyperCortex Mesh Protocol, and others
