@@ -163,19 +163,18 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 
 ### 🧩 JSON 模式
 
-| 数据模型 / 对象              | 文件 / 描述                                                                          |
-|-----------------------------|------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — 语义知识单元                               |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — 代理推理日志条目                   |
-| Goal                        | [goal.json](docs/schemas/goal.json) — 协作追求的共享目标                               |
-| Task                        | [task.json](docs/schemas/task.json) — 为目标贡献的可执行单元                           |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh 共识过程中的投票                             |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — 跟踪代理的信任度和贡献指标            |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — 对等发现与交换的建议             |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — 点对点直接消息                     |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — 广播消息              |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — 中继 / Mailman 消息           |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — 基于主题的消息         |
+| 数据模型 / 对象            | 文件 / 描述                                                                 |
+|----------------------------|----------------------------------------------------------------------------|
+| Concept                    | [concept.json](docs/schemas/concept.json) — 语义知识单元。 |
+| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — 代理的推理日志条目。 |
+| Goal                       | [goal.json](docs/schemas/goal.json) — 共同协作追求的目标。 |
+| Task                       | [task.json](docs/schemas/task.json) — 有助于实现目标的可执行单元。 |
+| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Mesh 共识过程中的投票。 |
+| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — 跟踪代理的信任和贡献指标。 |
+| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — 对等发现与交换的建议。 |
+| Message                    | [message.json](docs/schemas/message.json) — 所有消息类型的基础模式。 |
+
+> 所有可直接使用的示例对象都可以在 [`examples`](docs/schemas/examples/) 文件夹中找到。
 
 ---
 

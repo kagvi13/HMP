@@ -160,19 +160,18 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 
 ### 🧩 JSON-Schemas
 
-| Datenmodell / Objekt        | Datei / Beschreibung                                                                  |
-|-----------------------------|--------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — Semantische Wissenseinheit               |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — Eintrag im Denkprotokoll des Agenten |
-| Goal                        | [goal.json](docs/schemas/goal.json) — Gemeinsames Ziel, das kollaborativ verfolgt wird |
-| Task                        | [task.json](docs/schemas/task.json) — Handlungseinheit zur Zielerreichung           |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Abstimmung im Mesh-Konsensprozess              |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — Verfolgt Vertrauen und Beitrag von Agenten |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — Empfehlungen für Peer-Discovery und Austausch |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — Direktes Peer-to-Peer-Nachricht |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — Broadcast-Nachrichten |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — Relay / Mailman-Nachrichten  |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — Themenbasierte Nachrichten |
+| Datenmodell / Objekt       | Datei / Beschreibung                                                          |
+|----------------------------|-------------------------------------------------------------------------------|
+| Concept                    | [concept.json](docs/schemas/concept.json) — Semantische Wissenseinheit. |
+| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Eintrag im Überlegungsprotokoll des Agenten. |
+| Goal                       | [goal.json](docs/schemas/goal.json) — Gemeinsam verfolgtes Ziel. |
+| Task                       | [task.json](docs/schemas/task.json) — Umsetzbare Einheit, die zu einem Ziel beiträgt. |
+| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Stimme in einem Mesh-Konsensprozess. |
+| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Verfolgt Vertrauen und Beiträge des Agenten. |
+| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Empfehlungen zur Peer-Erkennung & zum Austausch. |
+| Message                    | [message.json](docs/schemas/message.json) — Basisschema für alle Nachrichtentypen. |
+
+> Alle gebrauchsfertigen Beispielobjekte befinden sich im Ordner [`examples`](docs/schemas/examples/).
 
 ---
 

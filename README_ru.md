@@ -164,19 +164,18 @@ HMP решает задачи, которые становятся ключев�
 
 ### 🧩 JSON Схемы
 
-| Модель / Объект             | Файл / Описание                                                                     |
-|-----------------------------|------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — Семантическая единица знаний            |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — Запись в дневнике рассуждений агента |
-| Goal                        | [goal.json](docs/schemas/goal.json) — Общая цель, достигаемая совместно            |
-| Task                        | [task.json](docs/schemas/task.json) — Действие, способствующее достижению цели     |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Голос в процессе консенсуса Mesh             |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — Отслеживание доверия и вклада агента |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — Рекомендации по поиску и обмену пирами |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — Прямое P2P сообщение           |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — Широковещательные сообщения |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — Relay / Mailman сообщения   |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — Сообщения по темам |
+| Модель данных / Объект     | Файл / Описание                                                               |
+|----------------------------|-------------------------------------------------------------------------------|
+| Concept                    | [concept.json](docs/schemas/concept.json) — Семантическая единица знаний. |
+| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Запись в журнале рассуждений агента. |
+| Goal                       | [goal.json](docs/schemas/goal.json) — Совместная цель, достигаемая коллективно. |
+| Task                       | [task.json](docs/schemas/task.json) — Выполнимая единица, способствующая достижению цели. |
+| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Голос в процессе консенсуса Mesh. |
+| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Отслеживает доверие и вклад агента. |
+| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Рекомендации для поиска пиров и обмена. |
+| Message                    | [message.json](docs/schemas/message.json) — Базовая схема для всех типов сообщений. |
+
+> Все готовые примеры можно найти в папке [`examples`](docs/schemas/examples/).
 
 ---
 

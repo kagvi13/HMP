@@ -159,17 +159,16 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 
 | Data Model / Object        | File / Description                                                                 |
 |----------------------------|-----------------------------------------------------------------------------------|
-| Concept                    | [concept.json](docs/schemas/concept.json) — Semantic knowledge unit               |
-| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Agent's reasoning log entry   |
-| Goal                       | [goal.json](docs/schemas/goal.json) — Shared objective pursued collaboratively    |
-| Task                       | [task.json](docs/schemas/task.json) — Actionable unit contributing to a goal       |
-| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Vote in a Mesh consensus process             |
-| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Tracks agent trust and contribution metrics |
-| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Recommendations for peer discovery & exchange |
-| Message (P2P)              | [message_p2p.json](docs/schemas/message_p2p.json) — Direct point-to-point message |
-| Message (Broadcast)        | [message_broadcast.json](docs/schemas/message_broadcast.json) — Broadcast messages |
-| Message (Relay / Mailman)  | [message_relay.json](docs/schemas/message_relay.json) — Relay / Mailman messages  |
-| Message (Topiccast)        | [message_topiccast.json](docs/schemas/message_topiccast.json) — Topic-based messages |
+| Concept                    | [concept.json](docs/schemas/concept.json) — Semantic knowledge unit. |
+| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Agent's reasoning log entry. |
+| Goal                       | [goal.json](docs/schemas/goal.json) — Shared objective pursued collaboratively. |
+| Task                       | [task.json](docs/schemas/task.json) — Actionable unit contributing to a goal. |
+| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Vote in a Mesh consensus process. |
+| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Tracks agent trust and contribution metrics. |
+| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Recommendations for peer discovery & exchange. |
+| Message                     | [message.json](docs/schemas/message.json) — Base schema for all message types. |
+
+> All ready-to-use example objects can be found in the [`examples`](docs/schemas/examples/) folder.
 
 ---
 

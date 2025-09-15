@@ -171,19 +171,18 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 ### 🧩 JSON スキーマ
 
-| データモデル / オブジェクト | ファイル / 説明                                                                      |
-|-----------------------------|------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — セマンティック知識単位                     |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — エージェントの推論ログエントリ     |
-| Goal                        | [goal.json](docs/schemas/goal.json) — 協力して追求される共有目標                       |
-| Task                        | [task.json](docs/schemas/task.json) — 目標達成に貢献する実行単位                      |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Meshコンセンサスプロセスでの投票                 |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — エージェントの信頼度と貢献度の追跡   |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — ピア探索と交換の推奨事項        |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — 直接P2Pメッセージ                |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — ブロードキャストメッセージ |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — リレー / Mailmanメッセージ    |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — トピックベースメッセージ |
+| データモデル / オブジェクト | ファイル / 説明                                                                |
+|-----------------------------|-------------------------------------------------------------------------------|
+| Concept                     | [concept.json](docs/schemas/concept.json) — セマンティック知識ユニット。 |
+| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — エージェントの推論ログエントリ。 |
+| Goal                        | [goal.json](docs/schemas/goal.json) — 協働して追求される共通目標。 |
+| Task                        | [task.json](docs/schemas/task.json) — 目標達成に貢献する実行可能な単位。 |
+| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh コンセンサスプロセスにおける投票。 |
+| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — エージェントの信頼と貢献を追跡。 |
+| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — ピア探索と交換のための推奨事項。 |
+| Message                     | [message.json](docs/schemas/message.json) — すべてのメッセージタイプの基本スキーマ。 |
+
+> すべての利用可能なサンプルオブジェクトは [`examples`](docs/schemas/examples/) フォルダにあります。
 
 ---
 
