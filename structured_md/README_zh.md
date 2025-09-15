@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Ethics
-- mesh-protocol
 - EGP
-- Mesh
-- GMP
-- Agent
-- REPL
-- MeshConsensus
-- cognitive-architecture
 - hmp
-- JSON
+- Ethics
 - distributed-ai
-- CogSync
+- REPL
 - HMP
+- JSON
+- cognitive-architecture
+- Agent
+- CogSync
+- MeshConsensus
+- GMP
+- Mesh
+- mesh-protocol
 ---
 
 
@@ -174,14 +174,19 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 
 ### 🧩 JSON 模式
 
-| 模型                  | 文件                                                   |
-|----------------------|------------------------------------------------------|
-| 概念                  | [concept.json](docs/schemas/concept.json)           |
-| 认知日记              | [diary_entry.json](docs/schemas/diary_entry.json)   |
-| 目标                  | [goal.json](docs/schemas/goal.json)                 |
-| 任务                  | [task.json](docs/schemas/task.json)                 |
-| 共识投票              | [vote.json](docs/schemas/vote.json)                 |
-| 声誉档案              | [reputation.json](docs/schemas/reputation.json)     |
+| 数据模型 / 对象              | 文件 / 描述                                                                          |
+|-----------------------------|------------------------------------------------------------------------------------|
+| Concept                     | [concept.json](docs/schemas/concept.json) — 语义知识单元                               |
+| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — 代理推理日志条目                   |
+| Goal                        | [goal.json](docs/schemas/goal.json) — 协作追求的共享目标                               |
+| Task                        | [task.json](docs/schemas/task.json) — 为目标贡献的可执行单元                           |
+| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh 共识过程中的投票                             |
+| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — 跟踪代理的信任度和贡献指标            |
+| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — 对等发现与交换的建议             |
+| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — 点对点直接消息                     |
+| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — 广播消息              |
+| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — 中继 / Mailman 消息           |
+| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — 基于主题的消息         |
 
 ---
 
