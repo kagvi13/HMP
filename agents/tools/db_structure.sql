@@ -65,6 +65,8 @@ CREATE TABLE IF NOT EXISTS tasks (
     status TEXT DEFAULT 'open',                                 -- open / in_progress / done / frozen
     pinned INTEGER DEFAULT 0,                                   -- 0 = обычная, 1 = закреплённая
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда задача создана
+    repl_mode TEXT DEFAULT 'none',                              -- none | read_only | full
+    repl_status TEXT DEFAULT 'stopped',                         -- running | stopped | error
     llm_id TEXT,                                                -- Кто предложил задачу
     FOREIGN KEY(goal_id) REFERENCES goals(id)
 );
@@ -124,7 +126,8 @@ CREATE TABLE IF NOT EXISTS notes (
     hashtags TEXT DEFAULT '[]',                                 -- JSON-массив пользовательских хештегов
     user_did TEXT DEFAULT 'ALL',                                -- Идентификатор пользователя (или 'ALL')
     agent_did TEXT,                                             -- Идентификатор агента (он же идентификатор чата)
-    source TEXT DEFAULT 'user',                                 -- Источник: user | cli | llm | system
+    source TEXT DEFAULT 'user',                                 -- Источник: user | cli | llm | llm:task | system
+    task_id INTEGER,                                            -- NULL = не относится к задаче, иначе привязка к tasks.id
     links TEXT DEFAULT '',                                      -- Ссылки на другие объекты (например, JSON со связями)
     read INTEGER DEFAULT 0,                                     -- Агент прочитал: 0 = нет, 1 = да
     hidden INTEGER DEFAULT 0,                                   -- Скрыто от UI (например, технические записи)
@@ -181,6 +184,7 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,
     content TEXT NOT NULL,                      -- Содержимое сообщения
     llm_id TEXT,                                -- Идентификатор LLM
+    task_id INTEGER REFERENCES tasks(id),       -- К какой задаче относится
     reflection TEXT,                            -- Краткая сводка/мета-комментарий
     novelty_score REAL,                         -- Количественная оценка новизны
     new_ideas JSON,                             -- JSON-список новых идей
