@@ -7,10 +7,10 @@ type: Article
 tags:
 - Mesh
 - Ethics
-- Agent
-- JSON
-- EGP
 - HMP
+- EGP
+- JSON
+- Agent
 ---
 
 ## 🔄 HMP-Agent-Network-Flow.md
