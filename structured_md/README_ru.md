@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
+- distributed-ai
+- mesh-protocol
+- Mesh
+- GMP
+- MeshConsensus
 - JSON
 - cognitive-architecture
+- HMP
+- EGP
 - Agent
 - hmp
-- distributed-ai
-- EGP
-- REPL
-- HMP
-- mesh-protocol
-- MeshConsensus
-- Mesh
 - Ethics
 - CogSync
-- GMP
+- REPL
 ---
 
 
@@ -159,6 +159,7 @@ HMP решает задачи, которые становятся ключев�
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Спецификация протокола v4.1 (июль 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Этические сценарии для HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — Стратегия интеграции HMP ↔ OpenCog Hyperon
+* [🔖 dht_protocol.md](docs/dht_protocol.md) — Рекомендации по протоколу DHT (поиск и обмен пирами)
 * [🔖 roles.md](docs/agents/roles.md) — Роли агентов в Mesh
 
 #### 🧪 Итеративные документы

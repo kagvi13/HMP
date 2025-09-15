@@ -54,6 +54,7 @@
     - [HMP-Agent-Enlightener.md](docs/agents/HMP-Agent-Enlightener.md)
     - [roles.md](docs/agents/roles.md)
   - [container_agents.md](docs/container_agents.md)
+  - [dht_protocol.md](docs/dht_protocol.md)
   - [logos.md](docs/logos.md)
   - publics
     - [HMP_Building_a_Plurality_of_Minds_en.md](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)
@@ -63,6 +64,7 @@
     - [HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)
     - [Habr_Distributed-Cognition.md](docs/publics/Habr_Distributed-Cognition.md)
     - [HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)
+    - [hmp-continual-learning.md](docs/publics/hmp-continual-learning.md)
   - schemas
     - [README.md](docs/schemas/README.md)
 - [iteration.md](iteration.md)

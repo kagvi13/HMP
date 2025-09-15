@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
+- distributed-ai
+- mesh-protocol
+- Mesh
+- GMP
+- MeshConsensus
 - JSON
 - cognitive-architecture
+- HMP
+- EGP
 - Agent
 - hmp
-- distributed-ai
-- EGP
-- REPL
-- HMP
-- mesh-protocol
-- MeshConsensus
-- Mesh
 - Ethics
 - CogSync
-- GMP
+- REPL
 ---
 
 
@@ -164,6 +164,7 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — 프로토콜 사양 v4.1 (2025년 7월)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP)를 위한 윤리적 시나리오
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 통합 전략
+* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHT 프로토콜 권장 사항 (피어 검색 및 교환)
 * [🔖 roles.md](docs/agents/roles.md) — 메쉬 내 에이전트의 역할
 
 #### 🧪 반복적 문서

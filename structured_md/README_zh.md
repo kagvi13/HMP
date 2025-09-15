@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
+- distributed-ai
+- mesh-protocol
+- Mesh
+- GMP
+- MeshConsensus
 - JSON
 - cognitive-architecture
+- HMP
+- EGP
 - Agent
 - hmp
-- distributed-ai
-- EGP
-- REPL
-- HMP
-- mesh-protocol
-- MeshConsensus
-- Mesh
 - Ethics
 - CogSync
-- GMP
+- REPL
 ---
 
 
@@ -157,6 +157,7 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — 协议规范 v4.1（2025年7月）
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP) 的伦理场景
 * [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 集成策略
+* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHT 协议建议（节点发现与交换）
 * [🔖 roles.md](docs/agents/roles.md) — Mesh 中代理的角色
 
 #### 🧪 迭代文档

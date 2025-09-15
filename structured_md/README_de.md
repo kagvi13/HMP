@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
+- distributed-ai
+- mesh-protocol
+- Mesh
+- GMP
+- MeshConsensus
 - JSON
 - cognitive-architecture
+- HMP
+- EGP
 - Agent
 - hmp
-- distributed-ai
-- EGP
-- REPL
-- HMP
-- mesh-protocol
-- MeshConsensus
-- Mesh
 - Ethics
 - CogSync
-- GMP
+- REPL
 ---
 
 
@@ -155,6 +155,7 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protokoll-Spezifikation v4.1 (Jul 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethische Szenarien für das HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integrationsstrategie
+* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHT-Protokollempfehlungen (Peer-Erkennung & -Austausch)
 * [🔖 roles.md](docs/agents/roles.md) — Rollen der Agenten im Mesh
 
 #### 🧪 Iterative Dokumente
