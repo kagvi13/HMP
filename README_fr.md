@@ -153,6 +153,7 @@ La principale différence dans HMP est l’accent mis sur la structuration expli
 * [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Spécification du protocole v4.1 (juillet 2025)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Scénarios éthiques pour le HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — Stratégie d’intégration HMP ↔ OpenCog Hyperon
+* [🔖 dht_protocol.md](docs/dht_protocol.md) — Recommandations du protocole DHT (découverte et échange de pairs)
 * [🔖 roles.md](docs/agents/roles.md) — Rôles des agents dans le Mesh
 
 #### 🧪 Documents itératifs

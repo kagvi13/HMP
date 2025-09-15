@@ -18,6 +18,7 @@
 * [HMP-0004.md](HMP-0004.md) — Протокол HMP версии 4  
 * [HMP-0004-v4.1.md](HMP-0004-v4.1.md) — Протокол HMP версии 4.1  
 * [HMP-Ethics.md](HMP-Ethics.md) — Этические сценарии для HMP
+* [dht_protocol.md](dht_protocol.md) — Рекомендации по протоколу DHT (поиск и обмен пирами)
 
 ---
 
