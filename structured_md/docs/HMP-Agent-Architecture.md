@@ -6,15 +6,15 @@ description: '## 🧠 Архитектура HMP-Агента  Этот доку
 type: Article
 tags:
 - GMP
-- JSON
-- Agent
-- REPL
-- Ethics
-- CogSync
-- EGP
-- MeshConsensus
-- HMP
 - Mesh
+- MeshConsensus
+- Ethics
+- Agent
+- CogSync
+- REPL
+- JSON
+- EGP
+- HMP
 ---
 
 # HMP-Agent-Architecture.md
