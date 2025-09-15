@@ -365,30 +365,48 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 
 ## 🌐 相关研究项目
 
-### HMP 与 Hyper-Cortex 对比
+### 🔄 对比: HMP vs Hyper-Cortex
 
-> 💡 Hyper-Cortex 与 HMP 是两个独立项目，概念上互为补充。
-> 它们解决不同但互相支持的任务，为分布式认知系统奠定基础。
+> 💡 Hyper-Cortex 和 HMP 是两个独立项目，在概念上互补。
+> 它们解决不同但相互支持的任务，构建分布式认知系统的基础。
 
 [**完整对比 →**](docs/HMP_HyperCortex_Comparison.md)
 
-**HMP (HyperCortex Mesh Protocol)** 是连接独立代理、在 Mesh 网络中交换消息、知识和状态的传输与网络层。
-**[Hyper-Cortex](https://hyper-cortex.com/)** 是思维组织的认知层，允许代理运行并行推理线程，通过质量指标进行比较，并通过共识进行合并。
+**HMP (HyperCortex Mesh Protocol)** 是连接独立代理、在网格网络中交换消息、知识和状态的传输和网络层。  
+**[Hyper-Cortex](https://hyper-cortex.com/)** 是认知层，允许代理运行并行推理线程，根据质量指标进行比较，并通过共识合并。
 
 它们解决不同但互补的问题：
+- HMP 确保 **连接性和可扩展性**（长期记忆、主动性、数据交换）。  
+- Hyper-Cortex 确保 **思维质量**（并行性、假设多样性、共识）。
 
-* HMP 确保 **连通性与可扩展性**（长期记忆、主动性、数据交换）
-* Hyper-Cortex 确保 **思维质量**（并行性、假设多样化、共识）
-
-两者结合，实现 **分布式认知系统**，不仅能交换信息，还能进行并行推理。
+结合使用，这些方法可实现**分布式认知系统**，不仅交换信息，还能并行推理。
 
 ---
 
-我们跟踪 AGI、认知架构和 Mesh 网络的研究，以保持与全球 AGI 和去中心化认知生态系统的发展同步。
+### 🔄 对比: HMP vs EDA
 
-> 🧠🔥 **项目亮点：OpenCog Hyperon** — 最全面的开源 AGI 框架之一（AtomSpace, PLN, MOSES）。
+> 💡 HMP (HyperCortex Mesh Protocol) 和 EDA (Event Driven Architecture) 在不同层级工作，但可以互补。  
+> EDA 提供 **传输和可扩展性**（事件和数据的传递），而 HMP 提供 **认知和意义**（结构化、过滤、共识）。
 
-关于 OpenCog Hyperon 的集成，请参见 [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)
+[**完整对比 →**](docs/HMP_EDA_Comparison.md)
+
+它们解决不同但互补的问题：
+- **EDA** 提供用于传递事件和数据流的稳健骨干。  
+- **HMP** 对知识进行结构化、验证并整合到分布式认知系统中。
+
+结合使用，它们创建出既能**快速交换信息又能有意义推理**的强健适应型多代理系统。
+
+---
+
+### 🤝 集成: HMP & OpenCog Hyperon
+
+> 🧠🔥 **项目焦点: OpenCog Hyperon** — 最全面的开源 AGI 框架之一（AtomSpace、PLN、MOSES）。
+
+关于与 OpenCog Hyperon 的集成，请参阅 [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)
+
+---
+
+### 🧩 其他系统
 
 | 🔎 项目                                                                     | 🧭 描述                                |
 | ------------------------------------------------------------------------- | ------------------------------------ |
