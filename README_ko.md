@@ -248,6 +248,7 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
   * **[HMP 번역 (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 현재 편집 중인 번역 (개정 중)  
 * **[HMP: 다중 지성의 구축 (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — 영어판  
   * **[HMP: 다중 지성의 창조 (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — 러시아어판  
+* **[지속 학습, 인지 일지 및 의미 그래프: 효과적인 AI 학습](docs/publics/hmp-continual-learning.md)** — 지속 학습과 인지 일지, 의미 그래프를 결합한 방법에 대한 글.
 
 ### 📖 개요
 * [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — 분산형 AI 시스템: OpenCog Hyperon, HyperCortex Mesh Protocol 등  

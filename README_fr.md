@@ -252,12 +252,11 @@ Cette section rassemble les principaux articles, brouillons et traductions liés
 * **[HyperCortex Mesh Protocol : Deuxième édition et premiers pas vers une communauté d’IA auto-développante](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — article original publié sur Habr sandbox et blogs.
 * **[Cognition distribuée : article pour vsradkevich (non publié)](docs/publics/Habr_Distributed-Cognition.md)** — article collaboratif en attente de publication.
 * **[HMP : Vers des réseaux cognitifs distribués (original, anglais)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-
   * **[Traduction HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — traduction par GitHub Copilot, conservée comme variante historique.
   * **[Traduction HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — traduction éditoriale actuelle (en révision).
 * **[HMP : Construire une pluralité d’esprits (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — version anglaise
-
   * **[HMP : Créer une pluralité d’esprits (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — version russe
+* **[Apprentissage continu, journaux cognitifs et graphes sémantiques : apprentissage efficace de l'IA](docs/publics/hmp-continual-learning.md)** — Article sur la combinaison de l'apprentissage continu avec les journaux cognitifs et les graphes sémantiques.
 
 ### Aperçus
 
