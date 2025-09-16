@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- HMP
-- Ethics
+- JSON
 - EGP
-- Agent
-- hmp
-- MeshConsensus
+- Mesh
 - REPL
 - cognitive-architecture
-- JSON
+- Ethics
+- MeshConsensus
+- Agent
+- hmp
+- distributed-ai
 - GMP
-- mesh-protocol
+- HMP
 - CogSync
-- Mesh
+- mesh-protocol
 ---
 
 
@@ -180,19 +180,18 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 
 ### 🧩 JSON 스키마
 
-| 데이터 모델 / 객체           | 파일 / 설명                                                                         |
-|-----------------------------|------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — 의미 지식 단위                             |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — 에이전트 추론 로그 항목           |
-| Goal                        | [goal.json](docs/schemas/goal.json) — 협업으로 달성되는 공유 목표                     |
-| Task                        | [task.json](docs/schemas/task.json) — 목표 달성에 기여하는 실행 단위                  |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh 합의 과정에서의 투표                        |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — 에이전트 신뢰 및 기여 추적          |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — 피어 발견 및 교환 권장 사항      |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — 직접 P2P 메시지                  |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — 브로드캐스트 메시지  |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — 중계 / Mailman 메시지         |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — 주제 기반 메시지      |
+| 데이터 모델 / 객체          | 파일 / 설명                                                                  |
+|----------------------------|----------------------------------------------------------------------------|
+| Concept                    | [concept.json](docs/schemas/concept.json) — 의미론적 지식 단위. |
+| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — 에이전트의 추론 로그 항목. |
+| Goal                       | [goal.json](docs/schemas/goal.json) — 공동으로 추구하는 목표. |
+| Task                       | [task.json](docs/schemas/task.json) — 목표 달성에 기여하는 실행 가능한 단위. |
+| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Mesh 합의 프로세스에서의 투표. |
+| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — 에이전트의 신뢰 및 기여도를 추적. |
+| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — 피어 검색 및 교환 권장 사항. |
+| Message                    | [message.json](docs/schemas/message.json) — 모든 메시지 유형의 기본 스키마. |
+
+> 모든 바로 사용할 수 있는 예제 객체는 [`examples`](docs/schemas/examples/) 폴더에서 확인할 수 있습니다.
 
 ---
 
@@ -375,29 +374,48 @@ HyperCortex Mesh에 오신 것을 환영합니다. Agent-Gleb은 이미 안에 �
 
 ## 🌐 관련 연구 프로젝트
 
-### 비교: HMP vs Hyper-Cortex
+### 🔄 비교: HMP vs Hyper-Cortex
 
-> 💡 Hyper-Cortex와 HMP는 개념적으로 서로를 보완하는 독립적인 프로젝트입니다.  
-> 이들은 서로 다른 그러나 상호 보완적인 과제를 다루며, 분산 인지 시스템을 위한 기반을 형성합니다.  
+> 💡 Hyper-Cortex와 HMP는 개념적으로 서로를 보완하는 독립적인 프로젝트입니다.
+> 서로 다른 그러나 상호 보완적인 작업을 수행하며, 분산 인지 시스템의 기반을 형성합니다.
 
 [**전체 비교 →**](docs/HMP_HyperCortex_Comparison.md)
 
-**HMP (HyperCortex Mesh Protocol)** 은 독립적인 에이전트를 연결하고, 메시지·지식·상태를 메쉬 네트워크에서 교환하기 위한 전송 및 네트워크 계층입니다.  
-**[Hyper-Cortex](https://hyper-cortex.com/)** 는 사고 조직의 인지 계층으로, 에이전트가 병렬적 추론 스레드를 실행하고, 품질 지표로 비교하며, 합의를 통해 병합할 수 있도록 합니다.  
+**HMP (HyperCortex Mesh Protocol)** 는 독립적인 에이전트를 연결하고, 메시지, 지식, 상태를 메시 네트워크에서 교환하는 전송 및 네트워크 계층입니다.  
+**[Hyper-Cortex](https://hyper-cortex.com/)** 는 사고 조직의 인지 계층으로, 에이전트가 병렬 추론 스레드를 실행하고, 품질 지표와 비교하며, 합의를 통해 병합할 수 있게 합니다.
 
-이들은 서로 다른 그러나 보완적인 문제를 해결합니다:  
-- HMP는 **연결성과 확장성** (장기 메모리, 주도성, 데이터 교환)을 보장합니다.  
-- Hyper-Cortex는 **사고의 질** (병렬성, 가설 다양화, 합의)을 보장합니다.  
+서로 다른 그러나 보완적인 문제를 해결합니다:
+- HMP는 **연결성과 확장성**을 보장합니다 (장기 기억, 주도권, 데이터 교환).  
+- Hyper-Cortex는 **사고 품질**을 보장합니다 (병렬성, 가설 다양화, 합의).
 
-이 두 가지 접근 방식이 결합되면, 단순히 정보를 교환하는 것을 넘어 병렬적 사고를 수행할 수 있는 **분산 인지 시스템**이 가능해집니다.  
+이 접근법을 결합하면 정보를 교환할 뿐만 아니라 병렬 스트림으로 추론할 수 있는 **분산 인지 시스템**을 만들 수 있습니다.
 
 ---
 
-우리는 AGI, 인지 아키텍처, 메쉬 네트워킹의 발전을 추적하며, 분산 인지 및 AGI 글로벌 생태계의 진화와 보조를 맞추고 있습니다.  
+### 🔄 비교: HMP vs EDA
 
-> 🧠🔥 **프로젝트 스포트라이트: OpenCog Hyperon** — 가장 포괄적인 오픈 AGI 프레임워크 중 하나 (AtomSpace, PLN, MOSES).  
+> 💡 HMP (HyperCortex Mesh Protocol)와 EDA (Event Driven Architecture)는 서로 다른 수준에서 작동하지만 상호 보완할 수 있습니다.  
+> EDA는 **전송 및 확장성**을 제공하고 (이벤트 및 데이터 전달), HMP는 **인지와 의미**를 보장합니다 (구조화, 필터링, 합의).
 
-OpenCog Hyperon과의 통합은 [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) 문서를 참조하세요.  
+[**전체 비교 →**](docs/HMP_EDA_Comparison.md)
+
+서로 다른 그러나 보완적인 문제를 해결합니다:
+- **EDA**는 이벤트와 데이터 스트림을 전달하는 강력한 백본을 제공합니다.  
+- **HMP**는 지식을 구조화, 검증하고 분산 인지 시스템에 통합합니다.
+
+이들 결합을 통해 **정보를 빠르게 교환하고 의미있게 추론할 수 있는** 탄력적이고 적응력 있는 다중 에이전트 시스템을 구축할 수 있습니다.
+
+---
+
+### 🤝 통합: HMP & OpenCog Hyperon
+
+> 🧠🔥 **주목 프로젝트: OpenCog Hyperon** — AtomSpace, PLN, MOSES를 갖춘 가장 포괄적인 오픈 AGI 프레임워크 중 하나입니다.
+
+OpenCog Hyperon과의 통합은 [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)를 참조하십시오.
+
+---
+
+### 🧩 기타 시스템
 
 | 🔎 프로젝트                                                               | 🧭 설명                                                                                   |
 | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |

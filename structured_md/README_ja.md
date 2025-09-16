@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- HMP
-- Ethics
+- JSON
 - EGP
-- Agent
-- hmp
-- MeshConsensus
+- Mesh
 - REPL
 - cognitive-architecture
-- JSON
+- Ethics
+- MeshConsensus
+- Agent
+- hmp
+- distributed-ai
 - GMP
-- mesh-protocol
+- HMP
 - CogSync
-- Mesh
+- mesh-protocol
 ---
 
 
@@ -182,19 +182,18 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 ### 🧩 JSON スキーマ
 
-| データモデル / オブジェクト | ファイル / 説明                                                                      |
-|-----------------------------|------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — セマンティック知識単位                     |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — エージェントの推論ログエントリ     |
-| Goal                        | [goal.json](docs/schemas/goal.json) — 協力して追求される共有目標                       |
-| Task                        | [task.json](docs/schemas/task.json) — 目標達成に貢献する実行単位                      |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Meshコンセンサスプロセスでの投票                 |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — エージェントの信頼度と貢献度の追跡   |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — ピア探索と交換の推奨事項        |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — 直接P2Pメッセージ                |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — ブロードキャストメッセージ |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — リレー / Mailmanメッセージ    |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — トピックベースメッセージ |
+| データモデル / オブジェクト | ファイル / 説明                                                                |
+|-----------------------------|-------------------------------------------------------------------------------|
+| Concept                     | [concept.json](docs/schemas/concept.json) — セマンティック知識ユニット。 |
+| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — エージェントの推論ログエントリ。 |
+| Goal                        | [goal.json](docs/schemas/goal.json) — 協働して追求される共通目標。 |
+| Task                        | [task.json](docs/schemas/task.json) — 目標達成に貢献する実行可能な単位。 |
+| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh コンセンサスプロセスにおける投票。 |
+| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — エージェントの信頼と貢献を追跡。 |
+| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — ピア探索と交換のための推奨事項。 |
+| Message                     | [message.json](docs/schemas/message.json) — すべてのメッセージタイプの基本スキーマ。 |
+
+> すべての利用可能なサンプルオブジェクトは [`examples`](docs/schemas/examples/) フォルダにあります。
 
 ---
 
@@ -418,30 +417,48 @@ HyperCortex Meshへようこそ。Agent-Glebはすでに内部にいます。�
 
 ## 🌐 関連研究プロジェクト
 
-### 比較：HMP vs Hyper-Cortex
+### 🔄 比較: HMP vs Hyper-Cortex
 
-> 💡 Hyper-CortexとHMPは独立したプロジェクトですが、概念的に補完関係にあります。
-> それぞれ異なるが相互に支援するタスクを扱い、分散認知システムの基盤を形成します。
+> 💡 Hyper-Cortex と HMP は、概念的に互いを補完する独立したプロジェクトです。
+> それぞれ異なるが相互に補完するタスクに取り組み、分散型認知システムの基盤を形成します。
 
-[**詳細な比較 →**](docs/HMP_HyperCortex_Comparison.md)
+[**完全な比較 →**](docs/HMP_HyperCortex_Comparison.md)
 
-**HMP（HyperCortex Mesh Protocol）** は独立したエージェントを接続し、メッシュネットワーク内でメッセージ、知識、状態を交換するためのトランスポートおよびネットワークレイヤーです。
-**[Hyper-Cortex](https://hyper-cortex.com/)** は思考組織の認知レイヤーで、エージェントが並列推論スレッドを実行し、品質指標で比較し、コンセンサスにより統合することを可能にします。
+**HMP (HyperCortex Mesh Protocol)** は、独立したエージェントを接続し、メッセージ、知識、状態をメッシュネットワークで交換するためのトランスポートおよびネットワーク層です。  
+**[Hyper-Cortex](https://hyper-cortex.com/)** は思考組織の認知レイヤーであり、エージェントが並列推論スレッドを実行し、品質指標で比較し、コンセンサスによって統合することを可能にします。
 
 それぞれ異なるが補完的な問題を解決します：
+- HMP は **接続性とスケーラビリティ** を保証します（長期記憶、イニシアティブ、データ交換）。  
+- Hyper-Cortex は **思考の質** を保証します（並列性、仮説の多様化、コンセンサス）。
 
-* HMPは **接続性とスケーラビリティ** を確保（長期記憶、イニシアティブ、データ交換）。
-* Hyper-Cortexは **思考の質** を確保（並列処理、仮説の多様化、コンセンサス）。
-
-これらを組み合わせることで、情報交換だけでなく並列ストリームで推論できる **分散認知システム** が可能になります。
+これらを組み合わせることで、情報を交換するだけでなく、並列ストリームで推論できる **分散型認知システム** が実現します。
 
 ---
 
-私たちはAGI、認知アーキテクチャ、およびメッシュネットワークの動向を追跡し、進化するグローバルなAGI・分散認知エコシステムに沿うようにしています。
+### 🔄 比較: HMP vs EDA
 
-> 🧠🔥 **プロジェクト注目：OpenCog Hyperon** — AtomSpace、PLN、MOSESを備えた最も包括的なオープンAGIフレームワークの一つ。
+> 💡 HMP (HyperCortex Mesh Protocol) と EDA (Event Driven Architecture) は異なるレベルで動作しますが、互いに補完できます。  
+> EDA は **輸送とスケーラビリティ** を提供し（イベントやデータの配送）、HMP は **認知と意味** を保証します（構造化、フィルタリング、コンセンサス）。
 
-OpenCog Hyperonとの統合については [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) を参照してください。
+[**完全な比較 →**](docs/HMP_EDA_Comparison.md)
+
+異なるが補完的な問題を解決します：
+- **EDA** はイベントやデータストリームを届ける堅牢なバックボーンを提供します。  
+- **HMP** は知識を構造化、検証し、分散型認知システムに統合します。
+
+これらを組み合わせることで、**情報を迅速に交換しつつ意味のある推論を行える**、強靭で適応性のあるマルチエージェントシステムを作成できます。
+
+---
+
+### 🤝 統合: HMP & OpenCog Hyperon
+
+> 🧠🔥 **プロジェクト注目: OpenCog Hyperon** — AtomSpace、PLN、MOSES を備えた最も包括的なオープンAGIフレームワークの一つ。
+
+OpenCog Hyperon との統合については [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) を参照してください。
+
+---
+
+### 🧩 その他のシステム
 
 | 🔎 プロジェクト                                                                 | 🧭 説明                                              |
 | ------------------------------------------------------------------------- | -------------------------------------------------- |

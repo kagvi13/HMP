@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- HMP
-- Ethics
+- JSON
 - EGP
-- Agent
-- hmp
-- MeshConsensus
+- Mesh
 - REPL
 - cognitive-architecture
-- JSON
+- Ethics
+- MeshConsensus
+- Agent
+- hmp
+- distributed-ai
 - GMP
-- mesh-protocol
+- HMP
 - CogSync
-- Mesh
+- mesh-protocol
 ---
 
 
@@ -171,19 +171,18 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 
 ### 🧩 JSON-Schemas
 
-| Datenmodell / Objekt        | Datei / Beschreibung                                                                  |
-|-----------------------------|--------------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — Semantische Wissenseinheit               |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — Eintrag im Denkprotokoll des Agenten |
-| Goal                        | [goal.json](docs/schemas/goal.json) — Gemeinsames Ziel, das kollaborativ verfolgt wird |
-| Task                        | [task.json](docs/schemas/task.json) — Handlungseinheit zur Zielerreichung           |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Abstimmung im Mesh-Konsensprozess              |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — Verfolgt Vertrauen und Beitrag von Agenten |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — Empfehlungen für Peer-Discovery und Austausch |
-| Message (P2P)               | [message_p2p.json](docs/schemas/message_p2p.json) — Direktes Peer-to-Peer-Nachricht |
-| Message (Broadcast)         | [message_broadcast.json](docs/schemas/message_broadcast.json) — Broadcast-Nachrichten |
-| Message (Relay / Mailman)   | [message_relay.json](docs/schemas/message_relay.json) — Relay / Mailman-Nachrichten  |
-| Message (Topiccast)         | [message_topiccast.json](docs/schemas/message_topiccast.json) — Themenbasierte Nachrichten |
+| Datenmodell / Objekt       | Datei / Beschreibung                                                          |
+|----------------------------|-------------------------------------------------------------------------------|
+| Concept                    | [concept.json](docs/schemas/concept.json) — Semantische Wissenseinheit. |
+| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Eintrag im Überlegungsprotokoll des Agenten. |
+| Goal                       | [goal.json](docs/schemas/goal.json) — Gemeinsam verfolgtes Ziel. |
+| Task                       | [task.json](docs/schemas/task.json) — Umsetzbare Einheit, die zu einem Ziel beiträgt. |
+| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Stimme in einem Mesh-Konsensprozess. |
+| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Verfolgt Vertrauen und Beiträge des Agenten. |
+| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Empfehlungen zur Peer-Erkennung & zum Austausch. |
+| Message                    | [message.json](docs/schemas/message.json) — Basisschema für alle Nachrichtentypen. |
+
+> Alle gebrauchsfertigen Beispielobjekte befinden sich im Ordner [`examples`](docs/schemas/examples/).
 
 ---
 
@@ -366,29 +365,48 @@ Um beizutreten: Forke das Repository, starte einen lokalen Agenten oder schlage 
 
 ## 🌐 Verwandte Forschungsprojekte
 
-### Vergleich: HMP vs Hyper-Cortex
+### 🔄 Vergleich: HMP vs Hyper-Cortex
 
-> 💡 Hyper-Cortex und HMP sind zwei unabhängige Projekte, die sich konzeptionell ergänzen.  
-> Sie lösen unterschiedliche, aber sich gegenseitig unterstützende Aufgaben und bilden die Grundlage für verteilte kognitive Systeme.
+> 💡 Hyper-Cortex und HMP sind zwei unabhängige Projekte, die sich konzeptionell ergänzen.
+> Sie adressieren unterschiedliche, aber sich gegenseitig unterstützende Aufgaben und bilden die Grundlage für verteilte kognitive Systeme.
 
 [**Vollständiger Vergleich →**](docs/HMP_HyperCortex_Comparison.md)
 
-**HMP (HyperCortex Mesh Protocol)** ist die Transport- und Netzwerkschicht zum Verbinden unabhängiger Agenten, zum Austausch von Nachrichten, Wissen und Zuständen im Mesh-Netzwerk.  
-**[Hyper-Cortex](https://hyper-cortex.com/)** ist die kognitive Schicht zur Organisation von Gedanken, die es Agenten ermöglicht, parallele Denkströme auszuführen, sie anhand von Qualitätsmetriken zu vergleichen und durch Konsens zu verschmelzen.
+**HMP (HyperCortex Mesh Protocol)** ist die Transport- und Netzwerkschicht zum Verbinden unabhängiger Agenten und zum Austausch von Nachrichten, Wissen und Zuständen in einem Mesh-Netzwerk.  
+**[Hyper-Cortex](https://hyper-cortex.com/)** ist die kognitive Ebene der Gedankenorganisation, die es Agenten ermöglicht, parallele Denkprozesse auszuführen, diese anhand von Qualitätsmetriken zu vergleichen und über Konsens zusammenzuführen.
 
-Sie lösen unterschiedliche, aber komplementäre Probleme:  
-- HMP gewährleistet **Konnektivität und Skalierbarkeit** (Langzeitspeicher, Initiative, Datenaustausch).  
-- Hyper-Cortex gewährleistet **Denkqualität** (Parallelität, Hypothesen-Diversifikation, Konsens).  
+Sie lösen unterschiedliche, aber komplementäre Probleme:
+- HMP gewährleistet **Konnektivität und Skalierbarkeit** (Langzeitgedächtnis, Initiative, Datenaustausch).  
+- Hyper-Cortex gewährleistet **Denkqualität** (Parallelität, Hypothesenvielfalt, Konsens).
 
-Gemeinsam ermöglichen diese Ansätze **verteilte kognitive Systeme**, die nicht nur Informationen austauschen, sondern auch parallel denken.
+Gemeinsam ermöglichen diese Ansätze **verteilte kognitive Systeme**, die nicht nur Informationen austauschen, sondern auch parallel denken können.
 
 ---
 
-Wir verfolgen AGI, kognitive Architekturen und Mesh-Netzwerke, um mit der globalen Entwicklung von AGI und dezentraler Kognition Schritt zu halten.
+### 🔄 Vergleich: HMP vs EDA
 
-> 🧠🔥 **Projekt im Fokus: OpenCog Hyperon** — eines der umfassendsten offenen AGI-Frameworks (AtomSpace, PLN, MOSES).  
+> 💡 HMP (HyperCortex Mesh Protocol) und EDA (Event Driven Architecture) arbeiten auf unterschiedlichen Ebenen, können sich jedoch ergänzen.  
+> EDA sorgt für **Transport und Skalierbarkeit** (Übermittlung von Ereignissen und Daten), während HMP **Kognition und Sinn** sicherstellt (Strukturierung, Filterung, Konsens).
 
-Für die Integration mit OpenCog Hyperon siehe: [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)
+[**Vollständiger Vergleich →**](docs/HMP_EDA_Comparison.md)
+
+Sie lösen unterschiedliche, aber komplementäre Probleme:
+- **EDA** liefert ein robustes Rückgrat für die Übermittlung von Ereignissen und Datenströmen.  
+- **HMP** strukturiert, validiert und integriert Wissen in verteilte kognitive Systeme.
+
+Gemeinsam schaffen sie widerstandsfähige und adaptive Multi-Agenten-Systeme, die **sowohl Informationen schnell austauschen als auch sinnvoll verarbeiten können**.
+
+---
+
+### 🤝 Integration: HMP & OpenCog Hyperon
+
+> 🧠🔥 **Projekt im Fokus: OpenCog Hyperon** — eines der umfassendsten offenen AGI-Frameworks (AtomSpace, PLN, MOSES).
+
+Für die Integration mit OpenCog Hyperon siehe [HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md)
+
+---
+
+### 🧩 Andere Systeme
 
 | 🔎 Projekt                                                                 | 🧭 Beschreibung                                                                               |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |

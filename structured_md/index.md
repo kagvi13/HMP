@@ -47,6 +47,7 @@
   - [HMP-agent-Distributed_Cognitive_Core_light.md](docs/HMP-agent-Distributed_Cognitive_Core_light.md)
   - [HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md)
   - [HMP-how-AI-sees-it.md](docs/HMP-how-AI-sees-it.md)
+  - [HMP_EDA_Comparison.md](docs/HMP_EDA_Comparison.md)
   - [HMP_HyperCortex_Comparison.md](docs/HMP_HyperCortex_Comparison.md)
   - [HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md)
   - [MeshNode.md](docs/MeshNode.md)
