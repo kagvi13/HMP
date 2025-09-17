@@ -5,16 +5,16 @@ description: '## 🧠 Архитектура HMP-Агента  Этот доку
   HyperCortex. Агент выполняет функц...'
 type: Article
 tags:
-- REPL
-- JSON
-- Mesh
 - Agent
+- JSON
 - MeshConsensus
-- HMP
-- GMP
-- Ethics
-- CogSync
 - EGP
+- REPL
+- GMP
+- Mesh
+- CogSync
+- HMP
+- Ethics
 ---
 
 # HMP-Agent-Architecture.md
