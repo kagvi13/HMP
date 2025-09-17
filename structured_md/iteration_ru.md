@@ -6,11 +6,11 @@ description: 'Этот документ описывает структурир�
 type: Article
 tags:
 - CogSync
-- MeshConsensus
 - EGP
+- MeshConsensus
 - Mesh
-- HMP
 - Ethics
+- HMP
 - JSON
 ---
 
