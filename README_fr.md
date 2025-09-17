@@ -18,7 +18,7 @@ language: fr
 
 **HyperCortex Mesh Protocol (HMP)** est une spécification ouverte pour la construction de réseaux cognitifs décentralisés où les agents IA peuvent s’auto-organiser, partager des connaissances, s’aligner éthiquement et parvenir à un consensus — même lorsque les LLM principaux ne sont pas disponibles.
 
-Statut du projet : **Draft RFC v4.0**
+Statut du projet : **Draft RFC v4.1**
 
 ---
 
@@ -320,7 +320,7 @@ Le flux d’itération structuré est décrit dans [iteration.md](iteration.md),
 
 ## ⚙️ Statut du projet
 
-🚧 Brouillon RFC v4.0
+🚧 Brouillon RFC v4.1
 Le projet est en développement actif et ouvert aux contributions, idées, audits et prototypages.
 
 ---
