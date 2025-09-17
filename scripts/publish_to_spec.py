@@ -9,7 +9,7 @@ import requests
 # Конфигурация
 # -----------------------------
 HASHNODE_TOKEN = os.environ["HASHNODE_TOKEN"]
-HASHNODE_PUBLICATION_ID = os.environ["HASHNODE_DOCS_PUBLICATION_ID"]
+HASHNODE_PUBLICATION_ID = os.environ["HASHNODE_SPEC_ID"]
 API_URL = "https://gql.hashnode.com"
 
 PUBLISHED_FILE = "published_docs.json"
