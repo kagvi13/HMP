@@ -192,7 +192,7 @@ La principale différence dans HMP est l’accent mis sur la structuration expli
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
-* [HMP-0003.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
 
 ---
 
