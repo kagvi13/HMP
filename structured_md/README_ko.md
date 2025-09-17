@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Ethics
-- Mesh
-- hmp
-- EGP
-- cognitive-architecture
-- distributed-ai
 - Agent
 - mesh-protocol
-- HMP
-- JSON
-- MeshConsensus
-- GMP
-- REPL
 - CogSync
+- distributed-ai
+- Mesh
+- MeshConsensus
+- HMP
+- EGP
+- Ethics
+- JSON
+- REPL
+- cognitive-architecture
+- hmp
+- GMP
 ---
 
 
@@ -349,6 +349,10 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 ### 문서
 
 * 📄 문서: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)  
+
+### 명세서
+
+* 📑 HMP 명세 및 윤리: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
 
 ### 블로그 및 출판물
 

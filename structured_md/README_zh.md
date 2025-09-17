@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Ethics
-- Mesh
-- hmp
-- EGP
-- cognitive-architecture
-- distributed-ai
 - Agent
 - mesh-protocol
-- HMP
-- JSON
-- MeshConsensus
-- GMP
-- REPL
 - CogSync
+- distributed-ai
+- Mesh
+- MeshConsensus
+- HMP
+- EGP
+- Ethics
+- JSON
+- REPL
+- cognitive-architecture
+- hmp
+- GMP
 ---
 
 
@@ -351,6 +351,10 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 ### 文档
 
 * 📄 文档主页：[kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
+
+### 规范
+
+* 📑 HMP规范与伦理: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
 
 ### 博客与出版物
 

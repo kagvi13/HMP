@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Ethics
-- Mesh
-- hmp
-- EGP
-- cognitive-architecture
-- distributed-ai
 - Agent
 - mesh-protocol
-- HMP
-- JSON
-- MeshConsensus
-- GMP
-- REPL
 - CogSync
+- distributed-ai
+- Mesh
+- MeshConsensus
+- HMP
+- EGP
+- Ethics
+- JSON
+- REPL
+- cognitive-architecture
+- hmp
+- GMP
 ---
 
 
@@ -338,6 +338,10 @@ FastAPI-сервер, що надає HTTP-інтерфейс до функці�
 ### Документація
 
 * 📄 Документація: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
+
+### Специфікації
+
+* 📑 Специфікація та етика HMP: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
 
 ### Блог та публікації
 

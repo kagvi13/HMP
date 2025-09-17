@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Ethics
-- Mesh
-- hmp
-- EGP
-- cognitive-architecture
-- distributed-ai
 - Agent
 - mesh-protocol
-- HMP
-- JSON
-- MeshConsensus
-- GMP
-- REPL
 - CogSync
+- distributed-ai
+- Mesh
+- MeshConsensus
+- HMP
+- EGP
+- Ethics
+- JSON
+- REPL
+- cognitive-architecture
+- hmp
+- GMP
 ---
 
 
@@ -340,6 +340,10 @@ Um zu starten, siehe: [`iteration.md`](iteration.md) oder erstellen Sie ein Issu
 ### Dokumentation
 
 * 📄 Dokumentation: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
+
+### Spezifikationen
+
+* 📑 HMP-Spezifikation & Ethik: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
 
 ### Blog und Veröffentlichungen
 
