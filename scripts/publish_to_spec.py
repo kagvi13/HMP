@@ -11,11 +11,11 @@ PUBLISHED_FILE = "published_spec.json"
 FILES_TO_PUBLISH = {
     "agents/tools/db_structure.sql": {
         "title": "Database Structure (CCore)",
-        "slug": "ccore/database",
+        "slug": "database",
     },
     "docs/HMP-agent-REPL-cycle.md": {
         "title": "HMP Agent REPL Cycle",
-        "slug": "ccore/hmp-agent-repl-cycle",
+        "slug": "hmp-agent-repl-cycle",
     },
 }
 
