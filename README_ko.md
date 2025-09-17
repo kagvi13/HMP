@@ -339,6 +339,10 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 * 📄 문서: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)  
 
+### 명세서
+
+* 📑 HMP 명세 및 윤리: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+
 ### 블로그 및 출판물
 
 * 📘 블로그 (출판물): [blogspot](https://hypercortex-mesh.blogspot.com/)  

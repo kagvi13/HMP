@@ -327,6 +327,10 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 * 📄 Documentation: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
+### Specifications
+
+* 📑 HMP Specification & Ethics: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+
 ### Blog and Publications
 
 * 📘 Blog (publications): [blogspot](https://hypercortex-mesh.blogspot.com/)

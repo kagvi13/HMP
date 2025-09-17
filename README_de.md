@@ -330,6 +330,10 @@ Um zu starten, siehe: [`iteration.md`](iteration.md) oder erstellen Sie ein Issu
 
 * 📄 Dokumentation: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
+### Spezifikationen
+
+* 📑 HMP-Spezifikation & Ethik: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+
 ### Blog und Veröffentlichungen
 
 * 📘 Blog (Veröffentlichungen): [blogspot](https://hypercortex-mesh.blogspot.com/)  

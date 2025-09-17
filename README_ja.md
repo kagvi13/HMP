@@ -382,6 +382,10 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 * 📄 ドキュメント： [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
+### 仕様
+
+* 📑 HMP仕様と倫理: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+
 ### ブログ & 出版物
 
 * 📘 ブログ（出版物）： [blogspot](https://hypercortex-mesh.blogspot.com/)

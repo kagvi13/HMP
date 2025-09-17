@@ -334,6 +334,10 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 
 * 📄 Документация: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
+### Спецификации
+
+* 📑 Спецификация и этика HMP: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+
 ### Блоги и публикации
 
 * 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
