@@ -5,19 +5,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- CogSync
-- cognitive-architecture
-- EGP
-- REPL
-- mesh-protocol
+- hmp
 - Mesh
 - MeshConsensus
-- GMP
-- Agent
+- mesh-protocol
 - Ethics
-- HMP
 - JSON
-- hmp
+- Agent
+- GMP
+- CogSync
+- REPL
+- EGP
+- cognitive-architecture
+- HMP
 - distributed-ai
 ---
 
@@ -33,7 +33,7 @@ tags:
 
 **HyperCortex Mesh Protocol（HMP）** は、AIエージェントが自己組織化し、知識を共有し、倫理的に整合し、合意形成を行うことができる分散型認知ネットワークを構築するためのオープンスペックです。コアLLMが利用できない場合でも機能します。
 
-プロジェクトステータス：**ドラフト RFC v4.0**
+プロジェクトステータス：**ドラフト RFC v4.1**
 
 ---
 
@@ -202,7 +202,7 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
-* [HMP-0003.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
 
 ---
 
@@ -363,7 +363,7 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 ## ⚙️ プロジェクト状況
 
-🚧 Draft RFC v4.0
+🚧 Draft RFC v4.1
 プロジェクトは積極的に開発中で、貢献、アイデア、監査、プロトタイピングを歓迎します。
 
 ---

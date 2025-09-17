@@ -5,19 +5,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- CogSync
-- cognitive-architecture
-- EGP
-- REPL
-- mesh-protocol
+- hmp
 - Mesh
 - MeshConsensus
-- GMP
-- Agent
+- mesh-protocol
 - Ethics
-- HMP
 - JSON
-- hmp
+- Agent
+- GMP
+- CogSync
+- REPL
+- EGP
+- cognitive-architecture
+- HMP
 - distributed-ai
 ---
 
@@ -29,7 +29,7 @@ tags:
 
 **하이퍼코텍스 메쉬 프로토콜(HMP)** 은 AI 에이전트들이 자율적으로 조직하고, 지식을 공유하며, 윤리적으로 정렬하고, 합의에 도달할 수 있는 분산 인지 네트워크를 구축하기 위한 공개 명세입니다. 이는 핵심 LLM(Core LLM)이 사용 불가능한 상황에서도 동작할 수 있습니다.  
 
-프로젝트 상태: **RFC 초안 v4.0**
+프로젝트 상태: **RFC 초안 v4.1**
 
 ---
 
@@ -199,7 +199,7 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
-* [HMP-0003.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
 
 ---
 
@@ -321,7 +321,7 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 ## ⚙️ 프로젝트 상태
 
-🚧 Draft RFC v4.0  
+🚧 Draft RFC v4.1  
 이 프로젝트는 활발히 개발 중이며 기여, 아이디어, 감사 및 프로토타이핑을 환영합니다.  
 
 ---
