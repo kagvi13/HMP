@@ -5,10 +5,10 @@ description: 'Этот документ описывает **базовый API*
   См. также: [HMP-Agent-Overview.md](./HMP-A...'
 type: Article
 tags:
-- JSON
-- Agent
-- Mesh
 - HMP
+- JSON
+- Mesh
+- Agent
 ---
 
 ## 🧠 HMP-Agent API Specification (v0.2)
