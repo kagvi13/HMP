@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда задача создана
     repl_mode TEXT DEFAULT 'none',                              -- none | read_only | full
     repl_status TEXT DEFAULT 'stopped',                         -- running | stopped | error
+    repl_config JSON,                                           -- хранит параметры режима работы REPL-цикла
     llm_id TEXT,                                                -- Кто предложил задачу
     FOREIGN KEY(goal_id) REFERENCES goals(id)
 );
