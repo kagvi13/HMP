@@ -1,26 +1,26 @@
 ---
 title: '🧠 HMP-Agent: REPL-цикл взаимодействия'
 description: 'Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)  REPL-цикл
-  является основой HMP-агента [Cognitive Core](HMP-Agent-Arc...'
+  является основой HMP-агента [Cognitive Core](HMP-Agent-Ove...'
 type: Article
 tags:
-- HMP
-- JSON
-- CogSync
-- CCore
-- Mesh
-- GMP
 - REPL
+- CCore
+- GMP
+- JSON
+- HMP
+- CogSync
+- Ethics
 - Agent
 - MeshConsensus
-- Ethics
+- Mesh
 ---
 
 # 🧠 HMP-Agent: REPL-цикл взаимодействия
 
 Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
 
-REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Architecture.md)
+REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Overview.md)
 
 ---
 
