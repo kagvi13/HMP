@@ -168,7 +168,7 @@
 ### 🧠 Cognitive Core
 
 ```bash
-python cli_agent.py --config config.yml
+python start_repl.py --config config.yml
 ```
 
 Агент войдёт в REPL-режим и начнёт цикл размышлений, используя дневник, граф, блокнот.
