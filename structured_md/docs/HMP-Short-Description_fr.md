@@ -6,13 +6,13 @@ description: '**Version :** RFC v4.0 **Date :** Juillet 2025  ---  ## Qu’est-c
 type: Article
 tags:
 - CogSync
-- Agent
+- HMP
 - Mesh
 - EGP
-- HMP
 - MeshConsensus
-- GMP
 - Ethics
+- Agent
+- GMP
 - JSON
 ---
 
