@@ -5,12 +5,12 @@ description: '### Взаимодействие между агентами HMP-�
   `Cognitive Core / Connector`, `MeshNode` и `Enlight...'
 type: Article
 tags:
+- HMP
+- Agent
 - Mesh
+- EGP
 - JSON
 - Ethics
-- EGP
-- Agent
-- HMP
 ---
 
 ## 🔄 HMP-Agent-Network-Flow.md
