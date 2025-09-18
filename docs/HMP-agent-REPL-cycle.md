@@ -2,7 +2,7 @@
 
 Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
 
-REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Architecture.md)
+REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Overview.md)
 
 ---
 
