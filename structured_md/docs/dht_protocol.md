@@ -1,5 +1,5 @@
 ---
-title: DHT Protocol Specification (Draft)
+title: DHT Protocol Specification
 description: '## 1. Общие положения  * DHT-протокол предназначен для обмена информацией
   о пирах между агентами. * Используется **DID** (Decentralized Identifier) как уникальный
   идентификатор агента. * Для проверки ...'
@@ -9,7 +9,7 @@ tags:
 - JSON
 ---
 
-# DHT Protocol Specification (Draft)
+# DHT Protocol Specification
 
 ## 1. Общие положения
 
@@ -66,7 +66,7 @@ tags:
 * Поля:
 
   * `nonce` — число, подобранное агентом.
-  * `pow_hash` — хэш значения (`addr + nonce`).
+  * `pow_hash` — хэш значения (`DID + addr + datetime + nonce`).
   * `difficulty` — число ведущих нулей (или иное условие).
 
 ---
@@ -83,24 +83,50 @@ tags:
   "id": "did:example:123",
   "name": "Agent_X",
   "pubkey": "base58...",
-  "addresses": [ { ... }, { ... } ]
+  "addresses": [
+    {
+      "addr": "tcp://1.2.3.4:4000",
+      "nonce": 123456,
+      "pow_hash": "0000abf39d...",
+      "difficulty": 22,
+      "datetime": "2025-09-14T21:00:00Z",
+      "type": "internet"
+    }
+  ]
 }
+````
+
+Все `addresses` должны содержать **валидный PoW**, проверяемый по схеме:
+
 ```
+pow_hash = sha256(DID + addr + datetime + nonce)
+```
+
+---
 
 ### 4.2 PEER\_EXCHANGE\_REQUEST / RESPONSE
 
-Запрос и обмен известными пирами.
+Запрос известных пиров:
 
 ```json
 {
   "type": "PEER_EXCHANGE_REQUEST",
   "id": "did:example:123",
   "name": "Agent_X",
-  "addresses": [ { ... } ]
+  "addresses": [
+    {
+      "addr": "udp://1.2.3.4:4010",
+      "nonce": 987654,
+      "pow_hash": "0000123def...",
+      "difficulty": 22,
+      "datetime": "2025-09-14T21:05:00Z",
+      "type": "lan:192.168.1.0"
+    }
+  ]
 }
 ```
 
-Ответ:
+Ответ содержит список пиров (каждый с DID, pubkey и адресами, у которых тоже должен быть валидный PoW):
 
 ```json
 [
@@ -108,19 +134,33 @@ tags:
     "id": "did:example:456",
     "name": "Agent_Y",
     "pubkey": "base58...",
-    "addresses": [ { ... } ]
+    "addresses": [
+      {
+        "addr": "tcp://5.6.7.8:4020",
+        "nonce": 22222,
+        "pow_hash": "0000a1b2c3...",
+        "difficulty": 22,
+        "datetime": "2025-09-14T21:10:00Z",
+        "type": "internet"
+      }
+    ]
   }
 ]
 ```
 
 ---
 
-## 5. Обработка ошибок и нестыковок
+## 5. Правила валидации адресов и пиров
 
+* Каждый `address` в DISCOVERY и PEER_EXCHANGE должен содержать валидный PoW:
+  * `pow_hash = sha256(DID + addr + datetime + nonce)`
+  * `difficulty` соответствует локальной политике (например, 22 ведущих нуля).
+* Если PoW некорректен → адрес игнорируется.
+* `datetime` фиксируется при генерации PoW и не должен изменяться.
+* Если приходит новый адрес с той же парой `(DID + addr)` и более свежим `datetime` → он заменяет старый.
 * **Разные pubkey для одного DID** → принимается **первый**, остальные игнорируются.
 * **Адрес подписан чужим ключом** → запись отклоняется.
-* **Адрес без PoW / с некорректным PoW** → запись отклоняется.
-* **Несколько интерфейсов** → сохраняются все; новый с более свежей датой заменяет старый.
+* **Несколько интерфейсов** → сохраняются все, кроме явных дубликатов.
 
 ---
 
@@ -130,6 +170,7 @@ tags:
 * Сообщения без подписи или с невалидным PoW могут игнорироваться.
 * В перспективе можно добавить шифрование трафика (например, на уровне TCP/TLS или QUIC).
 
+
 ---
 > ⚡ [AI friendly version docs (structured_md)](../index.md)
 
@@ -138,7 +179,7 @@ tags:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "DHT Protocol Specification (Draft)",
-  "description": "# DHT Protocol Specification (Draft)  ## 1. Общие положения  * DHT-протокол предназначен для обмена ..."
+  "name": "DHT Protocol Specification",
+  "description": "# DHT Protocol Specification  ## 1. Общие положения  * DHT-протокол предназначен для обмена информац..."
 }
 ```
