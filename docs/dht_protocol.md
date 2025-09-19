@@ -82,6 +82,7 @@
       "type": "internet"
     }
   ]
+  "signature": "base58..."
 }
 ````
 
@@ -112,6 +113,7 @@ pow_hash = sha256(DID + addr + datetime + nonce)
       "type": "lan:192.168.1.0"
     }
   ]
+  "signature": "base58..."
 }
 ```
 
@@ -133,6 +135,7 @@ pow_hash = sha256(DID + addr + datetime + nonce)
         "type": "internet"
       }
     ]
+    "signature": "base58..."
   }
 ]
 ```
