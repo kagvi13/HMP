@@ -308,6 +308,7 @@ CREATE TABLE IF NOT EXISTS llm_registry (
     description TEXT,                                           -- Описание
     config_json TEXT,                                           -- JSON-настройки из config.yml
     is_validator BOOLEAN DEFAULT 0,                             -- Флаг: участвует ли в валидации
+    trust_score REAL DEFAULT 1.0,                               -- Вес голоса валидатора (по умолчанию 1)
     registered_at DATETIME DEFAULT CURRENT_TIMESTAMP            -- Время регистрации
 );
 
