@@ -6,8 +6,8 @@ description: 'Спасибо за интерес к проекту HMP! Пока
 type: Article
 tags:
 - CogSync
-- Mesh
 - HMP
+- Mesh
 ---
 
 # Contributing to HyperCortex Mesh Protocol (HMP)
