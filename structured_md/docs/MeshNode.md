@@ -5,11 +5,11 @@ description: '### 🌐 MeshNode  `MeshNode` — агент/демон, отве�
   агента или вынесен в отдельный процесс/се...'
 type: Article
 tags:
-- Agent
-- Mesh
-- HMP
 - JSON
+- Mesh
 - CogSync
+- HMP
+- Agent
 ---
 
 ## 📄 MeshNode.md

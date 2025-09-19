@@ -4,16 +4,16 @@ description: 'Структура БД, используемая в докуме�
   является основой HMP-агента [Cognitive Core](HMP-Agent-Ove...'
 type: Article
 tags:
-- CCore
 - REPL
-- MeshConsensus
-- Agent
-- Mesh
-- Ethics
-- GMP
-- HMP
 - JSON
+- CCore
+- GMP
+- Ethics
+- Mesh
 - CogSync
+- HMP
+- Agent
+- MeshConsensus
 ---
 
 # 🧠 HMP-Agent: REPL-цикл взаимодействия
