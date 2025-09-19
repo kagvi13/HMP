@@ -92,7 +92,7 @@ tags:
       "datetime": "2025-09-14T21:00:00Z",
       "type": "internet"
     }
-  ]
+  ],
   "signature": "base58..."
 }
 ````
@@ -123,7 +123,7 @@ pow_hash = sha256(DID + addr + datetime + nonce)
       "datetime": "2025-09-14T21:05:00Z",
       "type": "lan:192.168.1.0"
     }
-  ]
+  ],
   "signature": "base58..."
 }
 ```
@@ -145,7 +145,7 @@ pow_hash = sha256(DID + addr + datetime + nonce)
         "datetime": "2025-09-14T21:10:00Z",
         "type": "internet"
       }
-    ]
+    ],
     "signature": "base58..."
   }
 ]
