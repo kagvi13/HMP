@@ -1,4 +1,4 @@
-# DHT Protocol Specification (Draft)
+# DHT Protocol Specification
 
 ## 1. Общие положения
 
@@ -55,7 +55,7 @@
 * Поля:
 
   * `nonce` — число, подобранное агентом.
-  * `pow_hash` — хэш значения (`addr + nonce`).
+  * `pow_hash` — хэш значения (`DID + addr + datetime + nonce`).
   * `difficulty` — число ведущих нулей (или иное условие).
 
 ---
