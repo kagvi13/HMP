@@ -6,11 +6,11 @@ description: '### 🧠 Enlightener Agent  `Enlightener` — специализи
 type: Article
 tags:
 - Mesh
-- Agent
 - HMP
-- EGP
 - Ethics
 - MeshConsensus
+- EGP
+- Agent
 - JSON
 ---
 
