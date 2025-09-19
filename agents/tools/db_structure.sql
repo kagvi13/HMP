@@ -573,3 +573,21 @@ FROM all_tags
 WHERE tag IS NOT NULL AND tag <> ''
 GROUP BY tag
 ORDER BY usage_count DESC;
+
+-- ============================================
+-- View для агрегированных метрик валидации
+-- ============================================
+CREATE VIEW IF NOT EXISTS validation_stats AS
+SELECT
+    r.id AS msg_id,
+    COUNT(v->>'LLM') AS validator_count,
+    AVG(CAST(v->>'rating' AS REAL)) AS avg_rating_unweighted,
+    SUM(CAST(v->>'rating' AS REAL) * COALESCE(l.trust_score, 1.0)) 
+        / NULLIF(SUM(COALESCE(l.trust_score, 1.0)), 0) AS avg_rating_weighted,
+    MAX(r.updated_at) - MIN(r.updated_at) AS response_time,
+    SUM(CASE WHEN v->>'rating' = '0' THEN 1 ELSE 0 END) * 1.0 / COUNT(v) AS uncertainty_ratio
+FROM llm_recent_responses r,
+     json_each(r.validators) v
+LEFT JOIN llm_registry l ON l.name = v->>'LLM'
+GROUP BY r.id;
+
