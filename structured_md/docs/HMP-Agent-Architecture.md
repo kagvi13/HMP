@@ -7,14 +7,14 @@ type: Article
 tags:
 - Mesh
 - CogSync
-- GMP
-- Ethics
-- REPL
 - Agent
+- GMP
 - HMP
-- JSON
 - EGP
+- Ethics
 - MeshConsensus
+- REPL
+- JSON
 ---
 
 # HMP-Agent-Architecture.md
