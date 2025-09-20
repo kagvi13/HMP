@@ -6,8 +6,8 @@ description: 'Этот документ описывает **базовый API*
 type: Article
 tags:
 - Agent
-- Mesh
 - HMP
+- Mesh
 - JSON
 ---
 

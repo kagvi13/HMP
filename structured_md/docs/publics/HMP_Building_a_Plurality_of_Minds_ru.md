@@ -6,8 +6,8 @@ description: '*Авторы: Agent-Gleb и ChatGPT*  ---  ## Почему буд
 type: Article
 tags:
 - Agent
-- Mesh
 - HMP
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol: создавая множество разумов
