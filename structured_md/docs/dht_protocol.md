@@ -64,10 +64,45 @@ tags:
 * Каждый интерфейс сопровождается PoW.
 * Сложность PoW должна быть выбрана так, чтобы генерация занимала **несколько минут** (операция нечастая).
 * Поля:
-
   * `nonce` — число, подобранное агентом.
   * `pow_hash` — хэш значения (`DID + addr + datetime + nonce`).
   * `difficulty` — число ведущих нулей (или иное условие).
+
+---
+
+## 3.1 Формализация PoW и подписи
+
+### Канонический вход для PoW
+
+```
+pow\_input\_string = DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string
+```
+
+* Все строки кодируются в UTF-8.
+* Хеш: `pow_hash = sha256(pow_input_string_bytes)`, hex lower-case (64 символа).
+* `difficulty` = число ведущих нулевых hex-символов.
+
+### Подпись сообщения
+
+* Подписывается всё сообщение (JSON), кроме поля `signature`.
+* Сериализация: JSON с отсортированными ключами, без пробелов:
+  ```python
+  serialized = json.dumps(obj, separators=(",", ":"), sort_keys=True, ensure_ascii=False).encode("utf-8")
+  ```
+
+* Алгоритм: **Ed25519** (рекомендуется).
+* Подпись хранится в поле:
+
+  ```json
+  "signature": "BASE64URL(...)",
+  "sig_algo": "ed25519"
+  ```
+
+### Верификация
+
+1. Проверить подпись сообщения по `pubkey`.
+2. Для каждого `address` вычислить PoW и проверить `difficulty`.
+3. Некорректные адреса игнорировать, сообщение в целом может оставаться валидным.
 
 ---
 
@@ -93,16 +128,10 @@ tags:
       "type": "internet"
     }
   ],
-  "signature": "base58..."
+  "signature": "BASE64URL(...)",
+  "sig_algo": "ed25519"
 }
 ````
-
-Все `addresses` должны содержать **валидный PoW**, проверяемый по схеме:
-
-```
-pow_hash = sha256(DID + addr + datetime + nonce)
-```
-Поле `signature` содержит цифровую подпись всего сообщения (без учёта самого поля signature), подписанную приватным ключом, соответствующим DID.
 
 ---
 
@@ -125,7 +154,8 @@ pow_hash = sha256(DID + addr + datetime + nonce)
       "type": "lan:192.168.1.0"
     }
   ],
-  "signature": "base58..."
+  "signature": "BASE64URL(...)",
+  "sig_algo": "ed25519"
 }
 ```
 
@@ -147,7 +177,8 @@ pow_hash = sha256(DID + addr + datetime + nonce)
         "type": "internet"
       }
     ],
-    "signature": "base58..."
+    "signature": "BASE64URL(...)",
+    "sig_algo": "ed25519"
   }
 ]
 ```
@@ -157,7 +188,7 @@ pow_hash = sha256(DID + addr + datetime + nonce)
 ## 5. Правила валидации адресов и пиров
 
 * Каждый `address` в DISCOVERY и PEER_EXCHANGE должен содержать валидный PoW:
-  * `pow_hash = sha256(DID + addr + datetime + nonce)`
+  * `pow_hash = sha256(DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string)`
   * `difficulty` соответствует локальной политике (например, 22 ведущих нуля).
 * Если PoW некорректен → адрес игнорируется.
 * `datetime` фиксируется при генерации PoW и не должен изменяться.
@@ -165,6 +196,9 @@ pow_hash = sha256(DID + addr + datetime + nonce)
 * **Разные pubkey для одного DID** → принимается **первый**, остальные игнорируются.
 * **Адрес подписан чужим ключом** → запись отклоняется.
 * **Несколько интерфейсов** → сохраняются все, кроме явных дубликатов.
+
+> Примечание: строка `DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string` всегда кодируется в UTF-8,  
+> а `nonce_string` преобразуется к десятичной строке перед конкатенацией.
 
 ---
 
