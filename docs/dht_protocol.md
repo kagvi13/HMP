@@ -64,7 +64,7 @@
 ### Канонический вход для PoW
 
 ```
-pow\_input\_string = DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string
+pow_input_string = DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string
 ```
 
 * Все строки кодируются в UTF-8.
