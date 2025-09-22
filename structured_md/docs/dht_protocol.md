@@ -5,8 +5,8 @@ description: '## 1. Общие положения  * DHT-протокол пре
   идентификатор агента. * Для проверки ...'
 type: Article
 tags:
-- JSON
 - Agent
+- JSON
 ---
 
 # DHT Protocol Specification
@@ -75,7 +75,7 @@ tags:
 ### Канонический вход для PoW
 
 ```
-pow\_input\_string = DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string
+pow_input_string = DID + " -- " + addr + " -- " + datetime + " -- " + nonce_string
 ```
 
 * Все строки кодируются в UTF-8.
