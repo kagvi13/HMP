@@ -575,8 +575,10 @@ GROUP BY tag
 ORDER BY usage_count DESC;
 
 -- ============================================
--- View для агрегированных метрик валидации
+-- Таблицы и VIEW для когнитивной валидации
 -- ============================================
+
+-- View для агрегированных метрик валидации
 CREATE VIEW IF NOT EXISTS validation_stats AS
 SELECT
     r.id AS msg_id,
@@ -591,3 +593,30 @@ FROM llm_recent_responses r,
 LEFT JOIN llm_registry l ON l.name = v->>'LLM'
 GROUP BY r.id;
 
+-- ============================================
+-- Таблицы и VIEW для антистагнации
+-- ============================================
+
+-- Метрики антистагнации по итерациям REPL
+CREATE TABLE IF NOT EXISTS anti_stagnation_metrics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tick_id TEXT NOT NULL,                        -- идентификатор итерации REPL (может совпадать с id из process_log или llm_recent_responses)
+    novelty_score REAL DEFAULT 0,                 -- интегральная оценка новизны
+    new_ideas INTEGER DEFAULT 0,                  -- количество новых идей
+    refined_ideas INTEGER DEFAULT 0,              -- количество уточнённых/улучшенных идей
+    discarded_ideas INTEGER DEFAULT 0,            -- количество отклонённых идей
+    emotions_json TEXT,                           -- JSON с эмоциональным профилем (например: {"enthusiasm":3,"anxiety":-1})
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP -- время фиксации метрик
+);
+
+-- Представление для анализа динамики новизны
+CREATE VIEW IF NOT EXISTS v_anti_stagnation_trends AS
+SELECT 
+    date(created_at) AS day,
+    AVG(novelty_score) AS avg_novelty,
+    SUM(new_ideas) AS total_new_ideas,
+    SUM(refined_ideas) AS total_refined,
+    SUM(discarded_ideas) AS total_discarded
+FROM anti_stagnation_metrics
+GROUP BY date(created_at)
+ORDER BY day;
