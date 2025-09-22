@@ -113,15 +113,15 @@ CREATE TABLE IF NOT EXISTS ethics_policies (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP              -- Дата и время последнего обновления
 );
 
--- Хранилище прецедентов
+-- Хранилище прецедентов (этические кейсы, фиксируются только исключительные ситуации)
 CREATE TABLE ethics_cases (
     case_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    thought_id TEXT,                                            -- ссылка на мысль/действие
+    thought_id TEXT,                                            -- ссылка на мысль или действие
     verdict TEXT,                                               -- итоговая оценка (ok, warning, violation)
-    reason TEXT,                                                -- краткое объяснение
+    reason TEXT,                                                -- объяснение / обоснование
     suggested_alternative TEXT,                                 -- альтернатива, если есть
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    synced BOOLEAN DEFAULT 0                                    -- экспортировался ли кейс в Mesh
+    synced BOOLEAN DEFAULT 0                                    -- выгружен ли кейс в Mesh
 );
 
 -- Заметки, подсказки, сообщения пользователя и LLM
