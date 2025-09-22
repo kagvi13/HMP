@@ -1,7 +1,7 @@
 # Взаимодействие компонентов внутри HMP-узла
 
 Этот документ описывает потоки данных и команд между ключевыми **логическими компонентами** HyperCortex Mesh Protocol (HMP):  
-`Cognitive Core / Connector`, `MeshNode` и `Enlightener`.  
+[`Cognitive Core / Connector`](HMP-Agent-Overview.md), [`MeshNode`](MeshNode.md) и [`Enlightener`](Enlightener.md).  
 Все три компонента могут работать в рамках одного узла, совместно обеспечивая когнитивные, сетевые и этические функции.
 
 ---
