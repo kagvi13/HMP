@@ -64,7 +64,7 @@
 │ │ [Cognitive Core/Connector]│ │
 │ └────▲─────────────────▲────┘ │
 │      │                 │      │
-│ [Enlightener]      [MeshNode] │
+│ [Enlightener] ◄──► [MeshNode] │
 │      │                 │      │
 └──────┼─────────────────┼──────┘
        │                 │
