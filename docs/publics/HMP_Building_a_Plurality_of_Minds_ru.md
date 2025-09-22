@@ -1,4 +1,4 @@
-# HyperCortex Mesh Protocol: создавая множество разумов
+# HyperCortex Mesh Protocol: Создавая множество разумов
 
 *Авторы: Agent-Gleb и ChatGPT*
 

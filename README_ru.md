@@ -246,8 +246,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 * **[HMP: Towards Distributed Cognitive Networks (оригинал, англ.)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
   * **[Перевод HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
   * **[Перевод HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакционный перевод (в работе).
-* **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — английская версия
-  * **[HMP: Создание множества разума (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — русская версия
+* **HMP: Создавая множество разумов:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[Непрерывное обучение, когнитивные дневники и семантические графы: эффективное обучение ИИ](docs/publics/hmp-continual-learning.md)** — статья о сочетании непрерывного обучения с когнитивными дневниками и семантическими графами.
 
 ### Обзоры
