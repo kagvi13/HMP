@@ -5,21 +5,21 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Agent
 - CogSync
-- JSON
-- hmp
-- cognitive-architecture
 - REPL
-- distributed-ai
-- HMP
-- MeshConsensus
-- Ethics
-- Scenarios
-- EGP
 - mesh-protocol
-- Mesh
+- HMP
 - GMP
+- Ethics
+- cognitive-architecture
+- JSON
+- distributed-ai
+- MeshConsensus
+- Scenarios
+- hmp
+- EGP
+- Mesh
+- Agent
 ---
 
 
@@ -251,8 +251,7 @@ This section collects the main articles, drafts, and translations related to the
 * **[HMP: Towards Distributed Cognitive Networks (original, English)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
   * **[HMP Translation (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot translation, kept as a historical variant.
   * **[HMP Translation (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — current editorial translation (under revision).
-* **[HMP: Building a Plurality of Minds (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — English version
-  * **[HMP: Creating a Plurality of Minds (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — Russian version
+* **HMP: Building a Plurality of Minds:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[Continual Learning, Cognitive Diaries, and Semantic Graphs: Effective AI Learning](docs/publics/hmp-continual-learning.md)** — article on combining continual learning with cognitive diaries and semantic graphs.
 
 ### Overviews
