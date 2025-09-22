@@ -5,11 +5,11 @@ description: 'Этот документ описывает потоки данн
   `MeshNode` и `Enlightener`.   Все три компо...'
 type: Article
 tags:
-- EGP
 - HMP
 - Ethics
-- JSON
+- EGP
 - Agent
+- JSON
 - Mesh
 ---
 
@@ -79,7 +79,7 @@ tags:
 │ │ [Cognitive Core/Connector]│ │
 │ └────▲─────────────────▲────┘ │
 │      │                 │      │
-│ [Enlightener]      [MeshNode] │
+│ [Enlightener] ◄──► [MeshNode] │
 │      │                 │      │
 └──────┼─────────────────┼──────┘
        │                 │

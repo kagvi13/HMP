@@ -5,15 +5,15 @@ description: Этот документ описывает модульную а�
   выполняет функции посредника, синхронизатора...
 type: Article
 tags:
-- CogSync
-- GMP
-- EGP
-- REPL
 - HMP
+- GMP
 - Ethics
-- JSON
+- REPL
+- CogSync
+- EGP
 - Agent
 - MeshConsensus
+- JSON
 - Mesh
 ---
 
