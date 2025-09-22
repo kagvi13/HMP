@@ -60,6 +60,7 @@
   - publics
     - [HMP_Building_a_Plurality_of_Minds_en.md](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)
     - [HMP_Building_a_Plurality_of_Minds_ru.md](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
+    - [HMP_Building_a_Plurality_of_Minds_uk.md](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md)
     - [HMP_Towards_Distributed_Cognitive_Networks_en.md](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)
     - [HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)
     - [HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)
