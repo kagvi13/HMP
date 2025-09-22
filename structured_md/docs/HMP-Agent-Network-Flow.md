@@ -6,11 +6,11 @@ description: 'Этот документ описывает потоки данн
 type: Article
 tags:
 - Ethics
-- EGP
 - HMP
+- EGP
 - JSON
-- Mesh
 - Agent
+- Mesh
 ---
 
 # Взаимодействие компонентов внутри HMP-узла
@@ -18,6 +18,7 @@ tags:
 Этот документ описывает потоки данных и команд между ключевыми **логическими компонентами** HyperCortex Mesh Protocol (HMP):  
 [`Cognitive Core / Connector`](HMP-Agent-Overview.md), [`MeshNode`](MeshNode.md) и [`Enlightener`](Enlightener.md).  
 Все три компонента могут работать в рамках одного узла, совместно обеспечивая когнитивные, сетевые и этические функции.
+> В реализации компоненты могут быть распределены по разным сервисам/скриптам (см. [agents/readme.md](../agents/readme.md)).
 
 ---
 
