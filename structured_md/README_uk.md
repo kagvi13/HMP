@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Mesh
-- JSON
-- Agent
+- cognitive-architecture
+- mesh-protocol
+- hmp
 - MeshConsensus
 - distributed-ai
-- HMP
 - Ethics
-- mesh-protocol
-- cognitive-architecture
-- hmp
 - EGP
-- CogSync
+- HMP
+- JSON
 - GMP
+- Mesh
 - REPL
+- CogSync
+- Agent
 ---
 
 
@@ -251,8 +251,7 @@ FastAPI-сервер, що надає HTTP-інтерфейс до функці�
 * **[HMP: До розподілених когнітивних мереж (оригінал, англійською)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
   * **[Переклад HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — переклад GitHub Copilot, збережений як історичний варіант.
   * **[Переклад HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — поточний редакційний переклад (у процесі ревізії).
-* **[HMP: Створення множинності розумів (EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)** — англійська версія
-  * **[HMP: Створення множинності розумів (RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)** — російська версія
+* **HMP: Створення множини розумів:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[Безперервне навчання, когнітивні щоденники та семантичні графи: ефективне навчання ШІ](docs/publics/hmp-continual-learning.md)** — стаття про поєднання безперервного навчання з когнітивними щоденниками та семантичними графами.
 
 ### Огляди

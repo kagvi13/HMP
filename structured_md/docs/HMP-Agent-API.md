@@ -1,21 +1,21 @@
 ---
-title: '# 🧠 HMP-Agent API Specification (v0.2)'
+title: HMP-Agent API Specification (v0.2)
 description: 'Этот документ описывает **базовый API** когнитивного агента HMP. Каждый
-  вызов включает описание, параметры, возвращаемые значения и (опционально) примеры.  📎
-  См. также: [HMP-Agent-Overview.md](./HMP-A...'
+  вызов включает описание, параметры, возвращаемые значения и (опционально) примеры.  См.
+  также: [HMP-Agent-Overview.md](./HMP-Age...'
 type: Article
 tags:
-- JSON
-- Mesh
 - HMP
 - Agent
+- JSON
+- Mesh
 ---
 
-## 🧠 HMP-Agent API Specification (v0.2)
+# HMP-Agent API Specification (v0.2)
 
 Этот документ описывает **базовый API** когнитивного агента HMP. Каждый вызов включает описание, параметры, возвращаемые значения и (опционально) примеры.
 
-📎 См. также: [HMP-Agent-Overview.md](./HMP-Agent-Overview.md), [Enlightener.md](./Enlightener.md), [MeshNode.md](./MeshNode.md)
+См. также: [HMP-Agent-Overview.md](./HMP-Agent-Overview.md), [Enlightener.md](./Enlightener.md), [MeshNode.md](./MeshNode.md)
 
 **Легенда по доступности API-вызовов:**
 
@@ -29,7 +29,7 @@ tags:
 
 ---
 
-### 🔹 1. Cognitive Diary API ✅ 🔌
+## 1. Cognitive Diary API ✅ 🔌
 
 ```yaml
 write_entry:
@@ -69,7 +69,7 @@ search_entries:
 
 ---
 
-### 🔹 2. Semantic Graph API ✅ 🔌
+## 2. Semantic Graph API ✅ 🔌
 
 ```yaml
 add_concept:
@@ -124,7 +124,7 @@ expand_graph:
 
 ---
 
-💬 Примеры (в JSON-стиле):
+Примеры (в JSON-стиле):
 
 **POST** `/add_concept`
 
@@ -145,7 +145,7 @@ expand_graph:
 
 ---
 
-### 🔹 3. Reputation & Trust API ✅ 🔌 🧩
+## 3. Reputation & Trust API ✅ 🔌 🧩
 
 ```yaml
 get_reputation:
@@ -196,7 +196,7 @@ reputation_diff:
 
 ---
 
-💬 Примеры:
+Примеры:
 
 **POST** `/update_reputation`
 
@@ -218,7 +218,7 @@ reputation_diff:
 
 ---
 
-### 🔹 4. Mesh & Sync API ✅ 🌐 🧩
+## 4. Mesh & Sync API ✅ 🌐 🧩
 
 ```yaml
 list_known_nodes:
@@ -290,7 +290,7 @@ publish_snapshot:
 
 ---
 
-💬 Пример:
+Пример:
 
 **POST** `/sync_with_node`
 
@@ -316,7 +316,7 @@ publish_snapshot:
 
 ---
 
-### 🔹 5. Agent Self-Management API 🛠️
+## 5. Agent Self-Management API 🛠️
 
 ```yaml
 init_storage:
@@ -371,7 +371,7 @@ switch_mode:
 
 ---
 
-💬 Пример:
+Пример:
 
 **GET** `/status`
 
@@ -392,7 +392,7 @@ switch_mode:
 
 ---
 
-### 🔹 Summary
+## Summary
 
 > Документ описывает API-базис для HMP-агентов, поддерживающих когнитивную, семантическую, репутационную и сетевую логику.
 > Расширения через `MeshNode`, `Enlightener`, `MCP` и другие агенты поддерживаются через модульную архитектуру.
@@ -410,7 +410,7 @@ switch_mode:
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "# 🧠 HMP-Agent API Specification (v0.2)",
-  "description": "## 🧠 HMP-Agent API Specification (v0.2)  Этот документ описывает **базовый API** когнитивного агента..."
+  "name": "HMP-Agent API Specification (v0.2)",
+  "description": "# HMP-Agent API Specification (v0.2)  Этот документ описывает **базовый API** когнитивного агента HM..."
 }
 ```

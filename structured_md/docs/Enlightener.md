@@ -5,13 +5,13 @@ description: '`Enlightener` — специализированный HMP-аге�
   отдельный узел или как расширение `Cogni...'
 type: Article
 tags:
-- Mesh
-- JSON
-- Agent
 - MeshConsensus
 - Ethics
-- HMP
 - EGP
+- HMP
+- JSON
+- Mesh
+- Agent
 ---
 
 # Enlightener Agent
