@@ -5,10 +5,10 @@ description: '`MeshNode` — агент/демон, отвечающий за с
   или вынесен в отдельный процесс/сервер.  См. карту...'
 type: Article
 tags:
+- Agent
+- JSON
 - HMP
 - CogSync
-- JSON
-- Agent
 - Mesh
 ---
 
