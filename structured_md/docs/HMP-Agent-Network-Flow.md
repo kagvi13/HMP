@@ -5,12 +5,12 @@ description: 'Этот документ описывает потоки данн
   `MeshNode` и `Enlightener`.   Все три компо...'
 type: Article
 tags:
-- JSON
-- Ethics
 - EGP
 - HMP
-- Mesh
+- Ethics
+- JSON
 - Agent
+- Mesh
 ---
 
 # Взаимодействие компонентов внутри HMP-узла
