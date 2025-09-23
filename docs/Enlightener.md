@@ -75,7 +75,7 @@ evaluate_decision:
 
 Алгоритм:
 
-1. Реконструировать логическую цепочку (`thoughts`, `concepts`, `links`).
+1. Реконструировать логическую цепочку (`diary_entries`, `concepts`, `links`).
 2. Применить этическую сетку на шаги.
 3. Подсветить критические точки.
 4. Сформировать объяснение.
@@ -93,7 +93,6 @@ evaluate_decision:
   "verdict": "not recommended",
   "suggested_alternative": "Анонимизировать данные"
 }
-```
 
 ---
 
