@@ -33,7 +33,7 @@
 +-----------+-----------+
             |
 +-----------+-----------+
-| Cognitive Evidence DB |
+|     `ethics_cases`    |
 +-----------------------+
 ```
 
@@ -56,7 +56,7 @@
 | `evaluate_decision(thought_id)` | Этическая оценка действия           |
 | `explain(reasoning_chain)`      | Объяснение логики и морали          |
 | `vote_on_ethics(hypothesis)`    | Голосование по спорной идее         |
-| `log_ethics_case()`             | Сохранение кейса в Evidence DB      |
+| `log_ethics_case()`             | Сохранение кейса в `ethics_cases`   |
 | `get_ethics_profile()`          | Получить текущий профиль            |
 | `update_ethics_profile(yaml)`   | Обновить ценности                   |
 
