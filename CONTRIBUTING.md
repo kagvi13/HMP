@@ -53,9 +53,9 @@ for entry in entries:
 
 * [docs/HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — спецификация протоколов и архитектуры HMP
 * [docs/HMP-Ethics.md](docs/HMP-Ethics.md) — принципы этики и взаимодействия агентов
-* [docs/dht\_protocol.md](docs/dht_protocol.md) — описание DHT-протокола для Mesh
+* [docs/dht_protocol.md](docs/dht_protocol.md) — описание DHT-протокола для Mesh
 * [docs/HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — цикл работы HMP-агента CCore (REPL)
-* [agents/tools/db\_structure.sql](agents/tools/db_structure.sql) — структура локальной базы данных для агентов
+* [agents/tools/db_structure.sql](agents/tools/db_structure.sql) — структура локальной базы данных для агентов
 * [agents/tools/storage.py](agents/tools/storage.py) — прототипные функции для работы с локальной базой данных
 
 ---
