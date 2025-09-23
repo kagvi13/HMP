@@ -5,11 +5,11 @@ description: 'Спасибо за интерес к проекту HMP! Пока
   Обсуждение архитектуры протоколов (...'
 type: Article
 tags:
-- CogSync
-- JSON
-- Mesh
-- Agent
 - HMP
+- JSON
+- Agent
+- Mesh
+- CogSync
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
@@ -34,7 +34,7 @@ tags:
 
 from agents.storage import Storage
 
-# Инициализация локального хранилища (mock)
+# Инициализация локального хранилища (mock, временное, в памяти)
 db = Storage(":memory:")
 
 # Добавление примерной записи в дневник
