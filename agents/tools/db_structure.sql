@@ -116,13 +116,15 @@ CREATE TABLE IF NOT EXISTS ethics_policies (
 -- Хранилище прецедентов (этические кейсы, фиксируются только исключительные ситуации)
 CREATE TABLE ethics_cases (
     case_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    thought_id INTEGER,                                         -- ссылка на diary_entries.id
+    thought_id INTEGER,                                         -- ссылка на запись из дневника
     verdict TEXT,                                               -- итоговая оценка (ok, warning, violation)
     reason TEXT,                                                -- объяснение / обоснование
     suggested_alternative TEXT,                                 -- альтернатива, если есть
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     synced BOOLEAN DEFAULT 0,                                   -- выгружен ли кейс в Mesh
-    FOREIGN KEY (thought_id) REFERENCES diary_entries(id)       -- привязка к дневнику
+    FOREIGN KEY(thought_id) REFERENCES diary_entries(id)
+        ON DELETE SET NULL                                      -- если запись удалена → сохранить кейс, но без ссылки
+        ON UPDATE CASCADE                                       -- если id изменился → обновить в кейсах
 );
 
 -- Заметки, подсказки, сообщения пользователя и LLM
