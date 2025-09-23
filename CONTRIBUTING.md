@@ -30,7 +30,7 @@
 ```python
 # Минимальная демонстрация работы с HMP-агентом (mock)
 
-from agents.storage import Storage
+from agents.tools.storage import Storage
 
 # Инициализация локального хранилища (mock, временное, в памяти)
 db = Storage(":memory:")
