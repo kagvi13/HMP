@@ -5,16 +5,16 @@ description: '## Связанные документы  * Структура Б�
 type: Article
 tags:
 - CogSync
-- Ethics
-- MeshConsensus
+- JSON
 - REPL
-- Agent
-- HMP
-- CCore
 - Mesh
 - GMP
-- JSON
+- Ethics
+- MeshConsensus
+- Agent
+- CCore
 - EGP
+- HMP
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
