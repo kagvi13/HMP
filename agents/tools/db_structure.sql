@@ -121,7 +121,8 @@ CREATE TABLE ethics_cases (
     reason TEXT,                                                -- объяснение / обоснование
     suggested_alternative TEXT,                                 -- альтернатива, если есть
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    synced BOOLEAN DEFAULT 0                                    -- выгружен ли кейс в Mesh
+    synced BOOLEAN DEFAULT 0,                                   -- выгружен ли кейс в Mesh
+    FOREIGN KEY(thought_id) REFERENCES diary_entries(id)        -- привязка к дневнику
 );
 
 -- Заметки, подсказки, сообщения пользователя и LLM
