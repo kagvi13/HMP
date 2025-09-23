@@ -65,7 +65,7 @@
 ```yaml
 evaluate_decision:
   description: Проверка мысли на соответствие профилю этики.
-  params: { thought_id: str }
+  params: { thought_id: int }
   returns: { verdict: str, reason: str, suggested_alternative: str? }
 ```
 
