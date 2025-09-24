@@ -6,13 +6,13 @@ description: 'Спасибо за интерес к проекту HMP! Пока
 type: Article
 tags:
 - CogSync
-- REPL
-- Agent
-- Ethics
-- JSON
-- CCore
 - HMP
+- REPL
+- JSON
+- Ethics
+- Agent
 - Mesh
+- CCore
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
@@ -47,7 +47,7 @@ tags:
 ```python
 # Минимальная демонстрация работы с HMP-агентом (mock)
 
-from agents.storage import Storage
+from agents.tools.storage import Storage
 
 # Инициализация локального хранилища (mock, временное, в памяти)
 db = Storage(":memory:")
