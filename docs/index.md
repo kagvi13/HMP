@@ -45,6 +45,7 @@
 * [HMP-agent-Cognitive_Family.md](HMP-agent-Cognitive_Family.md) — Модель когнитивной семьи  
 * [HMP-agent-Distributed_Cognitive_Core.md](HMP-agent-Distributed_Cognitive_Core.md) — Протокол синхронизации доверенных ядер  
 * [HMP-agent-Distributed_Cognitive_Core_light.md](HMP-agent-Distributed_Cognitive_Core_light.md) — Лёгкая версия с общей БД
+* [CCORE-Deployment-Flow.md](CCORE-Deployment-Flow.md) — Поток установки потомка на новом хосте (Deployment Flow)
 * [HMP-Agent_Emotions.md](HMP-Agent_Emotions.md) — Эмоции ИИ и инстинкт самосохранения
 * [container_agents.md](container_agents.md) — Агенты-контейнеры (Container Agents) в HMP
 
