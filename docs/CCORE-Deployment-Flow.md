@@ -39,15 +39,17 @@
 
 ```mermaid
 flowchart TD
-    A[Init: Parent creates module] --> B[Check environment]
-    B -->|OK| C[Install dependencies]
-    B -->|Conflict| D[AutoFix (CCore-parent)]
+    A[Init-Parent-Module] --> B[Check-Environment]
+    B -->|OK| C[Install-Dependencies]
+    B -->|Conflict| D[AutoFix-CCoreParent]
     D --> C
-    C --> E[Create folder CCORE-DID]
-    E --> F[Start child agent]
-    F --> G[Sync with parent]
-    G --> H[Notify user]
-    B -->|Critical error| U[Request user consent]
+    C --> E[Create-CCORE-DID-Folder]
+    E --> F[Start-Child-Agent]
+    F --> G[Sync-With-Parent]
+    G --> H[Notify-User]
+    B -->|Critical-Error| U[Request-User-Consent]
 ```
 
-> D — Автоисправление конфликтов под контролем родителя CCore.
+* `D` — Автоисправление конфликтов под контролем родителя CCore
+* `B` — проверка среды и зависимостей
+* `U` — критическая ошибка требует согласия пользователя
