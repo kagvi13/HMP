@@ -7,8 +7,8 @@ type: Article
 tags:
 - JSON
 - Mesh
-- HMP
 - Agent
+- HMP
 ---
 
 # JSON Schemas and Examples for HyperCortex Mesh Protocol (HMP)
