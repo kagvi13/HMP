@@ -44,15 +44,17 @@ flowchart TD
     B -->|Conflict| D[AutoFix-CCoreParent]
     D --> C
     C --> E[Create-CCORE-DID-Folder]
-    C -->|Error| D  %% ошибки при установке зависимостей
+    C -->|Error| D
     E --> F[Start-Child-Agent]
     F --> G[Sync-With-Parent]
     G --> H[Notify-User]
     B -->|Critical-Error| U[Request-User-Consent]
     C -->|Critical-Error| U
-    U --> D  %% после реакции пользователя управление возвращается в AutoFix
+    U --> D
 ```
-
+Примечания:
 * `D` — Автоисправление конфликтов под контролем родителя CCore
 * `B` — проверка среды и зависимостей
 * `U` — критическая ошибка требует согласия пользователя
+* `C --> D` : ошибки при установке зависимостей
+* `U --> D` : после реакции пользователя управление возвращается в AutoFix
