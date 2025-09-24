@@ -5,10 +5,10 @@ description: This directory contains **JSON Schema definitions** for the core da
   interoperability, and tooling support for a...
 type: Article
 tags:
-- Agent
-- JSON
 - Mesh
+- JSON
 - HMP
+- Agent
 ---
 
 # JSON Schemas and Examples for HyperCortex Mesh Protocol (HMP)
