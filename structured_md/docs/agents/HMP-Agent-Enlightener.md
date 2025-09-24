@@ -7,9 +7,9 @@ type: Article
 tags:
 - HMP
 - REPL
-- Ethics
-- Agent
 - Mesh
+- Agent
+- Ethics
 ---
 
 # HMP-Agent-Enlightener.md
