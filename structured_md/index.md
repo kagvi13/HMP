@@ -21,6 +21,7 @@
 - docs
   - [AGI_Projects_Survey.md](docs/AGI_Projects_Survey.md)
   - [Basic-agent-sim.md](docs/Basic-agent-sim.md)
+  - [CCORE-Deployment-Flow.md](docs/CCORE-Deployment-Flow.md)
   - [Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md)
   - [Enlightener.md](docs/Enlightener.md)
   - [HMP-0001.md](docs/HMP-0001.md)
