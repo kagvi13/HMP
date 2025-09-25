@@ -1,11 +1,12 @@
 -- Дневниковые записи (размышления, наблюдения, воспоминания)
 CREATE TABLE IF NOT EXISTS diary_entries (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,                       -- Уникальный идентификатор записи
+    id INTEGER PRIMARY KEY AUTOINCREMENT,                       
     text TEXT NOT NULL,                                         -- Содержимое дневниковой записи
-    tags TEXT,                                                  -- Теги для классификации (например: "наблюдение", "рефлексия")
-    concept_refs TEXT,                                          -- Ссылки на концепты (например, через запятую id из таблицы concepts)
-    rating REAL DEFAULT NULL                                    -- Оценка полезности / достоверности записи
+    tags TEXT,                                                  -- Теги для классификации
+    concept_refs TEXT,                                          -- Ссылки на концепты
+    rating REAL DEFAULT NULL,                                   -- Оценка полезности / достоверности записи
     priority INTEGER DEFAULT 0,                                 -- Приоритет записи (0 = обычный, >0 = важный)
+    archive INTEGER DEFAULT 0,                                  -- Архивная запись (0 = активная, 1 = архив)
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Время создания записи
     llm_id TEXT                                                 -- Идентификатор LLM, создавшего запись
 );
