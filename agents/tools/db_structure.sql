@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     description TEXT,                                           -- Подробное описание
     tags TEXT,                                                  -- Теги для классификации
     status TEXT DEFAULT 'open',                                 -- open / in_progress / done / frozen
+    priority INTEGER DEFAULT 0,                                 -- Приоритет записи (0 = обычный, >0 = важный)
     pinned INTEGER DEFAULT 0,                                   -- 0 = обычная, 1 = закреплённая
     timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда задача создана
     repl_mode TEXT DEFAULT 'none',                              -- none | read_only | full
