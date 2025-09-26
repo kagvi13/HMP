@@ -8,8 +8,8 @@ tags:
 - Agent
 - Mesh
 - HMP
-- REPL
 - Ethics
+- REPL
 ---
 
 # HMP-Agent-Enlightener.md
