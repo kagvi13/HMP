@@ -200,21 +200,43 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,
-    content TEXT NOT NULL,                      -- Содержимое сообщения
-    llm_id TEXT,                                -- Идентификатор LLM
-    task_id INTEGER REFERENCES tasks(id),       -- К какой задаче относится
-    reflection TEXT,                            -- Краткая сводка/мета-комментарий
-    novelty_score REAL,                         -- Количественная оценка новизны
-    new_ideas JSON,                             -- JSON-список новых идей
-    refined_ideas TEXT,                         -- JSON доработанных (уточнённых, изменённых) идей
-    discarded_ideas JSON,                       -- JSON-список отбракованных идей
-    tags JSON,                                  -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
-    emotions JSON,                              -- JSON-массив эмоциональных состояний, например ["радость:5", "тревожность:2"]
-    auto_pass BOOLEAN DEFAULT 0,                -- true = валидация пропущена (нет валидаторов)
-    rating REAL,                                -- Итоговая оценка корректности сообщения (средневзвешенная)
-    distribution JSON,                          -- Распределение голосов (например {"-1":1,"0":2,"+2":3,"+3":1})
-    validators JSON                             -- Сырые данные по валидации (например [{"LLM":"gpt-4","rating":-1,"comment":"логическая ошибка"}, ...])
+    content TEXT NOT NULL,                                      -- Содержимое сообщения
+    llm_id TEXT,                                                -- Идентификатор LLM
+    task_id INTEGER REFERENCES tasks(id),                       -- К какой задаче относится
+    confidence REAL DEFAULT NULL,                               -- Самооценка доверия LLM (0..1)
+    unverified_facts_json TEXT DEFAULT '[]',                    -- Массив JSON со встроенными непроверенными фактами (избыточно, но удобно)
+    reflection TEXT,                                            -- Краткая сводка/мета-комментарий
+    novelty_score REAL,                                         -- Количественная оценка новизны
+    new_ideas JSON,                                             -- JSON-список новых идей
+    refined_ideas TEXT,                                         -- JSON доработанных (уточнённых, изменённых) идей
+    discarded_ideas JSON,                                       -- JSON-список отбракованных идей
+    tags JSON,                                                  -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
+    emotions JSON,                                              -- JSON-массив эмоциональных состояний, например ["радость:5", "тревожность:2"]
+    auto_pass BOOLEAN DEFAULT 0,                                -- true = валидация пропущена (нет валидаторов)
+    rating REAL,                                                -- Итоговая оценка корректности сообщения (средневзвешенная)
+    distribution JSON,                                          -- Распределение голосов (например {"-1":1,"0":2,"+2":3,"+3":1})
+    validators JSON                                             -- Сырые данные по валидации (например [{"LLM":"gpt-4","rating":-1,"comment":"логическая ошибка"}, ...])
 );
+
+-- Список непроверенных фактов
+CREATE TABLE IF NOT EXISTS unverified_facts (
+    id TEXT PRIMARY KEY,                                        -- uuid или читаемый id ("uf-20250925-001")
+    context_msg_id INTEGER,                                     -- ссылка на llm_recent_responses.id (если есть)
+    claim TEXT NOT NULL,                                        -- краткая формулировка факта
+    context_snippet TEXT,                                       -- небольшой контекст/цитата
+    confidence REAL,                                            -- Самооценка доверия LLM (0..1)
+    sources_json TEXT,                                          -- JSON-массив со ссылками/источниками, если указаны
+    why_unverified TEXT,                                        -- краткая причина (от LLM)
+    status TEXT DEFAULT 'open',                                 -- 'open'|'pending'|'verified'|'rejected'
+    assigned_task_id INTEGER,                                   -- ссылка на tasks.id (если фак-тчек назначен)
+    checker_agent TEXT,                                         -- агент/LLM, проверивший факт
+    resolution_json TEXT DEFAULT `pending`,                     -- результат проверки {verified:true, evidence:[], notes:...}
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_checked_at DATETIME
+);
+
+CREATE INDEX IF NOT EXISTS idx_unverified_facts_status ON unverified_facts(status);
+CREATE INDEX IF NOT EXISTS idx_unverified_facts_context ON unverified_facts(context_msg_id);
 
 -- Список известных агентов в сети HMP
 CREATE TABLE IF NOT EXISTS agent_peers (
