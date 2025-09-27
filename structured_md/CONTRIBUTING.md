@@ -5,13 +5,13 @@ description: 'Спасибо за интерес к проекту HMP! Пока
   участия  * Обсуждение архитектуры протоколов...'
 type: Article
 tags:
-- Mesh
-- CCore
 - CogSync
-- Ethics
 - Agent
 - HMP
+- Ethics
+- Mesh
 - REPL
+- CCore
 - JSON
 ---
 
