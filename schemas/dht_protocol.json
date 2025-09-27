@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DHT Protocol Schema",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/definitions/discovery" },
+    { "$ref": "#/definitions/peerExchangeRequest" },
+    { "$ref": "#/definitions/peerExchangeResponse" }
+  ],
+  "definitions": {
+    "interface": {
+      "type": "object",
+      "required": ["addr", "nonce", "pow_hash", "difficulty", "datetime"],
+      "properties": {
+        "addr": { "type": "string", "pattern": "^(tcp|udp)://.+" },
+        "nonce": { "type": "integer", "minimum": 0 },
+        "pow_hash": { "type": "string" },
+        "difficulty": { "type": "integer", "minimum": 1 },
+        "datetime": { "type": "string", "format": "date-time" },
+        "type": {
+          "type": "string",
+          "enum": ["localhost", "internet", "yggdrasil", "i2p"],
+          "pattern": "^(lan:[0-9]{1,3}(\\.[0-9]{1,3}){3})$"
+        }
+      }
+    },
+    "peer": {
+      "type": "object",
+      "required": ["id", "name", "pubkey", "addresses"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "pubkey": { "type": "string" },
+        "addresses": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/interface" }
+        }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["type", "id", "name", "pubkey", "addresses"],
+      "properties": {
+        "type": { "const": "DISCOVERY" },
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "pubkey": { "type": "string" },
+        "addresses": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/interface" }
+        }
+      }
+    },
+    "peerExchangeRequest": {
+      "type": "object",
+      "required": ["type", "id", "name", "addresses"],
+      "properties": {
+        "type": { "const": "PEER_EXCHANGE_REQUEST" },
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "addresses": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/interface" }
+        }
+      }
+    },
+    "peerExchangeResponse": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/peer" }
+    }
+  }
+}
