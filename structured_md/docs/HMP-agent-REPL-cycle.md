@@ -4,17 +4,17 @@ description: '## Связанные документы  * Структура Б�
   * REPL-цикл является основой HMP-агента [Co...'
 type: Article
 tags:
-- Mesh
-- CCore
-- JSON
 - REPL
+- Mesh
 - MeshConsensus
-- CogSync
-- GMP
 - Ethics
+- GMP
+- JSON
+- CCore
+- Agent
+- CogSync
 - EGP
 - HMP
-- Agent
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия

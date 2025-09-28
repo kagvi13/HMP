@@ -7,10 +7,10 @@ type: Article
 tags:
 - Scenarios
 - Mesh
-- JSON
 - Ethics
-- HMP
+- JSON
 - Agent
+- HMP
 ---
 
 # Ethics-consolidated\_audits-1.md
