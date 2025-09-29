@@ -199,6 +199,52 @@ goal:
 
 > Таким образом, цели — это «карта смысла» агента, а задачи — «дорожные шаги».
 
+### Примеры SQL-запросов
+
+**1. Все активные цели и их задачи**
+
+```sql
+SELECT g.id AS goal_id, g.name AS goal_name,
+       t.id AS task_id, t.name AS task_name, t.status AS task_status
+FROM goals g
+LEFT JOIN tasks t ON g.id = t.goal_id
+WHERE g.status = 'active'
+ORDER BY g.priority DESC, t.priority DESC;
+```
+
+**2. Все подцели конкретной цели (через `goal_links`)**
+
+```sql
+SELECT g_child.id, g_child.name, g_child.status
+FROM goal_links gl
+JOIN goals g_parent ON gl.parent_goal_id = g_parent.id
+JOIN goals g_child ON gl.child_goal_id = g_child.id
+WHERE g_parent.id = :goal_id AND gl.relation_type = 'subgoal';
+```
+
+**3. Все родительские цели для подцели**
+
+```sql
+SELECT g_parent.id, g_parent.name, g_parent.status
+FROM goal_links gl
+JOIN goals g_parent ON gl.parent_goal_id = g_parent.id
+JOIN goals g_child ON gl.child_goal_id = g_child.id
+WHERE g_child.id = :goal_id;
+```
+
+**4. Метрика: процент выполненных задач по цели**
+
+```sql
+SELECT g.id AS goal_id, g.name AS goal_name,
+       COUNT(t.id) AS total_tasks,
+       SUM(CASE WHEN t.status = 'done' THEN 1 ELSE 0 END) AS completed_tasks,
+       ROUND(100.0 * SUM(CASE WHEN t.status = 'done' THEN 1 ELSE 0 END) / 
+             COUNT(t.id), 2) AS completion_rate
+FROM goals g
+LEFT JOIN tasks t ON g.id = t.goal_id
+GROUP BY g.id;
+```
+
 ---
 
 ## Детальный разбор REPL-цикла по шагам
