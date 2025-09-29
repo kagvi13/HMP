@@ -73,19 +73,6 @@ CREATE TABLE IF NOT EXISTS goal_links (
 -- Задачи
 CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    goal_id INTEGER,                                            -- Цель, которой служит задача
-    name TEXT NOT NULL,                                         -- Название задачи
-    description TEXT,                                           -- Детали
-    status TEXT DEFAULT 'pending',                              -- pending / active / done / failed
-    priority TEXT DEFAULT 'normal',                             -- low / normal / high
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    updated_at TEXT,
-    FOREIGN KEY (goal_id) REFERENCES goals(id)
-);
-
--- Задачи
-CREATE TABLE IF NOT EXISTS tasks (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
     goal_id INTEGER,                                            -- Связь с целью (если есть)
     name TEXT NOT NULL,                                         -- Краткое название задачи
     description TEXT,                                           -- Подробное описание
