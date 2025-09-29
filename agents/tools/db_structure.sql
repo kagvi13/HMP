@@ -51,9 +51,36 @@ CREATE TABLE IF NOT EXISTS goals (
     name TEXT NOT NULL,                                         -- Краткое название цели
     description TEXT,                                           -- Подробное описание
     tags TEXT,                                                  -- Теги для классификации
-    status TEXT DEFAULT 'active',                               -- active / achieved / abandoned
-    timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда цель поставлена
+    status TEXT DEFAULT 'active',                               -- active / paused / completed / failed
+    priority TEXT DEFAULT 'normal',                             -- low / normal / high
+    constraints TEXT,                                           -- Ограничения (JSON-массив)
+    success_criteria TEXT,                                      -- Критерии успешности (JSON-массив)
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,                  -- Когда цель поставлена
+    updated_at TEXT,                                            -- Последнее обновление
     llm_id TEXT                                                 -- Кто сформулировал цель
+);
+
+-- Связи "цель ↔ подцель"
+CREATE TABLE IF NOT EXISTS goal_links (
+    parent_goal_id INTEGER NOT NULL,
+    child_goal_id INTEGER NOT NULL,
+    relation_type TEXT DEFAULT 'subgoal',                       -- subgoal / dependency / related
+    PRIMARY KEY (parent_goal_id, child_goal_id),
+    FOREIGN KEY (parent_goal_id) REFERENCES goals(id),
+    FOREIGN KEY (child_goal_id) REFERENCES goals(id)
+);
+
+-- Задачи
+CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    goal_id INTEGER,                                            -- Цель, которой служит задача
+    name TEXT NOT NULL,                                         -- Название задачи
+    description TEXT,                                           -- Детали
+    status TEXT DEFAULT 'pending',                              -- pending / active / done / failed
+    priority TEXT DEFAULT 'normal',                             -- low / normal / high
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT,
+    FOREIGN KEY (goal_id) REFERENCES goals(id)
 );
 
 -- Задачи
@@ -66,7 +93,8 @@ CREATE TABLE IF NOT EXISTS tasks (
     status TEXT DEFAULT 'open',                                 -- open / in_progress / done / frozen
     priority INTEGER DEFAULT 0,                                 -- Приоритет записи (0 = обычный, >0 = важный)
     pinned INTEGER DEFAULT 0,                                   -- 0 = обычная, 1 = закреплённая
-    timestamp TEXT DEFAULT CURRENT_TIMESTAMP,                   -- Когда задача создана
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,                  -- Когда задача создана
+    updated_at TEXT,                                            -- Когда задача обновлена
     repl_mode TEXT DEFAULT 'none',                              -- none | read_only | full
     repl_status TEXT DEFAULT 'stopped',                         -- running | stopped | error
     repl_config JSON,                                           -- хранит параметры режима работы REPL-цикла
