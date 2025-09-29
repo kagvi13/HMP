@@ -6,8 +6,8 @@ description: This directory contains **JSON Schema definitions** for the core da
 type: Article
 tags:
 - JSON
-- Agent
 - Mesh
+- Agent
 - HMP
 ---
 
