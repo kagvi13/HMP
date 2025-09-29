@@ -837,6 +837,29 @@ REPL-цикл агента опирается на многоуровневую 
 
 * Это позволяет реализовать **checkpoint’ы**: в случае прерывания агент может вернуться к последнему сохранённому состоянию.
 
+### Пример конфигурации Memory Manager
+
+```yaml
+memory_manager:
+  mode: meditation        # режим: standard | concentration | meditation | aggressive_pruning | lenient_pruning
+  novelty_threshold: 0.35 # минимальное значение novelty-score для сохранения (0–1)
+  lru_limit: 500          # макс. число записей в llm_memory до применения LRU
+  emotion_weight: 0.6     # вес эмоций при приоритезации (0=игнорировать, 1=сильное удержание)
+  goal_focus: 0.7         # сила фильтрации по целям (0=игнорировать, 1=только goal-related)
+  diversity_boost: 0.8    # усиление выборки разнообразных контекстов (актуально для meditation)
+  log_decisions: true     # фиксировать каждое решение в process_log
+```
+
+Интерпретация параметров:
+
+* `mode` — текущий режим памяти (см. выше).
+* `novelty_threshold` — фильтр новизны: ниже → запись архивируется.
+* `lru_limit` — сколько элементов хранить до применения LRU.
+* `emotion_weight` — удержание эмоционально значимых воспоминаний.
+* `goal_focus` — акцент на целях (в concentration близко к 1.0, в meditation → 0).
+* `diversity_boost` — коэффициент для выбора максимально разных воспоминаний (работает в meditation).
+* `log_decisions` — логировать действия Memory Manager для объяснимости.
+
 ### Блок-схема работы с памятью
 
 ```
