@@ -233,6 +233,17 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     validators JSON                                             -- Сырые данные по валидации (например [{"LLM":"gpt-4","rating":-1,"comment":"логическая ошибка"}, ...])
 );
 
+-- Тематические конспекты
+CREATE TABLE IF NOT EXISTS abstracts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,                                                 -- Заголовок/тема конспекта
+    summary TEXT,                                               -- Краткий конспект
+    tags JSON,                                                  -- Тематические теги
+    sources JSON,                                               -- JSON-массив id из llm_recent_responses (и др. таблиц)
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP,                  -- Когда последний раз дополнялся
+    llm_id TEXT                                                 -- Кто сформировал конспект
+);
+
 -- Список непроверенных фактов
 CREATE TABLE IF NOT EXISTS unverified_facts (
     id TEXT PRIMARY KEY,                                        -- uuid или читаемый id ("uf-20250925-001")
