@@ -7,10 +7,10 @@ type: Article
 tags:
 - HMP
 - CogSync
-- MeshConsensus
-- EGP
 - Mesh
+- EGP
 - GMP
+- MeshConsensus
 ---
 
 *От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные системы*
