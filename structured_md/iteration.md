@@ -9,10 +9,10 @@ tags:
 - EGP
 - Mesh
 - CogSync
-- Ethics
-- Agent
 - MeshConsensus
+- Ethics
 - HMP
+- Agent
 ---
 
 # Iterative Development Workflow for HMP

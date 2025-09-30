@@ -10,8 +10,8 @@ tags:
 - Mesh
 - CogSync
 - Ethics
-- Agent
 - HMP
+- Agent
 ---
 
 # MeshNode

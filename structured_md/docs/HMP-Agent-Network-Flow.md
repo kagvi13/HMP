@@ -9,8 +9,8 @@ tags:
 - EGP
 - Mesh
 - Ethics
-- Agent
 - HMP
+- Agent
 ---
 
 # Взаимодействие компонентов внутри HMP-узла

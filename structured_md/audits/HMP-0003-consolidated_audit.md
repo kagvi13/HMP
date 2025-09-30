@@ -9,10 +9,10 @@ tags:
 - EGP
 - Mesh
 - CogSync
-- Ethics
-- Agent
 - MeshConsensus
+- Ethics
 - HMP
+- Agent
 ---
 
 # HMP-0003 Consolidated Audit Report

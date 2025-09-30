@@ -7,14 +7,14 @@ type: Article
 tags:
 - EGP
 - Mesh
-- CShell
-- CogSync
-- CCore
 - REPL
-- Ethics
-- Agent
+- CShell
 - MeshConsensus
+- CCore
+- CogSync
+- Ethics
 - HMP
+- Agent
 ---
 
 # Архитектура HMP-Агента
