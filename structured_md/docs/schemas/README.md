@@ -5,9 +5,9 @@ description: This directory contains **JSON Schema definitions** for the core da
   interoperability, and tooling support for a...
 type: Article
 tags:
-- JSON
-- HMP
 - Mesh
+- HMP
+- JSON
 - Agent
 ---
 
