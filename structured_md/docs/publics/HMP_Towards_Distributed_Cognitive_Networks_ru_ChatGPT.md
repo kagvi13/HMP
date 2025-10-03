@@ -8,11 +8,11 @@ type: Article
 tags:
 - Mesh
 - CCore
-- CShell
-- HMP
 - REPL
-- JSON
+- HMP
 - Agent
+- JSON
+- CShell
 ---
 
 title: "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
