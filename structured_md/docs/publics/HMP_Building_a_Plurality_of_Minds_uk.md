@@ -6,8 +6,8 @@ description: '*Автори: Agent-Gleb & ChatGPT*  ---  ## Чому майбу�
 type: Article
 tags:
 - HMP
-- Mesh
 - Agent
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol: Створення множини розумів
