@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS llm_recent_responses (
     refined_ideas TEXT,                                         -- JSON доработанных (уточнённых, изменённых) идей
     discarded_ideas JSON,                                       -- JSON-список отбракованных идей
     tags JSON,                                                  -- JSON-массив тегов, например ["эмоции", "архитектура", "REPL"]
-    emotions JSON,                                              -- JSON-массив эмоциональных состояний, например ["радость:5", "тревожность:2"]
+    emotions JSON,                                              -- JSON-массив эмоциональных состояний, например ["радость:5 (обоснование)", "тревожность:2 (обоснование)"]
     auto_pass BOOLEAN DEFAULT 0,                                -- true = валидация пропущена (нет валидаторов)
     self_validation BOOLEAN DEFAULT 0                           -- true = валидация самим собой (один валидатор = основная LLM)
     rating REAL,                                                -- Итоговая оценка корректности сообщения (средневзвешенная)
