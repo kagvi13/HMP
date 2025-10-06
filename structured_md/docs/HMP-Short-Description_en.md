@@ -6,14 +6,14 @@ description: '**Version:** RFC v4.0 **Date:** July 2025  ---  ## What is HMP?  T
 type: Article
 tags:
 - Mesh
-- GMP
-- Agent
-- EGP
-- HMP
 - Ethics
-- CogSync
+- HMP
+- Agent
+- GMP
 - JSON
+- CogSync
 - MeshConsensus
+- EGP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Short Description

@@ -1,26 +1,27 @@
 ---
 title: 'HMP-Agent: REPL-цикл взаимодействия'
-description: '## Связанные документы  * Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
-  * REPL-цикл является основой HMP-агента [Co...'
+description: '## Связанные документы  * Философия проекта: [PHILOSOPHY.md](PHILOSOPHY.md)
+  * Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_struct...'
 type: Article
 tags:
 - Mesh
-- REPL
-- GMP
-- Agent
-- CCore
-- EGP
-- HMP
 - Ethics
-- CogSync
+- HMP
+- Agent
+- GMP
 - JSON
+- CCore
+- CogSync
 - MeshConsensus
+- REPL
+- EGP
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
 
 ## Связанные документы
 
+* Философия проекта: [PHILOSOPHY.md](PHILOSOPHY.md)
 * Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
 * REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Overview.md).
 * Поиск других агентов осуществляется в соответствии с [DHT спецификацией](dht_protocol.md).
@@ -1728,6 +1729,6 @@ HMP-агент (REPL-цикл) и [AutoGPT](https://github.com/Significant-Gravi
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HMP-Agent: REPL-цикл взаимодействия",
-  "description": "# HMP-Agent: REPL-цикл взаимодействия  ## Связанные документы  * Структура БД, используемая в докуме..."
+  "description": "# HMP-Agent: REPL-цикл взаимодействия  ## Связанные документы  * Философия проекта: [PHILOSOPHY.md](..."
 }
 ```

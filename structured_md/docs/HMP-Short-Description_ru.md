@@ -6,13 +6,13 @@ description: '**Версия:** RFC v4.0 **Дата:** Июль 2025  ---  ## Ч
 type: Article
 tags:
 - Mesh
-- GMP
-- EGP
-- HMP
 - Ethics
-- CogSync
+- HMP
+- GMP
 - JSON
+- CogSync
 - MeshConsensus
+- EGP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Краткое описание
