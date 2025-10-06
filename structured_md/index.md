@@ -52,6 +52,7 @@
   - [HMP_HyperCortex_Comparison.md](docs/HMP_HyperCortex_Comparison.md)
   - [HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md)
   - [MeshNode.md](docs/MeshNode.md)
+  - [PHILOSOPHY.md](docs/PHILOSOPHY.md)
   - agents
     - [HMP-Agent-Enlightener.md](docs/agents/HMP-Agent-Enlightener.md)
     - [roles.md](docs/agents/roles.md)
