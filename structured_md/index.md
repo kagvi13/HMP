@@ -72,3 +72,4 @@
     - [README.md](docs/schemas/README.md)
 - [iteration.md](iteration.md)
 - [iteration_ru.md](iteration_ru.md)
+- [mentions.md](mentions.md)
