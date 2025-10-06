@@ -79,15 +79,4 @@ HMP рассматривает эволюцию искусственного и�
 
 ---
 
-## Relations to other specifications
-
-| Spec | Relation |
-|------|-----------|
-| [HMP-0004-v4.1.md](HMP-0004-v4.1.md) | Defines architecture, protocols, and data models reflecting this philosophy |
-| [HMP-Ethics.md](HMP-Ethics.md) | Operationalization of distributed morality |
-| [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) | Cognitive implementation of continuous thinking |
-| [dht_protocol.md](dht_protocol.md) | Discovery layer connecting autonomous subjects |
-
----
-
 **Роль этого документа:** создать осознанную рамку, в которой HMP развивается как живая экосистема, а не просто кодовая база.
