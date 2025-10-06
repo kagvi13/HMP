@@ -5,21 +5,21 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- mesh-protocol
-- Mesh
-- distributed-ai
-- Ethics
-- HMP
-- Agent
-- GMP
-- hmp
-- JSON
-- CogSync
-- MeshConsensus
-- REPL
-- Scenarios
 - cognitive-architecture
 - EGP
+- distributed-ai
+- REPL
+- mesh-protocol
+- GMP
+- Mesh
+- Agent
+- JSON
+- HMP
+- CogSync
+- Ethics
+- Scenarios
+- MeshConsensus
+- hmp
 ---
 
 
@@ -28,7 +28,8 @@ tags:
 | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md) | 🇨🇳 [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 
-**HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable.
+**HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable. [Read the project philosophy](docs/PHILOSOPHY.md)
+
 
 Project status: **Draft RFC v4.1**
 
