@@ -12,13 +12,17 @@
 
 ## Протоколы HMP
 
+* [PHILOSOPHY.md](PHILOSOPHY.md) — Философия проекта
+* [HMP-0004-v4.1.md](HMP-0004-v4.1.md) — Протокол HMP версии 4.1  
+* [HMP-Ethics.md](HMP-Ethics.md) — Этические сценарии для HMP
+* [dht_protocol.md](dht_protocol.md) — Рекомендации по протоколу DHT (поиск и обмен пирами)
+* [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
+
+Предыдущие версии:
 * [HMP-0001.md](HMP-0001.md) — Протокол HMP версии 1  
 * [HMP-0002.md](HMP-0002.md) — Протокол HMP версии 2  
 * [HMP-0003.md](HMP-0003.md) — Протокол HMP версии 3  
 * [HMP-0004.md](HMP-0004.md) — Протокол HMP версии 4  
-* [HMP-0004-v4.1.md](HMP-0004-v4.1.md) — Протокол HMP версии 4.1  
-* [HMP-Ethics.md](HMP-Ethics.md) — Этические сценарии для HMP
-* [dht_protocol.md](dht_protocol.md) — Рекомендации по протоколу DHT (поиск и обмен пирами)
 
 ---
 
@@ -35,7 +39,6 @@
 * [HMP-Agent-Architecture.md](HMP-Agent-Architecture.md) — Архитектура HMP-Агента  
 * [HMP-Agent-Network-Flow.md](HMP-Agent-Network-Flow.md) — Сетевой поток HMP-агента  
 * [HMP-Agent-Overview.md](HMP-Agent-Overview.md) — Два типа HMP-агентов  
-* [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
 * [Basic-agent-sim.md](Basic-agent-sim.md) — Базовая архитектура HMP-Агента (Формат 0)  
 
 ---
