@@ -5,14 +5,14 @@ description: '**Версия:** RFC v4.0 **Дата:** Июль 2025  ---  ## Ч
   координации между автономными агент...'
 type: Article
 tags:
+- JSON
+- Mesh
 - MeshConsensus
+- EGP
 - Ethics
 - CogSync
 - GMP
-- JSON
-- Mesh
 - HMP
-- EGP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Краткое описание

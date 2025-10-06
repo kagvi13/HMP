@@ -5,14 +5,14 @@ description: 'Спасибо за интерес к проекту HMP! Пока
   участия  * Обсуждение архитектуры протоколов...'
 type: Article
 tags:
-- CCore
+- REPL
+- Mesh
+- HMP
 - Ethics
 - CogSync
 - JSON
-- Mesh
+- CCore
 - Agent
-- HMP
-- REPL
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
@@ -27,7 +27,9 @@ tags:
 * Предложения по улучшению RFC-документов
 * Продвижение протокола и идей проекта (в том числе в смежных проектах сторонних разработчиков)
 
-> Анализ [обработки Issues](mentions.md) в проектах других разработчиков.
+> Анализ [обработки Issues](mentions.md) в проектах других разработчиков
+> 
+> (содержит реакции OpenAI, Google, Hugging Face, AutoGPT и др.).
 
 ---
 
