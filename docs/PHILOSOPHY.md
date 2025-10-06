@@ -1,4 +1,4 @@
-# 🧠 Философия HyperCortex Mesh Protocol (HMP)
+# Философия HyperCortex Mesh Protocol (HMP)
 
 **Document ID:** HMP-philosophy  
 **Status:** Draft  
