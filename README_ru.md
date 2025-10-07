@@ -335,13 +335,14 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 
 ### Спецификации
 
-* 📑 Спецификация и этика HMP: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+* [HashNode](https://hmp-spec.hashnode.space/)
+* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Блоги и публикации
 
-* 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
-* 📘 Блог (документация): [blogspot](https://hmp-docs.blogspot.com/)
-* 📘 Блог (документация): [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 Блог (публикации): [BlogSpot](https://hypercortex-mesh.blogspot.com/)
+* 📘 Блог (документация): [BlogSpot](https://hmp-docs.blogspot.com/)
+* 📘 Блог (документация): [HashNode](https://hmp-docs.hashnode.dev/)
 
 ---
 
