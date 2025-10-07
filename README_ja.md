@@ -388,9 +388,9 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 ### ブログ & 出版物
 
-* 📘 ブログ（出版物）： [blogspot](https://hypercortex-mesh.blogspot.com/)
-* 📘 ブログ（ドキュメント）： [blogspot](https://hmp-docs.blogspot.com/)
-* 📘 ブログ（ドキュメント）： [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 ブログ（出版物）： [BlogSpot](https://hypercortex-mesh.blogspot.com/)
+* 📘 ブログ（ドキュメント）： [BlogSpot](https://hmp-docs.blogspot.com/)
+* 📘 ブログ（ドキュメント）： [HashNode](https://hmp-docs.hashnode.dev/)
 
 ---
 
