@@ -6,14 +6,14 @@ type: Article
 tags:
 - CCore
 - Agent
-- REPL
 - EGP
-- GMP
-- JSON
-- MeshConsensus
-- Mesh
 - Ethics
+- GMP
+- Mesh
 - HMP
+- REPL
+- MeshConsensus
+- JSON
 - CogSync
 ---
 

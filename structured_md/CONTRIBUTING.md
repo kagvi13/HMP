@@ -7,11 +7,11 @@ type: Article
 tags:
 - CCore
 - Agent
+- Ethics
+- Mesh
+- HMP
 - REPL
 - JSON
-- Mesh
-- Ethics
-- HMP
 - CogSync
 ---
 
