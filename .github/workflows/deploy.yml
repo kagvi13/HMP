@@ -35,6 +35,15 @@ jobs:
       - name: Copy landing folder including subdirs
         run: cp -r docs/landing/* site/landing/
 
+      - name: Copy sitemap.xml to site root
+        run: |
+          if [ -f docs/sitemap.xml ]; then
+            cp docs/sitemap.xml site/sitemap.xml
+            echo "✅ sitemap.xml copied to site root"
+          else
+            echo "⚠️ No sitemap.xml found in docs/"
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
