@@ -18,7 +18,8 @@
 * [dht_protocol.md](dht_protocol.md) — Рекомендации по протоколу DHT (поиск и обмен пирами)
 * [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
 
-Предыдущие версии:
+### Предыдущие версии протокола:
+
 * [HMP-0001.md](HMP-0001.md) — Протокол HMP версии 1  
 * [HMP-0002.md](HMP-0002.md) — Протокол HMP версии 2  
 * [HMP-0003.md](HMP-0003.md) — Протокол HMP версии 3  
