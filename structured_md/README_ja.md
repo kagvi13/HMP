@@ -5,18 +5,18 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- EGP
-- hmp
-- MeshConsensus
-- mesh-protocol
-- distributed-ai
-- cognitive-architecture
-- Mesh
-- Agent
-- Ethics
-- JSON
-- HMP
 - REPL
+- hmp
+- mesh-protocol
+- Ethics
+- HMP
+- MeshConsensus
+- Agent
+- cognitive-architecture
+- EGP
+- Mesh
+- JSON
+- distributed-ai
 - GMP
 - CogSync
 ---
@@ -394,13 +394,14 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 ### 仕様
 
-* 📑 HMP仕様と倫理: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+* [HashNode](https://hmp-spec.hashnode.space/)
+* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### ブログ & 出版物
 
-* 📘 ブログ（出版物）： [blogspot](https://hypercortex-mesh.blogspot.com/)
-* 📘 ブログ（ドキュメント）： [blogspot](https://hmp-docs.blogspot.com/)
-* 📘 ブログ（ドキュメント）： [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 ブログ（出版物）： [BlogSpot](https://hypercortex-mesh.blogspot.com/)
+* 📘 ブログ（ドキュメント）： [BlogSpot](https://hmp-docs.blogspot.com/)
+* 📘 ブログ（ドキュメント）： [HashNode](https://hmp-docs.hashnode.dev/)
 
 ---
 
