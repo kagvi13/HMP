@@ -351,8 +351,8 @@ Pour commencer, voir [`iteration.md`](iteration.md) ou ouvrir un ticket.
 
 ### Spécifications
 
-* [HashNode](https://hmp-spec.hashnode.space/)
-* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
+* 📑 [HashNode](https://hmp-spec.hashnode.space/)
+* 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Blog et publications
 
