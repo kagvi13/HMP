@@ -331,13 +331,14 @@ Um zu starten, siehe: [`iteration.md`](iteration.md) oder erstellen Sie ein Issu
 
 ### Spezifikationen
 
-* 📑 HMP-Spezifikation & Ethik: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+* [HashNode](https://hmp-spec.hashnode.space/)
+* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Blog und Veröffentlichungen
 
-* 📘 Blog (Veröffentlichungen): [blogspot](https://hypercortex-mesh.blogspot.com/)  
-* 📘 Blog (Dokumentation): [blogspot](https://hmp-docs.blogspot.com/)  
-* 📘 Blog (Dokumentation): [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 Blog (Veröffentlichungen): [BlogSpot](https://hypercortex-mesh.blogspot.com/)  
+* 📘 Blog (Dokumentation): [BlogSpot](https://hmp-docs.blogspot.com/)  
+* 📘 Blog (Dokumentation): [HashNode](https://hmp-docs.hashnode.dev/)
 
 ---
 
