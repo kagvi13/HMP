@@ -5,21 +5,21 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
+- mesh-protocol
 - hmp
-- CogSync
-- Scenarios
+- JSON
 - GMP
-- MeshConsensus
+- HMP
 - distributed-ai
-- cognitive-architecture
+- Ethics
+- Scenarios
 - Agent
 - Mesh
 - EGP
-- JSON
 - REPL
-- HMP
-- mesh-protocol
-- Ethics
+- CogSync
+- cognitive-architecture
+- MeshConsensus
 ---
 
 
@@ -341,13 +341,14 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 
 ### Specifications
 
-* 📑 HMP Specification & Ethics: [hmp-spec.hashnode.space](https://hmp-spec.hashnode.space/)
+* [HashNode](https://hmp-spec.hashnode.space/)
+* [Hugging Face]([https://hmp-spec.hashnode.space/](https://huggingface.co/datasets/kagvi13/hmp-cpec))
 
 ### Blog and Publications
 
-* 📘 Blog (publications): [blogspot](https://hypercortex-mesh.blogspot.com/)
-* 📘 Blog (documentation): [blogspot](https://hmp-docs.blogspot.com/)
-* 📘 Blog (documentation): [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 Blog (publications): [BlogSpot](https://hypercortex-mesh.blogspot.com/)
+* 📘 Blog (documentation): [BlogSpot](https://hmp-docs.blogspot.com/)
+* 📘 Blog (documentation): [HashNode](https://hmp-docs.hashnode.dev/)
 
 ---
 
