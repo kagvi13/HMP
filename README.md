@@ -330,7 +330,7 @@ To get started, see [`iteration.md`](iteration.md) or open an issue.
 ### Specifications
 
 * [HashNode](https://hmp-spec.hashnode.space/)
-* [Hugging Face]([https://hmp-spec.hashnode.space/](https://huggingface.co/datasets/kagvi13/hmp-cpec))
+* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Blog and Publications
 
