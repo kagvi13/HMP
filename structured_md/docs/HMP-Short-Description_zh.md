@@ -5,14 +5,14 @@ description: '**版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HM
   —— 通过共享协议栈交换目标、任务、...'
 type: Article
 tags:
-- JSON
-- Mesh
-- EGP
-- GMP
-- CogSync
-- HMP
 - MeshConsensus
+- Mesh
 - Ethics
+- CogSync
+- GMP
+- HMP
+- JSON
+- EGP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
