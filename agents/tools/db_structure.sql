@@ -152,7 +152,7 @@ CREATE TABLE ethics_cases (
 -- Eсли сообщение сгенерировано вспомогательным REPL-циклом, то source='llm:task' и task_id содержит идентификатор задачи.
 CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,                       
-    topic TEXT,                                                 -- Тема сообщения
+    topic TEXT,                                                 -- Тема сообщения (если пустая — используется начало текста)
     text TEXT NOT NULL,                                         -- Основной текст заметки/сообщения
     code TEXT,                                                  -- Прикреплённый код (Python, JS и т.п.)
     tags TEXT,                                                  -- Теги (устанавливаются агентом, например: "idea", "instruction")
