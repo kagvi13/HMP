@@ -6,12 +6,12 @@ description: '## 🔍 Overview  This roadmap outlines the key stages of developm
 type: Article
 tags:
 - JSON
-- EGP
-- Ethics
-- CogSync
-- Agent
-- HMP
 - Mesh
+- EGP
+- Agent
+- CogSync
+- HMP
+- Ethics
 ---
 
 # 🧭 HyperCortex Mesh Protocol – Roadmap

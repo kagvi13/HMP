@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- hmp
-- MeshConsensus
-- cognitive-architecture
-- JSON
-- EGP
-- Ethics
-- REPL
 - distributed-ai
-- CogSync
-- GMP
-- Agent
-- HMP
+- JSON
 - Mesh
+- EGP
+- REPL
+- GMP
+- hmp
+- Agent
+- CogSync
 - mesh-protocol
+- HMP
+- cognitive-architecture
+- MeshConsensus
+- Ethics
 ---
 
 
@@ -362,8 +362,8 @@ Pour commencer, voir [`iteration.md`](iteration.md) ou ouvrir un ticket.
 
 ### Spécifications
 
-* [HashNode](https://hmp-spec.hashnode.space/)
-* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
+* 📑 [HashNode](https://hmp-spec.hashnode.space/)
+* 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Blog et publications
 
