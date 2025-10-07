@@ -383,8 +383,8 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 ### 仕様
 
-* [HashNode](https://hmp-spec.hashnode.space/)
-* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
+* 📑 [HashNode](https://hmp-spec.hashnode.space/)
+* 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### ブログ & 出版物
 
