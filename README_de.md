@@ -331,8 +331,8 @@ Um zu starten, siehe: [`iteration.md`](iteration.md) oder erstellen Sie ein Issu
 
 ### Spezifikationen
 
-* [HashNode](https://hmp-spec.hashnode.space/)
-* [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
+* 📑 [HashNode](https://hmp-spec.hashnode.space/)
+* 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Blog und Veröffentlichungen
 
