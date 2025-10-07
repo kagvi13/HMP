@@ -119,8 +119,13 @@
 
 * 📄 Документация: [kagvi13.github.io/HMP](https://kagvi13.github.io/HMP/)
 
+### Спецификации
+
+* 📑 [HashNode](https://hmp-spec.hashnode.space/)
+* 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
+
 ### Блог и публикации
 
-* 📘 Блог (публикации): [blogspot](https://hypercortex-mesh.blogspot.com/)
-* 📘 Блог (документация): [blogspot](https://hmp-docs.blogspot.com/)
-* 📘 Блог (документация): [hashnode](https://hmp-docs.hashnode.dev/)
+* 📘 Блог (публикации): [BlogSpot](https://hypercortex-mesh.blogspot.com/)
+* 📘 Блог (документация): [BlogSpot](https://hmp-docs.blogspot.com/)
+* 📘 Блог (документация): [HashNode](https://hmp-docs.hashnode.dev/)
