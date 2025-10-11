@@ -7,13 +7,13 @@ type: Article
 tags:
 - CCore
 - Agent
-- CogSync
-- REPL
-- Mesh
-- MeshConsensus
-- Ethics
-- CShell
 - HMP
+- MeshConsensus
+- Mesh
+- REPL
+- Ethics
+- CogSync
+- CShell
 - EGP
 ---
 
