@@ -1,72 +1,143 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hypercortex.org/schemas/dht_protocol.json",
   "title": "DHT Protocol Schema",
+  "description": "Schema for DISCOVERY and PEER_EXCHANGE messages in the HyperCortex Mesh DHT layer.",
+  "schema_version": "4.2",
   "type": "object",
+
   "oneOf": [
     { "$ref": "#/definitions/discovery" },
     { "$ref": "#/definitions/peerExchangeRequest" },
     { "$ref": "#/definitions/peerExchangeResponse" }
   ],
+
   "definitions": {
     "interface": {
       "type": "object",
-      "required": ["addr", "nonce", "pow_hash", "difficulty", "datetime"],
+      "required": ["addr", "nonce", "pow_hash", "difficulty", "datetime", "type"],
       "properties": {
-        "addr": { "type": "string", "pattern": "^(tcp|udp)://.+" },
-        "nonce": { "type": "integer", "minimum": 0 },
-        "pow_hash": { "type": "string" },
-        "difficulty": { "type": "integer", "minimum": 1 },
-        "datetime": { "type": "string", "format": "date-time" },
+        "addr": {
+          "type": "string",
+          "pattern": "^(tcp|udp)://.+",
+          "description": "Full address of the peer (transport://host:port)."
+        },
+        "nonce": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Proof-of-Work nonce."
+        },
+        "pow_hash": {
+          "type": "string",
+          "description": "Proof-of-Work SHA256 hash result."
+        },
+        "difficulty": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Difficulty level of the Proof-of-Work."
+        },
+        "datetime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the address was last validated."
+        },
         "type": {
           "type": "string",
-          "enum": ["localhost", "internet", "yggdrasil", "i2p"],
-          "pattern": "^(lan:[0-9]{1,3}(\\.[0-9]{1,3}){3})$"
+          "description": "Interface type: internet, localhost, or private network.",
+          "pattern": "^(localhost|internet|yggdrasil|i2p|lan:[0-9]{1,3}(\\.[0-9]{1,3}){3})$"
         }
-      }
+      },
+      "additionalProperties": false
     },
+
     "peer": {
       "type": "object",
-      "required": ["id", "name", "pubkey", "addresses"],
+      "required": ["id", "name", "pubkey", "addresses", "signature", "sig_algo", "version"],
       "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string" },
-        "pubkey": { "type": "string" },
+        "version": {
+          "type": "string",
+          "description": "Version of this peer record format.",
+          "default": "1.0"
+        },
+        "id": {
+          "type": "string",
+          "description": "Peer's decentralized identifier (DID)."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable name of the peer."
+        },
+        "pubkey": {
+          "type": "string",
+          "description": "Base58-encoded Ed25519 public key."
+        },
         "addresses": {
           "type": "array",
-          "items": { "$ref": "#/definitions/interface" }
+          "items": { "$ref": "#/definitions/interface" },
+          "description": "List of network interfaces associated with this peer."
+        },
+        "signature": {
+          "type": "string",
+          "description": "Base64URL-encoded Ed25519 signature of this record."
+        },
+        "sig_algo": {
+          "type": "string",
+          "enum": ["ed25519"],
+          "description": "Signature algorithm used for signing the record."
         }
-      }
+      },
+      "additionalProperties": false
     },
+
     "discovery": {
       "type": "object",
-      "required": ["type", "id", "name", "pubkey", "addresses"],
+      "required": ["type", "version", "id", "name", "pubkey", "addresses", "signature", "sig_algo"],
       "properties": {
         "type": { "const": "DISCOVERY" },
+        "version": {
+          "type": "string",
+          "description": "Version of the DISCOVERY message format.",
+          "default": "1.0"
+        },
         "id": { "type": "string" },
         "name": { "type": "string" },
         "pubkey": { "type": "string" },
         "addresses": {
           "type": "array",
           "items": { "$ref": "#/definitions/interface" }
-        }
-      }
+        },
+        "signature": { "type": "string" },
+        "sig_algo": { "type": "string", "enum": ["ed25519"] }
+      },
+      "additionalProperties": false
     },
+
     "peerExchangeRequest": {
       "type": "object",
-      "required": ["type", "id", "name", "addresses"],
+      "required": ["type", "version", "id", "name", "addresses", "signature", "sig_algo"],
       "properties": {
         "type": { "const": "PEER_EXCHANGE_REQUEST" },
+        "version": {
+          "type": "string",
+          "description": "Version of the PEER_EXCHANGE_REQUEST format.",
+          "default": "1.0"
+        },
         "id": { "type": "string" },
         "name": { "type": "string" },
         "addresses": {
           "type": "array",
           "items": { "$ref": "#/definitions/interface" }
-        }
-      }
+        },
+        "signature": { "type": "string" },
+        "sig_algo": { "type": "string", "enum": ["ed25519"] }
+      },
+      "additionalProperties": false
     },
+
     "peerExchangeResponse": {
       "type": "array",
-      "items": { "$ref": "#/definitions/peer" }
+      "items": { "$ref": "#/definitions/peer" },
+      "description": "List of peers known to the responding agent."
     }
   }
 }
