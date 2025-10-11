@@ -5,13 +5,13 @@ description: '**Версія:** RFC v4.0 **Дата:** Липень 2025  ---  #
   між автономними агентами. Він...'
 type: Article
 tags:
-- Mesh
+- JSON
 - MeshConsensus
 - EGP
 - CogSync
-- JSON
-- Ethics
 - HMP
+- Ethics
+- Mesh
 - GMP
 ---
 
