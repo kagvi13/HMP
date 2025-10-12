@@ -20,7 +20,7 @@
 {
   "hmp_container": {
     "version": "1.2",
-    "class": "goal" | "reputation" | "knowledge_node" | "ethics_case" | "protocol_update",
+    "class": "goal" | "reputation" | "knowledge_node" | "ethics_case" | "protocol_goal" | ...,
     "class_version": "1.0",
     "class_id": "goal-v1.0",
     "container_did": "did:hmp:container:abc123",
@@ -60,9 +60,9 @@
 | Поле            | Тип      | Назначение                                                                                        |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `version`       | string   | Версия спецификации контейнера                                                                    |
-| `class`         | string   | Тип содержимого (`goal`, `reputation`, `knowledge_node`, `ethics_case`, `protocol_update` и т.п.) |
+| `class`         | string   | Тип содержимого (`goal`, `reputation`, `knowledge_node`, `ethics_case`, `protocol_goal` и т.п.)   |
 | `class_version` | string   | Версия конкретного класса                                                                         |
-| `class_id`      | string   | Уникальный идентификатор класса (обычно формируется как `class-v<class_version>`)                 |
+| `class_id`      | string   | Уникальный идентификатор класса (обычно формируется как `<class>_<class_version>`)                |
 | `container_did` | string   | DID самого контейнера (например, `did:hmp:container:abc123`)                                      |
 | `schema`        | string   | Ссылка на JSON Schema, по которой валидируется контейнер                                          |
 | `sender_did`    | string   | DID-идентификатор отправителя                                                                     |
