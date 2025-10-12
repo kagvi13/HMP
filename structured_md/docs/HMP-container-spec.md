@@ -5,12 +5,12 @@ description: '> Данный файл является `заготовкой` д
   для передачи и хранения все...'
 type: Article
 tags:
-- Ethics
-- JSON
 - REPL
+- Agent
+- Ethics
 - Mesh
 - HMP
-- Agent
+- JSON
 ---
 
 # 🧩 HMP Container Specification (v1.2-draft)

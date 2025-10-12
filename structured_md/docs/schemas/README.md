@@ -6,9 +6,9 @@ description: This directory contains **JSON Schema definitions** for the core da
 type: Article
 tags:
 - JSON
+- Mesh
 - Agent
 - HMP
-- Mesh
 ---
 
 # JSON Schemas and Examples for HyperCortex Mesh Protocol (HMP)
