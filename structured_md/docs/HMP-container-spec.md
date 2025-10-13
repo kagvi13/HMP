@@ -6,10 +6,10 @@ description: '> ⚠️ **ВНИМАНИЕ:** Данная версия спец�
 type: Article
 tags:
 - Ethics
-- Agent
 - JSON
-- HMP
+- Agent
 - Mesh
+- HMP
 - REPL
 ---
 
