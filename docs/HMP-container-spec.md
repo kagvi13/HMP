@@ -56,7 +56,7 @@
     ],
     "magnet_uri": "magnet:?xt=urn:sha256:abcd1234..."
   },
-  referenced-by: {}
+  "referenced-by": ["did:hmp:container:ctx-34", "did:hmp:container:goal-945"]
 }
 ```
 
