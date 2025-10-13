@@ -7,10 +7,10 @@ type: Article
 tags:
 - Mesh
 - Agent
-- Ethics
 - HMP
 - REPL
 - JSON
+- Ethics
 ---
 
 # 🧩 HMP Container Specification (v1.2-draft)
