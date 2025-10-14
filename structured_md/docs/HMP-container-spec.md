@@ -6,11 +6,11 @@ description: '> ⚠️ **ВНИМАНИЕ:** Данная версия спец�
 type: Article
 tags:
 - Agent
-- JSON
-- REPL
 - Ethics
-- Mesh
+- REPL
 - HMP
+- Mesh
+- JSON
 ---
 
 # 🧩 HMP Container Specification (v1.2-draft)
