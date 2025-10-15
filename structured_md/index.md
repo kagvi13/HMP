@@ -29,6 +29,7 @@
   - [HMP-0003.md](docs/HMP-0003.md)
   - [HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md)
   - [HMP-0004.md](docs/HMP-0004.md)
+  - [HMP-0005.md](docs/HMP-0005.md)
   - [HMP-Agent-API.md](docs/HMP-Agent-API.md)
   - [HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md)
   - [HMP-Agent-Network-Flow.md](docs/HMP-Agent-Network-Flow.md)
