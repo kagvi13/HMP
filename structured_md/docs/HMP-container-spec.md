@@ -5,12 +5,12 @@ description: '> ⚠️ **ВНИМАНИЕ:** Данная версия спец�
   как стабильная `v1.2`.  ## 1. Назначе...'
 type: Article
 tags:
+- Mesh
+- JSON
 - REPL
 - HMP
-- Mesh
-- Ethics
-- JSON
 - Agent
+- Ethics
 ---
 
 # 🧩 HMP Container Specification (v1.2-draft)
