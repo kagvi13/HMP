@@ -9,8 +9,8 @@ tags:
 - Ethics
 - JSON
 - REPL
-- Mesh
 - HMP
+- Mesh
 ---
 
 # 🧩 HMP Container Specification (v1.2-draft)
