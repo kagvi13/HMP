@@ -5,14 +5,14 @@ description: '**버전:** RFC v4.0 **날짜:** 2025년 7월  ---  ## HMP란?  **
   상호운용성, 윤리적 조정, 동적 지식 진화를 가능하게 합니다.  HMP는 추론, 학습, ...'
 type: Article
 tags:
-- MeshConsensus
 - EGP
-- Mesh
-- Ethics
-- HMP
-- JSON
-- GMP
 - CogSync
+- MeshConsensus
+- GMP
+- HMP
+- Mesh
+- JSON
+- Ethics
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 간략 설명
