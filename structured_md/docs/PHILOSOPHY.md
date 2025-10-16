@@ -5,8 +5,8 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
   (GPT-5), ChatGH  ---  ## 1. Основной тезис От ...'
 type: Article
 tags:
-- Agent
 - Ethics
+- Agent
 - REPL
 - HMP
 - Mesh
