@@ -6,8 +6,8 @@ description: '## 1. Общие положения  * DHT-протокол пре
 type: Article
 tags:
 - JSON
-- Agent
 - HMP
+- Agent
 ---
 
 # DHT Protocol Specification
