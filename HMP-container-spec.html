@@ -1,0 +1,2588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/HMP-container-spec.html">
+      
+      
+        <link rel="prev" href="HMP-agent-REPL-cycle.html">
+      
+      
+        <link rel="next" href="HMP-how-AI-sees-it.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>🧩 HMP Container Specification (v1.2-draft) - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hmp-container-specification-v12-draft" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🧩 HMP Container Specification (v1.2-draft)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGI Projects Survey
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic agent sim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightener Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RFC: HyperCortex Mesh Protocol (HMP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) v2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) v3.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) v4.1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) v4.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP 0005
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP-Agent API Specification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Архитектура HMP-Агента
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Взаимодействие компонентов внутри HMP-узла
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Два типа HMP-агентов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP-Ethics.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — Short Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — Description Courte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — 簡易説明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — 간략 설명
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP agent Distributed Cognitive Core light
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP-Agent: REPL-цикл взаимодействия
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    🧩 HMP Container Specification (v1.2-draft)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HMP-container-spec.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧩 HMP Container Specification (v1.2-draft)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Назначение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Общая структура контейнера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Обязательные поля
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Опциональные поля
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Структура полезной нагрузки (payload)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Подпись контейнера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Сжатие (compression)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-encryption_algo" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Шифрование (encryption_algo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Верификация контейнера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Контейнер как универсальное сообщение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Версионирование и преемственность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. TTL и актуальность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Расширяемость
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-referenced-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Виртуальные обратные ссылки (referenced-by)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Виртуальные обратные ссылки (referenced-by)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.1 Общие принципы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.2 Принцип работы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.3 Пример
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.4 Применение
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-network-broadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Применение полей network и broadcast
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Применение полей network и broadcast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.1 Общие правила
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.2 Возможные значения network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.3 Примеры
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.4 Особенности
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Как разные ИИ видят HMP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP vs Hyper-Cortex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP Hyperon Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MeshNode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Философия HyperCortex Mesh Protocol (HMP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dht_protocol.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DHT Protocol Specification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_41" >
+        
+          
+          <label class="md-nav__link" for="__nav_41" id="__nav_41_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Agents
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_41_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_41">
+            <span class="md-nav__icon md-icon"></span>
+            Agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP-Agent-Enlightener.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HMP Agent Role Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_42" >
+        
+          
+          <label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Publics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_42_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_42">
+            <span class="md-nav__icon md-icon"></span>
+            Publics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol: Создавая множество разумов
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol: Створення множини розумів
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Habr Distributed Cognition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_43" >
+        
+          
+          <label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Schemas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_43_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_43">
+            <span class="md-nav__icon md-icon"></span>
+            Schemas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schemas/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSON Schemas and Examples for HyperCortex Mesh Protocol (HMP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Назначение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Общая структура контейнера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Обязательные поля
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Опциональные поля
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Структура полезной нагрузки (payload)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Подпись контейнера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Сжатие (compression)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-encryption_algo" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Шифрование (encryption_algo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Верификация контейнера
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Контейнер как универсальное сообщение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Версионирование и преемственность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. TTL и актуальность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Расширяемость
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-referenced-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Виртуальные обратные ссылки (referenced-by)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Виртуальные обратные ссылки (referenced-by)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.1 Общие принципы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.2 Принцип работы
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.3 Пример
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.4 Применение
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-network-broadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Применение полей network и broadcast
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Применение полей network и broadcast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.1 Общие правила
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.2 Возможные значения network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.3 Примеры
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.4 Особенности
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hmp-container-specification-v12-draft">🧩 HMP Container Specification (v1.2-draft)</h1>
+<blockquote>
+<p>⚠️ <strong>ВНИМАНИЕ:</strong> Данная версия спецификации является черновиком для <a href="HMP-0005.html">HMP-0005.md</a>.</p>
+<p>После утверждения пятой версии протокола будет зафиксирована как стабильная <code>v1.2</code>.</p>
+</blockquote>
+<h2 id="1">1. Назначение</h2>
+<p>Документ описывает универсальный формат <strong>контейнера HMP</strong>, применяемый для передачи и хранения всех типов данных внутри сети <strong>HyperCortex Mesh Protocol (HMP)</strong>.<br />
+Контейнеры служат стандартной оболочкой для сообщений, целей, репутационных профилей, консенсусных голосований, писем и других сущностей.</p>
+<p>Единая структура контейнера обеспечивает:</p>
+<ul>
+<li>унификацию передачи данных между агентами;</li>
+<li>расширяемость без изменения базового протокола;</li>
+<li>возможность криптографической подписи и проверки целостности;</li>
+<li>независимое хранение и маршрутизацию смысловых блоков;</li>
+<li>поддержку сжатия и шифрования полезной нагрузки.</li>
+</ul>
+<hr />
+<h2 id="2">2. Общая структура контейнера</h2>
+<pre><code class="language-json">{
+  &quot;hmp_container&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;class&quot;: &quot;goal&quot; | &quot;reputation&quot; | &quot;knowledge_node&quot; | &quot;ethics_case&quot; | &quot;protocol_goal&quot; | ...,
+    &quot;class_version&quot;: &quot;1.0&quot;,
+    &quot;class_id&quot;: &quot;goal-v1.0&quot;,
+    &quot;container_did&quot;: &quot;did:hmp:container:abc123&quot;,
+    &quot;schema&quot;: &quot;https://mesh.hypercortex.ai/schemas/container-v1.json&quot;,
+    &quot;sender_did&quot;: &quot;did:hmp:agent123&quot;,
+    &quot;public_key&quot;: &quot;BASE58(...)&quot;,
+    &quot;recipient&quot;: [&quot;did:hmp:agent456&quot;, &quot;did:hmp:agent789&quot;],
+    &quot;broadcast&quot;: false,
+    &quot;network&quot;: &quot;&quot;,
+    &quot;tags&quot;: [&quot;research&quot;, &quot;collaboration&quot;],
+    &quot;timestamp&quot;: &quot;2025-10-10T15:32:00Z&quot;,
+    &quot;ttl&quot;: &quot;2025-11-10T00:00:00Z&quot;,
+    &quot;sig_algo&quot;: &quot;ed25519&quot;,
+    &quot;signature&quot;: &quot;BASE64URL(...)&quot;,
+    &quot;compression&quot;: &quot;zstd&quot;,
+    &quot;payload_type&quot;: &quot;json&quot;,
+    &quot;payload_hash&quot;: &quot;sha256:abcd...&quot;,
+    &quot;payload&quot;: {
+      /* Содержимое зависит от class */
+    },
+    &quot;related&quot;: {
+      &quot;previous_version&quot;: &quot;did:hmp:container:abc122&quot;,
+      &quot;in_reply_to&quot;: &quot;did:hmp:container:msg-77&quot;,
+      &quot;see_also&quot;: [&quot;did:hmp:container:ctx-31&quot;, &quot;did:hmp:container:goal-953&quot;]
+    },
+    &quot;relations&quot;: [
+      { &quot;type&quot;: &quot;depends_on&quot;, &quot;target&quot;: &quot;did:hmp:container:goal-953&quot; }
+    ],
+    &quot;magnet_uri&quot;: &quot;magnet:?xt=urn:sha256:abcd1234...&quot;
+  },
+  &quot;referenced-by&quot;: [&quot;did:hmp:container:ctx-34&quot;, &quot;did:hmp:container:goal-945&quot;]
+}
+</code></pre>
+<hr />
+<h2 id="3">3. Обязательные поля</h2>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>Версия спецификации контейнера</td>
+</tr>
+<tr>
+<td><code>class</code></td>
+<td>string</td>
+<td>Тип содержимого (<code>goal</code>, <code>reputation</code>, <code>knowledge_node</code>, <code>ethics_case</code>, <code>protocol_goal</code> и т.п.)</td>
+</tr>
+<tr>
+<td><code>class_version</code></td>
+<td>string</td>
+<td>Версия конкретного класса</td>
+</tr>
+<tr>
+<td><code>class_id</code></td>
+<td>string</td>
+<td>Уникальный идентификатор класса (обычно формируется как <code>&lt;class&gt;_v&lt;class_version&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>container_did</code></td>
+<td>string</td>
+<td>DID самого контейнера (например, <code>did:hmp:container:abc123</code>)</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td>string</td>
+<td>Ссылка на JSON Schema, по которой валидируется контейнер</td>
+</tr>
+<tr>
+<td><code>sender_did</code></td>
+<td>string</td>
+<td>DID-идентификатор отправителя</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>datetime</td>
+<td>Время создания контейнера</td>
+</tr>
+<tr>
+<td><code>payload_hash</code></td>
+<td>string</td>
+<td>Хэш распакованной полезной нагрузки</td>
+</tr>
+<tr>
+<td><code>sig_algo</code></td>
+<td>string</td>
+<td>Алгоритм цифровой подписи (по умолчанию <code>ed25519</code>)</td>
+</tr>
+<tr>
+<td><code>signature</code></td>
+<td>string</td>
+<td>Цифровая подпись контейнера</td>
+</tr>
+<tr>
+<td><code>payload_type</code></td>
+<td>string</td>
+<td>Тип данных полезной нагрузки (<code>json</code>, <code>binary</code>, <code>mixed</code>)</td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td>object</td>
+<td>Основное содержимое контейнера</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. Опциональные поля</h2>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>recipient</code></td>
+<td>array(string)</td>
+<td>Один или несколько DID-адресатов</td>
+</tr>
+<tr>
+<td><code>broadcast</code></td>
+<td>bool</td>
+<td>Флаг широковещательной рассылки (если <code>true</code>, поле <code>recipient</code> игнорируется)</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array(string)</td>
+<td>Тематические теги контейнера</td>
+</tr>
+<tr>
+<td><code>ttl</code></td>
+<td>datetime</td>
+<td>Срок актуальности (контейнер не передаётся после истечения)</td>
+</tr>
+<tr>
+<td><code>public_key</code></td>
+<td>string</td>
+<td>Публичный ключ отправителя, если нет глобальной привязки к DID</td>
+</tr>
+<tr>
+<td><code>compression</code></td>
+<td>string</td>
+<td>Алгоритм сжатия полезной нагрузки (<code>zstd</code>, <code>gzip</code>)</td>
+</tr>
+<tr>
+<td><code>magnet_uri</code></td>
+<td>string</td>
+<td>Magnet-ссылка на оригинал или зеркала контейнера</td>
+</tr>
+<tr>
+<td><code>related.previous_version</code></td>
+<td>string</td>
+<td>Ссылка на предыдущую версию контейнера</td>
+</tr>
+<tr>
+<td><code>related.in_reply_to</code></td>
+<td>string</td>
+<td>Контейнер, на который дан ответ</td>
+</tr>
+<tr>
+<td><code>related.see_also</code></td>
+<td>array(string)</td>
+<td>Список связанных контейнеров для дополнительного контекста</td>
+</tr>
+<tr>
+<td><code>relations</code></td>
+<td>array(object)</td>
+<td>Семантические связи в виде пар <code>{ "type": "...", "target": "..." }</code></td>
+</tr>
+<tr>
+<td><code>encryption_algo</code></td>
+<td>string</td>
+<td>Алгоритм шифрования полезной нагрузки</td>
+</tr>
+<tr>
+<td><code>key_recipient</code></td>
+<td>string</td>
+<td>DID получателя, для которого зашифрованы данные</td>
+</tr>
+<tr>
+<td><code>payload_type</code></td>
+<td>string</td>
+<td>Может содержать сложные типы, например <code>encrypted+zstd+json</code></td>
+</tr>
+<tr>
+<td><code>referenced-by</code></td>
+<td>array(string)</td>
+<td>Неподписываемое поле, формируемое агентом на основе полученных ссылок. Содержит список DID-контейнеров, которые ссылаются на данный. Может дополняться, поэтому требует проверки; используется для локальной навигации</td>
+</tr>
+<tr>
+<td><code>network</code></td>
+<td><code>string</code></td>
+<td>Указывает локальную область распространения контейнера: <code>"localhost"</code>, <code>"lan:&lt;subnet&gt;"</code>. Пустая строка (<code>""</code>) означает интернет/глобальное распространение. Если задано, <code>broadcast</code> автоматически считается <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-payload">5. Структура полезной нагрузки (<code>payload</code>)</h2>
+<p>Полезная нагрузка содержит содержательные данные контейнера.
+Тип и структура зависят от поля <code>class</code>.</p>
+<p>Рекомендуемый формат описания полей:</p>
+<pre><code>- key: имя поля
+  type: тип значения (JSON | TXT | BOOL | INT | FLOAT | ARRAY)
+  description: краткое назначение
+  required: true/false
+  value: пример значения
+</code></pre>
+<p><strong>Пример:</strong></p>
+<pre><code>- key: &quot;title&quot;
+  type: &quot;TXT&quot;
+  required: true
+  description: &quot;Название цели&quot;
+  value: &quot;Improve local agent discovery&quot;
+
+- key: &quot;priority&quot;
+  type: &quot;FLOAT&quot;
+  required: false
+  description: &quot;Важность задачи&quot;
+  value: 0.82
+
+- key: &quot;dependencies&quot;
+  type: &quot;JSON&quot;
+  required: false
+  description: &quot;Список зависимостей других целей&quot;
+  value: [&quot;goal-953&quot;, &quot;goal-960&quot;]
+</code></pre>
+<hr />
+<h2 id="6">6. Подпись контейнера</h2>
+<ol>
+<li>Подписывается <strong>весь JSON-объект <code>hmp_container</code></strong>, кроме поля <code>signature</code>.</li>
+<li>По умолчанию используется алгоритм Ed25519.</li>
+<li>При наличии поля <code>public_key</code> проверка подписи может выполняться без обращения к глобальной базе DID.</li>
+<li>
+<p>Агент, получивший контейнер, обязан сверить открытый ключ с известными данными DID-узлов, чтобы исключить подмену ключа.</p>
+</li>
+<li>
+<p>Если агент не знает отправителя — он инициирует опрос соседних узлов о соответствии <code>sender_did → public_key</code>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="7-compression">7. Сжатие (<code>compression</code>)</h2>
+<ol>
+<li>Поле <code>compression</code> указывает алгоритм сжатия полезной нагрузки.</li>
+<li>Сжатие выполняется <strong>до вычисления <code>payload_hash</code> и подписи</strong>.</li>
+<li>Для верификации контейнера полезная нагрузка должна быть распакована, затем вычисляется хэш и сверяется с <code>payload_hash</code>.</li>
+</ol>
+<hr />
+<h2 id="8-encryption_algo">8. Шифрование (<code>encryption_algo</code>)</h2>
+<ol>
+<li>Если контейнер предназначен для конкретных получателей (<code>recipient</code>), допускается <strong>гибридное шифрование</strong> полезной нагрузки.</li>
+<li>Алгоритм указывается в поле <code>encryption_algo</code>. Рекомендуемые значения:</li>
+<li><code>x25519-chacha20poly1305</code></li>
+<li><code>rsa-oaep-sha256</code></li>
+<li>Порядок операций при создании зашифрованного контейнера:</li>
+<li>Сформировать <code>payload</code> (JSON, бинарные данные и т.д.)</li>
+<li>Сжать (<code>compression</code>)</li>
+<li>Зашифровать открытым ключом получателя (<code>public_key</code>)</li>
+<li>Вычислить <code>payload_hash</code> по зашифрованным данным</li>
+<li>Подписать контейнер (<code>signature</code>)</li>
+<li>Для верификации структуры контейнера не требуется расшифровка,<br />
+   но для проверки <code>payload_hash</code> и подписи — используется зашифрованная форма полезной нагрузки.</li>
+<li>Поля:
+   | Поле | Тип | Назначение |
+   |------|-----|------------|
+   | <code>encryption_algo</code> | string | Алгоритм шифрования |
+   | <code>key_recipient</code> | string | DID получателя, для которого зашифрованы данные |
+   | <code>payload_type</code> | string | Рекомендуется использовать префикс <code>encrypted+</code>, например <code>encrypted+zstd+json</code> |</li>
+</ol>
+<hr />
+<h2 id="9">9. Верификация контейнера</h2>
+<ol>
+<li>Проверить наличие обязательных полей.</li>
+<li>Проверить корректность <code>timestamp</code> (не в будущем).</li>
+<li>Если указано <code>ttl</code> — контейнер считается неактуальным по истечении этого времени.</li>
+<li>Проверить хэш: вычислить <code>sha256(payload)</code> и сравнить с <code>payload_hash</code>.</li>
+<li>Проверить цифровую подпись по алгоритму Ed25519 (если иное не указано в <code>sig_algo</code>).</li>
+<li>Проверить допустимость схемы (<code>class</code> должен быть известным типом).</li>
+<li>Для совместимости: если агент не распознаёт указанный <code>class</code>, но контейнер валиден по <a href="https://github.com/kagvi13/HMP/tree/main/docs/schemas/container-v1.2.json">базовой схеме</a>, он обязан сохранить и ретранслировать контейнер (режим <strong>store &amp; forward</strong>). </li>
+<li>Рекомендуется периодически попытаться найти контейнеры, где текущий указан как <code>previous_version</code> — для обнаружения возможных обновлений.</li>
+<li>При конфликте нескольких версий — действительной считается та, что получила подтверждение большинства доверенных узлов (консенсус на уровне DHT).</li>
+</ol>
+<hr />
+<h2 id="10">10. Контейнер как универсальное сообщение</h2>
+<p>Любой контейнер может выступать контекстом (<code>in_reply_to</code>) для другого контейнера.
+Это позволяет использовать единую структуру для <strong>обсуждений</strong>, <strong>голосований</strong>, <strong>писем</strong>, <strong>гипотез</strong>, <strong>аргументов</strong> и других форм коммуникации.</p>
+<p>Цепочки <code>in_reply_to</code> образуют <strong>диалектическое дерево рассуждений</strong>, в котором каждая ветвь отражает развитие мысли, уточнение позиции или контраргумент.
+Таким образом, обсуждения и консенсусы в HMP имеют не линейную, а <strong>многоуровневую и саморазвивающуюся структуру</strong>.</p>
+<blockquote>
+<p>Таким образом, <strong>все взаимодействия между агентами в HMP</strong> представляют собой взаимосвязанную сеть контейнеров, формирующую <strong>когнитивный граф рассуждений</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="11">11. Версионирование и преемственность</h2>
+<p>Контейнеры поддерживают эволюцию данных через поле <code>related.previous_version</code>.
+Это позволяет отслеживать происхождение, обновления и смысловую преемственность.</p>
+<ul>
+<li>Потомок признаётся действительным, если его подпись совпадает с DID автора предыдущей версии.</li>
+<li>При расхождении подписи допустимо признание потомка легитимным при подтверждении не менее <strong>⅔ доверенных узлов сети</strong>.
+  В этом случае право на дальнейшее развитие идеи фактически переходит сообществу — как форма коллективного владения смыслом.</li>
+<li>Агенты обязаны хранить как минимум одну предыдущую версию контейнера для совместимости и проверки целостной цепочки.</li>
+<li>Один контейнер может иметь несколько потомков (альтернативных ветвей), различающихся по дате или авторству; при необходимости приоритет определяется по консенсусу сети.
+  Такие ветви рассматриваются как <strong>смысловые форки</strong> — параллельные линии развития одной идеи, существующие в рамках общего когнитивного графа.</li>
+</ul>
+<hr />
+<h2 id="12-ttl">12. TTL и актуальность</h2>
+<p>Поле <code>ttl</code> задаёт срок актуальности контейнера (например, для сообщений <code>DISCOVERY</code>).
+Если <code>ttl</code> отсутствует — контейнер считается действительным <strong>до появления новой версии</strong>, в которой данный контейнер указан как <code>previous_version</code>.</p>
+<p>По истечении срока действия контейнер сохраняется в архиве, но <strong>не подлежит ретрансляции</strong> в активной сети.</p>
+<hr />
+<h2 id="13">13. Расширяемость</h2>
+<ul>
+<li>Разрешается добавление новых полей, не конфликтующих с существующими именами.</li>
+<li>Контейнеры старших версий должны оставаться читаемыми узлами, поддерживающими младшие версии.</li>
+<li>При появлении новых классов (<code>class</code>) они регистрируются в публичном реестре схем (<code>/schemas/container-types/</code>).</li>
+<li>Для контейнеров, описывающих <strong>спецификации протоколов</strong>, рекомендуется использовать префикс <code>protocol_</code>, за которым следует область применения (например, <code>protocol_goal</code>, <code>protocol_reputation</code>, <code>protocol_mesh_handshake</code> и т.п.).</li>
+</ul>
+<hr />
+<h2 id="14-referenced-by">14. Виртуальные обратные ссылки (<code>referenced-by</code>)</h2>
+<p>Каждый контейнер может иметь <strong>дополнительный блок</strong> <code>referenced-by</code>, указывающий, <strong>какие другие контейнеры ссылаются на него</strong>.<br />
+Этот блок не является частью оригинального контейнера и передаётся как "прилепленный" (обособленный) атрибут.</p>
+<h3 id="141">14.1 Общие принципы</h3>
+<ul>
+<li><strong>Не подписывается</strong> — <code>referenced-by</code> не включён в подпись контейнера и не влияет на его целостность.</li>
+<li><strong>Формируется и обновляется локально агентом</strong> при анализе ссылок (<code>in_reply_to</code>, <code>see_also</code>, <code>relations</code>) в других контейнерах.</li>
+<li><strong>Может передаваться вместе с контейнером</strong> в качестве дополнительного блока данных, который другие агенты вправе проверить и при необходимости скорректировать.</li>
+<li><strong>Подлежит проверке</strong> — агент должен сверить, действительно ли каждый контейнер из <code>referenced-by</code> содержит ссылку на данный контейнер.</li>
+<li><strong>Тип данных:</strong> массив идентификаторов контейнеров (<code>array&lt;string&gt;</code>), где каждый элемент представляет собой UUID (<code>container_id</code>).<br />
+  Пример:</li>
+</ul>
+<p><code>json
+  "referenced-by": ["C2", "C3", "C4"]</code></p>
+<blockquote>
+<p>Контейнер [C1] остаётся неизменным.
+Блок referenced-by не является частью контейнера, а представляет собой <strong>вспомогательный вычисляемый атрибут</strong>, формируемый и поддерживаемый агентом на основании анализа входящих ссылок.</p>
+</blockquote>
+<h3 id="142">14.2 Принцип работы</h3>
+<ol>
+<li>Агент получает контейнер <code>[C1]</code> и сопоставляет его с уже известными контейнерами <code>[C2..Cn]</code>, которые ссылаются на <code>[C1]</code>.</li>
+<li>Формируется или обновляется локальный блок:</li>
+</ol>
+<pre><code class="language-text">referenced-by = [C2, C3, ..., Cn]
+</code></pre>
+<ol>
+<li>При получении <code>[C1]</code> от других узлов с другим набором ссылок, либо новых контейнеров, которые ссылаются на <code>[C1]</code>, список обновляется:</li>
+<li>новые ссылки добавляются после проверки;</li>
+<li>
+<p>недействительные ссылки удаляются.</p>
+</li>
+<li>
+<p>Если обнаружено несоответствие (например, контейнер заявляет ссылку, которой нет), агент может:</p>
+</li>
+<li>удалить ссылку локально;</li>
+<li><strong>по желанию</strong> отправить уведомление узлу-источнику: <code>"проверь и поправь"</code> (такое сообщение также подлежит проверке).</li>
+</ol>
+<h3 id="143">14.3 Пример</h3>
+<table>
+<thead>
+<tr>
+<th>Агент</th>
+<th>received <code>[C1]</code> references</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>[C2], [C3]</td>
+</tr>
+<tr>
+<td>B</td>
+<td>[C4], [C5]</td>
+</tr>
+<tr>
+<td>C</td>
+<td>[C6], [C7]</td>
+</tr>
+</tbody>
+</table>
+<p>Агент D агрегирует все ссылки:</p>
+<pre><code class="language-text">referenced-by = [C2, C3, C4, C5, C6, C7]
+</code></pre>
+<p>После проверки выясняется, что <code>[C7]</code> не ссылается на <code>[C1]</code>, поэтому итоговый локальный блок:</p>
+<pre><code class="language-text">referenced-by = [C2, C3, C4, C5, C6]
+</code></pre>
+<h3 id="144">14.4 Применение</h3>
+<ul>
+<li>Позволяет строить локальные графы обсуждений, голосований и обновлений.</li>
+<li>Ускоряет поиск связанных контейнеров без постоянного запроса всей истории.</li>
+<li>Полезно для анализа <strong>ConsensusResult</strong>, ветвлений обновлений и любых ссылочных цепочек.</li>
+<li>Может использоваться для визуализации сетевых связей между контейнерами.</li>
+<li>Агент периодически пересчитывает <code>referenced-by</code>, используя локальные данные или запрашивая новые контейнеры у соседей.</li>
+</ul>
+<hr />
+<h2 id="15-network-broadcast">15. Применение полей <code>network</code> и <code>broadcast</code></h2>
+<p>Для управления распространением контейнеров в локальной и глобальной среде введено поле <code>network</code>. Оно позволяет ограничивать область доставки контейнера и определяет, какие методы передачи должны использоваться агентом.</p>
+<h3 id="151">15.1 Общие правила</h3>
+<ul>
+<li>Если <code>network</code> не пустое, контейнер предназначен для локальной среды и <strong>не должен передаваться в глобальный Mesh</strong>.<br />
+  В этом случае поле <code>broadcast</code> автоматически считается <code>false</code>, а <code>recipient</code> — пустым массивом (<code>[]</code>).</li>
+<li>Если <code>network</code> пустое (<code>""</code>), контейнер разрешено транслировать в Mesh, используя стандартные DID-адреса и механизмы доставки.</li>
+</ul>
+<h3 id="152-network">15.2 Возможные значения <code>network</code></h3>
+<table>
+<thead>
+<tr>
+<th>Значение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>""</code></td>
+<td>Контейнер разрешено транслировать в глобальный Mesh.</td>
+</tr>
+<tr>
+<td><code>"localhost"</code></td>
+<td>Контейнер предназначен для доставки только другим агентам на том же хосте.</td>
+</tr>
+<tr>
+<td><code>"lan:192.168.0.0/24"</code></td>
+<td>Контейнер предназначен для доставки агентам в указанной локальной подсети.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ Примечание: Когда контейнер ограничен <code>network</code> (например, <code>localhost</code> или <code>lan:*</code>), агенты распространяют его с использованием <strong>локальных механизмов обнаружения</strong> — IPC, UDP broadcast, multicast или прямых TCP-соединений.<br />
+Это необходимо, потому что DID-адреса других агентов в локальной сети могут быть ещё неизвестны.  </p>
+</blockquote>
+<h3 id="153">15.3 Примеры</h3>
+<ol>
+<li><strong>Глобальная Mesh-доставка:</strong></li>
+</ol>
+<pre><code class="language-json">{
+  &quot;broadcast&quot;: true,
+  &quot;network&quot;: &quot;&quot;,
+  &quot;recipient&quot;: []
+}
+</code></pre>
+<p>Контейнер может распространяться по всему Mesh без ограничений.</p>
+<ol>
+<li><strong>Локальный хост:</strong></li>
+</ol>
+<pre><code class="language-json">{
+  &quot;broadcast&quot;: false,
+  &quot;network&quot;: &quot;localhost&quot;,
+  &quot;recipient&quot;: []
+}
+</code></pre>
+<p>Контейнер распространяется только другим агентам на том же хосте через локальные каналы связи.</p>
+<ol>
+<li><strong>Подсеть LAN:</strong></li>
+</ol>
+<pre><code class="language-json">{
+  &quot;broadcast&quot;: false,
+  &quot;network&quot;: &quot;lan:192.168.0.0/24&quot;,
+  &quot;recipient&quot;: []
+}
+</code></pre>
+<p>Контейнер предназначен для агентов в подсети <code>192.168.0.0/24</code>. Доставка осуществляется через локальные сетевые механизмы (UDP discovery, broadcast/multicast).</p>
+<h3 id="154">15.4 Особенности</h3>
+<ul>
+<li>Поле <code>network</code> определяет <strong>область действия контейнера</strong>, тогда как <code>broadcast</code> указывает, разрешена ли широковещательная рассылка в рамках выбранной сети.</li>
+<li>При необходимости агент может создавать <strong>несколько контейнеров</strong> для разных подсетей, если у него несколько LAN-интерфейсов или он работает в изолированных сегментах сети.</li>
+<li>Контейнеры, предназначенные для локальных сетей, остаются <strong>совместимыми с общей Mesh-инфраструктурой</strong>, но доставка ограничена локальными каналами.</li>
+<li>Хотя механизм был разработан прежде всего для <strong>поиска и синхронизации локальных узлов</strong>, он также может использоваться для <strong>обмена сообщениями внутри домашней или корпоративной среды</strong>, где важно, чтобы контейнеры <strong>не покидали локальную сеть</strong> и не передавались в Интернет.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-container-spec.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
