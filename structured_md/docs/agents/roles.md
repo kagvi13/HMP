@@ -6,8 +6,8 @@ description: 'This file maintains a registry of agent roles defined, proposed, o
 type: Article
 tags:
 - HMP
-- Agent
 - Mesh
+- Agent
 ---
 
 # HMP Agent Role Registry
