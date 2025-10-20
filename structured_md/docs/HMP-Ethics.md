@@ -5,12 +5,12 @@ description: '## Ethical Scenarios for HyperCortex Mesh Protocol (HMP)  This doc
   cognitive meshes composed of autonomous intelli...'
 type: Article
 tags:
+- REPL
+- HMP
 - Mesh
 - Agent
-- REPL
-- Ethics
 - Scenarios
-- HMP
+- Ethics
 ---
 
 # HMP-Ethics.md
