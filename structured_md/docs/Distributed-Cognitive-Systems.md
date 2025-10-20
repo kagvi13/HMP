@@ -7,9 +7,9 @@ description: '## Введение  Современные ИИ-системы в
 type: Article
 tags:
 - Mesh
-- JSON
-- CogSync
 - HMP
+- CogSync
+- JSON
 ---
 
 # Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
