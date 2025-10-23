@@ -5,14 +5,14 @@ description: '**Version :** RFC v4.0 **Date :** Juillet 2025  ---  ## Qu’est-c
   cognition décentralisé pour agents autonomes. Il...'
 type: Article
 tags:
-- HMP
-- EGP
-- GMP
-- JSON
-- Ethics
 - Agent
 - CogSync
+- GMP
+- EGP
+- Ethics
+- JSON
 - Mesh
+- HMP
 - MeshConsensus
 ---
 
