@@ -5,9 +5,9 @@ description: '## 1. Общие положения  * DHT-протокол пре
   идентификатор агента. * Для проверки ...'
 type: Article
 tags:
-- HMP
 - JSON
 - Agent
+- HMP
 ---
 
 # DHT Protocol Specification
