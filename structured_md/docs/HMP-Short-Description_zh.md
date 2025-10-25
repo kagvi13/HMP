@@ -8,11 +8,11 @@ tags:
 - HMP
 - Mesh
 - EGP
-- JSON
-- CogSync
 - GMP
 - MeshConsensus
 - Ethics
+- CogSync
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
