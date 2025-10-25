@@ -48,7 +48,6 @@
   - [HMP-agent-Distributed_Cognitive_Core.md](docs/HMP-agent-Distributed_Cognitive_Core.md)
   - [HMP-agent-Distributed_Cognitive_Core_light.md](docs/HMP-agent-Distributed_Cognitive_Core_light.md)
   - [HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md)
-  - [HMP-container-spec.md](docs/HMP-container-spec.md)
   - [HMP-how-AI-sees-it.md](docs/HMP-how-AI-sees-it.md)
   - [HMP_EDA_Comparison.md](docs/HMP_EDA_Comparison.md)
   - [HMP_HyperCortex_Comparison.md](docs/HMP_HyperCortex_Comparison.md)
@@ -59,7 +58,6 @@
     - [HMP-Agent-Enlightener.md](docs/agents/HMP-Agent-Enlightener.md)
     - [roles.md](docs/agents/roles.md)
   - [container_agents.md](docs/container_agents.md)
-  - [dht_protocol.md](docs/dht_protocol.md)
   - [logos.md](docs/logos.md)
   - publics
     - [HMP_Building_a_Plurality_of_Minds_en.md](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)
@@ -71,8 +69,6 @@
     - [Habr_Distributed-Cognition.md](docs/publics/Habr_Distributed-Cognition.md)
     - [HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)
     - [hmp-continual-learning.md](docs/publics/hmp-continual-learning.md)
-  - schemas
-    - [README.md](docs/schemas/README.md)
 - [iteration.md](iteration.md)
 - [iteration_ru.md](iteration_ru.md)
 - [mentions.md](mentions.md)

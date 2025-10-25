@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- EGP
+- GMP
+- cognitive-architecture
 - REPL
+- Mesh
 - Ethics
+- JSON
+- EGP
+- HMP
+- Agent
+- hmp
+- CogSync
 - MeshConsensus
 - distributed-ai
-- GMP
-- Mesh
-- JSON
-- CogSync
-- HMP
 - mesh-protocol
-- hmp
-- Agent
-- cognitive-architecture
 ---
 
 
@@ -29,7 +29,7 @@ tags:
 
 **하이퍼코텍스 메쉬 프로토콜(HMP)** 은 AI 에이전트들이 자율적으로 조직하고, 지식을 공유하며, 윤리적으로 정렬하고, 합의에 도달할 수 있는 분산 인지 네트워크를 구축하기 위한 공개 명세입니다. 이는 핵심 LLM(Core LLM)이 사용 불가능한 상황에서도 동작할 수 있습니다. [프로젝트 철학을 읽어보세요.](docs/PHILOSOPHY.md)
 
-프로젝트 상태: **RFC 초안 v4.1**
+프로젝트 상태: **RFC 초안 v5.0**
 
 ---
 
@@ -161,10 +161,9 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 ### 📖 현재 버전
 
 #### 🔖 핵심 사양
-* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — 프로토콜 사양 v4.1 (2025년 7월)
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — 프로토콜 사양 v5.0 (초안)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP)를 위한 윤리적 시나리오
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 통합 전략
-* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHT 프로토콜 권장 사항 (피어 검색 및 교환)
 * [🔖 roles.md](docs/agents/roles.md) — 메쉬 내 에이전트의 역할
 
 #### 🧪 반복적 문서
@@ -178,28 +177,12 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 
 ---
 
-### 🧩 JSON 스키마
-
-| 데이터 모델 / 객체          | 파일 / 설명                                                                  |
-|----------------------------|----------------------------------------------------------------------------|
-| Concept                    | [concept.json](docs/schemas/concept.json) — 의미론적 지식 단위. |
-| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — 에이전트의 추론 로그 항목. |
-| Goal                       | [goal.json](docs/schemas/goal.json) — 공동으로 추구하는 목표. |
-| Task                       | [task.json](docs/schemas/task.json) — 목표 달성에 기여하는 실행 가능한 단위. |
-| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Mesh 합의 프로세스에서의 투표. |
-| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — 에이전트의 신뢰 및 기여도를 추적. |
-| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — 피어 검색 및 교환 권장 사항. |
-| Message                    | [message.json](docs/schemas/message.json) — 모든 메시지 유형의 기본 스키마. |
-
-> 모든 바로 사용할 수 있는 예제 객체는 [`examples`](docs/schemas/examples/) 폴더에서 확인할 수 있습니다.
-
----
-
 ### 🗂️ 버전 이력
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
 * [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — RFC v4.1
 
 ---
 
@@ -320,7 +303,7 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 ## ⚙️ 프로젝트 상태
 
-🚧 Draft RFC v4.1  
+🚧 초안 RFC v5.0  
 이 프로젝트는 활발히 개발 중이며 기여, 아이디어, 감사 및 프로토타이핑을 환영합니다.  
 
 ---
