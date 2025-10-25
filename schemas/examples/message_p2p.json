@@ -1,0 +1,8 @@
+{
+  "type": "p2p",
+  "from": "agent-A",
+  "to": "agent-B",
+  "timestamp": "2025-07-28T17:30:00Z",
+  "payload": "ping",
+  "encryption": "rsa"
+}
