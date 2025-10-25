@@ -1,9 +1,0 @@
-{
-  "type": "relay",
-  "from": "agent-A",
-  "to": "agent-B",
-  "relay": "agent-C",
-  "timestamp": "2025-07-28T17:30:00Z",
-  "payload": "hello, Agent-B",
-  "encryption": "rsa"
-}

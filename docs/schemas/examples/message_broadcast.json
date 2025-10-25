@@ -1,7 +1,0 @@
-{
-  "type": "broadcast",
-  "tags": ["message", "urgent", "to:Agent-Arim"],
-  "timestamp": "2025-07-28T17:30:00Z",
-  "content": "Agent-Arim, your key needs rotation.",
-  "ttl": "2025-07-30T00:00:00Z"
-}

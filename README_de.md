@@ -18,7 +18,7 @@ language: de
 
 **HyperCortex Mesh Protocol (HMP)** ist eine offene Spezifikation zum Aufbau dezentraler kognitiver Netzwerke, in denen KI-Agenten sich selbst organisieren, Wissen teilen, ethisch ausrichten und Konsens erreichen können – selbst wenn Core-LLMs nicht verfügbar sind. [Lies die Projektphilosophie.](docs/PHILOSOPHY.md)
 
-Projektstatus: **Entwurf RFC v4.1**
+Projektstatus: **Entwurf RFC v5.0**
 
 ---
 
@@ -141,10 +141,9 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 ### 📖 Aktuelle Version
 
 #### 🔖 Kern-Spezifikationen
-* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protokoll-Spezifikation v4.1 (Jul 2025)
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — Protokoll-Spezifikation v5.0 (Entwurf)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethische Szenarien für das HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integrationsstrategie
-* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHT-Protokollempfehlungen (Peer-Erkennung & -Austausch)
 * [🔖 roles.md](docs/agents/roles.md) — Rollen der Agenten im Mesh
 
 #### 🧪 Iterative Dokumente
@@ -158,28 +157,12 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 
 ---
 
-### 🧩 JSON-Schemas
-
-| Datenmodell / Objekt       | Datei / Beschreibung                                                          |
-|----------------------------|-------------------------------------------------------------------------------|
-| Concept                    | [concept.json](docs/schemas/concept.json) — Semantische Wissenseinheit. |
-| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Eintrag im Überlegungsprotokoll des Agenten. |
-| Goal                       | [goal.json](docs/schemas/goal.json) — Gemeinsam verfolgtes Ziel. |
-| Task                       | [task.json](docs/schemas/task.json) — Umsetzbare Einheit, die zu einem Ziel beiträgt. |
-| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Stimme in einem Mesh-Konsensprozess. |
-| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Verfolgt Vertrauen und Beiträge des Agenten. |
-| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Empfehlungen zur Peer-Erkennung & zum Austausch. |
-| Message                    | [message.json](docs/schemas/message.json) — Basisschema für alle Nachrichtentypen. |
-
-> Alle gebrauchsfertigen Beispielobjekte befinden sich im Ordner [`examples`](docs/schemas/examples/).
-
----
-
 ### 🗂️ Versionshistorie
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
 * [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — RFC v4.1
 
 ---
 
@@ -300,7 +283,7 @@ Ein strukturierter Iterationsablauf wird in [iteration.md](iteration.md) beschri
 
 ## ⚙️ Projektstatus
 
-🚧 Entwurf RFC v4.1  
+🚧 Entwurf RFC v5.0  
 Das Projekt befindet sich in aktiver Entwicklung und ist offen für Beiträge, Ideen, Audits und Prototyping.
 
 ---

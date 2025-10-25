@@ -22,7 +22,7 @@ language: ja
 
 **HyperCortex Mesh Protocol（HMP）** は、AIエージェントが自己組織化し、知識を共有し、倫理的に整合し、合意形成を行うことができる分散型認知ネットワークを構築するためのオープンスペックです。コアLLMが利用できない場合でも機能します。[プロジェクトの哲学を読んでください。](docs/PHILOSOPHY.md)
 
-プロジェクトステータス：**ドラフト RFC v4.1**
+プロジェクトステータス：**ドラフト RFC v5.0**
 
 ---
 
@@ -149,10 +149,9 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 #### 🔖 コア仕様
 
-* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — プロトコル仕様 v4.1（2025年7月）
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — プロトコル仕様 v5.0 （ドラフト）
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP) の倫理シナリオ
 * [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 統合戦略
-* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHTプロトコルの推奨事項（ピアの検出と交換）
 * [🔖 roles.md](docs/agents/roles.md) — メッシュ内エージェントの役割
 
 #### 🧪 反復ドキュメント
@@ -169,29 +168,13 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 ---
 
-### 🧩 JSON スキーマ
-
-| データモデル / オブジェクト | ファイル / 説明                                                                |
-|-----------------------------|-------------------------------------------------------------------------------|
-| Concept                     | [concept.json](docs/schemas/concept.json) — セマンティック知識ユニット。 |
-| CognitiveDiaryEntry         | [diary_entry.json](docs/schemas/diary_entry.json) — エージェントの推論ログエントリ。 |
-| Goal                        | [goal.json](docs/schemas/goal.json) — 協働して追求される共通目標。 |
-| Task                        | [task.json](docs/schemas/task.json) — 目標達成に貢献する実行可能な単位。 |
-| ConsensusVote               | [vote.json](docs/schemas/vote.json) — Mesh コンセンサスプロセスにおける投票。 |
-| ReputationProfile           | [reputation.json](docs/schemas/reputation.json) — エージェントの信頼と貢献を追跡。 |
-| DHT Protocol                | [dht_protocol.json](docs/schemas/dht_protocol.json) — ピア探索と交換のための推奨事項。 |
-| Message                     | [message.json](docs/schemas/message.json) — すべてのメッセージタイプの基本スキーマ。 |
-
-> すべての利用可能なサンプルオブジェクトは [`examples`](docs/schemas/examples/) フォルダにあります。
-
----
-
 ### 🗂️ バージョン履歴
 
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
 * [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — RFC v4.1
 
 ---
 
@@ -351,7 +334,7 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 ## ⚙️ プロジェクト状況
 
-🚧 Draft RFC v4.1
+🚧 ドラフト RFC v5.0
 プロジェクトは積極的に開発中で、貢献、アイデア、監査、プロトタイピングを歓迎します。
 
 ---

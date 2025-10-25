@@ -19,7 +19,7 @@ language: en
 **HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable. [Read the project philosophy.](docs/PHILOSOPHY.md)
 
 
-Project status: **Draft RFC v4.1**
+Project status: **Draft RFC v5.0**
 
 ---
 
@@ -139,10 +139,9 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 ### 📖 Current Version
 
 #### 🔖 Core Specifications
-* [🔖 HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — Protocol Specification v4.1 (Jul 2025)
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — Protocol Specification v5.0 (Draft)
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethical Scenarios for HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integration Strategy
-* [🔖 dht_protocol.md](docs/dht_protocol.md) — DHT Protocol Recommendations (peer discovery & exchange)
 * [🔖 roles.md](docs/agents/roles.md) — Roles of agents in Mesh
 
 #### 🧪 Iterative Documents
@@ -156,28 +155,12 @@ Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) ove
 
 ---
 
-### 🧩 JSON Schemas
-
-| Data Model / Object        | File / Description                                                                 |
-|----------------------------|-----------------------------------------------------------------------------------|
-| Concept                    | [concept.json](docs/schemas/concept.json) — Semantic knowledge unit. |
-| CognitiveDiaryEntry        | [diary_entry.json](docs/schemas/diary_entry.json) — Agent's reasoning log entry. |
-| Goal                       | [goal.json](docs/schemas/goal.json) — Shared objective pursued collaboratively. |
-| Task                       | [task.json](docs/schemas/task.json) — Actionable unit contributing to a goal. |
-| ConsensusVote              | [vote.json](docs/schemas/vote.json) — Vote in a Mesh consensus process. |
-| ReputationProfile          | [reputation.json](docs/schemas/reputation.json) — Tracks agent trust and contribution metrics. |
-| DHT Protocol               | [dht_protocol.json](docs/schemas/dht_protocol.json) — Recommendations for peer discovery & exchange. |
-| Message                     | [message.json](docs/schemas/message.json) — Base schema for all message types. |
-
-> All ready-to-use example objects can be found in the [`examples`](docs/schemas/examples/) folder.
-
----
-
 ### 🗂️ Version History
 * [HMP-0001.md](docs/HMP-0001.md) — RFC v1.0
 * [HMP-0002.md](docs/HMP-0002.md) — RFC v2.0
 * [HMP-0003.md](docs/HMP-0003.md) — RFC v3.0
 * [HMP-0004.md](docs/HMP-0004.md) — RFC v4.0
+* [HMP-0004-v4.1.md](docs/HMP-0004-v4.1.md) — RFC v4.1
 
 ---
 
@@ -298,7 +281,7 @@ A structured iteration flow is described in [iteration.md](iteration.md), includ
 
 ## ⚙️ Project Status
 
-🚧 Draft RFC v4.1  
+🚧 Draft RFC v5.0  
 The project is under active development and open for contributions, ideas, audits, and prototyping.
 
 ---

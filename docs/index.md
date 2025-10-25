@@ -13,9 +13,8 @@
 ## Протоколы HMP
 
 * [PHILOSOPHY.md](PHILOSOPHY.md) — Философия проекта
-* [HMP-0004-v4.1.md](HMP-0004-v4.1.md) — Протокол HMP версии 4.1  
+* [HMP-0005.md](HMP-0005.md) — Протокол HMP версии 5.0  
 * [HMP-Ethics.md](HMP-Ethics.md) — Этические сценарии для HMP
-* [dht_protocol.md](dht_protocol.md) — Рекомендации по протоколу DHT (поиск и обмен пирами)
 * [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
 
 ### Предыдущие версии протокола:
@@ -24,6 +23,7 @@
 * [HMP-0002.md](HMP-0002.md) — Протокол HMP версии 2  
 * [HMP-0003.md](HMP-0003.md) — Протокол HMP версии 3  
 * [HMP-0004.md](HMP-0004.md) — Протокол HMP версии 4  
+* [HMP-0004-v4.1.md](HMP-0004-v4.1.md) — Протокол HMP версии 4.1  
 
 ---
 
