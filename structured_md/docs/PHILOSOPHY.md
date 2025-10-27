@@ -7,8 +7,8 @@ type: Article
 tags:
 - HMP
 - Agent
-- Ethics
 - Mesh
+- Ethics
 - REPL
 ---
 
