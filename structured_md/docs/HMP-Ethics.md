@@ -8,9 +8,9 @@ tags:
 - Agent
 - REPL
 - Mesh
-- HMP
-- Scenarios
 - Ethics
+- Scenarios
+- HMP
 ---
 
 # HMP-Ethics.md
