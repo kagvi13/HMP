@@ -11,8 +11,8 @@ tags:
 - CogSync
 - JSON
 - HMP
-- Ethics
 - MeshConsensus
+- Ethics
 ---
 
 # HMP-0003 Consolidated Audit Report

@@ -11,8 +11,8 @@ tags:
 - CogSync
 - JSON
 - HMP
-- Ethics
 - MeshConsensus
+- Ethics
 ---
 
 # Iterative Development Workflow for HMP
