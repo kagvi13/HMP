@@ -5,15 +5,15 @@ description: '**Version:** RFC v4.0 **Datum:** Juli 2025  ---  ## Was ist HMP?  
   Kognitions-Framework für autonome Agenten. Es er...'
 type: Article
 tags:
-- MeshConsensus
-- Ethics
-- CogSync
-- EGP
-- GMP
 - Mesh
-- Agent
 - JSON
+- EGP
+- MeshConsensus
+- Agent
+- GMP
+- Ethics
 - HMP
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
