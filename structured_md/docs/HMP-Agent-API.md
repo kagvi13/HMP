@@ -7,8 +7,8 @@ type: Article
 tags:
 - REPL
 - JSON
-- Mesh
 - Agent
+- Mesh
 - HMP
 ---
 
