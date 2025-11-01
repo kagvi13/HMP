@@ -9,9 +9,9 @@ tags:
 - Mesh
 - JSON
 - CogSync
-- EGP
-- Agent
 - HMP
+- Agent
+- EGP
 ---
 
 ## HMP ↔ OpenCog Hyperon Integration Strategy
