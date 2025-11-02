@@ -6,10 +6,10 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
 type: Article
 tags:
 - REPL
+- HMP
 - Ethics
 - Mesh
 - Agent
-- HMP
 ---
 
 # Философия HyperCortex Mesh Protocol (HMP)
