@@ -5,11 +5,11 @@ description: Раздел 5, "Mesh as Moral Infrastructure", добавляет 
   потенциальный катализатор для восстанов...
 type: Article
 tags:
-- HMP
-- Agent
 - JSON
-- Mesh
+- Agent
 - Ethics
+- HMP
+- Mesh
 ---
 
 ---------------
