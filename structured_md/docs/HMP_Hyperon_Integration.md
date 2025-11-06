@@ -5,13 +5,13 @@ description: '> **Status:** Draft – July 2025 > This document outlines the tec
   OpenCog Hyperon framework. This includes semanti...'
 type: Article
 tags:
-- Mesh
-- Scenarios
-- Agent
-- JSON
-- EGP
-- CogSync
 - HMP
+- Scenarios
+- Mesh
+- JSON
+- CogSync
+- Agent
+- EGP
 ---
 
 ## HMP ↔ OpenCog Hyperon Integration Strategy
