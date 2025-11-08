@@ -7,9 +7,9 @@ type: Article
 tags:
 - Mesh
 - EGP
-- HMP
 - CogSync
 - JSON
+- HMP
 - Ethics
 - MeshConsensus
 ---
