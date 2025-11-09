@@ -6,10 +6,10 @@ description: This document consolidates proposed improvements from multiple AI a
 type: Article
 tags:
 - Agent
-- HMP
-- JSON
 - Mesh
+- HMP
 - Ethics
+- JSON
 - Scenarios
 ---
 
