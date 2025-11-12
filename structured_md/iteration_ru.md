@@ -8,10 +8,10 @@ tags:
 - HMP
 - EGP
 - Ethics
-- MeshConsensus
-- Mesh
 - JSON
 - CogSync
+- MeshConsensus
+- Mesh
 ---
 
 
