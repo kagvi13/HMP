@@ -6,13 +6,13 @@ description: 'Спасибо за интерес к проекту HMP! Пока
 type: Article
 tags:
 - JSON
-- CogSync
 - Agent
-- Mesh
-- CCore
-- HMP
-- REPL
 - Ethics
+- HMP
+- Mesh
+- REPL
+- CCore
+- CogSync
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
