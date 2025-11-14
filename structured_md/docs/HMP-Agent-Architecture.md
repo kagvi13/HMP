@@ -6,15 +6,15 @@ description: Документ описывает **модульную архит
 type: Article
 tags:
 - Agent
-- HMP
+- Mesh
+- Ethics
 - CShell
+- EGP
 - CCore
 - REPL
 - CogSync
-- Mesh
-- EGP
 - MeshConsensus
-- Ethics
+- HMP
 ---
 
 # Архитектура HMP-Агента
