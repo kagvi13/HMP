@@ -9,8 +9,8 @@ tags:
 - Mesh
 - Ethics
 - JSON
-- Agent
 - HMP
+- Agent
 ---
 
 # Ethics-consolidated\_audits-1.md
