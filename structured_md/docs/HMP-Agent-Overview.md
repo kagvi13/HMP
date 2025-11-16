@@ -5,14 +5,14 @@ description: '| Тип  | Название                        | Роль    
   | ---- | ------------------------------- |...'
 type: Article
 tags:
-- CCore
-- Ethics
-- REPL
-- HMP
-- JSON
 - Mesh
-- Agent
+- Ethics
+- JSON
 - CShell
+- HMP
+- CCore
+- REPL
+- Agent
 ---
 
 
