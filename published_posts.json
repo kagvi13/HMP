@@ -1,0 +1,210 @@
+{
+  "HMP-how-AI-sees-it": {
+    "id": "5244166200244589785",
+    "hash": "c648921851ffa817022d39099c258c7e"
+  },
+  "Basic-agent-sim": {
+    "id": "7946074005715185231",
+    "hash": "e93de923c0d5a89765e595f7accea7ac"
+  },
+  "AGI_Projects_Survey": {
+    "id": "1446652822465899617",
+    "hash": "c5250fae5d5c0018d2b5b86bcddbc631"
+  },
+  "container_agents": {
+    "id": "2263468294163439126",
+    "hash": "ba086b222bb150b00173ef28bdd25f74"
+  },
+  "HMP-Agent-Overview": {
+    "id": "8942307577864214569",
+    "hash": "d5395f28c6d943b8e30fa362276d037a"
+  },
+  "HMP-Ethics": {
+    "id": "934063822884557701",
+    "hash": "5e55f881d2dd988aa4101202dc952d70"
+  },
+  "HMP-agent-REPL-cycle": {
+    "id": "6287364242238118793",
+    "hash": "8adbff3d2489a5991a2bdb23a2d99f88"
+  },
+  "HMP-Short-Description_ru": {
+    "id": "1881396765179677105",
+    "hash": "c15c18520ee2066d591588520e69e9c1"
+  },
+  "MeshNode": {
+    "id": "9189086558135001042",
+    "hash": "a480ea049bb7894e095bbce1e43d7a76"
+  },
+  "HMP-Agent-Network-Flow": {
+    "id": "917476850738064727",
+    "hash": "d2a87ade9ce524aeddfd9adff4f6a45a"
+  },
+  "HMP-Short-Description_ko": {
+    "id": "7971729700532499648",
+    "hash": "f6d7570aaa45beb14b92a2941646f7f1"
+  },
+  "HMP-Short-Description_de": {
+    "id": "3682793303818173432",
+    "hash": "c9a44492d9bf35bd31ef0afc61f0a26c"
+  },
+  "HMP-agent-Cognitive_Family": {
+    "id": "6206555706793730023",
+    "hash": "858ea43bd710f8b217d9765c7f51853f"
+  },
+  "HMP-0001": {
+    "id": "1854701036607824159",
+    "hash": "1ec4fb2a2801cd813a5b7f296570d224"
+  },
+  "HMP-0003": {
+    "id": "8464483392672237478",
+    "hash": "a6be0812f9631b5436e3f3185f4107f8"
+  },
+  "HMP-0004": {
+    "id": "7492814478662540589",
+    "hash": "38f0559151ffab52e654f03b9f1c26ea"
+  },
+  "HMP-Short-Description_zh": {
+    "id": "1461373794767427432",
+    "hash": "45dec8bc16dea572c14703caef9eb183"
+  },
+  "HMP_HyperCortex_Comparison": {
+    "id": "2220788764428145863",
+    "hash": "d15a9f615987019dfa62efa19ed91af1"
+  },
+  "HMP_Hyperon_Integration": {
+    "id": "4948261397757399767",
+    "hash": "9ecf854cd3c05c083e187059bf1969d9"
+  },
+  "logos": {
+    "id": "9016778088035416635",
+    "hash": "6fa1c7aff1c9147d8eba0e512766a0b9"
+  },
+  "HMP-Short-Description_fr": {
+    "id": "1001436742029513405",
+    "hash": "425d9ae240445bcf2e0113aeb2f4354e"
+  },
+  "HMP-agent-Distributed_Cognitive_Core": {
+    "id": "57815414702563993",
+    "hash": "3380b54c7984d2e750a60d832bb9a877"
+  },
+  "HMP-0002": {
+    "id": "4525013354528591473",
+    "hash": "8ee457b67006840117d41bd6d202a74f"
+  },
+  "HMP-Short-Description_ja": {
+    "id": "2796563896555121610",
+    "hash": "43ba8a28615885cfc897e2cf4757e758"
+  },
+  "HMP-Short-Description_uk": {
+    "id": "8652619124301651952",
+    "hash": "e99f3f1b421a480620e4470f757d245a"
+  },
+  "HMP-Agent-Architecture": {
+    "id": "777288855544603245",
+    "hash": "262f83c47cf3f41e0c980c0804677f80"
+  },
+  "HMP-Agent-API": {
+    "id": "5567403606380956174",
+    "hash": "05a19785211b0015baca55df37b6ac79"
+  },
+  "HMP-Short-Description_en": {
+    "id": "7116816909143302413",
+    "hash": "70572ce52b39e8ef57b72e3d9f706495"
+  },
+  "Enlightener": {
+    "id": "7929544366107616882",
+    "hash": "d51261a46373bfb48aa3a4fa17016ec4"
+  },
+  "HMP-agent-Distributed_Cognitive_Core_light": {
+    "id": "5169351997910988550",
+    "hash": "b1d1fa43d4312071f58e270ac3731869"
+  },
+  "index": {
+    "id": "2442958403366468856",
+    "hash": "0c216a813e9efec55d924c6ee1c55d9e"
+  },
+  "HMP-0004-v4.1": {
+    "id": "1886061394879619167",
+    "hash": "e6a2352969747a34dd965ec3f9f84c93"
+  },
+  "Distributed-Cognitive-Systems": {
+    "id": "5130870323617811963",
+    "hash": "f3cb2fa412343432c37f97260c93155d"
+  },
+  "README": {
+    "id": "6039610274561538940",
+    "hash": "5f380868024f45ff37edc72ce6ebb88f"
+  },
+  "roles": {
+    "id": "7687803216107974646",
+    "hash": "c2f29fe993dd95d68e3d6179e5a280d5"
+  },
+  "HMP-Agent-Enlightener": {
+    "id": "1833114292155246499",
+    "hash": "9a46fa6d0051e97fb05793b29af5fe36"
+  },
+  "HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу": {
+    "id": "7201190277739196122",
+    "hash": "6aa028704cfedf5f3c7d611de66326e8"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_en": {
+    "id": "5750946155311772842",
+    "hash": "ef362fd2b3baefd1186e8fd6dc456b82"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot": {
+    "id": "1870731535010890177",
+    "hash": "d8c077ceadf74c3ab8bbccc61bf591c7"
+  },
+  "Habr_Distributed-Cognition": {
+    "id": "3540068344128770268",
+    "hash": "62c4cf61f2d1f006ded4b4de1bf326e9"
+  },
+  "HMP_Building_a_Plurality_of_Minds_ru": {
+    "id": "313304023695421503",
+    "hash": "0df02354b807fffe9401efd424ec7942"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT": {
+    "id": "5313979202167326769",
+    "hash": "9112fc7567e3f40d6e4c57d7789bfc7a"
+  },
+  "HMP_Building_a_Plurality_of_Minds_en": {
+    "id": "8057107066535149377",
+    "hash": "851f3937cf2f3101a4b44210aac188d4"
+  },
+  "HMP-Agent_Emotions": {
+    "id": "7416558072158574770",
+    "hash": "12a2271324da02f17e3a3565ce124d27"
+  },
+  "dht_protocol": {
+    "id": "6365828354546403841",
+    "hash": "a3daa6fc5dd7e7c633607bdef0cdb4e0"
+  },
+  "hmp-continual-learning": {
+    "id": "3797363924238238603",
+    "hash": "b7536d2d09bd28810cde3248a2638c47"
+  },
+  "HMP_EDA_Comparison": {
+    "id": "1582434141485497670",
+    "hash": "c15febcce15f41c1a5940f0a24c0b4b3"
+  },
+  "HMP_Building_a_Plurality_of_Minds_uk": {
+    "id": "7386447965229829462",
+    "hash": "a3eec97e460f346b4dc7263d21143325"
+  },
+  "CCORE-Deployment-Flow": {
+    "id": "5014330590860231646",
+    "hash": "ce4122464b5c8b319338d96283036cc3"
+  },
+  "PHILOSOPHY": {
+    "id": "1923632758878893293",
+    "hash": "ff94f9f2016da180356d938e392188d7"
+  },
+  "HMP-container-spec": {
+    "id": "1517089721177299944",
+    "hash": "72e3c23da5c08de7687e4bedcb2e14f4"
+  },
+  "HMP-0005": {
+    "id": "9036385597913291547",
+    "hash": "c8756d326729e6b5b71515d9cbf2cb91"
+  }
+}
