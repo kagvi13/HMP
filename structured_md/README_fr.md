@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- JSON
-- Ethics
-- Agent
-- hmp
-- CogSync
 - cognitive-architecture
-- mesh-protocol
 - REPL
+- CogSync
+- mesh-protocol
 - distributed-ai
-- HMP
 - Mesh
-- GMP
 - EGP
+- Ethics
+- hmp
+- GMP
+- JSON
 - MeshConsensus
+- HMP
+- Agent
 ---
 
 
