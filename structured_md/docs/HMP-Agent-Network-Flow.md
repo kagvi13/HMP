@@ -8,9 +8,9 @@ tags:
 - JSON
 - Ethics
 - Agent
+- HMP
 - Mesh
 - EGP
-- HMP
 ---
 
 # Взаимодействие компонентов внутри HMP-узла

@@ -8,17 +8,17 @@ tags:
 - JSON
 - Ethics
 - Agent
-- Mesh
-- CogSync
-- distributed-ai
-- GMP
-- MeshConsensus
-- mesh-protocol
 - hmp
-- EGP
+- CogSync
 - cognitive-architecture
+- mesh-protocol
 - REPL
+- distributed-ai
 - HMP
+- Mesh
+- GMP
+- EGP
+- MeshConsensus
 ---
 
 

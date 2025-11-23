@@ -9,11 +9,11 @@ tags:
 - Ethics
 - Agent
 - CogSync
+- HMP
 - Mesh
 - GMP
-- MeshConsensus
 - EGP
-- HMP
+- MeshConsensus
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Short Description

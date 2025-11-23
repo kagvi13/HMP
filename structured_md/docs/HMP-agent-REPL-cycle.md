@@ -7,14 +7,14 @@ tags:
 - JSON
 - Ethics
 - Agent
-- Mesh
 - CogSync
-- GMP
-- MeshConsensus
-- EGP
-- CCore
 - REPL
 - HMP
+- Mesh
+- GMP
+- EGP
+- CCore
+- MeshConsensus
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия

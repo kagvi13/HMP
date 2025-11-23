@@ -8,11 +8,11 @@ tags:
 - JSON
 - Ethics
 - CogSync
+- HMP
 - Mesh
 - GMP
-- MeshConsensus
 - EGP
-- HMP
+- MeshConsensus
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 간략 설명
