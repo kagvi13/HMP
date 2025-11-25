@@ -5,16 +5,16 @@ description: '## Связанные документы  * Философия п�
 type: Article
 tags:
 - MeshConsensus
-- JSON
-- REPL
 - CCore
-- EGP
-- Agent
-- Ethics
+- JSON
 - GMP
-- CogSync
+- EGP
 - HMP
 - Mesh
+- Ethics
+- REPL
+- Agent
+- CogSync
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
