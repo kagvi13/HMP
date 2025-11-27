@@ -34,3 +34,6 @@ build/
 
 # System folders
 .idea/
+
+# Google Drive
+.tmp.driveupload/
