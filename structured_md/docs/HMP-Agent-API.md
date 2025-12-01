@@ -5,9 +5,9 @@ description: 'Документ описывает **базовый API когн�
   файлы:   * [HMP-Agent-Overview.md]...'
 type: Article
 tags:
-- HMP
 - REPL
 - JSON
+- HMP
 - Mesh
 - Agent
 ---
