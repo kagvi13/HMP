@@ -7,13 +7,13 @@ type: Article
 tags:
 - Agent
 - CCore
+- Mesh
 - REPL
+- Scenarios
+- HMP
+- JSON
 - Ethics
 - CShell
-- HMP
-- Scenarios
-- Mesh
-- JSON
 ---
 
 title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
