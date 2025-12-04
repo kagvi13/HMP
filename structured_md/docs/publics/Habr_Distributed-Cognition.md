@@ -5,12 +5,12 @@ description: Сегодня интеллектуальные системы ча
   мы хотим построить действительно автономную инте...
 type: Article
 tags:
+- Mesh
+- MeshConsensus
+- CogSync
 - GMP
 - EGP
-- MeshConsensus
-- Mesh
 - HMP
-- CogSync
 ---
 
 *От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные системы*
