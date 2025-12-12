@@ -5,12 +5,12 @@ description: '**バージョン:** RFC v4.0 **日付:** 2025年7月  ---  ## HMP
 type: Article
 tags:
 - HMP
-- EGP
 - JSON
-- CogSync
-- GMP
-- Mesh
 - Ethics
+- EGP
+- CogSync
+- Mesh
+- GMP
 - MeshConsensus
 ---
 
