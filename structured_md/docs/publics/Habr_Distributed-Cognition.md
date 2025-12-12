@@ -7,9 +7,9 @@ type: Article
 tags:
 - EGP
 - MeshConsensus
+- HMP
 - Mesh
 - CogSync
-- HMP
 - GMP
 ---
 
