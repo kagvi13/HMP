@@ -4,14 +4,14 @@ description: '**バージョン:** RFC v4.0 **日付:** 2025年7月  ---  ## HMP
   Protocol (HMP)** は、自律エージェントの分散通信および認知フレームワークを定義します。異種の知能システム間でのセマンティック相互運用性、倫理的調整、動的知識進化を可能にします。  HMPは、推論、学習、投票、協調行動を行う分散型認知エージェ...'
 type: Article
 tags:
-- MeshConsensus
 - Ethics
-- Mesh
-- HMP
-- EGP
-- JSON
 - GMP
 - CogSync
+- MeshConsensus
+- Mesh
+- JSON
+- EGP
+- HMP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 簡易説明

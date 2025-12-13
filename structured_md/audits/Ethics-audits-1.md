@@ -6,10 +6,10 @@ description: Раздел 5, "Mesh as Moral Infrastructure", добавляет 
 type: Article
 tags:
 - Ethics
-- Agent
-- HMP
-- JSON
 - Mesh
+- JSON
+- HMP
+- Agent
 ---
 
 ---------------
