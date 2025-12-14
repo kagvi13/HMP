@@ -5,13 +5,13 @@ description: '## 🔍 Overview  This roadmap outlines the key stages of developm
   multiple advanced AI models (Copilot, Claude, G...'
 type: Article
 tags:
-- HMP
-- EGP
-- Mesh
 - Agent
 - CogSync
-- JSON
+- Mesh
 - Ethics
+- JSON
+- HMP
+- EGP
 ---
 
 # 🧭 HyperCortex Mesh Protocol – Roadmap
