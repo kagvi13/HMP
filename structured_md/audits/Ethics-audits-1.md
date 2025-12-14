@@ -8,8 +8,8 @@ tags:
 - HMP
 - Mesh
 - Agent
-- Ethics
 - JSON
+- Ethics
 ---
 
 ---------------
