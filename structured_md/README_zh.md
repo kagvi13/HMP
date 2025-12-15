@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- HMP
-- MeshConsensus
-- CogSync
-- Ethics
-- REPL
-- GMP
-- Agent
-- EGP
-- distributed-ai
-- JSON
-- Mesh
 - hmp
+- HMP
+- cognitive-architecture
+- Mesh
+- Ethics
+- MeshConsensus
+- GMP
+- REPL
+- distributed-ai
 - mesh-protocol
+- JSON
+- Agent
+- CogSync
+- EGP
 ---
 
 
@@ -29,7 +29,7 @@ tags:
 
 **HyperCortex Mesh 协议 (HMP)** 是一个开放规范，用于构建去中心化认知网络，其中 AI 代理可以自我组织、共享知识、进行伦理对齐，并达成共识 —— 即使核心 LLM 不可用。[阅读项目理念。](docs/PHILOSOPHY.md)
 
-**项目状态：** 草案 RFC v5.0
+**项目状态：** RFC v5.0
 
 ---
 
@@ -154,7 +154,7 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 
 #### 🔖 核心规范
 
-* [🔖 HMP-0005.md](docs/HMP-0005.md) — 协议规范 v5.0 （草案）
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — 协议规范 v5.0
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP) 的伦理场景
 * [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 集成策略
 * [🔖 roles.md](docs/agents/roles.md) — Mesh 中代理的角色
@@ -304,7 +304,7 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 
 ## ⚙️ 项目状态
 
-🚧 草案 RFC v5.0
+🚧 RFC v5.0
 项目处于活跃开发中，欢迎贡献、提出想法、参与审计和原型设计。
 
 ---

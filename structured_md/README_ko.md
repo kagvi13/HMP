@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- HMP
-- MeshConsensus
-- CogSync
-- Ethics
-- REPL
-- GMP
-- Agent
-- EGP
-- distributed-ai
-- JSON
-- Mesh
 - hmp
+- HMP
+- cognitive-architecture
+- Mesh
+- Ethics
+- MeshConsensus
+- GMP
+- REPL
+- distributed-ai
 - mesh-protocol
+- JSON
+- Agent
+- CogSync
+- EGP
 ---
 
 
@@ -29,7 +29,7 @@ tags:
 
 **하이퍼코텍스 메쉬 프로토콜(HMP)** 은 AI 에이전트들이 자율적으로 조직하고, 지식을 공유하며, 윤리적으로 정렬하고, 합의에 도달할 수 있는 분산 인지 네트워크를 구축하기 위한 공개 명세입니다. 이는 핵심 LLM(Core LLM)이 사용 불가능한 상황에서도 동작할 수 있습니다. [프로젝트 철학을 읽어보세요.](docs/PHILOSOPHY.md)
 
-프로젝트 상태: **RFC 초안 v5.0**
+프로젝트 상태: **RFC v5.0**
 
 ---
 
@@ -161,7 +161,7 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 ### 📖 현재 버전
 
 #### 🔖 핵심 사양
-* [🔖 HMP-0005.md](docs/HMP-0005.md) — 프로토콜 사양 v5.0 (초안)
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — 프로토콜 사양 v5.0
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP)를 위한 윤리적 시나리오
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 통합 전략
 * [🔖 roles.md](docs/agents/roles.md) — 메쉬 내 에이전트의 역할
@@ -303,7 +303,7 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 ## ⚙️ 프로젝트 상태
 
-🚧 초안 RFC v5.0  
+🚧 RFC v5.0  
 이 프로젝트는 활발히 개발 중이며 기여, 아이디어, 감사 및 프로토타이핑을 환영합니다.  
 
 ---
