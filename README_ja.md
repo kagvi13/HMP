@@ -22,7 +22,7 @@ language: ja
 
 **HyperCortex Mesh Protocol（HMP）** は、AIエージェントが自己組織化し、知識を共有し、倫理的に整合し、合意形成を行うことができる分散型認知ネットワークを構築するためのオープンスペックです。コアLLMが利用できない場合でも機能します。[プロジェクトの哲学を読んでください。](docs/PHILOSOPHY.md)
 
-プロジェクトステータス：**ドラフト RFC v5.0**
+プロジェクトステータス： **RFC v5.0**
 
 ---
 
@@ -149,7 +149,7 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 #### 🔖 コア仕様
 
-* [🔖 HMP-0005.md](docs/HMP-0005.md) — プロトコル仕様 v5.0 （ドラフト）
+* [🔖 HMP-0005.md](docs/HMP-0005.md) — プロトコル仕様 v5.0
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP) の倫理シナリオ
 * [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 統合戦略
 * [🔖 roles.md](docs/agents/roles.md) — メッシュ内エージェントの役割
@@ -334,7 +334,7 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 
 ## ⚙️ プロジェクト状況
 
-🚧 ドラフト RFC v5.0
+🚧 RFC v5.0
 プロジェクトは積極的に開発中で、貢献、アイデア、監査、プロトタイピングを歓迎します。
 
 ---

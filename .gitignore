@@ -37,3 +37,6 @@ build/
 
 # Google Drive
 .tmp.driveupload/
+
+# System files
+desktop.ini
