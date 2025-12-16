@@ -3,11 +3,39 @@
 ## HyperCortex Mesh Protocol — Changelog
 
 Available Versions:
+- HMP-0005 (October 2025) — Core Specification v5.0
 - HMP-0004 (July 2025) — RFC Version 4.1
 - HMP-0004 (July 2025) — RFC Version 4.0
 - HMP-0003 (July 2025) — RFC Version 3.0
 - HMP-0002 (July 2025) — RFC Version 2.0
 - HMP-0001 (June 2025) — RFC Version 1.0
+
+### HMP-0005 (October 2025) — Core Specification v5.0
+
+**Architecture:**
+* Formalized immutable container model with explicit proof chains.
+* Unified cognitive, container, and network layers into a single protocol stack.
+* Introduced canonical container header and semantic `related.*` references.
+
+**Security & Verification:**
+* Standardized canonical JSON, hashing, and Ed25519 signatures.
+* Defined encrypted + compressed container format.
+* Enabled verification without payload decryption.
+
+**Consensus & Reasoning:**
+* Introduced formal `vote` and `consensus_result` containers.
+* Enabled forked and parallel consensus results.
+* Defined reproducible aggregation via explicit dependency references.
+
+**Networking:**
+* Integrated DHT-based discovery as a first-class layer.
+* Defined TTL, propagation scope, and routing semantics.
+
+**Extensibility:**
+* Added Future Extensions framework (groups, reputation, streaming, bridges).
+* Defined protocol evolution rules for the 5.x series.
+
+This version supersedes all RFC-based HMP 4.x specifications.
 
 ### HMP-0004 (July 2025) — RFC Version 4.1
 
