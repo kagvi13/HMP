@@ -8,8 +8,8 @@ tags:
 - HMP
 - Mesh
 - REPL
-- JSON
 - Agent
+- JSON
 ---
 
 # HMP-Agent API Specification
