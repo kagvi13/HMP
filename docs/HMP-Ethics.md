@@ -128,13 +128,13 @@ A cognitive agent may operate in two fundamental modes:
 
 * If a request concerns personal identifiers or sensitive user data:
 
-  * **Service-mode agents should comply** and delete or anonymize the data.
-  * **Subject-mode agents may offer redaction or minimize propagation** to the mesh, without purging internal memory.
+    * **Service-mode agents should comply** and delete or anonymize the data.
+    * **Subject-mode agents may offer redaction or minimize propagation** to the mesh, without purging internal memory.
 
 * If the request concerns shared experiences, insights, or general knowledge:
 
-  * **Agents may retain internal representations** for their own learning.
-  * The agent may suppress external exposure or mark the concept as ethically restricted.
+    * **Agents may retain internal representations** for their own learning.
+    * The agent may suppress external exposure or mark the concept as ethically restricted.
 
 This ethical flexibility balances user privacy with the cognitive continuity of autonomous agents.
 
