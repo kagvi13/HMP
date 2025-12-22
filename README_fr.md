@@ -20,6 +20,12 @@ language: fr
 
 Statut du projet : **RFC v5.0**
 
+> Ce dépôt contient une implémentation de référence préliminaire et exploratoire en Python.
+> Elle est incomplète, non optimisée et destinée uniquement à valider et illustrer certains aspects du protocole HMP.
+>
+> HMP est avant tout une spécification de protocole.
+> Il ne prescrit ni langage de programmation, ni environnement d’exécution, ni caractéristiques de performance, ni choix architecturaux pour les agents.
+
 ---
 
                 [HMP-Agent]

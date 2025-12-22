@@ -20,6 +20,12 @@ language: de
 
 Projektstatus: **RFC v5.0**
 
+> Dieses Repository enthält eine frühe, experimentelle Referenzimplementierung in Python.
+> Sie ist unvollständig, nicht optimiert und dient ausschließlich dazu, einzelne Aspekte des HMP-Protokolls zu validieren und zu veranschaulichen.
+>
+> HMP selbst ist eine Protokollspezifikation.
+> Es schreibt weder Programmiersprachen noch Laufzeitumgebungen, Performance-Eigenschaften oder architektonische Entscheidungen für Agenten vor.
+
 ---
 
                 [HMP-Agent]
