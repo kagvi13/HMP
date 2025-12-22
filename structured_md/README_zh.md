@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- GMP
-- mesh-protocol
-- Mesh
-- Ethics
-- JSON
-- Agent
-- distributed-ai
-- hmp
-- MeshConsensus
-- HMP
-- cognitive-architecture
-- REPL
 - CogSync
+- distributed-ai
+- Agent
+- Ethics
+- MeshConsensus
+- JSON
+- hmp
+- REPL
+- Mesh
 - EGP
+- cognitive-architecture
+- HMP
+- mesh-protocol
+- GMP
 ---
 
 
@@ -30,6 +30,14 @@ tags:
 **HyperCortex Mesh 协议 (HMP)** 是一个开放规范，用于构建去中心化认知网络，其中 AI 代理可以自我组织、共享知识、进行伦理对齐，并达成共识 —— 即使核心 LLM 不可用。[阅读项目理念。](docs/PHILOSOPHY.md)
 
 **项目状态：** RFC v5.0
+
+> 本仓库包含一个早期的、探索性的 Python 参考实现草案。
+> 该实现尚不完整，未进行性能优化，仅用于验证和说明
+> HMP 协议的部分概念和机制。
+>
+> HMP 本身是一份协议规范。
+> 它不规定代理所使用的编程语言、运行时环境、
+> 性能特征或架构设计。
 
 ---
 

@@ -5,13 +5,13 @@ description: '`MeshNode` — агент/демон, отвечающий за с
   Может быть частью агента или вынесен в отдельный пр...'
 type: Article
 tags:
-- Mesh
-- Ethics
-- JSON
-- Agent
-- HMP
 - CogSync
+- Agent
+- JSON
 - EGP
+- Mesh
+- HMP
+- Ethics
 ---
 
 # MeshNode

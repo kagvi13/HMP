@@ -5,21 +5,21 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- GMP
-- mesh-protocol
-- Mesh
-- Ethics
-- JSON
-- Agent
+- CogSync
 - distributed-ai
-- hmp
+- Agent
+- Ethics
 - MeshConsensus
+- JSON
+- hmp
+- REPL
+- Mesh
+- EGP
+- cognitive-architecture
 - Scenarios
 - HMP
-- cognitive-architecture
-- REPL
-- CogSync
-- EGP
+- mesh-protocol
+- GMP
 ---
 
 
@@ -32,6 +32,12 @@ tags:
 
 
 Project status: **RFC v5.0**
+
+> This repository contains an early draft / exploratory reference implementation in Python.
+> It is incomplete, non-optimized, and intended solely to validate and illustrate parts of the HMP protocol.
+>
+> HMP itself is a protocol specification.
+> It does not prescribe programming languages, runtimes, performance characteristics, or architectural choices for agent implementations.
 
 ---
 
