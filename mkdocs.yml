@@ -1,12 +1,21 @@
 site_name: HMP Documentation
 docs_dir: docs
 site_dir: site
+
 theme:
   name: material
   custom_dir: overrides
   features:
     - navigation.instant
+
 site_url: https://kagvi13.github.io/HMP/
 use_directory_urls: false
+
 extra:
   description: "HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей."
+
+markdown_extensions:
+  - pymdownx.superfences
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
