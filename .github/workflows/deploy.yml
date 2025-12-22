@@ -35,9 +35,6 @@ jobs:
       - name: Copy landing folder including subdirs
         run: cp -r docs/landing/* site/landing/
 
-      - name: Copy JS files
-        run: cp docs/js/* site/js/
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
