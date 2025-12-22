@@ -6,11 +6,11 @@ description: '**版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HM
 type: Article
 tags:
 - EGP
-- HMP
-- Ethics
 - JSON
-- Mesh
+- Ethics
 - GMP
+- Mesh
+- HMP
 - CogSync
 - MeshConsensus
 ---
