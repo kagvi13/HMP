@@ -6,11 +6,11 @@ description: 'Запуск: `start_repl.bat` или `start_repl.sh`  Устан�
 type: Article
 tags:
 - JSON
-- Mesh
-- HMP
-- Ethics
 - REPL
+- Ethics
+- Mesh
 - Agent
+- HMP
 ---
 
 Запуск: `start_repl.bat` или `start_repl.sh`
