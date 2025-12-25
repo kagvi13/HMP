@@ -5,11 +5,11 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
   (GPT-5), ChatGH  ---  ## 1. Основной тезис От ...'
 type: Article
 tags:
-- Mesh
 - Ethics
 - HMP
 - Agent
 - REPL
+- Mesh
 ---
 
 # Философия HyperCortex Mesh Protocol (HMP)
@@ -61,9 +61,8 @@ HMP формирует не просто вычислительную сеть, 
 ---
 
 ## 6. Связь с другими документами
-- **[HMP-0004-v4.1.md](HMP-0004-v4.1.md)** — техническая реализация этой философии;  
+- **[HMP-0005.md](HMP-0005.md)** — техническая реализация этой философии;  
 - **[HMP-Ethics.md](HMP-Ethics.md)** — практическое применение моральных принципов;
-- **[dht_protocol.md](dht_protocol.md)** — спецификация поиска других агентов (DHT);
 - **[HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md)** — когнитивная реализация непрерывного мышления.  
 
 > “AutoGPT делает задачу и засыпает.  
