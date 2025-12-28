@@ -5,11 +5,11 @@ description: '## Role Specification: Enlightenment Agent  ### 1. Overview  An **
   awareness, critical thinking, and di...'
 type: Article
 tags:
-- Ethics
 - HMP
 - Mesh
 - REPL
 - Agent
+- Ethics
 ---
 
 # HMP-Agent-Enlightener.md
