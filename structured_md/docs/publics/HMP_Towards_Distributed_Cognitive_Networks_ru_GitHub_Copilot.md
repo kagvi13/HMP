@@ -8,10 +8,10 @@ tags:
 - HMP
 - Agent
 - CShell
+- JSON
 - REPL
 - CCore
 - Mesh
-- JSON
 ---
 
 title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"

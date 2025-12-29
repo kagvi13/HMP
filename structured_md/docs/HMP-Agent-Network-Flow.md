@@ -6,11 +6,11 @@ description: 'Этот документ описывает потоки данн
 type: Article
 tags:
 - Ethics
+- EGP
 - HMP
 - Agent
-- EGP
-- Mesh
 - JSON
+- Mesh
 ---
 
 # Взаимодействие компонентов внутри HMP-узла
