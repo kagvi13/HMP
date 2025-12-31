@@ -6,10 +6,10 @@ description: Сегодня интеллектуальные системы ча
 type: Article
 tags:
 - GMP
-- Mesh
 - EGP
-- CogSync
+- Mesh
 - MeshConsensus
+- CogSync
 - HMP
 ---
 
