@@ -6,11 +6,11 @@ description: '## 🔍 Overview  This roadmap outlines the key stages of developm
 type: Article
 tags:
 - Agent
-- CogSync
-- HMP
 - JSON
-- EGP
+- CogSync
 - Ethics
+- EGP
+- HMP
 - Mesh
 ---
 
