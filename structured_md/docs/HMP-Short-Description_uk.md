@@ -6,12 +6,12 @@ description: '**Версія:** RFC v4.0 **Дата:** Липень 2025  ---  #
 type: Article
 tags:
 - JSON
-- CogSync
+- HMP
 - MeshConsensus
+- CogSync
+- EGP
 - Ethics
 - GMP
-- EGP
-- HMP
 - Mesh
 ---
 
