@@ -5,16 +5,16 @@ description: Документ описывает **модульную архит
   хранение памяти, сетевое взаимодействие и этиче...
 type: Article
 tags:
-- HMP
-- Mesh
-- CShell
-- REPL
+- MeshConsensus
 - CCore
 - CogSync
 - Ethics
-- Agent
-- MeshConsensus
 - EGP
+- CShell
+- REPL
+- HMP
+- Mesh
+- Agent
 ---
 
 # Архитектура HMP-Агента
