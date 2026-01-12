@@ -52,6 +52,7 @@
   - [HMP_EDA_Comparison.md](docs/HMP_EDA_Comparison.md)
   - [HMP_HyperCortex_Comparison.md](docs/HMP_HyperCortex_Comparison.md)
   - [HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md)
+  - [HMPv5_Overview_Ru.md](docs/HMPv5_Overview_Ru.md)
   - [MeshNode.md](docs/MeshNode.md)
   - [PHILOSOPHY.md](docs/PHILOSOPHY.md)
   - agents

@@ -5,14 +5,14 @@ description: 'Спасибо за интерес к проекту HMP! Пока
   Mesh Protocol (HMP) — это не просто те...'
 type: Article
 tags:
-- Mesh
 - HMP
-- Agent
-- CogSync
-- JSON
 - CCore
 - Ethics
+- CogSync
+- JSON
+- Mesh
 - REPL
+- Agent
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
@@ -78,6 +78,7 @@ for entry in entries:
 ### 📂 Основные файлы проекта (на данный момент)
 
 * [docs/HMP-0005.md](docs/HMP-0005.md) — спецификация протоколов и архитектуры HMP
+  (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 * [docs/HMP-Ethics.md](docs/HMP-Ethics.md) — принципы этики и взаимодействия агентов
 * [docs/HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — цикл работы HMP-агента CCore (REPL)
 * [agents/tools/db_structure.sql](agents/tools/db_structure.sql) — структура локальной базы данных для агентов

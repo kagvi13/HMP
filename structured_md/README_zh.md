@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- Mesh
 - HMP
-- mesh-protocol
-- hmp
-- MeshConsensus
+- Ethics
 - cognitive-architecture
+- EGP
+- mesh-protocol
+- CogSync
+- hmp
 - JSON
 - distributed-ai
-- Agent
-- CogSync
-- EGP
+- MeshConsensus
+- Mesh
 - GMP
-- Ethics
 - REPL
+- Agent
 ---
 
 
@@ -29,7 +29,7 @@ tags:
 
 **HyperCortex Mesh 协议 (HMP)** 是一个开放规范，用于构建去中心化认知网络，其中 AI 代理可以自我组织、共享知识、进行伦理对齐，并达成共识 —— 即使核心 LLM 不可用。[阅读项目理念。](docs/PHILOSOPHY.md)
 
-**项目状态：** RFC v5.0
+项目状态： [**RFC v5.0**](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
 
 > 本仓库包含一个早期的、探索性的 Python 参考实现草案。
 > 该实现尚不完整，未进行性能优化，仅用于验证和说明
@@ -163,6 +163,7 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 #### 🔖 核心规范
 
 * [🔖 HMP-0005.md](docs/HMP-0005.md) — 协议规范 v5.0
+  (概览: [RU](docs/HMPv5_Overview_Ru.md))
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP) 的伦理场景
 * [🔖 HMP\_Hyperon\_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 集成策略
 * [🔖 roles.md](docs/agents/roles.md) — Mesh 中代理的角色
