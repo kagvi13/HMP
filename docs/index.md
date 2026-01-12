@@ -13,7 +13,7 @@
 ## Протоколы HMP
 
 * [PHILOSOPHY.md](PHILOSOPHY.md) — Философия проекта
-* [HMP-0005.md](HMP-0005.md) — Протокол HMP версии 5.0  
+* [HMP-0005.md](HMP-0005.md) — Протокол HMP версии 5.0  (Обзоры: [RU](HMPv5_Overview_Ru.md))
 * [HMP-Ethics.md](HMP-Ethics.md) — Этические сценарии для HMP
 * [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
 

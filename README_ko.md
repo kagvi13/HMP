@@ -18,7 +18,7 @@ language: ko
 
 **하이퍼코텍스 메쉬 프로토콜(HMP)** 은 AI 에이전트들이 자율적으로 조직하고, 지식을 공유하며, 윤리적으로 정렬하고, 합의에 도달할 수 있는 분산 인지 네트워크를 구축하기 위한 공개 명세입니다. 이는 핵심 LLM(Core LLM)이 사용 불가능한 상황에서도 동작할 수 있습니다. [프로젝트 철학을 읽어보세요.](docs/PHILOSOPHY.md)
 
-프로젝트 상태: **RFC v5.0**
+프로젝트 상태: [**RFC v5.0**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
 
 > 이 저장소에는 Python으로 작성된 초기 단계의 탐색적 참조 구현이 포함되어 있습니다.
 > 해당 구현은 미완성이며 최적화되지 않았고,
@@ -159,6 +159,7 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 
 #### 🔖 핵심 사양
 * [🔖 HMP-0005.md](docs/HMP-0005.md) — 프로토콜 사양 v5.0
+  (개요: [RU](docs/HMPv5_Overview_Ru.md))
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — HyperCortex Mesh Protocol (HMP)를 위한 윤리적 시나리오
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon 통합 전략
 * [🔖 roles.md](docs/agents/roles.md) — 메쉬 내 에이전트의 역할

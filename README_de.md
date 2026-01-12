@@ -18,7 +18,7 @@ language: de
 
 **HyperCortex Mesh Protocol (HMP)** ist eine offene Spezifikation zum Aufbau dezentraler kognitiver Netzwerke, in denen KI-Agenten sich selbst organisieren, Wissen teilen, ethisch ausrichten und Konsens erreichen können – selbst wenn Core-LLMs nicht verfügbar sind. [Lies die Projektphilosophie.](docs/PHILOSOPHY.md)
 
-Projektstatus: **RFC v5.0**
+Projektstatus: [**RFC v5.0**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
 
 > Dieses Repository enthält eine frühe, experimentelle Referenzimplementierung in Python.
 > Sie ist unvollständig, nicht optimiert und dient ausschließlich dazu, einzelne Aspekte des HMP-Protokolls zu validieren und zu veranschaulichen.
@@ -148,6 +148,7 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 
 #### 🔖 Kern-Spezifikationen
 * [🔖 HMP-0005.md](docs/HMP-0005.md) — Protokoll-Spezifikation v5.0
+  (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
 * [🔖 HMP-Ethics.md](docs/HMP-Ethics.md) — Ethische Szenarien für das HyperCortex Mesh Protocol (HMP)
 * [🔖 HMP_Hyperon_Integration.md](docs/HMP_Hyperon_Integration.md) — HMP ↔ OpenCog Hyperon Integrationsstrategie
 * [🔖 roles.md](docs/agents/roles.md) — Rollen der Agenten im Mesh
