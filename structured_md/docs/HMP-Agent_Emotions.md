@@ -7,8 +7,8 @@ type: Article
 tags:
 - Agent
 - Mesh
-- HMP
 - REPL
+- HMP
 ---
 
 # Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
