@@ -6,8 +6,8 @@ description: '> Этот документ описывает процесс ра
 type: Article
 tags:
 - REPL
-- Agent
 - HMP
+- Agent
 - CCore
 ---
 
