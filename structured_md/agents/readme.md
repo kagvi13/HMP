@@ -8,9 +8,9 @@ tags:
 - Agent
 - JSON
 - REPL
-- Ethics
 - HMP
 - Mesh
+- Ethics
 ---
 
 Запуск: `start_repl.bat` или `start_repl.sh`
