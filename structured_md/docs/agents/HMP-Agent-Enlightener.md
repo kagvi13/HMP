@@ -6,10 +6,10 @@ description: '## Role Specification: Enlightenment Agent  ### 1. Overview  An **
 type: Article
 tags:
 - REPL
-- Mesh
 - Agent
-- Ethics
 - HMP
+- Mesh
+- Ethics
 ---
 
 # HMP-Agent-Enlightener.md
