@@ -5,11 +5,11 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
   (GPT-5), ChatGH  ---  ## 1. Основной тезис От ...'
 type: Article
 tags:
-- Ethics
-- Mesh
-- REPL
-- HMP
 - Agent
+- HMP
+- Mesh
+- Ethics
+- REPL
 ---
 
 # Философия HyperCortex Mesh Protocol (HMP)
