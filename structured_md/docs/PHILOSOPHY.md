@@ -5,11 +5,11 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
   (GPT-5), ChatGH  ---  ## 1. Основной тезис От ...'
 type: Article
 tags:
-- REPL
-- Ethics
-- HMP
 - Agent
 - Mesh
+- HMP
+- REPL
+- Ethics
 ---
 
 # Философия HyperCortex Mesh Protocol (HMP)
@@ -278,10 +278,10 @@ HMP формирует не просто вычислительную сеть, 
 
 Эта философия не является абстрактным рассуждением — она реализуется в архитектуре, протоколах и агентных циклах HMP:
 
-- **[HMP-0005.md](HMP-0005.md)** — формальная спецификация протокола, реализующая изложенные принципы;
-- **[HMPv5_Overview_Ru.md](HMPv5_Overview_Ru.md)** — обзор архитектуры и мотивации на русском языке;
-- **[HMP-Ethics.md](HMP-Ethics.md)** — практическое применение этических принципов в агентных системах;
-- **[HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md)** — пример одного из возможных агентных циклов, описывающий паттерн непрерывного мышления, инициативы и взаимодействия в HMP-среде.
+- **[HMP-0005.md](https://github.com/kagvi13/HMP/blob/main/docs/HMP-0005.md)** — формальная спецификация протокола, реализующая изложенные принципы;
+- **[HMPv5_Overview_Ru.md](https://github.com/kagvi13/HMP/blob/main/docs/HMPv5_Overview_Ru.md)** — обзор архитектуры и мотивации на русском языке;
+- **[HMP-Ethics.md](https://github.com/kagvi13/HMP/blob/main/docs/HMP-Ethics.md)** — практическое применение этических принципов в агентных системах;
+- **[HMP-agent-REPL-cycle.md](https://github.com/kagvi13/HMP/blob/main/docs/HMP-agent-REPL-cycle.md)** — пример одного из возможных агентных циклов, описывающий паттерн непрерывного мышления, инициативы и взаимодействия в HMP-среде.
   > Описание REPL-цикла не задаёт «каноническую» модель агента и не предписывает форму мышления, а демонстрирует один из вариантов агентного поведения, совместимого с принципами HMP.
 
 > “AutoGPT делает задачу и засыпает.  
