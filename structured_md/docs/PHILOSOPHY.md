@@ -6,10 +6,10 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
 type: Article
 tags:
 - Agent
-- Mesh
+- Ethics
 - HMP
 - REPL
-- Ethics
+- Mesh
 ---
 
 # Философия HyperCortex Mesh Protocol (HMP)
@@ -277,6 +277,8 @@ HMP формирует не просто вычислительную сеть, 
 ## 6. Связь с другими документами
 
 Эта философия не является абстрактным рассуждением — она реализуется в архитектуре, протоколах и агентных циклах HMP:
+
+*(ссылки приведены в виде абсолютных URL для удобства чтения документа вне репозитория)*
 
 - **[HMP-0005.md](https://github.com/kagvi13/HMP/blob/main/docs/HMP-0005.md)** — формальная спецификация протокола, реализующая изложенные принципы;
 - **[HMPv5_Overview_Ru.md](https://github.com/kagvi13/HMP/blob/main/docs/HMPv5_Overview_Ru.md)** — обзор архитектуры и мотивации на русском языке;
