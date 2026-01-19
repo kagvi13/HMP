@@ -7,11 +7,11 @@ description: '> *Протокол и архитектура агентов, оп
 type: Article
 tags:
 - Agent
-- CShell
-- HMP
 - REPL
-- JSON
+- HMP
 - Mesh
+- JSON
+- CShell
 - CCore
 ---
 
