@@ -17,6 +17,8 @@
 * [HMP-Ethics.md](HMP-Ethics.md) — Этические сценарии для HMP
 * [HMP-agent-REPL-cycle.md](HMP-agent-REPL-cycle.md) — REPL-цикл взаимодействия
 
+* [Grok_HMP&ANP.md](Grok_HMP&ANP.md) — Grok: сравнение HMP и ANP
+
 ### Предыдущие версии протокола:
 
 * [HMP-0001.md](HMP-0001.md) — Протокол HMP версии 1  
