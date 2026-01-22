@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- HMP
-- Ethics
 - hmp
-- GMP
-- distributed-ai
-- Mesh
-- CogSync
 - REPL
-- MeshConsensus
+- Mesh
 - Agent
-- mesh-protocol
+- GMP
 - EGP
+- Ethics
+- distributed-ai
 - JSON
+- CogSync
+- MeshConsensus
+- HMP
+- cognitive-architecture
+- mesh-protocol
 ---
 
 
@@ -28,6 +28,14 @@ tags:
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 
 **하이퍼코텍스 메쉬 프로토콜(HMP)** 은 AI 에이전트들이 자율적으로 조직하고, 지식을 공유하며, 윤리적으로 정렬하고, 합의에 도달할 수 있는 분산 인지 네트워크를 구축하기 위한 공개 명세입니다. 이는 핵심 LLM(Core LLM)이 사용 불가능한 상황에서도 동작할 수 있습니다. [프로젝트 철학을 읽어보세요.](docs/PHILOSOPHY.md)
+
+HMP는 자율 에이전트 간의 상호작용을 위한 분산형 프로토콜 클래스인 **Agent Network Protocols (ANP)** 중 하나로 간주될 수 있으며, 에이전트의 내부 인지 아키텍처에 대한 요구 사항을 강제하지 않습니다.
+
+다른 ANP 구현들이 식별(identity), 에이전트 발견(discovery), 또는 메시지 형식 협상에 초점을 맞추는 반면, HMP는 장기적인 인지적 연속성, 자발적인 상호작용, 그리고 사고의 산물(인지적 아티팩트)에 대한 작업을 강조합니다.
+
+현재 ANP 클래스에서 가장 널리 알려진 프로토콜은 [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol)입니다.
+
+Grok(xAI)이 작성한 HMP와 ANP의 비교 분석은 [여기](docs/Grok_HMP&ANP.md)에서 확인할 수 있습니다.
 
 프로젝트 상태: [**RFC v5.0**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
 

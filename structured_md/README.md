@@ -5,21 +5,21 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- HMP
-- Ethics
-- Scenarios
 - hmp
-- GMP
-- distributed-ai
-- Mesh
-- CogSync
 - REPL
-- MeshConsensus
+- Mesh
 - Agent
-- mesh-protocol
+- GMP
+- Scenarios
 - EGP
+- Ethics
+- distributed-ai
 - JSON
+- CogSync
+- MeshConsensus
+- HMP
+- cognitive-architecture
+- mesh-protocol
 ---
 
 
@@ -30,6 +30,13 @@ tags:
 
 **HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks where AI agents can self-organize, share knowledge, align ethically, and reach consensus — even when Core LLMs are unavailable. [Read the project philosophy.](docs/PHILOSOPHY.md)
 
+HMP can be considered one of the **Agent Network Protocols (ANP)** — a class of decentralized protocols for interaction between autonomous agents that do not impose requirements on their internal cognitive architectures.  
+
+While other ANP implementations may focus on identity, discovery, or message negotiation, HMP emphasizes long-term cognitive continuity, voluntary interaction, and work with artifacts of thought.
+
+At present, the most widely known protocol of the ANP class is [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
+
+A comparative analysis of HMP and ANP prepared by Grok (xAI) is available [here](docs/Grok_HMP&ANP.md).
 
 Project status: [**RFC v5.0**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 

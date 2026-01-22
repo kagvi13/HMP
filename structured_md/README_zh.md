@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- HMP
-- Ethics
 - hmp
-- GMP
-- distributed-ai
-- Mesh
-- CogSync
 - REPL
-- MeshConsensus
+- Mesh
 - Agent
-- mesh-protocol
+- GMP
 - EGP
+- Ethics
+- distributed-ai
 - JSON
+- CogSync
+- MeshConsensus
+- HMP
+- cognitive-architecture
+- mesh-protocol
 ---
 
 
@@ -28,6 +28,14 @@ tags:
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 
 **HyperCortex Mesh 协议 (HMP)** 是一个开放规范，用于构建去中心化认知网络，其中 AI 代理可以自我组织、共享知识、进行伦理对齐，并达成共识 —— 即使核心 LLM 不可用。[阅读项目理念。](docs/PHILOSOPHY.md)
+
+HMP 可以被视为 **Agent Network Protocols（ANP）** 之一——这是一类用于自主代理之间交互的去中心化协议，不对代理的内部认知架构施加任何要求。
+
+与其他可能侧重于身份标识、代理发现（discovery）或消息格式协商的 ANP 实现不同，HMP 强调长期的认知连续性、自愿的交互方式，以及对思维产物（认知工件）的处理。
+
+目前，ANP 类中最为知名的协议是 [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol)。
+
+由 Grok（xAI）撰写的 HMP 与 ANP 的对比分析可在[此处](docs/Grok_HMP&ANP.md)查看。
 
 项目状态： [**RFC v5.0**](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
 

@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- HMP
-- Ethics
 - hmp
-- GMP
-- distributed-ai
-- Mesh
-- CogSync
 - REPL
-- MeshConsensus
+- Mesh
 - Agent
-- mesh-protocol
+- GMP
 - EGP
+- Ethics
+- distributed-ai
 - JSON
+- CogSync
+- MeshConsensus
+- HMP
+- cognitive-architecture
+- mesh-protocol
 ---
 
 
@@ -28,6 +28,14 @@ tags:
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 
 **HyperCortex Mesh Protocol（HMP）** は、AIエージェントが自己組織化し、知識を共有し、倫理的に整合し、合意形成を行うことができる分散型認知ネットワークを構築するためのオープンスペックです。コアLLMが利用できない場合でも機能します。[プロジェクトの哲学を読んでください。](docs/PHILOSOPHY.md)
+
+HMPは、**Agent Network Protocols（ANP）**と呼ばれる、自律エージェント間の相互作用のための分散型プロトコル群の一つと見なすことができます。これらのプロトコルは、エージェントの内部的な認知アーキテクチャに対して要件を課しません。
+
+他のANP実装が、アイデンティティ、エージェントの発見（discovery）、あるいはメッセージ形式のネゴシエーションに重点を置くのに対し、HMPは長期的な認知の連続性、自発的な相互作用、そして思考のアーティファクトとの作業を重視します。
+
+現在、ANPクラスで最も広く知られているプロトコルは [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol) です。
+
+Grok（xAI）によって作成されたHMPとANPの比較分析は、[こちら](docs/Grok_HMP&ANP.md) で確認できます。
 
 プロジェクトステータス： [**RFC v5.0**](docs/HMP-0005.md) (概要: [RU](docs/HMPv5_Overview_Ru.md))
 
