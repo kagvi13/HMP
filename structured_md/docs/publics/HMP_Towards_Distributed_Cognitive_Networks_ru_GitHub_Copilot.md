@@ -6,11 +6,11 @@ description: '* [Аннотация](#аннотация) * [1. Введение
 type: Article
 tags:
 - REPL
-- Agent
 - Mesh
+- HMP
 - CCore
 - JSON
-- HMP
+- Agent
 - CShell
 ---
 
