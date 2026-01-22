@@ -18,6 +18,14 @@ language: fr
 
 **HyperCortex Mesh Protocol (HMP)** est une spécification ouverte pour la construction de réseaux cognitifs décentralisés où les agents IA peuvent s’auto-organiser, partager des connaissances, s’aligner éthiquement et parvenir à un consensus — même lorsque les LLM principaux ne sont pas disponibles. [Lisez la philosophie du projet.](docs/PHILOSOPHY.md)
 
+HMP peut être considéré comme l’un des **Agent Network Protocols (ANP)** — une classe de protocoles décentralisés pour l’interaction entre agents autonomes, n’imposant aucune exigence quant à leur architecture cognitive interne.
+
+Alors que d’autres implémentations d’ANP peuvent se concentrer sur l’identité, la découverte (discovery) ou la négociation des formats de messages, HMP met l’accent sur la continuité cognitive à long terme, l’interaction volontaire et le travail avec des artefacts de la pensée.
+
+À l’heure actuelle, le protocole le plus connu de la classe ANP est [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
+
+Une analyse comparative de HMP et d’ANP, préparée par Grok (xAI), est disponible [ici](docs/Grok_HMP&ANP.md)
+
 Statut du projet : [**RFC v5.0**](docs/HMP-0005.md) (Présentation: [RU](docs/HMPv5_Overview_Ru.md))
 
 > Ce dépôt contient une implémentation de référence préliminaire et exploratoire en Python.
