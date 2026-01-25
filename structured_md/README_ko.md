@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- cognitive-architecture
-- CogSync
-- Mesh
 - GMP
 - hmp
-- Agent
-- Ethics
+- Mesh
 - MeshConsensus
+- Ethics
+- Agent
 - mesh-protocol
+- cognitive-architecture
+- CogSync
 - HMP
-- distributed-ai
+- EGP
 - REPL
 - JSON
-- EGP
+- distributed-ai
 ---
 
 
@@ -35,7 +35,9 @@ HMP는 자율 에이전트 간의 상호작용을 위한 분산형 프로토콜 
 
 현재 ANP 클래스에서 가장 널리 알려진 프로토콜은 [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol)입니다.
 
-Grok(xAI)이 작성한 HMP와 ANP의 비교 분석은 [여기](docs/Grok_HMP&ANP.md)에서 확인할 수 있습니다.
+상호 보완적인 프로토콜로서의 HMP와 ANP:
+- Grok(xAI)가 작성한 HMP와 ANP의 비교 분석은 [여기](docs/Grok_HMP&ANP.md)에서 확인할 수 있습니다.
+- *HMP와 ANP: 올바른 아키텍처의 지표로서의 상호 터널링*은 [여기](docs/HMP&ANP_layer_inversion.md)에서 확인할 수 있습니다.
 
 프로젝트 상태: [**RFC v5.0**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
 

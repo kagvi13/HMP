@@ -25,6 +25,7 @@
   - [Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md)
   - [Enlightener.md](docs/Enlightener.md)
   - [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
+  - [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
   - [HMP-0001.md](docs/HMP-0001.md)
   - [HMP-0002.md](docs/HMP-0002.md)
   - [HMP-0003.md](docs/HMP-0003.md)

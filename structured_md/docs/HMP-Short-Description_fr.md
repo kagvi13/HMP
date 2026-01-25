@@ -5,15 +5,15 @@ description: '**Version :** RFC v4.0 **Date :** Juillet 2025  ---  ## Qu’est-c
   cognition décentralisé pour agents autonomes. Il...'
 type: Article
 tags:
-- CogSync
-- Mesh
 - GMP
-- Agent
-- Ethics
+- Mesh
 - MeshConsensus
+- Ethics
+- Agent
+- CogSync
 - HMP
-- JSON
 - EGP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Description Courte
