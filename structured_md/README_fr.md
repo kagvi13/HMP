@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- GMP
-- hmp
 - Mesh
-- MeshConsensus
-- Ethics
-- Agent
-- mesh-protocol
 - cognitive-architecture
-- CogSync
-- HMP
-- EGP
-- REPL
-- JSON
 - distributed-ai
+- HMP
+- MeshConsensus
+- GMP
+- JSON
+- mesh-protocol
+- CogSync
+- Ethics
+- EGP
+- Agent
+- REPL
+- hmp
 ---
 
 
@@ -38,6 +38,8 @@ Alors que d’autres implémentations d’ANP peuvent se concentrer sur l’iden
 HMP et ANP en tant que protocoles complémentaires :
 - Une analyse comparative de HMP et ANP, préparée par Grok (xAI), est disponible [ici](docs/Grok_HMP&ANP.md).
 - *HMP et ANP : le tunneling mutuel comme signe d’une architecture correcte*, est disponible [ici](docs/HMP&ANP_layer_inversion.md).
+
+Le [Agora Protocol](https://github.com/agora-protocol/) est un méta-protocole destiné à la négociation des modes d’interaction entre agents. Il complète, plutôt que de remplacer, des protocoles tels que ANP (réseau et identité) et HMP (continuité cognitive et mémoire), en coordonnant leur utilisation selon le contexte.
 
 Statut du projet : [**RFC v5.0**](docs/HMP-0005.md) (Présentation: [RU](docs/HMPv5_Overview_Ru.md))
 

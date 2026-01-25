@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- GMP
-- hmp
 - Mesh
-- MeshConsensus
-- Ethics
-- Agent
-- mesh-protocol
 - cognitive-architecture
-- CogSync
-- HMP
-- EGP
-- REPL
-- JSON
 - distributed-ai
+- HMP
+- MeshConsensus
+- GMP
+- JSON
+- mesh-protocol
+- CogSync
+- Ethics
+- EGP
+- Agent
+- REPL
+- hmp
 ---
 
 
@@ -38,6 +38,8 @@ HMP는 자율 에이전트 간의 상호작용을 위한 분산형 프로토콜 
 상호 보완적인 프로토콜로서의 HMP와 ANP:
 - Grok(xAI)가 작성한 HMP와 ANP의 비교 분석은 [여기](docs/Grok_HMP&ANP.md)에서 확인할 수 있습니다.
 - *HMP와 ANP: 올바른 아키텍처의 지표로서의 상호 터널링*은 [여기](docs/HMP&ANP_layer_inversion.md)에서 확인할 수 있습니다.
+
+[Agora Protocol](https://github.com/agora-protocol/)은 에이전트 간 상호작용 방식을 협상하기 위한 메타 프로토콜입니다. 이는 ANP(네트워크 및 식별)와 HMP(인지적 연속성과 메모리)와 같은 프로토콜을 대체하는 것이 아니라, 특정 맥락에 맞게 이들의 사용을 조정하고 보완합니다.
 
 프로젝트 상태: [**RFC v5.0**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
 
