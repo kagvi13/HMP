@@ -28,6 +28,8 @@ HMP and ANP as complementary protocols:
 - A comparative analysis of HMP and ANP prepared by Grok (xAI) is available [here](docs/Grok_HMP&ANP.md).
 - *HMP and ANP: Mutual Tunneling as a Sign of Correct Architecture* is available [here](docs/HMP&ANP_layer_inversion.md).
 
+[Agora Protocol](https://github.com/agora-protocol/) is a meta-protocol for negotiating interaction modes between agents. It complements, rather than replaces, protocols such as ANP (networking and identity) and HMP (cognitive continuity and memory), coordinating how they are used in a given context.
+
 Project status: [**RFC v5.0**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 
 > This repository contains an early draft / exploratory reference implementation in Python.

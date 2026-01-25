@@ -28,6 +28,8 @@ HMPは、**Agent Network Protocols（ANP）**と呼ばれる、自律エージ�
 - Grok（xAI）によって作成された HMP と ANP の比較分析は [こちら](docs/Grok_HMP&ANP.md) で確認できます。
 - *HMP と ANP：正しいアーキテクチャの指標としての相互トンネリング* は [こちら](docs/HMP&ANP_layer_inversion.md) で確認できます。
 
+[Agora Protocol](https://github.com/agora-protocol/) は、エージェント間の通信方式を交渉・選択するためのメタプロトコルです。ANP（ネットワークおよびアイデンティティ）や HMP（認知的連続性と記憶）といったプロトコルを置き換えるのではなく、文脈に応じてそれらの利用を調整・補完します。
+
 プロジェクトステータス： [**RFC v5.0**](docs/HMP-0005.md) (概要: [RU](docs/HMPv5_Overview_Ru.md))
 
 > このリポジトリには、Python による初期段階の探索的な参照実装が含まれています。
