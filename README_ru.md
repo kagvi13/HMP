@@ -24,7 +24,9 @@ HMP можно рассматривать как один из **Agent Network P
 
 В настоящее время наиболее известным протоколом класса ANP является [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
-Сравнительный анализ HMP и ANP, подготовленный Grok (xAI), доступен [здесь](docs/Grok_HMP&ANP.md).
+HMP и ANP как взаимодополняющие протоколы:
+- Сравнительный анализ HMP и ANP, подготовленный Grok (xAI), доступен [здесь](docs/Grok_HMP&ANP.md).
+- *HMP и ANP: Взаимное туннелирование как признак правильной архитектуры*, доступен [здесь](docs/HMP&ANP_layer_inversion.md).
 
 Статус проекта: [**RFC v5.0**](docs/HMP-0005.md) (Обзор: [RU](docs/HMPv5_Overview_Ru.md))
 

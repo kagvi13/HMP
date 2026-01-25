@@ -24,7 +24,9 @@ HMP 可以被视为 **Agent Network Protocols（ANP）** 之一——这是一�
 
 目前，ANP 类中最为知名的协议是 [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol)。
 
-由 Grok（xAI）撰写的 HMP 与 ANP 的对比分析可在[此处](docs/Grok_HMP&ANP.md)查看。
+作为互补协议的 HMP 与 ANP：
+- 由 Grok（xAI）撰写的 HMP 与 ANP 的比较分析可在 [此处](docs/Grok_HMP&ANP.md) 查看。
+- *HMP 与 ANP：作为正确架构标志的相互隧道化* 可在 [此处](docs/HMP&ANP_layer_inversion.md) 查看。
 
 项目状态： [**RFC v5.0**](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
 

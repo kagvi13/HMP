@@ -24,7 +24,9 @@ Während sich andere ANP-Implementierungen auf Identität, Discovery oder die Au
 
 Derzeit ist das bekannteste Protokoll der ANP-Klasse [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
-Eine vergleichende Analyse von HMP und ANP, erstellt von Grok (xAI), ist [hier](docs/Grok_HMP&ANP.md) verfügbar.
+HMP und ANP als komplementäre Protokolle:
+- Eine vergleichende Analyse von HMP und ANP, erstellt von Grok (xAI), ist [hier](docs/Grok_HMP&ANP.md) verfügbar.
+- *HMP und ANP: Gegenseitiges Tunneling als Zeichen einer korrekten Architektur*, ist [hier](docs/HMP&ANP_layer_inversion.md) verfügbar.
 
 Projektstatus: [**RFC v5.0**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
 

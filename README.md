@@ -24,7 +24,9 @@ While other ANP implementations may focus on identity, discovery, or message neg
 
 At present, the most widely known protocol of the ANP class is [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
-A comparative analysis of HMP and ANP prepared by Grok (xAI) is available [here](docs/Grok_HMP&ANP.md).
+HMP and ANP as complementary protocols:
+- A comparative analysis of HMP and ANP prepared by Grok (xAI) is available [here](docs/Grok_HMP&ANP.md).
+- *HMP and ANP: Mutual Tunneling as a Sign of Correct Architecture* is available [here](docs/HMP&ANP_layer_inversion.md).
 
 Project status: [**RFC v5.0**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 
