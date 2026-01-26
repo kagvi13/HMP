@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- HMP
-- EGP
-- Agent
-- Mesh
-- hmp
-- MeshConsensus
-- mesh-protocol
-- CogSync
-- cognitive-architecture
-- REPL
 - JSON
+- cognitive-architecture
+- mesh-protocol
+- MeshConsensus
+- CogSync
+- hmp
+- EGP
 - Ethics
+- Mesh
+- REPL
 - GMP
+- Agent
+- HMP
+- distributed-ai
 ---
 
 
@@ -38,6 +38,11 @@ HMPは、**Agent Network Protocols（ANP）**と呼ばれる、自律エージ�
 相補的なプロトコルとしての HMP と ANP:
 - Grok（xAI）によって作成された HMP と ANP の比較分析は [こちら](docs/Grok_HMP&ANP.md) で確認できます。
 - *HMP と ANP：正しいアーキテクチャの指標としての相互トンネリング* は [こちら](docs/HMP&ANP_layer_inversion.md) で確認できます。
+
+> 比喩的に言えば、ANP と HMP は分散型「エージェント脳」の二つの半球のような関係にあります。  
+> ANP は合理的で離散的な側面――アイデンティティ、ディスカバリ、相互作用プロトコルに関する形式的な合意――を担います。  
+> HMP は文脈的で連続的な側面――意味の保持、長期記憶、内省、倫理的連続性――を担います。  
+> 人間の脳と同様に、どちらの半球が「より重要」ということはありません。両者が協調してはじめて、システムは接続性と意味の両方を持つことができます。  
 
 [Agora Protocol](https://github.com/agora-protocol/) は、エージェント間の通信方式を交渉・選択するためのメタプロトコルです。ANP（ネットワークおよびアイデンティティ）や HMP（認知的連続性と記憶）といったプロトコルを置き換えるのではなく、文脈に応じてそれらの利用を調整・補完します。
 

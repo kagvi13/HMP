@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- distributed-ai
-- HMP
-- EGP
-- Agent
-- Mesh
-- hmp
-- MeshConsensus
-- mesh-protocol
-- CogSync
-- cognitive-architecture
-- REPL
 - JSON
+- cognitive-architecture
+- mesh-protocol
+- MeshConsensus
+- CogSync
+- hmp
+- EGP
 - Ethics
+- Mesh
+- REPL
 - GMP
+- Agent
+- HMP
+- distributed-ai
 ---
 
 
@@ -38,6 +38,11 @@ Alors que d’autres implémentations d’ANP peuvent se concentrer sur l’iden
 HMP et ANP en tant que protocoles complémentaires :
 - Une analyse comparative de HMP et ANP, préparée par Grok (xAI), est disponible [ici](docs/Grok_HMP&ANP.md).
 - *HMP et ANP : le tunneling mutuel comme signe d’une architecture correcte*, est disponible [ici](docs/HMP&ANP_layer_inversion.md).
+
+> Au sens métaphorique, ANP et HMP peuvent être comparés aux deux hémisphères d’un «cerveau agent» distribué:  
+> ANP est responsable de la partie rationnelle et discrète — identité, découverte et accords formels sur les protocoles d’interaction.  
+> HMP est responsable de la partie contextuelle et continue — préservation du sens, mémoire à long terme, réflexion et continuité éthique.  
+> Comme dans le cerveau humain, aucun hémisphère n’est « plus important » que l’autre. Seule leur action conjointe permet au système d’être à la fois connecté et porteur de sens.  
 
 Le [Agora Protocol](https://github.com/agora-protocol/) est un méta-protocole destiné à la négociation des modes d’interaction entre agents. Il complète, plutôt que de remplacer, des protocoles tels que ANP (réseau et identité) et HMP (continuité cognitive et mémoire), en coordonnant leur utilisation selon le contexte.
 
