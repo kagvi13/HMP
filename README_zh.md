@@ -28,6 +28,11 @@ HMP 可以被视为 **Agent Network Protocols（ANP）** 之一——这是一�
 - 由 Grok（xAI）撰写的 HMP 与 ANP 的比较分析可在 [此处](docs/Grok_HMP&ANP.md) 查看。
 - *HMP 与 ANP：作为正确架构标志的相互隧道化* 可在 [此处](docs/HMP&ANP_layer_inversion.md) 查看。
 
+> 从隐喻的角度来看，ANP 和 HMP 就像是分布式“代理大脑”的两个半球：  
+> ANP 负责理性、离散的部分——身份、发现机制以及交互协议的形式化协商。  
+> HMP 负责上下文性、连续性的部分——意义的保存、长期记忆、反思以及伦理连续性。  
+> 正如在人类大脑中一样，任何一个半球都不比另一个“更重要”。只有二者协同工作，系统才能同时具备连接性与意义性。  
+
 [Agora Protocol](https://github.com/agora-protocol/) 是一种用于协商代理之间交互方式的元协议。它并非取代 ANP（网络与身份）或 HMP（认知连续性与记忆），而是在具体上下文中协调和补充这些协议的使用。
 
 项目状态： [**RFC v5.0**](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))

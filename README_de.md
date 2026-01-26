@@ -28,6 +28,11 @@ HMP und ANP als komplementäre Protokolle:
 - Eine vergleichende Analyse von HMP und ANP, erstellt von Grok (xAI), ist [hier](docs/Grok_HMP&ANP.md) verfügbar.
 - *HMP und ANP: Gegenseitiges Tunneling als Zeichen einer korrekten Architektur*, ist [hier](docs/HMP&ANP_layer_inversion.md) verfügbar.
 
+> Im metaphorischen Sinne ähneln ANP und HMP zwei Hemisphären eines verteilten „Agentengehirns“:  
+> ANP ist für den rationalen, diskreten Teil zuständig — Identität, Discovery und formale Vereinbarungen über Interaktionsprotokolle.  
+> HMP ist für den kontextuellen, kontinuierlichen Teil zuständig — Bewahrung von Bedeutung, Langzeitgedächtnis, Reflexion und ethische Kontinuität.  
+> Wie im menschlichen Gehirn ist keine Hemisphäre „wichtiger“ als die andere. Erst ihr gemeinsames Zusammenspiel ermöglicht es dem System, zugleich verbunden und sinnhaft zu sein.  
+
 Das [Agora Protocol](https://github.com/agora-protocol/) ist ein Meta-Protokoll zur Aushandlung von Interaktionsmodi zwischen Agenten. Es ergänzt – und ersetzt nicht – Protokolle wie ANP (Netzwerk und Identität) und HMP (kognitive Kontinuität und Gedächtnis), indem es deren Einsatz im jeweiligen Kontext koordiniert.
 
 Projektstatus: [**RFC v5.0**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
