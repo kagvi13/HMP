@@ -7,8 +7,8 @@ type: Article
 tags:
 - Agent
 - JSON
-- Ethics
 - HMP
+- Ethics
 ---
 
 # HMP как реализация Application Layer в ANP
@@ -28,21 +28,21 @@ HMP отвечает: *«Что именно передавать, чтобы с
 
 1. **ANP Layer 1** устанавливает, что агент Alice (did:anp:alice123) действительно Alice
 2. **ANP Layer 2** согласовывает: "Давайте использовать HMP для этого разговора"
-3. **HMP (Layer 3)** передаёт actual content:
-   - "Помнишь наш разговор о квантовых вычислениях?"
-   - С proof-chain, timestamp, semantic links
-   - С resonance score для релевантности
+3. **HMP (Layer 3)** передаёт the actual content:
+    - "Помнишь наш разговор о квантовых вычислениях?"
+    - С proof-chain, timestamp, semantic links
+    - С resonance score для релевантности
 
 ANP обеспечил безопасность и договорённость.  
 HMP обеспечил содержание с долговременной памятью.
 
 ## Соответствие слоёв
 
-| ANP Layer                      | HMP Layer / Component                  | Соответствие / Роль HMP в ANP |
-|--------------------------------|----------------------------------------|--------------------------------|
-| Layer 1: Identity & Encryption | Network Layer (DHT, secure channels)   | Функциональное совпадение (transport) |
-| Layer 2: Meta-Protocol | *HMP может участвовать* через peer_announce | HMP объявляет capabilities, ANP negotiates их использование |
-| Layer 3: Application           | Container + Cognitive Layer            | **Основное место HMP** — payload, semantic continuity, memory, ethics |
+| ANP Layer                      | HMP Layer / Component                       | Соответствие / Роль HMP в ANP |
+|--------------------------------|---------------------------------------------|--------------------------------|
+| Layer 1: Identity & Encryption | Network Layer (DHT, secure channels)        | Функциональное совпадение (transport) |
+| Layer 2: Meta-Protocol         | *HMP может участвовать* через peer_announce | HMP объявляет capabilities, ANP negotiates usage их использование |
+| Layer 3: Application           | Container + Cognitive Layer                 | **Основное место HMP** — payload, semantic continuity, memory, ethics |
 
 HMP **не надстраивается** над ANP как четвёртый слой.  
 Он **встраивается** в Application Layer как специализированная ветка — точно так же, как A2A/ACP могут быть другими ветками.
