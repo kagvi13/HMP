@@ -6,8 +6,8 @@ description: '## Кратко ANP (Agent Network Protocol) оставляет Ap
 type: Article
 tags:
 - Agent
-- Ethics
 - JSON
+- Ethics
 - HMP
 ---
 
@@ -93,9 +93,9 @@ graph TB
     L3 -.-> A2A
     L3 -.-> Agora
     
-    style L3 fill:#e1f5ff,stroke:#0288d1
-    style Container fill:#c8e6c9,stroke:#388e3c
-    style Cognitive fill:#c8e6c9,stroke:#388e3c
+    style L3 fill:#E3F2FD,stroke:#0D47A1,stroke-width:2px,color:#000
+    style Container fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#000
+    style Cognitive fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px,color:#000
 ```
 
 ## Взаимное туннелирование (layer inversion)
