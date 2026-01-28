@@ -24,9 +24,10 @@ HMP는 자율 에이전트 간의 상호작용을 위한 분산형 프로토콜 
 
 현재 ANP 클래스에서 가장 널리 알려진 프로토콜은 [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol)입니다.
 
-상호 보완적인 프로토콜로서의 HMP와 ANP:
-- Grok(xAI)가 작성한 HMP와 ANP의 비교 분석은 [여기](docs/Grok_HMP&ANP.md)에서 확인할 수 있습니다.
-- *HMP와 ANP: 올바른 아키텍처의 지표로서의 상호 터널링*은 [여기](docs/HMP&ANP_layer_inversion.md)에서 확인할 수 있습니다.
+HMP와 ANP의 상호보완 프로토콜:
+- **HMP와 ANP 비교 분석**, Grok (xAI) 작성 — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
+- **HMP와 ANP: 상호 터널링은 올바른 아키텍처의 표시** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
+- **ANP에서 Application Layer 구현 사례로서의 HMP** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
 
 > 은유적으로 볼 때 ANP와 HMP는 분산된 ‘에이전트 두뇌’의 두 반구에 비유할 수 있습니다.  
 > ANP는 합리적이고 이산적인 부분 — 정체성, 디스커버리, 상호작용 프로토콜에 대한 형식적 합의 — 을 담당합니다.  

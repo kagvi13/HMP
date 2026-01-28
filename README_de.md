@@ -24,9 +24,10 @@ Während sich andere ANP-Implementierungen auf Identität, Discovery oder die Au
 
 Derzeit ist das bekannteste Protokoll der ANP-Klasse [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
-HMP und ANP als komplementäre Protokolle:
-- Eine vergleichende Analyse von HMP und ANP, erstellt von Grok (xAI), ist [hier](docs/Grok_HMP&ANP.md) verfügbar.
-- *HMP und ANP: Gegenseitiges Tunneling als Zeichen einer korrekten Architektur*, ist [hier](docs/HMP&ANP_layer_inversion.md) verfügbar.
+HMP und ANP als sich ergänzende Protokolle:
+- **Vergleichsanalyse von HMP und ANP**, erstellt von Grok (xAI) — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
+- **HMP und ANP: Gegenseitiges Tunneling als Zeichen einer richtigen Architektur** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
+- **HMP als Beispiel für die Implementierung der Application Layer in ANP** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
 
 > Im metaphorischen Sinne ähneln ANP und HMP zwei Hemisphären eines verteilten „Agentengehirns“:  
 > ANP ist für den rationalen, diskreten Teil zuständig — Identität, Discovery und formale Vereinbarungen über Interaktionsprotokolle.  

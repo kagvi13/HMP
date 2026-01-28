@@ -24,9 +24,10 @@ HMPは、**Agent Network Protocols（ANP）**と呼ばれる、自律エージ�
 
 現在、ANPクラスで最も広く知られているプロトコルは [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol) です。
 
-相補的なプロトコルとしての HMP と ANP:
-- Grok（xAI）によって作成された HMP と ANP の比較分析は [こちら](docs/Grok_HMP&ANP.md) で確認できます。
-- *HMP と ANP：正しいアーキテクチャの指標としての相互トンネリング* は [こちら](docs/HMP&ANP_layer_inversion.md) で確認できます。
+HMP と ANP の相補的プロトコル:
+- **HMP と ANP の比較分析**、Grok (xAI) 作成 — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
+- **HMP と ANP：相互トンネリングは適切なアーキテクチャのサイン** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
+- **HMP を ANP のアプリケーション層実装例として** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
 
 > 比喩的に言えば、ANP と HMP は分散型「エージェント脳」の二つの半球のような関係にあります。  
 > ANP は合理的で離散的な側面――アイデンティティ、ディスカバリ、相互作用プロトコルに関する形式的な合意――を担います。  
