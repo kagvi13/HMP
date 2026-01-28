@@ -5,20 +5,20 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- EGP
-- distributed-ai
-- Mesh
-- HMP
-- MeshConsensus
-- GMP
 - cognitive-architecture
-- CogSync
-- mesh-protocol
+- GMP
+- Mesh
+- distributed-ai
 - Ethics
+- MeshConsensus
 - hmp
-- JSON
+- mesh-protocol
 - Agent
+- EGP
+- CogSync
 - REPL
+- JSON
+- HMP
 ---
 
 
@@ -35,9 +35,10 @@ HMP 可以被视为 **Agent Network Protocols（ANP）** 之一——这是一�
 
 目前，ANP 类中最为知名的协议是 [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol)。
 
-作为互补协议的 HMP 与 ANP：
-- 由 Grok（xAI）撰写的 HMP 与 ANP 的比较分析可在 [此处](docs/Grok_HMP&ANP.md) 查看。
-- *HMP 与 ANP：作为正确架构标志的相互隧道化* 可在 [此处](docs/HMP&ANP_layer_inversion.md) 查看。
+HMP 与 ANP 作为互补协议：
+- **HMP 与 ANP 的比较分析**，由 Grok (xAI) 编写 — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
+- **HMP 与 ANP：互通隧道作为正确架构的标志** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
+- **HMP 作为在 ANP 中实现应用层的示例** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
 
 > 从隐喻的角度来看，ANP 和 HMP 就像是分布式“代理大脑”的两个半球：  
 > ANP 负责理性、离散的部分——身份、发现机制以及交互协议的形式化协商。  

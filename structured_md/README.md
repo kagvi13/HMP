@@ -5,21 +5,21 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
   | 🇨🇳 [ZH](README_zh.m...'
 type: Article
 tags:
-- EGP
-- distributed-ai
-- Mesh
-- HMP
-- MeshConsensus
-- GMP
 - cognitive-architecture
-- Scenarios
-- CogSync
-- mesh-protocol
+- GMP
+- Mesh
+- distributed-ai
 - Ethics
+- MeshConsensus
+- Scenarios
 - hmp
-- JSON
+- mesh-protocol
 - Agent
+- EGP
+- CogSync
 - REPL
+- JSON
+- HMP
 ---
 
 
@@ -36,9 +36,10 @@ While other ANP implementations may focus on identity, discovery, or message neg
 
 At present, the most widely known protocol of the ANP class is [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
-HMP and ANP as complementary protocols:
-- A comparative analysis of HMP and ANP prepared by Grok (xAI) is available [here](docs/Grok_HMP&ANP.md).
-- *HMP and ANP: Mutual Tunneling as a Sign of Correct Architecture* is available [here](docs/HMP&ANP_layer_inversion.md).
+HMP and ANP as Complementary Protocols:
+- **Comparative Analysis of HMP and ANP**, prepared by Grok (xAI) — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
+- **HMP and ANP: Mutual Tunneling as a Sign of Proper Architecture** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
+- **HMP as an Example of Implementing the Application Layer in ANP** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
 
 > In a metaphorical sense, ANP and HMP resemble two hemispheres of a distributed “agent brain”:  
 > ANP is responsible for the rational, discrete part — identity, discovery, and formal agreements on interaction protocols.  
