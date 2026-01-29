@@ -6,19 +6,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
 type: Article
 tags:
 - GMP
-- EGP
-- CogSync
-- MeshConsensus
-- HMP
-- Ethics
-- mesh-protocol
 - cognitive-architecture
-- distributed-ai
-- Mesh
-- JSON
+- MeshConsensus
+- CogSync
+- Ethics
 - Agent
-- hmp
 - REPL
+- Mesh
+- distributed-ai
+- EGP
+- hmp
+- JSON
+- HMP
+- mesh-protocol
 ---
 
 
@@ -36,9 +36,9 @@ HMP можно рассматривать как один из **Agent Network P
 В настоящее время наиболее известным протоколом класса ANP является [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
 HMP и ANP как взаимодополняющие протоколы:
-- **Сравнительный анализ HMP и ANP**, подготовленный Grok (xAI) — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
-- **HMP и ANP: взаимное туннелирование как признак правильной архитектуры** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
-- **HMP как пример реализации Application Layer в ANP** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
+- **Сравнительный анализ HMP и ANP**, подготовленный Grok (xAI) — [RU](docs/Grok_HMP&ANP.md)
+- **HMP и ANP: взаимное туннелирование как признак правильной архитектуры** — [RU](docs/HMP&ANP_layer_inversion.md)
+- **HMP как пример реализации Application Layer в ANP** — [EN](docs/HMP_as_ANP_Application_en.md) | [RU](docs/HMP_as_ANP_Application.md)
 
 > В метафорическом смысле ANP и HMP напоминают два полушария распределённого «агентного мозга»:  
 > ANP отвечает за рациональную, дискретную часть — идентичность, discovery, формальные договорённости о протоколе взаимодействия.  
