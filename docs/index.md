@@ -22,6 +22,7 @@
 * [Grok_HMP&ANP.md](Grok_HMP&ANP.md) — Grok: сравнение HMP и ANP
 * [HMP&ANP_layer_inversion.md](HMP&ANP_layer_inversion.md) — HMP и ANP: взаимное туннелирование как признак правильной архитектуры
 * [HMP_as_ANP_Application.md](HMP_as_ANP_Application.md) — HMP как пример реализации Application Layer в ANP
+    * [HMP_as_ANP_Application_en.md](HMP_as_ANP_Application_en.md) - HMP as an Implementation of the Application Layer in ANP
 
 ### Предыдущие версии протокола:
 

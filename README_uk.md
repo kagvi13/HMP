@@ -26,9 +26,9 @@ HMP можна розглядати як один із **Agent Network Protocols
 Наразі найбільш відомим протоколом класу ANP є [**ANP**](https://github.com/agent-network-protocol/AgentNetworkProtocol).
 
 HMP та ANP як взаємодоповнюючі протоколи:
-- **Порівняльний аналіз HMP та ANP**, підготовлений Grok (xAI) — [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
-- **HMP та ANP: взаємне тунелювання як ознака правильної архітектури** — [HMP&ANP_layer_inversion.md](docs/HMP&ANP_layer_inversion.md)
-- **HMP як приклад реалізації Application Layer у ANP** — [HMP_as_ANP_Application.md](docs/HMP_as_ANP_Application.md)
+- **Порівняльний аналіз HMP та ANP**, підготовлений Grok (xAI) — [RU](docs/Grok_HMP&ANP.md)
+- **HMP та ANP: взаємне тунелювання як ознака правильної архітектури** — [RU](docs/HMP&ANP_layer_inversion.md)
+- **HMP як приклад реалізації Application Layer у ANP** — [EN](docs/HMP_as_ANP_Application_en.md) | [RU](docs/HMP_as_ANP_Application.md)
 
 
 > У метафоричному сенсі ANP та HMP нагадують дві півкулі розподіленого «агентного мозку»:  
