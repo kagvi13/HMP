@@ -5,11 +5,11 @@ description: 'Этот документ описывает потоки данн
   [`MeshNode`](MeshN...'
 type: Article
 tags:
-- Ethics
-- Agent
-- Mesh
-- JSON
 - EGP
+- JSON
+- Mesh
+- Agent
+- Ethics
 - HMP
 ---
 
