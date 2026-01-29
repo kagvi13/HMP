@@ -2,8 +2,8 @@
 
 ## In Brief
 
-ANP (Agent Network Protocol) intentionally leaves the Application Layer open to support a wide range of interaction protocols.  
-HMP is one such protocol — a purpose-built approach focused on **long-term cognitive continuity**.
+[ANP (Agent Network Protocol)](https://github.com/agent-network-protocol/AgentNetworkProtocol) intentionally leaves the Application Layer open to support a wide range of interaction protocols.  
+[HMP (HyperCortex Mesh Protocol)](https://github.com/kagvi13/HMP) is one such protocol — a purpose-built approach focused on **long-term cognitive continuity**.
 
 ANP answers: *“How do agents discover each other and reach agreement?”*  
 HMP answers: *“What should be transmitted so that meaning and context persist over time?”*
