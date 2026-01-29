@@ -5,10 +5,10 @@ description: '## Кратко ANP (Agent Network Protocol) оставляет Ap
   вариантов заполнения этого слоя, ...'
 type: Article
 tags:
-- Agent
 - HMP
-- Ethics
 - JSON
+- Agent
+- Ethics
 ---
 
 # HMP как реализация Application Layer в ANP
