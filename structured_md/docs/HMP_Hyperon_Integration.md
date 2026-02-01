@@ -7,10 +7,10 @@ type: Article
 tags:
 - Agent
 - EGP
+- Scenarios
+- CogSync
 - HMP
 - Mesh
-- CogSync
-- Scenarios
 - JSON
 ---
 
