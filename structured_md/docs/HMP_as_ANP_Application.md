@@ -6,9 +6,9 @@ description: '## Кратко [ANP (Agent Network Protocol)](https://github.com/
 type: Article
 tags:
 - Ethics
-- Mesh
-- Agent
 - JSON
+- Agent
+- Mesh
 - HMP
 ---
 
