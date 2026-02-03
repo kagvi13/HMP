@@ -6,10 +6,10 @@ description: '> Почему современные агентные систе�
 type: Article
 tags:
 - Ethics
-- Agent
 - JSON
 - Mesh
 - CogSync
+- Agent
 - HMP
 ---
 
