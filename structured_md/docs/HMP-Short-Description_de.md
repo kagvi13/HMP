@@ -7,13 +7,13 @@ type: Article
 tags:
 - CogSync
 - EGP
-- GMP
-- Ethics
-- Agent
 - HMP
-- MeshConsensus
+- GMP
+- Agent
 - JSON
 - Mesh
+- Ethics
+- MeshConsensus
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
