@@ -6,13 +6,13 @@ description: '**版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HM
 type: Article
 tags:
 - Mesh
-- EGP
-- CogSync
 - MeshConsensus
-- GMP
-- JSON
 - HMP
+- EGP
 - Ethics
+- JSON
+- CogSync
+- GMP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
