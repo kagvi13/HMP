@@ -4,17 +4,17 @@ description: '## Связанные документы  * Философия п�
   * Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_struct...'
 type: Article
 tags:
-- CCore
-- JSON
-- Agent
-- HMP
-- REPL
-- MeshConsensus
-- EGP
-- CogSync
-- Ethics
-- GMP
 - Mesh
+- HMP
+- CCore
+- Agent
+- GMP
+- MeshConsensus
+- JSON
+- Ethics
+- CogSync
+- EGP
+- REPL
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
