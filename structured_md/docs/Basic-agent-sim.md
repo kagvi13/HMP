@@ -6,12 +6,12 @@ type: Article
 tags:
 - HMP
 - MeshConsensus
-- EGP
-- CogSync
 - GMP
-- Mesh
 - REPL
+- EGP
 - Agent
+- Mesh
+- CogSync
 ---
 
 
