@@ -187,7 +187,7 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 #### 📜 その他のドキュメント
 
-* [📜 changelog.txt](docs/changelog.txt)
+* [📜 CHANGELOG.md](docs/CHANGELOG.md)
 
 ---
 

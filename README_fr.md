@@ -190,7 +190,7 @@ La principale différence dans HMP est l’accent mis sur la structuration expli
 
 #### 📜 Autres documents
 
-* [📜 changelog.txt](docs/changelog.txt)
+* [📜 CHANGELOG.md](docs/CHANGELOG.md)
 
 ---
 
