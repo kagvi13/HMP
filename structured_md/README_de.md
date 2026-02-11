@@ -6,19 +6,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
 type: Article
 tags:
 - EGP
-- Mesh
-- MeshConsensus
 - Agent
 - Ethics
-- distributed-ai
 - GMP
-- CogSync
 - JSON
+- hmp
+- CogSync
+- distributed-ai
+- REPL
+- Mesh
+- MeshConsensus
+- mesh-protocol
 - HMP
 - cognitive-architecture
-- hmp
-- mesh-protocol
-- REPL
 ---
 
 
@@ -189,7 +189,7 @@ Der Hauptunterschied in HMP liegt in der Betonung der expliziten Strukturierung 
 * 🔍 Kurzbeschreibung: [(EN)](docs/HMP-Short-Description_en.md), [(FR)](docs/HMP-Short-Description_fr.md), [(DE)](docs/HMP-Short-Description_de.md), [(UK)](docs/HMP-Short-Description_uk.md), [(RU)](docs/HMP-Short-Description_ru.md), [(ZH)](docs/HMP-Short-Description_zh.md), [(JA)](docs/HMP-Short-Description_ja.md), [(KO)](docs/HMP-Short-Description_ko.md)
 
 #### 📜 Weitere Dokumente
-* [📜 changelog.txt](docs/changelog.txt)
+* [📜 CHANGELOG.md](docs/CHANGELOG.md)
 
 ---
 

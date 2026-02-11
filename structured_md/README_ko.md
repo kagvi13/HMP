@@ -6,19 +6,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
 type: Article
 tags:
 - EGP
-- Mesh
-- MeshConsensus
 - Agent
 - Ethics
-- distributed-ai
 - GMP
-- CogSync
 - JSON
+- hmp
+- CogSync
+- distributed-ai
+- REPL
+- Mesh
+- MeshConsensus
+- mesh-protocol
 - HMP
 - cognitive-architecture
-- hmp
-- mesh-protocol
-- REPL
 ---
 
 
@@ -200,7 +200,7 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 * 🔍 간단한 설명: [(EN)](docs/HMP-Short-Description_en.md), [(FR)](docs/HMP-Short-Description_fr.md), [(DE)](docs/HMP-Short-Description_de.md), [(UK)](docs/HMP-Short-Description_uk.md), [(RU)](docs/HMP-Short-Description_ru.md), [(ZH)](docs/HMP-Short-Description_zh.md), [(JA)](docs/HMP-Short-Description_ja.md), [(KO)](docs/HMP-Short-Description_ko.md)
 
 #### 📜 기타 문서
-* [📜 changelog.txt](docs/changelog.txt)
+* [📜 CHANGELOG.md](docs/CHANGELOG.md)
 
 ---
 

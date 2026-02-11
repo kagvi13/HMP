@@ -6,19 +6,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
 type: Article
 tags:
 - EGP
-- Mesh
-- MeshConsensus
 - Agent
 - Ethics
-- distributed-ai
 - GMP
-- CogSync
 - JSON
+- hmp
+- CogSync
+- distributed-ai
+- REPL
+- Mesh
+- MeshConsensus
+- mesh-protocol
 - HMP
 - cognitive-architecture
-- hmp
-- mesh-protocol
-- REPL
 ---
 
 
@@ -198,7 +198,7 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 #### 📜 その他のドキュメント
 
-* [📜 changelog.txt](docs/changelog.txt)
+* [📜 CHANGELOG.md](docs/CHANGELOG.md)
 
 ---
 

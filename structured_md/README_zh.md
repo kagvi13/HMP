@@ -6,19 +6,19 @@ description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README
 type: Article
 tags:
 - EGP
-- Mesh
-- MeshConsensus
 - Agent
 - Ethics
-- distributed-ai
 - GMP
-- CogSync
 - JSON
+- hmp
+- CogSync
+- distributed-ai
+- REPL
+- Mesh
+- MeshConsensus
+- mesh-protocol
 - HMP
 - cognitive-architecture
-- hmp
-- mesh-protocol
-- REPL
 ---
 
 
@@ -194,7 +194,7 @@ HMP 的主要区别在于：强调对思维的明确结构化（反思、时间�
 
 #### 📜 其他文档
 
-* [📜 changelog.txt](docs/changelog.txt)
+* [📜 CHANGELOG.md](docs/CHANGELOG.md)
 
 ---
 
