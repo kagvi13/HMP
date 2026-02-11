@@ -22,6 +22,7 @@
   - [AGI_Projects_Survey.md](docs/AGI_Projects_Survey.md)
   - [Basic-agent-sim.md](docs/Basic-agent-sim.md)
   - [CCORE-Deployment-Flow.md](docs/CCORE-Deployment-Flow.md)
+  - [CHANGELOG.md](docs/CHANGELOG.md)
   - [Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md)
   - [Enlightener.md](docs/Enlightener.md)
   - [Grok_HMP&ANP.md](docs/Grok_HMP&ANP.md)
@@ -62,7 +63,6 @@
   - agents
     - [HMP-Agent-Enlightener.md](docs/agents/HMP-Agent-Enlightener.md)
     - [roles.md](docs/agents/roles.md)
-  - [changelog.md](docs/changelog.md)
   - [container_agents.md](docs/container_agents.md)
   - [logos.md](docs/logos.md)
   - publics
