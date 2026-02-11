@@ -62,6 +62,7 @@
   - agents
     - [HMP-Agent-Enlightener.md](docs/agents/HMP-Agent-Enlightener.md)
     - [roles.md](docs/agents/roles.md)
+  - [changelog.md](docs/changelog.md)
   - [container_agents.md](docs/container_agents.md)
   - [logos.md](docs/logos.md)
   - publics
