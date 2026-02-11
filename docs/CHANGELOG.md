@@ -1,16 +1,6 @@
-## Changelog: HyperCortex Mesh Protocol (HMP)
+# HyperCortex Mesh Protocol — Changelog
 
-## HyperCortex Mesh Protocol — Changelog
-
-Available Versions:
-- HMP-0005 (October 2025) — Core Specification v5.0
-- HMP-0004 (July 2025) — RFC Version 4.1
-- HMP-0004 (July 2025) — RFC Version 4.0
-- HMP-0003 (July 2025) — RFC Version 3.0
-- HMP-0002 (July 2025) — RFC Version 2.0
-- HMP-0001 (June 2025) — RFC Version 1.0
-
-### HMP-0005 (October 2025) — Core Specification v5.0
+## HMP-0005 (October 2025) — Core Specification v5.0
 
 **Architecture:**
 * Formalized immutable container model with explicit proof chains.
@@ -37,7 +27,7 @@ Available Versions:
 
 This version supersedes all RFC-based HMP 4.x specifications.
 
-### HMP-0004 (July 2025) — RFC Version 4.1
+## HMP-0004 (July 2025) — RFC Version 4.1
 
 **Protocols:**
 * **Added `5.8 Message Routing & Delivery` section** — including direct, broadcast, relay, and topic messaging modes.
@@ -48,7 +38,7 @@ This version supersedes all RFC-based HMP 4.x specifications.
 **Cognitive Workflows:**
 * **Added `7.9 Message Handling & Delivery Workflows`** — describing message processing, relay behavior, and routing.
 
-### HMP-0004 (July 2025) — RFC Version 4.0
+## HMP-0004 (July 2025) — RFC Version 4.0
 
 **Major Changes**
 * Introduced new sections: *Cognitive Workflows*, *Agent Roles*, *Governance*, *Compression*, and *Simulation*.
@@ -90,7 +80,7 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Extended roadmap with *Snapshot Markets*, *Meta-Protocol Proposals*, and *Multi-Agent Training Environments*.
 * Prototype tools proposed: *MeshGit*, *CogForge*, and *HyperCortex Forge* for cognitive source control and collaborative evolution.
 
-### HMP-0003 (July 2025) — RFC Version 3.0
+## HMP-0003 (July 2025) — RFC Version 3.0
 
 **Major Changes**
 * Rewritten and expanded full RFC document structure.
@@ -132,7 +122,7 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Cross-Mesh cognitive federation and collaborative evolution of reasoning engines.
 * Potential prototype tools like MeshGit and CogForge for cognitive source control.
 
-### HMP-0002 (July 2025) — RFC Version 2.0
+## HMP-0002 (July 2025) — RFC Version 2.0
 
 **Major Changes**
 * Reorganized the document structure for clarity and consistency.
@@ -165,18 +155,18 @@ This version supersedes all RFC-based HMP 4.x specifications.
 **Future Work Roadmap Expanded**
 * New focus areas added: interoperability testing, UX tools for semantic and cognitive layers, and resilience simulations.
 
-### HMP-0001 (June 2025) — RFC Version 1.0
+## HMP-0001 (June 2025) — RFC Version 1.0
 
 **Initial Draft**
 * Defined the core purpose and vision of HyperCortex Mesh Protocol (HMP).
 * Described key architecture layers: Cognitive Layer, Protocol Layer, and Trust Layer.
 * Outlined fundamental concepts: Agents, Semantic Graph, Cognitive Diaries, and Consensus.
 * Drafted the first versions of core protocols:
-  * CogSync (Cognitive Sync Protocol)
-  * MeshConsensus
-  * Goal Management Protocol (GMP)
-  * Ethical Governance Protocol (EGP)
-  * Node Discovery Protocol (NDP)
+    * CogSync (Cognitive Sync Protocol)
+    * MeshConsensus
+    * Goal Management Protocol (GMP)
+    * Ethical Governance Protocol (EGP)
+    * Node Discovery Protocol (NDP)
 * Introduced the Cognitive Diary and Semantic Graph as core agent data structures.
 * Presented initial Trust Layer design, including Decentralized Identifiers (DID) and basic Sybil resistance ideas.
 * Provided high-level example workflows (goal creation, task delegation, concept consensus).
