@@ -182,3 +182,4 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Provided high-level example workflows (goal creation, task delegation, concept consensus).
 * Laid out an initial Future Work list, covering scalability, cross-mesh interoperability, and quantum networking as exploratory directions.
 * Established the RFC document structure and versioning approach for further evolution.
+
