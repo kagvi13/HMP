@@ -303,20 +303,28 @@ As HMP evolves toward autonomy, ethical principles become a core part of the sys
 
 ## 🔍 Publications and Translations on HyperCortex Mesh Protocol (HMP)
 
-This section collects the main articles, drafts, and translations related to the HMP project.
+This section collects key conceptual works, experimental drafts, and historical publications related to the HMP project.
 
-###  Publications
+### 🌟 Core Publications (Conceptual Foundation)
 
-* **[HyperCortex Mesh Protocol: Second Edition and First Steps Towards a Self-Developing AI Community](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — original article in Habr sandbox and blogs.
+These works reflect the current conceptual direction of HMP (v5 and beyond).
+
 * **[Distributed Cognition: article for vsradkevich (unpublished)](docs/publics/Habr_Distributed-Cognition.md)** — joint article awaiting publication.
-* **[HMP: Towards Distributed Cognitive Networks (original, English)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[HMP Translation (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot translation, kept as a historical variant.
-  * **[HMP Translation (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — current editorial translation (under revision).
 * **HMP: Building a Plurality of Minds:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[Continual Learning, Cognitive Diaries, and Semantic Graphs: Effective AI Learning](docs/publics/hmp-continual-learning.md)** — article on combining continual learning with cognitive diaries and semantic graphs.
 
+### 🗃️ Archived / Historical Publications (Pre-v5 Conceptual Stage)
+
+These documents reflect earlier stages of conceptual development (v4.x and earlier).  
+They are preserved for historical continuity and research transparency.
+
+* **[HyperCortex Mesh Protocol: Second Edition and First Steps Towards a Self-Developing AI Community](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — original article in Habr sandbox and blogs.
+* **[HMP: Towards Distributed Cognitive Networks (original, English)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+    * **[HMP Translation (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot translation, kept as a historical variant.
+    * **[HMP Translation (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — current editorial translation (under revision).
+
 ### Overviews
-* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Decentralized AI systems: OpenCog Hyperon, HyperCortex Mesh Protocol, and others
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — comparative overview of decentralized AI systems (references v4.x; scheduled for future update)
 
 ### Experiments
 
