@@ -5,20 +5,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- Agent
-- EGP
 - Mesh
-- Ethics
-- HMP
+- Agent
 - MeshConsensus
-- Scenarios
 - CogSync
-- mesh-protocol
-- cognitive-architecture
 - hmp
-- JSON
-- REPL
 - GMP
+- Ethics
+- REPL
+- Scenarios
+- EGP
+- mesh-protocol
+- HMP
+- JSON
+- cognitive-architecture
 - distributed-ai
 ---
 
@@ -107,6 +107,8 @@ CL --> MT
 (Expanded Mermaid diagram)
 
 HMP separates cognitive processing, containerized state representation,coordination protocols, and transport infrastructure into distinct layers.
+
+In HMP, containers act as the atomic cognitive units bridging local reasoning and distributed coordination.
 
 ```mermaid
 flowchart LR
