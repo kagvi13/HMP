@@ -46,33 +46,94 @@ Project status: [**Stable (v5.0.0 Core Specification)**](docs/HMP-0005.md) (Over
 > HMP itself is a protocol specification.
 > It does not prescribe programming languages, runtimes, performance characteristics, or architectural choices for agent implementations.
 
+## Canonical Architecture Overview
+
+```mermaid
+flowchart TB
+
+%% --- Agent Implementations ---
+
+subgraph A1["HMP Agent — Cognitive Core"]
+    CC1["Embedded AI Model"]
+    CC2["REPL Thinking Cycle"]
+    CC3["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CC1 <--> CC2
+    CC2 <--> CC3
+end
+
+subgraph A2["HMP Agent — Cognitive Connector"]
+    CN1["External AI Model"]
+    CN2["MCP / Proxy Layer"]
+    CN3["Command Execution Mode"]
+    CN4["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CN1 <--> CN2
+    CN2 <--> CN3
+    CN3 <--> CN4
+end
+
+%% --- Shared Protocol Layer ---
+
+CL["HMP Container Layer
+(Knowledge · Coordination · Consensus · Governance · Query · Snapshot · Trust)"]
+
+MT["Mesh Transport Layer
+(DHT · P2P · Libp2p · ANP · Custom)"]
+
+A1 --> CL
+A2 --> CL
+CL --> MT
+```
+
 ---
 
-                [HMP-Agent]
-                    ▲
-                    │
-              ┌─────┴────────────────┬────────────────────────┬───────────────────┬─────────────┬───────────┐
-              │                      │                        │                   │             │           │
-              ▼                      ▼                        ▼                   ▼             ▼           ▼
-       [Reputation Profile]   [Semantic Graph]        [Cognitive Diary]    [Goals / Tasks]   [Ethics]   [Messages]  <----- DataBase
-              ▲      ▲               ▲                        ▲                   ▲             ▲           ▲         (local agent state)
-              │      │               │                        │                   │             │           │
-              │      └───────────────┴────────────────┬───────┘                   │             │           │
-              │                                       │                           │             │           │
-              ▼                                       ▼                           ▼             ▼           │
-        [MeshConsensus]                           [CogSync]                     [GMP]         [EGP]         │       <----- Pluggable Protocols
-              ▲                                       ▲                           ▲             ▲           │           (inter-agent coordination)
-              │                                       │                           │             │           │
-              └────────────┬──────────────────────────┴───────────────────────────┴─────────────┴───────────┘
-                           │
-                           ▼
-                 [P2P Mesh Network]
+## Reference Agent Structure 
 
-Protocols:
-- MeshConsensus - Mesh Consensus
-- CogSync - Data Syncronization
-- GMP - Goal Management Protocol
-- EGP - Ethical Governance Protocol
+```mermaid
+flowchart TD
+
+%% Title (visual anchor)
+title["**HMP Conceptual Architecture (Expanded)**"]
+
+%% Cognitive Engine
+LLM["Cognitive Engine
+(Embedded LLM or External AI via Connector)"]
+
+%% Cognitive Layer
+subgraph CognitiveLayer["Cognitive Layer"]
+    CL1["Semantic Graph"]
+    CL2["Cognitive Diary"]
+    CL3["Goals & Tasks"]
+    CL4["Ethics & Governance"]
+    CL5["Reputation Model"]
+end
+
+%% Container Model
+ContainersLayer["Container Model
+(Atomic, Signed, Verifiable Containers)"]
+
+%% Protocol Stack
+subgraph ProtocolLayer["Protocol Layer"]
+    CoreProtocols["Core Cognitive Protocols
+(Consensus · Fortytwo · GMP · EGP · IQP · SAP · RTE)"]
+    MCE["Mesh Container Exchange (MCE)"]
+    NetworkLayer["Network Layer
+(peer_announce · peer_query)"]
+end
+
+%% Mesh
+Mesh["Mesh Transport
+(DHT · P2P · Libp2p · ANP · IPFS · etc.)"]
+
+%% Connections
+LLM <--> CognitiveLayer
+CognitiveLayer <--> ContainersLayer
+ContainersLayer <--> CoreProtocols
+CoreProtocols <--> MCE
+MCE <--> NetworkLayer
+NetworkLayer <--> Mesh
+```
 
 ---
 
