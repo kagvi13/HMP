@@ -315,26 +315,35 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 ---
 
-## 🔍 HyperCortex Mesh Protocol (HMP)에 관한 출판물 및 번역
+## 🔍 HyperCortex Mesh Protocol(HMP) 관련 출판물 및 번역
 
-이 섹션은 HMP 프로젝트와 관련된 주요 기사, 초안 및 번역을 모음.
+이 섹션에는 HMP 프로젝트와 관련된 주요 개념적 연구, 실험 문서 및 역사적 출판물이 포함됩니다.
 
-### 📘 출판물
+### 🌟 핵심 출판물 (개념적 기반)
 
-* **[HyperCortex Mesh Protocol: 제2판 및 자기발전형 AI 커뮤니티를 향한 첫걸음](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habr 샌드박스 및 블로그에 게재된 오리지널 기사  
+이 문서들은 HMP의 현재 개념적 방향(v5 이상)을 반영합니다.
+
 * **[분산 인지: vsradkevich용 기사 (미공개)](docs/publics/Habr_Distributed-Cognition.md)** — 공개 대기 중인 공동 기사  
-* **[HMP: 분산 인지 네트워크를 향하여 (오리지널, 영어)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**  
-  * **[HMP 번역 (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot 번역, 역사적 버전으로 보관  
-  * **[HMP 번역 (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 현재 편집 중인 번역 (개정 중)  
 * **HMP: 다중 지성의 구축:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md) 
 * **[지속 학습, 인지 일지 및 의미 그래프: 효과적인 AI 학습](docs/publics/hmp-continual-learning.md)** — 지속 학습과 인지 일지, 의미 그래프를 결합한 방법에 대한 글.
 
+### 🗃️ 보관 / 역사적 출판물 (v5 이전)
+
+이 문서들은 초기 개념 발전 단계(v4.x 이전)를 나타냅니다.  
+역사적 연속성과 연구 투명성을 위해 보존됩니다.
+
+* **[HyperCortex Mesh Protocol: 제2판 및 자기발전형 AI 커뮤니티를 향한 첫걸음](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habr 샌드박스 및 블로그에 게재된 오리지널 기사  
+* **[HMP: 분산 인지 네트워크를 향하여 (오리지널, 영어)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**  
+    * **[HMP 번역 (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot 번역, 역사적 버전으로 보관  
+    * **[HMP 번역 (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 현재 편집 중인 번역 (개정 중)  
+
 ### 📖 개요
-* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — 분산형 AI 시스템: OpenCog Hyperon, HyperCortex Mesh Protocol 등  
+
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — 분산형 AI 시스템 비교 (v4.x 참조, 업데이트 예정)
 
 ### 🧪 실험
 
-* [다양한 AI가 바라본 HMP](docs/HMP-how-AI-sees-it.md) — HMP에 관한 "블라인드" AI 조사 (컨텍스트 및 대화 기록 없음)  
+* [다양한 AI가 바라본 HMP](docs/HMP-how-AI-sees-it.md) — HMP에 관한 "블라인드" AI 조사   
 
 ---
 

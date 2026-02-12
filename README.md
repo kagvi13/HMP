@@ -328,7 +328,7 @@ They are preserved for historical continuity and research transparency.
 
 ### Experiments
 
-* [How Different AIs See HMP](docs/HMP-how-AI-sees-it.md) — "blind" AI survey on HMP (without context or dialogue history)
+* [How Different AIs See HMP](docs/HMP-how-AI-sees-it.md) — "blind" AI survey on HMP
 
 ---
 

@@ -98,16 +98,18 @@
 
 ## Публикации и переводы по HyperCortex Mesh Protocol (HMP)
 
-* [HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу](publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md) — оригинальная статья в песочнице Хабра и блогах.
-* [Distributed Cognition](publics/Habr_Distributed-Cognition.md) — совместная статья, ожидающая публикации.
-* [HMP: Towards Distributed Cognitive Networks (оригинал, английский)](publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)
+### 🌟 Основные публикации (концептуальная основа)
 
-  * [Перевод HMP (GitHub Copilot)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md) — перевод GitHub Copilot, сохранён как исторический вариант.
-  * [Перевод HMP (ChatGPT)](publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md) — текущий редакторский перевод (в процессе доработки).
-* [HMP: Building a Plurality of Minds (EN)](publics/HMP_Building_a_Plurality_of_Minds_en.md) - англоязычная версия
-  * [HMP: створення множини розумів (UK)](publics/HMP_Building_a_Plurality_of_Minds_uk.md) - укроиноязычная версия
-  * [HMP: создавая множество разумов (RU)](publics/HMP_Building_a_Plurality_of_Minds_ru.md) - русскоязычная версия
-* [Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ](publics/hmp-continual-learning.md) - пост на Хабре.
+* **[Distributed Cognition: article for vsradkevich (unpublished)](docs/publics/Habr_Distributed-Cognition.md)** — совместная статья, ожидающая публикации.
+* **HMP: Building a Plurality of Minds:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
+* **[Continual Learning, Cognitive Diaries, and Semantic Graphs: Effective AI Learning](docs/publics/hmp-continual-learning.md)** — статья о сочетании continual learning с когнитивными дневниками и семантическими графами.
+
+### 🗃️ Архивные / исторические публикации (этап до v5)
+
+* **[HyperCortex Mesh Protocol: Second Edition and First Steps Towards a Self-Developing AI Community](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — оригинальная статья в Habr sandbox и блогах.
+* **[HMP: Towards Distributed Cognitive Networks (original, English)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+    * **[HMP Translation (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — перевод GitHub Copilot, сохранён как исторический вариант.
+    * **[HMP Translation (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — текущий редакционный перевод (в доработке).
 
 ---
 

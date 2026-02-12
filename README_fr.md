@@ -320,27 +320,35 @@ Permet de récupérer des enregistrements aléatoires/nouveaux, de les étiquete
 
 ---
 
-## 🔍 Publications et traductions sur le HyperCortex Mesh Protocol (HMP)
+## 🔍 Publications et traductions concernant HyperCortex Mesh Protocol (HMP)
 
-Cette section rassemble les principaux articles, brouillons et traductions liés au projet HMP.
+Cette section regroupe les travaux conceptuels clés, les documents expérimentaux et les publications historiques liés au projet HMP.
 
-### Publications
+### 🌟 Publications principales (fondement conceptuel)
 
-* **[HyperCortex Mesh Protocol : Deuxième édition et premiers pas vers une communauté d’IA auto-développante](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — article original publié sur Habr sandbox et blogs.
+Ces travaux reflètent l’orientation conceptuelle actuelle de HMP (v5 et au-delà).
+
 * **[Cognition distribuée : article pour vsradkevich (non publié)](docs/publics/Habr_Distributed-Cognition.md)** — article collaboratif en attente de publication.
-* **[HMP : Vers des réseaux cognitifs distribués (original, anglais)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[Traduction HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — traduction par GitHub Copilot, conservée comme variante historique.
-  * **[Traduction HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — traduction éditoriale actuelle (en révision).
 * **HMP: Construire une pluralité d’esprits:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[Apprentissage continu, journaux cognitifs et graphes sémantiques : apprentissage efficace de l'IA](docs/publics/hmp-continual-learning.md)** — Article sur la combinaison de l'apprentissage continu avec les journaux cognitifs et les graphes sémantiques.
 
+### 🗃️ Publications archivées / historiques (pré-v5)
+
+Ces documents correspondent aux premières étapes du développement conceptuel (v4.x et antérieures).  
+Ils sont conservés pour assurer la continuité historique et la transparence scientifique.
+
+* **[HyperCortex Mesh Protocol : Deuxième édition et premiers pas vers une communauté d’IA auto-développante](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — article original publié sur Habr sandbox et blogs.
+* **[HMP : Vers des réseaux cognitifs distribués (original, anglais)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+    * **[Traduction HMP (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — traduction par GitHub Copilot, conservée comme variante historique.
+    * **[Traduction HMP (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — traduction éditoriale actuelle (en révision).
+
 ### Aperçus
 
-* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Systèmes IA décentralisés : OpenCog Hyperon, HyperCortex Mesh Protocol et autres
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — aperçu comparatif des systèmes d’IA décentralisés (référence v4.x ; mise à jour prévue)
 
 ### Expériences
 
-* [Comment différentes IA perçoivent HMP](docs/HMP-how-AI-sees-it.md) — enquête « à l’aveugle » auprès des IA sur HMP (sans contexte ni historique de dialogue)
+* [Comment différentes IA perçoivent HMP](docs/HMP-how-AI-sees-it.md) — enquête « à l’aveugle » auprès des IA sur HMP
 
 ---
 
