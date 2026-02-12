@@ -92,8 +92,6 @@ CL --> MT
 
 ## Reference Agent Structure 
 
-(Expanded Mermaid diagram)
-
 HMP separates cognitive processing, containerized state representation,coordination protocols, and transport infrastructure into distinct layers.
 
 In HMP, containers act as the atomic cognitive units bridging local reasoning and distributed coordination.

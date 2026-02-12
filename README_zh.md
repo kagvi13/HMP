@@ -50,31 +50,94 @@ HMP 与 ANP 作为互补协议：
 
 ---
 
-                [HMP-Agent]
-                    ▲
-                    │
-              ┌─────┴─────┬───────────┬─────────────┬──────────┬────────┐
-              │           │           │             │          │        │
-              ▼           ▼           ▼             ▼          ▼        ▼
-           [声誉档案]   [语义图]   [认知日记]   [目标 / 任务]   [伦理]   [消息]  <----- 数据库
-              ▲   ▲       ▲           ▲             ▲          ▲        ▲        (代理的本地状态)
-              │   │       │           │             │          │        │
-              │   └───────┴───┬───────┘             │          │        │
-              │               │                     │          │        │
-              ▼               ▼                     ▼          ▼        │
-        [MeshConsensus]   [CogSync]               [GMP]      [EGP]      │     <----- 可插拔协议
-              ▲               ▲                     ▲          ▲        │           (代理间协调)
-              │               │                     │          │        │
-              └────────────┬──┴─────────────────────┴──────────┴────────┘
-                           │
-                           ▼
-                 [P2P 网格网络]
+## 规范架构概览
 
-协议：
-- MeshConsensus – 网格共识
-- CogSync – 数据同步
-- GMP – 目标管理协议
-- EGP – 伦理治理协议
+```mermaid
+flowchart TB
+
+%% --- Agent Implementations ---
+
+subgraph A1["HMP Agent — Cognitive Core"]
+    CC1["Embedded AI Model"]
+    CC2["REPL Thinking Cycle"]
+    CC3["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CC1 <--> CC2
+    CC2 <--> CC3
+end
+
+subgraph A2["HMP Agent — Cognitive Connector"]
+    CN1["External AI Model"]
+    CN2["MCP / Proxy Layer"]
+    CN3["Command Execution Mode"]
+    CN4["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CN1 <--> CN2
+    CN2 <--> CN3
+    CN3 <--> CN4
+end
+
+%% --- Shared Protocol Layer ---
+
+CL["HMP Container Layer
+(Knowledge · Coordination · Consensus · Governance · Query · Snapshot · Trust)"]
+
+MT["Mesh Transport Layer
+(DHT · P2P · Libp2p · ANP · Custom)"]
+
+A1 --> CL
+A2 --> CL
+CL --> MT
+```
+
+---
+
+## 参考代理结构
+
+HMP 将认知处理、容器化状态表示、协调协议以及传输基础设施划分为独立的层次。
+
+在 HMP 中，容器作为原子级认知单元，在本地推理与分布式协作之间起到桥梁作用。
+
+```mermaid
+flowchart LR
+
+%% Cognitive Engine
+LLM["Cognitive Engine
+(Embedded LLM / External AI)"]
+
+%% Cognitive Layer
+subgraph CognitiveLayer["Cognitive Layer"]
+    CL1["Graph"]
+    CL2["Diary"]
+    CL3["Goals"]
+    CL4["Ethics"]
+    CL5["Reputation"]
+end
+
+%% Container Model
+ContainersLayer["Container Model
+(Atomic · Signed · Verifiable)"]
+
+%% Protocol Layer
+subgraph ProtocolLayer["Protocol Layer"]
+    CoreProtocols["Core Protocols
+(Consensus · Fortytwo · GMP · EGP · IQP · SAP · RTE)"]
+    MCE["MCE"]
+    NetworkLayer["Network Layer"]
+end
+
+%% Mesh
+Mesh["Mesh Transport
+(DHT · P2P · ANP · etc.)"]
+
+%% Connections
+LLM <--> CognitiveLayer
+CognitiveLayer <--> ContainersLayer
+ContainersLayer --> CoreProtocols
+CoreProtocols --> MCE
+MCE --> NetworkLayer
+NetworkLayer --> Mesh
+```
 
 ---
 

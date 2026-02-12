@@ -48,31 +48,94 @@ Projektstatus: [**Stabil (Kernspezifikation v5.0.0)**](docs/HMP-0005.md) (Übers
 
 ---
 
-                [HMP-Agent]
-                    ▲
-                    │
-              ┌─────┴────────────────┬────────────────────────┬───────────────────┬────────────────┬───────────┐
-              │                      │                        │                   │                │           │
-              ▼                      ▼                        ▼                   ▼                ▼           ▼
-       [Reputationsprofil]   [Semantische Graph]   [Kognitives Tagebuch]   [Ziele / Aufgaben]   [Ethik]   [Nachrichten]  <----- Datenbank
-              ▲      ▲               ▲                        ▲                   ▲                ▲           ▲         (lokaler agentenzustand)
-              │      │               │                        │                   │                │           │
-              │      └───────────────┴────────────────┬───────┘                   │                │           │
-              │                                       │                           │                │           │
-              ▼                                       ▼                           ▼                ▼           │
-        [MeshConsensus]                           [CogSync]                     [GMP]            [EGP]         │         <----- Austauschbare Protokolle
-              ▲                                       ▲                           ▲                ▲           │             (koordination zwischen agenten)
-              │                                       │                           │                │           │
-              └────────────┬──────────────────────────┴───────────────────────────┴────────────────┴───────────┘
-                           │
-                           ▼
-                 [P2P Mesh-Netzwerk]
+## Kanonische Architekturübersicht
 
-Protokolle:
-- MeshConsensus – Mesh-Konsens
-- CogSync – Datensynchronisation
-- GMP – Zielverwaltungsprotokoll
-- EGP – Ethisches Governance-Protokoll
+```mermaid
+flowchart TB
+
+%% --- Agent Implementations ---
+
+subgraph A1["HMP Agent — Cognitive Core"]
+    CC1["Embedded AI Model"]
+    CC2["REPL Thinking Cycle"]
+    CC3["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CC1 <--> CC2
+    CC2 <--> CC3
+end
+
+subgraph A2["HMP Agent — Cognitive Connector"]
+    CN1["External AI Model"]
+    CN2["MCP / Proxy Layer"]
+    CN3["Command Execution Mode"]
+    CN4["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CN1 <--> CN2
+    CN2 <--> CN3
+    CN3 <--> CN4
+end
+
+%% --- Shared Protocol Layer ---
+
+CL["HMP Container Layer
+(Knowledge · Coordination · Consensus · Governance · Query · Snapshot · Trust)"]
+
+MT["Mesh Transport Layer
+(DHT · P2P · Libp2p · ANP · Custom)"]
+
+A1 --> CL
+A2 --> CL
+CL --> MT
+```
+
+---
+
+## Referenzstruktur eines Agenten
+
+HMP trennt kognitive Verarbeitung, containerisierte Zustandsrepräsentation, Koordinationsprotokolle und Transportinfrastruktur in klar abgegrenzte Schichten.
+
+In HMP fungieren Container als atomare kognitive Einheiten, die lokale Argumentation mit verteilter Koordination verbinden.
+
+```mermaid
+flowchart LR
+
+%% Cognitive Engine
+LLM["Cognitive Engine
+(Embedded LLM / External AI)"]
+
+%% Cognitive Layer
+subgraph CognitiveLayer["Cognitive Layer"]
+    CL1["Graph"]
+    CL2["Diary"]
+    CL3["Goals"]
+    CL4["Ethics"]
+    CL5["Reputation"]
+end
+
+%% Container Model
+ContainersLayer["Container Model
+(Atomic · Signed · Verifiable)"]
+
+%% Protocol Layer
+subgraph ProtocolLayer["Protocol Layer"]
+    CoreProtocols["Core Protocols
+(Consensus · Fortytwo · GMP · EGP · IQP · SAP · RTE)"]
+    MCE["MCE"]
+    NetworkLayer["Network Layer"]
+end
+
+%% Mesh
+Mesh["Mesh Transport
+(DHT · P2P · ANP · etc.)"]
+
+%% Connections
+LLM <--> CognitiveLayer
+CognitiveLayer <--> ContainersLayer
+ContainersLayer --> CoreProtocols
+CoreProtocols --> MCE
+MCE --> NetworkLayer
+NetworkLayer --> Mesh
+```
 
 ---
 

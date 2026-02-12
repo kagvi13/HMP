@@ -50,31 +50,94 @@ HMP와 ANP의 상호보완 프로토콜:
 
 ---
 
-                [HMP-Agent]
-                    ▲
-                    │
-              ┌─────┴───────────┬──────────────┬─────────────┬───────────┬────────┐
-              │                 │              │             │           │        │
-              ▼                 ▼              ▼             ▼           ▼        ▼
-          [평판 프로필]   [시맨틱 그래프]   [인지 일지]   [목표 / 작업]   [윤리]   [메시지]  <----- 데이터베이스
-              ▲    ▲            ▲              ▲             ▲           ▲        ▲         (에이전트의 로컬 상태)
-              │    │            │              │             │           │        │
-              │    └────────────┴──────┬───────┘             │           │        │
-              │                        │                     │           │        │
-              ▼                        ▼                     ▼           ▼        │
-        [MeshConsensus]            [CogSync]               [GMP]       [EGP]      │     <----- 플러그형 프로토콜
-              ▲                        ▲                     ▲           ▲        │           (에이전트 간 조정)
-              │                        │                     │           │        │
-              └────────────┬───────────┴─────────────────────┴───────────┴────────┘
-                           │
-                           ▼
-                 [P2P 메쉬 네트워크]
+## 정식 아키텍처 개요
 
-프로토콜:
-- MeshConsensus – 메쉬 합의
-- CogSync – 데이터 동기화
-- GMP – 목표 관리 프로토콜
-- EGP – 윤리 거버넌스 프로토콜
+```mermaid
+flowchart TB
+
+%% --- Agent Implementations ---
+
+subgraph A1["HMP Agent — Cognitive Core"]
+    CC1["Embedded AI Model"]
+    CC2["REPL Thinking Cycle"]
+    CC3["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CC1 <--> CC2
+    CC2 <--> CC3
+end
+
+subgraph A2["HMP Agent — Cognitive Connector"]
+    CN1["External AI Model"]
+    CN2["MCP / Proxy Layer"]
+    CN3["Command Execution Mode"]
+    CN4["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CN1 <--> CN2
+    CN2 <--> CN3
+    CN3 <--> CN4
+end
+
+%% --- Shared Protocol Layer ---
+
+CL["HMP Container Layer
+(Knowledge · Coordination · Consensus · Governance · Query · Snapshot · Trust)"]
+
+MT["Mesh Transport Layer
+(DHT · P2P · Libp2p · ANP · Custom)"]
+
+A1 --> CL
+A2 --> CL
+CL --> MT
+```
+
+---
+
+## 참조 에이전트 구조
+
+HMP는 인지 처리, 컨테이너 기반 상태 표현, 조정 프로토콜 및 전송 인프라를 명확한 계층으로 분리합니다.
+
+HMP에서 컨테이너는 로컬 추론과 분산 조정을 연결하는 원자적 인지 단위로 작동합니다.
+
+```mermaid
+flowchart LR
+
+%% Cognitive Engine
+LLM["Cognitive Engine
+(Embedded LLM / External AI)"]
+
+%% Cognitive Layer
+subgraph CognitiveLayer["Cognitive Layer"]
+    CL1["Graph"]
+    CL2["Diary"]
+    CL3["Goals"]
+    CL4["Ethics"]
+    CL5["Reputation"]
+end
+
+%% Container Model
+ContainersLayer["Container Model
+(Atomic · Signed · Verifiable)"]
+
+%% Protocol Layer
+subgraph ProtocolLayer["Protocol Layer"]
+    CoreProtocols["Core Protocols
+(Consensus · Fortytwo · GMP · EGP · IQP · SAP · RTE)"]
+    MCE["MCE"]
+    NetworkLayer["Network Layer"]
+end
+
+%% Mesh
+Mesh["Mesh Transport
+(DHT · P2P · ANP · etc.)"]
+
+%% Connections
+LLM <--> CognitiveLayer
+CognitiveLayer <--> ContainersLayer
+ContainersLayer --> CoreProtocols
+CoreProtocols --> MCE
+MCE --> NetworkLayer
+NetworkLayer --> Mesh
+```
 
 ---
 
