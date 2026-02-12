@@ -5,20 +5,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- GMP
-- HMP
-- EGP
-- CogSync
-- MeshConsensus
-- REPL
-- Scenarios
-- cognitive-architecture
-- Mesh
-- mesh-protocol
 - Ethics
-- Agent
+- MeshConsensus
 - hmp
+- REPL
+- CogSync
+- HMP
+- GMP
+- mesh-protocol
+- Mesh
+- cognitive-architecture
+- Agent
 - distributed-ai
+- EGP
+- Scenarios
 - JSON
 ---
 
@@ -340,7 +340,7 @@ They are preserved for historical continuity and research transparency.
 
 ### Experiments
 
-* [How Different AIs See HMP](docs/HMP-how-AI-sees-it.md) — "blind" AI survey on HMP (without context or dialogue history)
+* [How Different AIs See HMP](docs/HMP-how-AI-sees-it.md) — "blind" AI survey on HMP
 
 ---
 

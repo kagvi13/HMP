@@ -5,19 +5,19 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- GMP
-- HMP
-- EGP
-- CogSync
-- MeshConsensus
-- REPL
-- cognitive-architecture
-- Mesh
-- mesh-protocol
 - Ethics
-- Agent
+- MeshConsensus
 - hmp
+- REPL
+- CogSync
+- HMP
+- GMP
+- mesh-protocol
+- Mesh
+- cognitive-architecture
+- Agent
 - distributed-ai
+- EGP
 - JSON
 ---
 
@@ -328,27 +328,35 @@ HMPが自律性へ向かうにつれ、倫理原則はシステムの中核部�
 
 ---
 
-## 🔍 HyperCortex Mesh Protocol (HMP) に関する出版物・翻訳
+## 🔍 HyperCortex Mesh Protocol（HMP）に関する出版物および翻訳
 
-HMPプロジェクトに関連する主な記事、ドラフト、翻訳をまとめたセクション。
+本セクションでは、HMPプロジェクトに関連する主要な概念的研究、実験的文書、および歴史的出版物をまとめています。
 
-### 出版物
+### 🌟 主要出版物（概念的基盤）
 
-* **[HyperCortex Mesh Protocol: 第二版および自己発展型AIコミュニティへの第一歩](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habrサンドボックスとブログでのオリジナル記事
+これらの文書は、HMPの現在の概念的方向性（v5以降）を反映しています。
+
 * **[分散認知: vsradkevich向け記事（未公開）](docs/publics/Habr_Distributed-Cognition.md)** — 公開待ちの共同記事
-* **[HMP: 分散型認知ネットワークに向けて（オリジナル, 英語）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[HMP翻訳（GitHub Copilot版）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilotによる翻訳（歴史的バリアントとして保持）
-  * **[HMP翻訳（ChatGPT版）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 現行編集翻訳（改訂中）
 * **HMP: 複数の知性を構築する:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[継続学習、認知ダイアリー、セマンティックグラフ：効果的なAI学習](docs/publics/hmp-continual-learning.md)** — 継続学習を認知ダイアリーやセマンティックグラフと組み合わせる方法に関する記事。
 
+### 🗃️ アーカイブ／歴史的出版物（v5以前）
+
+これらは初期の概念発展段階（v4.x以前）を示す文書です。  
+歴史的継続性および研究上の透明性のため保存されています。
+
+* **[HyperCortex Mesh Protocol: 第二版および自己発展型AIコミュニティへの第一歩](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habrサンドボックスとブログでのオリジナル記事
+* **[HMP: 分散型認知ネットワークに向けて（オリジナル, 英語）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+    * **[HMP翻訳（GitHub Copilot版）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilotによる翻訳（歴史的バリアントとして保持）
+    * **[HMP翻訳（ChatGPT版）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 現行編集翻訳（改訂中）
+
 ### 概要
 
-* [🔍 分散型認知システム.md](docs/Distributed-Cognitive-Systems.md) — OpenCog Hyperon、HyperCortex Mesh Protocol などの分散型AIシステム
+* [🔍 分散型認知システム.md](docs/Distributed-Cognitive-Systems.md) — 分散型AIシステムの比較（v4.x参照、更新予定）
 
 ### 実験
 
-* [異なるAIがHMPをどのように見るか](docs/HMP-how-AI-sees-it.md) — HMPに関する「ブラインド」AI調査（コンテキストや会話履歴なし）
+* [異なるAIがHMPをどのように見るか](docs/HMP-how-AI-sees-it.md) — HMPに関する「ブラインド」AI調査
 
 ---
 

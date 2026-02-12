@@ -5,19 +5,19 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- GMP
-- HMP
-- EGP
-- CogSync
-- MeshConsensus
-- REPL
-- cognitive-architecture
-- Mesh
-- mesh-protocol
 - Ethics
-- Agent
+- MeshConsensus
 - hmp
+- REPL
+- CogSync
+- HMP
+- GMP
+- mesh-protocol
+- Mesh
+- cognitive-architecture
+- Agent
 - distributed-ai
+- EGP
 - JSON
 ---
 
@@ -315,26 +315,35 @@ Mit zunehmender Autonomie von HMP werden ethische Prinzipien zu einem Kernbestan
 
 ---
 
-## 🔍 Veröffentlichungen und Übersetzungen zum HyperCortex Mesh Protocol (HMP)
+## 🔍 Publikationen und Übersetzungen zum HyperCortex Mesh Protocol (HMP)
 
-Dieser Abschnitt sammelt die wichtigsten Artikel, Entwürfe und Übersetzungen zum HMP-Projekt.
+Dieser Abschnitt enthält zentrale konzeptionelle Arbeiten, experimentelle Entwürfe sowie historische Veröffentlichungen zum HMP-Projekt.
 
-### Veröffentlichungen
+### 🌟 Kernpublikationen (konzeptionelle Grundlage)
 
-* **[HyperCortex Mesh Protocol: Zweite Ausgabe und erste Schritte zu einer selbstentwickelnden KI-Community](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Originalartikel im Habr-Sandbox-Blog.
+Diese Arbeiten spiegeln die aktuelle konzeptionelle Ausrichtung von HMP (v5 und darüber hinaus) wider.
+
 * **[Distributed Cognition: Artikel für vsradkevich (unveröffentlicht)](docs/publics/Habr_Distributed-Cognition.md)** — gemeinsamer Artikel, ausstehend zur Veröffentlichung.
-* **[HMP: Towards Distributed Cognitive Networks (Original, Englisch)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[HMP Übersetzung (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot Übersetzung, als historische Variante behalten.
-  * **[HMP Übersetzung (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — aktuelle redaktionelle Übersetzung (in Überarbeitung).
 * **HMP: Aufbau einer Vielzahl von Köpfen:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[Kontinuierliches Lernen, kognitive Tagebücher und semantische Graphen: Effektives KI-Lernen](docs/publics/hmp-continual-learning.md)** — Artikel über die Kombination von kontinuierlichem Lernen mit kognitiven Tagebüchern und semantischen Graphen.
 
+### 🗃️ Archivierte / historische Publikationen (Vor-v5-Phase)
+
+Diese Dokumente repräsentieren frühere Entwicklungsstadien (v4.x und früher).  
+Sie werden zur historischen Nachvollziehbarkeit und wissenschaftlichen Transparenz archiviert.
+
+* **[HyperCortex Mesh Protocol: Zweite Ausgabe und erste Schritte zu einer selbstentwickelnden KI-Community](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Originalartikel im Habr-Sandbox-Blog.
+* **[HMP: Towards Distributed Cognitive Networks (Original, Englisch)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+    * **[HMP Übersetzung (GitHub Copilot)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot Übersetzung, als historische Variante behalten.
+    * **[HMP Übersetzung (ChatGPT)](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — aktuelle redaktionelle Übersetzung (in Überarbeitung).
+
 ### Überblick
-* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Dezentralisierte KI-Systeme: OpenCog Hyperon, HyperCortex Mesh Protocol und andere
+
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — Vergleich dezentraler KI-Systeme (verweist auf v4.x; Aktualisierung geplant)
 
 ### Experimente
 
-* [Wie verschiedene KIs HMP sehen](docs/HMP-how-AI-sees-it.md) — "Blind"-Umfrage unter KIs zu HMP (ohne Kontext oder Dialoghistorie)
+* [Wie verschiedene KIs HMP sehen](docs/HMP-how-AI-sees-it.md) — "Blind"-Umfrage unter KIs zu HMP
 
 ---
 

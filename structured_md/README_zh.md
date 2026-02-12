@@ -5,19 +5,19 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- GMP
-- HMP
-- EGP
-- CogSync
-- MeshConsensus
-- REPL
-- cognitive-architecture
-- Mesh
-- mesh-protocol
 - Ethics
-- Agent
+- MeshConsensus
 - hmp
+- REPL
+- CogSync
+- HMP
+- GMP
+- mesh-protocol
+- Mesh
+- cognitive-architecture
+- Agent
 - distributed-ai
+- EGP
 - JSON
 ---
 
@@ -324,27 +324,35 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 
 ---
 
-## 🔍 HyperCortex Mesh Protocol (HMP) 的出版物与翻译
+## 🔍 HyperCortex Mesh Protocol (HMP) 相关出版物与翻译
 
-本节收集与 HMP 项目相关的主要文章、草稿及翻译。
+本节汇集了与 HMP 项目相关的关键概念性研究、实验性文档以及历史性出版物。
 
-### 出版物
+### 🌟 核心出版物（概念基础）
 
-* **[HyperCortex Mesh Protocol：第二版及迈向自我发展的 AI 社区的第一步](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habr 沙箱及博客的原创文章
+这些文档反映了 HMP 当前的概念方向（v5 及以后）。
+
 * **[分布式认知：vsradkevich 的文章（未发布）](docs/publics/Habr_Distributed-Cognition.md)** — 待发布的联合文章
-* **[HMP: 面向分布式认知网络（原文，英文）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
-  * **[HMP 翻译（GitHub Copilot）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot 翻译，保留为历史版本
-  * **[HMP 翻译（ChatGPT）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 当前编辑翻译（修订中）
 * **HMP: 构建多元思维:** [(EN)](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md), [(UK)](docs/publics/HMP_Building_a_Plurality_of_Minds_uk.md), [(RU)](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
 * **[持续学习、认知日记与语义图谱：高效的人工智能学习](docs/publics/hmp-continual-learning.md)** — 关于将持续学习与认知日记和语义图谱结合的文章。
 
+### 🗃️ 存档 / 历史出版物（v5 之前）
+
+这些文档代表了早期概念发展阶段（v4.x 及更早）。  
+为保证历史连续性和研究透明性而保留。
+
+* **[HyperCortex Mesh Protocol：第二版及迈向自我发展的 AI 社区的第一步](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)** — Habr 沙箱及博客的原创文章
+* **[HMP: 面向分布式认知网络（原文，英文）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md)**
+    * **[HMP 翻译（GitHub Copilot）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.md)** — GitHub Copilot 翻译，保留为历史版本
+    * **[HMP 翻译（ChatGPT）](docs/publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.md)** — 当前编辑翻译（修订中）
+
 ### 概览
 
-* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — 去中心化 AI 系统：OpenCog Hyperon、HyperCortex Mesh Protocol 等
+* [🔍 Distributed-Cognitive-Systems.md](docs/Distributed-Cognitive-Systems.md) — 去中心化 AI 系统比较（引用 v4.x，计划更新）
 
 ### 实验
 
-* [不同 AI 如何看待 HMP](docs/HMP-how-AI-sees-it.md) — 对 HMP 的“盲”AI 调查（无上下文或对话历史）
+* [不同 AI 如何看待 HMP](docs/HMP-how-AI-sees-it.md) — 对 HMP 的“盲”AI 调查
 
 ---
 
