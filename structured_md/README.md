@@ -5,21 +5,21 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- GMP
-- REPL
-- Mesh
-- JSON
-- Scenarios
-- cognitive-architecture
-- CogSync
-- hmp
+- Agent
 - EGP
-- mesh-protocol
-- MeshConsensus
-- distributed-ai
+- Mesh
 - Ethics
 - HMP
-- Agent
+- MeshConsensus
+- Scenarios
+- CogSync
+- mesh-protocol
+- cognitive-architecture
+- hmp
+- JSON
+- REPL
+- GMP
+- distributed-ai
 ---
 
 
@@ -57,6 +57,8 @@ Project status: [**Stable (v5.0.0 Core Specification)**](docs/HMP-0005.md) (Over
 >
 > HMP itself is a protocol specification.
 > It does not prescribe programming languages, runtimes, performance characteristics, or architectural choices for agent implementations.
+
+---
 
 ## Canonical Architecture Overview
 
@@ -102,49 +104,49 @@ CL --> MT
 
 ## Reference Agent Structure 
 
-```mermaid
-flowchart TD
+(Expanded Mermaid diagram)
 
-%% Title (visual anchor)
-title["**HMP Conceptual Architecture (Expanded)**"]
+HMP separates cognitive processing, containerized state representation,coordination protocols, and transport infrastructure into distinct layers.
+
+```mermaid
+flowchart LR
 
 %% Cognitive Engine
 LLM["Cognitive Engine
-(Embedded LLM or External AI via Connector)"]
+(Embedded LLM / External AI)"]
 
 %% Cognitive Layer
 subgraph CognitiveLayer["Cognitive Layer"]
-    CL1["Semantic Graph"]
-    CL2["Cognitive Diary"]
-    CL3["Goals & Tasks"]
-    CL4["Ethics & Governance"]
-    CL5["Reputation Model"]
+    CL1["Graph"]
+    CL2["Diary"]
+    CL3["Goals"]
+    CL4["Ethics"]
+    CL5["Reputation"]
 end
 
 %% Container Model
 ContainersLayer["Container Model
-(Atomic, Signed, Verifiable Containers)"]
+(Atomic · Signed · Verifiable)"]
 
-%% Protocol Stack
+%% Protocol Layer
 subgraph ProtocolLayer["Protocol Layer"]
-    CoreProtocols["Core Cognitive Protocols
+    CoreProtocols["Core Protocols
 (Consensus · Fortytwo · GMP · EGP · IQP · SAP · RTE)"]
-    MCE["Mesh Container Exchange (MCE)"]
-    NetworkLayer["Network Layer
-(peer_announce · peer_query)"]
+    MCE["MCE"]
+    NetworkLayer["Network Layer"]
 end
 
 %% Mesh
 Mesh["Mesh Transport
-(DHT · P2P · Libp2p · ANP · IPFS · etc.)"]
+(DHT · P2P · ANP · etc.)"]
 
 %% Connections
 LLM <--> CognitiveLayer
 CognitiveLayer <--> ContainersLayer
-ContainersLayer <--> CoreProtocols
-CoreProtocols <--> MCE
-MCE <--> NetworkLayer
-NetworkLayer <--> Mesh
+ContainersLayer --> CoreProtocols
+CoreProtocols --> MCE
+MCE --> NetworkLayer
+NetworkLayer --> Mesh
 ```
 
 ---
