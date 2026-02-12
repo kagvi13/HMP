@@ -1,28 +1,30 @@
 ---
 title: HyperCortex Mesh Protocol (HMP)
-description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
-  | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md)
-  | 🇨🇳 [ZH](README_zh.m...'
+description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)  |
+  🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
+  | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- MeshConsensus
 - EGP
-- GMP
-- Ethics
-- REPL
-- Agent
-- JSON
-- mesh-protocol
 - Mesh
-- cognitive-architecture
-- HMP
-- distributed-ai
-- hmp
 - CogSync
+- hmp
+- Ethics
+- mesh-protocol
+- HMP
+- Agent
+- cognitive-architecture
+- GMP
+- REPL
+- distributed-ai
+- MeshConsensus
+- JSON
 ---
 
 
 # HyperCortex Mesh Protocol (HMP)
+
+[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)
 
 | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md) | 🇨🇳 [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -47,7 +49,7 @@ HMP 与 ANP 作为互补协议：
 
 [Agora Protocol](https://github.com/agora-protocol/) 是一种用于协商代理之间交互方式的元协议。它并非取代 ANP（网络与身份）或 HMP（认知连续性与记忆），而是在具体上下文中协调和补充这些协议的使用。
 
-项目状态： [**RFC v5.0**](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
+项目状态： [稳定版本（核心规范 v5.0.0）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
 
 > 本仓库包含一个早期的、探索性的 Python 参考实现草案。
 > 该实现尚不完整，未进行性能优化，仅用于验证和说明
@@ -478,6 +480,6 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol (HMP)",
-  "description": " # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 ..."
+  "description": " # HyperCortex Mesh Protocol (HMP)  [![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.or..."
 }
 ```

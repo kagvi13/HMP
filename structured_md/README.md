@@ -1,31 +1,31 @@
 ---
 title: HyperCortex Mesh Protocol (HMP)
-description: 'DOI: pending (Zenodo archival in progress)  | 🌍 Languages | 🇬🇧 [EN](README.md)
-  | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md)
-  | 🇯🇵 [JA](README_ja.md) |...'
+description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)  |
+  🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
+  | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- MeshConsensus
 - EGP
-- GMP
-- Ethics
-- REPL
-- Agent
-- JSON
-- mesh-protocol
 - Mesh
-- cognitive-architecture
-- HMP
-- distributed-ai
-- Scenarios
-- hmp
 - CogSync
+- hmp
+- Ethics
+- mesh-protocol
+- HMP
+- Agent
+- cognitive-architecture
+- GMP
+- REPL
+- Scenarios
+- distributed-ai
+- MeshConsensus
+- JSON
 ---
 
 
 # HyperCortex Mesh Protocol (HMP)
 
-DOI: pending (Zenodo archival in progress)
+[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)
 
 | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md) | 🇨🇳 [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -50,7 +50,7 @@ HMP and ANP as Complementary Protocols:
 
 [Agora Protocol](https://github.com/agora-protocol/) is a meta-protocol for negotiating interaction modes between agents. It complements, rather than replaces, protocols such as ANP (networking and identity) and HMP (cognitive continuity and memory), coordinating how they are used in a given context.
 
-Project status: [**RFC v5.0**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
+Project status: [**Stable (v5.0.0 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 
 > This repository contains an early draft / exploratory reference implementation in Python.
 > It is incomplete, non-optimized, and intended solely to validate and illustrate parts of the HMP protocol.
@@ -466,6 +466,6 @@ For integration with OpenCog Hyperon, see [HMP\_Hyperon\_Integration.md](docs/HM
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol (HMP)",
-  "description": " # HyperCortex Mesh Protocol (HMP)  DOI: pending (Zenodo archival in progress)  | 🌍 Languages | 🇬🇧 [..."
+  "description": " # HyperCortex Mesh Protocol (HMP)  [![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.or..."
 }
 ```

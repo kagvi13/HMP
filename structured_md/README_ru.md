@@ -1,28 +1,30 @@
 ---
 title: HyperCortex Mesh Protocol (HMP)
-description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
-  | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md)
-  | 🇨🇳 [ZH](README_zh.m...'
+description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)  |
+  🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
+  | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- MeshConsensus
 - EGP
-- GMP
-- Ethics
-- REPL
-- Agent
-- JSON
-- mesh-protocol
 - Mesh
-- cognitive-architecture
-- HMP
-- distributed-ai
-- hmp
 - CogSync
+- hmp
+- Ethics
+- mesh-protocol
+- HMP
+- Agent
+- cognitive-architecture
+- GMP
+- REPL
+- distributed-ai
+- MeshConsensus
+- JSON
 ---
 
 
 # HyperCortex Mesh Protocol (HMP)
+
+[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)
 
 | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md) | 🇨🇳 [ZH](README_zh.md) |
 |--------------|------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|
@@ -47,7 +49,7 @@ HMP и ANP как взаимодополняющие протоколы:
 
 [Agora Protocol](https://github.com/agora-protocol/) — это мета-протокол для согласования режимов взаимодействия между агентами. Он дополняет, а не заменяет такие протоколы, как ANP (сети и идентификация) и HMP (когнитивная преемственность и память), координируя их использование в конкретном контексте.
 
-Статус проекта: [**RFC v5.0**](docs/HMP-0005.md) (Обзор: [RU](docs/HMPv5_Overview_Ru.md))
+Статус проекта: [**Стабильная версия (Основная спецификация v5.0.0)**](docs/HMP-0005.md) (Обзор: [RU](docs/HMPv5_Overview_Ru.md))
 
 > Этот репозиторий содержит ранний черновик / исследовательскую эталонную реализацию на Python.
 > Реализация является неполной, неоптимизированной и предназначена исключительно для проверки и иллюстрации отдельных аспектов протокола HMP.
@@ -470,6 +472,6 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol (HMP)",
-  "description": " # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 ..."
+  "description": " # HyperCortex Mesh Protocol (HMP)  [![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.or..."
 }
 ```
