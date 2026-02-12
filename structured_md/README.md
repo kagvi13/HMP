@@ -5,21 +5,21 @@ description: 'DOI: pending (Zenodo archival in progress)  | 🌍 Languages | �
   | 🇯🇵 [JA](README_ja.md) |...'
 type: Article
 tags:
-- REPL
-- CogSync
-- GMP
-- distributed-ai
 - mesh-protocol
-- cognitive-architecture
-- Ethics
-- hmp
-- MeshConsensus
-- Scenarios
-- HMP
 - Agent
-- Mesh
+- distributed-ai
 - JSON
+- GMP
 - EGP
+- Mesh
+- hmp
+- REPL
+- HMP
+- Ethics
+- cognitive-architecture
+- Scenarios
+- CogSync
+- MeshConsensus
 ---
 
 
