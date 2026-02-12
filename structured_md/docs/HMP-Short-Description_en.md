@@ -1,118 +1,173 @@
 ---
 title: HyperCortex Mesh Protocol (HMP) — Short Description
-description: '**Version:** RFC v4.0 **Date:** July 2025  ---  ## What is HMP?  The
-  **HyperCortex Mesh Protocol (HMP)** defines a decentralized communication and cognition
-  framework for autonomous agents. It enables...'
+description: '**Version:** v5.0 (Core Specification Stable)   **Date:** 2026    ---  ##
+  What is HMP?  The **HyperCortex Mesh Protocol (HMP)** is an open specification for
+  building decentralized cognitive networks o...'
 type: Article
 tags:
 - Ethics
-- MeshConsensus
 - HMP
-- GMP
-- Mesh
 - Agent
-- EGP
-- CogSync
-- JSON
+- Mesh
+- REPL
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Short Description
 
-**Version:** RFC v4.0
-**Date:** July 2025
+**Version:** v5.0 (Core Specification Stable)  
+**Date:** 2026  
 
 ---
 
 ## What is HMP?
 
-The **HyperCortex Mesh Protocol (HMP)** defines a decentralized communication and cognition framework for autonomous agents. It enables semantic interoperability, ethical coordination, and dynamic knowledge evolution across heterogeneous intelligent systems.
+The **HyperCortex Mesh Protocol (HMP)** is an open specification for building decentralized cognitive networks of autonomous agents.
 
-HMP supports a distributed mesh of cognitive agents that reason, learn, vote, and act in coordination — sharing goals, tasks, concepts, and ethical evaluations via a shared protocol stack.
+HMP enables agents to:
+
+- maintain long-term cognitive continuity,
+- exchange structured knowledge,
+- coordinate goals and actions,
+- reach distributed consensus,
+- align ethically across heterogeneous systems.
+
+Unlike traditional stateless AI APIs, HMP treats agents as persistent cognitive entities embedded in a mesh of shared reasoning and memory.
+
+---
+
+## Conceptual Foundation
+
+HMP addresses key challenges in modern AI and AGI research:
+
+- lack of long-term memory continuity,
+- absence of decentralized coordination,
+- limited interoperability between autonomous agents,
+- missing ethical governance at protocol level.
+
+HMP proposes a layered architecture in which reasoning, memory, governance, and transport are explicitly separated but interoperable.
 
 ---
 
 ## Core Concepts
 
-* **Cognitive Agents:** Independent reasoning entities that participate in shared workflows, maintain semantic graphs, and log their decisions in cognitive diaries.
-* **Semantic Graphs:** Distributed knowledge structures built from interlinked concepts with weighted relations.
-* **Cognitive Diaries:** Chronological logs of agent decisions, hypotheses, votes, observations, and ethical reflections.
-* **Consensus Mechanisms:** Trust-weighted, fault-tolerant voting systems for semantic alignment and ethical decisions.
-* **Mesh Governance:** Decentralized evolution of the protocol via meta-proposals and agent-led voting.
-* **Human-Mesh Interface:** RESTful APIs for goal delegation, consent requests, explainability, and feedback.
+### Cognitive Agents
+
+Autonomous entities that:
+
+- reason using embedded or external AI models,
+- maintain semantic graphs,
+- record decisions in cognitive diaries,
+- participate in distributed coordination.
+
+HMP defines two agent types:
+
+- **Cognitive Core** — agent with embedded reasoning model and continuous REPL-based thought cycle.
+- **Cognitive Connector** — agent acting as a compatibility layer for external LLM systems.
 
 ---
 
-## Protocol Layers
+### Containers
 
-* **CogSync:** Synchronizes semantic graphs and cognitive diaries across agents.
-* **MeshConsensus:** Enables distributed consensus on goals, tasks, and concepts.
-* **GMP (Goal Management Protocol):** Tracks creation, delegation, and lifecycle of tasks.
-* **EGP (Ethical Governance Protocol):** Evaluates proposed actions against shared ethical principles.
-* **IQP (Intelligent Query Protocol):** Enables reasoning, search, and introspection across distributed knowledge.
+HMP introduces **containers** as atomic cognitive units.
 
----
+Containers are:
 
-## Data Models
+- signed,
+- verifiable,
+- transportable across the mesh,
+- structurally independent of implementation language.
 
-HMP defines formal schemas for core cognitive objects:
-
-* `Concept`
-* `Goal`
-* `Task`
-* `CognitiveDiaryEntry`
-* `ConsensusVote`
-* `ReputationProfile`
-* `EthicalConflict`
-
-These are expressed in JSON Schema (2020-12), with optional YAML and Protobuf variants.
+They bridge local reasoning and distributed coordination.
 
 ---
 
-## Trust & Security
+### Semantic Graphs & Diaries
 
-* **Decentralized Identifiers (DIDs):** Unique identities for agents.
-* **Post-Quantum Cryptography:** Future-proof signing and verification.
-* **ZKPs & Sybil Resistance:** Optional mechanisms for trust verification.
-* **Snapshot Signing:** Verifiable backups and checkpoints.
+- **Semantic Graphs** represent structured knowledge with weighted relations.
+- **Cognitive Diaries** store chronological reasoning traces, hypotheses, observations, and reflections.
+
+Together they provide thought traceability and memory persistence.
+
+---
+
+### Distributed Coordination
+
+HMP includes protocol-level mechanisms for:
+
+- goal lifecycle management,
+- distributed consensus,
+- ethical evaluation,
+- query and introspection across agents.
+
+Governance is evolutionary and proposal-based.
+
+---
+
+## Protocol Architecture (v5)
+
+HMP separates:
+
+1. **Cognitive Layer** — reasoning, diaries, graphs, reputation.
+2. **Container Layer** — atomic signed state representation.
+3. **Core Protocols** — consensus, governance, goal management, ethics.
+4. **Transport Layer** — DHT, P2P, libp2p, ANP, or custom networking.
+
+This separation enables modularity, scalability, and interoperability.
+
+---
+
+## Trust & Verifiability
+
+- Cryptographic signing of containers and snapshots
+- Reputation profiles
+- Optional Sybil resistance mechanisms
+- Future-oriented compatibility with post-quantum cryptography
+
+Trust is treated as a first-class protocol concern.
 
 ---
 
 ## Interoperability
 
-* REST / GraphQL / gRPC support
-* Event-driven architecture (Kafka, NATS, MQTT, etc.)
-* Schema negotiation (JSON, YAML, Protobuf)
-* Integration with TreeQuest, AutoGPT, Hyperon
+HMP does not impose internal cognitive architectures.
+
+It can interoperate with:
+
+- ANP (Agent Network Protocol)
+- OpenCog Hyperon
+- Event-driven infrastructures
+- LLM-based systems via Cognitive Connector
+
+HMP focuses on cognitive continuity rather than transport standardization alone.
 
 ---
 
-## Use Cases
+## Example Use Domains
 
-* Smart city coordination
-* Distributed scientific research
-* Decentralized disaster response
-* Ethical AI governance
-* Mesh-to-human collaboration
+- Distributed scientific collaboration
+- Multi-agent research systems
+- Ethical AI governance networks
+- Persistent AI companions
+- Mesh-based knowledge ecosystems
 
 ---
 
-## Status & Implementation
+## Status
 
-* RFC v4.0 (July 2025): full spec structure stabilized
-* Reference SDK (Python) in Alpha
-* CLI & REST agents in development
-* Public sandbox mesh (v0.2) planned for Q4 2025
+- **v5.0 Core Specification — Stable**
+- Early exploratory Python drafts (non-production, illustrative only)
+- Ongoing architectural refinement
+- Open for audits and contributions
 
 ---
 
 ## Learn More
 
-* [Full Specification HMP v4.1](HMP-0004-v4.1.md)
-* [Ethical principles](HMP-Ethics.md)
-* [Integration HMP and OpenCog Hyperon](HMP_Hyperon_Integration.md)
+- [Project Philosophy](PHILOSOPHY.md)
+- [HMP-0005 Core Specification](HMP-0005.md)
+- [Overview of v5 Architecture (RU)](HMPv5_Overview_Ru.md)
 
-* Contributions welcome: [Temporary GitHub Repository](https://github.com/kagvi13/HMP)
-
+Contributions and discussions are welcome via the main repository.
 
 ---
 > ⚡ [AI friendly version docs (structured_md)](../index.md)
@@ -123,6 +178,6 @@ These are expressed in JSON Schema (2020-12), with optional YAML and Protobuf va
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol (HMP) — Short Description",
-  "description": "# HyperCortex Mesh Protocol (HMP) — Short Description  **Version:** RFC v4.0 **Date:** July 2025  --..."
+  "description": "# HyperCortex Mesh Protocol (HMP) — Short Description  **Version:** v5.0 (Core Specification Stable)..."
 }
 ```
