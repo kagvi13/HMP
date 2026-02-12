@@ -1,29 +1,31 @@
 ---
 title: HyperCortex Mesh Protocol (HMP)
-description: '| 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
-  | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md)
-  | 🇨🇳 [ZH](README_zh.m...'
+description: 'DOI: pending (Zenodo archival in progress)  | 🌍 Languages | 🇬🇧 [EN](README.md)
+  | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md)
+  | 🇯🇵 [JA](README_ja.md) |...'
 type: Article
 tags:
-- CogSync
-- EGP
-- Scenarios
-- hmp
-- Agent
 - REPL
-- cognitive-architecture
-- distributed-ai
-- HMP
+- CogSync
 - GMP
-- Mesh
-- MeshConsensus
+- distributed-ai
 - mesh-protocol
+- cognitive-architecture
 - Ethics
+- hmp
+- MeshConsensus
+- Scenarios
+- HMP
+- Agent
+- Mesh
 - JSON
+- EGP
 ---
 
 
 # HyperCortex Mesh Protocol (HMP)
+
+DOI: pending (Zenodo archival in progress)
 
 | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md) | 🇨🇳 [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -464,6 +466,6 @@ For integration with OpenCog Hyperon, see [HMP\_Hyperon\_Integration.md](docs/HM
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol (HMP)",
-  "description": " # HyperCortex Mesh Protocol (HMP)  | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 ..."
+  "description": " # HyperCortex Mesh Protocol (HMP)  DOI: pending (Zenodo archival in progress)  | 🌍 Languages | 🇬🇧 [..."
 }
 ```
