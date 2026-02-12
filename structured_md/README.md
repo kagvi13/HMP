@@ -5,21 +5,21 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- Mesh
-- Agent
-- MeshConsensus
-- CogSync
-- hmp
-- GMP
-- Ethics
-- REPL
-- Scenarios
 - EGP
+- Mesh
+- MeshConsensus
+- cognitive-architecture
+- Ethics
 - mesh-protocol
 - HMP
+- GMP
+- Agent
+- CogSync
+- Scenarios
+- REPL
 - JSON
-- cognitive-architecture
 - distributed-ai
+- hmp
 ---
 
 
@@ -103,8 +103,6 @@ CL --> MT
 ---
 
 ## Reference Agent Structure 
-
-(Expanded Mermaid diagram)
 
 HMP separates cognitive processing, containerized state representation,coordination protocols, and transport infrastructure into distinct layers.
 

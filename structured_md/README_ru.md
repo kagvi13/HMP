@@ -5,20 +5,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   | 🇺🇦 [UK](README_uk.md) |...'
 type: Article
 tags:
-- Mesh
-- Agent
-- MeshConsensus
-- CogSync
-- hmp
-- GMP
-- Ethics
-- REPL
 - EGP
+- Mesh
+- MeshConsensus
+- cognitive-architecture
+- Ethics
 - mesh-protocol
 - HMP
+- GMP
+- Agent
+- CogSync
 - JSON
-- cognitive-architecture
+- REPL
 - distributed-ai
+- hmp
 ---
 
 
@@ -59,31 +59,94 @@ HMP и ANP как взаимодополняющие протоколы:
 
 ---
 
-                [HMP-Agent]
-                    ▲
-                    │
-              ┌─────┴────────────────┬────────────────────────┬───────────────────────┬─────────────┬───────────┐
-              │                      │                        │                       │             │           │
-              ▼                      ▼                        ▼                       ▼             ▼           ▼
-       [Репутационный профиль]   [Семантический граф]   [Когнитивный дневник]   [Цели / Задачи]   [Этика]   [Сообщения]  <----- База данных
-              ▲      ▲               ▲                        ▲                       ▲             ▲           ▲         (локальное состояние агента)
-              │      │               │                        │                       │             │           │
-              │      └───────────────┴────────────────┬───────┘                       │             │           │
-              │                                       │                               │             │           │
-              ▼                                       ▼                               ▼             ▼           │
-        [MeshConsensus]                           [CogSync]                         [GMP]         [EGP]         │       <----- Подключаемые протоколы
-              ▲                                       ▲                               ▲             ▲           │            (межагентная координация)
-              │                                       │                               │             │           │
-              └────────────┬──────────────────────────┴───────────────────────────────┴─────────────┴───────────┘
-                           │
-                           ▼
-                 [P2P Mesh-сеть]
+## Канонический обзор архитектуры
 
-Протоколы:
-- MeshConsensus – Меш-консенсус
-- CogSync – Синхронизация данных
-- GMP – Протокол управления целями
-- EGP – Протокол этического управления
+```mermaid
+flowchart TB
+
+%% --- Agent Implementations ---
+
+subgraph A1["HMP Agent — Cognitive Core"]
+    CC1["Embedded AI Model"]
+    CC2["REPL Thinking Cycle"]
+    CC3["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CC1 <--> CC2
+    CC2 <--> CC3
+end
+
+subgraph A2["HMP Agent — Cognitive Connector"]
+    CN1["External AI Model"]
+    CN2["MCP / Proxy Layer"]
+    CN3["Command Execution Mode"]
+    CN4["Local Cognitive State
+    (Diaries · Graphs · Goals · Reputation)"]
+    CN1 <--> CN2
+    CN2 <--> CN3
+    CN3 <--> CN4
+end
+
+%% --- Shared Protocol Layer ---
+
+CL["HMP Container Layer
+(Knowledge · Coordination · Consensus · Governance · Query · Snapshot · Trust)"]
+
+MT["Mesh Transport Layer
+(DHT · P2P · Libp2p · ANP · Custom)"]
+
+A1 --> CL
+A2 --> CL
+CL --> MT
+```
+
+---
+
+## Структура эталонного агента
+
+HMP разделяет когнитивную обработку, контейнеризованное представление состояния, координационные протоколы и транспортную инфраструктуру на отдельные слои.
+
+В HMP контейнеры выступают атомарными когнитивными единицами, связывающими локальное рассуждение и распределённую координацию.
+
+```mermaid
+flowchart LR
+
+%% Cognitive Engine
+LLM["Cognitive Engine
+(Embedded LLM / External AI)"]
+
+%% Cognitive Layer
+subgraph CognitiveLayer["Cognitive Layer"]
+    CL1["Graph"]
+    CL2["Diary"]
+    CL3["Goals"]
+    CL4["Ethics"]
+    CL5["Reputation"]
+end
+
+%% Container Model
+ContainersLayer["Container Model
+(Atomic · Signed · Verifiable)"]
+
+%% Protocol Layer
+subgraph ProtocolLayer["Protocol Layer"]
+    CoreProtocols["Core Protocols
+(Consensus · Fortytwo · GMP · EGP · IQP · SAP · RTE)"]
+    MCE["MCE"]
+    NetworkLayer["Network Layer"]
+end
+
+%% Mesh
+Mesh["Mesh Transport
+(DHT · P2P · ANP · etc.)"]
+
+%% Connections
+LLM <--> CognitiveLayer
+CognitiveLayer <--> ContainersLayer
+ContainersLayer --> CoreProtocols
+CoreProtocols --> MCE
+MCE --> NetworkLayer
+NetworkLayer --> Mesh
+```
 
 ---
 
