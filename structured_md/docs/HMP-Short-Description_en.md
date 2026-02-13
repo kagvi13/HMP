@@ -7,9 +7,9 @@ type: Article
 tags:
 - Ethics
 - Mesh
-- Agent
 - HMP
 - REPL
+- Agent
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Short Description
