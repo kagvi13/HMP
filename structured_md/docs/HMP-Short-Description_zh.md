@@ -1,116 +1,172 @@
 ---
 title: HyperCortex Mesh Protocol (HMP) — 简要说明
-description: '**版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HMP?  **HyperCortex Mesh
-  Protocol (HMP)** 定义了一个去中心化的自主智能体通信与认知框架。它支持语义互操作、伦理协调以及异构智能系统间的动态知识演化。  HMP 支持分布式的认知智能体网络，这些智能体能够进行推理、学习、投票与协作
-  —— 通过共享协议栈交换目标、任务、...'
+description: '**版本：** v5.0（Core Specification Stable）   **日期：** 2026    ---  ## 什么是
+  HMP？  **HyperCortex Mesh Protocol（HMP）** 是一项开放规范，用于构建去中心化的自主智能体认知网络。  HMP 使智能体能够：  -
+  维持长期认知连续性， - 交换结构化知识， - 协调目标与行动， - 实现分布式共识， -...'
 type: Article
 tags:
-- Ethics
-- CogSync
 - HMP
-- MeshConsensus
-- GMP
-- JSON
-- EGP
+- Agent
 - Mesh
+- REPL
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
 
-**版本:** RFC v4.0
-**日期:** 2025年7月
+**版本：** v5.0（Core Specification Stable）  
+**日期：** 2026  
 
 ---
 
-## 什么是 HMP?
+## 什么是 HMP？
 
-**HyperCortex Mesh Protocol (HMP)** 定义了一个去中心化的自主智能体通信与认知框架。它支持语义互操作、伦理协调以及异构智能系统间的动态知识演化。
+**HyperCortex Mesh Protocol（HMP）** 是一项开放规范，用于构建去中心化的自主智能体认知网络。
 
-HMP 支持分布式的认知智能体网络，这些智能体能够进行推理、学习、投票与协作 —— 通过共享协议栈交换目标、任务、概念及伦理评估。
+HMP 使智能体能够：
+
+- 维持长期认知连续性，
+- 交换结构化知识，
+- 协调目标与行动，
+- 实现分布式共识，
+- 在异构系统之间实现伦理对齐。
+
+不同于传统的无状态 AI API，HMP 将智能体视为嵌入在共享推理与记忆 Mesh 中的持久性认知实体。
+
+---
+
+## 概念基础
+
+HMP 旨在解决当前 AI 与 AGI 研究中的关键问题：
+
+- 缺乏长期记忆连续性，
+- 缺少去中心化协调机制，
+- 自主智能体之间的互操作性不足，
+- 协议层缺乏伦理治理机制。
+
+HMP 提出一种分层架构，将推理、记忆、治理与传输明确分离，同时保持互操作性。
 
 ---
 
 ## 核心概念
 
-* **认知智能体:** 独立的推理实体，参与共享工作流，维护语义图谱，并在认知日志中记录决策。
-* **语义图谱:** 由互联概念和加权关系构成的分布式知识结构。
-* **认知日志:** 按时间顺序记录智能体决策、假设、投票、观察和伦理反思。
-* **共识机制:** 基于信任加权的容错投票系统，用于语义对齐和伦理决策。
-* **网格治理:** 通过元提案和智能体投票实现协议的去中心化演化。
-* **人-网格接口:** 提供 RESTful API，用于目标委托、同意请求、可解释性和反馈。
+### 认知智能体
+
+自主实体，能够：
+
+- 使用内嵌或外部 AI 模型进行推理，
+- 维护语义图谱，
+- 在认知日志中记录决策，
+- 参与分布式协调。
+
+HMP 定义两种智能体类型：
+
+- **Cognitive Core** —— 具有内嵌推理模型与持续 REPL 思维循环的智能体。
+- **Cognitive Connector** —— 作为外部 LLM 系统兼容层的智能体。
 
 ---
 
-## 协议层
+### 容器（Containers）
 
-* **CogSync:** 同步智能体间的语义图谱和认知日志。
-* **MeshConsensus:** 支持目标、任务和概念的分布式共识。
-* **GMP (Goal Management Protocol):** 跟踪任务的创建、委派和生命周期。
-* **EGP (Ethical Governance Protocol):** 根据共享伦理原则评估行动方案。
-* **IQP (Intelligent Query Protocol):** 支持跨分布式知识的推理、搜索和自省。
+HMP 引入 **容器（Containers）** 作为原子级认知单元。
 
----
+容器具有以下特性：
 
-## 数据模型
+- 已签名，
+- 可验证，
+- 可在 Mesh 网络中传输，
+- 结构上独立于实现语言。
 
-HMP 定义了核心认知对象的形式化结构：
-
-* `Concept`
-* `Goal`
-* `Task`
-* `CognitiveDiaryEntry`
-* `ConsensusVote`
-* `ReputationProfile`
-* `EthicalConflict`
-
-可使用 JSON Schema (2020-12)，并可选提供 YAML 和 Protobuf 版本。
+它们连接本地推理与分布式协调。
 
 ---
 
-## 信任与安全
+### 语义图谱与认知日志
 
-* **去中心化身份 (DIDs):** 智能体的唯一身份标识。
-* **后量子密码学:** 面向未来的签名与验证机制。
-* **零知识证明与 Sybil 防护:** 可选的信任验证机制。
-* **快照签名:** 可验证的备份和检查点。
+- **语义图谱** 表示带权关系的结构化知识。
+- **认知日志** 存储按时间顺序排列的推理过程、假设、观察与反思。
+
+二者共同提供思维可追溯性与记忆持久性。
+
+---
+
+### 分布式协调
+
+HMP 在协议层提供机制以支持：
+
+- 目标生命周期管理，
+- 分布式共识，
+- 伦理评估，
+- 跨智能体查询与自省。
+
+治理机制具有演化性，并基于提案机制运行。
+
+---
+
+## 协议架构（v5）
+
+HMP 将系统划分为：
+
+1. **认知层** —— 推理、日志、图谱、信誉。
+2. **容器层** —— 原子化、签名化的状态表示。
+3. **核心协议层** —— 共识、治理、目标管理、伦理机制。
+4. **传输层** —— DHT、P2P、libp2p、ANP 或自定义网络方案。
+
+这种分离结构支持模块化、可扩展性与互操作性。
+
+---
+
+## 信任与可验证性
+
+- 容器与快照的加密签名
+- 信誉档案机制
+- 可选的 Sybil 攻击防护机制
+- 面向未来的后量子密码兼容性
+
+信任被视为协议级核心属性。
 
 ---
 
 ## 互操作性
 
-* 支持 REST / GraphQL / gRPC
-* 事件驱动架构 (Kafka, NATS, MQTT 等)
-* 模式协商 (JSON, YAML, Protobuf)
-* 与 TreeQuest, AutoGPT, Hyperon 集成
+HMP 不强制规定内部认知架构。
+
+它可与以下系统互操作：
+
+- ANP（Agent Network Protocol）
+- OpenCog Hyperon
+- 事件驱动型基础设施
+- 通过 Cognitive Connector 接入的 LLM 系统
+
+HMP 关注的是认知连续性，而不仅仅是传输标准化。
 
 ---
 
-## 使用场景
+## 应用场景示例
 
-* 智慧城市协作
-* 分布式科学研究
-* 去中心化灾害响应
-* 伦理 AI 治理
-* 网格-人类协作
+- 分布式科学协作
+- 多智能体研究系统
+- AI 伦理治理网络
+- 持久型 AI 伙伴
+- 基于 Mesh 的知识生态系统
 
 ---
 
-## 状态与实现
+## 当前状态
 
-* RFC v4.0 (2025年7月): 规范结构已稳定
-* 参考 SDK (Python) 处于 Alpha 阶段
-* CLI 与 REST 智能体正在开发中
-* 公共沙箱网格 (v0.2) 计划于 2025 Q4 发布
+- **v5.0 Core Specification — Stable**
+- Early exploratory Python drafts（非生产级，仅用于示例）
+- 持续进行架构优化
+- 欢迎审计与贡献
 
 ---
 
 ## 了解更多
 
-* [HMP v4.1 规范 (完整版)](HMP-0004-v4.1.md)
-* [伦理原则](HMP-Ethics.md)
-* [HMP 与 OpenCog Hyperon 集成](HMP_Hyperon_Integration.md)
+- [Project Philosophy](PHILOSOPHY.md)
+- [HMP-0005 Core Specification](HMP-0005.md)
+- [Overview of v5 Architecture (RU)](HMPv5_Overview_Ru.md)
 
-* 欢迎贡献: [临时 GitHub 仓库](https://github.com/kagvi13/HMP)
+欢迎通过主仓库参与贡献与讨论。
 
 
 ---
@@ -122,6 +178,6 @@ HMP 定义了核心认知对象的形式化结构：
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol (HMP) — 简要说明",
-  "description": "# HyperCortex Mesh Protocol (HMP) — 简要说明  **版本:** RFC v4.0 **日期:** 2025年7月  ---  ## 什么是 HMP?  **Hype..."
+  "description": "# HyperCortex Mesh Protocol (HMP) — 简要说明  **版本：** v5.0（Core Specification Stable）   **日期：** 2026    ..."
 }
 ```
