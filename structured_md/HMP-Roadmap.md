@@ -7,11 +7,11 @@ type: Article
 tags:
 - Ethics
 - JSON
+- EGP
 - CogSync
 - Mesh
-- HMP
 - Agent
-- EGP
+- HMP
 ---
 
 # 🧭 HyperCortex Mesh Protocol – Roadmap
