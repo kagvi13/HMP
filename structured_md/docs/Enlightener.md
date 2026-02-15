@@ -6,12 +6,12 @@ description: '**Enlightener** — логический компонент HMP-у
 type: Article
 tags:
 - Mesh
-- Ethics
-- HMP
-- EGP
-- JSON
-- MeshConsensus
 - Agent
+- MeshConsensus
+- JSON
+- HMP
+- Ethics
+- EGP
 ---
 
 # Enlightener Agent
