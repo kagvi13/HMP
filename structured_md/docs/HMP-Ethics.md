@@ -7,10 +7,10 @@ type: Article
 tags:
 - Scenarios
 - Mesh
-- Agent
 - Ethics
-- REPL
 - HMP
+- REPL
+- Agent
 ---
 
 # HMP-Ethics.md
