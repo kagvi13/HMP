@@ -5,16 +5,16 @@ description: '## HMP-0005 (October 2025) — Core Specification v5.0  **Architec
   container, and network layers into a sin...'
 type: Article
 tags:
-- Mesh
-- CogSync
-- Agent
-- MeshConsensus
-- JSON
-- HMP
-- Ethics
-- Scenarios
 - EGP
 - GMP
+- Agent
+- HMP
+- CogSync
+- JSON
+- Mesh
+- Scenarios
+- Ethics
+- MeshConsensus
 ---
 
 # HyperCortex Mesh Protocol — Changelog
