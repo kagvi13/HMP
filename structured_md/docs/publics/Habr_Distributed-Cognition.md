@@ -6,11 +6,11 @@ description: Сегодня интеллектуальные системы ча
 type: Article
 tags:
 - EGP
+- MeshConsensus
+- Mesh
+- CogSync
 - GMP
 - HMP
-- CogSync
-- Mesh
-- MeshConsensus
 ---
 
 *От OpenCog Hyperon до HyperCortex Mesh Protocol: как устроены децентрализованные когнитивные системы*
