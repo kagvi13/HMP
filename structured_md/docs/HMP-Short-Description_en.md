@@ -6,9 +6,9 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Date:** 2026    
 type: Article
 tags:
 - Agent
-- HMP
-- Ethics
 - Mesh
+- Ethics
+- HMP
 - REPL
 ---
 
