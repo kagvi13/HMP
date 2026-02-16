@@ -2,6 +2,8 @@
 
 Добро пожаловать в документацию по проекту **HyperCortex Mesh Protocol (HMP)** — протоколу и архитектуре распределённых когнитивных агентов.
 
+<a href="https://doi.org/10.5281/zenodo.18616284"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18616284.svg" alt="DOI"></a>
+
 ## Лендинг
 
 * <b><a href="https://kagvi13.github.io/HMP/landing/HMP.html" target="_blank">Презентация HTML</a></b>
