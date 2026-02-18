@@ -5,10 +5,10 @@ description: '**バージョン：** v5.0（Core Specification Stable）   **日
   長期的な認知的連続性の維持 - 構造...'
 type: Article
 tags:
-- REPL
-- Agent
 - HMP
 - Mesh
+- REPL
+- Agent
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 概要
