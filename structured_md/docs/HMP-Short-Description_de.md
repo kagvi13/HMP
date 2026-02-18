@@ -5,10 +5,10 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Datum:** 2026   
   zum Aufbau dezentraler kognitiver Netzwer...'
 type: Article
 tags:
-- Mesh
+- HMP
 - REPL
 - Agent
-- HMP
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
