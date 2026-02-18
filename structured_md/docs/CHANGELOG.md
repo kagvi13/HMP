@@ -1,23 +1,31 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (October 2025) — Core Specification v5.0  **Architecture:**
-  * Formalized immutable container model with explicit proof chains. * Unified cognitive,
-  container, and network layers into a sin...'
+description: '## HMP-0005 (February 2026) — Core Specification v5.0.2  **Security
+  & Cryptography:** * Introduced optional `key-disclosure` container for controlled
+  symmetric key sharing. * Enabled delayed and condi...'
 type: Article
 tags:
-- MeshConsensus
-- JSON
-- Agent
-- Mesh
-- HMP
 - EGP
-- Scenarios
-- GMP
+- HMP
 - CogSync
+- MeshConsensus
+- GMP
+- Agent
 - Ethics
+- Mesh
+- JSON
+- Scenarios
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (February 2026) — Core Specification v5.0.2
+
+**Security & Cryptography:**
+* Introduced optional `key-disclosure` container for controlled symmetric key sharing.
+* Enabled delayed and conditional decryption workflows (e.g., post-consensus, escrow, staged disclosure).
+
+No breaking changes. Fully backward-compatible within the 5.0.x series.
 
 ## HMP-0005 (October 2025) — Core Specification v5.0
 
@@ -193,7 +201,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Established the RFC document structure and versioning approach for further evolution.
 
 
-
 ---
 > ⚡ [AI friendly version docs (structured_md)](../index.md)
 
@@ -203,6 +210,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (October 2025) — Core Specification v5.0  **Arc..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.2  **..."
 }
 ```
