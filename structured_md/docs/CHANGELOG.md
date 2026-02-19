@@ -5,16 +5,16 @@ description: '## HMP-0005 (February 2026) — Core Specification v5.0.2  **Secur
   symmetric key sharing. * Enabled delayed and condi...'
 type: Article
 tags:
+- CogSync
 - Agent
-- Scenarios
-- MeshConsensus
 - HMP
-- Ethics
+- Mesh
 - GMP
 - EGP
+- MeshConsensus
 - JSON
-- Mesh
-- CogSync
+- Scenarios
+- Ethics
 ---
 
 # HyperCortex Mesh Protocol — Changelog
