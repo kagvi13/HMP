@@ -5,8 +5,8 @@ description: '> Анализ подготовлен Grok (xAI) на основе
   Grok для некоммерческого использования в проект...'
 type: Article
 tags:
-- REPL
 - Agent
+- REPL
 - HMP
 - Mesh
 - JSON

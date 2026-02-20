@@ -9,9 +9,9 @@ tags:
 - EGP
 - HMP
 - Mesh
-- MeshConsensus
 - JSON
 - Ethics
+- MeshConsensus
 ---
 
 
