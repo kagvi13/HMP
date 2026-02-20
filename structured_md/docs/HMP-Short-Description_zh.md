@@ -6,8 +6,8 @@ description: '**版本：** v5.0（Core Specification Stable）   **日期：** 
 type: Article
 tags:
 - Agent
-- REPL
 - HMP
+- REPL
 - Mesh
 ---
 

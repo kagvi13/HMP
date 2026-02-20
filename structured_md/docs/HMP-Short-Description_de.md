@@ -6,8 +6,8 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Datum:** 2026   
 type: Article
 tags:
 - Agent
-- REPL
 - HMP
+- REPL
 - Mesh
 ---
 
