@@ -1,23 +1,35 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (February 2026) — Core Specification v5.0.2  **Security
-  & Cryptography:** * Introduced optional `key-disclosure` container for controlled
-  symmetric key sharing. * Enabled delayed and condi...'
+description: '## HMP-0005 (February 2026) — Core Specification v5.0.3  **Security
+  & Confidentiality Extensions:** * Introduced `container_key` container for Shared
+  Key Domains (Section 12.7). * Introduced `group_de...'
 type: Article
 tags:
-- Mesh
-- Ethics
-- MeshConsensus
-- JSON
-- Scenarios
-- HMP
-- GMP
 - CogSync
+- MeshConsensus
 - Agent
 - EGP
+- Ethics
+- GMP
+- Scenarios
+- Mesh
+- JSON
+- HMP
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (February 2026) — Core Specification v5.0.3
+
+**Security & Confidentiality Extensions:**
+* Introduced `container_key` container for Shared Key Domains (Section 12.7).
+* Introduced `group_definition` container (subclass: `private`) for Private Groups (Section 12.8).
+* Clarified shared symmetric key reuse and rotation semantics.
+* Explicitly defined key compromise handling model.
+
+No breaking changes. Fully backward-compatible within the 5.0.x series.
+
+---
 
 ## HMP-0005 (February 2026) — Core Specification v5.0.2
 
@@ -26,6 +38,8 @@ tags:
 * Enabled delayed and conditional decryption workflows (e.g., post-consensus, escrow, staged disclosure).
 
 No breaking changes. Fully backward-compatible within the 5.0.x series.
+
+---
 
 ## HMP-0005 (October 2025) — Core Specification v5.0
 
@@ -53,6 +67,8 @@ No breaking changes. Fully backward-compatible within the 5.0.x series.
 * Defined protocol evolution rules for the 5.x series.
 
 This version supersedes all RFC-based HMP 4.x specifications.
+
+---
 
 ## HMP-0004 (July 2025) — RFC Version 4.1
 
@@ -107,6 +123,8 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Extended roadmap with *Snapshot Markets*, *Meta-Protocol Proposals*, and *Multi-Agent Training Environments*.
 * Prototype tools proposed: *MeshGit*, *CogForge*, and *HyperCortex Forge* for cognitive source control and collaborative evolution.
 
+---
+
 ## HMP-0003 (July 2025) — RFC Version 3.0
 
 **Major Changes**
@@ -149,6 +167,8 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Cross-Mesh cognitive federation and collaborative evolution of reasoning engines.
 * Potential prototype tools like MeshGit and CogForge for cognitive source control.
 
+---
+
 ## HMP-0002 (July 2025) — RFC Version 2.0
 
 **Major Changes**
@@ -182,6 +202,8 @@ This version supersedes all RFC-based HMP 4.x specifications.
 **Future Work Roadmap Expanded**
 * New focus areas added: interoperability testing, UX tools for semantic and cognitive layers, and resilience simulations.
 
+---
+
 ## HMP-0001 (June 2025) — RFC Version 1.0
 
 **Initial Draft**
@@ -201,6 +223,7 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Established the RFC document structure and versioning approach for further evolution.
 
 
+
 ---
 > ⚡ [AI friendly version docs (structured_md)](../index.md)
 
@@ -210,6 +233,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.2  **..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.3  **..."
 }
 ```
