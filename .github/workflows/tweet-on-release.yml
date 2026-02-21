@@ -1,7 +1,7 @@
 name: Tweet on new release
 
 on:
-  push:
+  release:
     types: [published]
 
 jobs:
