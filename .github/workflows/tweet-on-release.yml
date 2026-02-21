@@ -15,7 +15,7 @@ jobs:
         uses: snow-actions/tweet@v1.4.0  # или более новая версия, проверь в marketplace
         with:
           status: |
-            Новый релиз HMP v${{ github.event.release.tag_name }} вышел!
+            Новый релиз HyperCortex Mesh Protocol (HMP) v${{ github.event.release.tag_name }} вышел!
             ${{ github.event.release.body }}
             Подробности: ${{ github.event.release.html_url }}
             #HMP #DeAI #AgenticWeb
