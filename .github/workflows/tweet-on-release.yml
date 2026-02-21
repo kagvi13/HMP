@@ -1,7 +1,7 @@
 name: Tweet on new release
 
 on:
-  release:
+  push:
     types: [published]
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Post tweet
-        uses: snow-actions/tweet@v1.4.0  # или более новая версия, проверь в marketplace
+        uses: snow-actions/tweet@v1.4.0
         with:
           status: |
             Новый релиз HyperCortex Mesh Protocol (HMP) v${{ github.event.release.tag_name }} вышел!
