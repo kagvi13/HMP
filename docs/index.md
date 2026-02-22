@@ -2,7 +2,9 @@
 
 Добро пожаловать в документацию по проекту **HyperCortex Mesh Protocol (HMP)** — протоколу и архитектуре распределённых когнитивных агентов.
 
-<a href="https://doi.org/10.5281/zenodo.18616284"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18616284.svg" alt="DOI"></a>
+Я пока добавил в начале "[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283) [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/releases)"
+
+А позже можно будет продумать, как автоматически менять текст "v5.0.3" из тегов
 
 ## Лендинг
 
