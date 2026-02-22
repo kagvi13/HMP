@@ -6,9 +6,9 @@ description: '**版本：** v5.0（Core Specification Stable）   **日期：** 
 type: Article
 tags:
 - Mesh
+- Agent
 - REPL
 - HMP
-- Agent
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 简要说明
