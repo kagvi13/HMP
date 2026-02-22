@@ -1,30 +1,30 @@
 ---
 title: HyperCortex Mesh Protocol (HMP)
-description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)  |
-  🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md)
-  | 🇺🇦 [UK](README_uk.md) |...'
+description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)
+  ![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)  | 🌍 Languages
+  | 🇬🇧 [EN](README.md) | ...'
 type: Article
 tags:
-- Ethics
 - GMP
-- EGP
-- CogSync
-- MeshConsensus
-- JSON
 - REPL
-- mesh-protocol
-- hmp
-- cognitive-architecture
-- distributed-ai
 - Mesh
-- Agent
+- CogSync
+- Ethics
+- MeshConsensus
 - HMP
+- cognitive-architecture
+- hmp
+- EGP
+- JSON
+- Agent
+- mesh-protocol
+- distributed-ai
 ---
 
 
 # HyperCortex Mesh Protocol (HMP)
 
-[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283)
+[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/10.5281/zenodo.18616283) ![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)
 
 | 🌍 Languages | 🇬🇧 [EN](README.md) | 🇩🇪 [DE](README_de.md) | 🇫🇷 [FR](README_fr.md) | 🇺🇦 [UK](README_uk.md) | 🇷🇺 [RU](README_ru.md) | 🇯🇵 [JA](README_ja.md) | 🇰🇷 [KO](README_ko.md) | 🇨🇳 [ZH](README_zh.md) |
 |--------------|----------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|

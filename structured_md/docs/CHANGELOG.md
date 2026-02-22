@@ -5,16 +5,16 @@ description: '## HMP-0005 (February 2026) — Core Specification v5.0.3  **Secur
   Key Domains (Section 12.7). * Introduced `group_de...'
 type: Article
 tags:
-- Ethics
 - GMP
-- EGP
 - CogSync
-- MeshConsensus
-- JSON
-- Scenarios
 - Mesh
-- Agent
+- Ethics
+- Scenarios
+- MeshConsensus
 - HMP
+- EGP
+- JSON
+- Agent
 ---
 
 # HyperCortex Mesh Protocol — Changelog
