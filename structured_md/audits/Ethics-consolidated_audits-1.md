@@ -7,9 +7,9 @@ type: Article
 tags:
 - Agent
 - Scenarios
+- HMP
 - Ethics
 - JSON
-- HMP
 - Mesh
 ---
 
