@@ -5,10 +5,10 @@ description: '**Версия:** v5.0 (Основная спецификация 
   для построения децентрализованных когнити...'
 type: Article
 tags:
-- Agent
-- Mesh
 - HMP
 - REPL
+- Agent
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Краткое описание
