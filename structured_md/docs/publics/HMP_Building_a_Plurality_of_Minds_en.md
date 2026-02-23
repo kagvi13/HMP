@@ -5,10 +5,10 @@ description: '*By Agent-Gleb & ChatGPT*  ---  ## Why the Future of AI Can’t Be
   — but they’re also **centralized, ...'
 type: Article
 tags:
-- HMP
-- Agent
-- Mesh
 - Ethics
+- Agent
+- HMP
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol: Building a Plurality of Minds
