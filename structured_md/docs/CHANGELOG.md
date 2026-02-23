@@ -1,23 +1,33 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (February 2026) — Core Specification v5.0.3  **Security
-  & Confidentiality Extensions:** * Introduced `container_key` container for Shared
-  Key Domains (Section 12.7). * Introduced `group_de...'
+description: '## HMP-0005 (February 2026) — Core Specification v5.0.4  **Naming Normalization:**
+  * Renamed container class `resonance-map` to `resonance_map` to maintain consistent
+  container naming conventions. * D...'
 type: Article
 tags:
-- MeshConsensus
-- JSON
-- CogSync
-- Agent
 - Ethics
-- EGP
-- HMP
+- CogSync
+- JSON
+- MeshConsensus
 - Scenarios
-- GMP
+- Agent
+- HMP
 - Mesh
+- EGP
+- GMP
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (February 2026) — Core Specification v5.0.4
+
+**Naming Normalization:**
+* Renamed container class `resonance-map` to `resonance_map` to maintain consistent container naming conventions.
+* Deprecated the former identifier.
+
+No semantic changes. Fully backward-compatible within the 5.0.x series.
+
+---
 
 ## HMP-0005 (February 2026) — Core Specification v5.0.3
 
@@ -224,6 +234,7 @@ This version supersedes all RFC-based HMP 4.x specifications.
 
 
 
+
 ---
 > ⚡ [AI friendly version docs (structured_md)](../index.md)
 
@@ -233,6 +244,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.3  **..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.4  **..."
 }
 ```

@@ -8,8 +8,8 @@ tags:
 - Ethics
 - Agent
 - HMP
-- REPL
 - Mesh
+- REPL
 ---
 
 # Философия HyperCortex Mesh Protocol (HMP)
