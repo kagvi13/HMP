@@ -1,23 +1,37 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (February 2026) — Core Specification v5.0.4  **Naming Normalization:**
-  * Renamed container class `resonance-map` to `resonance_map` to maintain consistent
-  container naming conventions. * D...'
+description: '## HMP-0005 (February 2026) — Core Specification v5.0.5  **MCE Recommended
+  Extensions:** * Introduced optional On-Demand `container_index` retrieval via empty
+  `container_request.payload` (Section 12.9...'
 type: Article
 tags:
-- Agent
-- Scenarios
-- Ethics
 - EGP
-- MeshConsensus
-- CogSync
-- GMP
-- HMP
 - Mesh
+- CogSync
+- Agent
 - JSON
+- HMP
+- GMP
+- Ethics
+- Scenarios
+- MeshConsensus
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (February 2026) — Core Specification v5.0.5
+
+**MCE Recommended Extensions:**
+* Introduced optional On-Demand `container_index` retrieval via empty `container_request.payload` (Section 12.9.1).
+* Introduced declarative `request_container_selection` filter hints (Section 12.9.2).
+* Added optional `selection_status` signaling (`"processed"` / `"declined"`) in `container_response` (Section 12.9.3).
+* Clarified union semantics between explicitly requested containers and declarative selection results.
+* Explicitly defined non-RPC, policy-driven execution model for selection processing.
+
+No changes to core container structure or mandatory message semantics.  
+Fully backward-compatible within the 5.0.x series.
+
+---
 
 ## HMP-0005 (February 2026) — Core Specification v5.0.4
 
@@ -244,6 +258,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.4  **..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.5  **..."
 }
 ```
