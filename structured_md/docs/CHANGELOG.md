@@ -5,16 +5,16 @@ description: '## HMP-0005 (February 2026) — Core Specification v5.0.4  **Namin
   container naming conventions. * D...'
 type: Article
 tags:
-- MeshConsensus
-- EGP
-- GMP
-- Scenarios
-- JSON
-- Mesh
 - Ethics
-- HMP
-- Agent
+- GMP
 - CogSync
+- Scenarios
+- HMP
+- MeshConsensus
+- JSON
+- Agent
+- EGP
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol — Changelog
