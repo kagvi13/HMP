@@ -5,10 +5,10 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Date:** 2026    
   building decentralized cognitive networks o...'
 type: Article
 tags:
-- HMP
 - Agent
 - REPL
 - Ethics
+- HMP
 - Mesh
 ---
 
