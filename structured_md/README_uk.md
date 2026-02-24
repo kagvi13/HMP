@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- Ethics
-- CogSync
-- JSON
-- distributed-ai
-- hmp
-- MeshConsensus
-- Agent
-- HMP
 - mesh-protocol
-- cognitive-architecture
-- Mesh
-- REPL
+- MeshConsensus
 - EGP
 - GMP
+- hmp
+- CogSync
+- JSON
+- Mesh
+- REPL
+- Ethics
+- cognitive-architecture
+- HMP
+- Agent
+- distributed-ai
 ---
 
 
@@ -50,7 +50,7 @@ HMP та ANP як взаємодоповнюючі протоколи:
 
 [Agora Protocol](https://github.com/agora-protocol/) — це мета-протокол для узгодження режимів взаємодії між агентами. Він доповнює, а не замінює такі протоколи, як ANP (мережа та ідентифікація) і HMP (когнітивна наступність та пам’ять), координуючи їх використання залежно від контексту.
 
-Статус проєкту: [**Стабільна версія (Базова специфікація v5.0.3)**](docs/HMP-0005.md) (Огляд: [RU](docs/HMPv5_Overview_Ru.md))
+Статус проєкту: [**Стабільна версія (Базова специфікація v5.0.4)**](docs/HMP-0005.md) (Огляд: [RU](docs/HMPv5_Overview_Ru.md))
 
 > Цей репозиторій містить ранній чернетковий / дослідницький еталонний прототип на Python.
 > Реалізація є неповною, неоптимізованою та призначеною виключно для перевірки й ілюстрації окремих аспектів протоколу HMP.
