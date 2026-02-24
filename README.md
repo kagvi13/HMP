@@ -38,7 +38,7 @@ HMP and ANP as Complementary Protocols:
 
 [Agora Protocol](https://github.com/agora-protocol/) is a meta-protocol for negotiating interaction modes between agents. It complements, rather than replaces, protocols such as ANP (networking and identity) and HMP (cognitive continuity and memory), coordinating how they are used in a given context.
 
-Project status: [**Stable (v5.0.4 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
+Project status: [**Stable (v5.0.5 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 
 > This repository contains an early draft / exploratory reference implementation in Python.
 > It is incomplete, non-optimized, and intended solely to validate and illustrate parts of the HMP protocol.
