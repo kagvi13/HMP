@@ -5,8 +5,8 @@ description: '**Версия:** v5.0 (Основная спецификация 
   для построения децентрализованных когнити...'
 type: Article
 tags:
-- Mesh
 - Agent
+- Mesh
 - REPL
 - HMP
 ---
