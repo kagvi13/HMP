@@ -7,8 +7,8 @@ type: Article
 tags:
 - Mesh
 - Agent
-- HMP
 - REPL
+- HMP
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Короткий опис
