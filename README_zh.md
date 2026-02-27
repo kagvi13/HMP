@@ -425,7 +425,6 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 
 ### 规范
 
-* 📑 [HashNode](https://hmp-spec.hashnode.space/)
 * 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### 博客与出版物

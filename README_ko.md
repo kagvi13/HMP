@@ -424,7 +424,6 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 
 ### 명세서
 
-* 📑 [HashNode](https://hmp-spec.hashnode.space/)
 * 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### 블로그 및 출판물

@@ -416,7 +416,6 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 
 ### Спецификации
 
-* 📑 [HashNode](https://hmp-spec.hashnode.space/)
 * 📑 [Hugging Face](https://huggingface.co/datasets/kagvi13/hmp-cpec)
 
 ### Блоги и публикации
