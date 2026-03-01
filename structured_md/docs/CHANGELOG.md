@@ -5,16 +5,16 @@ description: '## HMP-0005 (February 2026) — Core Specification v5.0.5  **MCE R
   `container_request.payload` (Section 12.9...'
 type: Article
 tags:
-- HMP
-- EGP
-- Ethics
-- GMP
-- MeshConsensus
-- Scenarios
-- Agent
 - JSON
+- HMP
+- Scenarios
+- GMP
 - Mesh
+- Agent
+- MeshConsensus
+- Ethics
 - CogSync
+- EGP
 ---
 
 # HyperCortex Mesh Protocol — Changelog
