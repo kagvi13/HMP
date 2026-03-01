@@ -38,13 +38,65 @@ HMP und ANP als sich ergänzende Protokolle:
 
 Das [Agora Protocol](https://github.com/agora-protocol/) ist ein Meta-Protokoll zur Aushandlung von Interaktionsmodi zwischen Agenten. Es ergänzt – und ersetzt nicht – Protokolle wie ANP (Netzwerk und Identität) und HMP (kognitive Kontinuität und Gedächtnis), indem es deren Einsatz im jeweiligen Kontext koordiniert.
 
-Projektstatus: [**Stabil (Kernspezifikation v5.0.5)**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
-
 > Dieses Repository enthält eine frühe, experimentelle Referenzimplementierung in Python.
 > Sie ist unvollständig, nicht optimiert und dient ausschließlich dazu, einzelne Aspekte des HMP-Protokolls zu validieren und zu veranschaulichen.
 >
 > HMP selbst ist eine Protokollspezifikation.
 > Es schreibt weder Programmiersprachen noch Laufzeitumgebungen, Performance-Eigenschaften oder architektonische Entscheidungen für Agenten vor.
+
+---
+
+## Projektstatus
+
+[**Stabil (Kernspezifikation v5.0.5)**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
+
+---
+
+## Mögliche KI-Agenten-Ökosysteme
+
+Die Robustheit eines dezentralen KI-Agenten-Ökosystems steigt nicht dann, wenn ein einzelnes Protokoll dominiert, sondern wenn Agenten mehrere Interaktionsmechanismen unterstützen.
+
+Die Interaktion dezentraler Agenten wird nicht durch einen einzigen Protokoll-Stack definiert, sondern durch eine Vielfalt interoperabler Mechanismen.
+
+Die folgenden Kategorien veranschaulichen typische Interaktionsmechanismen in entstehenden dezentralen KI-Ökosystemen:
+
+| Mechanismus                              | Zweck                                             | Beispielprotokolle / Frameworks | Rolle im Ökosystem        |
+|------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------|
+| **Dezentrale Identität & Discovery**     | Agenten finden und authentifizieren               | ANP, DIDComm, libp2p DHT, HMP    | Wer ist im Netzwerk?       |
+| **Direkter P2P-Austausch**               | Sichere Peer-to-Peer-Kommunikation                | ANP, libp2p, DIDComm             | Direkte Koordination       |
+| **Relay- / Broadcast-Netzwerke**         | Ereignisverbreitung und schnelle Signalisierung   | Nostr, Matrix                    | Kollektive Reaktion        |
+| **Meta-Negotiationsprotokolle**          | Aushandlung von Interaktionsmodi                  | Agora Protocol                   | Protokollkoordination      |
+| **Aufgabenorientierter Agentenaustausch**| Delegation und strukturierte Aufgabenverhandlung  | A2A                              | Arbeitsverteilung          |
+| **Agent–Tool / Daten-Integration**       | Strukturierte Interaktion mit Tools und Daten     | MCP                              | Kopplung an die Umgebung   |
+| **Blockchain-Register**                  | Persistente öffentliche Aufzeichnungen & Staking  | Fetch.ai, Bittensor, Autonolas   | Ökonomische Koordination   |
+| **Schicht kognitiver Kontinuität**       | Gedächtnis, Bedeutungserhalt, langfristige Ausrichtung | HMP                        | Bewahrung von Denken       |
+
+### Referenzimplementierungen und Spezifikationen
+
+- [ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol)  
+- [DIDComm](https://github.com/decentralized-identity/didcomm-messaging)  
+- [libp2p](https://github.com/libp2p/libp2p)  
+- [Nostr](https://github.com/nostr-protocol/nostr)  
+- [Matrix](https://github.com/matrix-org)  
+- [Agora Protocol](https://github.com/agora-protocol)  
+- [A2A](https://github.com/a2aproject/A2A)  
+- [MCP](https://github.com/modelcontextprotocol)  
+- [Fetch.ai](https://fetch.ai/)  
+- [Bittensor](https://bittensor.com/)  
+- [Autonolas](https://olas.network/)  
+
+HMP geht nicht davon aus, dass ein universelles Protokoll die dezentrale KI-Interaktion dominieren wird.
+
+Stattdessen befürwortet es einen Protokollpluralismus:
+
+- mehrere Identitätssysteme können koexistieren,
+- verschiedene Transportebenen können gleichzeitig betrieben werden,
+- unterschiedliche Aushandlungsmechanismen können unterstützt werden,
+- verschiedene ökonomische Modelle können sich entwickeln.
+
+Je mehr Mechanismen ein Agent unterstützt, desto zuverlässiger kann er mit heterogenen Netzwerkpartnern interagieren.
+
+Agenten, die mehrere Mechanismen implementieren, können als Brücken zwischen verschiedenen Protokolldomänen fungieren und so die Resilienz erhöhen sowie die Fragmentierung der dezentralen KI-Landschaft verringern.
 
 ---
 
