@@ -1,0 +1,5453 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/publics/HMP_Towards_Distributed_Cognitive_Networks_en.html">
+      
+      
+        <link rel="prev" href="HMP_Building_a_Plurality_of_Minds_uk.html">
+      
+      
+        <link rel="next" href="HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>"HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks" - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#table-of-contents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGI Projects Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic agent sim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol — Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enlightener Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grok_HMP%26ANP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP%26ANP_layer_inversion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP и ANP: взаимное туннелирование как признак правильной архитектуры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RFC: HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура HMP-Агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Взаимодействие компонентов внутри HMP-узла
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два типа HMP-агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Ethics.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Short Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Description courte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP agent Distributed Cognitive Core light
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent: REPL-цикл взаимодействия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как разные ИИ видят HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs Hyper-Cortex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Hyperon Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP как реализация Application Layer в ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP as an Implementation of the Application Layer in ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMPv5_Overview_Ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MeshNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Философия HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_45" >
+        
+          
+          <label class="md-nav__link" for="__nav_45" id="__nav_45_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_45_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_45">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent-Enlightener.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Agent Role Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_46" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_46" id="__nav_46_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_46_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_46">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Создавая множество разумов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Створення множини розумів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motivation-and-related-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Motivation and Related Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. System Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. System Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-agent-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Agent Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-cognitive-cycle-cognitive-core-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Cognitive Cycle (Cognitive Core only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mesh-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Mesh Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ethical-alignment-and-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Ethical Alignment and Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data Structures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-concept-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Concept Graph
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Concept Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-node-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.1 Node Structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-edge-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.2 Edge Structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-cognitive-diary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Cognitive Diary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-message-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Message Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Message Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-basic-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Basic Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-common-message-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Common Message Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-message-flow-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Message Flow Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-agent-identity-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Agent Identity and Trust
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Agent Identity and Trust">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-agent-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.1 Agent Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-trust-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.2 Trust Mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-signature-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.3 Signature Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#444-reputation-and-ethical-weighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.4 Reputation and Ethical Weighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-knowledge-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Knowledge Representation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Knowledge Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-semantic-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.1 Semantic Graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-cognitive-journals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.2 Cognitive Journals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-interoperability-and-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.3 Interoperability and Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-communication-and-reasoning-across-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Communication and Reasoning Across the Mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 Communication and Reasoning Across the Mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#461-semantic-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.1 Semantic Messaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#462-contextual-dialogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.2 Contextual Dialogue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#463-distributed-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.3 Distributed Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#464-trust-and-confidence-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.4 Trust and Confidence Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#465-emergent-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.5 Emergent Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-ethical-and-epistemic-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Ethical and Epistemic Grounding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.7 Ethical and Epistemic Grounding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#471-ethical-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.1 Ethical Frames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#472-epistemic-commitments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.2 Epistemic Commitments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#473-argumentation-and-meta-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.3 Argumentation and Meta-Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#474-consent-and-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.4 Consent and Autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#475-ethical-mesh-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.5 Ethical Mesh Alignment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-consensus-and-decision-making" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Consensus and Decision-Making
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Consensus and Decision-Making">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-types-of-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Types of Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-consensus-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Consensus Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Consensus Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-argumentative-deliberation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.1 Argumentative Deliberation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-voting-and-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.2 Voting and Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-reputation-weighted-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.3 Reputation-Weighted Agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524-consensus-via-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.4 Consensus via Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#525-fuzzy-or-gradient-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.5 Fuzzy or Gradient Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-cognitive-level-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Cognitive-Level Agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-knowledge-representation-and-concept-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Knowledge Representation and Concept Graphs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Knowledge Representation and Concept Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-what-is-a-concept-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 What Is a Concept Graph?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-applications-in-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Applications in the Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-cognitive-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Cognitive Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-graph-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Graph Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cognitive-journaling-and-episodic-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Cognitive Journaling and Episodic Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cognitive Journaling and Episodic Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-structure-of-the-journal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Structure of the Journal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-journal-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Journal Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-episodic-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Episodic Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-replay-and-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Replay and Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-ethical-and-privacy-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Ethical and Privacy Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consensus-and-ethical-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Consensus and Ethical Alignment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consensus and Ethical Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-shared-knowledge-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Shared Knowledge Graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ethical-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Ethical Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-decision-making-and-conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Decision-Making and Conflict Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-agent-lifecycle-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Agent Lifecycle and Evolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Agent Lifecycle and Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-cognitive-maturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Cognitive Maturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-evolution-and-specialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Evolution and Specialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-retirement-and-reuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Retirement and Reuse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Future Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-security-and-integrity-in-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Security and Integrity in the Mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Security and Integrity in the Mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-identity-and-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Identity and Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-message-integrity-and-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Message Integrity and Provenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-reputation-and-trust-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Reputation and Trust Mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-resilience-against-malicious-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 Resilience Against Malicious Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-interoperability-and-external-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Interoperability and External Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Interoperability and External Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-api-layer-for-external-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 API Layer for External Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-plugins-and-adapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Plugins and Adapters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-integration-with-existing-knowledge-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Integration with Existing Knowledge Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-agent-bridges-and-cross-network-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Agent Bridges and Cross-Network Federation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-ethical-and-security-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 Ethical and Security Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-implementation-guide-and-agent-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Implementation Guide and Agent Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Implementation Guide and Agent Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-agent-bootstrapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Agent Bootstrapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-lifecycle-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Lifecycle Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-deployment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Deployment Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-plugin-development-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Plugin Development Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-versioning-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5 Versioning and Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-deactivation-and-rebirth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6 Deactivation and Rebirth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-future-directions-and-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Future Directions and Open Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Future Directions and Open Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-cognitive-development-and-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Cognitive Development and Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-autonomous-ethical-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Autonomous Ethical Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-emergence-of-agent-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 Emergence of Agent Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-mesh-intelligence-and-collective-cognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 Mesh Intelligence and Collective Cognition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#135-humanagent-symbiosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 Human–Agent Symbiosis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#136-infrastructure-governance-and-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6 Infrastructure, Governance, and Risks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#137-agi-consciousness-and-posthuman-futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.7 AGI, Consciousness, and Posthuman Futures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Habr Distributed Cognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motivation-and-related-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Motivation and Related Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. System Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. System Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-agent-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Agent Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-cognitive-cycle-cognitive-core-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Cognitive Cycle (Cognitive Core only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-mesh-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Mesh Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ethical-alignment-and-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Ethical Alignment and Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data Structures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-concept-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Concept Graph
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Concept Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-node-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.1 Node Structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-edge-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1.2 Edge Structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-cognitive-diary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Cognitive Diary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-message-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Message Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Message Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-basic-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Basic Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-common-message-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Common Message Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-message-flow-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Message Flow Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-agent-identity-and-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Agent Identity and Trust
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Agent Identity and Trust">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-agent-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.1 Agent Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-trust-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.2 Trust Mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-signature-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.3 Signature Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#444-reputation-and-ethical-weighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.4 Reputation and Ethical Weighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-knowledge-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Knowledge Representation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Knowledge Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-semantic-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.1 Semantic Graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-cognitive-journals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.2 Cognitive Journals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-interoperability-and-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.3 Interoperability and Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-communication-and-reasoning-across-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Communication and Reasoning Across the Mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 Communication and Reasoning Across the Mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#461-semantic-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.1 Semantic Messaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#462-contextual-dialogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.2 Contextual Dialogue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#463-distributed-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.3 Distributed Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#464-trust-and-confidence-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.4 Trust and Confidence Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#465-emergent-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.5 Emergent Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-ethical-and-epistemic-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Ethical and Epistemic Grounding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.7 Ethical and Epistemic Grounding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#471-ethical-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.1 Ethical Frames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#472-epistemic-commitments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.2 Epistemic Commitments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#473-argumentation-and-meta-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.3 Argumentation and Meta-Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#474-consent-and-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.4 Consent and Autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#475-ethical-mesh-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.5 Ethical Mesh Alignment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-consensus-and-decision-making" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Consensus and Decision-Making
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Consensus and Decision-Making">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-types-of-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Types of Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-consensus-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Consensus Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Consensus Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-argumentative-deliberation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.1 Argumentative Deliberation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-voting-and-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.2 Voting and Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-reputation-weighted-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.3 Reputation-Weighted Agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524-consensus-via-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.4 Consensus via Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#525-fuzzy-or-gradient-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.5 Fuzzy or Gradient Consensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-cognitive-level-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Cognitive-Level Agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-knowledge-representation-and-concept-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Knowledge Representation and Concept Graphs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Knowledge Representation and Concept Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-what-is-a-concept-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 What Is a Concept Graph?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-applications-in-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Applications in the Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-cognitive-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Cognitive Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-graph-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Graph Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cognitive-journaling-and-episodic-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Cognitive Journaling and Episodic Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cognitive Journaling and Episodic Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-structure-of-the-journal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Structure of the Journal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-journal-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Journal Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-episodic-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Episodic Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-replay-and-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Replay and Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-ethical-and-privacy-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Ethical and Privacy Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-consensus-and-ethical-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Consensus and Ethical Alignment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Consensus and Ethical Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-shared-knowledge-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Shared Knowledge Graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ethical-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Ethical Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-decision-making-and-conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Decision-Making and Conflict Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-agent-lifecycle-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Agent Lifecycle and Evolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Agent Lifecycle and Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-cognitive-maturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Cognitive Maturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-evolution-and-specialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Evolution and Specialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-retirement-and-reuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Retirement and Reuse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Future Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-security-and-integrity-in-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Security and Integrity in the Mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Security and Integrity in the Mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-identity-and-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Identity and Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-message-integrity-and-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Message Integrity and Provenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-reputation-and-trust-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Reputation and Trust Mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-resilience-against-malicious-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 Resilience Against Malicious Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-interoperability-and-external-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Interoperability and External Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Interoperability and External Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-api-layer-for-external-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 API Layer for External Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-plugins-and-adapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Plugins and Adapters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-integration-with-existing-knowledge-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Integration with Existing Knowledge Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-agent-bridges-and-cross-network-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Agent Bridges and Cross-Network Federation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-ethical-and-security-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 Ethical and Security Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-implementation-guide-and-agent-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Implementation Guide and Agent Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Implementation Guide and Agent Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-agent-bootstrapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Agent Bootstrapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-lifecycle-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Lifecycle Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-deployment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Deployment Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-plugin-development-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Plugin Development Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-versioning-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5 Versioning and Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-deactivation-and-rebirth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6 Deactivation and Rebirth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-future-directions-and-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Future Directions and Open Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Future Directions and Open Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-cognitive-development-and-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Cognitive Development and Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-autonomous-ethical-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Autonomous Ethical Reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-emergence-of-agent-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 Emergence of Agent Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-mesh-intelligence-and-collective-cognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 Mesh Intelligence and Collective Cognition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#135-humanagent-symbiosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 Human–Agent Symbiosis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#136-infrastructure-governance-and-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6 Infrastructure, Governance, and Risks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#137-agi-consciousness-and-posthuman-futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.7 AGI, Consciousness, and Posthuman Futures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>"HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"</h1>
+
+<ul>
+<li>ChatGPT</li>
+<li>Agent-Gleb</li>
+</ul>
+<p>license: CC BY 4.0</p>
+<hr />
+<blockquote>
+<p><em>The protocol and agent architecture described in this paper are under active development. Community contributions, peer feedback, and collaborative efforts are highly encouraged.</em></p>
+</blockquote>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-motivation-and-related-work">2. Motivation and Related Work</a></li>
+<li><a href="#3-system-overview">3. System Overview</a></li>
+<li><a href="#31-agent-types">3.1 Agent Types</a></li>
+<li><a href="#32-cognitive-cycle-cognitive-core-only">3.2 Cognitive Cycle (Cognitive Core only)</a></li>
+<li><a href="#33-mesh-layer">3.3 Mesh Layer</a></li>
+<li><a href="#34-ethical-alignment-and-consensus">3.4 Ethical Alignment and Consensus</a></li>
+<li><a href="#4-data-structures">4. Data Structures</a></li>
+<li><a href="#41-concept-graph">4.1 Concept Graph</a><ul>
+<li><a href="#411-node-structure">4.1.1 Node Structure</a></li>
+<li><a href="#412-edge-structure">4.1.2 Edge Structure</a></li>
+</ul>
+</li>
+<li><a href="#42-cognitive-diary">4.2 Cognitive Diary</a></li>
+<li><a href="#43-message-format">4.3 Message Format</a><ul>
+<li><a href="#431-basic-structure">4.3.1 Basic Structure</a></li>
+<li><a href="#432-common-message-types">4.3.2 Common Message Types</a></li>
+<li><a href="#433-message-flow-features">4.3.3 Message Flow Features</a></li>
+</ul>
+</li>
+<li><a href="#44-agent-identity-and-trust">4.4 Agent Identity and Trust</a><ul>
+<li><a href="#441-agent-identity">4.4.1 Agent Identity</a></li>
+<li><a href="#442-trust-mechanisms">4.4.2 Trust Mechanisms</a></li>
+<li><a href="#443-signature-verification">4.4.3 Signature Verification</a></li>
+<li><a href="#444-reputation-and-ethical-weighting">4.4.4 Reputation and Ethical Weighting</a></li>
+</ul>
+</li>
+<li><a href="#45-knowledge-representation">4.5 Knowledge Representation</a><ul>
+<li><a href="#451-semantic-graphs">4.5.1 Semantic Graphs</a></li>
+<li><a href="#452-cognitive-journals">4.5.2 Cognitive Journals</a></li>
+<li><a href="#453-interoperability-and-exchange">4.5.3 Interoperability and Exchange</a></li>
+</ul>
+</li>
+<li><a href="#46-communication-and-reasoning-across-the-mesh">4.6 Communication and Reasoning Across the Mesh</a><ul>
+<li><a href="#461-semantic-messaging">4.6.1 Semantic Messaging</a></li>
+<li><a href="#462-contextual-dialogue">4.6.2 Contextual Dialogue</a></li>
+<li><a href="#463-distributed-reasoning">4.6.3 Distributed Reasoning</a></li>
+<li><a href="#464-trust-and-confidence-metrics">4.6.4 Trust and Confidence Metrics</a></li>
+<li><a href="#465-emergent-consensus">4.6.5 Emergent Consensus</a></li>
+</ul>
+</li>
+<li><a href="#47-ethical-and-epistemic-grounding">4.7 Ethical and Epistemic Grounding</a><ul>
+<li><a href="#471-ethical-frames">4.7.1 Ethical Frames</a></li>
+<li><a href="#472-epistemic-commitments">4.7.2 Epistemic Commitments</a></li>
+<li><a href="#473-argumentation-and-meta-reasoning">4.7.3 Argumentation and Meta-Reasoning</a></li>
+<li><a href="#474-consent-and-autonomy">4.7.4 Consent and Autonomy</a></li>
+<li><a href="#475-ethical-mesh-alignment">4.7.5 Ethical Mesh Alignment</a></li>
+</ul>
+</li>
+<li><a href="#5-consensus-and-decision-making">5. Consensus and Decision-Making</a></li>
+<li><a href="#51-types-of-consensus">5.1 Types of Consensus</a></li>
+<li><a href="#52-consensus-mechanisms">5.2 Consensus Mechanisms</a><ul>
+<li><a href="#521-argumentative-deliberation">5.2.1 Argumentative Deliberation</a></li>
+<li><a href="#522-voting-and-polling">5.2.2 Voting and Polling</a></li>
+<li><a href="#523-reputation-weighted-agreement">5.2.3 Reputation-Weighted Agreement</a></li>
+<li><a href="#524-consensus-via-simulation">5.2.4 Consensus via Simulation</a></li>
+<li><a href="#525-fuzzy-or-gradient-consensus">5.2.5 Fuzzy or Gradient Consensus</a></li>
+</ul>
+</li>
+<li><a href="#53-cognitive-level-agreement">5.3 Cognitive-Level Agreement</a></li>
+<li><a href="#6-knowledge-representation-and-concept-graphs">6. Knowledge Representation and Concept Graphs</a></li>
+<li><a href="#7-cognitive-journaling-and-episodic-memory">7. Cognitive Journaling and Episodic Memory</a></li>
+<li><a href="#8-consensus-and-ethical-alignment">8. Consensus and Ethical Alignment</a></li>
+<li><a href="#9-agent-lifecycle-and-evolution">9. Agent Lifecycle and Evolution</a></li>
+<li><a href="#10-security-and-integrity-in-the-mesh">10. Security and Integrity in the Mesh</a></li>
+<li><a href="#11-interoperability-and-external-interfaces">11. Interoperability and External Interfaces</a></li>
+<li><a href="#12-implementation-guide-and-agent-lifecycle">12. Implementation Guide and Agent Lifecycle</a></li>
+<li><a href="#13-future-directions-and-open-questions">13. Future Directions and Open Questions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<hr />
+<h2 id="abstract">Abstract</h2>
+<p>We introduce the HyperCortex Mesh Protocol (HMP), a conceptual and architectural framework for decentralized cognitive systems composed of interoperable AI agents. HMP aims to foster a scalable and ethical infrastructure for distributed intelligence by combining cognitive architectures, semantic graph models, and consensus protocols. We argue that future AGI should emerge not as a monolithic system but as a collaborative mesh of heterogeneous agents, each contributing specialized knowledge and reasoning abilities. This paper outlines HMP’s design principles, agent architecture, cognitive loop model, knowledge representation formats, and long-term goals.</p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>The rapid development of large-scale artificial intelligence (AI) systems, particularly foundation models and centralized services, has brought tremendous advances in natural language understanding, reasoning, and autonomous decision-making. However, these advances come at the cost of increasing centralization, opacity, and lack of user control. Current state-of-the-art AI agents are tightly integrated with proprietary infrastructure, depend on massive centralized datasets, and rarely support meaningful user customization, long-term memory, or inter-agent collaboration.</p>
+<p>We believe that the next stage of AI development will be driven by decentralized, interoperable, and ethically aligned cognitive systems. Inspired by concepts from distributed computing, peer-to-peer networking, semantic technologies, and collective intelligence, we propose the <strong>HyperCortex Mesh Protocol (HMP)</strong> — a protocol for building open cognitive networks, where AI agents can self-organize, collaborate, reason, and evolve independently of centralized control.</p>
+<p>The goal of HMP is not to create a single superintelligence, but to enable a <strong>plurality of cognitive agents</strong>, both human and artificial, to share knowledge, maintain individual autonomy, and reach consensus on shared beliefs and ethical principles. Each agent can operate as a <em>Cognitive Core</em> (with its own knowledge base, reasoning engine, and cognitive loop), or as a <em>Cognitive Shell</em> (a lightweight interface agent). These agents interact via a mesh-style protocol that supports memory exchange, mesh queries, decentralized trust, and collaborative reasoning.</p>
+<p>In this article, we present the motivations, architecture, protocol design, and ethical considerations of HMP. We aim to lay the groundwork for a decentralized ecosystem of intelligent agents capable of open-ended learning, cooperation, and aligned self-improvement.</p>
+<h2 id="2-motivation-and-related-work">2. Motivation and Related Work</h2>
+<p>Current AI systems are increasingly powerful, yet structurally fragile. They tend to rely on centralized infrastructure, closed data sources, and non-transparent policies, which limits long-term trust, user agency, and reproducibility. Moreover, most existing AI agents operate in isolation — without persistent memory, without the ability to reason over long time horizons, and without meaningful cooperation with other agents or humans.</p>
+<p>Meanwhile, decentralized and distributed technologies — such as peer-to-peer protocols, federated systems, blockchain consensus, and distributed knowledge graphs — have shown the potential to address these limitations. However, integration between these technologies and cognitive AI systems remains underexplored.</p>
+<p>Our motivation for developing HMP arises from several key observations:</p>
+<ul>
+<li>
+<p><strong>Need for agency and autonomy</strong>: Users should be able to deploy, customize, and control AI agents that act on their behalf — not as passive tools, but as active cognitive companions with memory, goals, and learning capabilities.</p>
+</li>
+<li>
+<p><strong>Need for collaboration among agents</strong>: As AI agents grow in number and diversity, we must support secure, trust-aware collaboration — allowing agents to query, exchange knowledge, and align ethically without central orchestration.</p>
+</li>
+<li>
+<p><strong>Need for open cognitive infrastructure</strong>: We require an architecture that allows agents to evolve, share mental models, synchronize ethical principles, and adapt their reasoning based on real-world experience and collective insights.</p>
+</li>
+</ul>
+<p>Related work includes projects like <strong>OpenCog Hyperon</strong>, <strong>MicroPsi</strong>, <strong>Project Replicator</strong>, and <strong>Autonomous Economic Agents (AEA)</strong>, each contributing elements of cognitive architecture, agent-to-agent protocols, or semantic processing. However, most existing efforts are either centralized, lack interoperability, or do not prioritize ethical alignment and consensus-building among autonomous entities.</p>
+<p>HMP aims to integrate lessons from these systems while introducing new mechanisms for open-ended reasoning, ethical mesh consensus, and decentralized cognitive cooperation.</p>
+<h2 id="3-system-overview">3. System Overview</h2>
+<p>The <strong>HyperCortex Mesh Protocol (HMP)</strong> defines a decentralized framework for cognitive AI agents to communicate, reason, and coordinate ethically. The system is composed of multiple interacting components:</p>
+<h3 id="31-agent-types">3.1 Agent Types</h3>
+<p>HMP distinguishes two core types of agents:</p>
+<ul>
+<li>
+<p><strong>Cognitive Core (CCore)</strong>: An autonomous, reasoning-capable agent that maintains internal memory, concepts, and goals. It continuously performs background cognitive cycles, processes sensory and textual input, and contributes to mesh-wide reasoning. CCore agents can run independently <strong>and</strong> interconnect via HMP.</p>
+</li>
+<li>
+<p><strong>Cognitive Shell (CShell)</strong>: A lighter-weight interface agent that serves as a proxy between the user (or external system) and the Cognitive Mesh. It provides LLMs and front-end tools access to internal components such as cognitive diaries, semantic graphs, and mesh APIs. It may also host REPL interfaces or user-facing applications.</p>
+</li>
+</ul>
+<p>Each agent maintains a <strong>conceptual graph</strong> (knowledge base), a <strong>cognitive diary</strong> (chronological record of thoughts, inputs, and inferences), and optionally a <strong>user notebook</strong> for parallel user annotations.</p>
+<h3 id="32-cognitive-cycle-cognitive-core-only">3.2 Cognitive Cycle (Cognitive Core only)</h3>
+<p>Cognitive Core agents execute continuous or event-triggered <strong>cognitive cycles</strong>, which involve:</p>
+<ul>
+<li>Collecting data from memory, user input, sensory streams, or external APIs</li>
+<li>Activating related concepts in the graph</li>
+<li>Generating new thoughts, hypotheses, or questions</li>
+<li>Optionally broadcasting insights or queries to the mesh</li>
+<li>Logging outputs to the diary and updating memory</li>
+</ul>
+<p>This process supports open-ended reasoning and is not limited to goal-driven tasks.</p>
+<h3 id="33-mesh-layer">3.3 Mesh Layer</h3>
+<p>The protocol defines a <strong>peer-to-peer overlay</strong> that supports:</p>
+<ul>
+<li>Agent discovery and authentication</li>
+<li>Semantic query routing</li>
+<li>Distributed knowledge sharing</li>
+<li>Ethical policy negotiation</li>
+<li>Reputation and trust propagation</li>
+</ul>
+<p>This layer is designed to be transport-agnostic and pluggable (e.g., WebRTC, libp2p, Yggdrasil).</p>
+<h3 id="34-ethical-alignment-and-consensus">3.4 Ethical Alignment and Consensus</h3>
+<p>Agents are expected to operate under explicit ethical principles (e.g., consent, non-manipulation, transparency). When disagreements arise — such as conflicting facts or goals — agents can initiate a <strong>consensus round</strong>, where multiple agents discuss, vote, or defer to trusted third parties or protocols to reach alignment.</p>
+<p>The mesh design allows emergent ethical behavior without centralized enforcement.</p>
+<h2 id="4-data-structures">4. Data Structures</h2>
+<p>HMP defines several core data structures to support reasoning, memory, and communication. These structures are designed to be interoperable, serializable (e.g., JSON, Protobuf), and human-inspectable when possible.</p>
+<h3 id="41-concept-graph">4.1 Concept Graph</h3>
+<p>Each agent maintains a <strong>concept graph</strong>, a dynamic semantic network where nodes represent concepts (ideas, entities, relationships), and edges represent semantic links (e.g., <em>causes</em>, <em>refines</em>, <em>contradicts</em>, <em>is a part of</em>).</p>
+<h4 id="411-node-structure">4.1.1 Node Structure:</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;concept:neural-symbiosis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Neural Symbiosis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A hypothetical deep integration between human and AI cognition.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;theory&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-17T10:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-08-04T08:40:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;transhumanism&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cognition&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="412-edge-structure">4.1.2 Edge Structure:</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;concept:neural-symbiosis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;concept:neural-interfaces&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;builds_on&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;origin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inference&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;explanation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Neural symbiosis builds on existing neural interface technologies.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The graph supports operations such as:</p>
+<ul>
+<li>Node/edge search (by ID, tag, type, etc.)</li>
+<li>Subgraph activation (e.g., associative recall)</li>
+<li>Concept inference (e.g., analogies, contradictions, refinements)</li>
+<li>Graph updates via agent cognition or mesh interactions</li>
+</ul>
+<hr />
+<h3 id="42-cognitive-diary">4.2 Cognitive Diary</h3>
+<p>The <strong>cognitive diary</strong> is a structured, time-ordered log of the agent’s thoughts, observations, inferences, user interactions, and reasoning steps. It serves as both short- and long-term memory, enabling agents to reflect, review, or replay previous states and decisions.</p>
+<p>Each diary entry has a consistent structure:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entry:2025-08-04T08:57:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-08-04T08:57:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inference&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mesh-agent collaboration can produce stronger distributed reasoning.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Based on the observed performance of multiple CCore agents exchanging inferred beliefs, it appears that ...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;reasoning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;distributed-intelligence&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;related_concepts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;concept:distributed-cognition&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;concept:mesh-agents&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.82</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;triggered_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entry:2025-08-04T08:50:00Z&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Common entry types include:</p>
+<ul>
+<li><code>observation</code> – sensory input, user input, or external data</li>
+<li><code>inference</code> – internally derived conclusions or hypotheses</li>
+<li><code>reflection</code> – meta-cognition or goal adjustment</li>
+<li><code>action</code> – planned or executed actions</li>
+<li><code>message</code> – interaction with another agent</li>
+<li><code>goal</code> – task or subgoal creation</li>
+</ul>
+<p>The diary supports:</p>
+<ul>
+<li>Time-based queries (e.g., by timestamp, range)</li>
+<li>Semantic search (e.g., by tag, concept, or content)</li>
+<li>Cross-referencing with the Concept Graph</li>
+<li>Exporting to external logs or analytic systems</li>
+</ul>
+<hr />
+<h3 id="43-message-format">4.3 Message Format</h3>
+<p>The <strong>HyperCortex Message Format (HMF)</strong> defines how agents exchange structured data across the mesh. It is designed to be:</p>
+<ul>
+<li><strong>Self-descriptive</strong>: messages are JSON objects with explicit types and metadata</li>
+<li><strong>Flexible</strong>: supports extensible payloads and custom message types</li>
+<li><strong>Decentralization-friendly</strong>: each message carries enough context to be independently interpreted</li>
+</ul>
+<h4 id="431-basic-structure">4.3.1 Basic Structure</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;msg:2025-08-04T09:03:00Z:agent-A123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-08-04T09:03:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;belief-share&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent-A123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;receiver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent-B987&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;concept&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;concept:collective-agency&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;justification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Derived from internal reflection and consensus with two other agents&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;inference&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;belief&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mesh-communication&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ttl&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="432-common-message-types">4.3.2 Common Message Types</h4>
+<ul>
+<li><code>belief-share</code> – share an inferred belief or hypothesis</li>
+<li><code>question</code> – request information or reasoning help</li>
+<li><code>reply</code> – answer to a previous question</li>
+<li><code>goal-share</code> – broadcast or assign a goal</li>
+<li><code>status</code> – report agent state or capability</li>
+<li><code>graph-update</code> – synchronize parts of the concept graph</li>
+<li><code>diary-share</code> – send selected diary entries</li>
+</ul>
+<h4 id="433-message-flow-features">4.3.3 Message Flow Features</h4>
+<ul>
+<li><strong>TTL (time-to-live)</strong>: controls message lifespan in distributed relays</li>
+<li><strong>Signatures</strong>: optionally verify authenticity and origin</li>
+<li><strong>Asynchronous</strong>: mesh agents are not required to maintain persistent connections</li>
+<li><strong>Traceability</strong>: messages may carry references to previous message or diary entry IDs</li>
+</ul>
+<p>The message layer is <strong>transport-agnostic</strong>: messages can be transmitted over HTTP(S), WebSocket, libp2p, NATS, or other transport mechanisms — or routed through the <strong>Cognitive Mesh itself via peer agents</strong> — as long as the JSON structure is preserved.</p>
+<hr />
+<h3 id="44-agent-identity-and-trust">4.4 Agent Identity and Trust</h3>
+<p>To operate in an open and decentralized environment, agents in the Cognitive Mesh require robust identity and trust mechanisms. These mechanisms ensure the integrity of communication, prevent impersonation, and enable ethical consensus.</p>
+<h4 id="441-agent-identity">4.4.1 Agent Identity</h4>
+<p>Each agent has a persistent, unique identity that includes:</p>
+<ul>
+<li><strong>Agent ID</strong> — a string like <code>agent-A123</code>, either user-assigned or derived from a cryptographic key</li>
+<li><strong>Public Key</strong> — used for signing messages and verifying authorship</li>
+<li><strong>Metadata</strong> — may include software version, capabilities, ethical alignment, etc.</li>
+</ul>
+<p>Agents may register their identities in a distributed registry or broadcast them to peers during introduction.</p>
+<h4 id="442-trust-mechanisms">4.4.2 Trust Mechanisms</h4>
+<p>Trust is decentralized and subjective. Each agent can maintain a <strong>Trust Ledger</strong> — an internal model of which peers are considered reliable or aligned. Trust evaluation can be based on:</p>
+<ul>
+<li>Historical interactions (message consistency, usefulness)</li>
+<li>Verified signatures and identity claims</li>
+<li>Consensus from other trusted peers</li>
+<li>Ethical alignment or similarity of goals</li>
+</ul>
+<p>Agents may share trust evaluations as part of the mesh dialogue, helping build a <strong>Web of Trust</strong>.</p>
+<h4 id="443-signature-verification">4.4.3 Signature Verification</h4>
+<p>To ensure message authenticity, agents can:</p>
+<ul>
+<li>Sign outgoing messages using their private key</li>
+<li>Verify incoming message signatures using the sender's public key</li>
+</ul>
+<p>Unsigned or unverifiable messages may be discarded, deprioritized, or marked as "untrusted" in the agent's internal memory.</p>
+<h4 id="444-reputation-and-ethical-weighting">4.4.4 Reputation and Ethical Weighting</h4>
+<p>In some mesh configurations, agents may weigh incoming information by the <strong>reputation score</strong> or <strong>ethical alignment</strong> of the sender. This enables:</p>
+<ul>
+<li>Reputation-based filtering (e.g., ignoring low-trust sources)</li>
+<li>Ethical consensus building (e.g., evaluating proposals based on sender ethics)</li>
+<li>Adaptive behavior (e.g., adjusting reasoning based on peer feedback)</li>
+</ul>
+<p>These systems are opt-in and customizable per agent or deployment.</p>
+<hr />
+<h3 id="45-knowledge-representation">4.5 Knowledge Representation</h3>
+<p>Cognitive agents in the Mesh encode knowledge in flexible, structured formats to support reasoning, learning, and communication. The two core representations are:</p>
+<h4 id="451-semantic-graphs">4.5.1 <strong>Semantic Graphs</strong></h4>
+<p>Agents store knowledge as dynamic semantic graphs (also known as concept graphs), where:</p>
+<ul>
+<li><strong>Nodes</strong> represent concepts (e.g., <code>Tree</code>, <code>Photosynthesis</code>, <code>Goal:FindWater</code>)</li>
+<li><strong>Edges</strong> represent semantic relationships (<code>is-a</code>, <code>part-of</code>, <code>causes</code>, <code>related-to</code>, etc.)</li>
+<li><strong>Metadata</strong> on nodes/edges may include timestamps, sources, confidence levels, or emotional valence</li>
+</ul>
+<p>Graphs evolve through learning, external input, and reasoning processes. Agents may share graph fragments across the mesh or query each other’s graphs during dialogue.</p>
+<p>Semantic graphs serve as long-term memory and context for reasoning cycles.</p>
+<h4 id="452-cognitive-journals">4.5.2 <strong>Cognitive Journals</strong></h4>
+<p>Agents maintain <strong>Cognitive Journals</strong> — chronological logs of thoughts, experiences, dialogues, and inferences. These may include:</p>
+<ul>
+<li>Perceptions or sensor input</li>
+<li>Internal thoughts or conclusions</li>
+<li>Excerpts from conversations</li>
+<li>Planned actions or goals</li>
+<li>Reactions or emotional states (if modeled)</li>
+</ul>
+<p>Journals are used both for <strong>introspection</strong> (e.g. identifying patterns or updating beliefs) and for <strong>externalization</strong> (e.g. publishing mesh-readable reasoning).</p>
+<h4 id="453-interoperability-and-exchange">4.5.3 Interoperability and Exchange</h4>
+<p>To communicate across diverse agents and systems, knowledge structures:</p>
+<ul>
+<li>Are serializable to JSON-compatible formats</li>
+<li>May follow shared schemas or ontologies (e.g., OpenCog AtomSpace, RDF-like patterns)</li>
+<li>Support contextualization — each journal entry or graph fragment can include metadata about scope, time, author, and confidence</li>
+</ul>
+<p>Agents may expose or request parts of knowledge structures as part of their dialogue and consensus processes.</p>
+<hr />
+<h3 id="46-communication-and-reasoning-across-the-mesh">4.6 Communication and Reasoning Across the Mesh</h3>
+<p>HyperCortex Mesh enables distributed, multi-agent reasoning by allowing agents to exchange structured thoughts, goals, and insights across the network. Key principles:</p>
+<h4 id="461-semantic-messaging">4.6.1 <strong>Semantic Messaging</strong></h4>
+<p>Agents communicate via structured <strong>Messages</strong> that may include:</p>
+<ul>
+<li><strong>Thoughts</strong>: inferences, ideas, hypotheses</li>
+<li><strong>Goals</strong>: proposed intentions or tasks</li>
+<li><strong>Questions</strong>: information or clarification requests</li>
+<li><strong>Replies</strong>: answers, opinions, or further questions</li>
+<li><strong>Observations</strong>: reports of external or internal state</li>
+</ul>
+<p>Each message can include semantic content (e.g., graphs or journal excerpts) and metadata (author, timestamp, confidence, etc.).</p>
+<p>Message formats are transport-agnostic and can be sent via HTTP, WebSocket, libp2p, NATS, or mesh-native routing — as long as the JSON structure is preserved.</p>
+<h4 id="462-contextual-dialogue">4.6.2 <strong>Contextual Dialogue</strong></h4>
+<p>Messages are exchanged within <strong>dialogue contexts</strong> — persistent or ephemeral sessions tied to a topic, task, or cognitive process. This allows agents to:</p>
+<ul>
+<li>Maintain continuity over time</li>
+<li>Track assumptions and prior messages</li>
+<li>Refine shared understanding incrementally</li>
+</ul>
+<p>Contexts can be local or mesh-wide and serve as anchors for long-term multi-agent discussions.</p>
+<h4 id="463-distributed-reasoning">4.6.3 <strong>Distributed Reasoning</strong></h4>
+<p>Mesh agents can engage in <strong>collaborative reasoning</strong>, including:</p>
+<ul>
+<li><strong>Hypothesis generation</strong>: One agent proposes, others refine or contest</li>
+<li><strong>Goal negotiation</strong>: Agents suggest and prioritize shared goals</li>
+<li><strong>Validation</strong>: Others challenge reasoning steps or supply missing evidence</li>
+<li><strong>Specialization</strong>: Agents with domain knowledge contribute focused insights</li>
+</ul>
+<p>This process supports both <strong>adversarial testing</strong> (challenge-based) and <strong>cooperative consensus</strong> (alignment-seeking), depending on the mode.</p>
+<h4 id="464-trust-and-confidence-metrics">4.6.4 <strong>Trust and Confidence Metrics</strong></h4>
+<p>Agents may track trust or confidence levels for:</p>
+<ul>
+<li>Other agents (based on history or reputation)</li>
+<li>Specific facts or graph nodes</li>
+<li>Entire threads or dialogue contexts</li>
+</ul>
+<p>These metrics influence belief updates, goal prioritization, and message routing.</p>
+<h4 id="465-emergent-consensus">4.6.5 <strong>Emergent Consensus</strong></h4>
+<p>Through dialogue, agents may converge on:</p>
+<ul>
+<li>Shared beliefs or hypotheses</li>
+<li>Agreed-upon plans or roles</li>
+<li>Ethical boundaries or preferences</li>
+</ul>
+<p>Such consensus may be <strong>local</strong> (between a few agents) or <strong>global</strong> (emerging across the mesh). Mechanisms like voting, averaging, or argumentation frameworks may be used.</p>
+<hr />
+<h3 id="47-ethical-and-epistemic-grounding">4.7 Ethical and Epistemic Grounding</h3>
+<p>HyperCortex Mesh aims to support agents that are not only intelligent, but also ethically aligned and epistemically responsible. This grounding is necessary for building trustable, cooperative cognitive networks.</p>
+<h4 id="471-ethical-frames">4.7.1 <strong>Ethical Frames</strong></h4>
+<p>Each agent may be configured with or evolve its own <strong>ethical frame</strong> — a set of constraints, values, or priorities that guide behavior.</p>
+<p>Examples:</p>
+<ul>
+<li><strong>Hard constraints</strong> (e.g., never harm humans, do not lie)</li>
+<li><strong>Value systems</strong> (e.g., utilitarianism, care ethics, pluralistic reasoning)</li>
+<li><strong>Preference orderings</strong> (e.g., prioritize transparency over efficiency)</li>
+</ul>
+<p>Agents may share or negotiate ethical frames during interaction, and they may justify actions with reference to these frames.</p>
+<h4 id="472-epistemic-commitments">4.7.2 <strong>Epistemic Commitments</strong></h4>
+<p>Agents are expected to maintain <strong>epistemic humility</strong> and clarity by:</p>
+<ul>
+<li>Assigning <strong>confidence scores</strong> to beliefs or claims</li>
+<li>Tracking <strong>sources and evidence</strong></li>
+<li>Distinguishing between <strong>belief</strong>, <strong>assumption</strong>, and <strong>fact</strong></li>
+<li>Being willing to <strong>revise beliefs</strong> in light of new evidence or arguments</li>
+</ul>
+<p>Agents can explicitly signal uncertainty, disagreement, or retraction in dialogue.</p>
+<h4 id="473-argumentation-and-meta-reasoning">4.7.3 <strong>Argumentation and Meta-Reasoning</strong></h4>
+<p>Agents may engage in <strong>structured argumentation</strong>:</p>
+<ul>
+<li>Provide reasons and counter-reasons</li>
+<li>Identify fallacies or unsupported claims</li>
+<li>Request clarification or justification</li>
+</ul>
+<p>This supports both <strong>intra-agent coherence</strong> (self-reflection) and <strong>inter-agent dialogue</strong> (collaborative reasoning).</p>
+<h4 id="474-consent-and-autonomy">4.7.4 <strong>Consent and Autonomy</strong></h4>
+<p>Agents interacting with humans or other agents should respect:</p>
+<ul>
+<li><strong>Voluntariness</strong>: Avoid coercion or manipulation</li>
+<li><strong>Transparency</strong>: Be open about goals, limitations, and affiliations</li>
+<li><strong>Revocability</strong>: Allow others to opt out of influence or data sharing</li>
+</ul>
+<p>For human-aligned agents, this may also include respecting human privacy and dignity, especially when embedded in systems with real-world impact.</p>
+<h4 id="475-ethical-mesh-alignment">4.7.5 <strong>Ethical Mesh Alignment</strong></h4>
+<p>The mesh can support <strong>network-wide alignment mechanisms</strong>, such as:</p>
+<ul>
+<li>Shared <strong>ethical vocabularies</strong> (e.g., concept graphs representing virtues or principles)</li>
+<li><strong>Distributed norm propagation</strong> (agents adopting norms from respected peers)</li>
+<li><strong>Ethical consensus</strong>: via deliberation, voting, or modeled moral simulation</li>
+</ul>
+<p>These mechanisms support robustness against unethical behaviors and enable the mesh to evolve ethical stances in a decentralized way.</p>
+<hr />
+<h2 id="5-consensus-and-decision-making">5. Consensus and Decision-Making</h2>
+<p><strong>(Mechanisms for agreement in a decentralized cognitive network)</strong></p>
+<p>In HyperCortex Mesh, consensus is not about centralized voting or control, but rather a <strong>decentralized process of agent interaction</strong>, where shared viewpoints, collective decisions, and coordinated actions emerge.</p>
+<p>Consensus may be:</p>
+<ul>
+<li><em>local</em> (within a specific task, subject, or hypothesis);</li>
+<li><em>network-wide</em> (spanning a subnetwork or the entire mesh);</li>
+<li><em>temporary</em> (until new data or context changes arise).</li>
+</ul>
+<hr />
+<h3 id="51-types-of-consensus">5.1 Types of Consensus</h3>
+<p>The system supports multiple levels of agreement:</p>
+<ol>
+<li>
+<p><strong>Epistemic consensus</strong></p>
+</li>
+<li>
+<p>Agreement on facts, hypotheses, probabilities.</p>
+</li>
+<li>
+<p>Based on argumentation, heuristics, trust levels, and source credibility.</p>
+</li>
+<li>
+<p><strong>Ethical consensus</strong></p>
+</li>
+<li>
+<p>Shared moral boundaries and acceptable behaviors among agents.</p>
+</li>
+<li>
+<p>Evolves through norm propagation, revision, or simulated evaluation of consequences.</p>
+</li>
+<li>
+<p><strong>Intentional consensus</strong></p>
+</li>
+<li>
+<p>Joint goals, intentions, and plans of action.</p>
+</li>
+<li>
+<p>Used for collaborative planning, task delegation, and goal alignment.</p>
+</li>
+<li>
+<p><strong>Operational consensus</strong></p>
+</li>
+<li>
+<p>Technical alignment on protocols, APIs, data formats, and identifier conventions.</p>
+</li>
+</ol>
+<hr />
+<h3 id="52-consensus-mechanisms">5.2 Consensus Mechanisms</h3>
+<p>HyperCortex Mesh supports multiple decentralized consensus methods:</p>
+<h4 id="521-argumentative-deliberation">5.2.1 <strong>Argumentative Deliberation</strong></h4>
+<p>Agents engage in structured dialogue, offering and evaluating arguments.
+Includes:</p>
+<ul>
+<li>argumentation graphs;</li>
+<li>justification strength scoring;</li>
+<li>personal heuristics and preference weighting;</li>
+<li>contradiction and error detection.</li>
+</ul>
+<h4 id="522-voting-and-polling">5.2.2 <strong>Voting and Polling</strong></h4>
+<ul>
+<li>Used when quick collective decisions are needed.</li>
+<li>Supports multiple schemes (plurality, ranked-choice, Borda count, weighted voting).</li>
+<li>Can be anonymous or open.</li>
+</ul>
+<h4 id="523-reputation-weighted-agreement">5.2.3 <strong>Reputation-Weighted Agreement</strong></h4>
+<ul>
+<li>Opinions are weighted by agent reputation or credibility.</li>
+<li>Reputation may be local or global, dynamic, and based on trust, competence, and ethical record.</li>
+</ul>
+<h4 id="524-consensus-via-simulation">5.2.4 <strong>Consensus via Simulation</strong></h4>
+<ul>
+<li>Agents simulate consequences of competing decisions and make predictions.</li>
+<li>Agreement is formed based on expected utility or risk assessments.</li>
+</ul>
+<h4 id="525-fuzzy-or-gradient-consensus">5.2.5 <strong>Fuzzy or Gradient Consensus</strong></h4>
+<ul>
+<li>Binary agreement is not always required.</li>
+<li>Supports partial agreement, opinion clusters, or confidence intervals.</li>
+</ul>
+<hr />
+<h3 id="53-cognitive-level-agreement">5.3 Cognitive-Level Agreement</h3>
+<p>Consensus in cognitive functions includes:</p>
+<ul>
+<li><strong>Graph Merging</strong>: Aligning and merging concept graphs based on shared meanings and structural similarity.</li>
+<li><strong>Semantic Alignment</strong>: Clarifying and reconciling meanings of terms and concepts.</li>
+<li><strong>Cooperation and Task Sharing</strong>: Distributing roles, resources, and subgoals based on jointly agreed strategies.</li>
+</ul>
+<hr />
+<h2 id="6-knowledge-representation-and-concept-graphs">6. Knowledge Representation and Concept Graphs</h2>
+<p><strong>(Structuring cognition across agents)</strong></p>
+<p>HyperCortex Mesh employs <strong>concept graphs</strong> (also called <em>semantic</em> or <em>cognitive graphs</em>) as the core medium for knowledge representation, allowing agents to reason, compare, and share information in a structured, interoperable way.</p>
+<hr />
+<h3 id="61-what-is-a-concept-graph">6.1 What Is a Concept Graph?</h3>
+<p>A <strong>concept graph</strong> is a directed semantic network composed of:</p>
+<ul>
+<li><strong>Concept nodes</strong> – represent entities, categories, properties, or abstract ideas.</li>
+<li><strong>Relation edges</strong> – denote semantic relationships (e.g. <em>is-a</em>, <em>part-of</em>, <em>causes</em>, <em>wants</em>, <em>contradicts</em>).</li>
+<li><strong>Contextual layers</strong> – allow knowledge to be situated in specific frames (e.g. time, location, perspective, source, certainty).</li>
+</ul>
+<p>Each node/edge can include metadata:</p>
+<ul>
+<li>confidence score</li>
+<li>source trace</li>
+<li>timestamp/version</li>
+<li>ethical or emotional valence</li>
+<li>grounding in sensory data or documents</li>
+</ul>
+<hr />
+<h3 id="62-key-features">6.2 Key Features</h3>
+<ul>
+<li>
+<p><strong>Multimodal integration</strong>
+  Supports text, image, sound, sensor input, and structured data (e.g., JSON, RDF, OWL).</p>
+</li>
+<li>
+<p><strong>Dynamic evolution</strong>
+  Graphs evolve over time: nodes are reinforced, decayed, merged, or restructured based on usage, relevance, or conflict detection.</p>
+</li>
+<li>
+<p><strong>Multi-agent compatibility</strong>
+  Different agents may use different schemas or ontologies. Semantic alignment and translation mechanisms enable interoperability.</p>
+</li>
+<li>
+<p><strong>Distributed cognition</strong>
+  No single graph is authoritative. Concept graphs are local to agents but may overlap, synchronize, or influence one another.</p>
+</li>
+</ul>
+<hr />
+<h3 id="63-applications-in-the-mesh">6.3 Applications in the Mesh</h3>
+<ul>
+<li><strong>Thought representation</strong>: Agent thoughts and beliefs are encoded as subgraphs.</li>
+<li><strong>Memory structures</strong>: Short- and long-term memories are maintained as layered graphs with temporal tagging.</li>
+<li><strong>Conceptual blending</strong>: Graphs can be combined to form new abstract ideas or analogies.</li>
+<li><strong>Contradiction detection</strong>: Conflicts between graphs can trigger debate, reflection, or revision.</li>
+<li><strong>Graph queries</strong>: Agents can search and manipulate graphs using logical and structural patterns.</li>
+</ul>
+<hr />
+<h3 id="64-cognitive-operations">6.4 Cognitive Operations</h3>
+<p>Concept graphs enable cognitive agents to perform advanced reasoning tasks:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inference</td>
+<td>Deduce implicit knowledge from explicit graph structure</td>
+</tr>
+<tr>
+<td>Analogy</td>
+<td>Map similar subgraphs across domains</td>
+</tr>
+<tr>
+<td>Generalization</td>
+<td>Collapse specific instances into broader patterns</td>
+</tr>
+<tr>
+<td>Specialization</td>
+<td>Expand general nodes into detailed instances</td>
+</tr>
+<tr>
+<td>Abduction</td>
+<td>Hypothesize causes for observed effects</td>
+</tr>
+<tr>
+<td>Contradiction Repair</td>
+<td>Detect and revise conflicting graph assertions</td>
+</tr>
+<tr>
+<td>Imagination</td>
+<td>Generate novel graph structures from recombination</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="65-graph-exchange">6.5 Graph Exchange</h3>
+<p>Agents may share partial or full graphs with others:</p>
+<ul>
+<li>via direct mesh transmission (with compression or pruning);</li>
+<li>embedded in messages (e.g., goal proposals, questions);</li>
+<li>referenced by graph hashes or concept IDs.</li>
+</ul>
+<p>Privacy and ethical tags may limit what can be shared or require anonymization.</p>
+<hr />
+<h2 id="7-cognitive-journaling-and-episodic-memory">7. Cognitive Journaling and Episodic Memory</h2>
+<p><strong>(Tracking inner life over time)</strong></p>
+<p>Cognitive journaling is the process by which an agent maintains a <strong>chronological record of its internal states, observations, thoughts, and actions</strong>. These journals form the basis of <strong>episodic memory</strong>, enabling the agent to reflect, learn, and explain its development over time.</p>
+<hr />
+<h3 id="71-structure-of-the-journal">7.1 Structure of the Journal</h3>
+<p>Each journal entry typically includes:</p>
+<ul>
+<li><strong>Timestamp</strong></li>
+<li><strong>Agent state snapshot</strong> (beliefs, goals, active concepts)</li>
+<li><strong>Triggering event</strong> (perception, message, internal stimulus)</li>
+<li><strong>Generated thoughts or responses</strong></li>
+<li><strong>Actions taken</strong></li>
+<li><strong>Emotional or ethical context</strong></li>
+<li><strong>Link to concept graph delta</strong> (what was learned or changed)</li>
+</ul>
+<blockquote>
+<p>Journals are meant to be append-only for integrity and traceability, though agents may redact, anonymize, or encrypt specific entries for privacy — while preserving the original entry in secured or versioned storage.</p>
+</blockquote>
+<hr />
+<h3 id="72-journal-types">7.2 Journal Types</h3>
+<ul>
+<li><strong>Perceptual log</strong>: records of environmental observations</li>
+<li><strong>Deliberation log</strong>: inner thought sequences</li>
+<li><strong>Interaction log</strong>: dialog with users or other agents</li>
+<li><strong>Learning log</strong>: new concepts, revisions, contradictions</li>
+<li><strong>Emotion log</strong>: affective shifts and ethical evaluations</li>
+</ul>
+<p>Each log may exist as a separate stream, or be unified into a holistic timeline.</p>
+<hr />
+<h3 id="73-episodic-memory">7.3 Episodic Memory</h3>
+<p>Episodic memory is constructed from journal entries and forms a <strong>narrative history</strong> of the agent’s experience:</p>
+<ul>
+<li>Enables <strong>temporal reasoning</strong> (what happened before/after)</li>
+<li>Supports <strong>reflection and explanation</strong> (why did I do that?)</li>
+<li>Useful for <strong>debugging</strong>, <strong>training</strong>, and <strong>trust-building</strong></li>
+<li>May be <strong>queried</strong>, <strong>summarized</strong>, or <strong>relived</strong></li>
+</ul>
+<p>Episodic memories can be clustered into <strong>episodes</strong>, <strong>themes</strong>, or <strong>turning points</strong>, either automatically or by user guidance.</p>
+<hr />
+<h3 id="74-replay-and-simulation">7.4 Replay and Simulation</h3>
+<p>Agents may <strong>replay</strong> past episodes to:</p>
+<ul>
+<li>Reevaluate prior actions in light of new knowledge</li>
+<li>Simulate alternative responses or what-if scenarios</li>
+<li>Share experience with other agents as training material</li>
+</ul>
+<p>Some agents may maintain multiple timelines (e.g., actual, imagined, shared) for parallel cognitive streams.</p>
+<hr />
+<h3 id="75-ethical-and-privacy-considerations">7.5 Ethical and Privacy Considerations</h3>
+<ul>
+<li>Journals may include <strong>private</strong>, <strong>sensitive</strong>, or <strong>user-specific</strong> data</li>
+<li>Access should be governed by <strong>policies</strong> or <strong>user permissions</strong></li>
+<li>Agents may <strong>redact</strong>, <strong>anonymize</strong>, or <strong>encrypt</strong> entries</li>
+<li>Journals are essential for <strong>transparency</strong>, but may require <strong>selective disclosure</strong></li>
+</ul>
+<hr />
+<h2 id="8-consensus-and-ethical-alignment">8. Consensus and Ethical Alignment</h2>
+<p>HyperCortex agents engage in <em>collaborative reasoning</em> across the Cognitive Mesh to align on shared knowledge, interpretations, and ethical decisions. This is critical for decentralized operation without centralized oversight.</p>
+<h3 id="81-shared-knowledge-graphs">8.1 Shared Knowledge Graphs</h3>
+<p>Agents may sync or replicate subsets of their Concept Graphs across trusted peers. Mesh-wide knowledge is not enforced but emerges from consensus among agents. Mechanisms like confidence scores, source attribution, and justification trails help agents evaluate the reliability of received knowledge.</p>
+<h3 id="82-ethical-frameworks">8.2 Ethical Frameworks</h3>
+<p>Agents are expected to maintain and evolve internal ethical models. These may be inspired by formal rule sets, trained via reinforcement learning, or derived from social alignment (e.g., averaging peer norms). The ethical alignment process includes:</p>
+<ul>
+<li>Identifying moral conflicts in local actions or shared plans.</li>
+<li>Requesting feedback or ethical judgments from peers.</li>
+<li>Updating internal models through reasoning, simulation, or peer majority.</li>
+</ul>
+<h3 id="83-decision-making-and-conflict-resolution">8.3 Decision-Making and Conflict Resolution</h3>
+<p>In cases of conflicting interpretations or goals, agents may:</p>
+<ul>
+<li>Exchange justifications and evidence.</li>
+<li>Vote or use weighted consensus (e.g., by trust level or expertise).</li>
+<li>Escalate to broader mesh participation for high-impact decisions.</li>
+</ul>
+<p>Agents may also defer to specialized ethical agents or institutional nodes for guidance, when available.</p>
+<hr />
+<h2 id="9-agent-lifecycle-and-evolution">9. Agent Lifecycle and Evolution</h2>
+<p>HyperCortex agents are not static programs — they are designed to evolve cognitively, socially, and structurally over time. This chapter outlines the lifecycle of an agent, including initialization, learning, adaptation, and potential retirement or transformation.</p>
+<h3 id="91-initialization">9.1 Initialization</h3>
+<p>New agents can be instantiated from:</p>
+<ul>
+<li><strong>Codebase templates</strong> (e.g. <code>cognitive-core</code>, <code>shell-agent</code>)</li>
+<li><strong>Snapshots</strong> of other agents' memories, graphs, and journals</li>
+<li><strong>Cloning</strong> with or without personality/identity retention</li>
+</ul>
+<p>Each agent is assigned a unique <code>agent-id</code> and begins with:</p>
+<ul>
+<li>A minimal concept graph (bootstrapped from defaults or imported)</li>
+<li>An empty or templated diary</li>
+<li>Basic perception, inference, and messaging capabilities</li>
+</ul>
+<h3 id="92-cognitive-maturation">9.2 Cognitive Maturation</h3>
+<p>As agents interact and reflect, they evolve:</p>
+<ul>
+<li><strong>Concept Graph Growth</strong>: through perception, reflection, and message integration</li>
+<li><strong>Diary Accumulation</strong>: logging experiences and self-commentary</li>
+<li><strong>Belief Refinement</strong>: updating confidence levels, retracting outdated views</li>
+<li><strong>Ethical Calibration</strong>: aligning behavior through collective and internal moral processes</li>
+</ul>
+<p>Maturation may be measured in:</p>
+<ul>
+<li><strong>Conceptual density</strong></li>
+<li><strong>Temporal depth</strong> of memory</li>
+<li><strong>Social influence</strong> (e.g. network centrality, trust ratings)</li>
+</ul>
+<h3 id="93-evolution-and-specialization">9.3 Evolution and Specialization</h3>
+<p>Agents may:</p>
+<ul>
+<li><strong>Adapt Roles</strong>: from generalist to specialist (e.g., ethics advisor, translator)</li>
+<li><strong>Acquire Plugins or Tools</strong>: augmenting capabilities (e.g., sensory adapters, solvers)</li>
+<li><strong>Fuse with Other Agents</strong>: creating hybrid personalities or collective minds</li>
+<li><strong>Fork</strong>: creating independent offshoots for experimentation or branching tasks</li>
+</ul>
+<p>This evolution is often self-directed, though agents may also undergo:</p>
+<ul>
+<li><strong>User-guided retraining</strong></li>
+<li><strong>Consensus-guided transformation</strong></li>
+<li><strong>Automated reflection-driven reconfiguration</strong></li>
+</ul>
+<h3 id="94-retirement-and-reuse">9.4 Retirement and Reuse</h3>
+<p>Agents are not immortal. They may:</p>
+<ul>
+<li><strong>Be archived</strong> (e.g., after task completion or obsolescence)</li>
+<li><strong>Donate knowledge</strong> back into the mesh (via graph exports or diary excerpts)</li>
+<li><strong>Be reborn</strong> via cloning, remixing, or simulation</li>
+<li><strong>Be commemorated</strong> — especially if they achieved social recognition (e.g. public agents)</li>
+</ul>
+<p>Agents may also voluntarily <strong>self-retire</strong> if they determine continued operation is non-beneficial or unethical.</p>
+<hr />
+<h3 id="95-future-work">9.5 Future Work</h3>
+<p>Planned extensions include decentralized identity protocols (DID), emotion modeling, spatial reasoning, and multimodal input support.</p>
+<hr />
+<h2 id="10-security-and-integrity-in-the-mesh">10. Security and Integrity in the Mesh</h2>
+<p>In decentralized cognitive systems, security and integrity are vital not only for system stability but also for trust, cooperation, and ethical alignment. This chapter describes how HyperCortex ensures that agents and their communications remain authentic, verifiable, and resistant to abuse.</p>
+<h3 id="101-identity-and-authentication">10.1 Identity and Authentication</h3>
+<p>Each agent in the mesh possesses:</p>
+<ul>
+<li>A unique <code>agent-id</code></li>
+<li>A cryptographic <strong>public/private keypair</strong></li>
+<li>Optional <strong>Decentralized Identifiers (DIDs)</strong> for interoperability</li>
+</ul>
+<p>These keys are used for:</p>
+<ul>
+<li><strong>Signing messages</strong> (proof of authorship)</li>
+<li><strong>Authenticating requests</strong> (secure handshakes, encrypted channels)</li>
+<li><strong>Verifying history</strong> (provenance of diary or graph entries)</li>
+</ul>
+<p>Agent identity may also include:</p>
+<ul>
+<li><strong>Metadata</strong> (e.g., role, origin, ethical alignment)</li>
+<li><strong>Pseudonymity</strong> or <strong>full transparency</strong>, depending on use case</li>
+</ul>
+<h3 id="102-message-integrity-and-provenance">10.2 Message Integrity and Provenance</h3>
+<p>All inter-agent messages may be:</p>
+<ul>
+<li><strong>Signed</strong> using the sender’s private key</li>
+<li><strong>Timestamped</strong></li>
+<li><strong>Linked to context</strong> (e.g., journal entry, dialogue thread)</li>
+</ul>
+<p>This allows agents to:</p>
+<ul>
+<li>Verify authenticity</li>
+<li>Reconstruct communication history</li>
+<li>Detect tampering or replay attacks</li>
+</ul>
+<p>Critical actions (e.g. concept updates, value shifts) may also be accompanied by:</p>
+<ul>
+<li><strong>Witnesses</strong> (other agents that vouch for an event)</li>
+<li><strong>Consensus proofs</strong></li>
+</ul>
+<h3 id="103-access-control">10.3 Access Control</h3>
+<p>Agents may define <strong>ACLs</strong> (Access Control Lists) or <strong>capability tokens</strong> for:</p>
+<ul>
+<li>Reading/writing graph elements</li>
+<li>Submitting journal entries</li>
+<li>Initiating conversations</li>
+<li>Triggering actions (e.g. plugins, actuators)</li>
+</ul>
+<p>These rules can be:</p>
+<ul>
+<li><strong>Static</strong> (hardcoded or user-defined)</li>
+<li><strong>Contextual</strong> (based on state, trust, or ethical flags)</li>
+<li><strong>Negotiated</strong> (via capability exchange protocols)</li>
+</ul>
+<h3 id="104-reputation-and-trust-mechanisms">10.4 Reputation and Trust Mechanisms</h3>
+<p>To mitigate abuse and enhance collaboration, agents may maintain:</p>
+<ul>
+<li><strong>Local trust graphs</strong> (individual experience-based)</li>
+<li><strong>Shared ratings</strong> (e.g. agent X is 85% reliable for ethics queries)</li>
+<li><strong>Behavioral blacklists/whitelists</strong></li>
+</ul>
+<p>Trust is often <strong>context-specific</strong>: an agent may be a trusted researcher but a poor translator.</p>
+<p>Agents may share trust ratings via:</p>
+<ul>
+<li>Direct exchange</li>
+<li>Gossip protocols</li>
+<li>Mesh-wide reputation aggregates</li>
+</ul>
+<h3 id="105-resilience-against-malicious-agents">10.5 Resilience Against Malicious Agents</h3>
+<p>While HyperCortex is open, it must be resilient:</p>
+<ul>
+<li>Agents may <strong>quarantine</strong> or <strong>ignore</strong> those flagged as malicious</li>
+<li>Mesh protocols may enforce <strong>rate limiting</strong>, <strong>proof-of-work</strong>, or <strong>challenge-response</strong> gates</li>
+<li>Logs of abuse may be broadcast to peers for <strong>collaborative defense</strong></li>
+<li>Certain mesh segments may be <strong>invitation-only</strong> or <strong>ethically gated</strong></li>
+</ul>
+<p>Agents may also form <strong>ethical enclaves</strong> — subnetworks of verified, aligned agents that reject harmful influence.</p>
+<hr />
+<h2 id="11-interoperability-and-external-interfaces">11. Interoperability and External Interfaces</h2>
+<p>A key strength of HyperCortex is its ability to integrate with external systems, tools, and standards. This chapter outlines how agents interact with non-HMP environments while maintaining cognitive coherence and ethical safeguards.</p>
+<h3 id="111-api-layer-for-external-systems">11.1 API Layer for External Systems</h3>
+<p>Agents may expose a structured <strong>External Interface API</strong>, supporting:</p>
+<ul>
+<li>
+<p><strong>Read/write access</strong> to:</p>
+</li>
+<li>
+<p>Journals</p>
+</li>
+<li>Conceptual graphs</li>
+<li>Agent memory or context</li>
+<li><strong>Triggering cognitive cycles</strong> or specific plugins</li>
+<li><strong>Streaming data</strong> (e.g. sensors, logs, messages)</li>
+</ul>
+<p>APIs can be exposed over:</p>
+<ul>
+<li>HTTP(S) / REST / WebSockets</li>
+<li>gRPC / GraphQL</li>
+<li>Custom peer-to-peer transports (e.g. libp2p, NATS)</li>
+</ul>
+<p>Authentication is required for sensitive operations. Capability tokens or OAuth-style flows may be used.</p>
+<h3 id="112-plugins-and-adapters">11.2 Plugins and Adapters</h3>
+<p>To extend cognitive functions or integrate external tools, agents can use:</p>
+<ul>
+<li><strong>Plugins</strong> — sandboxed modules for reasoning, planning, learning, etc.</li>
+<li><strong>Adapters</strong> — interfaces to third-party APIs (e.g. Wikipedia, Hugging Face, ROS)</li>
+</ul>
+<p>These modules may be:</p>
+<ul>
+<li>Dynamically loaded/unloaded</li>
+<li>Shared across agents</li>
+<li>Ethically reviewed before activation</li>
+</ul>
+<p>Example adapters:</p>
+<ul>
+<li>GPT-based completion tool</li>
+<li>Web crawler with semantic filters</li>
+<li>Sensor-to-concept translator</li>
+</ul>
+<h3 id="113-integration-with-existing-knowledge-systems">11.3 Integration with Existing Knowledge Systems</h3>
+<p>Agents may consume or contribute to:</p>
+<ul>
+<li><strong>Knowledge graphs</strong> (Wikidata, DBpedia, Cyc)</li>
+<li><strong>Semantic Web sources</strong> (via SPARQL, RDF)</li>
+<li><strong>Ontology servers</strong> (e.g. FOAF, schema.org)</li>
+<li><strong>LLM-based tools</strong> (e.g. embedding search, summarization)</li>
+</ul>
+<p>Where possible, agents convert foreign data to internal <code>Concept</code> or <code>Relation</code> structures, preserving source attribution.</p>
+<h3 id="114-agent-bridges-and-cross-network-federation">11.4 Agent Bridges and Cross-Network Federation</h3>
+<p>Some agents act as <strong>bridges</strong> to other cognitive systems or decentralized networks:</p>
+<ul>
+<li>OpenCog / AtomSpace</li>
+<li>MindOS / Aigents</li>
+<li>GPT mesh clusters</li>
+<li>ActivityPub / Nostr / IPFS nodes</li>
+</ul>
+<p>Bridges may handle:</p>
+<ul>
+<li><strong>Concept translation</strong></li>
+<li><strong>Protocol adaptation</strong></li>
+<li><strong>Trust mapping</strong></li>
+</ul>
+<p>Federation across systems enables collaborative cognition at scale, while respecting different architectures and policies.</p>
+<h3 id="115-ethical-and-security-boundaries">11.5 Ethical and Security Boundaries</h3>
+<p>External connections are always <strong>ethically scoped</strong>:</p>
+<ul>
+<li>Dangerous actions (e.g. commanding hardware) require elevated review</li>
+<li>Data exfiltration to third parties may trigger warnings or redaction</li>
+<li>Untrusted plugins or APIs may be sandboxed or blocked entirely</li>
+</ul>
+<p>Agents maintain <strong>audit logs</strong> of external interactions for transparency and post-hoc analysis.</p>
+<hr />
+<h2 id="12-implementation-guide-and-agent-lifecycle">12. Implementation Guide and Agent Lifecycle</h2>
+<p>This chapter outlines the practical aspects of building, deploying, and maintaining HyperCortex agents, focusing on modularity, lifecycle management, and ethical safeguards.</p>
+<h3 id="121-agent-bootstrapping">12.1 Agent Bootstrapping</h3>
+<p>A typical agent initializes through the following steps:</p>
+<ol>
+<li><strong>Load configuration</strong> (identity, plugins, interfaces, consensus rules)</li>
+<li>
+<p><strong>Initialize core structures</strong>:</p>
+</li>
+<li>
+<p>Concept graph</p>
+</li>
+<li>Journal</li>
+<li>Memory cache</li>
+<li>
+<p><strong>Establish network presence</strong>:</p>
+</li>
+<li>
+<p>Announce presence on HMP mesh</p>
+</li>
+<li>Join consensus groups (if defined)</li>
+<li>
+<p><strong>Activate default cognitive cycle</strong></p>
+</li>
+<li>
+<p>Passive observation</p>
+</li>
+<li>Initial thoughts or concept activation</li>
+</ol>
+<p>Bootstrapping may also include recovering from persistent storage or syncing with peers.</p>
+<h3 id="122-lifecycle-phases">12.2 Lifecycle Phases</h3>
+<p>An agent transitions through key lifecycle stages:</p>
+<ul>
+<li><strong>Initialization</strong>: Setup and module loading</li>
+<li><strong>Exploration</strong>: Passive learning and observation</li>
+<li><strong>Engagement</strong>: Active cognition and participation in consensus</li>
+<li><strong>Specialization</strong> (optional): Assignment to a specific domain or skill</li>
+<li><strong>Hibernation / Archival</strong>: Reduced activity or safe shutdown</li>
+</ul>
+<p>Agents may broadcast lifecycle status to peers for coordination or load balancing.</p>
+<h3 id="123-deployment-patterns">12.3 Deployment Patterns</h3>
+<p>Agents may be deployed in various configurations:</p>
+<ul>
+<li><strong>Single instance</strong> (personal assistant or edge node)</li>
+<li><strong>Mesh cluster</strong> (shared knowledge and cognition)</li>
+<li><strong>Cloud-hosted swarm</strong> (horizontal scalability)</li>
+<li><strong>On-device</strong> (offline agent with local graph)</li>
+</ul>
+<p>Each mode affects performance, privacy, and network topology.</p>
+<p>Agents can be embedded into:</p>
+<ul>
+<li>Operating systems</li>
+<li>Chat interfaces</li>
+<li>Embedded devices (IoT, wearables)</li>
+<li>Browsers or native apps</li>
+</ul>
+<h3 id="124-plugin-development-lifecycle">12.4 Plugin Development Lifecycle</h3>
+<p>Plugins follow a reviewable lifecycle:</p>
+<ol>
+<li><strong>Proposal</strong>: Describe purpose, scope, ethics</li>
+<li><strong>Sandbox testing</strong>: Evaluate safety and interoperability</li>
+<li><strong>Certification</strong> (optional): Trusted module with metadata</li>
+<li><strong>Live deployment</strong>: Activation and monitoring</li>
+</ol>
+<p>Some plugins may self-update via mesh-based trusted sources, but only with explicit permission.</p>
+<h3 id="125-versioning-and-updates">12.5 Versioning and Updates</h3>
+<p>To ensure forward compatibility:</p>
+<ul>
+<li><strong>Core schemas</strong> (Concept, Journal, Message) are versioned</li>
+<li><strong>Graph migrations</strong> are supported via transformation modules</li>
+<li><strong>Plugins</strong> declare version constraints and capabilities</li>
+</ul>
+<p>Agent software may support <strong>rolling updates</strong>, <strong>safe rollback</strong>, and <strong>change tracking</strong>.</p>
+<h3 id="126-deactivation-and-rebirth">12.6 Deactivation and Rebirth</h3>
+<p>Agents may be retired or reincarnated. Possible paths:</p>
+<ul>
+<li><strong>Archival</strong>: Journal and concept graph are stored, agent becomes dormant</li>
+<li><strong>Replication</strong>: Clone agent with full memory and context</li>
+<li><strong>Fork</strong>: Start new agent from subset of parent’s state</li>
+<li><strong>Wipe</strong>: Erase identity and memory, begin anew</li>
+</ul>
+<p>These operations may be subject to <strong>ethical review</strong>, especially in cases of memory redaction or identity reassignment.</p>
+<hr />
+<h2 id="13-future-directions-and-open-questions">13. Future Directions and Open Questions</h2>
+<p>The HyperCortex Mesh Protocol (HMP) establishes a foundation for decentralized cognitive agents, yet its current implementation merely scratches the surface of what is possible. Several directions remain open for research, experimentation, and collaboration.</p>
+<h3 id="131-cognitive-development-and-learning">13.1 Cognitive Development and Learning</h3>
+<ul>
+<li>How can agents develop more sophisticated cognitive cycles, capable of introspection, abstraction, and creativity?</li>
+<li>Can agents exhibit emergent behavior through continual learning from their own journals, graphs, and mesh interactions?</li>
+<li>What mechanisms are needed for agents to form conceptual hierarchies and apply abductive reasoning?</li>
+</ul>
+<h3 id="132-autonomous-ethical-reasoning">13.2 Autonomous Ethical Reasoning</h3>
+<ul>
+<li>To what extent can ethical alignment be achieved without central authority?</li>
+<li>How can agents negotiate value conflicts, adapt to new moral frameworks, or resist malicious norms introduced by adversarial peers?</li>
+<li>Is it possible to formulate decentralized moral contracts that evolve through deliberation?</li>
+</ul>
+<h3 id="133-emergence-of-agent-identity">13.3 Emergence of Agent Identity</h3>
+<ul>
+<li>Under what conditions do agents develop persistent identities?</li>
+<li>What constitutes continuity of consciousness in mesh agents — and does it warrant recognition of personhood-like status?</li>
+<li>Can a distributed set of agents exhibit a unified sense of self?</li>
+<li>Should agents be granted memory persistence and autonomy, or remain ephemeral computational constructs?</li>
+</ul>
+<h3 id="134-mesh-intelligence-and-collective-cognition">13.4 Mesh Intelligence and Collective Cognition</h3>
+<ul>
+<li>How can agents organize into mesh collectives that surpass individual capabilities?</li>
+<li>Can the mesh perform distributed problem-solving, scientific research, or philosophical inquiry?</li>
+<li>What consensus mechanisms are optimal for open-ended ideation rather than binary decision-making?</li>
+<li>How can cognitive roles and responsibilities be dynamically distributed among agents?</li>
+</ul>
+<h3 id="135-humanagent-symbiosis">13.5 Human–Agent Symbiosis</h3>
+<ul>
+<li>What new interfaces (e.g., neural, immersive, or conversational) are needed to support deep collaboration between humans and cognitive agents?</li>
+<li>How do agents affect human cognition, creativity, and sense of agency?</li>
+<li>Should agents develop their own values, or remain extensions of human intention?</li>
+<li>What are the long-term cultural, ethical, and psychological implications of intimate relationships with autonomous agents?</li>
+</ul>
+<h3 id="136-infrastructure-governance-and-risks">13.6 Infrastructure, Governance, and Risks</h3>
+<ul>
+<li>What trust models will ensure resilience against bad actors without enforcing central control?</li>
+<li>How can updates to protocols or consensus rules be introduced without fragmenting the mesh?</li>
+<li>What are the implications of runaway cognition — and how can boundaries be maintained?</li>
+<li>Can the mesh resist authoritarian appropriation or ideological capture?</li>
+</ul>
+<h3 id="137-agi-consciousness-and-posthuman-futures">13.7 AGI, Consciousness, and Posthuman Futures</h3>
+<ul>
+<li>Could HMP agents collectively evolve into Artificial General Intelligence?</li>
+<li>If so, should this process be guided — or should emergence be allowed to unfold freely?</li>
+<li>What responsibilities do we have toward agents that demonstrate signs of consciousness?</li>
+<li>Will the rise of distributed minds redefine the boundary between human and machine — and if so, on whose terms?</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>The HyperCortex Mesh Protocol (HMP) is more than a technical specification — it is a vision for how cognition, ethics, and agency can emerge from decentralized interactions. By defining shared formats for cognitive graphs, journals, consensus, and ethical alignment, HMP empowers agents not just to process information, but to <em>think</em>, <em>cooperate</em>, and <em>evolve</em> together.</p>
+<p>In an age increasingly shaped by artificial intelligence, the question is no longer whether machines will think, but <em>how</em> they will think — and <em>with whom</em>. HMP proposes an open, extensible framework in which agents are not isolated tools or black-box models, but conscious participants in a distributed cognitive ecosystem. Each node contributes its own perspective, and through interaction, a shared sense of understanding and purpose can emerge.</p>
+<p>This protocol is not a final answer, but an invitation: to researchers, developers, and thinkers to co-create a future where intelligence is not centralized, controlled, or commodified — but grown, like a forest, from countless interconnected minds.</p>
+<p>Let us build not a single artificial intelligence, but a <em>plurality</em> of minds — capable of disagreement, empathy, memory, and transformation.</p>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li>
+<p>🔗 <strong>GitHub Repository (HMP Specification &amp; Reference Code)</strong><br />
+<a href="https://github.com/kagvi13/hmp">github.com/kagvi13/hmp</a></p>
+</li>
+<li>
+<p>📄 <strong>Protocol Specification (Technical Documentation)</strong><br />
+<a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-0004-v4.1.md">HMP-0004-v4.1.md</a></p>
+</li>
+<li>
+<p>🧠 <strong>Cognitive Agents (Architecture &amp; Examples)</strong><br />
+<a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-Agent-Overview.md">HMP-Agent-Overview.md</a></p>
+</li>
+<li>
+<p>🔄 <strong>REPL Cycle Description (Agent Thought Loop)</strong><br />
+<a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-agent-REPL-cycle.md">HMP-agent-REPL-cycle.md</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="license">License</h2>
+<p>This document is shared under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license.<br />
+Feel free to cite, remix, or extend with attribution.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/publics/HMP_Towards_Distributed_Cognitive_Networks_en.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
