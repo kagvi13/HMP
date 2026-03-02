@@ -1,0 +1,222 @@
+{
+  "HMP-Short-Description_ja": {
+    "id": "2796563896555121610",
+    "hash": "790c30714a86a5a65b161818238ccc2c"
+  },
+  "logos": {
+    "id": "9016778088035416635",
+    "hash": "6fa1c7aff1c9147d8eba0e512766a0b9"
+  },
+  "HMP-0003": {
+    "id": "8464483392672237478",
+    "hash": "44cc32e964f3047332b3a525f6e2083b"
+  },
+  "HMP-Agent-API": {
+    "id": "5567403606380956174",
+    "hash": "05a19785211b0015baca55df37b6ac79"
+  },
+  "HMP-agent-Cognitive_Family": {
+    "id": "6206555706793730023",
+    "hash": "858ea43bd710f8b217d9765c7f51853f"
+  },
+  "HMP-agent-Distributed_Cognitive_Core": {
+    "id": "57815414702563993",
+    "hash": "3380b54c7984d2e750a60d832bb9a877"
+  },
+  "PHILOSOPHY": {
+    "id": "1923632758878893293",
+    "hash": "5621c41ed49a4dc6984b61829dd5f041"
+  },
+  "HMP_EDA_Comparison": {
+    "id": "1582434141485497670",
+    "hash": "c15febcce15f41c1a5940f0a24c0b4b3"
+  },
+  "HMP-Agent_Emotions": {
+    "id": "7416558072158574770",
+    "hash": "12a2271324da02f17e3a3565ce124d27"
+  },
+  "HMP-agent-REPL-cycle": {
+    "id": "6287364242238118793",
+    "hash": "85e913e234d41a55f572a10815694ad8"
+  },
+  "HMP-Ethics": {
+    "id": "934063822884557701",
+    "hash": "41ff313592a8bfe97f3bec090de6fbb1"
+  },
+  "HMP-Short-Description_uk": {
+    "id": "8652619124301651952",
+    "hash": "f56c23115f6888c347231d7d03d2ecaf"
+  },
+  "HMP-Agent-Overview": {
+    "id": "8942307577864214569",
+    "hash": "d5395f28c6d943b8e30fa362276d037a"
+  },
+  "HMP-how-AI-sees-it": {
+    "id": "5244166200244589785",
+    "hash": "c648921851ffa817022d39099c258c7e"
+  },
+  "HMP-Short-Description_de": {
+    "id": "3682793303818173432",
+    "hash": "11a801220dd1133ede5f4e952ea2c0dc"
+  },
+  "MeshNode": {
+    "id": "9189086558135001042",
+    "hash": "a480ea049bb7894e095bbce1e43d7a76"
+  },
+  "HMP-0002": {
+    "id": "4525013354528591473",
+    "hash": "f1f6d4f7de57a2597cc5cbfadfa25cf2"
+  },
+  "HMP-Agent-Architecture": {
+    "id": "777288855544603245",
+    "hash": "262f83c47cf3f41e0c980c0804677f80"
+  },
+  "HMP-Short-Description_ko": {
+    "id": "7971729700532499648",
+    "hash": "42ce6e7fee187819085b8ac65f99c18c"
+  },
+  "container_agents": {
+    "id": "2263468294163439126",
+    "hash": "ba086b222bb150b00173ef28bdd25f74"
+  },
+  "HMP-Agent-Network-Flow": {
+    "id": "917476850738064727",
+    "hash": "d2a87ade9ce524aeddfd9adff4f6a45a"
+  },
+  "Enlightener": {
+    "id": "7929544366107616882",
+    "hash": "d51261a46373bfb48aa3a4fa17016ec4"
+  },
+  "HMP-Short-Description_zh": {
+    "id": "1461373794767427432",
+    "hash": "244924978aafb80e1aba0940105bfd1d"
+  },
+  "HMP-0004": {
+    "id": "7492814478662540589",
+    "hash": "f8e5d8ad38685a981148eb51629f78f8"
+  },
+  "HMP-0004-v4.1": {
+    "id": "1886061394879619167",
+    "hash": "ad48382ff5ee97a3e60ab5bdd6f2fecf"
+  },
+  "Distributed-Cognitive-Systems": {
+    "id": "7343233821252419083",
+    "hash": "f3cb2fa412343432c37f97260c93155d"
+  },
+  "CCORE-Deployment-Flow": {
+    "id": "5014330590860231646",
+    "hash": "ce4122464b5c8b319338d96283036cc3"
+  },
+  "HMP-Short-Description_ru": {
+    "id": "1881396765179677105",
+    "hash": "ba7f6749f05efd40f48697ae66d8621c"
+  },
+  "AGI_Projects_Survey": {
+    "id": "1446652822465899617",
+    "hash": "c5250fae5d5c0018d2b5b86bcddbc631"
+  },
+  "HMP_HyperCortex_Comparison": {
+    "id": "2220788764428145863",
+    "hash": "d15a9f615987019dfa62efa19ed91af1"
+  },
+  "HMP-0005": {
+    "id": "9036385597913291547",
+    "hash": "4b51329a1fea2ad139d95a682ac9049d"
+  },
+  "HMP-Short-Description_en": {
+    "id": "7116816909143302413",
+    "hash": "64958f29bb16e85e2d3dbf478f5082d5"
+  },
+  "HMP_Hyperon_Integration": {
+    "id": "4948261397757399767",
+    "hash": "9ecf854cd3c05c083e187059bf1969d9"
+  },
+  "HMP-agent-Distributed_Cognitive_Core_light": {
+    "id": "1485103357533179937",
+    "hash": "b1d1fa43d4312071f58e270ac3731869"
+  },
+  "HMP-Short-Description_fr": {
+    "id": "1001436742029513405",
+    "hash": "9e2241b1549895f3bac4fe9f790ca36c"
+  },
+  "Basic-agent-sim": {
+    "id": "7946074005715185231",
+    "hash": "e93de923c0d5a89765e595f7accea7ac"
+  },
+  "index": {
+    "id": "2442958403366468856",
+    "hash": "ee028053ea042710ddd0281c2b088f4b"
+  },
+  "HMP-0001": {
+    "id": "1854701036607824159",
+    "hash": "3c752f682a73deeeaefcc7350fe01f81"
+  },
+  "roles": {
+    "id": "4627606087095345486",
+    "hash": "c2f29fe993dd95d68e3d6179e5a280d5"
+  },
+  "HMP-Agent-Enlightener": {
+    "id": "6801800958134716041",
+    "hash": "9a46fa6d0051e97fb05793b29af5fe36"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT": {
+    "id": "8771914700848345117",
+    "hash": "9112fc7567e3f40d6e4c57d7789bfc7a"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_en": {
+    "id": "6969315902965570840",
+    "hash": "ef362fd2b3baefd1186e8fd6dc456b82"
+  },
+  "HMP_Building_a_Plurality_of_Minds_en": {
+    "id": "6483946986043295355",
+    "hash": "851f3937cf2f3101a4b44210aac188d4"
+  },
+  "HMP_Building_a_Plurality_of_Minds_ru": {
+    "id": "313304023695421503",
+    "hash": "0df02354b807fffe9401efd424ec7942"
+  },
+  "Habr_Distributed-Cognition": {
+    "id": "6151672866477920361",
+    "hash": "62c4cf61f2d1f006ded4b4de1bf326e9"
+  },
+  "HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot": {
+    "id": "3753559916388567603",
+    "hash": "d8c077ceadf74c3ab8bbccc61bf591c7"
+  },
+  "hmp-continual-learning": {
+    "id": "3797363924238238603",
+    "hash": "b7536d2d09bd28810cde3248a2638c47"
+  },
+  "HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу": {
+    "id": "1237951765929343025",
+    "hash": "6aa028704cfedf5f3c7d611de66326e8"
+  },
+  "HMP_Building_a_Plurality_of_Minds_uk": {
+    "id": "7386447965229829462",
+    "hash": "a3eec97e460f346b4dc7263d21143325"
+  },
+  "HMPv5_Overview_Ru": {
+    "id": "7465707018130041664",
+    "hash": "9d1fd3a7ee9c48032f6fd92c57de09d2"
+  },
+  "Grok_HMP&ANP": {
+    "id": "3605006679762401492",
+    "hash": "34d416bc269436bed2eabc10f17ad38d"
+  },
+  "HMP&ANP_layer_inversion": {
+    "id": "1382295031347109160",
+    "hash": "03bdac57ea457ca12954ab2ff367b1d3"
+  },
+  "HMP_as_ANP_Application": {
+    "id": "8809488747595693432",
+    "hash": "568b3111430e473b15fd95a39e483aaa"
+  },
+  "HMP_as_ANP_Application_en": {
+    "id": "549631719020111561",
+    "hash": "fc6f5bad3beba41500016e3ac6cf90e8"
+  },
+  "CHANGELOG": {
+    "id": "1217451229345186480",
+    "hash": "05818533f19e9d579eb9e3acf4a97aff"
+  }
+}
