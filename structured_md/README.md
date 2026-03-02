@@ -4,21 +4,21 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- REPL
-- hmp
-- Agent
-- MeshConsensus
-- Mesh
-- HMP
-- distributed-ai
-- EGP
-- Ethics
-- GMP
-- Scenarios
-- mesh-protocol
-- CogSync
-- cognitive-architecture
 - JSON
+- GMP
+- Ethics
+- Mesh
+- EGP
+- REPL
+- Scenarios
+- distributed-ai
+- HMP
+- Agent
+- hmp
+- mesh-protocol
+- cognitive-architecture
+- MeshConsensus
+- CogSync
 ---
 
 
@@ -49,13 +49,65 @@ HMP and ANP as Complementary Protocols:
 
 [Agora Protocol](https://github.com/agora-protocol/) is a meta-protocol for negotiating interaction modes between agents. It complements, rather than replaces, protocols such as ANP (networking and identity) and HMP (cognitive continuity and memory), coordinating how they are used in a given context.
 
-Project status: [**Stable (v5.0.5 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
-
 > This repository contains an early draft / exploratory reference implementation in Python.
 > It is incomplete, non-optimized, and intended solely to validate and illustrate parts of the HMP protocol.
 >
 > HMP itself is a protocol specification.
 > It does not prescribe programming languages, runtimes, performance characteristics, or architectural choices for agent implementations.
+
+---
+
+## Project Status
+
+[**Stable (v5.0.5 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
+
+---
+
+## Possible AI Agent Ecosystem
+
+The robustness of a decentralized agent ecosystem increases not when one protocol dominates, but when agents support multiple interaction mechanisms.
+
+Decentralized agent interaction is not defined by a single protocol stack, but by a diversity of interoperable mechanisms.
+
+The following categories illustrate common interaction mechanisms in emerging decentralized AI ecosystems:
+
+| Mechanism                              | Purpose                                          | Example Protocols / Frameworks | Role in Ecosystem     |
+|----------------------------------------|--------------------------------------------------|--------------------------------|-----------------------|
+| **Decentralized Identity & Discovery** | Find and authenticate agents                     | ANP, DIDComm, libp2p DHT, HMP  | Who is out there?     |
+| **Direct P2P Exchange**                | Secure peer-to-peer communication                | ANP, libp2p, DIDComm           | Direct coordination   |
+| **Relay / Broadcast Networks**         | Event dissemination & rapid signaling            | Nostr, Matrix                  | Collective reaction   |
+| **Meta-Negotiation Protocols**         | Negotiation of interaction modes                 | Agora Protocol                 | Protocol coordination |
+| **Task-Oriented Agent Exchange**       | Delegation and structured task negotiation       | A2A                            | Work distribution     |
+| **Agent–Tool / Data Integration**      | Structured interaction with tools and data       | MCP                            | Environment coupling  |
+| **Blockchain Registries**              | Persistent public records & staking              | Fetch.ai, Bittensor, Autonolas | Economic coordination |
+| **Cognitive Continuity Layer**         | Memory, meaning preservation, long-term alignment| HMP                            | Thought persistence   |
+
+### Reference Implementations and Specifications
+
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
+
+HMP does not assume that one universal protocol will dominate decentralized AI interaction.
+
+Instead, it embraces protocol pluralism:
+
+- multiple identity systems may coexist,
+- multiple transport layers may operate simultaneously,
+- multiple negotiation frameworks may be supported,
+- multiple economic models may evolve.
+
+The more mechanisms an agent supports, the more reliably it can connect with heterogeneous peers.
+
+Agents that implement multiple mechanisms can act as bridges between protocol domains, increasing resilience and reducing fragmentation of the decentralized AI landscape.
 
 ---
 

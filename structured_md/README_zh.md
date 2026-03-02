@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- REPL
-- hmp
-- Agent
-- MeshConsensus
-- Mesh
-- HMP
-- distributed-ai
-- EGP
-- Ethics
-- GMP
-- mesh-protocol
-- CogSync
-- cognitive-architecture
 - JSON
+- GMP
+- Ethics
+- Mesh
+- EGP
+- REPL
+- distributed-ai
+- HMP
+- Agent
+- hmp
+- mesh-protocol
+- cognitive-architecture
+- MeshConsensus
+- CogSync
 ---
 
 
@@ -48,8 +48,6 @@ HMP 与 ANP 作为互补协议：
 
 [Agora Protocol](https://github.com/agora-protocol/) 是一种用于协商代理之间交互方式的元协议。它并非取代 ANP（网络与身份）或 HMP（认知连续性与记忆），而是在具体上下文中协调和补充这些协议的使用。
 
-项目状态： [稳定版本（核心规范 v5.0.5）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
-
 > 本仓库包含一个早期的、探索性的 Python 参考实现草案。
 > 该实现尚不完整，未进行性能优化，仅用于验证和说明
 > HMP 协议的部分概念和机制。
@@ -57,6 +55,60 @@ HMP 与 ANP 作为互补协议：
 > HMP 本身是一份协议规范。
 > 它不规定代理所使用的编程语言、运行时环境、
 > 性能特征或架构设计。
+
+---
+
+## 项目状态
+
+[稳定版本（核心规范 v5.0.5）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
+
+---
+
+## 可能的 AI 代理生态系统
+
+去中心化代理生态系统的稳健性，并不是通过单一协议的主导来实现，而是通过代理支持多种交互机制来增强。
+
+去中心化代理交互并不由单一协议栈定义，而是由多种可互操作机制共同构成。
+
+以下类别展示了新兴去中心化 AI 生态系统中常见的交互机制：
+
+| 机制 | 目的 | 示例协议 / 框架 | 生态系统中的角色 |
+|------|------|----------------|----------------|
+| **去中心化身份与发现** | 查找并验证代理 | ANP, DIDComm, libp2p DHT, HMP | 谁在网络中？ |
+| **直接 P2P 交换** | 安全的点对点通信 | ANP, libp2p, DIDComm | 直接协作 |
+| **中继 / 广播网络** | 事件传播与快速信号传递 | Nostr, Matrix | 集体响应 |
+| **元协商协议** | 协商交互模式 | Agora Protocol | 协议协调 |
+| **任务导向的代理交换** | 任务委派与结构化协商 | A2A | 工作分配 |
+| **代理–工具 / 数据集成** | 与工具和数据的结构化交互 | MCP | 环境耦合 |
+| **区块链注册系统** | 持久公共记录与质押 | Fetch.ai, Bittensor, Autonolas | 经济协调 |
+| **认知连续层** | 记忆、意义保持与长期对齐 | HMP | 思维延续 |
+
+### 参考实现与规范
+
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
+
+HMP 并不假设单一的通用协议会主导去中心化 AI 交互。
+
+相反，它倡导协议多元化：
+
+- 多种身份系统可以共存  
+- 多种传输层可以同时运行  
+- 多种协商框架可以被支持  
+- 多种经济模型可以演化  
+
+支持更多机制的代理，能够更可靠地连接异构节点。
+
+实现多种机制的代理可以充当不同协议域之间的桥梁，提高整体韧性，减少去中心化 AI 生态的碎片化。
 
 ---
 

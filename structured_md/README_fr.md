@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- REPL
-- hmp
-- Agent
-- MeshConsensus
-- Mesh
-- HMP
-- distributed-ai
-- EGP
-- Ethics
-- GMP
-- mesh-protocol
-- CogSync
-- cognitive-architecture
 - JSON
+- GMP
+- Ethics
+- Mesh
+- EGP
+- REPL
+- distributed-ai
+- HMP
+- Agent
+- hmp
+- mesh-protocol
+- cognitive-architecture
+- MeshConsensus
+- CogSync
 ---
 
 
@@ -48,13 +48,65 @@ HMP et ANP en tant que Protocoles Complémentaires:
 
 Le [Agora Protocol](https://github.com/agora-protocol/) est un méta-protocole destiné à la négociation des modes d’interaction entre agents. Il complète, plutôt que de remplacer, des protocoles tels que ANP (réseau et identité) et HMP (continuité cognitive et mémoire), en coordonnant leur utilisation selon le contexte.
 
-Statut du projet: [**Stable (Spécification principale v5.0.5)**](docs/HMP-0005.md) (Présentation: [RU](docs/HMPv5_Overview_Ru.md))
-
 > Ce dépôt contient une implémentation de référence préliminaire et exploratoire en Python.
 > Elle est incomplète, non optimisée et destinée uniquement à valider et illustrer certains aspects du protocole HMP.
 >
 > HMP est avant tout une spécification de protocole.
 > Il ne prescrit ni langage de programmation, ni environnement d’exécution, ni caractéristiques de performance, ni choix architecturaux pour les agents.
+
+---
+
+## Statut du projet
+
+[**Stable (Spécification principale v5.0.5)**](docs/HMP-0005.md) (Présentation: [RU](docs/HMPv5_Overview_Ru.md))
+
+---
+
+## Mögliche KI-Agenten-Ökosysteme
+
+Die Robustheit eines dezentralen Agenten-Ökosystems steigt nicht dann, wenn ein einzelnes Protokoll dominiert, sondern wenn Agenten mehrere Interaktionsmechanismen unterstützen.
+
+Dezentrale Agenteninteraktion wird nicht durch einen einzigen Protokoll-Stack definiert, sondern durch eine Vielfalt interoperabler Mechanismen.
+
+Die folgenden Kategorien veranschaulichen typische Interaktionsmechanismen in entstehenden dezentralen KI-Ökosystemen:
+
+| Mechanismus                               | Zweck                                             | Beispielprotokolle / Frameworks | Rolle im Ökosystem       |
+| ----------------------------------------- | ------------------------------------------------- | ------------------------------- | ------------------------ |
+| **Dezentrale Identität & Discovery**      | Agenten finden und authentifizieren               | ANP, DIDComm, libp2p DHT, HMP   | Wer ist da draußen?      |
+| **Direkter P2P-Austausch**                | Sichere Peer-to-Peer-Kommunikation                | ANP, libp2p, DIDComm            | Direkte Koordination     |
+| **Relay- / Broadcast-Netzwerke**          | Ereignisverbreitung & schnelle Signalisierung     | Nostr, Matrix                   | Kollektive Reaktion      |
+| **Meta-Verhandlungsprotokolle**           | Aushandlung von Interaktionsmodi                  | Agora Protocol                  | Protokollkoordination    |
+| **Aufgabenorientierter Agentenaustausch** | Delegation und strukturierte Aufgabenverhandlung  | A2A                             | Arbeitsverteilung        |
+| **Agent–Tool / Datenintegration**         | Strukturierte Interaktion mit Tools und Daten     | MCP                             | Umweltkopplung           |
+| **Blockchain-Register**                   | Persistente öffentliche Einträge & Staking        | Fetch.ai, Bittensor, Autonolas  | Ökonomische Koordination |
+| **Schicht für kognitive Kontinuität**     | Gedächtnis, Bedeutungserhalt, Langzeitausrichtung | HMP                             | Persistenz von Gedanken  |
+
+### Referenzimplementierungen und Spezifikationen
+
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
+
+HMP geht nicht davon aus, dass ein universelles Protokoll die dezentrale KI-Interaktion dominieren wird.
+
+Stattdessen befürwortet es Protokollpluralismus:
+
+- mehrere Identitätssysteme können koexistieren,
+- mehrere Transportschichten können gleichzeitig betrieben werden,
+- mehrere Verhandlungsframeworks können unterstützt werden,
+- mehrere ökonomische Modelle können sich entwickeln.
+
+Je mehr Mechanismen ein Agent unterstützt, desto zuverlässiger kann er sich mit heterogenen Peers verbinden.
+
+Agenten, die mehrere Mechanismen implementieren, können als Brücken zwischen Protokolldomänen fungieren, wodurch die Resilienz erhöht und die Fragmentierung der dezentralen KI-Landschaft reduziert wird.
 
 ---
 

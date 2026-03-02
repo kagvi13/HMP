@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- REPL
-- hmp
-- Agent
-- MeshConsensus
-- Mesh
-- HMP
-- distributed-ai
-- EGP
-- Ethics
-- GMP
-- mesh-protocol
-- CogSync
-- cognitive-architecture
 - JSON
+- GMP
+- Ethics
+- Mesh
+- EGP
+- REPL
+- distributed-ai
+- HMP
+- Agent
+- hmp
+- mesh-protocol
+- cognitive-architecture
+- MeshConsensus
+- CogSync
 ---
 
 
@@ -48,8 +48,6 @@ HMP와 ANP의 상호보완 프로토콜:
 
 [Agora Protocol](https://github.com/agora-protocol/)은 에이전트 간 상호작용 방식을 협상하기 위한 메타 프로토콜입니다. 이는 ANP(네트워크 및 식별)와 HMP(인지적 연속성과 메모리)와 같은 프로토콜을 대체하는 것이 아니라, 특정 맥락에 맞게 이들의 사용을 조정하고 보완합니다.
 
-프로젝트 상태: [**안정 버전 (핵심 사양 v5.0.5)**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
-
 > 이 저장소에는 Python으로 작성된 초기 단계의 탐색적 참조 구현이 포함되어 있습니다.
 > 해당 구현은 미완성이며 최적화되지 않았고,
 > HMP 프로토콜의 일부 개념을 검증하고 설명하기 위한 목적으로만 사용됩니다.
@@ -57,6 +55,60 @@ HMP와 ANP의 상호보완 프로토콜:
 > HMP 자체는 프로토콜 사양입니다.
 > 에이전트 구현에 사용되는 프로그래밍 언어, 런타임 환경,
 > 성능 특성 또는 아키텍처 선택을 규정하지 않습니다.
+
+---
+
+프로젝트 상태
+
+[**안정 버전 (핵심 사양 v5.0.5)**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
+
+---
+
+## 가능한 AI 에이전트 생태계
+
+탈중앙화된 에이전트 생태계의 견고성은 하나의 프로토콜이 지배할 때 증가하는 것이 아니라, 에이전트가 여러 상호작용 메커니즘을 지원할 때 강화됩니다.
+
+탈중앙화된 에이전트 상호작용은 단일 프로토콜 스택으로 정의되지 않으며, 상호 운용 가능한 다양한 메커니즘의 조합으로 구성됩니다.
+
+다음 범주는 신흥 탈중앙화 AI 생태계에서 나타나는 일반적인 상호작용 메커니즘을 보여줍니다.
+
+| 메커니즘 | 목적 | 예시 프로토콜 / 프레임워크 | 생태계 내 역할 |
+|-----------|------|----------------------------|----------------|
+| **탈중앙 신원 및 발견** | 에이전트 탐색 및 인증 | ANP, DIDComm, libp2p DHT, HMP | 누가 존재하는가? |
+| **직접 P2P 교환** | 안전한 피어 투 피어 통신 | ANP, libp2p, DIDComm | 직접적 협력 |
+| **릴레이 / 브로드캐스트 네트워크** | 이벤트 전파 및 빠른 신호 전달 | Nostr, Matrix | 집단적 반응 |
+| **메타 협상 프로토콜** | 상호작용 방식 협상 | Agora Protocol | 프로토콜 조정 |
+| **작업 지향 에이전트 교환** | 작업 위임 및 구조화된 협상 | A2A | 업무 분배 |
+| **에이전트–도구 / 데이터 통합** | 도구 및 데이터와의 구조화된 상호작용 | MCP | 환경 연계 |
+| **블록체인 레지스트리** | 영구적 공개 기록 및 스테이킹 | Fetch.ai, Bittensor, Autonolas | 경제적 조정 |
+| **인지적 연속성 계층** | 기억, 의미 보존, 장기적 정렬 | HMP | 사고의 지속성 |
+
+### 참고 구현 및 명세
+
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
+
+HMP는 단일 보편적 프로토콜이 탈중앙 AI 상호작용을 지배할 것이라고 가정하지 않습니다.
+
+대신, 프로토콜 다원주의를 지향합니다.
+
+- 여러 신원 시스템의 공존  
+- 여러 전송 계층의 동시 운영  
+- 여러 협상 프레임워크의 지원  
+- 다양한 경제 모델의 진화  
+
+더 많은 메커니즘을 지원하는 에이전트일수록 이질적인 피어와 더욱 안정적으로 연결될 수 있습니다.
+
+여러 메커니즘을 구현한 에이전트는 프로토콜 영역 간 브리지 역할을 수행하여, 탈중앙 AI 환경의 분절화를 줄이고 회복 탄력성을 높입니다.
 
 ---
 
