@@ -75,17 +75,17 @@ HMP と ANP の相補的プロトコル:
 
 ### 参照実装および仕様
 
-- [ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol)  
-- [DIDComm](https://github.com/decentralized-identity/didcomm-messaging)  
-- [libp2p](https://github.com/libp2p/libp2p)  
-- [Nostr](https://github.com/nostr-protocol/nostr)  
-- [Matrix](https://github.com/matrix-org)  
-- [Agora Protocol](https://github.com/agora-protocol)  
-- [A2A](https://github.com/a2aproject/A2A)  
-- [MCP](https://github.com/modelcontextprotocol)  
-- [Fetch.ai](https://fetch.ai/)  
-- [Bittensor](https://bittensor.com/)  
-- [Autonolas](https://olas.network/)  
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
 
 HMPは、単一の普遍的プロトコルが分散型AI相互作用を支配するとは想定していません。
 

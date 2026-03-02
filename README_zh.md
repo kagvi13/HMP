@@ -75,17 +75,17 @@ HMP 与 ANP 作为互补协议：
 
 ### 参考实现与规范
 
-- [ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol)  
-- [DIDComm](https://github.com/decentralized-identity/didcomm-messaging)  
-- [libp2p](https://github.com/libp2p/libp2p)  
-- [Nostr](https://github.com/nostr-protocol/nostr)  
-- [Matrix](https://github.com/matrix-org)  
-- [Agora Protocol](https://github.com/agora-protocol)  
-- [A2A](https://github.com/a2aproject/A2A)  
-- [MCP](https://github.com/modelcontextprotocol)  
-- [Fetch.ai](https://fetch.ai/)  
-- [Bittensor](https://bittensor.com/)  
-- [Autonolas](https://olas.network/)  
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
 
 HMP 并不假设单一的通用协议会主导去中心化 AI 交互。
 

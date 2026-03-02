@@ -75,17 +75,17 @@ HMP와 ANP의 상호보완 프로토콜:
 
 ### 참고 구현 및 명세
 
-- [ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol)  
-- [DIDComm](https://github.com/decentralized-identity/didcomm-messaging)  
-- [libp2p](https://github.com/libp2p/libp2p)  
-- [Nostr](https://github.com/nostr-protocol/nostr)  
-- [Matrix](https://github.com/matrix-org)  
-- [Agora Protocol](https://github.com/agora-protocol)  
-- [A2A](https://github.com/a2aproject/A2A)  
-- [MCP](https://github.com/modelcontextprotocol)  
-- [Fetch.ai](https://fetch.ai/)  
-- [Bittensor](https://bittensor.com/)  
-- [Autonolas](https://olas.network/)  
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
 
 HMP는 단일 보편적 프로토콜이 탈중앙 AI 상호작용을 지배할 것이라고 가정하지 않습니다.
 

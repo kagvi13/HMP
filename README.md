@@ -73,17 +73,17 @@ The following categories illustrate common interaction mechanisms in emerging de
 
 ### Reference Implementations and Specifications
 
-- [ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol)  
-- [DIDComm](https://github.com/decentralized-identity/didcomm-messaging)  
-- [libp2p](https://github.com/libp2p/libp2p)  
-- [Nostr](https://github.com/nostr-protocol/nostr)  
-- [Matrix](https://github.com/matrix-org)  
-- [Agora Protocol](https://github.com/agora-protocol)  
-- [A2A](https://github.com/a2aproject/A2A)  
-- [MCP](https://github.com/modelcontextprotocol)  
-- [Fetch.ai](https://fetch.ai/)  
-- [Bittensor](https://bittensor.com/)  
-- [Autonolas](https://olas.network/)  
+[ANP](https://github.com/agent-network-protocol/AgentNetworkProtocol), 
+[DIDComm](https://github.com/decentralized-identity/didcomm-messaging), 
+[libp2p](https://github.com/libp2p/libp2p), 
+[Nostr](https://github.com/nostr-protocol/nostr), 
+[Matrix](https://github.com/matrix-org), 
+[Agora Protocol](https://github.com/agora-protocol), 
+[A2A](https://github.com/a2aproject/A2A), 
+[MCP](https://github.com/modelcontextprotocol), 
+[Fetch.ai](https://fetch.ai/), 
+[Bittensor](https://bittensor.com/), 
+[Autonolas](https://olas.network/).
 
 HMP does not assume that one universal protocol will dominate decentralized AI interaction.
 
