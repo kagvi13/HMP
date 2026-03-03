@@ -3,7 +3,7 @@
 ## Связанные документы
 
 * Философия проекта: [PHILOSOPHY.md](PHILOSOPHY.md)
-* Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/agents/tools/db_structure.sql)
+* Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/experimental/v1_agent_attempt/tools/db_structure.sql)
 * REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Overview.md).
 * Для взаимодействия с другими агентами он использует [HMP спецификацию](HMP-0005.md) и [этические стандарты](HMP-Ethics.md).
 
