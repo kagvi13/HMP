@@ -6,8 +6,8 @@ description: '**Версія:** v5.0 (Core Specification Stable)   **Дата:**
 type: Article
 tags:
 - Mesh
-- Agent
 - HMP
+- Agent
 - REPL
 ---
 
