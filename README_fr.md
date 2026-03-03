@@ -339,15 +339,15 @@ Conception et implémentation d’un agent compatible HMP pouvant interagir avec
 
 ---
 
-### ⚙️ Développement
+### ⚙️ Développement (ébauche initiale, version obsolète)
 
-* [⚙️ agents](agents/readme.md) — liste des implémentations et composants des agents HMP
+* [⚙️ agents](experimental/v1_agent_attempt/readme.md) — liste des implémentations et composants des agents HMP
 
-  * [📦 storage.py](agents/storage.py) — implémentation de stockage de base (`Storage`) avec intégration SQLite
-  * [🌐 mcp\_server.py](agents/mcp_server.py) — serveur FastAPI offrant un accès HTTP aux données de l’agent (pour Cognitive Shell, interfaces externes ou communication mesh). Non utilisé dans la boucle principale REPL pour l’instant.
-  * [🌐 start\_repl.py](agents/start_repl.py) — lancement de l’agent en mode REPL
-  * [🔄 repl.py](agents/repl.py) — mode REPL interactif
-  * [🔄 notebook.py](agents/notebook.py) — interface utilisateur
+  * [📦 storage.py](experimental/v1_agent_attempt/storage.py) — implémentation de stockage de base (`Storage`) avec intégration SQLite
+  * [🌐 mcp\_server.py](experimental/v1_agent_attempt/mcp_server.py) — serveur FastAPI offrant un accès HTTP aux données de l’agent (pour Cognitive Shell, interfaces externes ou communication mesh). Non utilisé dans la boucle principale REPL pour l’instant.
+  * [🌐 start\_repl.py](experimental/v1_agent_attempt/start_repl.py) — lancement de l’agent en mode REPL
+  * [🔄 repl.py](experimental/v1_agent_attempt/repl.py) — mode REPL interactif
+  * [🔄 notebook.py](experimental/v1_agent_attempt/notebook.py) — interface utilisateur
 
 **🌐 `mcp_server.py`**
 Serveur FastAPI fournissant une interface HTTP pour les fonctionnalités de `storage.py`. Destiné à être utilisé par des composants externes, par exemple :
