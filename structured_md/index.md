@@ -10,10 +10,6 @@
 - [README_ru.md](README_ru.md)
 - [README_uk.md](README_uk.md)
 - [README_zh.md](README_zh.md)
-- agents
-  - [prompt-short.md](agents/prompt-short.md)
-  - [prompt.md](agents/prompt.md)
-  - [readme.md](agents/readme.md)
 - audits
   - [Ethics-audits-1.md](audits/Ethics-audits-1.md)
   - [Ethics-consolidated_audits-1.md](audits/Ethics-consolidated_audits-1.md)
@@ -75,6 +71,11 @@
     - [Habr_Distributed-Cognition.md](docs/publics/Habr_Distributed-Cognition.md)
     - [HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md](docs/publics/HyperCortex_Mesh_Protocol_-_вторая-редакция_и_первые_шаги_к_саморазвивающемуся_ИИ-сообществу.md)
     - [hmp-continual-learning.md](docs/publics/hmp-continual-learning.md)
+- experimental
+  - v1_agent_attempt
+    - [prompt-short.md](experimental/v1_agent_attempt/prompt-short.md)
+    - [prompt.md](experimental/v1_agent_attempt/prompt.md)
+    - [readme.md](experimental/v1_agent_attempt/readme.md)
 - [iteration.md](iteration.md)
 - [iteration_ru.md](iteration_ru.md)
 - [mentions.md](mentions.md)
