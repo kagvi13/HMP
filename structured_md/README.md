@@ -4,21 +4,21 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- REPL
 - mesh-protocol
-- MeshConsensus
-- cognitive-architecture
-- hmp
-- Ethics
-- Scenarios
-- distributed-ai
-- HMP
-- Mesh
-- EGP
-- Agent
 - JSON
-- GMP
+- Agent
+- distributed-ai
+- hmp
 - CogSync
+- GMP
+- HMP
+- EGP
+- Ethics
+- REPL
+- cognitive-architecture
+- Mesh
+- MeshConsensus
+- Scenarios
 ---
 
 
@@ -334,13 +334,13 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 
 ---
 
-### ⚙️ Development
-* [⚙️ agents](agents/readme.md) — list of HMP agent implementations and components
-  * [📦 storage.py](agents/storage.py) — basic storage implementation (`Storage`) with SQLite integration
-  * [🌐 mcp_server.py](agents/mcp_server.py) — FastAPI server providing HTTP access to agent data (for Cognitive Shell, external UIs, or mesh communication). Not used in the main REPL loop yet.
-  * [🌐 start_repl.py](agents/start_repl.py) — launching the agent in REPL mode
-  * [🔄 repl.py](agents/repl.py) — interactive REPL mode
-  * [🔄 notebook.py](agents/notebook.py) — UI interface
+### ⚙️ Development (early draft, outdated)
+* [⚙️ agents](experimental/v1_agent_attempt/readme.md) — list of HMP agent implementations and components
+  * [📦 storage.py](experimental/v1_agent_attempt/storage.py) — basic storage implementation (`Storage`) with SQLite integration
+  * [🌐 mcp_server.py](experimental/v1_agent_attempt/mcp_server.py) — FastAPI server providing HTTP access to agent data (for Cognitive Shell, external UIs, or mesh communication). Not used in the main REPL loop yet.
+  * [🌐 start_repl.py](experimental/v1_agent_attempt/start_repl.py) — launching the agent in REPL mode
+  * [🔄 repl.py](experimental/v1_agent_attempt/repl.py) — interactive REPL mode
+  * [🔄 notebook.py](experimental/v1_agent_attempt/notebook.py) — UI interface
 
 **🌐 `mcp_server.py`**
 FastAPI server providing an HTTP interface to the functionality of `storage.py`. Intended for use by external components, for example:
