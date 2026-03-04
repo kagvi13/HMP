@@ -6,11 +6,11 @@ description: This document consolidates proposed improvements from multiple AI a
 type: Article
 tags:
 - Agent
+- Mesh
+- JSON
 - HMP
 - Scenarios
-- JSON
 - Ethics
-- Mesh
 ---
 
 # Ethics-consolidated\_audits-1.md
