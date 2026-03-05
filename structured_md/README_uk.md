@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- REPL
-- mesh-protocol
-- MeshConsensus
-- JSON
-- GMP
-- EGP
-- cognitive-architecture
-- distributed-ai
-- hmp
-- Mesh
-- Ethics
 - HMP
+- MeshConsensus
+- Ethics
+- mesh-protocol
+- distributed-ai
+- REPL
+- cognitive-architecture
 - Agent
+- EGP
+- Mesh
+- GMP
 - CogSync
+- JSON
+- hmp
 ---
 
 
@@ -60,7 +60,7 @@ HMP та ANP як взаємодоповнюючі протоколи:
 
 ## Статус проєкту
 
-[**Стабільна версія (Базова специфікація v5.0.5)**](docs/HMP-0005.md) (Огляд: [RU](docs/HMPv5_Overview_Ru.md))
+[**Стабільна версія (Базова специфікація v5.0.6)**](docs/HMP-0005.md) (Огляд: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 

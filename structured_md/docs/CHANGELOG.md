@@ -1,23 +1,36 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (February 2026) — Core Specification v5.0.5  **MCE Recommended
-  Extensions:** * Introduced optional On-Demand `container_index` retrieval via empty
-  `container_request.payload` (Section 12.9...'
+description: '## HMP-0005 (March 2026) — Core Specification v5.0.6  **Container Validation
+  Clarification:** * Introduced explicit **structural validation requirement** before
+  any semantic interpretation or reasonin...'
 type: Article
 tags:
-- MeshConsensus
-- JSON
-- GMP
-- EGP
 - Scenarios
-- Mesh
+- MeshConsensus
 - Ethics
-- HMP
 - Agent
+- EGP
+- Mesh
+- HMP
+- GMP
 - CogSync
+- JSON
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (March 2026) — Core Specification v5.0.6
+
+**Container Validation Clarification:**
+* Introduced explicit **structural validation requirement** before any semantic interpretation or reasoning (Section 3.10).
+* Defined a normative **container verification procedure order** (schema validation, timestamp check, TTL handling, payload hash verification, signature verification, class validation).
+* Clarified handling of **expired containers** (may be archived but must not participate in active workflows or consensus).
+* Strengthened separation between **structural validation layer** and **LLM/reasoning subsystems**.
+
+No changes to container structure, canonical serialization, or signature algorithms.  
+Fully backward-compatible within the 5.0.x series.
+
+---
 
 ## HMP-0005 (February 2026) — Core Specification v5.0.5
 
@@ -258,6 +271,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (February 2026) — Core Specification v5.0.5  **..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (March 2026) — Core Specification v5.0.6  **Con..."
 }
 ```
