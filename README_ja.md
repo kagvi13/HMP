@@ -507,6 +507,7 @@ FastAPIサーバーで`storage.py`の機能にHTTPインターフェースを提
 * 🧠 メインコードと開発： [GitHub](https://github.com/kagvi13/HMP)
 * 🔁 Hugging Faceにミラー： [Hugging Face](https://huggingface.co/kagvi13/HMP)
 * 🔁 GitLab.comにミラー： [GitLab](https://gitlab.com/kagvi13/HMP)
+* 🔁 SourceCraft.devにミラー: [SourceCraft](https://sourcecraft.dev/kagv13/hmp)
 
 ### ドキュメント
 

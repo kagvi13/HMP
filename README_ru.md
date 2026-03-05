@@ -461,6 +461,7 @@ FastAPI-сервер, предоставляющий HTTP-интерфейс к 
 * 🧠 Основной код и разработка: [GitHub](https://github.com/kagvi13/HMP)
 * 🔁 Зеркало на Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)
 * 🔁 Зеркало на GitLab.com: [GitLab](https://gitlab.com/kagvi13/HMP)
+* 🔁 Зеркало на SourceCraft.dev: [SourceCraft](https://sourcecraft.dev/kagv13/hmp)
 
 ### Документация
 

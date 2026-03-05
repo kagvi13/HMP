@@ -458,6 +458,7 @@ Um zu starten, siehe: [`iteration.md`](iteration.md) oder erstellen Sie ein Issu
 * 🧠 Hauptcode und Entwicklung: [GitHub](https://github.com/kagvi13/HMP)  
 * 🔁 Spiegel auf Hugging Face: [Hugging Face](https://huggingface.co/kagvi13/HMP)  
 * 🔁 Spiegel auf GitLab.com: [GitLab](https://gitlab.com/kagvi13/HMP)  
+* 🔁 Spiegel auf SourceCraft.dev: [SourceCraft](https://sourcecraft.dev/kagv13/hmp)
 
 ### Dokumentation
 
