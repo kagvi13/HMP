@@ -19,7 +19,7 @@ jobs:
 
       - name: Push to SourceCraft
         run: |
-          git remote add mirror https://$SOURCECRAFT_TOKEN@sourcecraft.yandex.ru/kagvi13/HMP.git
+          git remote add mirror https://$SOURCECRAFT_TOKEN@sourcecraft.dev/kagv13/hmp.git
           git push mirror --mirror
         env:
           SOURCECRAFT_TOKEN: ${{ secrets.SOURCECRAFT_TOKEN }}
