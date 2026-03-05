@@ -1,0 +1,21 @@
+name: Mirror to SourceCraft
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Push to SourceCraft
+        run: |
+          git remote add mirror https://$SOURCECRAFT_TOKEN@sourcecraft.yandex.ru/kagvi13/HMP.git
+          git push mirror --mirror
+        env:
+          SOURCECRAFT_TOKEN: ${{ secrets.SOURCECRAFT_TOKEN }}
