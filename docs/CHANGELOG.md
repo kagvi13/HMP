@@ -2,14 +2,15 @@
 
 ## HMP-0005 (March 2026) — Core Specification v5.0.6
 
-**Container Validation Clarification:**
-* Introduced explicit **structural validation requirement** before any semantic interpretation or reasoning (Section 3.10).
-* Defined a normative **container verification procedure order** (schema validation, timestamp check, TTL handling, payload hash verification, signature verification, class validation).
-* Clarified handling of **expired containers** (may be archived but must not participate in active workflows or consensus).
-* Strengthened separation between **structural validation layer** and **LLM/reasoning subsystems**.
+**Specification clarifications for container structure and validation:**
 
-No changes to container structure, canonical serialization, or signature algorithms.  
-Fully backward-compatible within the 5.0.x series.
+* **Section 3.2** — clarified that all fields defined as `head.*` in Sections 3.3 and 3.4 MUST appear exclusively inside the `head` object and MUST NOT be relocated elsewhere.
+* **Section 3.4** — clarified serialization rule: absent optional fields MUST NOT be serialized as `null` unless explicitly required by the schema.
+* **Section 3.7** — added canonicalization rule stating that **array order MUST be preserved and treated as significant**.
+* **Section 3.10** — introduced an explicit container verification procedure and clarified that structural validation MUST precede any semantic interpretation or reasoning.
+
+No changes to the container schema or wire format.  
+Fully backward-compatible within the **5.0.x** series.
 
 ---
 
@@ -239,5 +240,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
 * Provided high-level example workflows (goal creation, task delegation, concept consensus).
 * Laid out an initial Future Work list, covering scalability, cross-mesh interoperability, and quantum networking as exploratory directions.
 * Established the RFC document structure and versioning approach for further evolution.
+
 
 
