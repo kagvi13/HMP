@@ -48,7 +48,7 @@ Das [Agora Protocol](https://github.com/agora-protocol/) ist ein Meta-Protokoll 
 
 ## Projektstatus
 
-[**Stabil (Kernspezifikation v5.0.5)**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
+[**Stabil (Kernspezifikation v5.0.6)**](docs/HMP-0005.md) (Übersicht: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 

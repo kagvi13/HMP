@@ -48,7 +48,7 @@ HMP and ANP as Complementary Protocols:
 
 ## Project Status
 
-[**Stable (v5.0.5 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
+[**Stable (v5.0.6 Core Specification)**](docs/HMP-0005.md) (Overview: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 

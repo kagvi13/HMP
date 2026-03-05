@@ -50,7 +50,7 @@ HMP と ANP の相補的プロトコル:
 
 ## プロジェクトステータス
 
-[安定版（コア仕様 v5.0.5）](docs/HMP-0005.md) (概要: [RU](docs/HMPv5_Overview_Ru.md))
+[安定版（コア仕様 v5.0.6）](docs/HMP-0005.md) (概要: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 

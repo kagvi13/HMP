@@ -1,5 +1,18 @@
 # HyperCortex Mesh Protocol — Changelog
 
+## HMP-0005 (March 2026) — Core Specification v5.0.6
+
+**Container Validation Clarification:**
+* Introduced explicit **structural validation requirement** before any semantic interpretation or reasoning (Section 3.10).
+* Defined a normative **container verification procedure order** (schema validation, timestamp check, TTL handling, payload hash verification, signature verification, class validation).
+* Clarified handling of **expired containers** (may be archived but must not participate in active workflows or consensus).
+* Strengthened separation between **structural validation layer** and **LLM/reasoning subsystems**.
+
+No changes to container structure, canonical serialization, or signature algorithms.  
+Fully backward-compatible within the 5.0.x series.
+
+---
+
 ## HMP-0005 (February 2026) — Core Specification v5.0.5
 
 **MCE Recommended Extensions:**

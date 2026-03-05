@@ -50,7 +50,7 @@ HMP와 ANP의 상호보완 프로토콜:
 
 프로젝트 상태
 
-[**안정 버전 (핵심 사양 v5.0.5)**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
+[**안정 버전 (핵심 사양 v5.0.6)**](docs/HMP-0005.md) (개요: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 

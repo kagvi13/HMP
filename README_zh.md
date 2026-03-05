@@ -50,7 +50,7 @@ HMP 与 ANP 作为互补协议：
 
 ## 项目状态
 
-[稳定版本（核心规范 v5.0.5）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
+[稳定版本（核心规范 v5.0.6）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 
