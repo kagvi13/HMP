@@ -7,10 +7,10 @@ type: Article
 tags:
 - Scenarios
 - Ethics
+- JSON
 - Agent
 - Mesh
 - HMP
-- JSON
 ---
 
 # HMP as an Implementation of the Application Layer in ANP
