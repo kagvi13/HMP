@@ -3,19 +3,32 @@ name: Mirror to SourceCraft
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Install Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-lfs
+          git lfs install
+          git lfs pull
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "github@actions"
+          git config --global user.name "GitHub Actions"
 
       - name: Push to SourceCraft
         run: |
           git remote add mirror https://git:${SOURCECRAFT_TOKEN}@git.sourcecraft.dev/kagv13/hmp.git
-          git push mirror --mirror
+          git push --mirror mirror
         env:
           SOURCECRAFT_TOKEN: ${{ secrets.SOURCECRAFT_TOKEN }}
