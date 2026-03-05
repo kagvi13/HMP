@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+concurrency:
+  group: "blog-deploy"
+  cancel-in-progress: false
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
