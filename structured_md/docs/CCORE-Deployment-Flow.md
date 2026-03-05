@@ -7,8 +7,8 @@ type: Article
 tags:
 - Agent
 - CCore
-- REPL
 - HMP
+- REPL
 ---
 
 # 🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
