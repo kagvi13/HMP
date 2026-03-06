@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- EGP
-- cognitive-architecture
-- distributed-ai
-- REPL
-- GMP
-- MeshConsensus
-- HMP
-- JSON
 - Ethics
+- MeshConsensus
+- Agent
+- REPL
+- mesh-protocol
+- EGP
 - Mesh
 - hmp
-- mesh-protocol
+- JSON
+- cognitive-architecture
+- distributed-ai
 - CogSync
-- Agent
+- GMP
+- HMP
 ---
 
 
@@ -480,6 +480,7 @@ FastAPI 服务器，为 `storage.py` 功能提供 HTTP 接口。适用于外部�
 * 🧠 主开发代码：[GitHub](https://github.com/kagvi13/HMP)
 * 🔁 Hugging Face 镜像：[Hugging Face](https://huggingface.co/kagvi13/HMP)
 * 🔁 GitLab 镜像：[GitLab](https://gitlab.com/kagvi13/HMP)
+* 🔁 SourceCraft.dev 镜像: [SourceCraft](https://sourcecraft.dev/kagv13/hmp)
 
 ### 文档
 

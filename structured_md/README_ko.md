@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- EGP
-- cognitive-architecture
-- distributed-ai
-- REPL
-- GMP
-- MeshConsensus
-- HMP
-- JSON
 - Ethics
+- MeshConsensus
+- Agent
+- REPL
+- mesh-protocol
+- EGP
 - Mesh
 - hmp
-- mesh-protocol
+- JSON
+- cognitive-architecture
+- distributed-ai
 - CogSync
-- Agent
+- GMP
+- HMP
 ---
 
 
@@ -479,6 +479,7 @@ HMP가 자율성으로 발전함에 따라 윤리적 원칙은 시스템의 핵�
 * 🧠 주요 코드 및 개발: [GitHub](https://github.com/kagvi13/HMP)  
 * 🔁 Hugging Face 미러: [Hugging Face](https://huggingface.co/kagvi13/HMP)  
 * 🔁 GitLab.com 미러: [GitLab](https://gitlab.com/kagvi13/HMP)  
+* 🔁 SourceCraft.dev 미러: [SourceCraft](https://sourcecraft.dev/kagv13/hmp)
 
 ### 문서
 
