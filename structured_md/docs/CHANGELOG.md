@@ -6,15 +6,15 @@ description: '## HMP-0005 (March 2026) — Core Specification v5.0.6  **Specific
 type: Article
 tags:
 - Scenarios
-- Agent
-- JSON
-- Ethics
-- Mesh
+- EGP
 - GMP
-- HMP
 - CogSync
 - MeshConsensus
-- EGP
+- Agent
+- HMP
+- Mesh
+- Ethics
+- JSON
 ---
 
 # HyperCortex Mesh Protocol — Changelog
