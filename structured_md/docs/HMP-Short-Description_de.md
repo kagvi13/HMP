@@ -5,8 +5,8 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Datum:** 2026   
   zum Aufbau dezentraler kognitiver Netzwer...'
 type: Article
 tags:
-- Agent
 - HMP
+- Agent
 - Mesh
 - REPL
 ---
