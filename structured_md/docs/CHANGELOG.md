@@ -8,13 +8,13 @@ tags:
 - Mesh
 - GMP
 - EGP
-- JSON
-- MeshConsensus
-- CogSync
-- Ethics
 - Agent
 - Scenarios
+- MeshConsensus
+- JSON
 - HMP
+- Ethics
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol — Changelog
