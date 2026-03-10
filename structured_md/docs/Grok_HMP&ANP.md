@@ -8,8 +8,8 @@ tags:
 - Agent
 - JSON
 - HMP
-- Mesh
 - REPL
+- Mesh
 ---
 
 # Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)

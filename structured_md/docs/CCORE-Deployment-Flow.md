@@ -5,10 +5,10 @@ description: '> Этот документ описывает процесс ра
   потомков" [описания REPL-цикла](HMP-agent-RE...'
 type: Article
 tags:
-- CCore
-- REPL
-- Agent
 - HMP
+- Agent
+- REPL
+- CCore
 ---
 
 # 🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
