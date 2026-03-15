@@ -9,9 +9,9 @@ tags:
 - HMP
 - MeshConsensus
 - Agent
-- JSON
 - Mesh
 - EGP
+- JSON
 ---
 
 # Enlightener Agent
