@@ -6,9 +6,9 @@ description: '* [Аннотация](#аннотация) * [1. Введение
 type: Article
 tags:
 - CCore
-- HMP
-- REPL
 - CShell
+- REPL
+- HMP
 - JSON
 - Agent
 - Mesh
