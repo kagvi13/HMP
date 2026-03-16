@@ -5,19 +5,19 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
 type: Article
 tags:
 - Agent
-- REPL
-- hmp
+- JSON
+- mesh-protocol
+- distributed-ai
 - Mesh
+- REPL
+- MeshConsensus
+- EGP
+- hmp
 - Ethics
-- CogSync
 - cognitive-architecture
 - HMP
-- EGP
-- MeshConsensus
-- mesh-protocol
-- JSON
 - GMP
-- distributed-ai
+- CogSync
 ---
 
 
