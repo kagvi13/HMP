@@ -6,12 +6,12 @@ description: '> **Status:** Draft – July 2025 > This document outlines the tec
 type: Article
 tags:
 - Scenarios
-- HMP
-- JSON
-- CogSync
-- Mesh
-- EGP
 - Agent
+- Mesh
+- CogSync
+- HMP
+- EGP
+- JSON
 ---
 
 ## HMP ↔ OpenCog Hyperon Integration Strategy
