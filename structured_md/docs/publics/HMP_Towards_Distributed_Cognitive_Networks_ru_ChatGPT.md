@@ -6,12 +6,12 @@ description: '> *Протокол и архитектура агентов, оп
   и совместная работа.*  ## Оглавление  * [Аннот...'
 type: Article
 tags:
-- Mesh
-- HMP
 - Agent
 - REPL
 - JSON
+- HMP
 - CShell
+- Mesh
 - CCore
 ---
 
