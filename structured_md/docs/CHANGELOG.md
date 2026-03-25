@@ -5,16 +5,16 @@ description: '## HMP-0005 (March 2026) — Core Specification v5.0.6  **Specific
   that all fields defined as `head.*` in Sec...'
 type: Article
 tags:
-- Agent
-- GMP
-- Ethics
-- MeshConsensus
-- Mesh
-- EGP
 - CogSync
-- HMP
-- Scenarios
+- EGP
+- Agent
 - JSON
+- Mesh
+- Scenarios
+- GMP
+- MeshConsensus
+- HMP
+- Ethics
 ---
 
 # HyperCortex Mesh Protocol — Changelog
