@@ -8,8 +8,8 @@ type: Article
 tags:
 - GMP
 - HMP
-- Agent
 - Mesh
+- Agent
 ---
 
 # HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
