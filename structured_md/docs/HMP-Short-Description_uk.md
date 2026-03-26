@@ -6,9 +6,9 @@ description: '**Версія:** v5.0 (Core Specification Stable)   **Дата:**
 type: Article
 tags:
 - Mesh
-- REPL
-- Agent
 - HMP
+- Agent
+- REPL
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Короткий опис
