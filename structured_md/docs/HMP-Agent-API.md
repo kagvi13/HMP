@@ -7,9 +7,9 @@ type: Article
 tags:
 - JSON
 - REPL
-- Agent
 - Mesh
 - HMP
+- Agent
 ---
 
 # HMP-Agent API Specification

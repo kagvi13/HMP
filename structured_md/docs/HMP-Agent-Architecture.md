@@ -8,13 +8,13 @@ tags:
 - CShell
 - CogSync
 - REPL
-- CCore
-- Agent
-- EGP
-- Ethics
 - Mesh
-- MeshConsensus
 - HMP
+- Ethics
+- Agent
+- CCore
+- MeshConsensus
+- EGP
 ---
 
 # Архитектура HMP-Агента
