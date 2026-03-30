@@ -7,8 +7,8 @@ type: Article
 tags:
 - Agent
 - Mesh
-- Ethics
 - HMP
+- Ethics
 ---
 
 # HyperCortex Mesh Protocol: Building a Plurality of Minds
