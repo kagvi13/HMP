@@ -6,9 +6,9 @@ description: '> Этот документ описывает процесс ра
 type: Article
 tags:
 - HMP
+- CCore
 - REPL
 - Agent
-- CCore
 ---
 
 # 🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
