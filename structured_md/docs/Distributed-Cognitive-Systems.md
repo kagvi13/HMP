@@ -7,8 +7,8 @@ description: '## Введение  Современные ИИ-системы в
 type: Article
 tags:
 - HMP
-- JSON
 - CogSync
+- JSON
 - Mesh
 ---
 
