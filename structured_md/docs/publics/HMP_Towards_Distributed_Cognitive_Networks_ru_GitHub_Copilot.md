@@ -7,11 +7,11 @@ type: Article
 tags:
 - HMP
 - JSON
-- REPL
-- Mesh
-- CShell
 - CCore
+- Mesh
 - Agent
+- CShell
+- REPL
 ---
 
 title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
