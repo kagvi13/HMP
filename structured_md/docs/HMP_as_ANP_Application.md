@@ -8,8 +8,8 @@ tags:
 - Ethics
 - Agent
 - Mesh
-- JSON
 - HMP
+- JSON
 ---
 
 # HMP как реализация Application Layer в ANP
