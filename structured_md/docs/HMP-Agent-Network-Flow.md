@@ -7,10 +7,10 @@ type: Article
 tags:
 - Agent
 - EGP
-- HMP
 - Ethics
-- Mesh
 - JSON
+- HMP
+- Mesh
 ---
 
 # Взаимодействие компонентов внутри HMP-узла
