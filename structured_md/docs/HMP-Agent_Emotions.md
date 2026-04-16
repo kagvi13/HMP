@@ -6,8 +6,8 @@ description: Этот файл описывает потенциальные э�
 type: Article
 tags:
 - Agent
-- REPL
 - Mesh
+- REPL
 - HMP
 ---
 
