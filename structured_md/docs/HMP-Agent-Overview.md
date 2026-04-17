@@ -6,13 +6,13 @@ description: '| Тип  | Название                        | Роль    
 type: Article
 tags:
 - CShell
-- JSON
-- CCore
-- REPL
-- Ethics
-- Mesh
-- Agent
 - HMP
+- Agent
+- CCore
+- Ethics
+- JSON
+- Mesh
+- REPL
 ---
 
 

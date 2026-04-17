@@ -6,11 +6,11 @@ description: '## Ethical Scenarios for HyperCortex Mesh Protocol (HMP)  This doc
 type: Article
 tags:
 - Scenarios
-- REPL
+- HMP
+- Agent
 - Ethics
 - Mesh
-- Agent
-- HMP
+- REPL
 ---
 
 # HMP-Ethics.md
