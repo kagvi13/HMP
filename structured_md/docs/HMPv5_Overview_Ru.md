@@ -7,10 +7,10 @@ type: Article
 tags:
 - HMP
 - Agent
-- CogSync
+- Mesh
 - JSON
 - Ethics
-- Mesh
+- CogSync
 ---
 
 # Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
