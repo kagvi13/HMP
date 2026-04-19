@@ -6,8 +6,8 @@ description: 'Когда создавался HyperCortex Mesh Protocol (HMP), �
   мыслить коллективно, обсуждать гипотезы, достигат...'
 type: Article
 tags:
-- Agent
 - GMP
+- Agent
 - Mesh
 - HMP
 ---
