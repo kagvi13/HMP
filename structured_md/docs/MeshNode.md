@@ -6,12 +6,12 @@ description: '`MeshNode` — агент/демон, отвечающий за с
 type: Article
 tags:
 - Ethics
-- CogSync
-- JSON
 - Agent
-- EGP
+- JSON
 - HMP
 - Mesh
+- CogSync
+- EGP
 ---
 
 # MeshNode
