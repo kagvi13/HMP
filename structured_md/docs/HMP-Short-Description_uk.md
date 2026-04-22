@@ -5,9 +5,9 @@ description: '**Версія:** v5.0 (Core Specification Stable)   **Дата:**
   побудови децентралізованих когнітивних мереж а...'
 type: Article
 tags:
-- REPL
-- Agent
 - HMP
+- Agent
+- REPL
 - Mesh
 ---
 
