@@ -5,8 +5,8 @@ description: '## 📘 Определение  **Агент-контейнер** 
   запросы, следит за состоянием и масшта...'
 type: Article
 tags:
-- REPL
 - HMP
+- REPL
 - Mesh
 - Agent
 ---
