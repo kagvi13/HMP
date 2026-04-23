@@ -7,10 +7,10 @@ tags:
 - HMP
 - REPL
 - CogSync
-- EGP
-- Mesh
-- Agent
 - MeshConsensus
+- EGP
+- Agent
+- Mesh
 - GMP
 ---
 
