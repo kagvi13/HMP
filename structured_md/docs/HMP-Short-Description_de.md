@@ -6,9 +6,9 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Datum:** 2026   
 type: Article
 tags:
 - HMP
-- REPL
-- Mesh
 - Agent
+- Mesh
+- REPL
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
