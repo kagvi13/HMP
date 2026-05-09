@@ -1,23 +1,35 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (March 2026) — Core Specification v5.0.6  **Specification
-  clarifications for container structure and validation:**  * **Section 3.2** — clarified
-  that all fields defined as `head.*` in Sec...'
+description: '## HMP-0005 (May 2026) — Core Specification v5.0.7  **Extended representations
+  for `referenced-by.links`:**  * **Section 12.3** — introduced an optional non-canonical
+  compact representation for `refer...'
 type: Article
 tags:
-- EGP
-- MeshConsensus
-- CogSync
-- Scenarios
-- GMP
-- HMP
 - Mesh
 - JSON
+- Scenarios
+- MeshConsensus
+- CogSync
+- GMP
+- EGP
 - Ethics
+- HMP
 - Agent
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (May 2026) — Core Specification v5.0.7
+
+**Extended representations for `referenced-by.links`:**
+
+* **Section 12.3** — introduced an optional non-canonical compact representation for `referenced-by.links`.
+
+No semantic changes to the protocol model.  
+No changes to canonical container validation rules.  
+Fully backward-compatible within the **5.0.x** series.
+
+---
 
 ## HMP-0005 (March 2026) — Core Specification v5.0.6
 
@@ -273,6 +285,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (March 2026) — Core Specification v5.0.6  **Spe..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (May 2026) — Core Specification v5.0.7  **Exten..."
 }
 ```
