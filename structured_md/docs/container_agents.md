@@ -5,10 +5,10 @@ description: '## 📘 Определение  **Агент-контейнер** 
   запросы, следит за состоянием и масшта...'
 type: Article
 tags:
-- Mesh
-- Agent
-- REPL
 - HMP
+- Mesh
+- REPL
+- Agent
 ---
 
 # 🧱 Агенты-контейнеры (Container Agents) в HMP

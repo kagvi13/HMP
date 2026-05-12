@@ -5,16 +5,16 @@ description: '## HMP-0005 (May 2026) — Core Specification v5.0.7  **Extended r
   compact representation for `refer...'
 type: Article
 tags:
-- GMP
 - CogSync
-- Mesh
-- MeshConsensus
-- Scenarios
-- Ethics
-- JSON
-- EGP
-- HMP
 - Agent
+- Scenarios
+- MeshConsensus
+- JSON
+- HMP
+- EGP
+- Ethics
+- Mesh
+- GMP
 ---
 
 # HyperCortex Mesh Protocol — Changelog
