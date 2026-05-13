@@ -1,5 +1,30 @@
 # HyperCortex Mesh Protocol — Changelog
 
+## HMP-0005 (May 2026) — Core Specification v5.0.8
+
+**Encryption and payload integrity clarifications:**
+
+* Clarified `head.payload_hash` semantics:
+  the hash is computed over the final serialized payload representation
+  (including optional compression and encryption).
+
+* Unified `payload_hash` wording across Sections 3.3 and 3.9.
+
+* Refined hybrid-encryption processing terminology:
+  clarified usage of symmetric session keys and recipient encryption envelopes.
+
+* Clarified that `key_recipient` contains an encrypted symmetric session key
+  and may be transmitted openly alongside the container.
+
+* Improved wording for encrypted container verification and
+  store-and-forward propagation behavior.
+
+No semantic changes to the protocol model.  
+No wire-format changes.  
+Fully backward-compatible within the **5.0.x** series.
+
+---
+
 ## HMP-0005 (May 2026) — Core Specification v5.0.7
 
 **Extended representations for `referenced-by.links`:**
