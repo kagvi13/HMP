@@ -1,23 +1,48 @@
 ---
 title: HyperCortex Mesh Protocol — Changelog
-description: '## HMP-0005 (May 2026) — Core Specification v5.0.7  **Extended representations
-  for `referenced-by.links`:**  * **Section 12.3** — introduced an optional non-canonical
-  compact representation for `refer...'
+description: '## HMP-0005 (May 2026) — Core Specification v5.0.8  **Encryption and
+  payload integrity clarifications:**  * Clarified `head.payload_hash` semantics:   the
+  hash is computed over the final serialized pa...'
 type: Article
 tags:
-- MeshConsensus
-- EGP
 - GMP
-- JSON
-- Ethics
+- EGP
 - Scenarios
-- HMP
-- Mesh
-- CogSync
 - Agent
+- MeshConsensus
+- Mesh
+- Ethics
+- CogSync
+- JSON
+- HMP
 ---
 
 # HyperCortex Mesh Protocol — Changelog
+
+## HMP-0005 (May 2026) — Core Specification v5.0.8
+
+**Encryption and payload integrity clarifications:**
+
+* Clarified `head.payload_hash` semantics:
+  the hash is computed over the final serialized payload representation
+  (including optional compression and encryption).
+
+* Unified `payload_hash` wording across Sections 3.3 and 3.9.
+
+* Refined hybrid-encryption processing terminology:
+  clarified usage of symmetric session keys and recipient encryption envelopes.
+
+* Clarified that `key_recipient` contains an encrypted symmetric session key
+  and may be transmitted openly alongside the container.
+
+* Improved wording for encrypted container verification and
+  store-and-forward propagation behavior.
+
+No semantic changes to the protocol model.  
+No wire-format changes.  
+Fully backward-compatible within the **5.0.x** series.
+
+---
 
 ## HMP-0005 (May 2026) — Core Specification v5.0.7
 
@@ -285,6 +310,6 @@ This version supersedes all RFC-based HMP 4.x specifications.
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HyperCortex Mesh Protocol — Changelog",
-  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (May 2026) — Core Specification v5.0.7  **Exten..."
+  "description": "# HyperCortex Mesh Protocol — Changelog  ## HMP-0005 (May 2026) — Core Specification v5.0.8  **Encry..."
 }
 ```
