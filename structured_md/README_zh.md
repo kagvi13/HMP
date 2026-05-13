@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- Mesh
-- JSON
-- hmp
-- distributed-ai
-- cognitive-architecture
-- MeshConsensus
-- CogSync
-- GMP
-- REPL
 - EGP
+- Mesh
+- hmp
+- cognitive-architecture
+- JSON
 - Ethics
 - mesh-protocol
-- HMP
+- MeshConsensus
+- CogSync
 - Agent
+- REPL
+- HMP
+- GMP
+- distributed-ai
 ---
 
 
@@ -60,7 +60,7 @@ HMP 与 ANP 作为互补协议：
 
 ## 项目状态
 
-[稳定版本（核心规范 v5.0.6）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
+[稳定版本（核心规范 v5.0.7）](docs/HMP-0005.md) (概览: [RU](docs/HMPv5_Overview_Ru.md))
 
 ---
 
