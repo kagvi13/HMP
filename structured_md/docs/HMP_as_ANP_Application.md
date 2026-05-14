@@ -5,10 +5,10 @@ description: '## Кратко [ANP (Agent Network Protocol)](https://github.com/
   (HyperCortex M...'
 type: Article
 tags:
-- Mesh
 - JSON
-- Agent
 - Ethics
+- Agent
+- Mesh
 - HMP
 ---
 
