@@ -7,12 +7,12 @@ description: '> *Протокол и архитектура агентов, оп
 type: Article
 tags:
 - JSON
-- HMP
-- CCore
 - REPL
 - Agent
-- CShell
 - Mesh
+- CCore
+- HMP
+- CShell
 ---
 
 title: "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
