@@ -8,11 +8,11 @@ tags:
 - CCore
 - JSON
 - REPL
-- Ethics
+- Mesh
 - CShell
 - HMP
-- Mesh
 - Agent
+- Ethics
 ---
 
 
