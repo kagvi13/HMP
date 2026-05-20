@@ -7,12 +7,12 @@ type: Article
 tags:
 - REPL
 - HMP
-- Mesh
-- CCore
+- Ethics
 - Agent
 - JSON
-- Ethics
+- CCore
 - CogSync
+- Mesh
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
