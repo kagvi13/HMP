@@ -5,13 +5,13 @@ description: '* [Аннотация](#аннотация) * [1. Введение
   [3.1 Типы агентов](#31-типы-агент...'
 type: Article
 tags:
-- JSON
-- Mesh
-- REPL
-- CCore
-- HMP
-- Agent
 - CShell
+- Mesh
+- JSON
+- REPL
+- HMP
+- CCore
+- Agent
 ---
 
 title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
