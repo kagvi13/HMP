@@ -7,11 +7,11 @@ type: Article
 tags:
 - EGP
 - MeshConsensus
-- Mesh
-- Ethics
-- JSON
-- HMP
 - Agent
+- JSON
+- Mesh
+- HMP
+- Ethics
 ---
 
 # Enlightener Agent
