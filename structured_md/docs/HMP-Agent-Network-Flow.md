@@ -6,10 +6,10 @@ description: 'Этот документ описывает потоки данн
 type: Article
 tags:
 - Ethics
-- Mesh
-- EGP
-- HMP
 - JSON
+- Mesh
+- HMP
+- EGP
 - Agent
 ---
 
