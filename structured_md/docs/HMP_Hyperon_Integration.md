@@ -9,8 +9,8 @@ tags:
 - JSON
 - Mesh
 - Agent
-- CogSync
 - EGP
+- CogSync
 - Scenarios
 ---
 
