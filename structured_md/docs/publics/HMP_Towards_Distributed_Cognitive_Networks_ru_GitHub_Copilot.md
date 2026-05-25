@@ -6,12 +6,12 @@ description: '* [Аннотация](#аннотация) * [1. Введение
 type: Article
 tags:
 - JSON
-- Mesh
-- CCore
-- HMP
-- CShell
-- Agent
 - REPL
+- Agent
+- CCore
+- Mesh
+- CShell
+- HMP
 ---
 
 title: "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
