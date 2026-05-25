@@ -8,10 +8,10 @@ tags:
 - Agent
 - Ethics
 - CogSync
+- HMP
 - JSON
 - Mesh
 - EGP
-- HMP
 ---
 
 # 🧭 HyperCortex Mesh Protocol – Roadmap
