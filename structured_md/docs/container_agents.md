@@ -7,8 +7,8 @@ type: Article
 tags:
 - Agent
 - REPL
-- Mesh
 - HMP
+- Mesh
 ---
 
 # 🧱 Агенты-контейнеры (Container Agents) в HMP
