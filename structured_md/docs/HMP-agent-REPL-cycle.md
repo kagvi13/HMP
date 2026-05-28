@@ -6,15 +6,15 @@ type: Article
 tags:
 - REPL
 - MeshConsensus
-- Agent
+- GMP
 - HMP
 - JSON
-- Ethics
 - CogSync
-- EGP
-- CCore
-- GMP
+- Ethics
 - Mesh
+- CCore
+- Agent
+- EGP
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
