@@ -6,8 +6,8 @@ description: '## TL;DR  HMP можно туннелировать поверх A
 type: Article
 tags:
 - Mesh
-- Agent
 - HMP
+- Agent
 ---
 
 # HMP и ANP: взаимное туннелирование как признак правильной архитектуры
