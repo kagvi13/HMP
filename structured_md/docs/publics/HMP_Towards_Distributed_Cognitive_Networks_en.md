@@ -6,14 +6,14 @@ description: '* [Abstract](#abstract) * [1. Introduction](#1-introduction) * [2.
 type: Article
 tags:
 - REPL
-- Agent
-- CShell
-- HMP
 - Ethics
+- HMP
 - Scenarios
-- Mesh
-- CCore
+- Agent
 - JSON
+- Mesh
+- CShell
+- CCore
 ---
 
 title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
