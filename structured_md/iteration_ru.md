@@ -7,11 +7,11 @@ type: Article
 tags:
 - JSON
 - MeshConsensus
+- HMP
 - CogSync
 - Mesh
 - Ethics
 - EGP
-- HMP
 ---
 
 
