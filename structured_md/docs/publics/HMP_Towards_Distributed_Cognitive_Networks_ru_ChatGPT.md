@@ -8,10 +8,10 @@ type: Article
 tags:
 - CShell
 - REPL
+- JSON
+- HMP
 - Agent
 - Mesh
-- HMP
-- JSON
 - CCore
 ---
 
