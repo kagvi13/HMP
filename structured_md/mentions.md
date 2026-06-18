@@ -5,8 +5,8 @@ description: '**HyperCortex Mesh Protocol (HMP)**   _Обновлено: 2025-10
   open-source инициативам, связанным с развитие...'
 type: Article
 tags:
-- HMP
 - Mesh
+- HMP
 - Agent
 ---
 
