@@ -6,10 +6,10 @@ description: '## Кратко [ANP (Agent Network Protocol)](https://github.com/
 type: Article
 tags:
 - Agent
-- Mesh
-- Ethics
 - HMP
 - JSON
+- Mesh
+- Ethics
 ---
 
 # HMP как реализация Application Layer в ANP
