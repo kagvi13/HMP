@@ -6,9 +6,9 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
 type: Article
 tags:
 - Ethics
-- HMP
-- Mesh
 - REPL
+- Mesh
+- HMP
 - Agent
 ---
 
