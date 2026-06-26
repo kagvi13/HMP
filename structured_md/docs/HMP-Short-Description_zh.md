@@ -5,8 +5,8 @@ description: '**版本：** v5.0（Core Specification Stable）   **日期：** 
   维持长期认知连续性， - 交换结构化知识， - 协调目标与行动， - 实现分布式共识， -...'
 type: Article
 tags:
-- REPL
 - Mesh
+- REPL
 - Agent
 - HMP
 ---
