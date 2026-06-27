@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mesh.hypercortex.ai/schemas/container-v1.2.json",
+  "title": "HMP Container v1.2",
+  "description": "Canonical schema anchor for HMP container format v1.2. The authoritative definition is provided by the HMP v5.0 specification.",
+  "type": "object",
+  "required": ["hmp_container"],
+  "properties": {
+    "hmp_container": {
+      "type": "object",
+      "required": ["head", "payload"],
+      "properties": {
+        "head": {
+          "type": "object",
+          "required": ["version", "class", "timestamp", "container_did", "sig_algo", "signature"],
+          "additionalProperties": true
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "payload": {},
+        "related": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "referenced-by": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evaluations": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
