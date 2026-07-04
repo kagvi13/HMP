@@ -313,7 +313,7 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 
 * [🧩 HMP-Agent-Overview.md](docs/HMP-Agent-Overview.md) — brief overview of the two types of agents: Core and Connector
 * [🧱 HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md) — modular structure of an HMP agent with textual diagram
-* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — REPL interaction cycle of HMP-Agent
+* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — one implementation of a REPL-type interaction cycle for HMP agents
 * [🧪 HMP-Agent-API.md](docs/HMP-Agent-API.md) — description of agent API commands (under detailed development)
 * [🧪 Basic-agent-sim.md](docs/Basic-agent-sim.md) — scenarios for running a basic agent and its modes
 * [🌐 MeshNode.md](docs/MeshNode.md) — description of the network daemon: DHT, snapshots, synchronization
