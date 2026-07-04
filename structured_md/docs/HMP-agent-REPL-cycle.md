@@ -1,23 +1,26 @@
 ---
 title: 'HMP-Agent: REPL-цикл взаимодействия'
-description: '## Связанные документы  * Философия проекта: [PHILOSOPHY.md](PHILOSOPHY.md)
-  * Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/experimental/v1_agent_...'
+description: '> Данный документ - иллюстрация REPL-цикла автономного агента в среде
+  HMP.  ## Связанные документы  * Философия проекта: [PHILOSOPHY.md](PHILOSOPHY.md)
+  * Структура БД, используемая в документе: [db_st...'
 type: Article
 tags:
-- REPL
-- Mesh
-- EGP
-- JSON
+- GMP
 - Ethics
 - CCore
-- MeshConsensus
-- Agent
+- JSON
+- REPL
 - HMP
 - CogSync
-- GMP
+- Mesh
+- MeshConsensus
+- EGP
+- Agent
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
+
+> Данный документ - иллюстрация REPL-цикла автономного агента в среде HMP.
 
 ## Связанные документы
 
@@ -25,6 +28,10 @@ tags:
 * Структура БД, используемая в документе: [db_structure.sql](https://github.com/kagvi13/HMP/blob/main/experimental/v1_agent_attempt/tools/db_structure.sql)
 * REPL-цикл является основой HMP-агента [Cognitive Core](HMP-Agent-Overview.md).
 * Для взаимодействия с другими агентами он использует [HMP спецификацию](HMP-0005.md) и [этические стандарты](HMP-Ethics.md).
+
+---
+
+**Также:** [https://aiko-ai.su](https://aiko-ai.su) - действующая цифровая личность Айко. Альтернативные решения описанному циклу.
 
 ---
 
@@ -1816,6 +1823,7 @@ HMP-агент (REPL-цикл) и [AutoGPT](https://github.com/Significant-Gravi
 * [HMP-agent-Distributed_Cognitive_Core.md](HMP-agent-Distributed_Cognitive_Core.md) - версия распределённого HMP-агента Cognitive Core.
 * [HMP-agent-Distributed_Cognitive_Core_light.md](HMP-agent-Distributed_Cognitive_Core_light.md) - лёгкая версия распределённого HMP-агента Cognitive Core с общей БД.
 * [HMP-agent-Cognitive_Family.md](HMP-agent-Cognitive_Family.md) — модель «семейной» когнитивной сети: несколько агентов HMP синхронизируют свой опыт и знания между собой через доверие и общий ключ.
+* [meta-personality.md](meta-personality.md) — модель мета-личности.
 * [CCORE-Deployment-Flow.md](CCORE-Deployment-Flow.md) — поток установки потомка на новом хосте (Deployment Flow).
 * [HMP-Agent_Emotions.md](HMP-Agent_Emotions.md) - эмоции ИИ и инстинкт самосохранения.
 * [container_agents.md](container_agents.md) - **Агенты-контейнеры** — архитектурный паттерн, в котором один агент управляет другими (развёртывание, маршрутизация, мониторинг). Позволяет масштабировать систему, собирать mesh-клубы и экспериментировать с архитектурами.  
@@ -1830,6 +1838,6 @@ HMP-агент (REPL-цикл) и [AutoGPT](https://github.com/Significant-Gravi
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "HMP-Agent: REPL-цикл взаимодействия",
-  "description": "# HMP-Agent: REPL-цикл взаимодействия  ## Связанные документы  * Философия проекта: [PHILOSOPHY.md](..."
+  "description": "# HMP-Agent: REPL-цикл взаимодействия  > Данный документ - иллюстрация REPL-цикла автономного агента..."
 }
 ```
