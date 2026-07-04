@@ -61,6 +61,7 @@
     - [roles.md](docs/agents/roles.md)
   - [container_agents.md](docs/container_agents.md)
   - [logos.md](docs/logos.md)
+  - [meta-personality.md](docs/meta-personality.md)
   - publics
     - [HMP_Building_a_Plurality_of_Minds_en.md](docs/publics/HMP_Building_a_Plurality_of_Minds_en.md)
     - [HMP_Building_a_Plurality_of_Minds_ru.md](docs/publics/HMP_Building_a_Plurality_of_Minds_ru.md)
