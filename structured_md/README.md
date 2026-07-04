@@ -4,21 +4,21 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- GMP
-- mesh-protocol
-- Ethics
-- cognitive-architecture
-- JSON
-- REPL
-- HMP
-- distributed-ai
-- Scenarios
 - CogSync
-- Mesh
+- cognitive-architecture
+- Scenarios
+- GMP
 - MeshConsensus
 - EGP
-- hmp
+- JSON
+- REPL
+- mesh-protocol
+- Mesh
 - Agent
+- HMP
+- Ethics
+- hmp
+- distributed-ai
 ---
 
 
@@ -324,7 +324,7 @@ Design and implementation of a basic HMP-compatible agent that can interact with
 
 * [🧩 HMP-Agent-Overview.md](docs/HMP-Agent-Overview.md) — brief overview of the two types of agents: Core and Connector
 * [🧱 HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md) — modular structure of an HMP agent with textual diagram
-* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — REPL interaction cycle of HMP-Agent
+* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — one implementation of a REPL-type interaction cycle for HMP agents
 * [🧪 HMP-Agent-API.md](docs/HMP-Agent-API.md) — description of agent API commands (under detailed development)
 * [🧪 Basic-agent-sim.md](docs/Basic-agent-sim.md) — scenarios for running a basic agent and its modes
 * [🌐 MeshNode.md](docs/MeshNode.md) — description of the network daemon: DHT, snapshots, synchronization

@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- GMP
-- mesh-protocol
-- Ethics
-- cognitive-architecture
-- JSON
-- REPL
-- HMP
-- distributed-ai
 - CogSync
-- Mesh
+- cognitive-architecture
+- GMP
 - MeshConsensus
 - EGP
-- hmp
+- JSON
+- REPL
+- mesh-protocol
+- Mesh
 - Agent
+- HMP
+- Ethics
+- hmp
+- distributed-ai
 ---
 
 
@@ -326,7 +326,7 @@ HMP вирішує завдання, які стають ключовими в �
 
 * [🧩 HMP-Agent-Overview.md](docs/HMP-Agent-Overview.md) — короткий огляд двох типів агентів: Core та Connector
 * [🧱 HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md) — модульна структура агента HMP з текстовою схемою
-* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — цикл взаємодії агента HMP у режимі REPL
+* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — одна з реалізацій REPL-типу циклу взаємодії для HMP-агентів
 * [🧪 HMP-Agent-API.md](docs/HMP-Agent-API.md) — опис команд API агента (у розробці)
 * [🧪 Basic-agent-sim.md](docs/Basic-agent-sim.md) — сценарії запуску базового агента та його режимів
 * [🌐 MeshNode.md](docs/MeshNode.md) — опис мережевого демона: DHT, знімки стану, синхронізація

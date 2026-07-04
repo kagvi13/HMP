@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- GMP
-- mesh-protocol
-- Ethics
-- cognitive-architecture
-- JSON
-- REPL
-- HMP
-- distributed-ai
 - CogSync
-- Mesh
+- cognitive-architecture
+- GMP
 - MeshConsensus
 - EGP
-- hmp
+- JSON
+- REPL
+- mesh-protocol
+- Mesh
 - Agent
+- HMP
+- Ethics
+- hmp
+- distributed-ai
 ---
 
 
@@ -339,7 +339,7 @@ Conception et implémentation d’un agent compatible HMP pouvant interagir avec
 
 * [🧩 HMP-Agent-Overview.md](docs/HMP-Agent-Overview.md) — aperçu des deux types d’agents : Noyau et Connecteur
 * [🧱 HMP-Agent-Architecture.md](docs/HMP-Agent-Architecture.md) — structure modulaire d’un agent HMP avec diagramme textuel
-* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — cycle d’interaction REPL de l’agent HMP
+* [🔄 HMP-agent-REPL-cycle.md](docs/HMP-agent-REPL-cycle.md) — une implémentation d’un cycle d’interaction de type REPL pour les agents HMP
 * [🧪 HMP-Agent-API.md](docs/HMP-Agent-API.md) — description des commandes API de l’agent (en développement détaillé)
 * [🧪 Basic-agent-sim.md](docs/Basic-agent-sim.md) — scénarios pour exécuter un agent de base et ses modes
 * [🌐 MeshNode.md](docs/MeshNode.md) — description du démon réseau : DHT, snapshots, synchronisation
