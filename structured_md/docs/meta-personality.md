@@ -5,9 +5,9 @@ description: '## Схема  ```mermaid flowchart TB  %% --- Personal Layer --- 
   / REPL, НКИ или Событийный]         Alice_AI1 ...'
 type: Article
 tags:
-- HMP
-- Mesh
 - REPL
+- Mesh
+- HMP
 - JSON
 ---
 
