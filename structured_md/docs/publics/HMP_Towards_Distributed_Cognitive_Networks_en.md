@@ -5,15 +5,15 @@ description: '* [Abstract](#abstract) * [1. Introduction](#1-introduction) * [2.
   [3.1 Agent Types](#31-age...'
 type: Article
 tags:
-- Agent
-- REPL
-- HMP
-- Ethics
-- Mesh
-- CShell
-- Scenarios
 - CCore
+- REPL
+- CShell
 - JSON
+- Agent
+- HMP
+- Scenarios
+- Mesh
+- Ethics
 ---
 
 title: "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
