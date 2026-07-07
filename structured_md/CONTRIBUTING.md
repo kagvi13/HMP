@@ -8,11 +8,11 @@ tags:
 - Mesh
 - REPL
 - JSON
-- Ethics
 - CCore
+- Ethics
 - HMP
-- Agent
 - CogSync
+- Agent
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)

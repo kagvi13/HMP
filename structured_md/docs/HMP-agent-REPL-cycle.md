@@ -6,16 +6,16 @@ description: '> Данный документ - иллюстрация REPL-ци
 type: Article
 tags:
 - Mesh
-- REPL
-- EGP
-- JSON
-- MeshConsensus
-- Ethics
 - GMP
+- REPL
+- JSON
+- EGP
 - CCore
+- Ethics
 - HMP
-- Agent
 - CogSync
+- Agent
+- MeshConsensus
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
