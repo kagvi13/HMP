@@ -5,17 +5,17 @@ description: '> Данный документ - иллюстрация REPL-ци
   * Структура БД, используемая в документе: [db_st...'
 type: Article
 tags:
-- EGP
-- MeshConsensus
-- CCore
-- CogSync
 - GMP
-- Mesh
-- Ethics
 - REPL
-- Agent
-- HMP
+- Mesh
+- EGP
+- CogSync
+- MeshConsensus
 - JSON
+- Agent
+- Ethics
+- CCore
+- HMP
 ---
 
 # HMP-Agent: REPL-цикл взаимодействия
