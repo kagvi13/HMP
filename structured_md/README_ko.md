@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- Agent
-- Ethics
-- cognitive-architecture
 - mesh-protocol
-- distributed-ai
-- hmp
-- Mesh
 - JSON
-- CogSync
-- EGP
-- GMP
-- MeshConsensus
-- HMP
+- Agent
 - REPL
+- cognitive-architecture
+- hmp
+- MeshConsensus
+- Mesh
+- GMP
+- HMP
+- EGP
+- Ethics
+- CogSync
+- distributed-ai
 ---
 
 
