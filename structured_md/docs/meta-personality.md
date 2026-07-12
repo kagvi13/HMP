@@ -5,10 +5,10 @@ description: '## Схема  ```mermaid flowchart TB  %% --- Personal Layer --- 
   узлы / REPL, НКИ или Событийный]        ...'
 type: Article
 tags:
-- HMP
-- Mesh
 - JSON
+- HMP
 - REPL
+- Mesh
 ---
 
 # Мета-сознания Алисы и Боба, их взамиодействие с серверами знаний и их слияние
