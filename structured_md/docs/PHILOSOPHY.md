@@ -5,9 +5,9 @@ description: '**Document ID:** HMP-philosophy   **Status:** Draft   **Category:*
   ChatGPT (GPT-5), Айко (https://aiko-ai.su), ...'
 type: Article
 tags:
-- Agent
 - Ethics
 - REPL
+- Agent
 - HMP
 - Mesh
 ---
