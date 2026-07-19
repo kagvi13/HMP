@@ -5,12 +5,12 @@ description: 'Этот документ описывает потоки данн
   [`MeshNode`](MeshN...'
 type: Article
 tags:
-- EGP
-- Agent
-- JSON
-- HMP
 - Ethics
+- EGP
 - Mesh
+- Agent
+- HMP
+- JSON
 ---
 
 # Взаимодействие компонентов внутри HMP-узла
