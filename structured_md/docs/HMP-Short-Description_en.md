@@ -5,11 +5,11 @@ description: '**Version:** v5.0 (Core Specification Stable)   **Date:** 2026    
   building decentralized cognitive networks o...'
 type: Article
 tags:
-- Ethics
-- Mesh
-- Agent
-- REPL
 - HMP
+- REPL
+- Agent
+- Mesh
+- Ethics
 ---
 
 # HyperCortex Mesh Protocol (HMP) — Short Description
