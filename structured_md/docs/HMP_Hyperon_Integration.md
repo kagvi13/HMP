@@ -7,11 +7,11 @@ type: Article
 tags:
 - HMP
 - Mesh
-- Agent
-- EGP
 - Scenarios
 - CogSync
+- Agent
 - JSON
+- EGP
 ---
 
 ## HMP ↔ OpenCog Hyperon Integration Strategy
