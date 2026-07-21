@@ -5,14 +5,14 @@ description: 'This file describes the iterative procedure for evolving the Hyper
   🔄 Version Naming Convention  - `000N` — curr...'
 type: Article
 tags:
-- MeshConsensus
 - EGP
-- Agent
-- HMP
-- CogSync
-- Ethics
-- JSON
 - Mesh
+- JSON
+- Ethics
+- CogSync
+- Agent
+- MeshConsensus
+- HMP
 ---
 
 # Iterative Development Workflow for HMP
