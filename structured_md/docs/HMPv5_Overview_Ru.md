@@ -5,11 +5,11 @@ description: '> Почему современные агентные систе�
   Этот текст основан на спецификации [**...'
 type: Article
 tags:
-- CogSync
-- Ethics
-- JSON
 - Agent
 - Mesh
+- Ethics
+- CogSync
+- JSON
 - HMP
 ---
 
