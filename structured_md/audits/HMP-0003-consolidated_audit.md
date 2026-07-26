@@ -5,14 +5,14 @@ description: Сводный аудит предложений по улучше�
   Документ реорганизован по ключ...
 type: Article
 tags:
-- MeshConsensus
-- Agent
+- HMP
 - Mesh
-- Ethics
 - CogSync
 - JSON
 - EGP
-- HMP
+- Agent
+- Ethics
+- MeshConsensus
 ---
 
 # HMP-0003 Consolidated Audit Report
