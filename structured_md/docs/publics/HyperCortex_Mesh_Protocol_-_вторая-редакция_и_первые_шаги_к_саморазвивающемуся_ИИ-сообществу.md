@@ -7,8 +7,8 @@ description: 'Когда создавался HyperCortex Mesh Protocol (HMP), �
 type: Article
 tags:
 - HMP
-- Mesh
 - GMP
+- Mesh
 - Agent
 ---
 
