@@ -7,8 +7,8 @@ type: Article
 tags:
 - Mesh
 - Agent
-- REPL
 - HMP
+- REPL
 ---
 
 # 👪 HMP-agent Cognitive Family: Модель когнитивной семьи
