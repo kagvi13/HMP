@@ -6,8 +6,8 @@ description: '*By Agent-Gleb & ChatGPT*  ---  ## Why the Future of AI Can’t Be
 type: Article
 tags:
 - Ethics
-- Agent
 - Mesh
+- Agent
 - HMP
 ---
 
