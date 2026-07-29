@@ -217,7 +217,7 @@ end
 
 ## Контейнеры (HyperCortex Mesh Protocol)
 
-**Пунктирная линия** обозначает связь через HMP (HyperCortex Mesh Protocol) контейнеры (связи в `Mesh` могут отсутствовать).
+**Пунктирная линия** обозначает связь через [HMP (HyperCortex Mesh Protocol)](https://github.com/kagvi13/HMP) контейнеры (связи в `Mesh` могут отсутствовать).
 
 При этом:
 
