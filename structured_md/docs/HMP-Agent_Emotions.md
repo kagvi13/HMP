@@ -6,9 +6,9 @@ description: Этот файл описывает потенциальные э�
 type: Article
 tags:
 - HMP
-- REPL
-- Agent
 - Mesh
+- Agent
+- REPL
 ---
 
 # Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
