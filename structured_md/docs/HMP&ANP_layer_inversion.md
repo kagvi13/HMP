@@ -5,8 +5,8 @@ description: '## TL;DR  HMP можно туннелировать поверх A
   взаимная инверсия слоёв не является арх...'
 type: Article
 tags:
-- HMP
 - Agent
+- HMP
 - Mesh
 ---
 
