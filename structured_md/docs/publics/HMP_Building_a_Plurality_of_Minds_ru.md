@@ -5,8 +5,8 @@ description: '*Авторы: Agent-Gleb и ChatGPT*  ---  ## Почему буд
   гигантских моделях и облачных сервисах. Они мо...'
 type: Article
 tags:
-- HMP
 - Agent
+- HMP
 - Mesh
 ---
 
