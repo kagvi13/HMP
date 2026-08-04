@@ -7,10 +7,10 @@ type: Article
 tags:
 - Agent
 - EGP
-- HMP
 - Ethics
-- JSON
 - Mesh
+- JSON
+- HMP
 - CogSync
 ---
 
