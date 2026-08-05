@@ -7,9 +7,9 @@ type: Article
 tags:
 - HMP
 - Mesh
-- Agent
-- JSON
 - Ethics
+- JSON
+- Agent
 ---
 
 # HMP как реализация Application Layer в ANP
