@@ -6,11 +6,11 @@ description: '> Почему современные агентные систе�
 type: Article
 tags:
 - Mesh
-- Agent
-- JSON
-- CogSync
-- HMP
 - Ethics
+- JSON
+- Agent
+- HMP
+- CogSync
 ---
 
 # Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
