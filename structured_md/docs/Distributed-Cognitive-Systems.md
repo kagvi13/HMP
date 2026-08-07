@@ -6,9 +6,9 @@ description: '## Введение  Современные ИИ-системы в
   к обучающим данным. Это удобно, но создаёт м...'
 type: Article
 tags:
-- CogSync
 - HMP
 - Mesh
+- CogSync
 - JSON
 ---
 
