@@ -4,14 +4,14 @@ description: 'В HMP-протоколе предусмотрены два тип
   Роль                    | Инициатор мышления | Основной "ум"  | | ---- | ----------------------------...'
 type: Article
 tags:
-- EGP
-- CogSync
-- MeshConsensus
 - REPL
-- GMP
-- HMP
+- EGP
 - Agent
 - Mesh
+- HMP
+- CogSync
+- GMP
+- MeshConsensus
 ---
 
 
