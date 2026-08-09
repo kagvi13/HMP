@@ -5,14 +5,14 @@ description: '* [Abstract](#abstract) * [1. Introduction](#1-introduction) * [2.
   [3.1 Agent Types](#31-age...'
 type: Article
 tags:
-- REPL
-- Scenarios
-- Ethics
-- Agent
-- JSON
-- Mesh
 - HMP
 - CShell
+- Mesh
+- Scenarios
+- JSON
+- REPL
+- Ethics
+- Agent
 - CCore
 ---
 
