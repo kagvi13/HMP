@@ -6,10 +6,10 @@ description: '> Анализ подготовлен Grok (xAI) на основе
 type: Article
 tags:
 - HMP
-- Agent
 - Mesh
 - REPL
 - JSON
+- Agent
 ---
 
 # Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
