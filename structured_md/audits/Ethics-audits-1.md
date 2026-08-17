@@ -7,9 +7,9 @@ type: Article
 tags:
 - Mesh
 - Agent
-- JSON
-- Ethics
 - HMP
+- Ethics
+- JSON
 ---
 
 ---------------
