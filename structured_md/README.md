@@ -6,19 +6,19 @@ type: Article
 tags:
 - hmp
 - mesh-protocol
-- cognitive-architecture
-- Agent
-- CogSync
-- GMP
 - REPL
-- Ethics
-- JSON
-- Mesh
-- HMP
-- EGP
-- Scenarios
+- CogSync
 - distributed-ai
 - MeshConsensus
+- GMP
+- HMP
+- cognitive-architecture
+- Ethics
+- Scenarios
+- JSON
+- EGP
+- Mesh
+- Agent
 ---
 
 
