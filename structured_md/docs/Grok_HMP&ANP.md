@@ -6,8 +6,8 @@ description: '> Анализ подготовлен Grok (xAI) на основе
 type: Article
 tags:
 - Mesh
-- JSON
 - HMP
+- JSON
 - Agent
 - REPL
 ---
