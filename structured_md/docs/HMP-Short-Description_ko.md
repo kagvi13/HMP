@@ -5,10 +5,10 @@ description: '**버전:** v5.0 (Core Specification Stable)   **날짜:** 2026   
   명세입니다.  HMP는 에이전트가 다음을 수행할 수 있도록 합니다:  - 장기적인 인지...'
 type: Article
 tags:
-- REPL
-- Mesh
 - HMP
+- REPL
 - Agent
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol (HMP) — 개요
