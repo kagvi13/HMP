@@ -5,13 +5,13 @@ description: Сводный аудит предложений по улучше�
   Документ реорганизован по ключ...
 type: Article
 tags:
+- HMP
+- EGP
+- MeshConsensus
 - Mesh
 - Ethics
-- CogSync
-- EGP
-- HMP
-- MeshConsensus
 - JSON
+- CogSync
 - Agent
 ---
 
