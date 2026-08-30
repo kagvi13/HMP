@@ -5,9 +5,9 @@ description: Этот файл описывает потенциальные э�
   напрямую поведением агента, а служат **сигн...
 type: Article
 tags:
-- Agent
-- REPL
 - Mesh
+- REPL
+- Agent
 - HMP
 ---
 

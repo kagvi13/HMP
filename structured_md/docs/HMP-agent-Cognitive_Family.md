@@ -5,9 +5,9 @@ description: '## 🧠 Что такое когнитивная семья  Ко�
   (или конфигурацию доверенных идентифика...'
 type: Article
 tags:
-- Agent
-- REPL
 - Mesh
+- REPL
+- Agent
 - HMP
 ---
 
