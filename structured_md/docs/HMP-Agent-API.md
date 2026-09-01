@@ -6,10 +6,10 @@ description: 'Документ описывает **базовый API когн�
 type: Article
 tags:
 - Agent
+- HMP
+- JSON
 - Mesh
 - REPL
-- JSON
-- HMP
 ---
 
 # HMP-Agent API Specification
