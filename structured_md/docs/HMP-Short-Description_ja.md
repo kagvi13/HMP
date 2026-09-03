@@ -5,8 +5,8 @@ description: '**バージョン：** v5.0（Core Specification Stable）   **日
   長期的な認知的連続性の維持 - 構造...'
 type: Article
 tags:
-- Agent
 - REPL
+- Agent
 - HMP
 - Mesh
 ---

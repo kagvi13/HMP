@@ -5,8 +5,8 @@ description: '**Version :** v5.0 (Core Specification Stable)   **Date :** 2026  
   ouverte destinée à la construction de rése...'
 type: Article
 tags:
-- Agent
 - REPL
+- Agent
 - HMP
 - Mesh
 ---
