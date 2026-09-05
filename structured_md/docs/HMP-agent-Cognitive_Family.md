@@ -6,9 +6,9 @@ description: '## 🧠 Что такое когнитивная семья  Ко�
 type: Article
 tags:
 - Mesh
-- HMP
 - Agent
 - REPL
+- HMP
 ---
 
 # 👪 HMP-agent Cognitive Family: Модель когнитивной семьи
