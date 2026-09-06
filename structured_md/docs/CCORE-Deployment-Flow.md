@@ -5,9 +5,9 @@ description: '> Этот документ описывает процесс ра
   потомков" [описания REPL-цикла](HMP-agent-RE...'
 type: Article
 tags:
-- HMP
-- REPL
 - CCore
+- REPL
+- HMP
 - Agent
 ---
 
