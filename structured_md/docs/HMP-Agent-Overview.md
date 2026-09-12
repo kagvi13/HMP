@@ -7,10 +7,10 @@ type: Article
 tags:
 - Agent
 - REPL
+- JSON
 - Ethics
 - HMP
 - CShell
-- JSON
 - CCore
 - Mesh
 ---
