@@ -8,10 +8,10 @@ tags:
 - Mesh
 - JSON
 - MeshConsensus
-- Ethics
-- EGP
 - HMP
+- EGP
 - Agent
+- Ethics
 ---
 
 # Enlightener Agent

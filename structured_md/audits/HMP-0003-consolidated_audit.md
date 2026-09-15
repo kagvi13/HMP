@@ -8,11 +8,11 @@ tags:
 - Mesh
 - JSON
 - MeshConsensus
-- Ethics
+- HMP
 - CogSync
 - EGP
-- HMP
 - Agent
+- Ethics
 ---
 
 # HMP-0003 Consolidated Audit Report
