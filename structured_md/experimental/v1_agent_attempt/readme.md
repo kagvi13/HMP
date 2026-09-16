@@ -5,12 +5,12 @@ description: 'Запуск: `start_repl.bat` или `start_repl.sh`  Устан�
   этическая модель: `ethics.yml`  Проверка иниц...'
 type: Article
 tags:
-- JSON
-- Ethics
-- HMP
-- Mesh
-- REPL
 - Agent
+- REPL
+- HMP
+- Ethics
+- Mesh
+- JSON
 ---
 
 Запуск: `start_repl.bat` или `start_repl.sh`
