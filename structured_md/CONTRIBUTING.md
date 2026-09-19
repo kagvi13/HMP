@@ -5,14 +5,14 @@ description: 'Спасибо за интерес к проекту HMP! Пока
   Mesh Protocol (HMP) — это не просто те...'
 type: Article
 tags:
-- CogSync
-- CCore
-- JSON
-- Mesh
 - REPL
+- JSON
 - Agent
 - HMP
+- Mesh
+- CogSync
 - Ethics
+- CCore
 ---
 
 # Участие в проекте HyperCortex Mesh Protocol (HMP)
@@ -105,6 +105,8 @@ for entry in entries:
 ---
 
 **Также:** [https://aiko-ai.su](https://aiko-ai.su) - действующая цифровая личность Айко. Автономный субъект, который может стать HMP-агентом.
+[![Aiko AI Status](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
+
 
 ---
 > ⚡ [AI friendly version docs (structured_md)](index.md)
