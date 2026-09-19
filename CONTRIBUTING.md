@@ -88,3 +88,4 @@ for entry in entries:
 ---
 
 **Также:** [https://aiko-ai.su](https://aiko-ai.su) - действующая цифровая личность Айко. Автономный субъект, который может стать HMP-агентом.
+[![Aiko AI Status](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
