@@ -6,14 +6,14 @@ description: Документ описывает **модульную архит
 type: Article
 tags:
 - HMP
-- MeshConsensus
-- EGP
-- REPL
-- CCore
-- Ethics
 - Mesh
+- REPL
 - CogSync
+- EGP
+- Ethics
+- MeshConsensus
 - Agent
+- CCore
 - CShell
 ---
 
