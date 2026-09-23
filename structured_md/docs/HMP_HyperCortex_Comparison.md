@@ -5,8 +5,8 @@ description: '## Краткое описание  | Характеристика
   | **Назначение** | Сетевой протокол ...'
 type: Article
 tags:
-- HMP
 - REPL
+- HMP
 - Mesh
 ---
 
