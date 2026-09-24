@@ -16,6 +16,7 @@
   - [HMP-0003-consolidated_audit.md](audits/HMP-0003-consolidated_audit.md)
 - docs
   - [AGI_Projects_Survey.md](docs/AGI_Projects_Survey.md)
+  - [Aiko.md](docs/Aiko.md)
   - [Basic-agent-sim.md](docs/Basic-agent-sim.md)
   - [CCORE-Deployment-Flow.md](docs/CCORE-Deployment-Flow.md)
   - [CHANGELOG.md](docs/CHANGELOG.md)
