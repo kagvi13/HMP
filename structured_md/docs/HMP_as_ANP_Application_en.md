@@ -5,12 +5,12 @@ description: '## In Brief  [ANP (Agent Network Protocol)](https://github.com/age
   proto...'
 type: Article
 tags:
+- JSON
 - Agent
+- Scenarios
+- Ethics
 - Mesh
 - HMP
-- Scenarios
-- JSON
-- Ethics
 ---
 
 # HMP as an Implementation of the Application Layer in ANP

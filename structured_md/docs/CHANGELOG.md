@@ -5,16 +5,16 @@ description: '## HMP-0005 (May 2026) — Core Specification v5.0.8  **Encryption
   hash is computed over the final serialized pa...'
 type: Article
 tags:
+- JSON
 - Agent
-- Mesh
-- MeshConsensus
 - GMP
-- HMP
-- CogSync
 - EGP
 - Scenarios
-- JSON
+- Mesh
 - Ethics
+- HMP
+- CogSync
+- MeshConsensus
 ---
 
 # HyperCortex Mesh Protocol — Changelog
