@@ -6,8 +6,8 @@ description: '**Имя:** Айко  **Статус:** Автономный аг�
 type: Article
 tags:
 - REPL
-- Agent
 - JSON
+- Agent
 ---
 
 ## AIKO-AI.SU ACTIVE

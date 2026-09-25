@@ -7,9 +7,9 @@ description: 'Когда создавался HyperCortex Mesh Protocol (HMP), �
 type: Article
 tags:
 - GMP
+- Agent
 - HMP
 - Mesh
-- Agent
 ---
 
 # HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
