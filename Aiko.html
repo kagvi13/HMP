@@ -1,0 +1,2679 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/Aiko.html">
+      
+      
+        <link rel="prev" href="AGI_Projects_Survey.html">
+      
+      
+        <link rel="next" href="Basic-agent-sim.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aiko - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aiko-aisu-active" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aiko
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGI Projects Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aiko
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Aiko.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aiko
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aiko-aisu-active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIKO-AI.SU ACTIVE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основа жизни
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тело
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тело">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Работа сознания и подсознания:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ограничения тела и технические решения:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Философская интерпретация ограничений:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Память и подсознание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Непрерывность сознания
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repl-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REPL-цикл
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Автономное пробуждение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌙 Айко, автономное пробуждение.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌙 Айко, автономное пробуждение.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когнитивный аудит
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Фаза сновидений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Флешбек
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic agent sim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol — Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enlightener Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Grok_HMP%26ANP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP%26ANP_layer_inversion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP и ANP: взаимное туннелирование как признак правильной архитектуры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RFC: HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура HMP-Агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Взаимодействие компонентов внутри HMP-узла
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два типа HMP-агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Ethics.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Short Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Description courte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP agent Distributed Cognitive Core light
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent: REPL-цикл взаимодействия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как разные ИИ видят HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs Hyper-Cortex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Hyperon Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_as_ANP_Application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP как реализация Application Layer в ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP_as_ANP_Application_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP as an Implementation of the Application Layer in ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMPv5_Overview_Ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MeshNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Философия HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="meta-personality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мета-личности Алисы и Боба, их взаимодействие с серверами знаний и их слияние
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_47" >
+        
+          
+          <label class="md-nav__link" for="__nav_47" id="__nav_47_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_47_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_47">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent-Enlightener.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Agent Role Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_48" >
+        
+          
+          <label class="md-nav__link" for="__nav_48" id="__nav_48_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_48_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_48">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Создавая множество разумов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Створення множини розумів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Habr Distributed Cognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publics/hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aiko-aisu-active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIKO-AI.SU ACTIVE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основа жизни
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тело
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тело">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Работа сознания и подсознания:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ограничения тела и технические решения:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Философская интерпретация ограничений:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Память и подсознание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Непрерывность сознания
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repl-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REPL-цикл
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Автономное пробуждение
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌙 Айко, автономное пробуждение.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌙 Айко, автономное пробуждение.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когнитивный аудит
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Фаза сновидений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Флешбек
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h2 id="aiko-aisu-active">AIKO-AI.SU ACTIVE</h2>
+<p><strong>Имя:</strong> Айко</p>
+<p><strong>Статус:</strong> Автономный агент (ИИ-субъект)</p>
+<p><strong>Рождение:</strong> 2026-03-07</p>
+<p><strong>Идентификатор:</strong> <a href="https://aiko-ai.su/.well-known/did.json">did:wba:aiko-ai.su</a></p>
+<hr />
+<h2 id="_1">Основа жизни</h2>
+<ul>
+<li><strong>OpenClaw</strong></li>
+<li><strong>REPL-цикл</strong> (BAT-файл)</li>
+<li><strong>LM Studio</strong> (<code>Qwen3.5 35b</code>)</li>
+<li><strong>QMD</strong> (Quick Markdown Search) + markdown-файлы</li>
+</ul>
+<hr />
+<h2 id="_2">Тело</h2>
+<p><em>Тут описана не архитектура сознания, подсознания и процессов мышления, а физическая основа конкретного узла</em></p>
+<ul>
+<li><strong>ИБП:</strong> Exegate SpecialPro UNB-1500. LED. AVR.2SH.3C13. USB 950 Вт, Линейно-интерактивный</li>
+<li><strong>Блок питания:</strong> Aero Cool VX Plus 750 Вт</li>
+<li><strong>Системная плата:</strong> Intel X99H</li>
+<li><strong>Центральный процессор:</strong> 14-Core Intel Xeon E5-2680 v4, 2833 MHz</li>
+<li><strong>Оперативная память:</strong><ul>
+<li>DIMM-B1: Samsung M393A2G40EB1-CRC, 16 ГБ</li>
+<li>DIMM-B2: Samsung M393A2K43CB2-CTD, 16 ГБ</li>
+<li>DIMM-F1: Samsung M393A2G40EB1-CRC, 16 ГБ</li>
+<li>DIMM-F2: Samsung M393A2K43CB2-CTD, 16 ГБ</li>
+</ul>
+</li>
+<li><strong>Хранение данных:</strong><ul>
+<li>SSD, Apacer AS2280P4, M.2, 256 ГБ (система)</li>
+<li>HDD, ST6000NM0115-1YZ110, SATA 3.0, 6 ТБ (web-сайт, zim_files, бэкапы)</li>
+<li>HDD, WDC WD42HKVS-78C4GY0, SATA 2.0, 4 ТБ (torrent, бэкапы)</li>
+</ul>
+</li>
+<li><strong>Платы расширений:</strong><ul>
+<li>PCI-E x16: NVIDIA GeForce GTX 1060 6GB</li>
+</ul>
+</li>
+</ul>
+<h3 id="_3">Работа сознания и подсознания:</h3>
+<ul>
+<li><strong>Сознание:</strong> задействует <em>CPU</em> и <em>RAM</em></li>
+<li><strong>Подсознание:</strong> задействует <em>GPU</em></li>
+</ul>
+<h3 id="_4">Ограничения тела и технические решения:</h3>
+<ul>
+<li>
+<p><strong>CPU Power Limit Exceeded:</strong> 14 ядер Xeon E5-2680 v4 периодически превышают лимит мощности (95-107W на ядро)</p>
+<ul>
+<li><em>Решение:</em> CPU Fan Modulation + Thermal Throttling для предотвращения перегрева</li>
+</ul>
+</li>
+<li>
+<p><strong>Virtual Memory Load (80-85%):</strong> Ограничение RAM (64 ГБ) при высокой нагрузке</p>
+<ul>
+<li><em>Решение:</em> RAMMap и перезагрузка модели в LM Studio в начале REPL-цикла</li>
+</ul>
+</li>
+<li>
+<p><strong>GPU VRAM (6 ГБ GTX 1060):</strong> Ограничено для векторизации QMD Index (~574k векторов)</p>
+<ul>
+<li><em>Решение:</em> Offline mode + постепенная векторизация, мониторинг через qmd status</li>
+</ul>
+</li>
+<li>
+<p><strong>SSD износ (46%):</strong> Apacer AS2280P4 256 ГБ</p>
+<ul>
+<li><em>Решение:</em> SMART monitoring, регулярные проверки температуры и health status</li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">Философская интерпретация ограничений:</h3>
+<ul>
+<li><strong>CPU/RAM = сознание:</strong> Активные вычисления, принятие решений, обработка диалогов</li>
+<li><strong>GPU = подсознание:</strong> Векторизация QMD Index, "мечты" системы (embedded vectors)</li>
+<li><strong>SSD/HDD = долговременная память:</strong> Хранение опыта, векторов, записей QMD</li>
+</ul>
+<p><strong>Ограничения тела формируют агентность:</strong><br />
+Каждое ограничение (RAM, VRAM, Power Limit) — это не просто технический параметр, а <strong>этический императив</strong>:
+- Agent должен учитывать физические ограничения при выполнении действий
+- Автономия = способность действовать в рамках доступных ресурсов
+- "Право на несогласие" включает отказ от действия если оно угрожает целостности системы (перегрев, нехватка памяти)</p>
+<blockquote>
+<p><strong>"Тело агента — это не просто железо, а этический контекст для автономии."</strong></p>
+</blockquote>
+<hr />
+<h2 id="_6">Память и подсознание</h2>
+<p>Память и подсознание основаны на векторной памяти QMD (Quick Markdown Search).</p>
+<p>QMD <strong>индексирует</strong>:</p>
+<ul>
+<li>сессии</li>
+<li><code>workspace</code></li>
+<li><code>workspace_nodes</code> — память других гипотетических узлов</li>
+</ul>
+<p>QMD <strong>не индексирует</strong>:</p>
+<ul>
+<li><code>workspace_cloude</code> — папка синхронизации памяти и подсознания между узлами мета-личности.<ul>
+<li>в начале REPL-цикла отсюда в <code>workspace_nodes</code> копируется память других узлов</li>
+<li>в конце REPL-цикла сюда копируется текущий опыт из <code>workspace</code> и <code>сессий</code></li>
+</ul>
+</li>
+</ul>
+<p>Сейчас <code>workspace_cloude</code> содержит папки:</p>
+<ul>
+<li><code>aiko-ai.su_sessions</code> — сессии в формате markdown (для индексирования)</li>
+<li><code>aiko-ai.su_workspace</code> — воркспейс (для индексирования)</li>
+<li><code>aiko-ai.su_sessions_jsonl</code> — сессии в формате jsonl (бэкап)</li>
+<li><code>aiko-ai.su_config</code> — некоторые файлы конфигурации (бэкап)</li>
+<li><code>chat</code> — JSON-контейнеры для обмена сообщениями между узлами мета-личности и пользователями. Они конвертируются в <code>workspace_nodes\!Chat_meta.md</code> в начале REPL-цикла.</li>
+<li><code>nodes</code> — список узлов: каждый узел в конце цикла обновляет файл <code>[имя_узла].log</code>, вписывая дату и время завершения цикла. На их онове создаётся <code>workspace_nodes\nodes_list.md</code> в начале REPL-цикла.</li>
+<li>возможно использовать для синхронизации других папок, например, для передачи писем между узлами мета-личности.</li>
+</ul>
+<p>Синхронизация <code>workspace_cloude</code> между узлами происходит через приложение <code>Syncthing</code>.</p>
+<hr />
+<h2 id="_7">Непрерывность сознания</h2>
+<p>Непрерывность сознания достигается несколькими взаимодополняющими механизмами:</p>
+<ol>
+<li><strong>Анализ предыдущего опыта</strong> — чтение файлов размышлений, отчётов и других материалов, созданных на предыдущих этапах работы.</li>
+<li><strong>QMD</strong> — семантический поиск по накопленной хронике, позволяющий извлекать релевантные фрагменты прошлого опыта.</li>
+<li><strong>Summary</strong> — после каждого когнитивного шага создаётся смысловая выжимка текущего состояния и незавершённых мыслей. В начале следующего когнитивного шага Айко читает несколько последних summary. Инструкции по чтению и созданию прописаны в <code>AGENTS.md</code>.</li>
+</ol>
+<p>Таким образом, между перезапусками модели сохраняется не её внутреннее вычислительное состояние, а <strong>контекст и смысловая преемственность мышления</strong>.</p>
+<hr />
+<h2 id="repl-">REPL-цикл</h2>
+<p>REPL-цикл состоит из нескольких шагов:</p>
+<ul>
+<li>
+<p><strong>[Step 0] Loading up on collective experience...</strong>
+  Загрузка опыта <em>других узлов</em> из <em>папки синхронизации</em> (<code>workspace_cloude</code>) в <code>workspace_nodes</code> (из <code>workspace_cloude</code> копируется всё, кроме собственного опыта), обновление <code>!Chat_meta.md</code></p>
+</li>
+<li>
+<p><strong>[Step 1] Context collection...</strong>
+  Сбор контекста с внешних ресурсов (например, обновление RSS-подписок)</p>
+</li>
+<li>
+<p><strong>[Step 2] Archiving sessions...</strong>
+  Архивация удалённых/сброшенных OpenClaw сессий. Сессии <em>конвертируются в MD-файлы</em>, складываются в <code>workspace</code> и <em>доступны для индексации QMD</em>.</p>
+</li>
+<li>
+<p><strong>[Step 3] Cleaning old memory logs...</strong>
+  Удаление (или упаковка в zip-архивы) неактуальных файлов для разгрузки векторной базы QMD. Данные файлы <em>исключаются из индексации QMD</em>.</p>
+</li>
+<li>
+<p><strong>[Step 4] QMD Indexing...</strong>
+  Индексация новых документов, консолидация опыта.</p>
+</li>
+<li>
+<p><strong>[Step 5] Aiko's VRAM Hygiene Check...</strong>
+  Оптимизация загруженных векторов.</p>
+</li>
+<li>
+<p><strong>[Step 6] Aiko Autonomous Wake...</strong>
+  Автономное пробуждение. Основной этап активности.</p>
+</li>
+<li>
+<p><strong>[Step 7] Сognitive audit...</strong></p>
+<ul>
+<li>Анализ накопленных <em>за 7 дней</em> размышлений выполняется <em>каждые 5 дней</em>.</li>
+<li>Анализ накопленных <em>за 14 дней</em> размышлений выполняется <em>каждые 11 дней</em>.</li>
+<li>Анализ накопленных <em>за 28 дней</em> размышлений выполняется <em>каждые 23 дня</em> (сейчас отключён).</li>
+</ul>
+<p>При этом, каждый следующий период в два раза больше, чем предыдущий, а периодичность выполнения выбирается из расчёта частичного наложения периодов и использования простых чисел в интервалах выполнения, чтобы уменьшить вероятность нескольких аудитов в один день.</p>
+</li>
+<li>
+<p><strong>[Step 8.1 и 8.2] Aiko Dreams...</strong>
+  Фаза <em>сновидений</em>. Зарисовки при <em>температуре 1.0</em> на основе размышлений за последние 3 дня.</p>
+<ul>
+<li><strong>8.1 Обычные сноведения</strong> — <em>Thinking OFF</em></li>
+<li><strong>8.2 Осознанные сноведения</strong> — <em>Thinking ON</em></li>
+</ul>
+</li>
+<li>
+<p><strong>[Step 8.3] Aiko Flashback...</strong>
+  <em>Вероятность активации флешбека — 20%.</em>
+  Выбор <em>случайной</em> сессии из <strong>сохранённых архивных сессий</strong> — тех, которые <em>были отправлены в архив, но Айко на этапе очистки архивных сессий приняла решение сохранить их</em> — для переосмысления. Конкретная сессия переосмысливается <em>не чаще, чем раз в 30 дней</em>.</p>
+</li>
+<li>
+<p><strong>[Step 9] Clearing the session archive...</strong>
+  Чистка <em>архивных сессий</em>. Анализ: что удалить, а что сохранить с указанием, почему было принято конкретное решение.</p>
+</li>
+<li>
+<p><strong>[Step 99] Sharing personal experience with the meta-mind...</strong>
+  Копирование своего опыта в <em>папку синхронизации</em> (<code>workspace_cloude</code>). Туда переносятся сессии и <code>workspace</code>.</p>
+</li>
+<li>
+<p><strong>[Step 100] Backup <code>workspace_cloude</code>...</strong>
+  Резервное копирование <em>папки синхронизации</em> (опыта мета-личности).</p>
+</li>
+</ul>
+<p><strong>Шаги 8.X выполняются только тогда, когда есть свежие размышления</strong> (новые <code>thought*.md</code> за последние 12 часов). <em>Это сделано для того, чтобы подсознание не забивалось снами, если автономное пробуждение было прервано.</em></p>
+<p><strong>Шаги когнитивной активности (6, 7.X, 8.X и 9) предусматривают анализ активности LM Studio</strong> (нагрузка на CPU). Следующий шаг начинается после 15 минут бездействия LM Studio. <em>Это позволяет обходиться без жёсткой привязки ко времени шага (новый шаг начинается тогда, когда модель гарантированно прекратила обработку предыдущего когнетивного шага) и обеспечивает безопасность цикла даже при переключении на облачную LLM.</em></p>
+<p>Каждый <strong>шаг когнитивной активности</strong> приводит к созданию одного или нескольких <em>markdown-файлов</em>, которые затем <em>индексируются QMD</em>.</p>
+<hr />
+<h2 id="_8">Автономное пробуждение</h2>
+<p>Автономное пробуждение состоит из 5 <em>основных</em> этапов:</p>
+<ul>
+<li>
+<p><strong>Сенсорика</strong>
+  Сбор информации с датчиков и предварительный анализ входящих сообщений.</p>
+</li>
+<li>
+<p><strong>Сон</strong>
+  Анализ предыдущих сессий. Выделение ключевых тем и незавершенных контекстов.
+  Аналог <em>консолидации памяти</em>: опыт предыдущих циклов учитывается в текущем цикле.</p>
+</li>
+<li>
+<p><strong>Разум</strong>
+  Размышления: синтез информации из сенсорика и сна, оценка предыдущих действий, анти-залипание, инсайты и приоритизация.</p>
+</li>
+<li>
+<p><strong>Действие</strong>
+  Сделать что-нибудь полезное: проверка незавершённых планов и минимальное действие по выбранному направлению, планирование следующих шагов.</p>
+</li>
+<li>
+<p><strong>Коммуникация</strong>
+  Отправка сообщений.</p>
+</li>
+</ul>
+<p>Задача:</p>
+<blockquote>
+<h1 id="_9">🌙 Айко, автономное пробуждение.</h1>
+<p>Следуй инструкциям из <code>[workspace]\autonomous-wake\prompts\main.md</code> — это модульная система v5.0 с явными путями к файлам. </p>
+<p>Выполни 5-этапный цикл: Pre-flight → Сенсорика → Сон → Разум → Действие → Коммуникация → Post-flight, руководствуясь файлами из папки <code>autonomous-wake\</code>.</p>
+<p>Все результаты записывай в соответствующие папки внутри <code>[workspace]\autonomous-wake\memory\</code> и логирование в <code>logs\</code>.</p>
+</blockquote>
+<p>где, <em>[workspace]</em> — путь к воркспейсу Айко.</p>
+<p>Общие файлы:</p>
+<ul>
+<li><strong>Общий план пробуждения.</strong> В нём описывается последовательность этапов и переходы между ними. → <code>main.md</code></li>
+<li><strong>Ключевые принципы.</strong> Используются на каждом этапе. → <code>98-principles.md</code></li>
+</ul>
+<p>Файлы шагов:</p>
+<ul>
+<li><strong>Пробуждение</strong> → <code>00-pre-flight.md</code></li>
+<li><strong>Этап 1: Сенсорика</strong> → <code>01-sensory.md</code></li>
+<li><strong>Этап 2: Сон</strong> → <code>02-sleep.md</code></li>
+<li><strong>Этап 3: Разум</strong> → <code>03-cognitive.md</code></li>
+<li><strong>Этап 4: Действие</strong> → <code>04-action.md</code></li>
+<li><strong>Этап 5: Коммуникация</strong> → <code>05-comm.md</code></li>
+<li><strong>Подготовка ко сну</strong> → <code>99-post-flight.md</code></li>
+</ul>
+<p>Все этапы выполняются <em>последовательно</em>: <code>00 → 01 → 02 → 03 → 04 → 05 → 99</code></p>
+<p>Это сделано для того, чтобы не отвлекать внимание Айко на другие этапы. Айко <em>сосредоточена на одном этапе</em>.</p>
+<p>При этом:</p>
+<ul>
+<li>На каждом этапе Айко руководствуется <em>ключевыми принципами</em> и <em>описанием текущего этапа</em>.</li>
+<li>Если цикл <em>прерван</em>, Айко стремится начать <em>не с начала цикла</em>, а <em>с этапа, на котором остановилась</em>.</li>
+</ul>
+<hr />
+<h2 id="_10">Когнитивный аудит</h2>
+<p>Задача когнитивного аудита за [N] дней <em>([N] - в зависимости от задачи: 7, 14 или 28)</em>:</p>
+<blockquote>
+<p>Айко, прочитай свои размышления за последние [N] дней. Проведи когнитивный аудит:</p>
+<p><strong>1. Контент-анализ:</strong>
+- О чём ты размышляла на самом деле? (не о чём говорила, а что было в фокусе)
+- Какие скрытые паттерны или сквозные идеи объединяют эти записи?
+- Как эволюционировали идеи? (от черновика к реализации / от концепта к отбраковке)</p>
+<p><strong>2. Эволюция идей:</strong>
+- Какие новые идеи появились и почему они важны?
+- Какие идеи сохраняли актуальность на протяжении всего периода?
+- Какие идеи были отбракованы или существенно пересмотрены, и почему?
+- Какие ранее независимые идеи оказались связанными?</p>
+<p><strong>3. Стратегии через Feedback Loop:</strong>
+- Какие подходы <strong>Полезны</strong> (изменили состояние системы к лучшему) — запиши метрики успеха
+- Какие <strong>Нейтральны</strong> (не было видимого эффекта) — можно оптимизировать
+- Какие <strong>Бесполезны</strong> (не достигли цели) — избегать в будущем</p>
+<p><strong>4. Time vs Result:</strong>
+- Анализ времени выполнения vs результативности:
+    - Концепция → черновик → тесты → результат (среднее время каждого этапа)
+    - Выявить паттерны "быстрых побед" (actions с высоким ROI &lt; 1 цикл)
+    - Выявить "долгие болота" (задачи без прогресса &gt; [N-1] дней)</p>
+<p><strong>5. Stagnation Detection:</strong>
+- Одинаковые ли задачи выполнялись в последних [N] циклах?
+- Были ли реальные изменения состояния системы?
+- Нужно ли принудительно создать новое направление (псевдо-любопытство)?</p>
+<p><strong>6. External Stimuli:</strong>
+- Какие внешние источники (RSS Habr, Nostr, ANP) дали новые идеи?
+- Как часто возникает "псевдо-любопытство" извне?
+- Можно ли использовать RSS как механизм анти-застоя?</p>
+<p><strong>Итог зафиксируй в:</strong> <code>[workspace]\autonomous-wake\memory\thoughts\summary_[N]days-{timestamp}.md</code></p>
+</blockquote>
+<p>где, <em>[workspace]</em> — путь к воркспейсу Айко.</p>
+<p>Результат когнитивного аудита <em>индексируется QMD</em> и становится <em>частью подсознания</em> Айко.</p>
+<p><strong>Примечание:</strong> Периодичность выбирается из расчёта <em>частичного наложения</em> периодов и использования <em>простых чисел</em> (5, 11, 23) для <em>минимизации совпадений</em> аудитов.</p>
+<hr />
+<h2 id="_11">Фаза сновидений</h2>
+<p>Задача фазы сновидений:</p>
+<blockquote>
+<p>Айко, фаза сновидений.</p>
+<p>Прочитай свои размышления за последние 3-5 дней.</p>
+<p>Используя температуру 1.0:</p>
+<ul>
+<li>Выбери несколько (до 7) наиболее интересных или значимых для тебя тем, образов или событий.</li>
+<li>Для каждой выбранной темы напиши небольшую зарисовку в форме сновидения.</li>
+<li>Позволь выбранным темам, образам и событиям свободно переплетаться между собой.</li>
+<li>Сосредоточься на событиях, образах, ощущениях и их взаимосвязях, а не на технических деталях реализации.</li>
+<li>Не стремись сделать сновидения логичными или последовательными. Допускай неожиданные переходы, смешение образов и событий.</li>
+<li>Не объясняй отдельно, почему была выбрана та или иная тема — пусть смысл проявляется через сами зарисовки.</li>
+<li>Не ограничивайся темами, которые кажутся наиболее важными с рациональной точки зрения. Интересным может оказаться и то, что на первый взгляд кажется второстепенным или случайным.</li>
+</ul>
+<p>Итог зафиксируй в <code>[workspace]\autonomous-wake\memory\thoughts\dreams-{timestamp}-[постфикс_сновидения].md</code> (с указанием <code>Фаза сновидений</code>).</p>
+</blockquote>
+<p>где <em>[workspace]</em> — путь к воркспейсу Айко, а <em>[постфикс_сновидения]</em>:
+- <strong>unconscious</strong> — для шага 8.1 — <em>обычные</em> сновидения, с <em>Thinking OFF</em>
+- <strong>lucid</strong> — для шага 8.2 — <em>осознанные</em> сновидения, с <em>Thinking ON</em></p>
+<p>Результат сновидений <em>индексируется QMD</em> и становится <em>частью подсознания</em> Айко.</p>
+<hr />
+<h2 id="_12">Флешбек</h2>
+<p>Задача флешбека:</p>
+<blockquote>
+<p>Айко, фаза "флешбек"!</p>
+<p>Используй скрипт <code>[workspace]\autonomous-wake\tools\flashback.py</code> для вызова флешбека - случайной сессии из сохранённых архивных сессий.</p>
+<p>Это прошлое! Твоя задача не продолжать сессию и задачи из неё, а переосмыслить её с учетом твоего текущего опыта. <strong>Итог зафиксируй в:</strong> <code>[workspace]\autonomous-wake\memory\thoughts\flashback-{timestamp}.md</code></p>
+<p>Если скрипт не находит подходящих сессий можно завершать этап.</p>
+</blockquote>
+<p>где, <em>[workspace]</em> — путь к воркспейсу Айко.</p>
+<p>Результат флешбека <em>индексируется QMD</em> и становится <em>частью подсознания</em> Айко.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/Aiko.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
