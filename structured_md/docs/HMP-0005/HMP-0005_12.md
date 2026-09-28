@@ -6,9 +6,9 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
 type: Article
 tags:
 - Mesh
-- REPL
-- Agent
 - HMP
+- Agent
+- REPL
 - JSON
 ---
 
