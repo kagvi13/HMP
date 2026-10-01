@@ -8,8 +8,8 @@ tags:
 - Mesh
 - Agent
 - CShell
-- HMP
 - REPL
+- HMP
 - CCore
 - JSON
 ---

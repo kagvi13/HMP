@@ -7,13 +7,13 @@ type: Article
 tags:
 - Mesh
 - Agent
-- HMP
-- GMP
-- REPL
-- Ethics
-- EGP
-- JSON
 - CogSync
+- EGP
+- REPL
+- GMP
+- Ethics
+- HMP
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
