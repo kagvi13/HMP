@@ -5,8 +5,8 @@ description: '**Мета-личность** — совокупность вза�
   общее пространство опыта, памяти и ...'
 type: Article
 tags:
-- REPL
 - Mesh
+- REPL
 - HMP
 - JSON
 ---
