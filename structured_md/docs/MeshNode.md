@@ -7,11 +7,11 @@ type: Article
 tags:
 - Ethics
 - CogSync
-- Agent
 - Mesh
 - HMP
-- EGP
+- Agent
 - JSON
+- EGP
 ---
 
 # MeshNode

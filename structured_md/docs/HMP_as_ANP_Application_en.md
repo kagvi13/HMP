@@ -6,10 +6,10 @@ description: '## In Brief  [ANP (Agent Network Protocol)](https://github.com/age
 type: Article
 tags:
 - Ethics
-- JSON
-- Agent
 - Mesh
 - HMP
+- Agent
+- JSON
 - Scenarios
 ---
 
