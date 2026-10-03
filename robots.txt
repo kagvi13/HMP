@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kagvi13.github.io/HMP/sitemap.xml

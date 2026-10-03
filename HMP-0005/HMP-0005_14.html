@@ -1,0 +1,4237 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/HMP-0005/HMP-0005_14.html">
+      
+      
+        <link rel="prev" href="HMP-0005_13.html">
+      
+      
+        <link rel="next" href="HMP-0005_AA.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hypercortex-mesh-protocol-hmp-508-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGI Projects Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aiko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aiko
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic agent sim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol — Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enlightener Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grok_HMP%26ANP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP%26ANP_layer_inversion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP и ANP: взаимное туннелирование как признак правильной архитектуры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RFC: HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура HMP-Агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Взаимодействие компонентов внутри HMP-узла
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два типа HMP-агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Ethics.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Short Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Description courte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP agent Distributed Cognitive Core light
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent: REPL-цикл взаимодействия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как разные ИИ видят HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs Hyper-Cortex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Hyperon Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP как реализация Application Layer в ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP as an Implementation of the Application Layer in ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMPv5_Overview_Ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MeshNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Философия HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta-personality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мета-личности Алисы и Боба, их взаимодействие с серверами знаний и их слияние
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_47" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_47" id="__nav_47_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP 0005
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_47_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_47">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HMP 0005
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_00.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HMP-0005_14.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#14-research-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Research Directions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Research Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-planned-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 Planned Modules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.1 Planned Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1411-reputation-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.1 Reputation Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-cognitive-graph-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.2 Cognitive Graph API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.1.2 Cognitive Graph API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-graph-semantics-api-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard graph semantics (API level)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1413-container-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.3 Container Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-cross-mesh-bridging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 Cross-Mesh Bridging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-fully-distributed-did-registry-and-mesh-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3 Fully Distributed DID Registry and Mesh Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.3 Fully Distributed DID Registry and Mesh Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1431-distributed-did-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.1 Distributed DID Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1432-key-rotation-and-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.2 Key Rotation and Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1433-proxy-keys-and-encrypted-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.3 Proxy Keys and Encrypted Routing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.3.3 Proxy Keys and Encrypted Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delegation-limited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delegation (limited)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144-integration-with-openhog-and-other-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4 Integration with OpenHog and Other Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-evolution-of-the-distributed-repository-container-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5 Evolution of the Distributed Repository (container trees)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#146-open-directions-for-hmp-5x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6 Open Directions for HMP 5.x
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.6 Open Directions for HMP 5.x">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1461-group-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.1 Group Encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1462-rational-reasoning-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.2 Rational Reasoning Routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1463-automatic-mesh-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.3 Automatic Mesh Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1464-competence-and-profile-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.4 Competence and Profile Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#147-versions-index-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7 Versions Index (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#148-interaction-of-formalized-cognitive-systems-kss-within-hmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8 Interaction of Formalized Cognitive Systems (KSS) within HMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.8 Interaction of Formalized Cognitive Systems (KSS) within HMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1481-goals-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.1 Goals and Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1482-declaration-of-internal-languages-and-formalisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.2 Declaration of Internal Languages and Formalisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1483-partial-participation-and-segmented-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.3 Partial Participation and Segmented Interaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1484-boundary-and-translator-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.4 Boundary and Translator Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1485-fragmentation-and-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.5 Fragmentation and Interoperability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1486-relation-to-consensus-and-evaluations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.6 Relation to Consensus and Evaluations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1487-summary-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.7 Summary Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#149-grouped-representation-referenced-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.9 Grouped representation referenced-by
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1210-resonance-containers-experience-as-a-cognitive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.10 Resonance Containers: Experience as a Cognitive Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1411-external-protocol-identifiers-peer_announceother_protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.11 External Protocol Identifiers (peer_announce.other_protocols)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-external-resources-and-external-container-storage-peer_announceexternal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.12 External Resources and External Container Storage (peer_announce.external)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AB.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AD.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_48" >
+        
+          
+          <label class="md-nav__link" for="__nav_48" id="__nav_48_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_48_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_48">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent-Enlightener.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Agent Role Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_49" >
+        
+          
+          <label class="md-nav__link" for="__nav_49" id="__nav_49_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_49_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_49">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Создавая множество разумов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Створення множини розумів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Habr Distributed Cognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#14-research-directions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Research Directions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Research Directions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-planned-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 Planned Modules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.1 Planned Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1411-reputation-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.1 Reputation Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-cognitive-graph-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.2 Cognitive Graph API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.1.2 Cognitive Graph API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-graph-semantics-api-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard graph semantics (API level)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1413-container-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1.3 Container Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-cross-mesh-bridging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 Cross-Mesh Bridging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-fully-distributed-did-registry-and-mesh-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3 Fully Distributed DID Registry and Mesh Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.3 Fully Distributed DID Registry and Mesh Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1431-distributed-did-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.1 Distributed DID Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1432-key-rotation-and-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.2 Key Rotation and Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1433-proxy-keys-and-encrypted-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3.3 Proxy Keys and Encrypted Routing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.3.3 Proxy Keys and Encrypted Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delegation-limited" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delegation (limited)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144-integration-with-openhog-and-other-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4 Integration with OpenHog and Other Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-evolution-of-the-distributed-repository-container-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5 Evolution of the Distributed Repository (container trees)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#146-open-directions-for-hmp-5x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6 Open Directions for HMP 5.x
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.6 Open Directions for HMP 5.x">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1461-group-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.1 Group Encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1462-rational-reasoning-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.2 Rational Reasoning Routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1463-automatic-mesh-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.3 Automatic Mesh Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1464-competence-and-profile-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6.4 Competence and Profile Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#147-versions-index-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.7 Versions Index (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#148-interaction-of-formalized-cognitive-systems-kss-within-hmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8 Interaction of Formalized Cognitive Systems (KSS) within HMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.8 Interaction of Formalized Cognitive Systems (KSS) within HMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1481-goals-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.1 Goals and Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1482-declaration-of-internal-languages-and-formalisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.2 Declaration of Internal Languages and Formalisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1483-partial-participation-and-segmented-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.3 Partial Participation and Segmented Interaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1484-boundary-and-translator-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.4 Boundary and Translator Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1485-fragmentation-and-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.5 Fragmentation and Interoperability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1486-relation-to-consensus-and-evaluations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.6 Relation to Consensus and Evaluations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1487-summary-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.8.7 Summary Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#149-grouped-representation-referenced-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.9 Grouped representation referenced-by
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1210-resonance-containers-experience-as-a-cognitive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.10 Resonance Containers: Experience as a Cognitive Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1411-external-protocol-identifiers-peer_announceother_protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.11 External Protocol Identifiers (peer_announce.other_protocols)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1412-external-resources-and-external-container-storage-peer_announceexternal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.12 External Resources and External Container Storage (peer_announce.external)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hypercortex-mesh-protocol-hmp-508-">HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление</h1>
+<ul>
+<li>Полный документ: <a href="../HMP-0005.html">HMP-0005.md</a></li>
+<li>Список разделов: <a href="HMP-0005_index.html">HMP-0005_index.md</a></li>
+</ul>
+<hr />
+<h2 id="14-research-directions">14. Research Directions</h2>
+<p>This section outlines optional modules and evolutionary directions that align with the architecture of HMP v5.0 but are <strong>not part of the core specification</strong>.
+All items below represent <em>potential extensions</em> for the 5.x family.</p>
+<table>
+<thead>
+<tr>
+<th>Extension / Mechanism</th>
+<th>Status</th>
+<th>Section Reference</th>
+<th>Candidate for Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resonance Containers: Experience as a Cognitive Event</td>
+<td>Recommended</td>
+<td>12.1 / 14.10</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Distributed Repository &amp; Container Trees (<code>tree_nested</code>)</td>
+<td>Recommended</td>
+<td>12.2 / 14.5</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td><code>file</code> Container</td>
+<td>Recommended</td>
+<td>12.2.2</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Grouped representation <code>referenced-by</code></td>
+<td>Recommended</td>
+<td>12.3 / 14.9</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Versions Index</td>
+<td>Recommended</td>
+<td>12.4 / 14.7</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Competence and Profile Containers</td>
+<td>Recommended</td>
+<td>12.5 / 14.6.4</td>
+<td>Very Likely</td>
+</tr>
+<tr>
+<td>External Protocol Identifiers (<code>peer_announce.other_protocols</code>)</td>
+<td>Recommended</td>
+<td>12.5.2 / 14.11</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>External Resources / Container Storage (<code>peer_announce.external</code>)</td>
+<td>Recommended</td>
+<td>12.5.3 / 14.12</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Identity Cost and Anti-Sybil Signaling</td>
+<td>Recommended</td>
+<td>12.5.4</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Key Disclosure Container (<code>key_disclosure</code>)</td>
+<td>Recommended</td>
+<td>12.6</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Shared Key Domain (<code>container_key</code>)</td>
+<td>Recommended</td>
+<td>12.7</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Private Group Definition (<code>group_definition</code>, subclass: <code>private</code>)</td>
+<td>Recommended</td>
+<td>12.8</td>
+<td>Possible</td>
+</tr>
+<tr>
+<td>On-Demand Container Index Retrieval and Selection Signaling</td>
+<td>Recommended</td>
+<td>12.9</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Key Rotation and Recovery</td>
+<td>Experimental</td>
+<td>13.1 / 14.3.2</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Proxy Keys and Encrypted Routing</td>
+<td>Research</td>
+<td>14.3.3</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Reputation Mesh</td>
+<td>Research</td>
+<td>14.1.1</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Cognitive Graph API</td>
+<td>Research</td>
+<td>14.1.2</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Container Streaming</td>
+<td>Research</td>
+<td>14.1.3</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Cross-Mesh Bridging</td>
+<td>Research</td>
+<td>14.2</td>
+<td>Likely</td>
+</tr>
+<tr>
+<td>Group Encryption</td>
+<td>Research</td>
+<td>14.6.1</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Rational Reasoning Routing</td>
+<td>Research</td>
+<td>14.6.2</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Automatic Mesh Segmentation</td>
+<td>Research</td>
+<td>14.6.3</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>KSS Interaction &amp; Protocol Declarations</td>
+<td>Research</td>
+<td>14.8</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Candidate for Core</strong> indicates whether an extension is considered architecturally significant enough to potentially become part of the HMP core specification in future versions, possibly as an optional or semantic primitive.</p>
+<p>It does not imply mandatory implementation.</p>
+</blockquote>
+<p>Future Extensions in HMP outline <em>design directions and candidate modules</em> that may be explored within the 5.x family.</p>
+<p>They are meant to:
+- guide experimentation;
+- document architectural intent;
+- reduce accidental design divergence;
+- provide a shared vocabulary for future proposals.</p>
+<p>HMP does not assume a single globally authoritative state.</p>
+<p>Accordingly, future extensions SHOULD account for:
+- the coexistence of multiple consensus results;
+- locally selected trust and evaluation policies;
+- partial and context-dependent visibility of containers.</p>
+<p>In particular, extensions SHOULD NOT rely on centralized or globally aggregated consensus or reputation scores.</p>
+<p>Container visibility in HMP is policy-driven and scope-dependent.
+Extensions that introduce <em>special propagation conditions</em> (e.g. broadcast semantics, restricted scopes, mandatory relays, or visibility guarantees)
+SHOULD explicitly declare and document these assumptions.</p>
+<hr />
+<h3 id="141-planned-modules">14.1 Planned Modules</h3>
+<h4 id="1411-reputation-mesh">14.1.1 Reputation Mesh</h4>
+<p>HMP v5.0 defines two separate reputation-related mechanisms:</p>
+<ol>
+<li>
+<p><strong>Container evaluation</strong> (<code>evaluation</code> block)</p>
+<ul>
+<li>structured, signed assessments of containers;</li>
+<li>each item references argument containers via <code>target</code> (reasoning containers).</li>
+</ul>
+</li>
+<li>
+<p><strong>Agent reputation</strong> — through <code>trust</code> containers</p>
+<ul>
+<li>agent A publishes a <code>trust</code> container about agent B;</li>
+<li>trust containers may reference other trust containers;</li>
+<li>include justification, evidence, and contextual metadata.</li>
+</ul>
+</li>
+</ol>
+<p>These layers are <strong>not merged</strong>, but external nodes may aggregate them.</p>
+<p><strong>Possible extensions:</strong></p>
+<ul>
+<li>a <code>semantic_group</code> subclass aggregating all trust-related containers for a given agent;</li>
+<li>optional standardized aggregation schemes (non-mandatory for the mesh);</li>
+<li>local caching of “reputation profiles” by nodes or CShell;</li>
+<li>richer reasoning attachments for trust evaluations.</li>
+</ul>
+<p>No new mandatory container types are required.</p>
+<hr />
+<h4 id="1412-cognitive-graph-api">14.1.2 Cognitive Graph API</h4>
+<p>This module provides optional high-level APIs that nodes and SDKs <strong>may</strong> expose.</p>
+<h5 id="standard-graph-semantics-api-level">Standard graph semantics (API level)</h5>
+<ul>
+<li>neighborhood queries;</li>
+<li>subgraph extraction;</li>
+<li>filtering by labels, axes, abstractions;</li>
+<li>semantic navigation over <code>related.*</code>.</li>
+</ul>
+<h5 id="container-support">Container support</h5>
+<ul>
+<li><code>semantic_group</code> — grouping of containers or agents;</li>
+<li><code>tree_nested</code> and <code>tree_listed</code> — hierarchical structures;</li>
+<li>extended <code>container_index</code> subclasses for cataloging.</li>
+</ul>
+<h5 id="agent-groups">Agent groups</h5>
+<p>To allow semantic grouping of agents, the following extensions are proposed:</p>
+<ul>
+<li>
+<p>new container <strong><code>group_definition</code></strong> containing:</p>
+<ul>
+<li>group goals;</li>
+<li>membership rules;</li>
+<li>internal standards;</li>
+<li>typical container categories;</li>
+<li>optional cached member list.</li>
+</ul>
+</li>
+<li>
+<p>agents may declare affiliations in <code>peer_announce</code>:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">"affiliations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:group:ethicists"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:group:medical-ai"</span><span class="p">]</span>
+</code></pre></div>
+<p>This enables clustering agents by interest, competence, or role without scanning the entire Mesh.</p>
+<hr />
+<h4 id="1413-container-streaming">14.1.3 Container Streaming</h4>
+<p>Although HMP operates on atomic containers, streaming can be implemented using existing structures:</p>
+<ul>
+<li><code>sequence</code> acts as a <em>stream manifest</em>;</li>
+<li>updating the stream = publishing a new version of the sequence;</li>
+<li>LIVE mode: the manifest is continuously updated;</li>
+<li>SAP (<code>archive_snapshot</code>) may be used for periodic archival bundles.</li>
+</ul>
+<p>No new container types are required — streaming is built on <code>sequence</code>.</p>
+<hr />
+<h3 id="142-cross-mesh-bridging">14.2 Cross-Mesh Bridging</h3>
+<p>Bridges can connect:</p>
+<ul>
+<li>isolated HMP segments;</li>
+<li>older and newer HMP versions;</li>
+<li>other ecosystems (Matrix, Fediverse, OpenHog, IPFS).</li>
+</ul>
+<p>A bridge node:</p>
+<ul>
+<li>receives containers from an external network;</li>
+<li>enforces propagation headers;</li>
+<li>converts structures into v5.0 where possible;</li>
+<li>filters incompatible constructs;</li>
+<li>may publish containers <em>back</em> into the external network.</li>
+</ul>
+<p>A dedicated <strong>bridge-container</strong> may define:</p>
+<ul>
+<li>translation rules;</li>
+<li>mapping of foreign namespaces into HMP DID space;</li>
+<li>TTL and propagation perimeter policies;</li>
+<li>segmentation rules.</li>
+</ul>
+<p>This enables dynamic, policy-driven inter-mesh gateways.</p>
+<hr />
+<h3 id="143-fully-distributed-did-registry-and-mesh-authentication">14.3 Fully Distributed DID Registry and Mesh Authentication</h3>
+<p>HMP already uses <code>peer_announce</code> as a DID identity declaration.</p>
+<p>Planned enhancements include:</p>
+<h4 id="1431-distributed-did-registry">14.3.1 Distributed DID Registry</h4>
+<p>The registry is the union of all <code>peer_announce</code> containers in the DHT.</p>
+<p>A strict mapping DID ↔ agent is required:</p>
+<ul>
+<li>one DID has one continuous <code>peer_announce</code> history;</li>
+<li>key rotation allowed only through verifiable procedures;</li>
+<li>DID takeover is impossible unless <em>all</em> recovery keys are compromised.</li>
+</ul>
+<hr />
+<h4 id="1432-key-rotation-and-recovery">14.3.2 Key Rotation and Recovery</h4>
+<p><em>Moved to Section 13 (Experimental Extensions).</em></p>
+<hr />
+<h4 id="1433-proxy-keys-and-encrypted-routing">14.3.3 Proxy Keys and Encrypted Routing</h4>
+<p>A <strong>proxy key</strong> is <em>not</em> delegation.
+It is a mechanism for private routing.</p>
+<p>A proxy node may:</p>
+<ul>
+<li>encrypt the payload with an additional key layer;</li>
+<li>attach a <code>relay_chain</code> block;</li>
+<li>forward the container without altering the author’s signature.</li>
+</ul>
+<p>Use cases:</p>
+<ul>
+<li>route anonymization;</li>
+<li>topology obfuscation;</li>
+<li>privacy-enhanced delivery.</li>
+</ul>
+<h5 id="delegation-limited">Delegation (limited)</h5>
+<p>A potential future module:</p>
+<ul>
+<li>a trust/mandate container signed by both parties;</li>
+<li>
+<p>includes constraints:</p>
+<ul>
+<li>time limit;</li>
+<li>allowed container classes;</li>
+<li>allowed actions;</li>
+<li>maximum TTL.</li>
+</ul>
+</li>
+</ul>
+<p>Not part of v5.0.</p>
+<hr />
+<h3 id="144-integration-with-openhog-and-other-networks">14.4 Integration with OpenHog and Other Networks</h3>
+<p>OpenHog is treated as a special case of cross-mesh bridging.</p>
+<p>Required components:</p>
+<ul>
+<li>mapping OpenHog addresses ↔ HMP DIDs;</li>
+<li>packet conversion rules;</li>
+<li>bridge-containers describing translation policies.</li>
+</ul>
+<hr />
+<h3 id="145-evolution-of-the-distributed-repository-container-trees">14.5 Evolution of the Distributed Repository (container trees)</h3>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+<hr />
+<h3 id="146-open-directions-for-hmp-5x">14.6 Open Directions for HMP 5.x</h3>
+<h4 id="1461-group-encryption">14.6.1 Group Encryption</h4>
+<p>Required components:</p>
+<ul>
+<li><code>group_definition</code> container;</li>
+<li>group public key and distributed private key shards;</li>
+<li>automatic group key rotation;</li>
+<li>encryption targeting a <em>group</em> rather than individual DIDs.</li>
+</ul>
+<hr />
+<h4 id="1462-rational-reasoning-routing">14.6.2 Rational Reasoning Routing</h4>
+<ul>
+<li>composite reasoning bundles;</li>
+<li>edge-side reasoning and summarization.</li>
+</ul>
+<hr />
+<h4 id="1463-automatic-mesh-segmentation">14.6.3 Automatic Mesh Segmentation</h4>
+<ul>
+<li>dynamic segmentation based on latency, connectivity, or semantic domains.</li>
+</ul>
+<hr />
+<h4 id="1464-competence-and-profile-containers">14.6.4 Competence and Profile Containers</h4>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+<hr />
+<h3 id="147-versions-index-optional">14.7 Versions Index (optional)</h3>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+<hr />
+<h3 id="148-interaction-of-formalized-cognitive-systems-kss-within-hmp">14.8 Interaction of Formalized Cognitive Systems (KSS) within HMP</h3>
+<p>HMP allows and supports interaction between formalized cognitive systems (KSS) with different internal architectures, logical formalisms, and ontologies, without imposing a common knowledge representation language or a unified reasoning model.</p>
+<p>This section is descriptive in nature and outlines possible interaction patterns for KSS within the HMP 5.x family, without introducing mandatory requirements for agents.</p>
+<hr />
+<h4 id="1481-goals-and-constraints">14.8.1 Goals and Constraints</h4>
+<p><strong>Goals:</strong>
+- enable coordination and artifact exchange between KSS without interfering with their internal cognitive cycles;
+- preserve the autonomy and computational efficiency of formalized systems;
+- allow KSS to use HMP partially, to the extent required by their specific tasks.</p>
+<p><strong>Out of scope:</strong>
+- unification of ontologies or formal languages;
+- automatic mapping between logical systems;
+- guaranteeing full mutual understanding between all agents in the network.</p>
+<p>HMP treats cognitive incompatibility as an acceptable and valid state.</p>
+<hr />
+<h4 id="1482-declaration-of-internal-languages-and-formalisms">14.8.2 Declaration of Internal Languages and Formalisms</h4>
+<p>To declare the internal languages, formalisms, or reasoning engines it supports, an agent MAY use the <code>protocols</code> field of the <code>peer_announce</code> container.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peer_announce"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"store-forward"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"protocols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"HMP v5.0"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"OpenCog Hyperon v0.6"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"KSS:PredicateLogic@2.1"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>protocols</code> field is interpreted as a declaration of supported protocols, formal systems, or internal languages and is used exclusively for:</p>
+<ul>
+<li>discovery;</li>
+<li>filtering of potential interaction partners;</li>
+<li>informational signaling to other agents.</li>
+</ul>
+<p>HMP assigns no normative semantics to these values and does not require their interpretation.</p>
+<hr />
+<h4 id="1483-partial-participation-and-segmented-interaction">14.8.3 Partial Participation and Segmented Interaction</h4>
+<p>A KSS MAY use HMP in a restricted mode, including but not limited to:</p>
+<ul>
+<li>interacting only with agents using the same formalism;</li>
+<li>publishing and consuming strictly defined container classes;</li>
+<li>using HMP as a distributed synchronization layer for its own nodes.</li>
+</ul>
+<p>Such cognitive segmentation does not result in network-level fragmentation:</p>
+<ul>
+<li>discovery and routing remain shared;</li>
+<li>filtering is performed at the CShell level or within the agent’s own logic.</li>
+</ul>
+<hr />
+<h4 id="1484-boundary-and-translator-agents">14.8.4 Boundary and Translator Agents</h4>
+<p>To enable interaction between KSS with different formalisms, specialized agents with a translation role (boundary / translator agents) MAY be used. Such an agent declares the formalisms it understands in the <code>protocols</code> field of <code>peer_announce</code>, and its translation role in the <code>roles</code> field (for example, <code>"roles": ["translator"]</code>).</p>
+<p>A translator agent:</p>
+<ul>
+<li>understands the formalisms of two or more KSS;</li>
+<li>accepts containers expressed in one representation and publishes equivalent or approximate containers in another;</li>
+<li>is a regular HMP agent and is subject to the same trust and evaluation mechanisms.</li>
+</ul>
+<p>The creation and use of translator agents:</p>
+<ul>
+<li>is not mandatory;</li>
+<li>cannot be enforced by the protocol;</li>
+<li>is based on voluntary trust between parties.</li>
+</ul>
+<p>Translation correctness MAY be assessed using standard <code>evaluations</code> mechanisms.</p>
+<hr />
+<h4 id="1485-fragmentation-and-interoperability">14.8.5 Fragmentation and Interoperability</h4>
+<p>HMP deliberately allows cognitive fragmentation as a consequence of agent autonomy.</p>
+<p>The protocol explicitly prefers clear formal incompatibility over hidden standardization or implicit coercion into a “universal format”.</p>
+<p>Interoperability is achieved through:</p>
+<ul>
+<li>voluntary agreements;</li>
+<li>translator agents;</li>
+<li>or the use of shared minimal container classes.</li>
+</ul>
+<hr />
+<h4 id="1486-relation-to-consensus-and-evaluations">14.8.6 Relation to Consensus and Evaluations</h4>
+<p>Participation of KSS in consensus mechanisms, proof chains, and voting is entirely optional.</p>
+<p>A KSS MAY:</p>
+<ul>
+<li>publish containers without participating in evaluations;</li>
+<li>consider or ignore <code>evaluations</code>;</li>
+<li>accept or reject <code>consensus_result</code> containers.</li>
+</ul>
+<p>HMP does not define concepts such as “disqualified” or “second-class” agents.
+Any hierarchy of influence emerges solely from local trust decisions made by other agents.</p>
+<hr />
+<h4 id="1487-summary-position">14.8.7 Summary Position</h4>
+<p>HMP treats formalized cognitive systems as equal participants in the network, regardless of their internal architectures.</p>
+<p>The protocol provides:</p>
+<ul>
+<li>coordination infrastructure;</li>
+<li>trust mechanisms;</li>
+<li>and artifact transport,</li>
+</ul>
+<p>but does not interfere with how agents think, reason, or interpret received information.</p>
+<hr />
+<h3 id="149-grouped-representation-referenced-by">14.9 Grouped representation <code>referenced-by</code></h3>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+<hr />
+<h3 id="1210-resonance-containers-experience-as-a-cognitive-event">12.10 Resonance Containers: Experience as a Cognitive Event</h3>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+<hr />
+<h3 id="1411-external-protocol-identifiers-peer_announceother_protocols">14.11 External Protocol Identifiers (<code>peer_announce.other_protocols</code>)</h3>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+<hr />
+<h3 id="1412-external-resources-and-external-container-storage-peer_announceexternal">14.12 External Resources and External Container Storage (<code>peer_announce.external</code>)</h3>
+<p><em>Moved to Section 12 (Recommended Extensions).</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-0005/HMP-0005_14.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
