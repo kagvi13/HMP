@@ -5,14 +5,14 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   Appendix A.1 — Minimal Valid HMP v5.0 Container  T...'
 type: Article
 tags:
-- JSON
-- Agent
-- Mesh
-- Ethics
 - GMP
 - HMP
-- REPL
+- Agent
 - CogSync
+- JSON
+- REPL
+- Ethics
+- Mesh
 - EGP
 ---
 
