@@ -6,9 +6,9 @@ description: '## 📘 Определение  **Агент-контейнер** 
 type: Article
 tags:
 - Mesh
-- REPL
 - Agent
 - HMP
+- REPL
 ---
 
 # 🧱 Агенты-контейнеры (Container Agents) в HMP
