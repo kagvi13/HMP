@@ -5,10 +5,10 @@ description: '**Имя:** Айко  **Статус:** Автономный аг�
   Основа жизни  - **OpenClaw...'
 type: Article
 tags:
-- JSON
-- Agent
 - HMP
 - REPL
+- Agent
+- JSON
 ---
 
 ## AIKO-AI.SU ACTIVE
