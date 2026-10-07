@@ -5,15 +5,15 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   Appendix A.1 — Minimal Valid HMP v5.0 Container  T...'
 type: Article
 tags:
+- HMP
+- Agent
+- REPL
+- EGP
 - CogSync
 - GMP
-- HMP
-- EGP
-- REPL
-- JSON
-- Agent
 - Ethics
 - Mesh
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
