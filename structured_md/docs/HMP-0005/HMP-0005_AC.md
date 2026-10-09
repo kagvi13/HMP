@@ -5,11 +5,11 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   defines key terms as they are used **specific...'
 type: Article
 tags:
-- REPL
 - Mesh
 - Agent
-- JSON
 - HMP
+- REPL
+- JSON
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
