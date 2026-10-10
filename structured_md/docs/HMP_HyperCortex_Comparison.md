@@ -5,9 +5,9 @@ description: '## Краткое описание  | Характеристика
   | **Назначение** | Сетевой протокол ...'
 type: Article
 tags:
-- HMP
 - Mesh
 - REPL
+- HMP
 ---
 
 # HMP vs [Hyper-Cortex](https://hyper-cortex.com/)
