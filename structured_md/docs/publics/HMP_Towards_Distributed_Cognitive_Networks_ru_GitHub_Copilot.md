@@ -5,12 +5,12 @@ description: '* [Аннотация](#аннотация) * [1. Введение
   [3.1 Типы агентов](#31-типы-агент...'
 type: Article
 tags:
-- CCore
-- HMP
-- JSON
-- REPL
-- Mesh
 - CShell
+- JSON
+- HMP
+- Mesh
+- REPL
+- CCore
 - Agent
 ---
 
