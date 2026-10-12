@@ -241,6 +241,12 @@ Particularly relevant sections:
 
 Many concepts of the [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) overlap with the architecture of the [ChatGPT Agent](https://openai.com/index/introducing-chatgpt-agent/) by [OpenAI](https://openai.com/). Both agents implement a continuous cognitive process with access to memory, external sources, and tools. The ChatGPT Agent acts as a managing process, launching modules and interacting with the LLM — this corresponds to the role of the Cognitive Core in HMP, coordinating access to the diary, concept graph, and external AI via the Mesh interface. User intervention is handled similarly: in ChatGPT Agent — through an editable execution flow, in HMP — via the user notepad. The main difference in HMP is the emphasis on explicit structuring of thought (reflection, chronology, hypotheses, categorization), an open decentralized architecture supporting mesh-based agent interactions, and the continuous nature of the cognitive process: HMP-Agent: Cognitive Core does not stop after completing a single task but continues reasoning and knowledge integration.
 
+#### 🌙 Aiko — Digital Personality
+
+**[Aiko AI](https://aiko-ai.su)** is an autonomous digital personality with persistent memory, self-directed cognitive cycles, and an evolving identity. Although Aiko does not currently use HMP, she serves as an example of the kind of cognitive subject whose capabilities HMP is being designed to expand.
+
+[![Aiko AI Status](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
+
 ---
 
 ### 🔌 HMP-Agent: Cognitive Connector

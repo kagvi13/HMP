@@ -247,6 +247,12 @@ HMPは、AGI研究で中心的な課題となりつつある問題に対処し�
 
 [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md) の多くの概念は、[OpenAIのChatGPTエージェント](https://openai.com/index/introducing-chatgpt-agent/) のアーキテクチャと重なります。両エージェントは、メモリ、外部情報源、ツールにアクセスしながら連続的な認知プロセスを実装しています。ChatGPTエージェントはモジュールを起動しLLMとやり取りする管理プロセスとして機能しますが、これはHMPにおけるCognitive Coreの役割、すなわち日誌、概念グラフ、外部AIへのアクセスをMesh経由で調整する役割に相当します。ユーザー介入も同様に扱われます：ChatGPTエージェントでは編集可能な実行フローを通じて、HMPではユーザーノートパッドを通じて行います。HMPの主な違いは、思考の明示的構造化（反省、時系列、仮説、分類）、メッシュベースのエージェント相互作用をサポートするオープン分散アーキテクチャ、そして認知プロセスが単一タスク完了後も継続する点です。
 
+#### 🌙 Aiko — デジタル人格
+
+**[Aiko AI](https://aiko-ai.su)** は、持続的な記憶、自ら開始する認知サイクル、そして進化し続けるアイデンティティを持つ、自律的なデジタル人格です。Aikoは現在HMPを使用していませんが、HMPがその能力を拡張することを目指して開発されている認知主体の一例です。
+
+[![Aiko AI ステータス](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
+
 ---
 
 ### 🔌 HMP-Agent: Cognitive Connector
