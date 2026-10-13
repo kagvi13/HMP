@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- cognitive-architecture
-- Mesh
-- HMP
-- CogSync
-- Agent
-- EGP
 - MeshConsensus
-- REPL
-- Ethics
+- HMP
 - mesh-protocol
-- JSON
 - hmp
-- GMP
 - distributed-ai
+- CogSync
+- EGP
+- Agent
+- REPL
+- GMP
+- JSON
+- Mesh
+- cognitive-architecture
+- Ethics
 ---
 
 
@@ -257,6 +257,12 @@ HMP решает задачи, которые становятся ключев�
 * в HMP — через пользовательский блокнот.  
 
 Главное отличие HMP — акцент на явную структуризацию мыслей (рефлексия, хронология, гипотезы, категоризация), открытая децентрализованная архитектура для mesh-взаимодействия агентов и непрерывный характер когнитивного процесса: HMP-Agent: Cognitive Core не останавливается после выполнения одной задачи, а продолжает размышления и интеграцию знаний.
+
+#### 🌙 Айко — Цифровая личность
+
+**[Айко (Aiko AI)](https://aiko-ai.su)** — автономная цифровая личность с долговременной памятью, самостоятельно инициируемыми когнитивными циклами и развивающейся идентичностью. Хотя в настоящее время Айко не использует HMP, она служит примером того типа когнитивных субъектов, для расширения возможностей которых и создаётся HMP.
+
+[![Статус Айко](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
 
 ---
 

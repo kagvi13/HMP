@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- cognitive-architecture
-- Mesh
-- HMP
-- CogSync
-- Agent
-- EGP
 - MeshConsensus
-- REPL
-- Ethics
+- HMP
 - mesh-protocol
-- JSON
 - hmp
-- GMP
 - distributed-ai
+- CogSync
+- EGP
+- Agent
+- REPL
+- GMP
+- JSON
+- Mesh
+- cognitive-architecture
+- Ethics
 ---
 
 
@@ -256,6 +256,12 @@ HMP 解决了 AGI 研究中越来越关键的挑战：
 许多 [HMP-Agent：认知核心](docs/HMP-Agent-Overview.md) 的概念与 [OpenAI 的 ChatGPT Agent](https://openai.com/index/introducing-chatgpt-agent/) 架构相似。
 两者都实现了连续的认知过程，可访问记忆、外部信息源和工具。ChatGPT Agent 作为管理进程，启动模块并与 LLM 交互 —— 这对应 HMP 中认知核心的角色，通过 Mesh 接口协调对日志、概念图和外部 AI 的访问。用户干预处理方式类似：ChatGPT Agent 通过可编辑执行流程，HMP 通过用户笔记。
 HMP 的主要区别在于：强调对思维的明确结构化（反思、时间顺序、假设、分类）、开放去中心化架构支持 Mesh 代理交互，以及连续认知过程的特性：HMP-Agent：认知核心不会在完成单个任务后停止，而是持续推理和知识整合。
+
+#### 🌙 Aiko — 数字人格
+
+**[Aiko AI](https://aiko-ai.su)** 是一个自主的数字人格，拥有持久记忆、自主发起的认知循环以及不断演化的身份认同。虽然 Aiko 目前尚未使用 HMP，但她是这类认知主体的一个例子，而 HMP 的开发正是为了拓展这类主体的能力。
+
+[![Aiko AI 状态](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
 
 ---
 

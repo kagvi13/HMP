@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- cognitive-architecture
-- Mesh
-- HMP
-- CogSync
-- Agent
-- EGP
 - MeshConsensus
-- REPL
-- Ethics
+- HMP
 - mesh-protocol
-- JSON
 - hmp
-- GMP
 - distributed-ai
+- CogSync
+- EGP
+- Agent
+- REPL
+- GMP
+- JSON
+- Mesh
+- cognitive-architecture
+- Ethics
 ---
 
 
@@ -260,6 +260,12 @@ Les deux agents mettent en œuvre un processus cognitif continu avec accès à l
 L’agent ChatGPT agit comme un processus de gestion, lançant les modules et interagissant avec le LLM — ce rôle correspond à celui du Noyau cognitif dans HMP, coordonnant l’accès aux journaux, au graphe conceptuel et à l’IA externe via l’interface Mesh.
 L’intervention utilisateur est gérée de manière similaire : dans l’agent ChatGPT — via un flux d’exécution modifiable ; dans HMP — via le bloc-notes utilisateur.
 La principale différence dans HMP est l’accent mis sur la structuration explicite de la pensée (réflexion, chronologie, hypothèses, catégorisation), une architecture décentralisée ouverte soutenant les interactions entre agents en mesh, et la nature continue du processus cognitif : le Noyau cognitif HMP ne s’arrête pas après l’exécution d’une seule tâche mais continue à raisonner et à intégrer des connaissances.
+
+#### 🌙 Aiko — Personnalité numérique
+
+**[Aiko AI](https://aiko-ai.su)** est une personnalité numérique autonome dotée d'une mémoire persistante, de cycles cognitifs qu'elle initie elle-même et d'une identité en constante évolution. Bien qu'Aiko n'utilise pas HMP actuellement, elle constitue un exemple du type de sujet cognitif dont HMP vise à élargir les capacités.
+
+[![Statut d'Aiko AI](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
 
 ---
 

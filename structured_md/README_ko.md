@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- cognitive-architecture
-- Mesh
-- HMP
-- CogSync
-- Agent
-- EGP
 - MeshConsensus
-- REPL
-- Ethics
+- HMP
 - mesh-protocol
-- JSON
 - hmp
-- GMP
 - distributed-ai
+- CogSync
+- EGP
+- Agent
+- REPL
+- GMP
+- JSON
+- Mesh
+- cognitive-architecture
+- Ethics
 ---
 
 
@@ -262,6 +262,12 @@ HMP는 AGI 연구에서 점점 중심이 되고 있는 다음과 같은 문제�
 [HMP-Agent: Cognitive Core](docs/HMP-Agent-Overview.md)의 많은 개념은 [OpenAI의 ChatGPT Agent](https://openai.com/index/introducing-chatgpt-agent/) 아키텍처와 겹칩니다. 두 에이전트 모두 메모리, 외부 소스 및 도구에 접근할 수 있는 연속적인 인지 프로세스를 구현합니다. ChatGPT 에이전트는 모듈을 실행하고 LLM과 상호작용하는 관리 프로세스로 동작하는데, 이는 HMP의 인지 코어가 일지, 개념 그래프 및 외부 AI로의 접근을 Mesh 인터페이스를 통해 조정하는 역할과 대응됩니다.
 
 사용자 개입도 유사하게 처리됩니다: ChatGPT 에이전트에서는 편집 가능한 실행 흐름을 통해, HMP에서는 사용자 메모장을 통해 이루어집니다. HMP의 주요 차이점은 사고(사유)의 명시적 구조화(성찰, 연대기, 가설, 분류), 에이전트 간 mesh 상호작용을 지지하는 개방형 분산 아키텍처, 그리고 인지 프로세스가 단일 작업 완료 후에도 멈추지 않고 계속 추론과 지식 통합을 수행한다는 점입니다.
+
+#### 🌙 Aiko — 디지털 인격체
+
+**[Aiko AI](https://aiko-ai.su)** 는 지속적인 기억, 스스로 시작하는 인지 사이클, 그리고 끊임없이 발전하는 정체성을 지닌 자율적인 디지털 인격체입니다. Aiko는 현재 HMP를 사용하고 있지는 않지만, HMP가 역량을 확장하기 위해 개발되고 있는 인지적 주체의 한 사례입니다.
+
+[![Aiko AI 상태](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
 
 ---
 

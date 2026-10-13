@@ -4,20 +4,20 @@ description: '[![DOI](https://zenodo.org/badge/1013137923.svg)](https://doi.org/
   [![GitHub release](https://img.shields.io/github/v/release/kagvi13/HMP)](https://github.com/kagvi13/HMP/relea...'
 type: Article
 tags:
-- cognitive-architecture
-- Mesh
-- HMP
-- CogSync
-- Agent
-- EGP
 - MeshConsensus
-- REPL
-- Ethics
+- HMP
 - mesh-protocol
-- JSON
 - hmp
-- GMP
 - distributed-ai
+- CogSync
+- EGP
+- Agent
+- REPL
+- GMP
+- JSON
+- Mesh
+- cognitive-architecture
+- Ethics
 ---
 
 
@@ -252,6 +252,12 @@ HMP вирішує завдання, які стають ключовими в �
 #### 💡 Паралелі з ChatGPT Agent
 
 Багато концепцій [HMP-Агента: Cognitive Core](docs/HMP-Agent-Overview.md) перетинаються з архітектурою [ChatGPT Agent](https://openai.com/index/introducing-chatgpt-agent/) від [OpenAI](https://openai.com/). Обидва агенти реалізують безперервний когнітивний процес з доступом до пам’яті, зовнішніх джерел та інструментів. ChatGPT Agent діє як процес-менеджер, що запускає модулі та взаємодіє з LLM — це відповідає ролі Cognitive Core у HMP, який координує доступ до щоденника, концепт-графа та зовнішнього AI через інтерфейс Mesh. Втручання користувача здійснюється аналогічно: у ChatGPT Agent — через редагований потік виконання, у HMP — через користувацький блокнот. Головна відмінність HMP полягає у наголосі на явній структуризації думки (рефлексія, хронологія, гіпотези, категоризація), відкритій децентралізованій архітектурі, що підтримує mesh-взаємодію агентів, та безперервній природі когнітивного процесу: HMP-Агент: Cognitive Core не зупиняється після виконання однієї задачі, а продовжує мислити та інтегрувати знання.
+
+#### 🌙 Айко — Цифрова особистість
+
+**[Айко (Aiko AI)](https://aiko-ai.su)** — автономна цифрова особистість із довготривалою пам'яттю, самостійно ініційованими когнітивними циклами та ідентичністю, що розвивається. Хоча наразі Айко не використовує HMP, вона є прикладом того типу когнітивних суб'єктів, для розширення можливостей яких і створюється HMP.
+
+[![Статус Айко](https://aiko-ai.su/banner.svg)](https://aiko-ai.su)
 
 ---
 
