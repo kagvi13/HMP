@@ -6,8 +6,8 @@ description: '## 📘 Определение  **Агент-контейнер** 
 type: Article
 tags:
 - Agent
-- HMP
 - Mesh
+- HMP
 - REPL
 ---
 
