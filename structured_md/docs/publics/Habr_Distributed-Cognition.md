@@ -5,11 +5,11 @@ description: Сегодня интеллектуальные системы ча
   мы хотим построить действительно автономную инте...
 type: Article
 tags:
-- Mesh
-- CogSync
-- MeshConsensus
 - GMP
 - EGP
+- MeshConsensus
+- Mesh
+- CogSync
 - HMP
 ---
 
