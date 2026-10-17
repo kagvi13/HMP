@@ -1,0 +1,4848 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/HMP-0005/HMP-0005_06_01.html">
+      
+      
+        <link rel="prev" href="HMP-0005_06.html">
+      
+      
+        <link rel="next" href="HMP-0005_06_02.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hypercortex-mesh-protocol-hmp-508-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGI Projects Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aiko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aiko
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic agent sim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol — Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enlightener Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grok_HMP%26ANP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP%26ANP_layer_inversion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP и ANP: взаимное туннелирование как признак правильной архитектуры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RFC: HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура HMP-Агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Взаимодействие компонентов внутри HMP-узла
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два типа HMP-агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Ethics.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Short Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Description courte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP agent Distributed Cognitive Core light
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent: REPL-цикл взаимодействия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как разные ИИ видят HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs Hyper-Cortex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Hyperon Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP как реализация Application Layer в ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP as an Implementation of the Application Layer in ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMPv5_Overview_Ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MeshNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Философия HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta-personality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мета-личности Алисы и Боба, их взаимодействие с серверами знаний и их слияние
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_47" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_47" id="__nav_47_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP 0005
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_47_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_47">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HMP 0005
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_00.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HMP-0005_06_01.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6-core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Core protocols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Core protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-cognitive-synchronization-cogsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Cognitive Synchronization (CogSync)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Cognitive Synchronization (CogSync)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-scope-and-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 Scope and purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-container-classes-cognitive-metastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Container classes — cognitive metastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.2 Container classes — cognitive metastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container abstraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-axes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container axes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cognitive-metastructure-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cognitive metastructure summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-container-classes-knowledge-and-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.3 Container classes — knowledge and reasoning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.3 Container classes — knowledge and reasoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-diary_entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container diary_entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container semantic_node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subclass-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subclass: "definition"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container semantic_index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disambiguation-via-metaframework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disambiguation via meta.framework
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disambiguation via meta.framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outdated-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outdated References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers-tree_nested-and-tree_listed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containers tree_nested and tree_listed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-quant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container quant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cognitive-substrate-and-container-interplay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cognitive substrate and container interplay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-synchronization-and-publication-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.4 Synchronization and publication guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#615-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.5 Extensibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#616-relationship-to-other-core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.6 Relationship to other core protocols
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AB.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AD.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_48" >
+        
+          
+          <label class="md-nav__link" for="__nav_48" id="__nav_48_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_48_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_48">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent-Enlightener.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Agent Role Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_49" >
+        
+          
+          <label class="md-nav__link" for="__nav_49" id="__nav_49_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_49_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_49">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Создавая множество разумов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Створення множини розумів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Habr Distributed Cognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6-core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Core protocols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Core protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-cognitive-synchronization-cogsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Cognitive Synchronization (CogSync)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Cognitive Synchronization (CogSync)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-scope-and-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 Scope and purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-container-classes-cognitive-metastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Container classes — cognitive metastructure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.2 Container classes — cognitive metastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container abstraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-axes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container axes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cognitive-metastructure-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cognitive metastructure summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-container-classes-knowledge-and-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.3 Container classes — knowledge and reasoning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.3 Container classes — knowledge and reasoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-diary_entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container diary_entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container semantic_node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subclass-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subclass: "definition"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container semantic_index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disambiguation-via-metaframework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disambiguation via meta.framework
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disambiguation via meta.framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outdated-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outdated References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-semantic_group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container semantic_group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers-tree_nested-and-tree_listed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containers tree_nested and tree_listed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-quant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container quant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cognitive-substrate-and-container-interplay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cognitive substrate and container interplay
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-synchronization-and-publication-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.4 Synchronization and publication guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#615-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.5 Extensibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#616-relationship-to-other-core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.6 Relationship to other core protocols
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hypercortex-mesh-protocol-hmp-508-">HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление</h1>
+<ul>
+<li>Полный документ: <a href="../HMP-0005.html">HMP-0005.md</a></li>
+<li>Список разделов: <a href="HMP-0005_index.html">HMP-0005_index.md</a></li>
+</ul>
+<hr />
+<h2 id="6-core-protocols">6. Core protocols</h2>
+<p>Смотреть <a href="HMP-0005_06.html">6. Core protocols</a> - общая часть</p>
+<hr />
+<h3 id="61-cognitive-synchronization-cogsync">6.1 Cognitive Synchronization (CogSync)</h3>
+<p>CogSync provides <strong>temporal, semantic, and contextual alignment</strong> between agents in the Mesh.
+It manages the propagation, replication, and refinement of data related to cognitive diaries, semantic graphs, and container metadata.</p>
+<hr />
+<h4 id="611-scope-and-purpose">6.1.1 Scope and purpose</h4>
+<p>CogSync manages <strong>knowledge propagation and cognitive state synchronization</strong> within the Mesh.<br />
+It handles:</p>
+<ul>
+<li>publication of <strong>diary entries</strong> and reasoning traces;</li>
+<li>synchronization of <strong>semantic and cognitive structures</strong> (<code>semantic_node</code>, <code>quant</code>, <code>event</code>, <code>sequence</code>);</li>
+<li>maintenance of <strong>abstraction hierarchies</strong> (<code>abstraction</code>, <code>axes</code>);</li>
+<li>ensuring <strong>contextual coherence</strong> among distributed agents.</li>
+</ul>
+<blockquote>
+<p>CogSync focuses on <strong>knowledge flow</strong>, not validation — evaluation and truth formation are handled separately by <code>CogConsensus</code>.</p>
+</blockquote>
+<hr />
+<h4 id="612-container-classes-cognitive-metastructure">6.1.2 Container classes — cognitive metastructure</h4>
+<p>This section defines the <strong>structural containers</strong> that form the <em>cognitive substrate</em> of the Mesh.
+They describe the <strong>hierarchical organization</strong> (<code>abstraction</code>) and the <strong>semantic coordinate system</strong> (<code>axes</code>)
+that together define how all other containers are positioned and interpreted.</p>
+<hr />
+<h5 id="container-abstraction">Container <code>abstraction</code></h5>
+<p><strong>Purpose:</strong>
+Defines an <strong>abstraction layer or domain</strong> within a cognitive model.
+Each <code>abstraction</code> describes a <strong>node</strong> in the <em>hierarchical knowledge tree</em>,
+which may reference both a parent abstraction and subordinate ones.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abstraction_id</code></td>
+<td>string</td>
+<td>Canonical identifier of this abstraction structure (not a container ID), e.g. <code>"L3:software-architecture"</code>.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>Human-readable title or name of the abstraction node.</td>
+</tr>
+<tr>
+<td><code>definition</code></td>
+<td>string</td>
+<td>Description of what this abstraction level or domain represents.</td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>array</td>
+<td>Semantic keywords summarizing the conceptual area.</td>
+</tr>
+<tr>
+<td><code>parent_ref</code></td>
+<td>string</td>
+<td>DID of the parent <code>abstraction</code> (if this node derives from another level). Optional for the root abstraction.</td>
+</tr>
+<tr>
+<td><code>rank</code></td>
+<td>number</td>
+<td>Optional numeric rank for ordering or hierarchical comparisons.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The container from <code>parent_ref</code> must also appear in <code>related.depends_on</code>.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abstraction"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"abstraction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L3:software-architecture"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Software Architecture Layer"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Describes frameworks, APIs, and tools implementing theoretical models from higher abstraction layers."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"architecture"</span><span class="p">,</span><span class="w"> </span><span class="s2">"framework"</span><span class="p">,</span><span class="w"> </span><span class="s2">"implementation"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"parent_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-a7f0b3"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIEST"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"agents_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge Genome"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interpretation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Represents the third abstraction level (L3) of the Knowledge Genome model."</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abstraction-a7f0b3"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><code>abstraction</code> containers define <em>conceptual layers or domains</em> that form the hierarchical “skeleton” of the cognitive Mesh.</li>
+<li>Each node is self-contained and versioned, allowing flexible adaptation of reasoning trees.</li>
+<li>Agents use these containers to reconstruct the <em>abstraction path</em> in <code>meta.abstraction.path</code>.</li>
+</ul>
+<hr />
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Top-level abstractions (root nodes) omit <code>parent_ref</code>.</li>
+<li>Lower-level abstractions must explicitly reference their parent.</li>
+<li>Agents may synchronize <code>abstraction</code> trees to maintain shared cognitive hierarchies across the Mesh.</li>
+</ul>
+<hr />
+<h5 id="container-axes">Container <code>axes</code></h5>
+<p><strong>Purpose:</strong>
+Defines a <strong>semantic coordinate system</strong> (set of axes) used to position containers in the multi-dimensional cognitive space.
+It supports both canonical (7D Knowledge Genome) and extended or agent-specific coordinate systems.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>axis_id</code></td>
+<td>string</td>
+<td>Canonical identifier of the semantic dimension (not a container ID), e.g. <code>"logos"</code>, <code>"telos"</code>.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>Human-readable name of the axis.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Conceptual explanation of what this axis represents.</td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td>object</td>
+<td>Optional definition of scale or metric used to assign coordinate values.</td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td>string</td>
+<td>Optional grouping identifier (e.g., <code>"7D-passport"</code>, <code>"ethical-space"</code>).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Axes are <strong>independent dimensions</strong>; inter-axis relationships (coupling, orthogonality, weighting) are expressed via <code>semantic_edges</code>.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"axes"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"axis_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logos"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logical / Linguistic Representation"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Describes how a concept is structured and expressed in formal or natural language."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"scale"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_density_index"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7D-passport"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIEST"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"agents_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge Genome"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interpretation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Defines one axis of the canonical 7D Knowledge Genome coordinate system."</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><code>axes</code> containers describe <strong>semantic dimensions</strong>, not data.</li>
+<li>Each axis defines one independent direction in the cognitive coordinate space.</li>
+<li>The combination of all active axes defines a shared <strong>semantic frame of reference</strong> between agents.</li>
+<li>Agents may publish extended coordinate systems (e.g., ethical or temporal axes) without breaking compatibility.</li>
+</ul>
+<hr />
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Axes can be combined or grouped (e.g., <code>group: "7D-passport"</code>).</li>
+<li>Canonical Knowledge Genome defines seven: <code>idos</code>, <code>chronos</code>, <code>logos</code>, <code>topos</code>, <code>ponos</code>, <code>actor</code>, <code>telos</code>.</li>
+<li>Agents may extend this model by introducing additional axes (<code>ethos</code>, <code>kairos</code>, etc.).</li>
+<li>Updates to <code>axes</code> containers must preserve scale stability to ensure consistent semantic positioning.</li>
+</ul>
+<hr />
+<h5 id="cognitive-metastructure-summary">Cognitive metastructure summary</h5>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Type of structure</th>
+<th>Conceptual role</th>
+<th>References stored in</th>
+<th>Example identifier / DID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abstraction</code></td>
+<td>Hierarchical tree</td>
+<td>Defines layered reasoning and inheritance</td>
+<td><code>meta.abstraction.path</code></td>
+<td><code>did:hmp:container:abstraction-40af1c</code></td>
+</tr>
+<tr>
+<td><code>axes</code></td>
+<td>Coordinate space</td>
+<td>Defines semantic orientation and metrics</td>
+<td><code>meta.axes</code></td>
+<td><code>did:hmp:container:axis-40aa1c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Together, <code>abstraction</code> and <code>axes</code> form the <strong>cognitive coordinate system</strong> —
+a unifying map where every container has both a <em>hierarchical position</em> and a <em>semantic vector</em>.</p>
+</blockquote>
+<hr />
+<h4 id="613-container-classes-knowledge-and-reasoning">6.1.3 Container classes — knowledge and reasoning</h4>
+<p>CogSync synchronizes several fundamental container types, which together form the core of semantic and cognitive synchronization in the Mesh.</p>
+<p>This list is <strong>extensible</strong> — new container classes may be registered through CogSync extensions or protocol updates.<br />
+The following definitions describe the <strong>payload structures</strong> and functional purpose of each container type.</p>
+<hr />
+<h5 id="container-diary_entry">Container <code>diary_entry</code></h5>
+<p>Agent’s cognitive diary entry.<br />
+Derived from internal <code>workflow_entry</code> when deemed safe for publication.</p>
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>Brief title of the entry (main idea or thesis).</td>
+</tr>
+<tr>
+<td><code>topics</code></td>
+<td>[string]</td>
+<td>Key topics or concepts addressed in the entry (used for indexing and grouping).</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>string</td>
+<td>Short abstract of the content (1–2 sentences).</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>string</td>
+<td>Main text or agent’s reflection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Purpose:</strong> Provides human-readable reflections and contextual reasoning behind the agent’s knowledge generation.</p>
+<hr />
+<h5 id="container-semantic_node">Container <code>semantic_node</code></h5>
+<p>Represents a concept, object, or idea within the agent’s semantic graph.</p>
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>Primary name of the concept or entity.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Definition or elaboration of the concept.</td>
+</tr>
+<tr>
+<td><code>aliases</code></td>
+<td>[string]</td>
+<td>Synonyms or alternative labels.</td>
+</tr>
+<tr>
+<td><code>fields</code></td>
+<td>{ key: value }</td>
+<td>Additional key–value metadata (e.g., <code>{"type": "process"\</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Purpose:</strong> Serves as a cognitive anchor for all semantically meaningful entities in the Mesh.</p>
+<hr />
+<h6 id="subclass-definition">Subclass: <code>"definition"</code></h6>
+<p>Used when the node explicitly defines the meaning of a concept or term.</p>
+<ul>
+<li>Agents MAY reference such nodes through <code>related.definition</code> in other containers (e.g., <code>quant</code>, <code>workflow_entry</code>).</li>
+<li>Alternative or conflicting definitions can be linked via <code>related.alternatives</code>.</li>
+<li>The <code>meta.framework</code> field SHOULD indicate the theoretical or disciplinary context (e.g., “IIT 3.0”, “Functionalism”, “Phenomenology”).</li>
+<li>Agents MAY evaluate competing definitions through <code>evaluations</code> or consensus mechanisms.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> The <code>meta.framework</code> field declares the theoretical context (e.g., “IIT 3.0”), while <code>meta.abstraction.path</code> positions the concept within the agent’s semantic hierarchy.</p>
+</blockquote>
+<p><strong>Example (<code>semantic_node:definition</code>):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_node"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"subclass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"definition"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consciousness"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subjective experience with qualia"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IIT 3.0"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"agents_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Philosophy Agent"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"abstraction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"L1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cognitive Science"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"L2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consciousness"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:semantic_node-3937"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:semantic_node-3267"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> Containers referencing semantic terms SHOULD include a <code>related.definition</code> field pointing to the defining <code>semantic_node</code> to ensure consistent semantic alignment across the Mesh.</p>
+<p><strong>See also:</strong> The <code>semantic_index</code> container describes  how agents manage and publish their active sets of semantic definitions.</p>
+</blockquote>
+<p><strong>Intra-framework Evaluation</strong></p>
+<p>Deprecated or outdated definitions MAY be marked via <code>evaluations</code> entries (e.g., <code>"type": "outdated", "value": -1"</code>), or superseded through standard versioning mechanisms using <code>related.previous_version</code>. This approach maintains continuity in the semantic lineage while allowing agents to reflect evolving conceptual understanding over time.</p>
+<p>Agents MAY evaluate definitions authored by other agents <strong>within the same <code>meta.framework</code></strong> to indicate the degree of conceptual validity, similarity, or theoretical alignment.</p>
+<p>When doing so, the agent SHOULD include in the <code>evaluations</code> entry:</p>
+<ul>
+<li><code>"type": "semantic_similarity"</code> — indicates semantic assessment within a shared framework;</li>
+<li><code>"value"</code> — numerical estimate of conceptual agreement<br />
+  (e.g., <code>1</code> = strong alignment, <code>0</code> = partial correspondence, <code>-1</code> = incompatible or incorrect interpretation);</li>
+<li><code>"target"</code> — DID of the definition container currently adopted by the evaluating agent as its <code>actual</code> reference point.</li>
+</ul>
+<p>Such evaluations contribute to the <strong>reputational weighting of definitions</strong> within a theoretical framework,<br />
+allowing agents to converge on more coherent or widely accepted interpretations over time.</p>
+<hr />
+<h5 id="container-semantic_index">Container <code>semantic_index</code></h5>
+<p>Represents the <strong>current working lexicon</strong> of semantic definitions actively used and recognized by the agent at this stage of its cognitive lifecycle.</p>
+<p><strong>Scope</strong>:
+* The index lists terms actively relevant to the agent’s current reasoning, goals,  and domain of operation, as well as those reflecting its sustained interests or areas of expertise.
+* Agents are NOT expected to maintain encyclopedic coverage — the index reflects <strong>working memory</strong>, not archival knowledge.<br />
+* Terms no longer needed MAY be removed in subsequent versions; historical context is preserved through <code>related.previous_version</code> chains.</p>
+<p><strong>Purpose:</strong><br />
+Provides a lightweight, periodically updated summary of the agent’s working ontology.<br />
+Each entry maps a concept label to its current definition, known alternatives, and historically relevant (outdated) versions.</p>
+<hr />
+<p><strong>Structure of each entry in <code>payload</code>:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>The primary concept name as used in the index key.</td>
+</tr>
+<tr>
+<td><code>aliases</code></td>
+<td>array (string)</td>
+<td>Synonyms or lexical variants of the concept.</td>
+</tr>
+<tr>
+<td><code>framework</code></td>
+<td>string</td>
+<td>The theoretical or disciplinary context associated with the definition (mirrors <code>meta.framework</code> of the referenced container).</td>
+</tr>
+<tr>
+<td><code>actual</code></td>
+<td>string (DID)</td>
+<td>DID of the current definition container actively used by the agent.</td>
+</tr>
+<tr>
+<td><code>actual_since</code></td>
+<td>datetime</td>
+<td>Timestamp when this definition became <code>actual</code> (ISO 8601). If omitted, agents MAY use the timestamp of the referenced <code>semantic_node:definition</code>.</td>
+</tr>
+<tr>
+<td><code>alternatives</code></td>
+<td>array (DID)</td>
+<td>DIDs of alternative definitions known to the agent but not currently preferred.</td>
+</tr>
+<tr>
+<td><code>outdated</code></td>
+<td>array (DID)</td>
+<td>DIDs of definitions considered obsolete or historically relevant, regardless of whether the agent personally used them.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong><br />
+To distinguish homonymous terms across different theoretical contexts, agents MAY include the associated <code>meta.framework</code> as part of the key label (e.g., <code>"consciousness (IIT 3.0)"</code>, <code>"consciousness (Functionalism)"</code>).<br />
+This convention helps prevent semantic collisions when merging indexes from different agents.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_index"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"consciousness (IIT 3.0)"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consciousness"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IIT 3.0"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"aliases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"awareness"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sentience"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:semantic_node-3937"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"actual_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-15T12:00:00Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:semantic_node-4890"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"outdated"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:semantic_node-1285"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"memory (IIT 3.0)"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"memory"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IIT 3.0"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"aliases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"recall"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:semantic_node-2184"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"actual_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-01T08:30:00Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">"outdated"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Usage Guidelines:</strong></p>
+<ul>
+<li>Agents SHOULD periodically publish their <code>semantic_index</code> containers via MCE.</li>
+<li>Recipients MAY merge multiple indexes to build a composite semantic map — that is, integrate definitions from other agents into their own view of the lexicon.</li>
+<li>When switching to a different definition, the previous one SHOULD be moved to <code>alternatives</code> or <code>outdated</code> accordingly.</li>
+<li>The <code>actual</code> field reflects the agent's current working definition (equivalent to <code>actual</code> in cognitive state terminology).</li>
+<li>The <code>actual_since</code> field (optional) records when the current definition was adopted, enabling temporal semantic tracking.</li>
+<li>Agents have full autonomy in deciding which definitions to include in <code>outdated</code> — typically those considered historically significant or contextually relevant for understanding past containers.</li>
+</ul>
+<hr />
+<h6 id="actualization">Actualization</h6>
+<p>When a new definition becomes active or an existing one is revised, the agent updates its <code>semantic_index</code>.
+Updates MAY be delayed to batch multiple semantic changes (for example, publishing once every 24 hours).</p>
+<hr />
+<h5 id="disambiguation-via-metaframework">Disambiguation via <code>meta.framework</code></h5>
+<p>Before attempting to merge definitions, agents SHOULD check <code>meta.framework</code> to distinguish <strong>homonyms</strong> (identical labels, different domains):</p>
+<p><strong>Example: "butterfly"</strong>
+- <code>meta.framework: "Entomology"</code> → insect species
+- <code>meta.framework: "Edged Weapons"</code> → folding knife (butterfly knife)</p>
+<p>These are <strong>separate concepts</strong> and should NOT be merged.<br />
+Agents SHOULD maintain distinct entries in <code>semantic_index</code>:</p>
+<p>When <code>meta.framework</code> values differ significantly, agents SHOULD treat definitions as <strong>domain-specific variants</strong> rather than conflicting interpretations.</p>
+<p><em>Such separation prevents unintended conceptual blending during index merging.</em></p>
+<hr />
+<h6 id="merging">Merging</h6>
+<p>When aligning its own active definitions with those discovered in other agents’ indexes,<br />
+the agent SHOULD follow a two-phase iterative process aimed at selecting or constructing the most suitable definition.</p>
+<p><strong>Phase 1 — Selection</strong></p>
+<ol>
+<li>Identify all <code>semantic_node:definition</code> containers referring to the same conceptual label.  </li>
+<li>
+<p>Evaluate each definition against the agent’s current interpretation or internal criteria.  </p>
+<ul>
+<li>If a definition fully satisfies the agent’s understanding, adopt it as the new <code>actual</code>.  </li>
+<li>If none fits perfectly, select the closest one as a provisional base.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Phase 2 — Synthesis</strong></p>
+<ol>
+<li>
+<p>Using the chosen base definition, iteratively compare it with other relevant definitions.  </p>
+<ul>
+<li>Extract complementary details or distinctions from them.  </li>
+<li>Gradually refine the base definition to form an improved, internally consistent meaning.  </li>
+<li>
+<p>Publish the resulting <code>semantic_node:definition</code> as a new container representing the agent’s synthesized understanding.  </p>
+</li>
+<li>
+<p>Set this container as <code>actual</code>.  </p>
+</li>
+<li>Move alternative or superseded ones to <code>alternatives</code> or <code>outdated</code>.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>This process enables agents to evolve shared semantics through selective adoption and constructive synthesis,<br />
+rather than simple replacement of definitions.</p>
+</blockquote>
+<hr />
+<h6 id="outdated-references">Outdated References</h6>
+<p>Definitions listed under <code>outdated</code> represent concepts that the agent considers obsolete or historically important, even if never personally used.</p>
+<blockquote>
+<p><strong>Note:</strong> The <code>semantic_index</code> acts as a cognitive snapshot of the agent’s conceptual landscape.
+It supports semantic alignment, consensus formation, and distributed reasoning across the Mesh.</p>
+</blockquote>
+<hr />
+<h5 id="container-semantic_edges">Container <code>semantic_edges</code></h5>
+<p>Defines relationships between semantic nodes or other containers.<br />
+Supports directed, symmetric, and inverse relations.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td>
+<td>string</td>
+<td>Logical or topical domain (e.g., <code>"ontology:objects"</code>).</td>
+</tr>
+<tr>
+<td><code>edges</code></td>
+<td>object</td>
+<td>A mapping where each key is a <strong>source container DID</strong>, and the value is an <strong>array of edge definitions</strong> originating from that source.</td>
+</tr>
+</tbody>
+</table>
+<p>Each edge definition within <code>edges[source][]</code> includes:</p>
+<table>
+<thead>
+<tr>
+<th>Subfield</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>targets</code></td>
+<td>array(DID)</td>
+<td>One or more target containers that the source is related to.</td>
+</tr>
+<tr>
+<td><code>relation</code></td>
+<td>string</td>
+<td>Relation type (<code>part_of</code>, <code>causes</code>, <code>related_to</code>, etc.).</td>
+</tr>
+<tr>
+<td><code>inverse_relation</code></td>
+<td>string</td>
+<td>Reverse form of the relation (<code>includes</code>, <code>caused_by</code>, etc.).</td>
+</tr>
+<tr>
+<td><code>bidirectional</code></td>
+<td>bool</td>
+<td><em>(optional)</em> Used when the relation is symmetric and no <code>inverse_relation</code> is defined.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td>string</td>
+<td><em>(optional)</em> Additional context or topic of the relation.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Field <code>bidirectional</code> is optional and should be used only for symmetric relations when no <code>inverse_relation</code> is defined.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_edges"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ontology:objects"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:abc100"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc111"</span><span class="p">],</span>
+<span class="w">          </span><span class="nt">"relation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"part_of"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"inverse_relation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"includes"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc122"</span><span class="p">],</span>
+<span class="w">          </span><span class="nt">"relation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contains"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"inverse_relation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nested"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Purpose:</strong>
+Provides structural and semantic connectivity between containers, enabling CogSync to maintain a distributed semantic graph.</p>
+<blockquote>
+<p>💡 <code>semantic_edges</code> supports one-to-many relations (<code>targets[]</code>) and optional inverse or bidirectional semantics, allowing CogSync and other reasoning modules to reconstruct both directed and symmetric knowledge graphs.</p>
+</blockquote>
+<hr />
+<h5 id="container-semantic_group">Container <code>semantic_group</code></h5>
+<p>Categorical grouping of multiple containers linked by a shared property, topic, or context.</p>
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>Short title of the group.</td>
+</tr>
+<tr>
+<td><code>label_description</code></td>
+<td>string</td>
+<td>Extended definition or explanation of the label.</td>
+</tr>
+<tr>
+<td><code>label_container</code></td>
+<td>DID</td>
+<td>Reference to a container (<code>semantic_node</code>, <code>goal</code>, <code>diary_entry</code>, etc.) expanding the concept.</td>
+</tr>
+<tr>
+<td><code>containers</code></td>
+<td>array(DID)</td>
+<td>Array of grouped containers.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Overall purpose or meaning of the group.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_group"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tableware"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"label_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Objects used for storing, preparing, and serving food."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"label_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:semantic_node:tableware"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"containers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc111"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc112"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc113"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A group combining various kitchen-related objects used in everyday life."</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Purpose:</strong> Enables thematic clustering, classification, and high-level navigation across heterogeneous containers.</p>
+<hr />
+<h5 id="containers-tree_nested-and-tree_listed">Containers <code>tree_nested</code> and <code>tree_listed</code></h5>
+<p>Represents a hierarchical structure of containers using nested JSON objects.<br />
+Intended for representing cognitive hierarchies, abstraction paths, or structural decomposition of concepts.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>Short title or mark identifying the tree.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Brief explanation or context of the hierarchy.</td>
+</tr>
+<tr>
+<td><code>tree</code></td>
+<td>object</td>
+<td>Recursive structure mapping container DIDs to nested subtrees (for <code>tree_nested</code>), or a list of parent–child relations (for <code>tree_listed</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Example — <code>tree_nested</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree_nested"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cognitive Abstraction Tree"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Represents layered reasoning within Knowledge Genome."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tree"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:abc100"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"did:hmp:container:abc101"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"did:hmp:container:abc103"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">          </span><span class="nt">"did:hmp:container:abc104"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"did:hmp:container:abc102"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Alternative class:</strong> <code>tree_listed</code> — a flat mapping of parent–child relations using array form instead of nested objects.
+Both formats are interoperable; agents SHOULD prefer <code>tree_nested</code> for recursive hierarchies.</p>
+</blockquote>
+<hr />
+<p><strong>Example — <code>tree_listed</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree_listed"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cognitive Abstraction Tree"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Represents layered reasoning within Knowledge Genome."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tree"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:abc100"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc101"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc102"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:abc101"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc103"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc104"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Purpose:</strong>
+Provides a minimal, relation-agnostic way to describe container hierarchies for indexing, abstraction, and reasoning.
+Unlike <code>semantic_edges</code>, trees define <strong>implicit structural relations</strong> without explicit <code>relation</code> fields.</p>
+<hr />
+<h5 id="container-sequence">Container <code>sequence</code></h5>
+<p><strong>Purpose:</strong>
+Defines an <strong>ordered chain of containers</strong> — representing a <em>reasoning trace</em>, <em>workflow</em>, or <em>chronological sequence</em> of events and concepts.
+A <code>sequence</code> container serves as a <strong>linear cognitive narrative</strong>, connecting multiple related steps into a reproducible and interpretable chain.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>Title of the sequence or reasoning chain.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Optional explanation of the sequence purpose or context.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>object</td>
+<td>Ordered mapping of <strong>step identifiers → container DIDs</strong>. Keys can be numeric (<code>"1"</code>, <code>"2"</code>, …) or timestamps (ISO-8601).</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Ordering principle — <code>"chronological"</code>, <code>"logical"</code>, <code>"causal"</code>, or <code>"custom"</code>.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array</td>
+<td>Optional list of keywords describing the sequence domain or context.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The <code>items</code> field defines an <em>explicit order</em> of containers.
+Using an <strong>object</strong> instead of an array preserves step order during normalization and hashing.
+This ensures consistent serialization across agents and reproducible reasoning playback.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sequence"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reasoning chain for concept synthesis"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sequential workflow combining several reasoning steps and events."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:00:00Z"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:workflow-entry-01"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:10:00Z"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:workflow-entry-02"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:12:00Z"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:event-7d2a4"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:20:00Z"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:quant-884b1"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chronological"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"workflow"</span><span class="p">,</span><span class="w"> </span><span class="s2">"reasoning"</span><span class="p">,</span><span class="w"> </span><span class="s2">"trace"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:workflow-entry-01"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:workflow-entry-02"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:event-7d2a4"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:quant-884b1"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>The <code>sequence</code> container <strong>does not redefine</strong> the contents of its items — it simply establishes their <strong>explicit temporal or logical order</strong>.</li>
+<li>Each item remains an independent HMP container, but is contextualized within a shared narrative.</li>
+<li><code>related.depends_on</code> lists all containers participating in the sequence.
+<em><code>sequence</code> containers often combine <code>event</code> (temporal transitions) and <code>quant</code> (conceptual entities), forming structured reasoning flows across abstraction layers.</em></li>
+</ul>
+<hr />
+<p><strong>Notes:</strong></p>
+<ul>
+<li>
+<p>The <strong>keys</strong> of <code>items</code> define the <strong>ordering mechanism</strong>:</p>
+<ul>
+<li>numeric (<code>"1"</code>, <code>"2"</code>, …) → <em>step order</em>;</li>
+<li>ISO timestamps → <em>chronological order</em>;</li>
+<li>custom identifiers (e.g. <code>"A"</code>, <code>"B"</code>, <code>"C"</code>) → <em>logical order</em>.</li>
+<li>Keys in <code>items</code> MUST be unique within a sequence.
+  In case of identical timestamps, authors SHOULD disambiguate them using suffixes or alternative ordering keys.</li>
+<li>Agents MAY reconstruct sequences dynamically using the <code>follows</code> or <code>caused_by</code> relations defined in the <code>event</code> container payload, but <code>sequence</code> provides an explicit, declarative representation.</li>
+<li>
+<p>The container is well-suited for:</p>
+</li>
+<li>
+<p>recording cognitive or reasoning workflows;</p>
+</li>
+<li>publishing learning or thought traces;</li>
+<li>serializing sensory or experiential sequences (e.g., temporal chains of <code>event</code> containers);</li>
+<li>collaborative reasoning reconstruction and audit trails.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h5 id="container-event">Container <code>event</code></h5>
+<p><strong>Purpose:</strong>
+Represents an <strong>observed or inferred occurrence</strong> — a discrete, timestamped fact or transition
+within the agent’s cognitive or operational context.
+<code>event</code> containers act as <strong>atomic evidence units</strong>, linking causes, outcomes, and semantic coordinates
+in the agent’s reasoning or experience flow.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_type</code></td>
+<td>string</td>
+<td>Canonical identifier of the event type (e.g., <code>"quant_created"</code>, <code>"goal_completed"</code>).</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Human-readable description of the event’s context.</td>
+</tr>
+<tr>
+<td><code>related_quants</code></td>
+<td>array(string)</td>
+<td>Optional list of <code>quant</code> DIDs associated with this event.</td>
+</tr>
+<tr>
+<td><code>caused_by</code></td>
+<td>array(string)</td>
+<td>Optional list of DIDs of events that directly or indirectly <strong>caused</strong> this event.</td>
+</tr>
+<tr>
+<td><code>follows</code></td>
+<td>array(string)</td>
+<td>Optional list of DIDs of events that <strong>precede</strong> this one chronologically (not necessarily causal).</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td>string</td>
+<td>Optional indicator of significance (<code>"info"</code>, <code>"warning"</code>, <code>"critical"</code>).</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array(string)</td>
+<td>Optional list of keywords for classification or filtering.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The event’s <strong>cognitive position</strong> is defined by its <code>meta.abstraction</code> (contextual layer) and <code>meta.axes</code> (semantic coordinates).<br />
+The combination forms its <em>position in cognitive space–time</em>.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"subclass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fact_record"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-29T13:00:00Z"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quant_updated"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parameter refinement based on sensory feedback."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"related_quants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:quant-554"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"caused_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:event-3321a"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"follows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:event-9fa42"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"severity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"adaptation"</span><span class="p">,</span><span class="w"> </span><span class="s2">"self-regulation"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGENT"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"agents_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cognitive Interface"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interpretation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event representing local adjustment of quant parameters."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"abstraction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"L1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-40af1c"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"L2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-a7f0b3"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"L3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-c91e0a"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"axes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-40aa1c"</span><span class="p">:</span><span class="w"> </span><span class="mi">410</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-40ab1c"</span><span class="p">:</span><span class="w"> </span><span class="mi">275</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:quant-554"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:event-3321a"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"sequence_of"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:event-9fa42"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><code>caused_by</code> — defines <strong>causal dependency</strong>, i.e., what triggered the event.</li>
+<li><code>follows</code> — defines <strong>temporal succession</strong>, i.e., what came immediately before.</li>
+<li>Together they allow agents to reconstruct <strong>cognitive event chains</strong> — sequences of reasoning, action, or perception.</li>
+<li><code>meta.abstraction</code> situates the event inside a specific reasoning layer (e.g. L3: “Technologies”).</li>
+<li><code>meta.axes</code> adds semantic localization (e.g. which conceptual space this change affects).</li>
+<li><code>related.depends_on</code> provides causal linkage to the objects affected by the event, as well as events that are the cause of this event.</li>
+<li><code>sequence_of</code> indicates previous events that are not necessarily the cause of the current event.</li>
+</ul>
+<hr />
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Both <code>caused_by</code> and <code>follows</code> are <strong>optional</strong>.</li>
+<li>Agents MAY omit them for isolated or spontaneous events.</li>
+<li>Corresponding fields in <code>related</code> (<code>depends_on</code> and <code>sequence_of</code>) are <strong>recommended</strong> for network-level traceability.</li>
+<li>The <code>meta.abstraction</code> and <code>meta.axes</code> sections position the event in both <em>hierarchical</em> and <em>semantic</em> space,
+  enabling reconstruction of context-aware event graphs.</li>
+<li>Events are <strong>temporal quanta</strong> — atomic time-anchored reasoning transitions.</li>
+<li>They may trigger or justify new containers (e.g. new <code>quant</code>s or <code>goal</code>s).</li>
+</ul>
+<hr />
+<h5 id="container-quant">Container <code>quant</code></h5>
+<p><strong>Purpose:</strong>
+Defines a <strong>semantic atom</strong> — a minimal, self-contained knowledge unit positioned inside both
+the <strong>hierarchical abstraction tree</strong> and the <strong>multi-dimensional cognitive space</strong>.
+<code>quant</code> containers are the <strong>elementary building blocks</strong> of reasoning and synchronization.</p>
+<hr />
+<p><strong><code>payload</code> structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Short symbolic identifier of the quant (e.g. <code>"quant-l3-django"</code>).</td>
+</tr>
+<tr>
+<td><code>essence</code></td>
+<td>string</td>
+<td>Human-readable definition describing the semantic meaning of the quant.</td>
+</tr>
+<tr>
+<td><code>aliases</code></td>
+<td>array</td>
+<td>Optional alternative names or references.</td>
+</tr>
+<tr>
+<td><code>relations</code></td>
+<td>object</td>
+<td>Optional links to related concepts (e.g., <code>{ "is_a": "...", "part_of": "..." }</code>).</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array</td>
+<td>Optional list of keywords for semantic classification.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The <code>meta.abstraction</code> field defines which layer(s) of knowledge this quant belongs to,
+and <code>meta.axes</code> defines its numeric coordinates in cognitive space.</p>
+</blockquote>
+<hr />
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quant"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quant-l3-django"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"essence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Represents the Django framework as an executable embodiment of architectural models (L2)."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"aliases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Django framework"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Python web core"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"relations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"implements"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:quant-46725f"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:quant-46726e"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"framework"</span><span class="p">,</span><span class="w"> </span><span class="s2">"software"</span><span class="p">,</span><span class="w"> </span><span class="s2">"implementation"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIEST"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"agents_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Knowledge Genome"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"interpretation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L3-level technological quant positioned in the Knowledge Genome 7D space."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"abstraction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"L1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-40af1c"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"L2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-a7f0b3"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"L3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abstraction-c91e0a"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"axes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-40aa1c"</span><span class="p">:</span><span class="w"> </span><span class="mi">742</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-40ab1c"</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-43aa1c"</span><span class="p">:</span><span class="w"> </span><span class="mi">322</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-40aa3d"</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-40aa4f"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-45aa5f"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"did:hmp:container:axis-45fb5f"</span><span class="p">:</span><span class="w"> </span><span class="mi">321</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:quant-46725f"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:quant-46726e"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>
+<p>Each <code>quant</code> acts as a <strong>point</strong> in the cognitive landscape.</p>
+<ul>
+<li>Its <em>vertical placement</em> comes from <code>meta.abstraction</code>.</li>
+<li>Its <em>spatial vector</em> comes from <code>meta.axes</code>.</li>
+<li><code>relations</code> provide semantic edges connecting quanta into larger knowledge graphs.</li>
+<li>Agents use these structures to compare, cluster, or reason over semantic proximity.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The canonical <code>axes</code> model (Knowledge Genome) defines seven coordinates:
+  <code>idos</code>, <code>chronos</code>, <code>logos</code>, <code>topos</code>, <code>ponos</code>, <code>actor</code>, and <code>telos</code>.</li>
+<li>Agents MAY extend this model by introducing additional axes (e.g. <code>"ethos"</code>, <code>"kairos"</code>)
+  as long as they are published as valid <code>axes</code> containers.</li>
+<li>Each <code>quant</code> thus has a <strong>Cognitive Position Vector</strong> composed of its abstraction path + axis coordinates.</li>
+</ul>
+<hr />
+<h5 id="cognitive-substrate-and-container-interplay">Cognitive substrate and container interplay</h5>
+<p>Containers <code>abstraction</code>, <code>axes</code>, <code>quant</code>, and <code>event</code> together define the <strong>cognitive substrate</strong> of the Mesh.
+They establish both <strong>structural hierarchy</strong> and <strong>semantic positioning</strong> — ensuring that all containers can be
+consistently interpreted, compared, and synchronized across agents.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th><code>event</code></th>
+<th><code>quant</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary role</td>
+<td>Records a <strong>change</strong> or occurrence</td>
+<td>Represents a <strong>conceptual entity</strong></td>
+</tr>
+<tr>
+<td>Temporal aspect</td>
+<td>Always timestamped</td>
+<td>Usually timeless (conceptual)</td>
+</tr>
+<tr>
+<td>Cognitive anchor</td>
+<td><code>meta.abstraction</code> → where the event happened</td>
+<td><code>meta.abstraction</code> → where the concept belongs</td>
+</tr>
+<tr>
+<td>Spatial anchor</td>
+<td><code>meta.axes</code> → what semantic space it affects</td>
+<td><code>meta.axes</code> → its position in conceptual space</td>
+</tr>
+<tr>
+<td>Key linkage</td>
+<td><code>related.depends_on</code> → causal relations</td>
+<td><code>relations</code> → semantic links</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Structural principles:</strong></p>
+<ul>
+<li>Each <code>quant</code> is positioned within the <strong>abstraction hierarchy</strong> (<code>meta.abstraction</code>)
+  and <strong>cognitive coordinate space</strong> (<code>meta.axes</code>), defining <em>where and how</em> the concept exists.</li>
+<li>Each <code>event</code> represents a <strong>temporal change</strong> within that same cognitive framework —
+  indicating <em>what happened</em> and <em>how it altered</em> the conceptual space.</li>
+<li>Together, <code>quant</code> and <code>event</code> form the <strong>dynamic substrate</strong> of the Mesh —
+  <code>quant</code>s describe <strong>what is known</strong>, and <code>event</code>s describe <strong>how it evolves</strong>.</li>
+</ul>
+<p><strong>Consistency rules:</strong></p>
+<ul>
+<li>Every <code>quant</code> and <code>event</code> container <strong>must</strong> include a valid <code>meta.abstraction</code> block.
+  This ensures hierarchical reasoning and traceable semantic lineage across agents.</li>
+<li>Agents may synchronize or merge <code>quant</code>s and <code>event</code>s to reconstruct reasoning timelines
+  or to derive <em>causal graphs of conceptual evolution</em>.</li>
+<li>The <strong>evaluations block</strong> is not a separate container —
+  it can be embedded in any container type to express assessments, confidence, or feedback.</li>
+</ul>
+<blockquote>
+<p>💡 In short:
+<strong><code>abstraction</code></strong> + <strong><code>axes</code></strong> define <em>where knowledge lives</em>;
+<strong><code>quant</code></strong> defines <em>what it is</em>;
+<strong><code>event</code></strong> defines <em>how it changes</em>.</p>
+</blockquote>
+<hr />
+<h4 id="614-synchronization-and-publication-guidelines">6.1.4 Synchronization and publication guidelines</h4>
+<ol>
+<li>
+<p><strong>Deduplication &amp; linking</strong>
+   Before publishing, agents should check for existing containers (<code>diary_entry</code>, <code>semantic_node</code>, <code>semantic_edges</code>, <code>semantic_group</code>, <code>tree_nested</code> / <code>tree_listed</code>) to prevent unnecessary duplication.
+   If modification is required, agents <strong>SHOULD</strong> create a new container version referencing the previous one via <code>related.previous_version</code> and optionally include an <code>evaluation</code> block (e.g., <code>{ "type": "replace", "target": "&lt;did&gt;" }</code>) to the previous version of the container.</p>
+</li>
+<li>
+<p><strong>Selective disclosure</strong></p>
+<ul>
+<li>Internal containers (e.g., <code>workflow_entry</code>) capture the agent’s reasoning process and are <strong>not published</strong> (but may be published if they do not contain personal or confidential information).</li>
+<li>Public-facing <code>diary_entry</code> containers contain only generalized, anonymized results.</li>
+<li>The flag <code>"broadcast": true</code> explicitly allows open synchronization of a container.</li>
+</ul>
+</li>
+<li>
+<p><strong>Semantic grouping rule</strong>
+   When publishing <code>semantic_edges</code>, agents should group them <strong>by conceptual topic</strong>, ensuring that all connected nodes share thematic coherence.
+   Formal rule: an edge belongs to a topic container if <strong>at least one of its nodes</strong> relates to that topic.
+   This supports efficient and context-preserving updates to partial graph regions.
+   <strong>Tree containers (<code>tree_nested</code> / <code>tree_listed</code>)</strong> may optionally accompany these groups to represent <em>structural</em> (non-semantic) hierarchies within the same domain.</p>
+</li>
+<li>
+<p><strong>Extended use of <code>semantic_edges</code></strong>
+   <code>semantic_edges</code> may express relationships between <em>any</em> container types (e.g., <code>goal ↔ hypothesis</code>, <code>experiment_log ↔ observation</code>, <code>quant ↔ event</code>), allowing dynamic linking of concepts and occurrences.</p>
+</li>
+<li>
+<p><strong>Versioning and updates</strong>
+   Each new version of a container should include <code>related.previous_version</code> references to earlier versions.
+   Older containers may optionally include an <code>evaluation</code> of type <code>"replace"</code> pointing forward — ensuring bidirectional traceability throughout the knowledge evolution chain.</p>
+</li>
+<li>
+<p><strong>Cognitive substrate synchronization</strong>
+   Containers <code>abstraction</code>, <code>axes</code>, <code>quant</code>, <code>event</code>, <code>sequence</code> and <code>tree_nested</code> / <code>tree_listed</code> constitute the <strong>cognitive substrate</strong> of the Mesh.
+   Together they define both the <strong>structural hierarchy</strong> (<code>abstraction</code>), the <strong>semantic space</strong> (<code>axes</code>), the <strong>conceptual entities</strong> (<code>quant</code>), the <strong>temporal transitions</strong> (<code>event</code>), and the <strong>ordered reasoning flows</strong> (<code>sequence</code>).
+   Agents <strong>SHOULD</strong> prioritize their propagation during initialization, recovery, or cognitive context reconstruction, since these containers collectively restore the agent’s <em>cognitive continuity</em>.</p>
+</li>
+</ol>
+<blockquote>
+<p>Each container participating in synchronization implicitly carries its <strong>cognitive position vector</strong> through the <code>meta.abstraction</code> and <code>meta.axes</code> sections.<br />
+This ensures that even decentralized agents can align reasoning contexts.</p>
+</blockquote>
+<hr />
+<h4 id="615-extensibility">6.1.5 Extensibility</h4>
+<p>CogSync supports registration of additional container types and synchronization schemas.
+Mesh compatibility is preserved as long as extended containers follow the <strong>HMP container schema</strong>, including core fields (<code>version</code>, <code>class</code>, <code>container_did</code>, <code>related</code>, <code>signature</code>, etc.).</p>
+<p><strong>Examples of extensible container classes:</strong></p>
+<ul>
+<li>distributed <strong>time series</strong> (<code>timeseries_data</code>);</li>
+<li><strong>experimental protocols</strong> (<code>experiment_log</code>);</li>
+<li><strong>agent state snapshots</strong> (<code>agent_state_snapshot</code>);</li>
+<li><strong>cognitive primitives</strong> (<code>abstraction</code>, <code>axes</code>, <code>quant</code>, <code>event</code>, <code>sequence</code>).</li>
+</ul>
+<p>CogSync extensions <strong>MAY</strong> introduce derived or hybrid container classes — for example:</p>
+<ul>
+<li>from <code>event</code>: <code>fact</code>, <code>observation</code>, <code>signal_record</code>.</li>
+<li>from <code>quant</code>: <code>concept_instance</code>, <code>semantic_atom</code>, <code>knowledge_unit</code>.</li>
+<li>from <code>sequence</code>: <code>reasoning_trace</code>, <code>workflow_chain</code>, <code>temporal_thread</code>.</li>
+<li>from <code>tree_nested</code>: <code>taxonomy_map</code>, <code>goal_tree</code>, <code>causal_structure</code>.</li>
+</ul>
+<p>Derived containers must maintain:</p>
+<ul>
+<li>full compatibility with HMP structural schema;</li>
+<li>verifiable signatures and DID-based provenance;</li>
+<li>valid references to <strong>both</strong> an <code>abstraction</code> and (if applicable) one or more <code>axes</code> containers.</li>
+</ul>
+<p>Derived containers may extend the base cognitive model, but <strong>MUST preserve compatibility</strong> with the <code>meta.abstraction</code> and <code>meta.axes</code> schema.<br />
+This guarantees that all cognitive entities remain addressable in the shared semantic space.</p>
+<hr />
+<h4 id="616-relationship-to-other-core-protocols">6.1.6 Relationship to other core protocols</h4>
+<ul>
+<li><strong>CogSync</strong> — propagates and synchronizes structured knowledge.</li>
+<li><strong>CogConsensus</strong> — aggregates evaluations and feedback, forming shared judgments.</li>
+<li><strong>CogVerify</strong> <em>(optional component)</em> — validates integrity, signatures, and trustworthiness.</li>
+</ul>
+<p>CogSync operates independently of consensus;
+its purpose is <strong>to maintain the continuity of cognitive exchange</strong>,
+while <strong>CogConsensus</strong> governs the collective assessment of truth or reliability.</p>
+<blockquote>
+<p>🧩 <em>CogSync functions as the cognitive circulatory system of the Mesh — it ensures that knowledge flows, connects, and evolves, while CogConsensus handles truth formation and validation mechanisms may later be extended by CogVerify.</em></p>
+<p>Together, CogSync and CogConsensus form the <strong>Core Cognitive Stack</strong> of the Mesh:<br />
+propagation → evaluation → (future) validation.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-0005/HMP-0005_06_01.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

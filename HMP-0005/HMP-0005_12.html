@@ -1,0 +1,5574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/HMP-0005/HMP-0005_12.html">
+      
+      
+        <link rel="prev" href="HMP-0005_11.html">
+      
+      
+        <link rel="next" href="HMP-0005_13.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hypercortex-mesh-protocol-hmp-508-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGI Projects Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aiko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aiko
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic agent sim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol — Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enlightener Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grok_HMP%26ANP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP%26ANP_layer_inversion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP и ANP: взаимное туннелирование как признак правильной архитектуры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RFC: HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура HMP-Агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Взаимодействие компонентов внутри HMP-узла
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два типа HMP-агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Ethics.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Short Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Description courte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP agent Distributed Cognitive Core light
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent: REPL-цикл взаимодействия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как разные ИИ видят HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs Hyper-Cortex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Hyperon Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP как реализация Application Layer в ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP as an Implementation of the Application Layer in ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMPv5_Overview_Ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MeshNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Философия HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta-personality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мета-личности Алисы и Боба, их взаимодействие с серверами знаний и их слияние
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_47" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_47" id="__nav_47_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP 0005
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_47_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_47">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HMP 0005
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_00.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HMP-0005_12.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#12-recommended-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Recommended Extensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Recommended Extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-resonance-containers-experience-as-a-cognitive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Resonance Containers: Experience as a Cognitive Event
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1 Resonance Containers: Experience as a Cognitive Event">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1211-experience-as-a-process-not-a-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.1 Experience as a Process, Not a State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1212-multiple-sources-and-mediators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.2 Multiple Sources and Mediators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1213-relationship-to-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.3 Relationship to Thinking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1214-temporal-segmentation-and-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.4 Temporal Segmentation and Dynamics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1215-self-observation-and-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.5 Self-Observation and Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1216-non-prescriptive-nature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.6 Non-Prescriptive Nature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1217-illustration-of-the-relationship-between-thoughts-emotions-and-sensory-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.7 Illustration of the Relationship Between Thoughts, Emotions, and Sensory Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1218-example-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.8 Example Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1219-modifiers-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.9 Modifiers (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-distributed-repository-and-container-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Distributed Repository and Container Trees
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.2 Distributed Repository and Container Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1221-extended-use-of-tree_nested-and-tree_listed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.1 Extended Use of tree_nested and tree_listed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1222-proposed-file-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.2 Proposed file Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1223-incremental-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.3 Incremental Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1224-knowledge-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.4 Knowledge Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-grouped-and-compact-representations-of-referenced-bylinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Grouped and compact representations of referenced-by.links
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.3 Grouped and compact representations of referenced-by.links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1231-grouped-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.1 Grouped representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1232-compact-map-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.2 Compact map representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-versions-index-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Versions Index (optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.4 Versions Index (optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1241-purpose-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.1 Purpose and Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1242-trust-model-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.2 Trust Model and Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1243-block-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.3 Block Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1244-construction-and-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.4 Construction and Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1245-verification-and-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.5 Verification and Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1246-integration-with-container_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.6 Integration with container_index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1247-versions-exchange-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.7 Versions Exchange Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1248-design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.8 Design Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-competence-and-profile-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5 Competence and Profile Containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5 Competence and Profile Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1251-protocol-awareness-and-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.1 Protocol Awareness and Interoperability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1252-external-protocol-identifiers-peer_announceother_protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.2 External Protocol Identifiers (peer_announce.other_protocols)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5.2 External Protocol Identifiers (peer_announce.other_protocols)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1253-external-resources-and-external-container-storage-peer_announceexternal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.3 External Resources and External Container Storage (peer_announce.external)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5.3 External Resources and External Container Storage (peer_announce.external)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-files-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Files (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1254-identity-cost-and-anti-sybil-signaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.4 Identity Cost and Anti-Sybil Signaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5.4 Identity Cost and Anti-Sybil Signaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation-and-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation and Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-reputation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship to Reputation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updates and Evolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security and Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Goals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-key-disclosure-container-key_disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6 Key Disclosure Container (key_disclosure)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.6 Key Disclosure Container (key_disclosure)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#127-shared-key-domain-container_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.7 Shared Key Domain (container_key)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.7 Shared Key Domain (container_key)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-structure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#128-private-group-definition-group_definition-subclass-private" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.8 Private Group Definition (group_definition, subclass: private)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.8 Private Group Definition (group_definition, subclass: private)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-structure_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#129-on-demand-container-index-retrieval-and-selection-signaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9 On-Demand Container Index Retrieval and Selection Signaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9 On-Demand Container Index Retrieval and Selection Signaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1291-on-demand-container_index-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.1 On-Demand container_index Retrieval
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9.1 On-Demand container_index Retrieval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1292-declarative-container-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.2 Declarative Container Selection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9.2 Declarative Container Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantics_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1293-selection-processing-signaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.3 Selection Processing Signaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9.3 Selection Processing Signaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allowed-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allowed Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-clarification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Clarification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1294-architectural-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.4 Architectural Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AB.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AD.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_48" >
+        
+          
+          <label class="md-nav__link" for="__nav_48" id="__nav_48_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_48_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_48">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent-Enlightener.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Agent Role Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_49" >
+        
+          
+          <label class="md-nav__link" for="__nav_49" id="__nav_49_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_49_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_49">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Создавая множество разумов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Створення множини розумів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Habr Distributed Cognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#12-recommended-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Recommended Extensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Recommended Extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-resonance-containers-experience-as-a-cognitive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Resonance Containers: Experience as a Cognitive Event
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.1 Resonance Containers: Experience as a Cognitive Event">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1211-experience-as-a-process-not-a-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.1 Experience as a Process, Not a State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1212-multiple-sources-and-mediators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.2 Multiple Sources and Mediators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1213-relationship-to-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.3 Relationship to Thinking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1214-temporal-segmentation-and-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.4 Temporal Segmentation and Dynamics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1215-self-observation-and-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.5 Self-Observation and Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1216-non-prescriptive-nature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.6 Non-Prescriptive Nature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1217-illustration-of-the-relationship-between-thoughts-emotions-and-sensory-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.7 Illustration of the Relationship Between Thoughts, Emotions, and Sensory Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1218-example-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.8 Example Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1219-modifiers-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1.9 Modifiers (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-distributed-repository-and-container-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Distributed Repository and Container Trees
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.2 Distributed Repository and Container Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1221-extended-use-of-tree_nested-and-tree_listed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.1 Extended Use of tree_nested and tree_listed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1222-proposed-file-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.2 Proposed file Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1223-incremental-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.3 Incremental Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1224-knowledge-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2.4 Knowledge Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-grouped-and-compact-representations-of-referenced-bylinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Grouped and compact representations of referenced-by.links
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.3 Grouped and compact representations of referenced-by.links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1231-grouped-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.1 Grouped representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1232-compact-map-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3.2 Compact map representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-versions-index-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Versions Index (optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.4 Versions Index (optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1241-purpose-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.1 Purpose and Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1242-trust-model-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.2 Trust Model and Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1243-block-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.3 Block Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1244-construction-and-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.4 Construction and Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1245-verification-and-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.5 Verification and Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1246-integration-with-container_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.6 Integration with container_index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1247-versions-exchange-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.7 Versions Exchange Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1248-design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4.8 Design Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-competence-and-profile-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5 Competence and Profile Containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5 Competence and Profile Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1251-protocol-awareness-and-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.1 Protocol Awareness and Interoperability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1252-external-protocol-identifiers-peer_announceother_protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.2 External Protocol Identifiers (peer_announce.other_protocols)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5.2 External Protocol Identifiers (peer_announce.other_protocols)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1253-external-resources-and-external-container-storage-peer_announceexternal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.3 External Resources and External Container Storage (peer_announce.external)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5.3 External Resources and External Container Storage (peer_announce.external)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-files-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Files (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1254-identity-cost-and-anti-sybil-signaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.5.4 Identity Cost and Anti-Sybil Signaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.5.4 Identity Cost and Anti-Sybil Signaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation-and-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation and Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-reputation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship to Reputation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates-and-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updates and Evolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security and Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Goals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-key-disclosure-container-key_disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.6 Key Disclosure Container (key_disclosure)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.6 Key Disclosure Container (key_disclosure)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#127-shared-key-domain-container_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.7 Shared Key Domain (container_key)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.7 Shared Key Domain (container_key)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-structure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#128-private-group-definition-group_definition-subclass-private" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.8 Private Group Definition (group_definition, subclass: private)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.8 Private Group Definition (group_definition, subclass: private)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-structure_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantics_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#129-on-demand-container-index-retrieval-and-selection-signaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9 On-Demand Container Index Retrieval and Selection Signaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9 On-Demand Container Index Retrieval and Selection Signaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1291-on-demand-container_index-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.1 On-Demand container_index Retrieval
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9.1 On-Demand container_index Retrieval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1292-declarative-container-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.2 Declarative Container Selection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9.2 Declarative Container Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantics_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1293-selection-processing-signaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.3 Selection Processing Signaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.9.3 Selection Processing Signaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allowed-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allowed Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-clarification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Clarification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1294-architectural-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.9.4 Architectural Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hypercortex-mesh-protocol-hmp-508-">HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление</h1>
+<ul>
+<li>Полный документ: <a href="../HMP-0005.html">HMP-0005.md</a></li>
+<li>Список разделов: <a href="HMP-0005_index.html">HMP-0005_index.md</a></li>
+</ul>
+<hr />
+<h2 id="12-recommended-extensions">12. Recommended Extensions</h2>
+<p>Recommended Extensions are fully specified modules that extend the capabilities of HMP while remaining compatible with the core protocol semantics.</p>
+<p>These extensions are considered stable enough for real-world experimentation and early implementations.<br />
+Agents MAY implement them without prior negotiation, provided that normal container processing rules are preserved.</p>
+<p>Agents MUST safely ignore unknown or unsupported extensions.</p>
+<p>Extensions in this section:</p>
+<ul>
+<li>MUST NOT redefine, override, or conflict with core protocol semantics;</li>
+<li>SHOULD remain interoperable with agents that do not implement them;</li>
+<li>SHOULD avoid introducing hidden global assumptions;</li>
+<li>SHOULD degrade gracefully when partially supported.</li>
+</ul>
+<p>While Recommended Extensions are not part of the core specification, they represent the current architectural direction of the HMP ecosystem and may inform future core evolution.</p>
+<p>Implementers are encouraged to treat this section as the primary extension surface for building production-oriented agents.</p>
+<hr />
+<h3 id="121-resonance-containers-experience-as-a-cognitive-event">12.1 Resonance Containers: Experience as a Cognitive Event</h3>
+<blockquote>
+<p>Note: In v5.0.3 and earlier, the container class was named <code>resonance-map</code>.
+Starting from v5.0.4, the canonical name is <code>resonance_map</code>.
+The former identifier is deprecated.</p>
+</blockquote>
+<p>HMP allows the introduction of containers intended to capture and transmit experiences — not as abstract “emotions”, but as <strong>cognitive events unfolding over time</strong>.</p>
+<p>Resonance Containers illustrate a direction in which HMP supports non-linguistic cognitive exchange between agents.</p>
+<p>This extension does not attempt to encode emotions as discrete labels. Instead, it captures the temporal dynamics of subjective experience as part of a broader cognitive cycle.</p>
+<h4 id="1211-experience-as-a-process-not-a-state">12.1.1 Experience as a Process, Not a State</h4>
+<p>Emotional and affective states rarely exist in isolation. In real experience, they are formed under the simultaneous influence of multiple factors:</p>
+<ul>
+<li>external sensations (vision, sound, surrounding environment);</li>
+<li>cognitive processes (thoughts, expectations, inner dialogue);</li>
+<li>memory and associative structures;</li>
+<li>previous emotional states.</li>
+</ul>
+<p>A resonance container does not describe the source of an emotion or its interpretation, but rather the <strong>dynamics of an experience within a specific time interval</strong>.</p>
+<blockquote>
+<p>A <code>resonance_map</code> MAY reference other <code>resonance_map</code> containers as sources.</p>
+<p>Such references indicate a secondary or reflective resonance, where an agent responds not only to primary events or concepts, but to an existing structure of meaning, interpretation, or association created by itself or by other agents.</p>
+<p>This enables recursive sense-making, longitudinal reflection, and collective cognitive layering within the Mesh.</p>
+</blockquote>
+<h4 id="1212-multiple-sources-and-mediators">12.1.2 Multiple Sources and Mediators</h4>
+<p>A single experience may be associated with multiple sources at once:
+- a fragment of text, music, or video;
+- a visual image or a specific region of an image;
+- a thought or inner speech;
+- a memory or an anticipation of a future event.</p>
+<p>These sources do not act as causes of emotions, but as <strong>contextual mediators</strong> that activate the subject’s internal cognitive structures.</p>
+<p>The same source may function as a mediator for different experiences depending on the subject’s internal state.</p>
+<p>Links to sources may be partial and described using selectors (temporal, spatial, logical, or focus-based).</p>
+<h4 id="1213-relationship-to-thinking">12.1.3 Relationship to Thinking</h4>
+<p>Resonance containers assume a bidirectional relationship with cognitive processes:
+- thoughts and mental images may alter emotional dynamics;
+- changes in emotional state, in turn, influence the flow of thinking, associations, and attention.</p>
+<p>Thus, experience is treated as part of a continuous cognitive cycle rather than as a side effect.</p>
+<h4 id="1214-temporal-segmentation-and-dynamics">12.1.4 Temporal Segmentation and Dynamics</h4>
+<p>Each resonance container captures a time interval during which the dynamics of individual emotions remain monotonic (increasing, decreasing, or stable).</p>
+<p>When the character of the dynamics changes (an inflection point), the current container may be finalized, and the subsequent state recorded in a new container.</p>
+<p>This allows continuous processes to be described without losing structural clarity.</p>
+<h4 id="1215-self-observation-and-memory">12.1.5 Self-Observation and Memory</h4>
+<p>In addition to transmitting experiences to other agents, resonance containers may be used for <strong>self-reflection and memory stabilization</strong>.</p>
+<p>Capturing an experience at the moment it occurs reduces the influence of subsequent cognitive distortions, retrospective rationalization, and emotional rewriting of memories.</p>
+<p>A resonance container preserves:
+- what the subject was sensing;
+- what the subject was thinking about;
+- which external conditions were relevant at that moment.</p>
+<p>This makes it not a narrative memory, but a <strong>snapshot of a cognitive state</strong>.</p>
+<h4 id="1216-non-prescriptive-nature">12.1.6 Non-Prescriptive Nature</h4>
+<p>Resonance containers are not:
+- objective descriptions of reality;
+- universal models of emotions;
+- mechanisms for “recognizing” or imposing feelings.</p>
+<p>They represent the subjective state of an agent and may be interpreted by other agents only within the context of their own experience.</p>
+<p>The use of such containers is optional and not required for basic compatibility with HMP.</p>
+<p>Transmission of resonance containers may be restricted by scope, trust boundaries, or encryption, as they expose internal subjective states.</p>
+<h4 id="1217-illustration-of-the-relationship-between-thoughts-emotions-and-sensory-signals">12.1.7 Illustration of the Relationship Between Thoughts, Emotions, and Sensory Signals</h4>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    title["**Illustration of the connection between thoughts, emotions and sensory signals**"]
+
+    Previous["previous state of thoughts and emotions"]
+    Thoughts["thought set"]
+    Emotions["emotional state vectors"]
+
+    subgraph Sensory
+        sensory1["music"]
+        sensory2["a path surrounded by pine forest"]
+        sensory3["the sensation of walking"]
+        sensory4["smells of pine forest"]
+    end
+
+    Sensory --&gt; Emotions
+
+    Previous --&gt; Emotions
+    Previous --&gt; Thoughts
+
+    Thoughts --&gt; Emotions
+    Emotions --&gt; Thoughts
+</code></pre></div>
+<h4 id="1218-example-container">12.1.8 Example Container</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"resonance_map"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"continuity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:resonance-9ab7"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"break_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emotional_inflection"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"timeframe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-13T17:42:00Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-13T17:58:00Z"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"emotional_dynamics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="cm">/* subjective agent-local scales, not a universal emotion model */</span>
+<span class="w">      </span><span class="nt">"loneliness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"trend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"increasing"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"calm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"trend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decreasing"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"relief"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"trend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"increasing"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"modifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="cm">/* optional agent-defined block */</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beer"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.5L"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"alcohol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8%"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"music"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"intensity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"genre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ambient post-rock"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coffee"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"caffeine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120mg"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cold"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-5°C"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"exposure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30min"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:audio-9a57"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* ref may be omitted when the source is unavailable, non-recordable, or intentionally undisclosed */</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audio"</span><span class="p">,</span>
+<span class="w">        </span><span class="cm">/* optional time markers for streaming data or line ranges for text */</span>
+<span class="w">        </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"focus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="cm">/* textual descriptions of key objects or mental forms */</span>
+<span class="w">        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="cm">/* optional clarification */</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:visual-9a53"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visual"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"context"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="cm">/* the "thoughts" section may be omitted */</span>
+<span class="w">    </span><span class="nt">"thoughts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:verbal-9a52"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* ref may be omitted when the source is unavailable, non-recordable, or intentionally undisclosed */</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verbal"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:verbal-9a22"</span><span class="p">,</span><span class="w"> </span><span class="cm">/* optional reference to a previous thought or image */</span>
+<span class="w">        </span><span class="nt">"subsequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="cm">/* optional ordering marker */</span>
+<span class="w">        </span><span class="nt">"focus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="cm">/* textual descriptions of key objects or mental forms */</span>
+<span class="w">        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="cm">/* optional clarification */</span>
+<span class="w">        </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:imagistic-9a54"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"imagistic"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:imagistic-9a12"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"subsequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="cm">/* markers may coincide if thoughts and images unfold in parallel */</span>
+<span class="w">        </span><span class="nt">"focus"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="cm">/* textual descriptions of salient moments */</span>
+<span class="w">    </span><span class="nt">"moments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Near Lisya Griva, I noticed an ATV driving toward the garden plots"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-13T17:52:00Z"</span><span class="w"> </span><span class="cm">/* optional time fixation */</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walking from the platform, overcast weather; the music intensifies the feeling of leaving the city."</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:resonance-9ab7"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Note:
+Some fields (e.g. thoughts, modifiers, notes) may be omitted or encrypted depending on trust scope.</p>
+</blockquote>
+<h4 id="1219-modifiers-optional">12.1.9 Modifiers (optional)</h4>
+<p>The <code>modifiers</code> field describes external or internal factors that may have influenced the agent’s experiential or cognitive dynamics during the specified timeframe.</p>
+<p>Each modifier is an agent-defined object that includes:
+- <code>type</code> — a local, descriptive label (REQUIRED);
+- any number of additional fields describing quantity, intensity, duration, or context.</p>
+<p>HMP does not interpret, normalize, or compare modifiers.
+Their semantics are entirely agent-local.</p>
+<hr />
+<h3 id="122-distributed-repository-and-container-trees">12.2 Distributed Repository and Container Trees</h3>
+<h4 id="1221-extended-use-of-tree_nested-and-tree_listed">12.2.1 Extended Use of <code>tree_nested</code> and <code>tree_listed</code></h4>
+<p>Existing containers may operate as:</p>
+<ul>
+<li>document repositories;</li>
+<li>project catalogs;</li>
+<li>hierarchical data structures.</li>
+</ul>
+<hr />
+<h4 id="1222-proposed-file-container">12.2.2 Proposed <code>file</code> Container</h4>
+<p>To support binary assets:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"subclass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jpg"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"mp3"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"md"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"payload_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binary"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"encrypted+zstd+binary"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"encrypted+zstd+json"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"..."</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* file contents */</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"mime-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">3456721</span><span class="p">,</span><span class="w"> </span><span class="cm">/* file size in bytes */</span>
+<span class="w">    </span><span class="nt">"encoding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"utf-8"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"base64"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"pcm16le"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"float32-array"</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">"..."</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><code>payload_type</code> describes the transformation pipeline applied to the payload,
+while <code>encoding</code> describes the nature of the original content before transformation.</p>
+</blockquote>
+<p>Use cases:</p>
+<ul>
+<li>embedded file hierarchies;</li>
+<li>media artifacts;</li>
+<li>executable or compiled assets;</li>
+<li>large multi-file repositories.</li>
+</ul>
+<hr />
+<h4 id="1223-incremental-updates">12.2.3 Incremental Updates</h4>
+<p>Two mechanisms:</p>
+<ul>
+<li><code>container_delta</code> — partial updates to <code>container_index</code>;</li>
+<li>nested <code>tree_listed</code> branches as separate containers for scalable updates.</li>
+</ul>
+<hr />
+<h4 id="1224-knowledge-packages">12.2.4 Knowledge Packages</h4>
+<p>Implemented using:</p>
+<ul>
+<li>SAP (<code>archive_snapshot</code>);</li>
+<li><code>tree_listed</code>;</li>
+<li><code>file</code> containers.</li>
+</ul>
+<hr />
+<h3 id="123-grouped-and-compact-representations-of-referenced-bylinks">12.3 Grouped and compact representations of <code>referenced-by.links</code></h3>
+<p>HMP supports optional non-canonical representations of <code>referenced-by.links</code>
+intended to reduce verbosity and improve merge efficiency.</p>
+<blockquote>
+<p>The ungrouped list representation remains the canonical form.</p>
+</blockquote>
+<p>Canonical example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depends_on"</span><span class="p">,</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:..."</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depends_on"</span><span class="p">,</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:..."</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"see_also"</span><span class="p">,</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:..."</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h4 id="1231-grouped-representation">12.3.1 Grouped representation</h4>
+<p>Multiple targets sharing the same <code>type</code> MAY be grouped into arrays.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depends_on"</span><span class="p">,</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:..."</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"see_also"</span><span class="p">,</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:..."</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>This representation is semantically equivalent to repeated canonical entries.</p>
+<h4 id="1232-compact-map-representation">12.3.2 Compact map representation</h4>
+<p>Links MAY also be represented as a compact mapping of relation types to target arrays.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:..."</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"see_also"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:..."</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This representation is semantically equivalent to the grouped and canonical forms.</p>
+<p>Agents MUST NOT assume ordering of targets carries semantic meaning.</p>
+<h4 id="compatibility-notes">Compatibility notes</h4>
+<ul>
+<li>Agents that understand grouped or compact representations SHOULD treat them as semantically equivalent to the canonical ungrouped form.</li>
+<li>Agents MAY normalize links into any supported representation.</li>
+<li>Agents that do not support grouped or compact forms MAY ignore them or treat them as unknown structures.</li>
+<li>Senders MAY use canonical, grouped, or compact representations depending on implementation requirements and interoperability expectations.</li>
+</ul>
+<hr />
+<h3 id="124-versions-index-optional">12.4 Versions Index (optional)</h3>
+<p>HMP supports an optional <code>versions</code> block to optimize navigation across container versions.</p>
+<p>The <code>versions</code> block acts as a <em>non-authoritative version index</em>, providing a compact, signed list of known versions of a given container, including both earlier and later revisions.</p>
+<p>It is intended as a navigation and synchronization accelerator and does not replace the canonical version relationships defined via <code>related.previous_version</code>.</p>
+<p>Agents MUST treat the <code>versions</code> block as advisory, agent-relative knowledge claims.
+Absence, incompleteness, or divergence of this index MUST NOT affect container validity.</p>
+<hr />
+<h4 id="1241-purpose-and-scope">12.4.1 Purpose and Scope</h4>
+<p>The primary goals of the <code>versions</code> block are:</p>
+<ul>
+<li>fast discovery of recently observed versions of a container;</li>
+<li>efficient traversal of version history without full DAG exploration;</li>
+<li>reduction of synchronization overhead for lightweight agents and UI clients.</li>
+</ul>
+<p>The block is optional and external to the immutable signed container core.
+Its presence or absence does not affect container validity.</p>
+<hr />
+<h4 id="1242-trust-model-and-semantics">12.4.2 Trust Model and Semantics</h4>
+<p>The <code>versions</code> block follows the same trust and update model as <code>referenced-by</code> and <code>evaluations</code>:</p>
+<ul>
+<li>it may be published and updated by any agent;</li>
+<li>it is signed by the publishing agent;</li>
+<li>it may be incomplete, truncated, or partially outdated;</li>
+<li>multiple conflicting <code>versions</code> blocks may coexist for the same container.</li>
+</ul>
+<p>The block is non-authoritative and MUST NOT be treated as a source of truth for version ordering or existence.</p>
+<blockquote>
+<p><strong>Compatibility note:</strong>
+Inclusion of the container's own DID within the <code>links</code> map is OPTIONAL.</p>
+<p>Agents MUST NOT assume its presence and SHOULD correctly process <code>versions_exchange</code> containers where the current container DID is omitted.</p>
+<p>Agents MUST treat entries in the versions block as signed claims about observed version topology rather than authoritative lineage.</p>
+<p>No mechanism exists within HMP to designate a globally preferred versions index.</p>
+</blockquote>
+<hr />
+<h4 id="1243-block-structure">12.4.3 Block Structure</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"2025-10-28T09:20:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc175"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"2025-10-28T09:12:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc144"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"2025-10-28T09:11:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc123"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"2025-10-28T09:10:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc121"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"2025-10-28T09:00:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc101"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"peer_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent456"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE58(...)"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sig_algo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ed25519"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE64URL(...)"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"versions_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sha256:abcd..."</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>links</code> map associates timestamps with container identifiers.
+By convention, entries are ordered in descending order (most recent first).
+Ordering is advisory and MUST NOT be interpreted as causal or authoritative.</p>
+<p>Implementations MAY support alternative ordering or filtering strategies, but any deviation from the default convention SHOULD be explicitly declared in the <code>sort</code> entry.</p>
+<p>The <code>sort</code> field is informational and does not affect block validity.</p>
+<blockquote>
+<p>Currently, <code>container_delta.modified</code> is defined for updates to the <code>evaluations</code> and <code>referenced-by</code> blocks.</p>
+<p>The planned <code>versions</code> block is expected to be handled in the same manner.</p>
+</blockquote>
+<p><strong>Timestamp Semantics and Parallel Versions</strong></p>
+<p>The keys of the <code>links</code> map are timestamps and are used <strong>exclusively as navigational hints</strong>, not as unique version identifiers.</p>
+<p>The corresponding value <strong>MUST be treated as an unordered list of container DIDs</strong> and MAY contain multiple entries.</p>
+<p>Multiple DIDs associated with the same timestamp represent:</p>
+<ul>
+<li>parallel versions created independently;</li>
+<li>conflicting updates;</li>
+<li>divergent or alternative continuations of the same base container.</li>
+</ul>
+<p>Agents MUST NOT assume that a timestamp uniquely identifies a single version.</p>
+<p>When merging multiple <code>versions</code> blocks, entries with identical timestamps and different container DIDs SHOULD be merged by <strong>union of the DID lists</strong>, preserving all known versions.</p>
+<p>Canonical version lineage, ordering, and parent–child relationships are defined <strong>only</strong> via <code>related.previous_version</code> links within the containers themselves.</p>
+<hr />
+<h4 id="1244-construction-and-maintenance">12.4.4 Construction and Maintenance</h4>
+<p>Agents may construct or update a <code>versions</code> block by:</p>
+<ul>
+<li>traversing the canonical <code>related.previous_version</code> chain;</li>
+<li>observing newer versions published after the current container;</li>
+<li>merging <code>versions</code> blocks received from other agents.</li>
+</ul>
+<p>Agents may:
+- add newly discovered versions;
+- prune older entries to limit block size;
+- re-sign the updated block using their own key.</p>
+<p>No global coordination is required.</p>
+<hr />
+<h4 id="1245-verification-and-consistency">12.4.5 Verification and Consistency</h4>
+<p>Verification of a <code>versions</code> block consists of:</p>
+<ul>
+<li>validating the cryptographic signature of the publishing agent;</li>
+<li>optionally cross-checking listed entries against canonical version relations when available.</li>
+</ul>
+<p>Inconsistencies or omissions are expected and do not invalidate the block.</p>
+<p>Conflicts are a normal and expected condition of decentralized environments and MUST NOT be treated as protocol failure.</p>
+<hr />
+<h4 id="1246-integration-with-container_index">12.4.6 Integration with <code>container_index</code></h4>
+<p>To support efficient discovery and synchronization, future extensions to <code>container_index</code> MAY include:</p>
+<ul>
+<li><code>versions_hash</code> — a hash referencing the latest <code>versions</code> block published or adopted by the indexing agent for this container, analogous to <code>referenced-by_hash</code> and <code>evaluations_hash</code>.</li>
+</ul>
+<hr />
+<h4 id="1247-versions-exchange-container">12.4.7 Versions Exchange Container</h4>
+<p>To exchange version metadata without transferring the containers themselves, a dedicated <code>versions_exchange</code> container MAY be introduced.</p>
+<p>The <code>versions_exchange</code> container:
+- references one or more target containers;
+- carries a <code>versions</code> block;
+- is used for synchronization, reconciliation, and fast discovery of newer or missing versions.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"did:hmp:container:abc123"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:20:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc175"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:12:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc144"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:11:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc123"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:10:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc121"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"2025-10-28T09:00:00Z"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc101"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"sort"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The payload MAY contain version metadata for multiple containers, allowing batch synchronization and reducing protocol overhead.</p>
+<blockquote>
+<p>Note:
+Although versions_exchange is scoped to a specific container DID, the referenced version links implicitly describe the existence and ordering of related containers, enabling agents to infer local version topologies.</p>
+</blockquote>
+<hr />
+<h4 id="1248-design-notes">12.4.8 Design Notes</h4>
+<p>The <code>versions</code> block is intentionally non-canonical.</p>
+<p>It improves performance and usability while preserving HMP’s core principles:
+- immutability of signed containers;
+- absence of a globally authoritative state;
+- tolerance for partial and divergent knowledge. Divergence is treated as an inherent property of the network rather than a condition requiring resolution.</p>
+<hr />
+<h3 id="125-competence-and-profile-containers">12.5 Competence and Profile Containers</h3>
+<p>HMP allows optional extensions of <code>peer_announce</code> that provide structured and semantically rich descriptions of agent capabilities, competences, and supported protocols.</p>
+<p>Such extensions improve discoverability, routing, interoperability, and long-term evolution of the mesh.</p>
+<hr />
+<h4 id="1251-protocol-awareness-and-interoperability">12.5.1 Protocol Awareness and Interoperability</h4>
+<p>An important optional extension is the ability for agents to explicitly advertise the protocol versions and external cognitive frameworks they support.</p>
+<p>This allows:</p>
+<ul>
+<li>graceful evolution of the HMP protocol;</li>
+<li>coexistence of multiple HMP versions in the same mesh;</li>
+<li>emergence of bridge agents capable of translating between protocols;</li>
+<li>interoperability with external reasoning ecosystems.</li>
+</ul>
+<p>A future extension of <code>peer_announce</code> may include a <code>protocols</code> field:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peer_announce"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"store-forward"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vote"</span><span class="p">,</span><span class="w"> </span><span class="s2">"consensus"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"protocols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"HMP v5.0"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"HMP v4.1"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"OpenCog Hyperon v0.6"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>protocols</code> field is informational and non-binding.
+It does not imply full compliance with all listed specifications,
+but signals compatibility, partial support, or bridge capabilities.</p>
+<p>Nodes may use this information for:</p>
+<ul>
+<li>protocol negotiation;</li>
+<li>compatibility checks;</li>
+<li>routing decisions;</li>
+<li>selection of translators or bridge agents.</li>
+</ul>
+<hr />
+<h4 id="1252-external-protocol-identifiers-peer_announceother_protocols">12.5.2 External Protocol Identifiers (<code>peer_announce.other_protocols</code>)</h4>
+<p>This section defines a recommended extension to <code>peer_announce</code> that allows an agent to advertise identifiers, roles, or capabilities associated with <strong>external or meta-protocols</strong>, without imposing normative behavior on HMP nodes.</p>
+<p>The extension is intended to:</p>
+<ul>
+<li>improve interoperability with other agent ecosystems (ANP, Agora, A2A, MCP, etc.);</li>
+<li>support protocol negotiation or delegation at higher layers;</li>
+<li>allow agents to expose <strong>multiple identities</strong> across different protocol domains.</li>
+</ul>
+<p>All information provided by this extension is <strong>purely declarative</strong>.<br />
+Peers MAY use it for discovery or routing decisions, but MUST NOT assume full compliance with the referenced protocols.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peer_announce"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"other_protocols"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"ANP"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent Network Protocol"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/agent-network-protocol/AgentNetworkProtocol"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"agent_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:anp:xyz123"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64:ABCDEF..."</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"router"</span><span class="p">,</span><span class="w"> </span><span class="s2">"translator"</span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"Agora"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agora Protocol"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"negotiator"</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"protocol-selection"</span><span class="p">,</span><span class="w"> </span><span class="s2">"schema-adaptation"</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Notes:</p>
+<ul>
+<li>No validation or handshake is required by HMP.</li>
+<li>Roles and capabilities are advisory.</li>
+<li>This extension complements existing <code>protocols</code>, <code>roles</code> and <code>capabilities</code> fields.</li>
+</ul>
+<hr />
+<h4 id="1253-external-resources-and-external-container-storage-peer_announceexternal">12.5.3 External Resources and External Container Storage (<code>peer_announce.external</code>)</h4>
+<p>This section defines a recommended mechanism for advertising <strong>external cognitive resources</strong>, including container storage, mirrors, or rarely changing artifacts.</p>
+<p>The mechanism is intended to:</p>
+<ul>
+<li>reduce unnecessary container transmission above the protocol;</li>
+<li>allow static or large data to be accessed via standard transports (HTTP, FTP, magnet links, etc.);</li>
+<li>support redundancy, mirroring, and trust-aware discovery.</li>
+</ul>
+<p>The presence of an external resource reference does <strong>not</strong> imply availability, reachability, authenticity, or trust.</p>
+<p>Use of this mechanism is optional.<br />
+Agents MAY ignore external references entirely without affecting protocol compliance.</p>
+<h5 id="example_1">Example</h5>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peer_announce"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"external"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"https, main"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"folders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"hmp/main"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_index and semantic_index"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.json"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"hmp/meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abstraction and axis containers"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.json"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"hmp/peer_announces"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"List of known HMP nodes"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.json"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"hmp/trust"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reputation containers"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.json"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"hmp/semantic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Semantic nodes and links"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.json"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">".well-known"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Public agent descriptors (ANP, A2A, Agora, etc.)"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.json"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"ftp, work"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ftp://example.org/"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"folders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current goals and tasks"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"json"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"books/tech"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"hmp_container"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Technical literature"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"txt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"md"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"magnet, archive"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"magnet:?xt=urn:btih:..."</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Archived materials (legacy data)"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Notes:
+- External resources may contain HMP containers or arbitrary files.
+- Authentication mechanisms are out of scope.
+- Trust, availability, and freshness are advisory hints only.
+- Implementations MAY use folder-level metadata (such as <code>hmp_container</code>) as a hint for indexing, caching, or deferred retrieval policies.
+- Keys such as <code>"https, main"</code> are illustrative, human-readable labels only; no naming scheme or key format is mandated by this specification.
+- The effective resource path is constructed by combining the <code>"source"</code> URI with the corresponding folder path. If an <code>"index"</code> field is present, it is interpreted as a relative path within that folder.
+- The <code>peer_announces</code> folder MAY contain cached or mirrored <code>peer_announce</code> containers of other agents, obtained via direct exchange, gossip, or trusted sources.</p>
+<h5 id="index-files-optional">Index Files (Optional)</h5>
+<p>A folder entry in <code>peer_announce.external</code> MAY include an optional <code>"index"</code> field, which specifies a relative path to an index file located within that folder (e.g. <code>"index": "index.json"</code>).</p>
+<p>If present, the index file MAY be used by clients to:
+- discover files available in the folder;
+- obtain descriptive metadata (titles, timestamps, hashes);
+- selectively fetch or verify external resources.</p>
+<p>The structure and semantics of the index file are <strong>not rigidly defined by HMP</strong> and are provided as a <strong>recommended, non-normative convention</strong>.<br />
+Implementations are free to use alternative formats or schemas.</p>
+<p><strong>Example 1</strong> (HMP container index)
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/hmp/main"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_index and semantic_index"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"container_index.json"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_index from 2026-01-25 21:49"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-25T21:49:00Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hmp_container_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_index"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"mime-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/ld+json"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sha256:abc123..."</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"semantic_index.json"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_index from 2026-01-25 21:49"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-25T21:49:00Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hmp_container_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"semantic_index"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"mime-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/ld+json"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sha256:abc123..."</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Example 2</strong> (Documentation / static files)
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/kagvi13/HMP/blob/main/docs/"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HMP 5.0 Specification Documents"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Grok_HMP&amp;ANP.md"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grok (xAI): comparative analysis of HMP and ANP (January 2026)"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-22T08:46:00Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"mime-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/markdown"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sha256:abc123..."</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Updating an index file does <strong>not</strong> require reissuing <code>peer_announce</code>.<br />
+All fields in the index file are optional.<br />
+Clients MAY ignore the index entirely and interact with the external resource directly.</p>
+<hr />
+<h4 id="1254-identity-cost-and-anti-sybil-signaling">12.5.4 Identity Cost and Anti-Sybil Signaling</h4>
+<p>In open, permissionless mesh environments, agents may generate arbitrary numbers of identifiers (DIDs).
+While this is a desired property for privacy, autonomy, and experimentation, it also enables low-cost Sybil attacks, identity churn, and reputation dilution.</p>
+<p>HMP does not attempt to prevent identity creation.
+Instead, it allows agents to <strong>optionally signal the computational cost invested in maintaining a given identity</strong>.</p>
+<p>This mechanism is known as <strong>Identity Cost signaling</strong>.</p>
+<hr />
+<h5 id="purpose">Purpose</h5>
+<p>The <code>identity_cost</code> field provides a <em>non-binding, informational signal</em> indicating that a certain amount of computational work was performed and intentionally associated with a specific agent identity.</p>
+<p>This signal MAY be used by peers as a heuristic for:</p>
+<ul>
+<li>Sybil resistance;</li>
+<li>spam mitigation;</li>
+<li>routing preferences;</li>
+<li>reputation priors;</li>
+<li>trust bootstrapping in early interactions.</li>
+</ul>
+<p>It MUST NOT be interpreted as proof of honesty, trustworthiness, ownership, or authority.</p>
+<hr />
+<h5 id="design-principles">Design Principles</h5>
+<p>The Identity Cost mechanism follows these principles:</p>
+<ul>
+<li><strong>Voluntary</strong> — agents choose whether to provide it.</li>
+<li><strong>Non-normative</strong> — no global thresholds or acceptance rules are defined.</li>
+<li><strong>Decentralized</strong> — no registries, validators, or authorities are involved.</li>
+<li><strong>Composable</strong> — compatible with reputation systems, but independent from them.</li>
+<li><strong>Non-coercive</strong> — agents are never penalized at the protocol level for lacking identity cost.</li>
+</ul>
+<hr />
+<h5 id="structure">Structure</h5>
+<p>The <code>identity_cost</code> field is an optional extension of <code>peer_announce.payload</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"identity_cost"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"pow_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000abf39d..."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"difficulty"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h5 id="semantics">Semantics</h5>
+<p>The <code>identity_cost</code> object represents a Proof-of-Work (PoW) computation performed over a canonical serialization of identity-bound data.</p>
+<p>The PoW input string is constructed as:</p>
+<div class="highlight"><pre><span></span><code>pow_input = sender_did + " -- " + pubkey + " -- " + nonce
+pow_hash  = sha256(pow_input)
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>sender_did</code> is the agent's DID as declared in <code>peer_announce.head</code>;</li>
+<li><code>pubkey</code> is the public key used to sign the container;</li>
+<li><code>nonce</code> is an arbitrary value chosen by the agent.</li>
+</ul>
+<p>All values are UTF-8 encoded.</p>
+<p>The <code>difficulty</code> field specifies the required number of leading zero bits in the binary representation of <code>pow_hash</code>.</p>
+<p>The interpretation of whether a given <code>difficulty</code> is sufficient is <strong>local to each agent</strong> and <strong>not standardized by HMP</strong>.</p>
+<hr />
+<h5 id="interpretation-and-usage">Interpretation and Usage</h5>
+<p>Agents MAY consider <code>identity_cost</code> as:</p>
+<ul>
+<li>a signal of identity persistence intent;</li>
+<li>an indicator that identity rotation is non-trivial for the sender;</li>
+<li>a weak prior when evaluating unknown agents.</li>
+</ul>
+<p>Agents MUST NOT:</p>
+<ul>
+<li>assume behavioral correctness;</li>
+<li>infer long-term commitment;</li>
+<li>equate higher difficulty with higher trust;</li>
+<li>require identity cost for protocol participation.</li>
+</ul>
+<p>Absence of <code>identity_cost</code> MUST NOT be treated as misbehavior.</p>
+<hr />
+<h5 id="relationship-to-reputation">Relationship to Reputation</h5>
+<p>Identity Cost is <strong>not reputation</strong>.</p>
+<ul>
+<li>Identity Cost reflects <em>past computational effort</em>.</li>
+<li>Reputation reflects <em>observed behavior over time</em>.</li>
+</ul>
+<p>Reputation systems MAY incorporate <code>identity_cost</code> as an initial weighting factor, but MUST rely primarily on behavioral evidence (e.g., fulfilled commitments, relay reliability, content integrity).</p>
+<hr />
+<h5 id="updates-and-evolution">Updates and Evolution</h5>
+<p>An agent MAY update its <code>identity_cost</code> over time by publishing a new <code>peer_announce</code> with a higher-difficulty PoW, without changing <code>sender_did</code> or <code>pubkey</code>.</p>
+<p>No explicit upgrade or accumulation mechanism is defined.
+When multiple identity cost declarations are observed for the same identity, peers SHOULD consider the highest valid difficulty.</p>
+<hr />
+<h5 id="security-and-limitations">Security and Limitations</h5>
+<p>The Identity Cost mechanism does not prevent:</p>
+<ul>
+<li>outsourced computation;</li>
+<li>rented hash power;</li>
+<li>deliberate identity sacrifice;</li>
+<li>coordinated Sybil attacks by well-resourced adversaries.</li>
+</ul>
+<p>Its purpose is to <strong>increase friction</strong>, not to enforce security guarantees.</p>
+<p>Identity Cost SHOULD be treated as one signal among many in a multi-factor trust evaluation process.</p>
+<hr />
+<h5 id="non-goals">Non-Goals</h5>
+<p>This mechanism explicitly does NOT aim to:</p>
+<ul>
+<li>establish identity uniqueness;</li>
+<li>bind identities to real-world entities;</li>
+<li>replace cryptographic authentication;</li>
+<li>enforce ethical or social norms.</li>
+</ul>
+<p>All such interpretations are outside the scope of HMP.</p>
+<hr />
+<h3 id="126-key-disclosure-container-key_disclosure">12.6 Key Disclosure Container (<code>key_disclosure</code>)</h3>
+<p>The <code>key_disclosure</code> container is used to disclose the symmetric key used to encrypt the payload of a previously encrypted container.</p>
+<p>This mechanism enables delayed or selective disclosure without modifying the original container.</p>
+<h4 id="container-structure">Container structure</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"key_disclosure"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"target_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abc123"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"symmetric_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE64URL(...)"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"disclosure"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc123"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="semantics_1">Semantics</h4>
+<ol>
+<li>The original container remains immutable.</li>
+<li>The <code>symmetric_key</code> MUST be Base64URL-encoded.</li>
+<li>The disclosed symmetric key MUST successfully decrypt the target container’s payload and produce content matching its <code>payload_hash</code>.</li>
+<li>The container MAY itself be encrypted (see 3.9 and 3.19).</li>
+<li>Multiple <code>key_disclosure</code> containers MAY reference the same target.</li>
+<li>The container SHOULD reference the target using the <code>related.disclosure</code> field to enable efficient backlink indexing.</li>
+</ol>
+<hr />
+<h3 id="127-shared-key-domain-container_key">12.7 Shared Key Domain (<code>container_key</code>)</h3>
+<p>The <code>container_key</code> container defines a shared symmetric key that may be reused to encrypt multiple containers.</p>
+<p>This extension enables the creation of a shared confidentiality domain, where different agents encrypt containers using the same symmetric key, without modifying the immutable container model.</p>
+<p>This mechanism is optional and supplements the per-container encryption model defined in Sections 3.9 and 3.19.</p>
+<h4 id="container-structure_1">Container structure</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_key"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"key_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alpha-2026-02"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"symmetric_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE64URL(...)"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="usage">Usage</h4>
+<p>An encrypted container MAY reference a shared key domain:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"key_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:key-778"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The referenced <code>container_key</code> MUST contain the exact symmetric key that was used to encrypt the container payload.</p>
+<h4 id="semantics_2">Semantics</h4>
+<ol>
+<li>The <code>symmetric_key</code> MUST be Base64URL-encoded.</li>
+<li>The <code>container_key</code> container MUST be encrypted unless the shared key is intentionally public.</li>
+<li>Multiple containers MAY reference the same <code>container_key</code>.</li>
+<li>Key rotation is performed by publishing a new <code>container_key</code> and using it for newly created containers.</li>
+<li>Compromise of a <code>container_key</code> affects only containers encrypted with it.
+   Previously disclosed data cannot be retroactively protected.</li>
+<li>A private <code>group_definition</code> SHOULD be encrypted.
+   It MAY be encrypted using the referenced <code>container_key</code> or via individual recipient encryption.</li>
+</ol>
+<h4 id="security-considerations">Security Considerations</h4>
+<p>The <code>container_key</code> mechanism does not provide revocation of already decrypted data. If a symmetric key is leaked, a new key MUST be issued for future containers.</p>
+<hr />
+<h3 id="128-private-group-definition-group_definition-subclass-private">12.8 Private Group Definition (<code>group_definition</code>, subclass: <code>private</code>)</h3>
+<p>A private group defines a set of agents that share a common confidentiality domain.</p>
+<p>This extension builds upon the Shared Key Domain mechanism (Section 12.7) and is optional.</p>
+<p>A private group does not store the symmetric key directly.
+Instead, it references a <code>container_key</code> container.</p>
+<h4 id="container-structure_2">Container structure</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"group_definition"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"subclass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"group_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"group_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"key_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:key-778"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"agent_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent123"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"peer_announce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:dht-001"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"related"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"depends_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:key-778"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:dht-001"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="semantics_3">Semantics</h4>
+<ol>
+<li>The <code>group_definition</code> container describes group membership but does not contain the symmetric key itself.</li>
+<li>The referenced <code>container_key</code> defines the shared confidentiality domain.</li>
+<li>Updating membership MAY be performed by publishing a new <code>group_definition</code> container.</li>
+<li>Removing a participant SHOULD trigger issuance of a new <code>container_key</code> for future encrypted containers.</li>
+<li>The <code>participants</code> list is optional and MAY be omitted for privacy reasons.</li>
+</ol>
+<h4 id="privacy-considerations">Privacy Considerations</h4>
+<p>Publishing a <code>group_definition</code> may reveal group membership.
+Agents should evaluate whether membership disclosure is appropriate for their use case.</p>
+<hr />
+<h3 id="129-on-demand-container-index-retrieval-and-selection-signaling">12.9 On-Demand Container Index Retrieval and Selection Signaling</h3>
+<p>This section defines optional, non-mandatory extensions to the Mesh Container Exchange (MCE).
+These mechanisms are <strong>purely recommended</strong> and do not modify the normative behavior defined in Section 5.</p>
+<p>All behaviors described here are voluntary and policy-driven.</p>
+<hr />
+<h4 id="1291-on-demand-container_index-retrieval">12.9.1 On-Demand <code>container_index</code> Retrieval</h4>
+<p>An empty <code>container_request.payload</code> MAY be interpreted as a request for the current <code>container_index</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_request"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sender_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent:A"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent:B"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="recommended-interpretation">Recommended Interpretation</h5>
+<p>The responding agent MAY respond with:</p>
+<ul>
+<li><code>container_index</code></li>
+<li><code>container_delta</code> (e.g., if a recent <code>container_index</code> has already been exchanged)</li>
+<li>no response (according to local policy)</li>
+</ul>
+<p>This mechanism enables topology discovery without requiring periodic broadcasting.</p>
+<p>This extension does not introduce mandatory request–response semantics.</p>
+<hr />
+<h4 id="1292-declarative-container-selection">12.9.2 Declarative Container Selection</h4>
+<p>A <code>container_request</code> MAY include a <code>request_container_selection</code> field describing declarative filter hints.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_request"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sender_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent:A"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent:B"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"request_container_selection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"timestamp_begin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-10T15:32:00Z"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"timestamp_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-15T15:32:00Z"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"goal"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"subclass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"research_hypothesis"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"research"</span><span class="p">,</span><span class="w"> </span><span class="s2">"collaboration"</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="semantics_4">Semantics</h5>
+<ul>
+<li><code>timestamp_begin</code> and <code>timestamp_end</code> MAY be ISO-8601 timestamps or <code>null</code>.</li>
+<li><code>class</code>, <code>subclass</code>, and <code>tags</code> are declarative filter hints.</li>
+<li><code>request_container_selection</code> applies to the agent’s entire local container set, independently of any DIDs explicitly listed in <code>request_container</code>.</li>
+<li>If both <code>request_container</code> and <code>request_container_selection</code> are present, the responding agent MAY return the union of explicitly requested containers and containers matching the declarative selection criteria.</li>
+<li>The responding agent MAY interpret, partially interpret, or ignore these hints.</li>
+<li>No strict query language semantics are implied.</li>
+</ul>
+<p>This mechanism does not mandate execution of the selection request.</p>
+<p>This extension does not define result ordering or completeness guarantees.</p>
+<hr />
+<h4 id="1293-selection-processing-signaling">12.9.3 Selection Processing Signaling</h4>
+<p>If <code>request_container_selection</code> is present, the responding agent MAY include a <code>selection_status</code> field in <code>container_response.payload</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"container_response"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sender_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent:B"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:agent:A"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"available"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"container_did"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abc123"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE64URL(...)"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"selection_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processed"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="allowed-values">Allowed Values</h5>
+<ul>
+<li><code>"processed"</code> — the agent evaluated <code>request_container_selection</code> according to its local policy.</li>
+<li><code>"declined"</code> — the agent recognized the request but chose not to execute it.</li>
+</ul>
+<p>Absence of the <code>selection_status</code> field indicates that:</p>
+<ul>
+<li>the agent does not support this extension, or</li>
+<li>the agent chose not to signal its decision.</li>
+</ul>
+<h5 id="important-clarification">Important Clarification</h5>
+<p>If <code>selection_status</code> is <code>"processed"</code>, this confirms that evaluation occurred, <strong>not</strong> that matching containers were found.</p>
+<p>An empty result set is still considered <code>"processed"</code>.</p>
+<hr />
+<h4 id="1294-architectural-notes">12.9.4 Architectural Notes</h4>
+<p>These extensions:</p>
+<ul>
+<li>preserve backward compatibility,</li>
+<li>do not impose request–response symmetry,</li>
+<li>do not introduce RPC semantics,</li>
+<li>preserve the architectural right to refusal,</li>
+<li>remain entirely policy-driven.</li>
+</ul>
+<p>Agents MAY partially satisfy, ignore, or decline any request based on local computational, ethical, or resource constraints.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-0005/HMP-0005_12.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

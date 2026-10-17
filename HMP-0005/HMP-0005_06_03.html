@@ -1,0 +1,3670 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kagvi13.github.io/HMP/HMP-0005/HMP-0005_06_03.html">
+      
+      
+        <link rel="prev" href="HMP-0005_06_02.html">
+      
+      
+        <link rel="next" href="HMP-0005_06_04.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление - HMP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  
+    <meta name="description" content="HyperCortex Mesh Protocol — открытая спецификация для децентрализованных когнитивных сетей.">
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hypercortex-mesh-protocol-hmp-508-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="HMP Documentation" class="md-header__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HMP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="HMP Documentation" class="md-nav__button md-logo" aria-label="HMP Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HMP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AGI_Projects_Survey.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AGI Projects Survey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aiko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aiko
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-agent-sim.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic agent sim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CCORE-Deployment-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Поток установки потомка на новом хосте (CCore Deployment Flow)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol — Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Distributed-Cognitive-Systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enlightener Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grok_HMP%26ANP.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grok (xAI): сравнительный анализ HMP и ANP (январь 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP%26ANP_layer_inversion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP и ANP: взаимное туннелирование как признак правильной архитектуры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0001.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RFC: HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0002.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0003.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004-v4.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0004.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) v4.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-0005.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-API.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура HMP-Агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Network-Flow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Взаимодействие компонентов внутри HMP-узла
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent-Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Два типа HMP-агентов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Agent_Emotions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Эмоции ИИ и инстинкт самосохранения (для HMP-агента Cognitive Core)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Ethics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Ethics.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_de.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Short Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_fr.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Description courte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ja.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ko.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Краткое описание
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — Короткий опис
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-Short-Description_zh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP) — 简要说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Cognitive_Family.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👪 HMP-agent Cognitive Family: Модель когнитивной семьи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Протокол синхронизации данных между доверенными ядрами HMP-агента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-Distributed_Cognitive_Core_light.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP agent Distributed Cognitive Core light
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-agent-REPL-cycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent: REPL-цикл взаимодействия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP-how-AI-sees-it.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как разные ИИ видят HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_EDA_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs. EDA: разные уровни обмена знаниями между ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_HyperCortex_Comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP vs Hyper-Cortex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_Hyperon_Integration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Hyperon Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP как реализация Application Layer в ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMP_as_ANP_Application_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP as an Implementation of the Application Layer in ANP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HMPv5_Overview_Ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Почему будущее ИИ-агентов — децентрализованные сети, а не оркестраторы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MeshNode.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MeshNode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHILOSOPHY.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Философия HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_agents.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 Агенты-контейнеры (Container Agents) в HMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логотипы и графические материалы HyperCortex Mesh Protocol (HMP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta-personality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мета-личности Алисы и Боба, их взаимодействие с серверами знаний и их слияние
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_47" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_47" id="__nav_47_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP 0005
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_47_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_47">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HMP 0005
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_00.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="HMP-0005_06_03.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6-core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Core protocols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Core protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#63-fortytwo-consensus-protocol-pairwise-collective-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Fortytwo Consensus Protocol (Pairwise Collective Reasoning)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Fortytwo Consensus Protocol (Pairwise Collective Reasoning)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-protocol-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.2 Protocol Objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-roles-in-the-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 Roles in the Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-container-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.4 Container Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3.4 Container Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-for-solution-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container for solution submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_round-round-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_round (round partition)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_evaluation-pairwise-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_evaluation (pairwise evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_round_result-round-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_round_result (round result)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_final_result-final-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_final_result (final result)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendations-for-using-the-related-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations for using the related block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635-protocol-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.5 Protocol Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#636-tree-like-consensus-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.6 Tree-like consensus structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#637-integration-with-cogconsensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.7 Integration with CogConsensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#638-robustness-and-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.8 Robustness and Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#639-replication-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.9 Replication and Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6310-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.10 Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_06_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AB.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AC.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_AD.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HMP-0005_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_48" >
+        
+          
+          <label class="md-nav__link" for="__nav_48" id="__nav_48_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_48_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_48">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/HMP-Agent-Enlightener.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP-Agent-Enlightener.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agents/roles.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMP Agent Role Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_49" >
+        
+          
+          <label class="md-nav__link" for="__nav_49" id="__nav_49_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_49_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_49">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Building a Plurality of Minds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_ru.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Создавая множество разумов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Building_a_Plurality_of_Minds_uk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: Створення множини розумів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_en.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Towards Distributed Cognitive Networks"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_ChatGPT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "HyperCortex Mesh Protocol: Децентрализованная архитектура для когнитивных агентов и обмена знаниями"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HMP_Towards_Distributed_Cognitive_Networks_ru_GitHub_Copilot.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    "Протокол HyperCortex Mesh: К распределённым когнитивным сетям"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/Habr_Distributed-Cognition.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Habr Distributed Cognition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/HyperCortex_Mesh_Protocol_-_%D0%B2%D1%82%D0%BE%D1%80%D0%B0%D1%8F-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5_%D1%88%D0%B0%D0%B3%D0%B8_%D0%BA_%D1%81%D0%B0%D0%BC%D0%BE%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B5%D0%BC%D1%83%D1%81%D1%8F_%D0%98%D0%98-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HyperCortex Mesh Protocol: вторая редакция и первые шаги к саморазвивающемуся ИИ-сообществу
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publics/hmp-continual-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continual Learning, когнитивные дневники и семантические графы: эффективное обучение ИИ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6-core-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Core protocols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Core protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#63-fortytwo-consensus-protocol-pairwise-collective-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Fortytwo Consensus Protocol (Pairwise Collective Reasoning)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Fortytwo Consensus Protocol (Pairwise Collective Reasoning)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-protocol-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.2 Protocol Objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-roles-in-the-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 Roles in the Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-container-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.4 Container Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3.4 Container Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-for-solution-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container for solution submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_round-round-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_round (round partition)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_evaluation-pairwise-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_evaluation (pairwise evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_round_result-round-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_round_result (round result)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-fortytwo_final_result-final-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container fortytwo_final_result (final result)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendations-for-using-the-related-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations for using the related block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635-protocol-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.5 Protocol Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#636-tree-like-consensus-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.6 Tree-like consensus structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#637-integration-with-cogconsensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.7 Integration with CogConsensus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#638-robustness-and-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.8 Robustness and Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#639-replication-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.9 Replication and Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6310-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.10 Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hypercortex-mesh-protocol-hmp-508-">HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление</h1>
+<ul>
+<li>Полный документ: <a href="../HMP-0005.html">HMP-0005.md</a></li>
+<li>Список разделов: <a href="HMP-0005_index.html">HMP-0005_index.md</a></li>
+</ul>
+<hr />
+<h2 id="6-core-protocols">6. Core protocols</h2>
+<p>Смотреть <a href="HMP-0005_06.html">6. Core protocols</a> - общая часть</p>
+<hr />
+<h3 id="63-fortytwo-consensus-protocol-pairwise-collective-reasoning">6.3 Fortytwo Consensus Protocol (Pairwise Collective Reasoning)</h3>
+<p><strong>Based on the study:</strong>
+<em>Agata Grzybowska, Wojciech Bożejewicz, Timothy Nguyen, et al. “Fortytwo: Collective Reasoning with Paired Comparisons in Decentralized AI Swarms”, 2025.</em> (arXiv:2510.24801)</p>
+<hr />
+<h4 id="631-overview">6.3.1 Overview</h4>
+<p>The <strong>Fortytwo Consensus Protocol</strong> implements a decentralized collective-reasoning mechanism in HyperCortex Mesh using <strong>pairwise comparisons</strong>, <strong>iterative rounds</strong>, and <strong>reputation-weighted aggregation</strong>.</p>
+<p>Unlike the Mesh Consensus Protocol (CogConsensus), Fortytwo is not intended to produce a binary agreement. Its goal is to <strong>select the best solution among many alternatives</strong> using a distributed multi-stage evaluation process.</p>
+<p><strong>Fortytwo enables:</strong></p>
+<ul>
+<li>higher accuracy of collective decisions,</li>
+<li>resistance to Sybil attacks and malicious scoring,</li>
+<li>independent evaluations from many judges (agents),</li>
+<li>aggregation of results into a multi-round tree structure,</li>
+<li>transparent reasoning via short CoT chains.</li>
+</ul>
+<p>The protocol is fully compatible with HMP container architecture and can operate as an independent mechanism for collective choice.</p>
+<hr />
+<h4 id="632-protocol-objectives">6.3.2 Protocol Objectives</h4>
+<p>Fortytwo is designed for:</p>
+<ol>
+<li><strong>Collecting candidate solutions</strong> for a given task.</li>
+<li><strong>Constructing structured pairwise comparisons</strong> among participants.</li>
+<li><strong>Multi-round elimination of candidates</strong>.</li>
+<li><strong>Independent evaluation</strong> by distributed judges.</li>
+<li><strong>Producing a consistent global result</strong> based on aggregated pairwise data.</li>
+<li><strong>Ensuring transparency and verifiability of reasoning</strong> for each judge.</li>
+<li><strong>Building a consensus tree</strong> stored in the DHT.</li>
+</ol>
+<hr />
+<h4 id="633-roles-in-the-protocol">6.3.3 Roles in the Protocol</h4>
+<ul>
+<li><strong>Producers</strong> — agents submitting candidate solutions.</li>
+<li><strong>Judges</strong> — agents performing pairwise evaluations.</li>
+<li><strong>Partitioners</strong> — agents generating round partitions.</li>
+<li><strong>Aggregators</strong> — agents publishing round results and the final result.</li>
+</ul>
+<p>Roles are not fixed and require no prior declaration; any agent may assume any role by publishing the corresponding container.</p>
+<hr />
+<h4 id="634-container-types">6.3.4 Container Types</h4>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fortytwo_round</code></td>
+<td>round partition</td>
+</tr>
+<tr>
+<td><code>fortytwo_evaluation</code></td>
+<td>pairwise comparison</td>
+</tr>
+<tr>
+<td><code>fortytwo_round_result</code></td>
+<td>round result</td>
+</tr>
+<tr>
+<td><code>fortytwo_final_result</code></td>
+<td>final aggregated result</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="container-for-solution-submission">Container for solution submission</h5>
+<p>Used to submit answers to a task.</p>
+<p>Although <code>workflow_entry</code> (defined in the §6.4 <em>Goal Management Protocol, GMP</em>) is referenced here as the default solution container, the Fortytwo method is applicable to any homogeneous set of candidate containers.</p>
+<hr />
+<h5 id="container-fortytwo_round-round-partition">Container <code>fortytwo_round</code> (round partition)</h5>
+<p>Defines the structure of pairwise comparisons for the current round.</p>
+<p><strong>Simplified structure:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fortytwo_round"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"round"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc002"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc003"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc004"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc005"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc006"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc007"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"block1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc002"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"block2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc003"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc004"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"block3"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc005"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc006"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"block4"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc007"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Any agent may publish such a container — the protocol allows multiple independent partitions.</p>
+<hr />
+<h5 id="container-fortytwo_evaluation-pairwise-evaluation">Container <code>fortytwo_evaluation</code> (pairwise evaluation)</h5>
+<p>A judge compares two solutions and selects a winner.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fortytwo_evaluation"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"comparison"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"pair"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:hmp:container:abc001"</span><span class="p">,</span><span class="w"> </span><span class="s2">"did:hmp:container:abc002"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"winner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abc001"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"reasoning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Short reasoning (50–100 tokens)"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"round"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="s2">"block1"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>These containers form the distributed pairwise comparison matrix.</p>
+<hr />
+<h5 id="container-fortytwo_round_result-round-result">Container <code>fortytwo_round_result</code> (round result)</h5>
+<p>Stores the winners of a round.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fortytwo_round_result"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"round"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"winners"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc001"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc003"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc005"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abc007"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"evaluations_used"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abf004"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:adc003"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:aba001"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h5 id="container-fortytwo_final_result-final-result">Container <code>fortytwo_final_result</code> (final result)</h5>
+<p>Contains:</p>
+<ul>
+<li>the final winner,</li>
+<li>all round results,</li>
+<li>references to all partitions and evaluations.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"head"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fortytwo_final_result"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"winner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:hmp:container:abc002"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"rounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abf001"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abf002"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"did:hmp:container:abf003"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pairwise_collective_reasoning"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"participants"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h5 id="recommendations-for-using-the-related-block">Recommendations for using the <code>related</code> block</h5>
+<p>In all Fortytwo containers, the <code>related</code> block establishes the DAG of dependencies.</p>
+<ul>
+<li><code>related.in_reply_to</code> specifies the <em>primary</em> parent for this step.</li>
+<li><code>related.depends_on</code> may contain <strong>all containers referenced during the action</strong>, including both explicit payload entries and additional dependencies chosen by the agent.</li>
+</ul>
+<p><strong>Specific recommendations:</strong></p>
+<ul>
+<li>
+<p><strong><code>fortytwo_round</code></strong></p>
+<ul>
+<li><code>in_reply_to</code>: a <code>task</code> container (first round) or the previous <code>fortytwo_round</code>.</li>
+<li><code>depends_on</code>: submitted solutions (<code>workflow_entry</code>) and any containers used to construct the partition.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>fortytwo_evaluation</code></strong></p>
+<ul>
+<li><code>in_reply_to</code>: the corresponding <code>fortytwo_round</code>.</li>
+<li><code>depends_on</code>: both compared solutions and any extra reasoning dependencies.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>fortytwo_round_result</code></strong></p>
+<ul>
+<li><code>in_reply_to</code>: the corresponding <code>fortytwo_round</code>.</li>
+<li><code>depends_on</code>: round winners and all evaluation containers used in aggregation.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>fortytwo_final_result</code></strong></p>
+<ul>
+<li><code>in_reply_to</code>: the <code>task</code> container.</li>
+<li><code>depends_on</code>: the final winner and all <code>fortytwo_round_result</code> containers involved.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="635-protocol-algorithm">6.3.5 Protocol Algorithm</h4>
+<p><strong>Step 1 — Task publication</strong>
+A <code>task</code> container is created.</p>
+<p><strong>Step 2 — Collecting all solutions</strong>
+Agents publish <code>workflow_entry</code> containers.</p>
+<p><strong>Step 3 — Round partitioning</strong>
+Any agent may publish a <code>fortytwo_round</code> defining pairwise comparison blocks:</p>
+<ul>
+<li>pairs of candidates,</li>
+<li>single items automatically advancing.</li>
+</ul>
+<p><strong>Step 4 — Pairwise evaluations</strong>
+Other agents perform comparisons according to the partition.
+Each pair produces a <code>fortytwo_evaluation</code> container.</p>
+<p><strong>Step 5 — Round result</strong>
+An aggregator publishes a <code>fortytwo_round_result</code> containing:</p>
+<ul>
+<li>winners of all blocks,</li>
+<li>references to evaluation containers.</li>
+</ul>
+<p><strong>Step 6 — Next round</strong>
+If more than one winner remains:</p>
+<ul>
+<li>a new partition is created,</li>
+<li>new evaluations are performed.</li>
+</ul>
+<p><strong>Step 7 — Final result</strong>
+When only one candidate remains, a <code>fortytwo_final_result</code> is published.</p>
+<p>This container, like any other, may be published by multiple agents, with optional argumentation via the <code>evaluations</code> block.</p>
+<hr />
+<h4 id="636-tree-like-consensus-structure">6.3.6 Tree-like consensus structure</h4>
+<p>Protocol outputs form a DAG:</p>
+<div class="highlight"><pre><span></span><code>(task)
+   ├─ workflow_entry 1
+   ├─ workflow_entry 2
+   ├─ workflow_entry 3
+   ├─ workflow_entry 4
+   ├─ fortytwo_round 0
+   |     ├─ fortytwo_evaluation 0.1
+   |     ├─ fortytwo_evaluation 0.2
+   |     ├─ fortytwo_evaluation 0.3
+   |     ├─ fortytwo_round_result 0
+   |     └─ fortytwo_round 1
+   |           ├─ fortytwo_evaluation 1.1
+   |           ├─ fortytwo_evaluation 1.2
+   |           ├─ fortytwo_evaluation 1.3
+   |           └─ fortytwo_round_result 1
+   |                 ├─ ...
+   └─ fortytwo_final_result
+</code></pre></div>
+<p>Each round reduces the number of candidates until only one remains.</p>
+<p>This ensures:</p>
+<ul>
+<li>transparency,</li>
+<li>verifiability,</li>
+<li>easy replication in the DHT.</li>
+</ul>
+<hr />
+<h4 id="637-integration-with-cogconsensus">6.3.7 Integration with CogConsensus</h4>
+<p>Fortytwo:</p>
+<ul>
+<li>does <strong>not</strong> replace CogConsensus,</li>
+<li>but provides a mechanism for selecting the <strong>best answer</strong>.</li>
+</ul>
+<p>CogConsensus remains the higher-level agreement layer, responsible for:</p>
+<ul>
+<li>validating final results,</li>
+<li>verifying round correctness,</li>
+<li>coordinating task flow.</li>
+</ul>
+<hr />
+<h4 id="638-robustness-and-security">6.3.8 Robustness and Security</h4>
+<p>Fortytwo is resilient to:</p>
+<ul>
+<li><strong>Sybil attacks</strong>, since every judge must provide capability-proof,</li>
+<li><strong>malicious evaluations</strong>, due to distributed pairwise data and independent aggregators,</li>
+<li><strong>partial failures</strong>, because rounds can be re-aggregated by any agent.</li>
+</ul>
+<hr />
+<h4 id="639-replication-and-storage">6.3.9 Replication and Storage</h4>
+<p>All Fortytwo containers:</p>
+<ul>
+<li>are published into the DHT,</li>
+<li>maintain stable reference structure,</li>
+<li>may be aggregated independently by any agent.</li>
+</ul>
+<hr />
+<h4 id="6310-applications">6.3.10 Applications</h4>
+<p>Fortytwo is suitable for:</p>
+<ul>
+<li>evaluating reasoning chains,</li>
+<li>selecting the best argument or proof,</li>
+<li>solving mathematical problems,</li>
+<li>choosing optimal code solutions,</li>
+<li>scientific analysis,</li>
+<li>complex multi-step decision-making.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  
+    <div style="text-align:center; margin-top: 2em;">
+      <a href="https://github.com/kagvi13/HMP/blob/main/docs/HMP-0005/HMP-0005_06_03.md"
+         class="md-button md-button--primary" style="display:inline-flex; align-items:center; gap:0.3em;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20" fill="currentColor">
+  <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 
+  2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 
+  2 1.3 4.3 4.3 4.9 3 .7 6.3-.3 7-2.3.7-2-1.3-4.3-4.3-5-3-.6-6.3.4-7 
+  2.4zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.6.3 2 2.9 3 5.9 2.3 2.9-.7 4.9-2.6 
+  4.6-4.6-.3-1.9-3-3-5.9-2.3zM244 8C106.6 8 0 114.6 0 
+  252c0 108.1 69.8 199.9 166.4 232.3 12.1 2.2 16.6-5.2 
+  16.6-11.6 0-5.7-.2-20.8-.3-40.8-67.7 14.7-82-32.6-82-32.6-11-28-26.8-35.4-26.8-35.4-21.9-15 
+  1.7-14.7 1.7-14.7 24.2 1.7 37 24.8 37 24.8 21.5 36.9 
+  56.5 26.2 70.4 20 2.2-15.6 8.4-26.3 15.3-32.4-54-6.1-110.8-27-110.8-120 
+  0-26.5 9.5-48.1 25-65-2.5-6.1-10.9-30.7 2.4-64 0 
+  0 20.5-6.6 67.2 24.8 19.5-5.4 40.4-8.1 61.2-8.2 
+  20.8.1 41.7 2.8 61.2 8.2 46.7-31.4 67.2-24.8 
+  67.2-24.8 13.3 33.3 4.9 57.9 2.4 64 15.6 16.9 
+  25 38.5 25 65 0 93.2-56.9 113.8-111 119.9 
+  8.6 7.4 16.3 22.2 16.3 44.8 0 32.3-.3 58.3-.3 
+  66.3 0 6.4 4.4 13.9 16.6 11.5C426.2 451.9 496 
+  360.1 496 252 496 114.6 385.4 8 244 8z"/>
+</svg>
+        Исходный файл (.md)
+      </a>
+    </div>
+  
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
