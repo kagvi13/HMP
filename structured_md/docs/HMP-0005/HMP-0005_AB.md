@@ -5,10 +5,10 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   appendix provides **conceptual and structural...'
 type: Article
 tags:
-- JSON
 - HMP
-- Mesh
 - REPL
+- JSON
+- Mesh
 - Agent
 ---
 
