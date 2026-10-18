@@ -8,8 +8,8 @@ tags:
 - CogSync
 - HMP
 - MeshConsensus
-- GMP
 - Mesh
+- GMP
 - EGP
 ---
 
