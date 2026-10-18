@@ -6,10 +6,10 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
 type: Article
 tags:
 - JSON
-- Agent
-- REPL
-- Mesh
 - HMP
+- Mesh
+- REPL
+- Agent
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
