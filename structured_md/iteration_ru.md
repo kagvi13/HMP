@@ -5,13 +5,13 @@ description: 'Этот документ описывает структурир�
   🔄 Обозначения версий  - `000N` — номер...'
 type: Article
 tags:
-- Ethics
-- HMP
-- EGP
 - JSON
 - MeshConsensus
-- Mesh
 - CogSync
+- Ethics
+- Mesh
+- EGP
+- HMP
 ---
 
 
