@@ -5,10 +5,10 @@ description: Этот файл описывает потенциальные э�
   напрямую поведением агента, а служат **сигн...
 type: Article
 tags:
+- HMP
+- Agent
 - REPL
 - Mesh
-- Agent
-- HMP
 ---
 
 # Эмоции ИИ и инстинкт самосохранения (для [HMP-агента Cognitive Core](HMP-agent-REPL-cycle.md))
