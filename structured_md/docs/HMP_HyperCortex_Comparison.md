@@ -6,8 +6,8 @@ description: '## Краткое описание  | Характеристика
 type: Article
 tags:
 - HMP
-- Mesh
 - REPL
+- Mesh
 ---
 
 # HMP vs [Hyper-Cortex](https://hyper-cortex.com/)
