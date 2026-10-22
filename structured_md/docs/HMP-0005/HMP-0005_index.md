@@ -6,9 +6,9 @@ description: Данный файл и связанные с ним файлы п
 type: Article
 tags:
 - GMP
-- HMP
-- JSON
 - EGP
+- JSON
+- HMP
 - Mesh
 - CogSync
 - Ethics
