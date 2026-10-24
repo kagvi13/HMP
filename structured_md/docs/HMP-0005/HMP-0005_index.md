@@ -5,12 +5,12 @@ description: Данный файл и связанные с ним файлы п
   Abstract, Scope & Non-Goals - [1. Overview](./H...
 type: Article
 tags:
-- Ethics
 - JSON
-- EGP
-- CogSync
 - HMP
 - Mesh
+- EGP
+- Ethics
+- CogSync
 - GMP
 ---
 
