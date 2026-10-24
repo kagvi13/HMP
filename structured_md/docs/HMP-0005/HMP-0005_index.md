@@ -5,13 +5,13 @@ description: Данный файл и связанные с ним файлы п
   Abstract, Scope & Non-Goals - [1. Overview](./H...
 type: Article
 tags:
-- GMP
-- Mesh
-- HMP
-- EGP
 - Ethics
 - JSON
+- EGP
 - CogSync
+- HMP
+- Mesh
+- GMP
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
