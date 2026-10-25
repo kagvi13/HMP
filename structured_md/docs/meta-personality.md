@@ -6,8 +6,8 @@ description: '**Мета-личность** — совокупность вза�
 type: Article
 tags:
 - JSON
-- Mesh
 - REPL
+- Mesh
 - HMP
 ---
 
