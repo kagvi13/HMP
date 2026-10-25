@@ -6,8 +6,8 @@ description: '**Имя:** Айко  **Статус:** Автономный аг�
 type: Article
 tags:
 - JSON
-- Agent
 - HMP
+- Agent
 - REPL
 ---
 
