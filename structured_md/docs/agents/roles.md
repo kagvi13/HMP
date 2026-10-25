@@ -5,8 +5,8 @@ description: 'This file maintains a registry of agent roles defined, proposed, o
   - **Observer** — monitors cognitive states ...'
 type: Article
 tags:
-- Mesh
 - Agent
+- Mesh
 - HMP
 ---
 
