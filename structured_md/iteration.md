@@ -8,11 +8,11 @@ tags:
 - CogSync
 - MeshConsensus
 - HMP
+- Ethics
 - Mesh
-- Agent
 - JSON
 - EGP
-- Ethics
+- Agent
 ---
 
 # Iterative Development Workflow for HMP
