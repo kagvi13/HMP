@@ -6,14 +6,14 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
 type: Article
 tags:
 - EGP
-- REPL
-- Mesh
-- GMP
-- HMP
 - Agent
-- Ethics
-- JSON
 - CogSync
+- JSON
+- Ethics
+- GMP
+- Mesh
+- REPL
+- HMP
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление

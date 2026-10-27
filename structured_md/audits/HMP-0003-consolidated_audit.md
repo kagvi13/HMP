@@ -6,13 +6,13 @@ description: Сводный аудит предложений по улучше�
 type: Article
 tags:
 - EGP
+- Agent
+- CogSync
+- JSON
+- Ethics
 - MeshConsensus
 - Mesh
 - HMP
-- Agent
-- Ethics
-- JSON
-- CogSync
 ---
 
 # HMP-0003 Consolidated Audit Report
