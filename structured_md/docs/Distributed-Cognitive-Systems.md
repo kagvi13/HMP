@@ -6,10 +6,10 @@ description: '## Введение  Современные ИИ-системы в
   к обучающим данным. Это удобно, но создаёт м...'
 type: Article
 tags:
-- Mesh
+- HMP
 - JSON
 - CogSync
-- HMP
+- Mesh
 ---
 
 # Децентрализованные ИИ-системы: OpenCog Hyperon, HyperCortex Mesh Protocol и другие

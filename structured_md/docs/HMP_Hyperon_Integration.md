@@ -6,10 +6,10 @@ description: '> **Status:** Draft – July 2025 > This document outlines the tec
 type: Article
 tags:
 - EGP
-- Agent
 - CogSync
-- JSON
 - Scenarios
+- Agent
+- JSON
 - Mesh
 - HMP
 ---
