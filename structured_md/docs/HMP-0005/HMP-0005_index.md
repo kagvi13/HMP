@@ -6,12 +6,12 @@ description: Данный файл и связанные с ним файлы п
 type: Article
 tags:
 - GMP
-- HMP
+- Mesh
+- EGP
 - Ethics
 - CogSync
-- Mesh
+- HMP
 - JSON
-- EGP
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
