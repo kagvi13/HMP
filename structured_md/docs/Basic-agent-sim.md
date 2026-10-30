@@ -5,13 +5,13 @@ description: 'В HMP-протоколе предусмотрены два тип
 type: Article
 tags:
 - CogSync
+- Mesh
+- GMP
 - Agent
 - REPL
 - HMP
-- Mesh
-- GMP
-- EGP
 - MeshConsensus
+- EGP
 ---
 
 
