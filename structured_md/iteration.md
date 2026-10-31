@@ -6,13 +6,13 @@ description: 'This file describes the iterative procedure for evolving the Hyper
 type: Article
 tags:
 - MeshConsensus
-- Mesh
-- EGP
-- HMP
-- Agent
+- JSON
 - Ethics
 - CogSync
-- JSON
+- EGP
+- Agent
+- HMP
+- Mesh
 ---
 
 # Iterative Development Workflow for HMP
