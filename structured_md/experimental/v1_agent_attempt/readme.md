@@ -7,10 +7,10 @@ type: Article
 tags:
 - JSON
 - Mesh
-- Ethics
 - HMP
 - Agent
 - REPL
+- Ethics
 ---
 
 Запуск: `start_repl.bat` или `start_repl.sh`
