@@ -6,8 +6,8 @@ description: '**버전:** v5.0 (Core Specification Stable)   **날짜:** 2026   
 type: Article
 tags:
 - Agent
-- Mesh
 - REPL
+- Mesh
 - HMP
 ---
 
