@@ -6,8 +6,8 @@ description: '**HyperCortex Mesh Protocol (HMP)**   _Обновлено: 2025-10
 type: Article
 tags:
 - Agent
-- Mesh
 - HMP
+- Mesh
 ---
 
 # Mentions & Responses Log
