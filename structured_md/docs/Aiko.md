@@ -7,8 +7,8 @@ type: Article
 tags:
 - JSON
 - HMP
-- REPL
 - Agent
+- REPL
 ---
 
 ## AIKO-AI.SU ACTIVE
