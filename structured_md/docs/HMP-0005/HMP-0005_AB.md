@@ -7,9 +7,9 @@ type: Article
 tags:
 - Agent
 - REPL
-- HMP
-- Mesh
 - JSON
+- Mesh
+- HMP
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
