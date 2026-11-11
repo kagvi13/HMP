@@ -6,8 +6,8 @@ description: '## 🧠 Что такое когнитивная семья  Ко�
 type: Article
 tags:
 - Agent
-- HMP
 - REPL
+- HMP
 - Mesh
 ---
 
