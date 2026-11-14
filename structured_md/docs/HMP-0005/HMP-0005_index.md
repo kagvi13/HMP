@@ -7,11 +7,11 @@ type: Article
 tags:
 - HMP
 - Ethics
-- JSON
-- EGP
-- CogSync
 - Mesh
 - GMP
+- EGP
+- JSON
+- CogSync
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - список разделов
