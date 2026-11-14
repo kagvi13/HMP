@@ -5,8 +5,8 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   defines key terms as they are used **specific...'
 type: Article
 tags:
-- Agent
 - HMP
+- Agent
 - JSON
 - REPL
 - Mesh
