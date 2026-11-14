@@ -5,11 +5,11 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   appendix provides **conceptual and structural...'
 type: Article
 tags:
-- HMP
 - REPL
-- Mesh
-- Agent
 - JSON
+- HMP
+- Agent
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление
