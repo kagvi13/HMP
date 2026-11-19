@@ -5,13 +5,13 @@ description: '**Enlightener** — логический компонент HMP-у
   работать как отдельный агент или как расширение [`C...'
 type: Article
 tags:
-- EGP
-- JSON
-- Agent
-- Ethics
-- Mesh
-- MeshConsensus
 - HMP
+- Ethics
+- MeshConsensus
+- Agent
+- JSON
+- EGP
+- Mesh
 ---
 
 # Enlightener Agent
