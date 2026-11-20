@@ -6,11 +6,11 @@ description: Данный файл и связанные с ним файлы п
 type: Article
 tags:
 - EGP
-- Ethics
-- HMP
 - CogSync
 - GMP
+- Ethics
 - JSON
+- HMP
 - Mesh
 ---
 

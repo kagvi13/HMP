@@ -6,13 +6,13 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
 type: Article
 tags:
 - EGP
-- Ethics
-- Agent
-- HMP
 - CogSync
-- REPL
 - GMP
+- Ethics
 - JSON
+- HMP
+- REPL
+- Agent
 - Mesh
 ---
 
