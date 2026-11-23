@@ -5,8 +5,8 @@ description: '- Полный документ: [HMP-0005.md](../HMP-0005.md) - �
   Version | Date       | Notes | |--------:|-------...'
 type: Article
 tags:
-- Mesh
 - HMP
+- Mesh
 ---
 
 # HyperCortex Mesh Protocol (HMP 5.0.8) - модульное представление

@@ -7,12 +7,12 @@ type: Article
 tags:
 - JSON
 - CogSync
-- Agent
 - HMP
-- MeshConsensus
-- Mesh
 - EGP
+- MeshConsensus
 - Ethics
+- Mesh
+- Agent
 ---
 
 # HMP-0003 Consolidated Audit Report
